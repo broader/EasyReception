@@ -1,4 +1,0 @@
-
-
-def index(**args):
-    print H2('Baseinfo Form')
