@@ -1,0 +1,77 @@
+/******************************************************************/
+/*                        ERTabs 0.0.1                            */
+/* A Notebook( or named "Tabs") widget, used to display remote    */ 
+/* content(now just for form submitting) loaded using AJAX,       */
+/* written for the mootools framework (version 1.2 or newer )     */
+/* by broader.zhong@yahoo.com.cn                                  */
+/* @Website                                                       */
+/******************************************************************/
+/*                                                                */
+/* MIT style license:  
+/* http://en.wikipedia.org/wiki/MIT_License                       */
+/*                                                                */
+/* mootools found at:                                             */
+/* http://mootools.net/                                           */
+/******************************************************************/
+/* This widget is inspired by "tabs-1-2",                         */
+/* http://http://jonplante.com/demo/tabs-1-2                     */
+/******************************************************************/
+
+var ERTabs = new Class({    
+    Implements: [Options],
+    options: {
+        tabs: ".ertabs_title li",        
+        panelTag: "div",
+        selectedClass: "active",        
+        activateOnLoad: 0,        
+        ajaxOptions: { method:'get', evalScripts: true}        
+    },
+    
+    /* 
+    Parameters:
+       e, the 'id' of a 'div' element which holds a ul element and a div element.
+       o, a object that is  the options of this class. 
+    */
+    initialize: function (e, o) {
+        this.setOptions(o);
+        this.tabs = $(e).getElements(this.options.tabs);
+        this.tabs.each(function(i){
+           i.addEvent('click',this.elementClick,i);
+        }, this);
+        this.showTab(this.options.activateOnLoad);
+    },
+    
+    // add click callback function to each tab label 
+    elementClick: function (event, element){
+       event.stop;
+       alert(element);
+       this.tabs.each(function(i) {
+          i.removeClass('active');
+       });
+       element.addClass(this.options.selectedClass);       
+       options = this.options.ajaxOptions;       
+       element.set('load',options);
+       element.load($(element.getElements('a')[0]).getAttribute('ref'));	
+    },
+    
+    // show the content of a tab linked
+    showTab: function (tab){
+       tab.fireEvent('click',null,500);
+    }, 
+    
+    // diabled a tab to be shown 
+    disableTab: function (tabs){
+       tabs.each(function(index){
+          var tab = this.tabs[index]; 
+          tab.addEvent('click',this.elementClick, tab);;
+       }, this);
+    },
+    
+    // enabled a tab to be shown 
+    enableTab: function (tabs){
+       tabs.each(function(index){
+          this.tabs[index].removeEvent('click');
+       }, this);
+    },
+});
+      

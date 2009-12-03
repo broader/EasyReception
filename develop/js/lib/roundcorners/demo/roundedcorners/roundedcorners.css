@@ -1,0 +1,81 @@
+
+
+/**************************************************************
+
+	Rounded Corners
+	v 1.1
+
+**************************************************************/
+
+
+.boxFloat, .imageFloat {
+	float: left;
+}
+
+/***********************************/
+
+
+.boxTopLeft {
+	background: url(images/topLeft.gif) top left no-repeat;
+}
+.boxTop {
+	border-top: 1px solid #ccc;
+	background-color: #eee;
+}
+.boxTopRight {
+	background: url(images/topRight.gif) top right no-repeat;
+}
+.boxMiddleLeft {
+	background-color: #eee;
+	border-left: 1px solid #ccc;
+}
+.boxMiddle {
+	background-color: #eee;
+}
+.boxMiddleRight {
+	background-color: #eee;
+	border-right: 1px solid #ccc;
+}
+.boxBottomLeft {
+	background: url(images/bottomLeft.gif) bottom left no-repeat;
+}
+.boxBottom {
+	border-bottom: 1px solid #ccc;
+	background-color: #eee;
+}
+.boxBottomRight {
+	background: url(images/bottomRight.gif) bottom right no-repeat;
+}
+
+/***********************************/
+
+.imageTopLeft {
+	background: url(images/topLeft.png) top left no-repeat;
+}
+.imageTopRight {
+	background: url(images/topRight.png) top right no-repeat;
+}
+.imageBottomLeft {
+	background: url(images/bottomLeft.png) bottom left no-repeat;
+}
+.imageBottomRight {
+	background: url(images/bottomRight.png) bottom right no-repeat;
+}
+.imageTop, .imageMiddleLeft, .imageMiddle, .imageMiddleRight, .imageBottom {
+	border: 0;
+}
+
+/***********************************/
+
+.roundedContent {
+	padding: 30px;
+	margin: 0px;
+	width: 440px;
+	border: 1px solid #ccc;
+	background-color: #eee;
+	margin-bottom: 20px;
+}
+
+
+/*************************************************************/
+

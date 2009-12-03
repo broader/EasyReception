@@ -1,0 +1,12 @@
+<div id="footer">
+	<p>
+		<%=_('Beijing UniRoc Ltd Co,.')%><br>
+     	<%=_('Address: Room 1007, HanTaiHua Building, Park Road No.13, Haidian Distinct, Beijing')%>,
+     	<%=_('Telephone:0086-010-62387205,')%>
+     	<%=_('Email:')%>
+     	<a href="mailto:byllan@yahoo.com.cn">
+	     	broader.zhong@yahoo.com.cn
+	   </a><br>
+     	<%=_('Web page powered by ')%><a href="http://www.yaml.de/en/home.html" target="YAML">YAML</a>
+   </p>        
+</div><!-- footer end -->
