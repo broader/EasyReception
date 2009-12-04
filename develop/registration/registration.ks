@@ -42,9 +42,12 @@ def index():
     links = [ '/'.join(( THIS.baseurl, name))\
               for name in ('accountForm.ks/index', 'baseInfoForm.ks/index', 'actionEnd.ks/index')]
     
+    """    
     lis = [ LI(SPAN(A(label,ref=link), **{'class':'tab-label'})) \
             for label, link in zip(labels, links)]
-       
+    """
+    lis = [ LI(A(SPAN(label,**{'class':'tab-label'}),ref=link)) \
+            for label, link in zip(labels, links)]
     #ul = UL(Sum(lis), **{ 'id':'tabs-nav','class':'ertabs_title'} )
     ul = UL(Sum(lis), **{'class':'ertabs_title'} )
     

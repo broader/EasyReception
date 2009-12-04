@@ -1,24 +1,72 @@
-
 .ertabs { width: atuo; overflow: hidden; background: #EFEFEF; border: 1px solid #DDD; }
-.ertabs_title { width: auto; overflow: hidden; padding: 0; margin: 0; list-style: none; background: #DDD; }
-.ertabs_title li { float: left; padding: 0; margin: 0; }
-.ertabs_title li a { 
-   float: left; 
-   display: block; 
-   padding: 0; 
-   margin: 0; 
-   font-size: 1.8em; 
-   font-weight: bold;
-   text-decoration: none; 
-   color: #999; 
-   cursor: pointer; 
-}
-
-.ertabs_title li a:hover { background-color: #E5E5E5; }
-.ertabs_title .active a, .ertabs_title .active a:hover { background-color: #EFEFEF; color: #000; }
-
-.ertabs_title .tab-loading { display: block; width: 16px; height: 16px; overflow: hidden; float: left; padding: 4px 0 4px 10px; }
-.ertabs_title .tab-loading img { border: 0; }
-.ertabs_title .tab-label { display: block; overflow: hidden; float: left; padding: 5px 10px 5px 5px; }
 
 .ertabs_content { padding: 2px; }
+
+/******************************************** 
+Below css style is used a third party slice.
+Credits: Dynamic Drive CSS Library
+URL: http://www.dynamicdrive.com/style/ 
+*********************************************/    
+.ertabs_title {
+float:left;
+width:100%;
+font-size:130%;
+line-height:normal;
+list-style-type: none;
+margin:0;
+padding:0;
+}
+
+* html .ertabs_title{ /*IE only. Add 1em spacing between menu and rest of content*/
+margin-bottom: 1em;
+}
+
+.ertabs_title li{
+display:inline;
+margin:0;
+padding:0;
+}
+
+.ertabs_title a {
+float:left;
+background:url(tab-left.gif) no-repeat left top;
+margin:0;
+padding:0 0 0 9px;
+text-decoration:none;
+}
+
+.ertabs_title a span {
+float:left;
+display:block;
+background:url(tab-right.gif) no-repeat right top;
+padding:3px 14px 3px 5px;
+font-weight:bold;
+color:#3B3B3B;
+}
+
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+.ertabs_title a span {float:none;}
+/* End IE5-Mac hack */
+
+.ertabs_title a:hover span {
+color: black;
+}
+
+.ertabs_title #current a {
+background-position:0 -125px;
+}
+
+.ertabs_title #current a span {
+background-position:100% -125px;
+color: black;
+}
+
+.ertabs_title a:hover {
+background-position:0% -125px;
+}
+
+.ertabs_title a:hover span {
+background-position:100% -125px;
+}
+
+

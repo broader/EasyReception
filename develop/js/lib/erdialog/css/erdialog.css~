@@ -16,8 +16,9 @@ overflow: hidden;
 }
 
 div#mb_center {
-padding:15px 15px 15px 15px;
-/*background-color: #FFF;*/
+/*padding:15px 15px 15px 15px;
+background-color: #FFF;*/
+padding:10px;
 }
 
 div#mb_contents {
@@ -25,7 +26,7 @@ text-align: left;
 width: 400px;
 height: 400px;
 border: 10px solid #DDD;
-overflow: auto;
+overflow: hidden;
 background-color: #FFF;
 visibility: hidden;
 }

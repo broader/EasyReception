@@ -42,15 +42,16 @@ def index(**args):
     #Captcha = Import('./Captcha.py', relpath=THIS.baseurl, RELDIR=REL())        
     key = Captcha.getChallenge()    
     image = '/'.join((THIS.baseurl,Captcha.getImageFile(key)))        
-    image = IMG(**{'src':image, 'alt' : 'captchaImage', 'class': CAPTCHACLASS})    
+    image = IMG(**{'src':image, 'alt' : 'captchaImage', 'class': CAPTCHACLASS})
+    image = Sum((image, SPAN(_(' If the left image is unidentified, please click it and switch to anther image.'), style='font-size:1.1em;color:red;')))    
     cinput = INPUT(**{'id':CAPTCHAKEY, 'value':key, 'type':'hidden'})
     
     # the form fields
     fields = \
-      [ {'prompt':_('Login Name :'),'name':'username','type':'text','validate':[]},
+      [ {'prompt':_('Login Name :'),'name':'username','type':'text','validate':['length[6,-1]','~accountCheck']},
         {'prompt':_("Email address :"), 'name':'email', 'class':'email', 'type':'text','validate':['email',]},
         {'prompt':_("Confirm Email :"), 'name':'cemail','class':'email', 'type':'text','validate':['email','confirm[email]']},
-        {'prompt':_("Password :"),'name':'password', 'type':'password','validate':[]},
+        {'prompt':_("Password :"),'name':'password', 'type':'password','validate':['length[6,-1]',]},
         {'prompt':_("Confirm Password :"), 'name':'cpwd', 'type':'password','validate':['confirm[password]',]},
         {'prompt':_("Captcha Image :"),'name':'captcha','type':'text', 'image':image, 'key':cinput, 'validate':['~cimgCheck',]}
       ]
@@ -108,9 +109,10 @@ def index(**args):
     print DIV(form, **{'class':'subcolumns'})
     
     # javascript functions for this page 
+    accountErr = _('This account has been used, please input other name.')    
     cpatchaErr = _('Pleas input right info on the below image. If the image is difficult to identify, click it to change another image!')
-    paras = [ CAPTCHACLASS,CAPTCHAKEY, cpatchaErr]
-    paras.extend([ '/'.join((APPATH, name))for name in ( 'page_captchaValid', 'page_switchImg' )])
+    paras = [ accountErr, CAPTCHACLASS,CAPTCHAKEY, cpatchaErr]
+    paras.extend([ '/'.join((APPATH, name))for name in ( 'page_captchaValid', 'page_switchImg', 'page_accountValid' )])
     paras.extend([ ACCOUNTFORMBNS, ACCOUNTFORM, pagefn.DIALOG, pagefn.TABSCLASS])
     # add some files' path for validation function
     names = ('css/hack.css', 'lang.js.pih', 'formcheck.js', 'theme/red/formcheck.css')
@@ -118,8 +120,10 @@ def index(**args):
     
     js = \
     """
+    var accountErr='%s';
     var captchaClass='%s', captchaKey='%s', captchaErr='%s';
     var captchaValid='%s', captchaSwitch='%s';
+    var accountValid='%s';
     var buttons='%s', formId='%s', boxname='%s', tabsClass='%s';
     var hackCss='%s', fcI18nJs='%s', fcJs='%s', fcCss='%s';
     
@@ -131,8 +135,9 @@ def index(**args):
     // import javascript file for validation
     new Asset.javascript(fcI18nJs);
     
-    // Set a global variable 'formchk' which will be an instance of the validation class.
+    // Set a global variable 'formchk' which will be used as an instance of the validation Class-'FormCheck'.
     var formchk;
+    
     // Load the form validation plugin script
     new Asset.javascript( fcJs, {
        onload:function(){
@@ -157,35 +162,55 @@ def index(**args):
        }
     });    
     
+    // a Request.JSON class for send validation request to server side
+    var checkRequest = new Request.JSON({async:false});
     
+    // check whether the input account has been used
+    var accountValidTag = false;
+    function accountCheck(el){
+       el.errors.push(accountErr)
+       // set some options for Request.JSON instance
+       checkRequest.setOptions({
+          url: accountValid,
+          onSuccess: function(res){
+             if(res.valid == 1){accountValidTag=true}
+          }
+       });
+       alert(checkRequest.options.url);
+       checkRequest.get({'name':el.getProperty('value')});
+       if(accountValidTag){
+          accountValidTag=false;   // reset global variable 'accountValid' to be 'false'
+          return true
+       }             
+       return false;
+    }
          
     // captcha image check
-    var valid = false;   // a global variable to save the captcha check result
-    
-    // a Request.JSON class for send captcha validation request to server
-    var checkRequest = new Request.JSON(
-       { url:captchaValid, 
-         async:false,
-         onSuccess:function(res){            
-            if(res.valid == 1){valid=true}             
-         }
-       }
-    );
-    
+    var capthcaValidTag = false;   // a global variable to save the captcha check result
     // the really validation function for the captcha field
     function cimgCheck(el){
        el.removeEvents();
        el.errors.push(captchaErr);
        // Request captcha check from server side,
-       // if it's a valid captcha,the 'valid' variable
+       // if it's a valid captcha,the 'cpatchaValidTag' variable
        // will be set to 'true' in the callback function of
-       // Request.JSON instance 'checkRequest'.
+       // 'checkRequest' which is a Request.JSON instance.
+       
+       // set some options for Request.JSON instance first
+       checkRequest.setOptions({
+          url: captchaValid,
+          onSuccess: function(res){
+             if(res.valid == 1){capthcaValidTag=true}
+          }
+       });
+       
        checkRequest.get({ 
           'captcha':el.getProperty('value'),
           'ckey':$(captchaKey).getProperty('value')
        }); 
-       if(valid){
-          valid=false;   // reset global variable 'valid' to be 'false'
+       
+       if(capthcaValidTag){
+          capthcaValidTag=false;   // reset global variable 'valid' to be 'false'
           return true
        }             
        return false;
@@ -240,7 +265,7 @@ def page_valid(**args):
     """
     Valid the account informations of user.
     """
-    print '1'
+    print '0'
     
 def page_switchImg(**args):
     """ A function to switch a captcha image and corresponding captcha key.
@@ -266,12 +291,15 @@ def page_switchImg(**args):
     return
 
 def page_captchaValid(**args):
-    """
-    """
+    """ Validate the user inputing captcha."""
     key,captcha = [ args.get(name) or '' for name in ('ckey', 'captcha') ]
-    res = {'valid':0,'key':key,'captcha':captcha}
+    res = {'valid':0}
     if Captcha.testSolution(key, captcha):
        res['valid'] = 1
     print JSON.encode(res)
     
-    
+def page_accountValid(**args):
+    """ Check whether the input account name has been used."""
+    name = args.get('account') or ''
+    res = {'valid':1}
+    print JSON.encode(res) 

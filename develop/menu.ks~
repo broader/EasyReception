@@ -11,6 +11,7 @@ so = Session()
 if not hasattr(so, 'user'):
    so.user = None 
 	
+	
 '''
 Page Structure Description:
 *****************************************************
