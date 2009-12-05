@@ -1,0 +1,69 @@
+
+2009-12-05 16:56:55,110 INFO Begin to backup loacl karrigell diretory to local git.
+
+2009-12-05 16:56:55,149 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ereception/ /home/broader/develop/EasyReception/develop
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files... 800 files... 900 files...947 files to consider
+
+sent 19717 bytes  received 20 bytes  39474.00 bytes/sec
+total size is 2946721  speedup is 149.30
+2009-12-05 16:56:55,149 INFO End backup loacl karrigell diretory to local git.
+2009-12-05 16:56:55,150 INFO Begin to backup local github to remote github host.
+2009-12-05 16:56:55,151 INFO Command: 
+cd /home/broader/develop/EasyReception
+running result is :
+2009-12-05 16:56:55,153 INFO Command: 
+git add .
+running result is :fatal: Not a git repository
+2009-12-05 16:56:55,155 INFO Command: 
+git commit -m 'Update time:2009-12-05T16:56:55.151165'
+running result is :fatal: Not a git repository
+2009-12-05 16:56:55,158 INFO Command: 
+git push origin master
+running result is :fatal: Not a git repository
+2009-12-05 16:56:55,158 INFO End backup local github to remote github host.
+2009-12-05 16:58:24,477 INFO Begin to backup loacl karrigell diretory to local git.
+
+2009-12-05 16:58:24,544 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ereception/ /home/broader/develop/EasyReception/develop
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files... 800 files... 900 files...947 files to consider
+
+sent 19717 bytes  received 20 bytes  39474.00 bytes/sec
+total size is 2946721  speedup is 149.30
+2009-12-05 16:58:24,544 INFO End backup loacl karrigell diretory to local git.
+2009-12-05 16:58:24,544 INFO Begin to backup local github to remote github host.
+2009-12-05 16:58:24,545 INFO Command: 
+cd /home/broader/develop/EasyReception
+running result is :
+2009-12-05 16:58:24,548 INFO Command: 
+git add .
+running result is :fatal: Not a git repository
+2009-12-05 16:58:24,550 INFO Command: 
+git commit -m 'Update time:2009-12-05T16:58:24.545917'
+running result is :fatal: Not a git repository
+2009-12-05 16:58:24,552 INFO Command: 
+git push origin master
+running result is :fatal: Not a git repository
+2009-12-05 16:58:24,552 INFO End backup local github to remote github host.
+2009-12-05 17:02:44,231 INFO Begin to backup loacl karrigell diretory to local git.
+
+2009-12-05 17:02:44,232 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ereception/ /home/broader/develop/EasyReception/develop
+running result is :Test
+2009-12-05 17:02:44,232 INFO End backup loacl karrigell diretory to local git.
+2009-12-05 17:02:44,232 INFO Begin to backup local github to remote github host.
+2009-12-05 17:02:44,232 INFO Command: 
+cd /home/broader/develop/EasyReception
+running result is :Test
+2009-12-05 17:02:44,233 INFO Command: 
+git add .
+running result is :Test
+2009-12-05 17:02:44,233 INFO Command: 
+git commit -m 'Update time:2009-12-05T17:02:44.233154'
+running result is :Test
+2009-12-05 17:02:44,233 INFO Command: 
+git push origin master
+running result is :Test
+2009-12-05 17:02:44,234 INFO End backup local github to remote github host.

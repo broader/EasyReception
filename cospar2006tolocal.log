@@ -1,0 +1,1079 @@
+
+2005-12-25 15:08:35,286 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-25 15:08:35,359 DEBUG RSyncBackup lastTime: 1134869105.0 nowTime: 1135465715.0
+2005-12-25 15:08:35,360 INFO RSyncBackup Time to perform backup.
+2005-12-25 15:08:35,360 INFO RSyncBackup Starting test run of backup.
+2005-12-25 15:08:35,361 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-backup/cospar2006-website' '/var/www/html'
+2005-12-25 15:08:35,362 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-backup/cospar2006-website' '/var/www/html'
+2005-12-25 15:08:35,363 INFO RSyncBackup Starting test run of backup.
+2005-12-25 15:08:35,364 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-backup/cospar2006-mysql/mysql/mysql' '/var/lib/mysql'
+2005-12-25 15:08:35,364 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-backup/cospar2006-mysql/mysql/mysql' '/var/lib/mysql'
+2005-12-25 15:08:35,365 INFO RSyncBackup Starting test run of backup.
+2005-12-25 15:08:35,366 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2005-12-25 15:08:35,367 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2005-12-25 15:08:35,368 INFO RSyncBackup Starting test run of backup.
+2005-12-25 15:08:35,368 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2005-12-25 15:08:35,369 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2005-12-25 15:08:35,370 INFO RSyncBackup Starting test run of backup.
+2005-12-25 15:08:35,371 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2005-12-25 15:08:35,372 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2005-12-25 15:08:35,372 DEBUG RSyncBackup TestRun - not writing out last run file.
+2005-12-25 15:28:22,943 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-25 15:28:23,107 DEBUG RSyncBackup lastTime: 1134869105.0 nowTime: 1135466903.0
+2005-12-25 15:28:23,108 INFO RSyncBackup Time to perform backup.
+2005-12-25 15:28:23,109 INFO RSyncBackup Starting test run of backup.
+2005-12-25 15:28:23,110 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-backup/cospar2006-website/html/' '/var/www/html/'
+2005-12-25 15:28:23,110 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-backup/cospar2006-website/html/' '/var/www/html/'
+2005-12-25 15:28:23,111 INFO RSyncBackup Starting test run of backup.
+2005-12-25 15:28:23,112 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2005-12-25 15:28:23,113 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2005-12-25 15:28:23,114 INFO RSyncBackup Starting test run of backup.
+2005-12-25 15:28:23,114 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2005-12-25 15:28:23,115 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2005-12-25 15:28:23,116 INFO RSyncBackup Starting test run of backup.
+2005-12-25 15:28:23,117 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2005-12-25 15:28:23,118 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2005-12-25 15:28:23,119 DEBUG RSyncBackup TestRun - not writing out last run file.
+2005-12-25 15:29:34,763 DEBUG RSyncBackup lastTime: 1134869105.0 nowTime: 1135466974.0
+2005-12-25 15:29:34,764 INFO RSyncBackup Time to perform backup.
+2005-12-25 15:29:34,765 INFO RSyncBackup Starting backup.
+2005-12-25 15:29:34,766 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-backup/cospar2006-website/html/' '/var/www/html/'
+2005-12-25 15:30:16,783 ERROR RSyncBackup Error running rsync: rsync: delete_one: unlink "/var/www/html/statistics/visitsbybot.html" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/visitorsbyos.png" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/visitorsbybrowser.png" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/visitors.png" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/visitors.html" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/urls.png" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/urls.html" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/unknownos.html" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/unknownbrowsers.html" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/searchesbyengine.png" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/searchesbyengine.html" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/searches.html" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/referersbysite.png" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/referersbysite.html" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/referers.html" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/os.html" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/mozbrowsers.html" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/index.html" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/entry_pages.html" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/downloads.png" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/downloads.html" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/www/html/statistics/browsers.html" failed: Permission denied (13)
+rsync: chgrp "/var/www/html/bak-file/images" failed: Operation not permitted (1)
+rsync: chgrp "/var/www/html/bak-file/images/_notes" failed: Operation not permitted (1)
+rsync: chgrp "/var/www/html/cert" failed: Operation not permitted (1)
+rsync: chgrp "/var/www/html/images" failed: Operation not permitted (1)
+rsync: chgrp "/var/www/html/images/_notes" failed: Operation not permitted (1)
+rsync: mkstemp "/var/www/html/bak-file/images/_notes/.cospar1022.swf.mno.rBZrq4" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/bak-file/images/_notes/.down.swf.mno.Z0Nj4k" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/bak-file/images/_notes/.downcn.swf.mno.71DeIB" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/bak-file/images/_notes/.guide.swf.mno.RoBemS" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/bak-file/images/_notes/.guide2.swf.mno.gJMh08" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/bak-file/images/_notes/.guidecn.swf.mno.wRNnEp" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/bak-file/images/_notes/.guidecn2.swf.mno.mntwiG" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/bak-file/images/_notes/.index.swf.mno.s92HWW" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/bak-file/images/_notes/.login.swf.mno.2tEPBd" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/bak-file/images/_notes/.logincn.swf.mno.Mi6Zgu" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/bak-file/images/_notes/.lvyou.swf.mno.OatdWK" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/bak-file/images/_notes/.photo.swf.mno.QiNtB1" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/bak-file/images/_notes/.s6.swf.mno.KUZPgi" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/bak-file/images/_notes/.top.swf.mno.1rbfWy" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/cert/.bazs.cert.lIuD3s" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/images/_notes/.cospar1022.swf.mno.Q7Ak6r" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/images/_notes/.down.swf.mno.kRxIKV" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/images/_notes/.downcn.swf.mno.Zb79op" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/images/_notes/.guide.swf.mno.Bb4E3S" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/images/_notes/.guide2.swf.mno.5gedIm" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/images/_notes/.guidecn.swf.mno.feEOmQ" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/images/_notes/.guidecn2.swf.mno.GVct1j" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/images/_notes/.index.swf.mno.e3WaGN" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/images/_notes/.login.swf.mno.gPPVkh" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/images/_notes/.logincn.swf.mno.gdWJZK" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/images/_notes/.lvyou.swf.mno.otsBEe" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/images/_notes/.photo.swf.mno.H2pwjI" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/images/_notes/.s6.swf.mno.LTiUYb" failed: Permission denied (13)
+rsync: mkstemp "/var/www/html/images/_notes/.top.swf.mno.50QlEF" failed: Permission denied (13)
+rsync: chgrp "/var/www/html/bak-file/images" failed: Operation not permitted (1)
+rsync: chgrp "/var/www/html/bak-file/images/_notes" failed: Operation not permitted (1)
+rsync: chgrp "/var/www/html/cert" failed: Operation not permitted (1)
+rsync: chgrp "/var/www/html/images" failed: Operation not permitted (1)
+rsync: chgrp "/var/www/html/images/_notes" failed: Operation not permitted (1)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-25 15:30:27,959 INFO RSyncBackup Starting backup.
+2005-12-25 15:30:27,960 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2005-12-25 15:30:28,128 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/cospar2006-bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-25 15:30:28,676 INFO RSyncBackup Starting backup.
+2005-12-25 15:30:28,677 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2005-12-25 15:30:28,735 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/cospar2006-bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-25 15:30:29,228 INFO RSyncBackup Starting backup.
+2005-12-25 15:30:29,229 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2005-12-25 15:30:29,338 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/cospar2006-bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-25 15:30:29,964 DEBUG RSyncBackup Time backup was started: Sun Dec 25 07:29:34 2005
+2005-12-25 15:30:29,966 INFO RSyncBackup Last Run File updated succesfully
+2005-12-25 15:33:20,881 DEBUG RSyncBackup lastTime: 1135466974.0 nowTime: 1135467200.0
+2005-12-25 15:33:20,882 INFO RSyncBackup Time to perform backup.
+2005-12-25 15:33:20,883 INFO RSyncBackup Starting backup.
+2005-12-25 15:33:20,883 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-backup/cospar2006-website/html/' '/var/www/html/'
+2005-12-25 15:33:21,281 INFO RSyncBackup Rsync backup successful.
+2005-12-25 15:33:21,282 DEBUG RSyncBackup Rsync output: 
+2005-12-25 15:33:21,283 INFO RSyncBackup Starting backup.
+2005-12-25 15:33:21,283 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2005-12-25 15:33:21,320 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/cospar2006-bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-25 15:33:21,579 INFO RSyncBackup Starting backup.
+2005-12-25 15:33:21,580 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2005-12-25 15:33:21,643 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/cospar2006-bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-25 15:33:21,798 INFO RSyncBackup Starting backup.
+2005-12-25 15:33:21,799 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2005-12-25 15:33:21,862 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/cospar2006-bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-25 15:33:32,223 DEBUG RSyncBackup Time backup was started: Sun Dec 25 07:33:20 2005
+2005-12-25 15:33:32,225 INFO RSyncBackup Last Run File updated succesfully
+2005-12-29 18:46:05,611 DEBUG RSyncBackup lastTime: 1135467200.0 nowTime: 1135824365.0
+2005-12-29 18:46:05,631 INFO RSyncBackup Time to perform backup.
+2005-12-29 18:46:05,631 INFO RSyncBackup Starting backup.
+2005-12-29 18:46:05,632 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2005-12-29 18:46:44,486 INFO RSyncBackup Rsync backup successful.
+2005-12-29 18:46:44,523 DEBUG RSyncBackup Rsync output: 
+2005-12-29 18:46:44,524 INFO RSyncBackup Starting backup.
+2005-12-29 18:46:44,525 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/mysql' '/var/lib/mysql'
+2005-12-29 18:46:45,443 INFO RSyncBackup Rsync backup successful.
+2005-12-29 18:46:45,444 DEBUG RSyncBackup Rsync output: 
+2005-12-29 18:46:45,445 INFO RSyncBackup Starting backup.
+2005-12-29 18:46:45,446 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2005-12-29 18:46:45,518 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-29 18:46:56,727 INFO RSyncBackup Starting backup.
+2005-12-29 18:46:56,728 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2005-12-29 18:46:56,789 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-29 18:46:59,291 INFO RSyncBackup Starting backup.
+2005-12-29 18:46:59,292 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2005-12-29 18:46:59,379 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-29 18:46:59,662 DEBUG RSyncBackup Time backup was started: Thu Dec 29 10:46:05 2005
+2005-12-29 18:46:59,664 INFO RSyncBackup Last Run File updated succesfully
+2006-01-03 15:07:09,045 DEBUG RSyncBackup lastTime: 1135824365.0 nowTime: 1136243229.0
+2006-01-03 15:07:09,066 INFO RSyncBackup Time to perform backup.
+2006-01-03 15:07:09,067 INFO RSyncBackup Starting backup.
+2006-01-03 15:07:09,067 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-01-03 15:07:17,800 INFO RSyncBackup Rsync backup successful.
+2006-01-03 15:07:17,801 DEBUG RSyncBackup Rsync output: 
+2006-01-03 15:07:17,802 INFO RSyncBackup Starting backup.
+2006-01-03 15:07:17,803 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/mysql/' '/var/lib/mysql/'
+2006-01-03 15:07:18,095 INFO RSyncBackup Rsync backup successful.
+2006-01-03 15:07:18,096 DEBUG RSyncBackup Rsync output: 
+2006-01-03 15:07:18,097 INFO RSyncBackup Starting backup.
+2006-01-03 15:07:18,098 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-01-03 15:07:18,156 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-03 15:07:24,614 INFO RSyncBackup Starting backup.
+2006-01-03 15:07:24,615 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-01-03 15:07:24,675 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-03 15:07:26,992 INFO RSyncBackup Starting backup.
+2006-01-03 15:07:26,993 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-01-03 15:07:27,055 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-03 15:07:28,022 DEBUG RSyncBackup Time backup was started: Tue Jan  3 07:07:09 2006
+2006-01-03 15:07:28,023 INFO RSyncBackup Last Run File updated succesfully
+2006-01-03 15:09:04,086 DEBUG RSyncBackup lastTime: 1136243229.0 nowTime: 1136243344.0
+2006-01-03 15:09:04,087 INFO RSyncBackup Time to perform backup.
+2006-01-03 15:09:04,088 INFO RSyncBackup Starting backup.
+2006-01-03 15:09:04,089 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-01-03 15:09:04,312 INFO RSyncBackup Rsync backup successful.
+2006-01-03 15:09:04,313 DEBUG RSyncBackup Rsync output: 
+2006-01-03 15:09:04,314 INFO RSyncBackup Starting backup.
+2006-01-03 15:09:04,315 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-01-03 15:09:11,399 INFO RSyncBackup Rsync backup successful.
+2006-01-03 15:09:11,400 DEBUG RSyncBackup Rsync output: 
+2006-01-03 15:09:11,401 INFO RSyncBackup Starting backup.
+2006-01-03 15:09:11,419 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-01-03 15:09:11,554 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-03 15:09:12,355 INFO RSyncBackup Starting backup.
+2006-01-03 15:09:12,356 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-01-03 15:09:12,414 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-03 15:09:12,651 INFO RSyncBackup Starting backup.
+2006-01-03 15:09:12,653 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-01-03 15:09:12,713 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-03 15:09:17,962 DEBUG RSyncBackup Time backup was started: Tue Jan  3 07:09:04 2006
+2006-01-03 15:09:17,963 INFO RSyncBackup Last Run File updated succesfully
+2006-01-16 20:22:27,635 DEBUG RSyncBackup lastTime: 1136243344.0 nowTime: 1137385347.0
+2006-01-16 20:22:27,650 INFO RSyncBackup Time to perform backup.
+2006-01-16 20:22:27,651 INFO RSyncBackup Starting backup.
+2006-01-16 20:22:27,651 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-01-16 20:22:52,837 INFO RSyncBackup Rsync backup successful.
+2006-01-16 20:22:52,871 DEBUG RSyncBackup Rsync output: 
+2006-01-16 20:22:52,872 INFO RSyncBackup Starting backup.
+2006-01-16 20:22:52,872 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-01-16 20:22:59,654 INFO RSyncBackup Rsync backup successful.
+2006-01-16 20:22:59,656 DEBUG RSyncBackup Rsync output: 
+2006-01-16 20:22:59,656 INFO RSyncBackup Starting backup.
+2006-01-16 20:22:59,658 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-01-16 20:22:59,809 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-16 20:23:02,040 INFO RSyncBackup Starting backup.
+2006-01-16 20:23:02,041 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-01-16 20:23:02,101 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-16 20:23:08,023 INFO RSyncBackup Starting backup.
+2006-01-16 20:23:08,024 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-01-16 20:23:08,115 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-16 20:23:08,393 DEBUG RSyncBackup Time backup was started: Mon Jan 16 12:22:27 2006
+2006-01-16 20:23:08,432 INFO RSyncBackup Last Run File updated succesfully
+2006-01-19 10:20:38,154 DEBUG RSyncBackup lastTime: 1137385347.0 nowTime: 1137608438.0
+2006-01-19 10:20:38,168 INFO RSyncBackup Time to perform backup.
+2006-01-19 10:20:38,168 INFO RSyncBackup Starting backup.
+2006-01-19 10:20:38,178 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-01-19 10:20:54,879 INFO RSyncBackup Rsync backup successful.
+2006-01-19 10:20:54,902 DEBUG RSyncBackup Rsync output: 
+2006-01-19 10:20:54,903 INFO RSyncBackup Starting backup.
+2006-01-19 10:20:54,903 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-01-19 10:21:03,044 INFO RSyncBackup Rsync backup successful.
+2006-01-19 10:21:03,045 DEBUG RSyncBackup Rsync output: 
+2006-01-19 10:21:03,046 INFO RSyncBackup Starting backup.
+2006-01-19 10:21:03,046 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-01-19 10:21:03,392 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-19 10:21:14,888 INFO RSyncBackup Starting backup.
+2006-01-19 10:21:14,889 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-01-19 10:21:14,947 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-19 10:21:19,672 INFO RSyncBackup Starting backup.
+2006-01-19 10:21:19,673 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-01-19 10:21:19,809 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-19 10:21:30,055 DEBUG RSyncBackup Time backup was started: Thu Jan 19 02:20:38 2006
+2006-01-19 10:21:30,129 INFO RSyncBackup Last Run File updated succesfully
+2006-01-19 17:16:41,046 DEBUG RSyncBackup lastTime: 1137608438.0 nowTime: 1137633401.0
+2006-01-19 17:16:41,060 INFO RSyncBackup Time to perform backup.
+2006-01-19 17:16:41,061 INFO RSyncBackup Starting backup.
+2006-01-19 17:16:41,062 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-01-19 17:16:54,201 INFO RSyncBackup Rsync backup successful.
+2006-01-19 17:16:54,202 DEBUG RSyncBackup Rsync output: 
+2006-01-19 17:16:54,203 INFO RSyncBackup Starting backup.
+2006-01-19 17:16:54,204 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-01-19 17:17:01,266 INFO RSyncBackup Rsync backup successful.
+2006-01-19 17:17:01,267 DEBUG RSyncBackup Rsync output: 
+2006-01-19 17:17:01,268 INFO RSyncBackup Starting backup.
+2006-01-19 17:17:01,269 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-01-19 17:17:01,326 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-19 17:17:16,782 INFO RSyncBackup Starting backup.
+2006-01-19 17:17:16,783 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-01-19 17:17:16,841 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-19 17:17:17,237 INFO RSyncBackup Starting backup.
+2006-01-19 17:17:17,238 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-01-19 17:17:17,364 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-19 17:17:47,660 DEBUG RSyncBackup Time backup was started: Thu Jan 19 09:16:41 2006
+2006-01-19 17:17:47,662 INFO RSyncBackup Last Run File updated succesfully
+2006-01-20 10:09:55,192 DEBUG RSyncBackup lastTime: 1137633401.0 nowTime: 1137694195.0
+2006-01-20 10:09:55,206 INFO RSyncBackup Time to perform backup.
+2006-01-20 10:09:55,207 INFO RSyncBackup Starting backup.
+2006-01-20 10:09:55,208 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-01-20 10:09:56,732 INFO RSyncBackup Rsync backup successful.
+2006-01-20 10:09:56,733 DEBUG RSyncBackup Rsync output: 
+2006-01-20 10:09:56,734 INFO RSyncBackup Starting backup.
+2006-01-20 10:09:56,734 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-01-20 10:09:59,537 INFO RSyncBackup Rsync backup successful.
+2006-01-20 10:09:59,538 DEBUG RSyncBackup Rsync output: 
+2006-01-20 10:09:59,539 INFO RSyncBackup Starting backup.
+2006-01-20 10:09:59,540 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-01-20 10:09:59,598 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-20 10:10:10,565 INFO RSyncBackup Starting backup.
+2006-01-20 10:10:10,566 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-01-20 10:10:10,654 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-20 10:10:15,452 INFO RSyncBackup Starting backup.
+2006-01-20 10:10:15,454 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-01-20 10:10:15,563 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-20 10:10:15,776 DEBUG RSyncBackup Time backup was started: Fri Jan 20 02:09:55 2006
+2006-01-20 10:10:15,778 INFO RSyncBackup Last Run File updated succesfully
+2006-01-26 10:48:01,056 DEBUG RSyncBackup lastTime: 1137694195.0 nowTime: 1138214881.0
+2006-01-26 10:48:01,071 INFO RSyncBackup Time to perform backup.
+2006-01-26 10:48:01,071 INFO RSyncBackup Starting backup.
+2006-01-26 10:48:01,072 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-01-26 10:48:02,842 INFO RSyncBackup Rsync backup successful.
+2006-01-26 10:48:02,843 DEBUG RSyncBackup Rsync output: 
+2006-01-26 10:48:02,844 INFO RSyncBackup Starting backup.
+2006-01-26 10:48:02,844 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-01-26 10:48:04,423 ERROR RSyncBackup Error running rsync: rsync: opendir "/var/lib/mysql/mysql" failed: Permission denied (13)
+rsync: opendir "/var/lib/mysql/csm" failed: Permission denied (13)
+rsync: opendir "/var/lib/mysql/csutf8" failed: Permission denied (13)
+rsync: opendir "/var/lib/mysql/test" failed: Permission denied (13)
+rsync: delete_one: unlink "/var/lib/mysql/mysql.sock" failed: Permission denied (13)
+rsync: mkstemp "/var/lib/mysql/.ib_logfile0.1InOZw" failed: Permission denied (13)
+rsync: mkstemp "/var/lib/mysql/.ib_logfile1.0QWz4M" failed: Permission denied (13)
+rsync: mkstemp "/var/lib/mysql/.ibdata1.zudul3" failed: Permission denied (13)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-26 10:48:10,072 INFO RSyncBackup Starting backup.
+2006-01-26 10:48:10,073 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-01-26 10:48:10,182 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-26 10:48:14,682 INFO RSyncBackup Starting backup.
+2006-01-26 10:48:14,683 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-01-26 10:48:14,743 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-26 10:48:14,937 INFO RSyncBackup Starting backup.
+2006-01-26 10:48:14,938 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-01-26 10:48:15,059 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-26 10:48:15,241 DEBUG RSyncBackup Time backup was started: Thu Jan 26 02:48:01 2006
+2006-01-26 10:48:15,253 INFO RSyncBackup Last Run File updated succesfully
+2006-01-26 10:55:48,712 DEBUG RSyncBackup lastTime: 1138214881.0 nowTime: 1138215348.0
+2006-01-26 10:55:48,713 INFO RSyncBackup Time to perform backup.
+2006-01-26 10:55:48,714 INFO RSyncBackup Starting backup.
+2006-01-26 10:55:48,715 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-01-26 10:55:49,654 INFO RSyncBackup Rsync backup successful.
+2006-01-26 10:55:49,655 DEBUG RSyncBackup Rsync output: 
+2006-01-26 10:55:49,656 INFO RSyncBackup Starting backup.
+2006-01-26 10:55:49,656 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-01-26 10:55:55,486 INFO RSyncBackup Rsync backup successful.
+2006-01-26 10:55:55,487 DEBUG RSyncBackup Rsync output: 
+2006-01-26 10:55:55,488 INFO RSyncBackup Starting backup.
+2006-01-26 10:55:55,489 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-01-26 10:55:55,617 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-26 10:56:06,348 INFO RSyncBackup Starting backup.
+2006-01-26 10:56:06,349 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-01-26 10:56:06,407 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-26 10:56:06,574 INFO RSyncBackup Starting backup.
+2006-01-26 10:56:06,575 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-01-26 10:56:06,675 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-26 10:56:06,847 DEBUG RSyncBackup Time backup was started: Thu Jan 26 02:55:48 2006
+2006-01-26 10:56:06,896 INFO RSyncBackup Last Run File updated succesfully
+2006-01-27 10:46:04,328 DEBUG RSyncBackup lastTime: 1138215348.0 nowTime: 1138301164.0
+2006-01-27 10:46:04,347 INFO RSyncBackup Time to perform backup.
+2006-01-27 10:46:04,348 INFO RSyncBackup Starting backup.
+2006-01-27 10:46:04,348 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-01-27 10:46:05,560 INFO RSyncBackup Rsync backup successful.
+2006-01-27 10:46:05,561 DEBUG RSyncBackup Rsync output: 
+2006-01-27 10:46:05,562 INFO RSyncBackup Starting backup.
+2006-01-27 10:46:05,563 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-01-27 10:46:11,483 INFO RSyncBackup Rsync backup successful.
+2006-01-27 10:46:11,484 DEBUG RSyncBackup Rsync output: 
+2006-01-27 10:46:11,485 INFO RSyncBackup Starting backup.
+2006-01-27 10:46:11,486 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-01-27 10:46:11,602 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-27 10:46:16,705 INFO RSyncBackup Starting backup.
+2006-01-27 10:46:16,706 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-01-27 10:46:16,764 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-27 10:46:21,191 INFO RSyncBackup Starting backup.
+2006-01-27 10:46:21,192 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-01-27 10:46:21,305 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-01-27 10:46:21,477 DEBUG RSyncBackup Time backup was started: Fri Jan 27 02:46:04 2006
+2006-01-27 10:46:21,488 INFO RSyncBackup Last Run File updated succesfully
+2006-02-03 17:11:11,649 DEBUG RSyncBackup lastTime: 1138301164.0 nowTime: 1138929071.0
+2006-02-03 17:11:11,666 INFO RSyncBackup Time to perform backup.
+2006-02-03 17:11:11,667 INFO RSyncBackup Starting backup.
+2006-02-03 17:11:11,668 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-02-03 17:11:12,999 INFO RSyncBackup Rsync backup successful.
+2006-02-03 17:11:13,000 DEBUG RSyncBackup Rsync output: 
+2006-02-03 17:11:13,001 INFO RSyncBackup Starting backup.
+2006-02-03 17:11:13,001 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-02-03 17:11:19,153 INFO RSyncBackup Rsync backup successful.
+2006-02-03 17:11:19,154 DEBUG RSyncBackup Rsync output: 
+2006-02-03 17:11:19,155 INFO RSyncBackup Starting backup.
+2006-02-03 17:11:19,156 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-02-03 17:11:19,310 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-02-03 17:11:24,440 INFO RSyncBackup Starting backup.
+2006-02-03 17:11:24,441 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-02-03 17:11:24,506 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-02-03 17:11:24,735 INFO RSyncBackup Starting backup.
+2006-02-03 17:11:24,736 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-02-03 17:11:24,873 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-02-03 17:11:29,329 DEBUG RSyncBackup Time backup was started: Fri Feb  3 09:11:11 2006
+2006-02-03 17:11:29,340 INFO RSyncBackup Last Run File updated succesfully
+2006-02-12 13:20:55,086 DEBUG RSyncBackup lastTime: 1138929071.0 nowTime: 1139692855.0
+2006-02-12 13:20:55,104 INFO RSyncBackup Time to perform backup.
+2006-02-12 13:20:55,105 INFO RSyncBackup Starting backup.
+2006-02-12 13:20:55,106 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-02-12 13:23:00,421 INFO RSyncBackup Rsync backup successful.
+2006-02-12 13:23:00,677 DEBUG RSyncBackup Rsync output: 
+2006-02-12 13:23:00,678 INFO RSyncBackup Starting backup.
+2006-02-12 13:23:00,678 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-02-12 13:23:19,228 INFO RSyncBackup Rsync backup successful.
+2006-02-12 13:23:19,229 DEBUG RSyncBackup Rsync output: 
+2006-02-12 13:23:19,230 INFO RSyncBackup Starting backup.
+2006-02-12 13:23:19,231 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-02-12 13:23:19,517 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-02-12 13:23:41,487 INFO RSyncBackup Starting backup.
+2006-02-12 13:23:41,488 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-02-12 13:23:41,738 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-02-12 13:23:46,917 INFO RSyncBackup Starting backup.
+2006-02-12 13:23:46,918 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-02-12 13:23:47,102 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-02-12 13:23:47,946 DEBUG RSyncBackup Time backup was started: Sun Feb 12 05:20:55 2006
+2006-02-12 13:23:48,027 INFO RSyncBackup Last Run File updated succesfully
+2006-02-13 10:10:21,388 DEBUG RSyncBackup lastTime: 1139692855.0 nowTime: 1139767821.0
+2006-02-13 10:10:21,407 INFO RSyncBackup Time to perform backup.
+2006-02-13 10:10:21,407 INFO RSyncBackup Starting backup.
+2006-02-13 10:10:21,408 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-02-13 10:10:29,145 INFO RSyncBackup Rsync backup successful.
+2006-02-13 10:10:29,146 DEBUG RSyncBackup Rsync output: 
+2006-02-13 10:10:29,147 INFO RSyncBackup Starting backup.
+2006-02-13 10:10:29,147 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-02-13 10:10:35,203 INFO RSyncBackup Rsync backup successful.
+2006-02-13 10:10:35,205 DEBUG RSyncBackup Rsync output: 
+2006-02-13 10:10:35,205 INFO RSyncBackup Starting backup.
+2006-02-13 10:10:35,218 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-02-13 10:10:35,390 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-02-13 10:11:06,112 INFO RSyncBackup Starting backup.
+2006-02-13 10:11:06,113 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-02-13 10:11:06,171 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-02-13 10:11:31,373 INFO RSyncBackup Starting backup.
+2006-02-13 10:11:31,374 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-02-13 10:11:31,506 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-02-13 10:11:51,846 DEBUG RSyncBackup Time backup was started: Mon Feb 13 02:10:21 2006
+2006-02-13 10:11:51,853 INFO RSyncBackup Last Run File updated succesfully
+2006-03-09 19:55:29,222 DEBUG RSyncBackup lastTime: 1139767821.0 nowTime: 1141876529.0
+2006-03-09 19:55:29,237 INFO RSyncBackup Time to perform backup.
+2006-03-09 19:55:29,237 INFO RSyncBackup Starting backup.
+2006-03-09 19:55:29,238 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-03-09 19:55:56,865 INFO RSyncBackup Rsync backup successful.
+2006-03-09 19:55:56,866 DEBUG RSyncBackup Rsync output: 
+2006-03-09 19:55:56,867 INFO RSyncBackup Starting backup.
+2006-03-09 19:55:56,867 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-03-09 19:56:08,149 INFO RSyncBackup Rsync backup successful.
+2006-03-09 19:56:08,150 DEBUG RSyncBackup Rsync output: 
+2006-03-09 19:56:08,151 INFO RSyncBackup Starting backup.
+2006-03-09 19:56:08,152 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-03-09 19:56:08,386 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-03-09 19:56:14,246 INFO RSyncBackup Starting backup.
+2006-03-09 19:56:14,247 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-03-09 19:56:14,369 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-03-09 19:56:14,672 INFO RSyncBackup Starting backup.
+2006-03-09 19:56:14,673 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-03-09 19:56:14,782 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-03-09 19:56:19,197 DEBUG RSyncBackup Time backup was started: Thu Mar  9 11:55:29 2006
+2006-03-09 19:56:19,251 INFO RSyncBackup Last Run File updated succesfully
+2006-03-31 11:29:14,270 DEBUG RSyncBackup lastTime: 1141876529.0 nowTime: 1143746954.0
+2006-03-31 11:29:14,284 INFO RSyncBackup Time to perform backup.
+2006-03-31 11:29:14,295 INFO RSyncBackup Starting backup.
+2006-03-31 11:29:14,296 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-03-31 11:29:16,452 INFO RSyncBackup Rsync backup successful.
+2006-03-31 11:29:16,453 DEBUG RSyncBackup Rsync output: 
+2006-03-31 11:29:16,454 INFO RSyncBackup Starting backup.
+2006-03-31 11:29:16,454 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-03-31 11:29:22,209 INFO RSyncBackup Rsync backup successful.
+2006-03-31 11:29:22,210 DEBUG RSyncBackup Rsync output: 
+2006-03-31 11:29:22,211 INFO RSyncBackup Starting backup.
+2006-03-31 11:29:22,211 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-03-31 11:29:22,418 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-03-31 11:29:37,444 INFO RSyncBackup Starting backup.
+2006-03-31 11:29:37,445 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-03-31 11:29:37,503 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-03-31 11:29:38,678 INFO RSyncBackup Starting backup.
+2006-03-31 11:29:38,679 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-03-31 11:29:38,792 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-03-31 11:29:39,064 DEBUG RSyncBackup Time backup was started: Fri Mar 31 03:29:14 2006
+2006-03-31 11:29:39,066 INFO RSyncBackup Last Run File updated succesfully
+2006-04-22 20:12:00,705 DEBUG RSyncBackup lastTime: 1143746954.0 nowTime: 1145679120.0
+2006-04-22 20:12:00,716 INFO RSyncBackup Time to perform backup.
+2006-04-22 20:12:00,717 INFO RSyncBackup Starting backup.
+2006-04-22 20:12:00,717 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-04-22 20:12:07,283 ERROR RSyncBackup Error running rsync: file has vanished: "/home/developer/backup/cospar2006-website/html/images/.f-b2.jpg.hDfjdH"
+rsync warning: some files vanished before they could be transferred (code 24) at main.c(702)
+2006-04-22 20:12:12,547 INFO RSyncBackup Starting backup.
+2006-04-22 20:12:12,548 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-04-22 20:12:14,699 INFO RSyncBackup Rsync backup successful.
+2006-04-22 20:12:14,700 DEBUG RSyncBackup Rsync output: 
+2006-04-22 20:12:14,700 INFO RSyncBackup Starting backup.
+2006-04-22 20:12:14,701 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-04-22 20:12:14,762 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-22 20:12:24,358 INFO RSyncBackup Starting backup.
+2006-04-22 20:12:24,359 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-04-22 20:12:24,417 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-22 20:12:29,572 INFO RSyncBackup Starting backup.
+2006-04-22 20:12:29,573 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-04-22 20:12:29,656 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-22 20:12:29,931 DEBUG RSyncBackup Time backup was started: Sat Apr 22 12:12:00 2006
+2006-04-22 20:12:29,932 INFO RSyncBackup Last Run File updated succesfully
+2006-04-22 20:19:51,238 DEBUG RSyncBackup lastTime: 1145679120.0 nowTime: 1145679591.0
+2006-04-22 20:19:51,239 INFO RSyncBackup Time to perform backup.
+2006-04-22 20:19:51,239 INFO RSyncBackup Starting backup.
+2006-04-22 20:19:51,240 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-04-22 20:19:52,763 INFO RSyncBackup Rsync backup successful.
+2006-04-22 20:19:52,764 DEBUG RSyncBackup Rsync output: 
+2006-04-22 20:19:52,764 INFO RSyncBackup Starting backup.
+2006-04-22 20:19:52,765 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-04-22 20:19:53,148 INFO RSyncBackup Rsync backup successful.
+2006-04-22 20:19:53,149 DEBUG RSyncBackup Rsync output: 
+2006-04-22 20:19:53,149 INFO RSyncBackup Starting backup.
+2006-04-22 20:19:53,150 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-04-22 20:19:53,202 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-22 20:19:54,199 INFO RSyncBackup Starting backup.
+2006-04-22 20:19:54,200 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-04-22 20:19:54,256 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-22 20:19:54,384 INFO RSyncBackup Starting backup.
+2006-04-22 20:19:54,385 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-04-22 20:19:54,439 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-22 20:19:54,520 DEBUG RSyncBackup Time backup was started: Sat Apr 22 12:19:51 2006
+2006-04-22 20:19:54,521 INFO RSyncBackup Last Run File updated succesfully
+2006-04-22 20:30:34,744 DEBUG RSyncBackup lastTime: 1145679591.0 nowTime: 1145680234.0
+2006-04-22 20:30:34,745 INFO RSyncBackup Time to perform backup.
+2006-04-22 20:30:34,745 INFO RSyncBackup Starting backup.
+2006-04-22 20:30:34,746 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-04-22 20:30:35,003 INFO RSyncBackup Rsync backup successful.
+2006-04-22 20:30:35,004 DEBUG RSyncBackup Rsync output: 
+2006-04-22 20:30:35,005 INFO RSyncBackup Starting backup.
+2006-04-22 20:30:35,005 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-04-22 20:30:36,537 INFO RSyncBackup Rsync backup successful.
+2006-04-22 20:30:36,538 DEBUG RSyncBackup Rsync output: 
+2006-04-22 20:30:36,539 INFO RSyncBackup Starting backup.
+2006-04-22 20:30:36,539 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-04-22 20:30:36,591 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-22 20:30:37,259 INFO RSyncBackup Starting backup.
+2006-04-22 20:30:37,259 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-04-22 20:30:37,314 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-22 20:30:37,503 INFO RSyncBackup Starting backup.
+2006-04-22 20:30:37,504 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-04-22 20:30:37,555 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-22 20:30:37,721 DEBUG RSyncBackup Time backup was started: Sat Apr 22 12:30:34 2006
+2006-04-22 20:30:37,722 INFO RSyncBackup Last Run File updated succesfully
+2006-04-22 21:49:47,322 DEBUG RSyncBackup lastTime: 1145680234.0 nowTime: 1145684987.0
+2006-04-22 21:49:47,342 INFO RSyncBackup Time to perform backup.
+2006-04-22 21:49:47,342 INFO RSyncBackup Starting backup.
+2006-04-22 21:49:47,343 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-04-22 21:49:48,268 INFO RSyncBackup Rsync backup successful.
+2006-04-22 21:49:48,268 DEBUG RSyncBackup Rsync output: 
+2006-04-22 21:49:48,269 INFO RSyncBackup Starting backup.
+2006-04-22 21:49:48,269 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-04-22 21:49:50,116 INFO RSyncBackup Rsync backup successful.
+2006-04-22 21:49:50,117 DEBUG RSyncBackup Rsync output: 
+2006-04-22 21:49:50,118 INFO RSyncBackup Starting backup.
+2006-04-22 21:49:50,118 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-04-22 21:49:50,170 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-22 21:49:55,042 INFO RSyncBackup Starting backup.
+2006-04-22 21:49:55,043 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-04-22 21:49:55,098 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-22 21:49:59,426 INFO RSyncBackup Starting backup.
+2006-04-22 21:49:59,427 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-04-22 21:49:59,481 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-22 21:50:04,765 DEBUG RSyncBackup Time backup was started: Sat Apr 22 13:49:47 2006
+2006-04-22 21:50:04,784 INFO RSyncBackup Last Run File updated succesfully
+2006-04-23 12:01:02,349 DEBUG RSyncBackup lastTime: 1145684987.0 nowTime: 1145736062.0
+2006-04-23 12:01:02,369 INFO RSyncBackup Time to perform backup.
+2006-04-23 12:01:02,369 INFO RSyncBackup Starting backup.
+2006-04-23 12:01:02,370 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-04-23 12:01:02,874 INFO RSyncBackup Rsync backup successful.
+2006-04-23 12:01:02,875 DEBUG RSyncBackup Rsync output: 
+2006-04-23 12:01:02,876 INFO RSyncBackup Starting backup.
+2006-04-23 12:01:02,876 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-04-23 12:01:04,424 INFO RSyncBackup Rsync backup successful.
+2006-04-23 12:01:04,425 DEBUG RSyncBackup Rsync output: 
+2006-04-23 12:01:04,425 INFO RSyncBackup Starting backup.
+2006-04-23 12:01:04,426 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-04-23 12:01:04,479 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-23 12:01:09,040 INFO RSyncBackup Starting backup.
+2006-04-23 12:01:09,040 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-04-23 12:01:09,096 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-23 12:01:13,329 INFO RSyncBackup Starting backup.
+2006-04-23 12:01:13,330 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-04-23 12:01:13,386 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-23 12:01:13,580 DEBUG RSyncBackup Time backup was started: Sun Apr 23 04:01:02 2006
+2006-04-23 12:01:13,581 INFO RSyncBackup Last Run File updated succesfully
+2006-04-26 16:36:42,141 DEBUG RSyncBackup lastTime: 1145736062.0 nowTime: 1146011802.0
+2006-04-26 16:36:42,161 INFO RSyncBackup Time to perform backup.
+2006-04-26 16:36:42,162 INFO RSyncBackup Starting backup.
+2006-04-26 16:36:42,162 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-04-26 16:36:42,736 INFO RSyncBackup Rsync backup successful.
+2006-04-26 16:36:42,737 DEBUG RSyncBackup Rsync output: 
+2006-04-26 16:36:42,738 INFO RSyncBackup Starting backup.
+2006-04-26 16:36:42,738 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-04-26 16:36:44,289 INFO RSyncBackup Rsync backup successful.
+2006-04-26 16:36:44,290 DEBUG RSyncBackup Rsync output: 
+2006-04-26 16:36:44,290 INFO RSyncBackup Starting backup.
+2006-04-26 16:36:44,291 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-04-26 16:36:44,343 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-26 16:39:24,910 INFO RSyncBackup Starting backup.
+2006-04-26 16:39:24,910 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-04-26 16:39:24,966 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-26 16:42:01,708 INFO RSyncBackup Starting backup.
+2006-04-26 16:42:01,708 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-04-26 16:42:01,761 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-26 16:42:14,629 DEBUG RSyncBackup Time backup was started: Wed Apr 26 08:36:42 2006
+2006-04-26 16:42:14,630 INFO RSyncBackup Last Run File updated succesfully
+2006-04-26 16:43:16,071 DEBUG RSyncBackup lastTime: 1146011802.0 nowTime: 1146012196.0
+2006-04-26 16:43:16,071 INFO RSyncBackup Time to perform backup.
+2006-04-26 16:43:16,072 INFO RSyncBackup Starting backup.
+2006-04-26 16:43:16,072 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-04-26 16:43:16,324 INFO RSyncBackup Rsync backup successful.
+2006-04-26 16:43:16,325 DEBUG RSyncBackup Rsync output: 
+2006-04-26 16:43:16,326 INFO RSyncBackup Starting backup.
+2006-04-26 16:43:16,326 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-04-26 16:43:16,385 INFO RSyncBackup Rsync backup successful.
+2006-04-26 16:43:16,386 DEBUG RSyncBackup Rsync output: 
+2006-04-26 16:43:16,387 INFO RSyncBackup Starting backup.
+2006-04-26 16:43:16,387 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-04-26 16:43:16,439 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-26 16:45:56,517 INFO RSyncBackup Starting backup.
+2006-04-26 16:45:56,518 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-04-26 16:45:56,573 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-26 16:48:02,181 INFO RSyncBackup Starting backup.
+2006-04-26 16:48:02,182 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-04-26 16:48:02,213 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-26 16:48:03,883 DEBUG RSyncBackup Time backup was started: Wed Apr 26 08:43:16 2006
+2006-04-26 16:48:03,884 INFO RSyncBackup Last Run File updated succesfully
+2006-04-26 16:49:12,523 DEBUG RSyncBackup lastTime: 1146012196.0 nowTime: 1146012552.0
+2006-04-26 16:49:12,523 INFO RSyncBackup Time to perform backup.
+2006-04-26 16:49:12,524 INFO RSyncBackup Starting backup.
+2006-04-26 16:49:12,524 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-04-26 16:49:12,795 INFO RSyncBackup Rsync backup successful.
+2006-04-26 16:49:12,796 DEBUG RSyncBackup Rsync output: 
+2006-04-26 16:49:12,797 INFO RSyncBackup Starting backup.
+2006-04-26 16:49:12,797 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-04-26 16:49:12,855 INFO RSyncBackup Rsync backup successful.
+2006-04-26 16:49:12,856 DEBUG RSyncBackup Rsync output: 
+2006-04-26 16:49:12,857 INFO RSyncBackup Starting backup.
+2006-04-26 16:49:12,857 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-04-26 16:49:12,908 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-26 16:49:12,909 INFO RSyncBackup Starting backup.
+2006-04-26 16:49:12,910 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-04-26 16:49:12,961 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-26 16:49:12,962 INFO RSyncBackup Starting backup.
+2006-04-26 16:49:12,963 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-04-26 16:49:13,013 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-26 16:49:13,014 DEBUG RSyncBackup Time backup was started: Wed Apr 26 08:49:12 2006
+2006-04-26 16:49:13,015 INFO RSyncBackup Last Run File updated succesfully
+2006-04-26 17:45:20,955 DEBUG RSyncBackup lastTime: 1146012552.0 nowTime: 1146015920.0
+2006-04-26 17:45:20,956 INFO RSyncBackup Time to perform backup.
+2006-04-26 17:45:20,956 INFO RSyncBackup Starting backup.
+2006-04-26 17:45:20,957 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-04-26 17:45:21,211 INFO RSyncBackup Rsync backup successful.
+2006-04-26 17:45:21,212 DEBUG RSyncBackup Rsync output: 
+2006-04-26 17:45:21,213 INFO RSyncBackup Starting backup.
+2006-04-26 17:45:21,213 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-04-26 17:45:22,756 INFO RSyncBackup Rsync backup successful.
+2006-04-26 17:45:22,757 DEBUG RSyncBackup Rsync output: 
+2006-04-26 17:45:22,757 INFO RSyncBackup Starting backup.
+2006-04-26 17:45:22,758 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-04-26 17:45:22,810 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-26 17:45:22,811 INFO RSyncBackup Starting backup.
+2006-04-26 17:45:22,811 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-04-26 17:45:22,863 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-26 17:45:22,864 INFO RSyncBackup Starting backup.
+2006-04-26 17:45:22,864 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-04-26 17:45:22,916 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-04-26 17:45:22,917 DEBUG RSyncBackup Time backup was started: Wed Apr 26 09:45:20 2006
+2006-04-26 17:45:22,918 INFO RSyncBackup Last Run File updated succesfully
+2006-05-12 14:24:45,945 DEBUG RSyncBackup lastTime: 1146015920.0 nowTime: 1147386285.0
+2006-05-12 14:24:45,965 INFO RSyncBackup Time to perform backup.
+2006-05-12 14:24:45,965 INFO RSyncBackup Starting backup.
+2006-05-12 14:24:45,966 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-05-12 14:24:47,740 INFO RSyncBackup Rsync backup successful.
+2006-05-12 14:24:47,741 DEBUG RSyncBackup Rsync output: 
+2006-05-12 14:24:47,741 INFO RSyncBackup Starting backup.
+2006-05-12 14:24:47,742 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-05-12 14:24:50,188 INFO RSyncBackup Rsync backup successful.
+2006-05-12 14:24:50,189 DEBUG RSyncBackup Rsync output: 
+2006-05-12 14:24:50,189 INFO RSyncBackup Starting backup.
+2006-05-12 14:24:50,190 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-05-12 14:24:50,243 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-05-12 14:24:50,243 INFO RSyncBackup Starting backup.
+2006-05-12 14:24:50,244 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-05-12 14:24:50,295 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-05-12 14:24:50,296 INFO RSyncBackup Starting backup.
+2006-05-12 14:24:50,297 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-05-12 14:24:50,375 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-05-12 14:24:50,375 DEBUG RSyncBackup Time backup was started: Fri May 12 06:24:45 2006
+2006-05-12 14:24:50,376 INFO RSyncBackup Last Run File updated succesfully
+2006-05-19 14:15:20,498 DEBUG RSyncBackup lastTime: 1147386285.0 nowTime: 1147990520.0
+2006-05-19 14:15:20,519 INFO RSyncBackup Time to perform backup.
+2006-05-19 14:15:20,520 INFO RSyncBackup Starting backup.
+2006-05-19 14:15:20,521 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-05-19 14:15:21,254 INFO RSyncBackup Rsync backup successful.
+2006-05-19 14:15:21,255 DEBUG RSyncBackup Rsync output: 
+2006-05-19 14:15:21,256 INFO RSyncBackup Starting backup.
+2006-05-19 14:15:21,256 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-05-19 14:15:23,374 INFO RSyncBackup Rsync backup successful.
+2006-05-19 14:15:23,375 DEBUG RSyncBackup Rsync output: 
+2006-05-19 14:15:23,375 INFO RSyncBackup Starting backup.
+2006-05-19 14:15:23,376 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-05-19 14:15:23,428 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-05-19 14:15:23,429 INFO RSyncBackup Starting backup.
+2006-05-19 14:15:23,429 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-05-19 14:15:23,481 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-05-19 14:15:23,482 INFO RSyncBackup Starting backup.
+2006-05-19 14:15:23,482 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-05-19 14:15:23,568 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-05-19 14:15:23,569 DEBUG RSyncBackup Time backup was started: Fri May 19 06:15:20 2006
+2006-05-19 14:15:23,570 INFO RSyncBackup Last Run File updated succesfully
+2006-05-23 16:18:11,396 DEBUG RSyncBackup lastTime: 1147990520.0 nowTime: 1148343491.0
+2006-05-23 16:18:11,414 INFO RSyncBackup Time to perform backup.
+2006-05-23 16:18:11,415 INFO RSyncBackup Starting backup.
+2006-05-23 16:18:11,415 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-05-23 16:18:12,079 INFO RSyncBackup Rsync backup successful.
+2006-05-23 16:18:12,079 DEBUG RSyncBackup Rsync output: 
+2006-05-23 16:18:12,080 INFO RSyncBackup Starting backup.
+2006-05-23 16:18:12,080 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-05-23 16:18:14,333 INFO RSyncBackup Rsync backup successful.
+2006-05-23 16:18:14,334 DEBUG RSyncBackup Rsync output: 
+2006-05-23 16:18:14,335 INFO RSyncBackup Starting backup.
+2006-05-23 16:18:14,335 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-05-23 16:18:14,389 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-05-23 16:18:14,390 INFO RSyncBackup Starting backup.
+2006-05-23 16:18:14,391 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-05-23 16:18:14,444 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-05-23 16:18:14,445 INFO RSyncBackup Starting backup.
+2006-05-23 16:18:14,446 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-05-23 16:18:14,498 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-05-23 16:18:14,499 DEBUG RSyncBackup Time backup was started: Tue May 23 08:18:11 2006
+2006-05-23 16:18:14,500 INFO RSyncBackup Last Run File updated succesfully
+2006-05-25 11:20:49,970 DEBUG RSyncBackup lastTime: 1148343491.0 nowTime: 1148498449.0
+2006-05-25 11:20:49,989 INFO RSyncBackup Time to perform backup.
+2006-05-25 11:20:49,990 INFO RSyncBackup Starting backup.
+2006-05-25 11:20:49,990 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-05-25 11:20:50,636 INFO RSyncBackup Rsync backup successful.
+2006-05-25 11:20:50,636 DEBUG RSyncBackup Rsync output: 
+2006-05-25 11:20:50,637 INFO RSyncBackup Starting backup.
+2006-05-25 11:20:50,637 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-05-25 11:20:53,455 INFO RSyncBackup Rsync backup successful.
+2006-05-25 11:20:53,456 DEBUG RSyncBackup Rsync output: 
+2006-05-25 11:20:53,456 INFO RSyncBackup Starting backup.
+2006-05-25 11:20:53,457 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-05-25 11:20:53,508 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-05-25 11:20:53,509 INFO RSyncBackup Starting backup.
+2006-05-25 11:20:53,509 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-05-25 11:20:53,561 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-05-25 11:20:53,562 INFO RSyncBackup Starting backup.
+2006-05-25 11:20:53,562 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-05-25 11:20:53,650 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-05-25 11:20:53,651 DEBUG RSyncBackup Time backup was started: Thu May 25 03:20:49 2006
+2006-05-25 11:20:53,652 INFO RSyncBackup Last Run File updated succesfully
+2006-05-29 15:41:15,962 DEBUG RSyncBackup lastTime: 1148498449.0 nowTime: 1148859675.0
+2006-05-29 15:41:15,981 INFO RSyncBackup Time to perform backup.
+2006-05-29 15:41:15,982 INFO RSyncBackup Starting backup.
+2006-05-29 15:41:15,982 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-05-29 15:41:16,568 INFO RSyncBackup Rsync backup successful.
+2006-05-29 15:41:16,569 DEBUG RSyncBackup Rsync output: 
+2006-05-29 15:41:16,569 INFO RSyncBackup Starting backup.
+2006-05-29 15:41:16,569 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-05-29 15:41:19,051 INFO RSyncBackup Rsync backup successful.
+2006-05-29 15:41:19,052 DEBUG RSyncBackup Rsync output: 
+2006-05-29 15:41:19,053 INFO RSyncBackup Starting backup.
+2006-05-29 15:41:19,053 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-05-29 15:41:19,105 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-05-29 15:41:19,106 INFO RSyncBackup Starting backup.
+2006-05-29 15:41:19,107 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-05-29 15:41:19,158 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-05-29 15:41:19,159 INFO RSyncBackup Starting backup.
+2006-05-29 15:41:19,160 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-05-29 15:41:19,224 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-05-29 15:41:19,225 DEBUG RSyncBackup Time backup was started: Mon May 29 07:41:15 2006
+2006-05-29 15:41:19,226 INFO RSyncBackup Last Run File updated succesfully
+2006-06-16 15:04:36,424 DEBUG RSyncBackup lastTime: 1148859675.0 nowTime: 1150412676.0
+2006-06-16 15:04:36,442 INFO RSyncBackup Time to perform backup.
+2006-06-16 15:04:36,443 INFO RSyncBackup Starting backup.
+2006-06-16 15:04:36,443 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-06-16 15:04:38,607 INFO RSyncBackup Rsync backup successful.
+2006-06-16 15:04:38,607 DEBUG RSyncBackup Rsync output: 
+2006-06-16 15:04:38,608 INFO RSyncBackup Starting backup.
+2006-06-16 15:04:38,608 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-06-16 15:04:44,344 INFO RSyncBackup Rsync backup successful.
+2006-06-16 15:04:44,345 DEBUG RSyncBackup Rsync output: 
+2006-06-16 15:04:44,346 INFO RSyncBackup Starting backup.
+2006-06-16 15:04:44,346 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-06-16 15:04:44,399 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-06-16 15:04:44,399 INFO RSyncBackup Starting backup.
+2006-06-16 15:04:44,400 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-06-16 15:04:44,452 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-06-16 15:04:44,452 INFO RSyncBackup Starting backup.
+2006-06-16 15:04:44,453 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-06-16 15:04:44,531 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-06-16 15:04:44,532 DEBUG RSyncBackup Time backup was started: Fri Jun 16 07:04:36 2006
+2006-06-16 15:04:44,532 INFO RSyncBackup Last Run File updated succesfully
+2006-06-21 14:52:10,293 DEBUG RSyncBackup lastTime: 1150412676.0 nowTime: 1150843930.0
+2006-06-21 14:52:10,312 INFO RSyncBackup Time to perform backup.
+2006-06-21 14:52:10,313 INFO RSyncBackup Starting backup.
+2006-06-21 14:52:10,313 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-06-21 14:52:14,140 INFO RSyncBackup Rsync backup successful.
+2006-06-21 14:52:14,141 DEBUG RSyncBackup Rsync output: 
+2006-06-21 14:52:14,141 INFO RSyncBackup Starting backup.
+2006-06-21 14:52:14,141 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-06-21 14:52:16,928 INFO RSyncBackup Rsync backup successful.
+2006-06-21 14:52:16,929 DEBUG RSyncBackup Rsync output: 
+2006-06-21 14:52:16,929 INFO RSyncBackup Starting backup.
+2006-06-21 14:52:16,930 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-06-21 14:52:16,983 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-06-21 14:52:16,984 INFO RSyncBackup Starting backup.
+2006-06-21 14:52:16,985 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-06-21 14:52:17,035 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-06-21 14:52:17,036 INFO RSyncBackup Starting backup.
+2006-06-21 14:52:17,037 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-06-21 14:52:17,125 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-06-21 14:52:17,126 DEBUG RSyncBackup Time backup was started: Wed Jun 21 06:52:10 2006
+2006-06-21 14:52:17,127 INFO RSyncBackup Last Run File updated succesfully
+2006-07-14 17:23:46,191 DEBUG RSyncBackup lastTime: 1150843930.0 nowTime: 1152840226.0
+2006-07-14 17:23:46,207 INFO RSyncBackup Time to perform backup.
+2006-07-14 17:23:46,208 INFO RSyncBackup Starting backup.
+2006-07-14 17:23:46,209 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-07-14 17:24:05,005 INFO RSyncBackup Rsync backup successful.
+2006-07-14 17:24:05,006 DEBUG RSyncBackup Rsync output: 
+2006-07-14 17:24:05,006 INFO RSyncBackup Starting backup.
+2006-07-14 17:24:05,007 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-07-14 17:24:10,874 INFO RSyncBackup Rsync backup successful.
+2006-07-14 17:24:10,876 DEBUG RSyncBackup Rsync output: 
+2006-07-14 17:24:10,876 INFO RSyncBackup Starting backup.
+2006-07-14 17:24:10,876 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-07-14 17:24:10,954 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-07-14 17:24:10,955 INFO RSyncBackup Starting backup.
+2006-07-14 17:24:10,955 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-07-14 17:24:11,016 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-07-14 17:24:11,017 INFO RSyncBackup Starting backup.
+2006-07-14 17:24:11,017 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-07-14 17:24:11,093 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-07-14 17:24:11,094 DEBUG RSyncBackup Time backup was started: Fri Jul 14 09:23:46 2006
+2006-07-14 17:24:11,095 INFO RSyncBackup Last Run File updated succesfully
+2006-07-15 16:46:52,679 DEBUG RSyncBackup lastTime: 1152840226.0 nowTime: 1152924412.0
+2006-07-15 16:46:52,699 INFO RSyncBackup Time to perform backup.
+2006-07-15 16:46:52,700 INFO RSyncBackup Starting backup.
+2006-07-15 16:46:52,700 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-07-15 16:46:53,312 INFO RSyncBackup Rsync backup successful.
+2006-07-15 16:46:53,313 DEBUG RSyncBackup Rsync output: 
+2006-07-15 16:46:53,313 INFO RSyncBackup Starting backup.
+2006-07-15 16:46:53,314 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-07-15 16:46:56,238 INFO RSyncBackup Rsync backup successful.
+2006-07-15 16:46:56,239 DEBUG RSyncBackup Rsync output: 
+2006-07-15 16:46:56,240 INFO RSyncBackup Starting backup.
+2006-07-15 16:46:56,240 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-07-15 16:46:56,292 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-07-15 16:46:56,293 INFO RSyncBackup Starting backup.
+2006-07-15 16:46:56,294 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-07-15 16:46:56,345 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-07-15 16:46:56,346 INFO RSyncBackup Starting backup.
+2006-07-15 16:46:56,347 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-07-15 16:46:56,416 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-07-15 16:46:56,417 DEBUG RSyncBackup Time backup was started: Sat Jul 15 08:46:52 2006
+2006-07-15 16:46:56,418 INFO RSyncBackup Last Run File updated succesfully
+2006-07-15 17:40:25,125 DEBUG RSyncBackup lastTime: 1152924412.0 nowTime: 1152927625.0
+2006-07-15 17:40:25,126 INFO RSyncBackup Time to perform backup.
+2006-07-15 17:40:25,126 INFO RSyncBackup Starting backup.
+2006-07-15 17:40:25,127 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-07-15 17:40:25,408 INFO RSyncBackup Rsync backup successful.
+2006-07-15 17:40:25,409 DEBUG RSyncBackup Rsync output: 
+2006-07-15 17:40:25,410 INFO RSyncBackup Starting backup.
+2006-07-15 17:40:25,410 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-07-15 17:40:28,333 INFO RSyncBackup Rsync backup successful.
+2006-07-15 17:40:28,334 DEBUG RSyncBackup Rsync output: 
+2006-07-15 17:40:28,334 INFO RSyncBackup Starting backup.
+2006-07-15 17:40:28,335 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-07-15 17:40:28,387 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-07-15 17:40:28,388 INFO RSyncBackup Starting backup.
+2006-07-15 17:40:28,388 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-07-15 17:40:28,440 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-07-15 17:40:28,441 INFO RSyncBackup Starting backup.
+2006-07-15 17:40:28,441 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-07-15 17:40:28,501 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-07-15 17:40:28,502 DEBUG RSyncBackup Time backup was started: Sat Jul 15 09:40:25 2006
+2006-07-15 17:40:28,503 INFO RSyncBackup Last Run File updated succesfully
+2006-07-15 17:45:14,342 DEBUG RSyncBackup lastTime: 1152927625.0 nowTime: 1152927914.0
+2006-07-15 17:45:14,342 INFO RSyncBackup Time to perform backup.
+2006-07-15 17:45:14,343 INFO RSyncBackup Starting backup.
+2006-07-15 17:45:14,343 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-07-15 17:45:14,625 INFO RSyncBackup Rsync backup successful.
+2006-07-15 17:45:14,625 DEBUG RSyncBackup Rsync output: 
+2006-07-15 17:45:14,626 INFO RSyncBackup Starting backup.
+2006-07-15 17:45:14,626 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-07-15 17:45:17,513 INFO RSyncBackup Rsync backup successful.
+2006-07-15 17:45:17,514 DEBUG RSyncBackup Rsync output: 
+2006-07-15 17:45:17,514 INFO RSyncBackup Starting backup.
+2006-07-15 17:45:17,515 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-07-15 17:45:17,567 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-07-15 17:45:17,568 INFO RSyncBackup Starting backup.
+2006-07-15 17:45:17,569 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-07-15 17:45:17,620 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-07-15 17:45:17,621 INFO RSyncBackup Starting backup.
+2006-07-15 17:45:17,622 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-07-15 17:45:17,673 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-07-15 17:45:17,674 DEBUG RSyncBackup Time backup was started: Sat Jul 15 09:45:14 2006
+2006-07-15 17:45:17,675 INFO RSyncBackup Last Run File updated succesfully
+2006-07-15 18:38:56,500 DEBUG RSyncBackup lastTime: 1152927914.0 nowTime: 1152931136.0
+2006-07-15 18:38:56,500 INFO RSyncBackup Time to perform backup.
+2006-07-15 18:38:56,501 INFO RSyncBackup Starting backup.
+2006-07-15 18:38:56,501 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-07-15 18:38:56,769 INFO RSyncBackup Rsync backup successful.
+2006-07-15 18:38:56,769 DEBUG RSyncBackup Rsync output: 
+2006-07-15 18:38:56,770 INFO RSyncBackup Starting backup.
+2006-07-15 18:38:56,770 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-07-15 18:38:59,679 INFO RSyncBackup Rsync backup successful.
+2006-07-15 18:38:59,680 DEBUG RSyncBackup Rsync output: 
+2006-07-15 18:38:59,681 INFO RSyncBackup Starting backup.
+2006-07-15 18:38:59,681 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-07-15 18:38:59,733 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-07-15 18:38:59,734 INFO RSyncBackup Starting backup.
+2006-07-15 18:38:59,735 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-07-15 18:38:59,786 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-07-15 18:38:59,787 INFO RSyncBackup Starting backup.
+2006-07-15 18:38:59,788 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-07-15 18:38:59,839 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-07-15 18:38:59,840 DEBUG RSyncBackup Time backup was started: Sat Jul 15 10:38:56 2006
+2006-07-15 18:38:59,841 INFO RSyncBackup Last Run File updated succesfully
+2006-07-16 12:19:29,591 DEBUG RSyncBackup lastTime: 1152931136.0 nowTime: 1152994769.0
+2006-07-16 12:19:29,611 INFO RSyncBackup Time to perform backup.
+2006-07-16 12:19:29,611 INFO RSyncBackup Starting backup.
+2006-07-16 12:19:29,612 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2006-07-16 12:19:31,046 INFO RSyncBackup Rsync backup successful.
+2006-07-16 12:19:31,047 DEBUG RSyncBackup Rsync output: 
+2006-07-16 12:19:31,048 INFO RSyncBackup Starting backup.
+2006-07-16 12:19:31,048 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2006-07-16 12:19:34,409 INFO RSyncBackup Rsync backup successful.
+2006-07-16 12:19:34,410 DEBUG RSyncBackup Rsync output: 
+2006-07-16 12:19:34,410 INFO RSyncBackup Starting backup.
+2006-07-16 12:19:34,410 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2006-07-16 12:19:34,463 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-07-16 12:19:34,464 INFO RSyncBackup Starting backup.
+2006-07-16 12:19:34,464 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2006-07-16 12:19:34,516 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-07-16 12:19:34,516 INFO RSyncBackup Starting backup.
+2006-07-16 12:19:34,517 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2006-07-16 12:19:34,569 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2006-07-16 12:19:34,570 DEBUG RSyncBackup Time backup was started: Sun Jul 16 04:19:29 2006
+2006-07-16 12:19:34,570 INFO RSyncBackup Last Run File updated succesfully
+2007-10-29 10:25:09,337 DEBUG RSyncBackup lastTime: 1152994769.0 nowTime: 1193595909.0
+2007-10-29 10:25:09,338 INFO RSyncBackup Time to perform backup.
+2007-10-29 10:25:09,338 INFO RSyncBackup Starting backup.
+2007-10-29 10:25:09,339 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2007-10-29 10:25:11,856 INFO RSyncBackup Rsync backup successful.
+2007-10-29 10:25:11,857 DEBUG RSyncBackup Rsync output: 
+2007-10-29 10:25:11,857 INFO RSyncBackup Starting backup.
+2007-10-29 10:25:11,858 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2007-10-29 10:25:14,756 INFO RSyncBackup Rsync backup successful.
+2007-10-29 10:25:14,757 DEBUG RSyncBackup Rsync output: 
+2007-10-29 10:25:14,757 INFO RSyncBackup Starting backup.
+2007-10-29 10:25:14,758 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2007-10-29 10:25:14,809 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2007-10-29 10:25:14,810 INFO RSyncBackup Starting backup.
+2007-10-29 10:25:14,810 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2007-10-29 10:25:14,862 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2007-10-29 10:25:14,863 INFO RSyncBackup Starting backup.
+2007-10-29 10:25:14,863 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2007-10-29 10:25:14,915 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2007-10-29 10:25:14,916 DEBUG RSyncBackup Time backup was started: Mon Oct 29 02:25:09 2007
+2007-10-29 10:25:14,917 INFO RSyncBackup Last Run File updated succesfully
+2007-10-29 11:13:51,266 DEBUG RSyncBackup lastTime: 1193595909.0 nowTime: 1193598831.0
+2007-10-29 11:13:51,285 INFO RSyncBackup Time to perform backup.
+2007-10-29 11:13:51,286 INFO RSyncBackup Starting backup.
+2007-10-29 11:13:51,286 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-website/html/' '/var/www/html/'
+2007-10-29 11:13:53,137 INFO RSyncBackup Rsync backup successful.
+2007-10-29 11:13:53,138 DEBUG RSyncBackup Rsync output: 
+2007-10-29 11:13:53,138 INFO RSyncBackup Starting backup.
+2007-10-29 11:13:53,139 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/backup/cospar2006-mysql/mysql/' '/var/lib/mysql/'
+2007-10-29 11:13:58,284 INFO RSyncBackup Rsync backup successful.
+2007-10-29 11:13:58,285 DEBUG RSyncBackup Rsync output: 
+2007-10-29 11:13:58,286 INFO RSyncBackup Starting backup.
+2007-10-29 11:13:58,286 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2007-10-29 11:13:58,337 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/my.cnf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2007-10-29 11:13:58,338 INFO RSyncBackup Starting backup.
+2007-10-29 11:13:58,339 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2007-10-29 11:13:58,390 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/php.ini" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2007-10-29 11:13:58,391 INFO RSyncBackup Starting backup.
+2007-10-29 11:13:58,392 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2007-10-29 11:13:58,443 ERROR RSyncBackup Error running rsync: rsync: link_stat "/home/developer/bakcup/cospar2006-config/httpd.conf" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2007-10-29 11:13:58,444 DEBUG RSyncBackup Time backup was started: Mon Oct 29 03:13:51 2007
+2007-10-29 11:13:58,469 INFO RSyncBackup Last Run File updated succesfully
