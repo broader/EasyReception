@@ -11,7 +11,7 @@ import logging, os, sys
 
 RSYNC = 'rsync'
 RSYNCOPTIONS = ( '-avzur', '--delete', '--progress' )
-GIT = 'git'
+GIT = 'git --git-dir=/home/broader/develop/EasyReception/.git'
 LOGFILE = '%s'%os.path.sep.join((os.path.abspath(os.path.curdir), 'backup2git.log'))
 KARRIGELLSRC = '/home/broader/develop/R@K/CMS/Karrigell/ereception/'
 LOCALGIT = '/home/broader/develop/EasyReception/develop'
@@ -57,7 +57,7 @@ def run(test):
    # synchronize 'EasyReception' to remote github host    
    logger.info('Begin to backup local github to remote github host.')
    
-   [action( cmd, test,logger) for cmd in ('cd /home/broader/develop/EasyReception', 'pwd')]    
+   #[action( cmd, test,logger) for cmd in ('cd /home/broader/develop/EasyReception', 'pwd')]    
    
    # get current date info
    now = datetime.datetime.today().isoformat()
