@@ -152,3 +152,34 @@ sent 19717 bytes  received 20 bytes  39474.00 bytes/sec
 total size is 2946721  speedup is 149.30
 2009-12-06 12:06:24,474 INFO End backup loacl karrigell diretory to local git.
 2009-12-06 12:06:24,474 INFO Begin to backup local github to remote github host.
+2009-12-06 12:06:24,488 INFO Command: 
+git add .
+running result is :
+2009-12-06 12:06:24,509 INFO Command: 
+git commit -m 'Update time:2009-12-06T12:06:24.474900'
+running result is :Created commit 9e2a8ec: Update time:2009-12-06T12:06:24.474900
+ 3 files changed, 104 insertions(+), 1 deletions(-)
+ create mode 100644 backup2git.py~
+2009-12-06 12:06:30,293 INFO Command: 
+git push origin master
+running result is :Counting objects: 7, done.
+Compressing objects:  25% (1/4)   Compressing objects:  50% (2/4)   Compressing objects:  75% (3/4)   Compressing objects: 100% (4/4)   Compressing objects: 100% (4/4), done.
+Writing objects:  25% (1/4)   Writing objects:  50% (2/4)   Writing objects:  75% (3/4)   Writing objects: 100% (4/4)   Writing objects: 100% (4/4), 760 bytes, done.
+Total 4 (delta 2), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   5ca16fd..9e2a8ec  master -> master
+2009-12-06 12:06:30,293 INFO End backup local github to remote github host.
+2009-12-06 12:07:18,834 INFO Begin to backup loacl karrigell diretory to local git.
+
+2009-12-06 12:07:18,907 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ereception/ /home/broader/develop/EasyReception/develop
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files... 800 files... 900 files...947 files to consider
+./
+index_yaml.html
+        5462 100%    0.00kB/s    0:00:00        5462 100%    0.00kB/s    0:00:00 (xfer#1, to-check=938/947)
+
+sent 21662 bytes  received 48 bytes  43420.00 bytes/sec
+total size is 2946721  speedup is 135.73
+2009-12-06 12:07:18,907 INFO End backup loacl karrigell diretory to local git.
+2009-12-06 12:07:18,907 INFO Begin to backup local github to remote github host.
