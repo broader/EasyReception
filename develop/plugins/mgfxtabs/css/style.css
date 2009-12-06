@@ -1,8 +1,0 @@
-#home {background-color:#ddd; position:relative; height:160px; width:350px; margin-bottom:10px; }
-.feature { height:160px; position:absolute; width:350px; overflow:hidden; }
-.feature img { border:none; }
-.tabs { margin-left:0;margin-bottom:0;}
-.tabs li {background-color:#edd;display:inline;float:none;list-style:none; padding:5px; }
-.tabs li a { color:#333; display:inline; height:auto;padding:5px 15px;text-decoration:none;width:auto;}
-.tabs li.active { background-color:#ddd; }
-.tabs li a.active { color:#000; }
