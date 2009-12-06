@@ -1,0 +1,360 @@
+2005-12-17 12:10:33,549 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-17 12:10:33,551 WARNING RSyncBackup Exception occured reading the last run file /var/state/cospar2006-local-backup.lrf.  Error: [Errno 2] No such file or directory: '/var/state/cospar2006-local-backup.lrf'
+2005-12-17 12:10:33,552 ERROR root Exception occured during backup: name 'exclude' is not defined
+2005-12-17 12:13:57,747 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-17 12:13:57,884 WARNING RSyncBackup Exception occured parsing last run file /var/state/cospar2006-local-backup.lrf.  Error: time data did not match format:  data=  fmt=%a %b %d %H:%M:%S %Y
+2005-12-17 12:13:57,885 ERROR root Exception occured during backup: name 'exclude' is not defined
+2005-12-17 12:16:16,856 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-17 12:16:16,928 WARNING RSyncBackup Exception occured parsing last run file /var/state/cospar2006-local-backup.lrf.  Error: time data did not match format:  data=  fmt=%a %b %d %H:%M:%S %Y
+2005-12-17 12:16:16,929 ERROR root Exception occured during backup: name 'exclude' is not defined
+2005-12-17 12:40:33,551 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-17 12:40:33,622 WARNING RSyncBackup Exception occured parsing last run file /var/state/cospar2006-local-backup.lrf.  Error: time data did not match format:  data=Sat Dec 17 12:40:10 CST 2005
+  fmt=%a %b %d %H:%M:%S %Y
+2005-12-17 12:40:33,623 ERROR root Exception occured during backup: name 'exclude' is not defined
+2005-12-17 20:10:50,743 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-17 20:10:50,907 WARNING RSyncBackup Exception occured parsing last run file /var/state/cospar2006-local-backup.lrf.  Error: time data did not match format:  data=Sat Dec 17 12:40:10 CST 2005
+  fmt=%a %b %d %H:%M:%S %Y
+2005-12-17 20:10:50,908 ERROR root Exception occured during backup: name 'exclude' is not defined
+2005-12-17 20:34:54,042 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-17 20:34:54,113 WARNING RSyncBackup Exception occured parsing last run file /var/state/cospar2006-local-backup.lrf.  Error: unconverted data remains: 
+
+2005-12-17 20:34:54,114 ERROR root Exception occured during backup: name 'exclude' is not defined
+2005-12-17 20:51:03,910 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-17 20:51:03,981 DEBUG RSyncBackup lastTime: 1134823738.0 nowTime: 1134795063.0
+2005-12-17 20:51:03,982 INFO RSyncBackup Not yet time to backup.
+2005-12-17 20:53:00,936 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-17 20:53:01,007 DEBUG RSyncBackup lastTime: 1134823738.0 nowTime: 1134795181.0
+2005-12-17 20:53:01,008 INFO RSyncBackup Not yet time to backup.
+2005-12-17 20:54:49,149 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-17 20:54:49,220 DEBUG RSyncBackup lastTime: 1134823738.0 nowTime: 1134795289.0
+2005-12-17 20:54:49,221 INFO RSyncBackup Not yet time to backup.
+2005-12-17 20:55:35,721 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-17 20:55:35,805 DEBUG RSyncBackup lastTime: 1134823738.0 nowTime: 1134795335.0
+2005-12-17 20:55:35,805 INFO RSyncBackup Not yet time to backup.
+2005-12-17 20:57:27,629 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-17 20:57:27,700 DEBUG RSyncBackup lastTime: 1134823738.0 nowTime: 1134795447.0
+2005-12-17 20:57:27,701 INFO RSyncBackup Not yet time to backup.
+2005-12-17 21:00:28,518 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-17 21:00:28,589 DEBUG RSyncBackup lastTime: 1134823738.0 nowTime: 1134795628.0
+2005-12-17 21:00:28,590 INFO RSyncBackup Not yet time to backup.
+2005-12-17 21:22:36,732 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-17 21:22:36,803 DEBUG RSyncBackup lastTime: 1134823738.0 nowTime: 1134796956.0
+2005-12-17 21:22:36,804 INFO RSyncBackup Time to perform backup.
+2005-12-17 21:22:36,805 INFO RSyncBackup Starting test run of backup.
+2005-12-17 21:22:36,806 DEBUG RSyncBackup Determining archive directory.
+2005-12-17 21:22:36,807 DEBUG RSyncBackup Archive destination is: /backup/cospar2006/archives/2005/12/17122005-212236
+2005-12-17 21:22:36,808 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --backup --backup-dir=/backup/cospar2006/archives/2005/12/17122005-212236 --delete '/var/www/html/' '/backup/cospar2006/current/'
+2005-12-17 21:22:36,808 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --backup --backup-dir=/backup/cospar2006/archives/2005/12/17122005-212236 --delete '/var/www/html/' '/backup/cospar2006/current/'
+2005-12-17 21:22:36,809 INFO RSyncBackup Starting test run of backup.
+2005-12-17 21:22:36,810 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql' '/backup/mysql/'
+2005-12-17 21:22:36,811 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/var/lib/mysql' '/backup/mysql/'
+2005-12-17 21:22:36,813 DEBUG RSyncBackup Using trim filter of: \/backup\/cospar2006\/archives/[0-9]{4,4}/[0-9]{2,2}/[0-9]{8,8}-[0-9]{6,6}$
+2005-12-17 21:22:36,820 DEBUG RSyncBackup TestRun - not writing out last run file.
+2005-12-17 21:29:37,754 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-17 21:29:37,826 DEBUG RSyncBackup lastTime: 1134823738.0 nowTime: 1134797377.0
+2005-12-17 21:29:37,827 INFO RSyncBackup Time to perform backup.
+2005-12-17 21:29:37,827 INFO RSyncBackup Starting test run of backup.
+2005-12-17 21:29:37,828 DEBUG RSyncBackup Determining archive directory.
+2005-12-17 21:29:37,829 DEBUG RSyncBackup Archive destination is: /backup/cospar2006/archives/2005/12/17122005-212937
+2005-12-17 21:29:37,830 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --backup --backup-dir=/backup/cospar2006/archives/2005/12/17122005-212937 --delete '/var/www/html/' '/backup/cospar2006/current/'
+2005-12-17 21:29:37,830 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --backup --backup-dir=/backup/cospar2006/archives/2005/12/17122005-212937 --delete '/var/www/html/' '/backup/cospar2006/current/'
+2005-12-17 21:29:37,831 INFO RSyncBackup Starting test run of backup.
+2005-12-17 21:29:37,832 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/backup/mysql/csm'
+2005-12-17 21:29:37,833 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/backup/mysql/csm'
+2005-12-17 21:29:37,835 DEBUG RSyncBackup Using trim filter of: \/backup\/cospar2006\/archives/[0-9]{4,4}/[0-9]{2,2}/[0-9]{8,8}-[0-9]{6,6}$
+2005-12-17 21:29:37,841 DEBUG RSyncBackup TestRun - not writing out last run file.
+2005-12-17 21:33:57,399 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-17 21:33:57,470 DEBUG RSyncBackup lastTime: 1134823738.0 nowTime: 1134797637.0
+2005-12-17 21:33:57,471 INFO RSyncBackup Time to perform backup.
+2005-12-17 21:33:57,472 INFO RSyncBackup Starting test run of backup.
+2005-12-17 21:33:57,472 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html' '/backup/cospar2006/current/'
+2005-12-17 21:33:57,473 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/var/www/html' '/backup/cospar2006/current/'
+2005-12-17 21:33:57,474 INFO RSyncBackup Starting test run of backup.
+2005-12-17 21:33:57,475 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/backup/cospar2006/mysql/csm'
+2005-12-17 21:33:57,475 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/backup/cospar2006/mysql/csm'
+2005-12-17 21:33:57,476 DEBUG RSyncBackup TestRun - not writing out last run file.
+2005-12-17 21:35:50,888 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-17 21:35:50,960 DEBUG RSyncBackup lastTime: 1134823738.0 nowTime: 1134797750.0
+2005-12-17 21:35:50,961 INFO RSyncBackup Time to perform backup.
+2005-12-17 21:35:50,962 INFO RSyncBackup Starting test run of backup.
+2005-12-17 21:35:50,963 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html' '/backup/cospar2006/current/'
+2005-12-17 21:35:50,963 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/var/www/html' '/backup/cospar2006/current/'
+2005-12-17 21:35:50,964 INFO RSyncBackup Starting test run of backup.
+2005-12-17 21:35:50,965 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/backup/cospar2006/mysql/csm'
+2005-12-17 21:35:50,966 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/backup/cospar2006/mysql/csm'
+2005-12-17 21:35:50,966 DEBUG RSyncBackup TestRun - not writing out last run file.
+2005-12-17 21:41:11,855 DEBUG RSyncBackup lastTime: 1134823738.0 nowTime: 1134798071.0
+2005-12-17 21:41:11,856 INFO RSyncBackup Time to perform backup.
+2005-12-17 21:41:11,857 INFO RSyncBackup Starting backup.
+2005-12-17 21:41:11,858 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html' '/backup/cospar2006/current/'
+2005-12-17 21:41:17,638 ERROR RSyncBackup Error running rsync: rsync: opendir "/var/www/html/administrator" failed: Permission denied (13)
+rsync: mkdir "/backup/cospar2006/current" failed: No such file or directory (2)
+rsync error: error in file IO (code 11) at main.c(381)
+rsync: connection unexpectedly closed (8 bytes received so far) [sender]
+rsync error: error in rsync protocol data stream (code 12) at io.c(359)
+2005-12-17 21:41:17,997 INFO RSyncBackup Starting backup.
+2005-12-17 21:41:17,998 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/backup/cospar2006/mysql/csm'
+2005-12-17 21:41:18,069 ERROR RSyncBackup Error running rsync: rsync: opendir "/var/lib/mysql/csm" failed: Permission denied (13)
+rsync: recv_generator: mkdir "/backup/cospar2006/mysql/csm" failed: No such file or directory (2)
+rsync: stat "/backup/cospar2006/mysql/csm" failed: No such file or directory (2)
+rsync: recv_generator: mkdir "/backup/cospar2006/mysql/csm" failed: No such file or directory (2)
+rsync: stat "/backup/cospar2006/mysql/csm" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-17 21:41:22,708 DEBUG RSyncBackup Time backup was started: Sat Dec 17 13:41:11 2005
+2005-12-17 21:41:22,710 INFO RSyncBackup Last Run File updated succesfully
+2005-12-17 21:44:58,318 DEBUG RSyncBackup lastTime: 1134798071.0 nowTime: 1134798298.0
+2005-12-17 21:44:58,319 INFO RSyncBackup Time to perform backup.
+2005-12-17 21:44:58,319 INFO RSyncBackup Starting backup.
+2005-12-17 21:44:58,320 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html' '/home/developer/backup/cospar2006/current/'
+2005-12-17 21:48:20,268 ERROR RSyncBackup Error running rsync: rsync: opendir "/var/www/html/administrator" failed: Permission denied (13)
+IO error encountered - skipping file deletion
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-17 21:48:21,963 INFO RSyncBackup Starting backup.
+2005-12-17 21:48:21,964 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/home/developer/backup/cospar2006/mysql/csm'
+2005-12-17 21:48:22,490 ERROR RSyncBackup Error running rsync: rsync: opendir "/var/lib/mysql/csm" failed: Permission denied (13)
+IO error encountered - skipping file deletion
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-17 21:48:27,803 DEBUG RSyncBackup Time backup was started: Sat Dec 17 13:44:58 2005
+2005-12-17 21:48:27,861 INFO RSyncBackup Last Run File updated succesfully
+2005-12-18 12:03:24,926 DEBUG RSyncBackup lastTime: 1134798298.0 nowTime: 1134849804.0
+2005-12-18 12:03:24,949 INFO RSyncBackup Time to perform backup.
+2005-12-18 12:03:24,950 INFO RSyncBackup Starting backup.
+2005-12-18 12:03:24,951 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html' '/home/developer/backup/cospar2006/current/'
+2005-12-18 12:03:28,408 INFO RSyncBackup Rsync backup successful.
+2005-12-18 12:03:28,409 DEBUG RSyncBackup Rsync output: 
+2005-12-18 12:03:28,410 INFO RSyncBackup Starting backup.
+2005-12-18 12:03:28,411 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/home/developer/backup/cospar2006/mysql/csm'
+2005-12-18 12:03:28,900 INFO RSyncBackup Rsync backup successful.
+2005-12-18 12:03:28,901 DEBUG RSyncBackup Rsync output: 
+2005-12-18 12:03:28,902 DEBUG RSyncBackup Time backup was started: Sun Dec 18 04:03:24 2005
+2005-12-18 12:03:28,904 INFO RSyncBackup Last Run File updated succesfully
+2005-12-18 12:12:46,800 DEBUG RSyncBackup lastTime: 1134849804.0 nowTime: 1134850366.0
+2005-12-18 12:12:46,801 INFO RSyncBackup Time to perform backup.
+2005-12-18 12:12:46,802 INFO RSyncBackup Starting backup.
+2005-12-18 12:12:46,803 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html' '/home/developer/backup/cospar2006/current/'
+2005-12-18 12:12:48,162 INFO RSyncBackup Rsync backup successful.
+2005-12-18 12:12:48,163 DEBUG RSyncBackup Rsync output: 
+2005-12-18 12:12:48,164 INFO RSyncBackup Starting backup.
+2005-12-18 12:12:48,165 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/home/developer/backup/cospar2006/mysql/csm'
+2005-12-18 12:12:48,228 INFO RSyncBackup Rsync backup successful.
+2005-12-18 12:12:48,229 DEBUG RSyncBackup Rsync output: 
+2005-12-18 12:12:48,230 DEBUG RSyncBackup Time backup was started: Sun Dec 18 04:12:46 2005
+2005-12-18 12:12:48,231 INFO RSyncBackup Last Run File updated succesfully
+2005-12-18 15:40:02,507 DEBUG RSyncBackup lastTime: 1134850366.0 nowTime: 1134862802.0
+2005-12-18 15:40:02,529 INFO RSyncBackup Time to perform backup.
+2005-12-18 15:40:02,530 INFO RSyncBackup Starting backup.
+2005-12-18 15:40:02,531 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html' '/home/developer/backup/cospar2006/current/'
+2005-12-18 15:40:10,385 ERROR RSyncBackup Error running rsync: rsync: opendir "/var/www/html/administrator" failed: Permission denied (13)
+IO error encountered - skipping file deletion
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-18 15:40:15,272 INFO RSyncBackup Starting backup.
+2005-12-18 15:40:15,273 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/home/developer/backup/cospar2006/mysql/csm'
+2005-12-18 15:40:15,457 ERROR RSyncBackup Error running rsync: rsync: opendir "/var/lib/mysql/csm" failed: Permission denied (13)
+IO error encountered - skipping file deletion
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-18 15:40:20,145 DEBUG RSyncBackup Time backup was started: Sun Dec 18 07:40:02 2005
+2005-12-18 15:40:20,147 INFO RSyncBackup Last Run File updated succesfully
+2005-12-18 15:45:01,611 DEBUG RSyncBackup lastTime: 1134862802.0 nowTime: 1134863101.0
+2005-12-18 15:45:01,612 INFO RSyncBackup Time to perform backup.
+2005-12-18 15:45:01,613 INFO RSyncBackup Starting backup.
+2005-12-18 15:45:01,614 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html' '/home/developer/backup/cospar2006/current/'
+2005-12-18 15:45:04,364 ERROR RSyncBackup Error running rsync: rsync: opendir "/var/www/html/administrator" failed: Permission denied (13)
+IO error encountered - skipping file deletion
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-18 15:45:04,809 INFO RSyncBackup Starting backup.
+2005-12-18 15:45:04,810 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/home/developer/backup/cospar2006/mysql/csm'
+2005-12-18 15:45:04,872 ERROR RSyncBackup Error running rsync: rsync: opendir "/var/lib/mysql/csm" failed: Permission denied (13)
+IO error encountered - skipping file deletion
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-18 15:45:05,189 DEBUG RSyncBackup Time backup was started: Sun Dec 18 07:45:01 2005
+2005-12-18 15:45:05,207 INFO RSyncBackup Last Run File updated succesfully
+2005-12-18 15:50:01,743 DEBUG RSyncBackup lastTime: 1134863101.0 nowTime: 1134863401.0
+2005-12-18 15:50:01,744 INFO RSyncBackup Time to perform backup.
+2005-12-18 15:50:01,745 INFO RSyncBackup Starting backup.
+2005-12-18 15:50:01,746 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html' '/home/developer/backup/cospar2006/current/'
+2005-12-18 15:50:02,505 ERROR RSyncBackup Error running rsync: rsync: opendir "/var/www/html/administrator" failed: Permission denied (13)
+IO error encountered - skipping file deletion
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-18 15:50:02,746 INFO RSyncBackup Starting backup.
+2005-12-18 15:50:02,747 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/home/developer/backup/cospar2006/mysql/csm'
+2005-12-18 15:50:02,879 ERROR RSyncBackup Error running rsync: rsync: opendir "/var/lib/mysql/csm" failed: Permission denied (13)
+IO error encountered - skipping file deletion
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-18 15:50:03,079 DEBUG RSyncBackup Time backup was started: Sun Dec 18 07:50:01 2005
+2005-12-18 15:50:03,080 INFO RSyncBackup Last Run File updated succesfully
+2005-12-18 15:51:00,714 DEBUG RSyncBackup lastTime: 1134863401.0 nowTime: 1134863460.0
+2005-12-18 15:51:00,715 INFO RSyncBackup Not yet time to backup.
+2005-12-18 15:55:01,603 DEBUG RSyncBackup lastTime: 1134863401.0 nowTime: 1134863701.0
+2005-12-18 15:55:01,604 INFO RSyncBackup Time to perform backup.
+2005-12-18 15:55:01,605 INFO RSyncBackup Starting backup.
+2005-12-18 15:55:01,606 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html' '/home/developer/backup/cospar2006/current/'
+2005-12-18 15:55:02,497 ERROR RSyncBackup Error running rsync: rsync: opendir "/var/www/html/administrator" failed: Permission denied (13)
+IO error encountered - skipping file deletion
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-18 15:55:02,855 INFO RSyncBackup Starting backup.
+2005-12-18 15:55:02,856 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/home/developer/backup/cospar2006/mysql/csm'
+2005-12-18 15:55:02,920 ERROR RSyncBackup Error running rsync: rsync: opendir "/var/lib/mysql/csm" failed: Permission denied (13)
+IO error encountered - skipping file deletion
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-18 15:55:03,066 DEBUG RSyncBackup Time backup was started: Sun Dec 18 07:55:01 2005
+2005-12-18 15:55:03,068 INFO RSyncBackup Last Run File updated succesfully
+2005-12-18 16:00:03,926 DEBUG RSyncBackup lastTime: 1134863701.0 nowTime: 1134864003.0
+2005-12-18 16:00:03,952 INFO RSyncBackup Time to perform backup.
+2005-12-18 16:00:03,953 INFO RSyncBackup Starting backup.
+2005-12-18 16:00:03,954 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html' '/home/developer/backup/cospar2006/current/'
+2005-12-18 16:00:08,392 ERROR RSyncBackup Error running rsync: rsync: opendir "/var/www/html/administrator" failed: Permission denied (13)
+IO error encountered - skipping file deletion
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-18 16:00:25,478 INFO RSyncBackup Starting backup.
+2005-12-18 16:00:25,479 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/home/developer/backup/cospar2006/mysql/csm'
+2005-12-18 16:00:25,636 ERROR RSyncBackup Error running rsync: rsync: opendir "/var/lib/mysql/csm" failed: Permission denied (13)
+IO error encountered - skipping file deletion
+rsync error: some files could not be transferred (code 23) at main.c(702)
+2005-12-18 16:00:26,003 DEBUG RSyncBackup Time backup was started: Sun Dec 18 08:00:03 2005
+2005-12-18 16:00:26,051 INFO RSyncBackup Last Run File updated succesfully
+2005-12-18 16:03:02,050 DEBUG RSyncBackup lastTime: 1134864003.0 nowTime: 1134864182.0
+2005-12-18 16:03:02,051 INFO RSyncBackup Time to perform backup.
+2005-12-18 16:03:02,052 INFO RSyncBackup Starting backup.
+2005-12-18 16:03:02,053 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html' '/home/developer/backup/cospar2006/current/'
+2005-12-18 16:03:03,502 INFO RSyncBackup Rsync backup successful.
+2005-12-18 16:03:03,503 DEBUG RSyncBackup Rsync output: 
+2005-12-18 16:03:03,504 INFO RSyncBackup Starting backup.
+2005-12-18 16:03:03,505 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/home/developer/backup/cospar2006/mysql/csm'
+2005-12-18 16:03:03,587 INFO RSyncBackup Rsync backup successful.
+2005-12-18 16:03:03,588 DEBUG RSyncBackup Rsync output: 
+2005-12-18 16:03:03,589 DEBUG RSyncBackup Time backup was started: Sun Dec 18 08:03:02 2005
+2005-12-18 16:03:03,590 INFO RSyncBackup Last Run File updated succesfully
+2005-12-18 16:06:37,775 DEBUG RSyncBackup lastTime: 1134864182.0 nowTime: 1134864397.0
+2005-12-18 16:06:37,776 INFO RSyncBackup Time to perform backup.
+2005-12-18 16:06:37,777 INFO RSyncBackup Starting backup.
+2005-12-18 16:06:37,778 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html' '/home/developer/backup/cospar2006/current/'
+2005-12-18 16:06:38,459 INFO RSyncBackup Rsync backup successful.
+2005-12-18 16:06:38,460 DEBUG RSyncBackup Rsync output: 
+2005-12-18 16:06:38,460 INFO RSyncBackup Starting backup.
+2005-12-18 16:06:38,461 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/home/developer/backup/cospar2006/mysql/csm'
+2005-12-18 16:06:38,523 INFO RSyncBackup Rsync backup successful.
+2005-12-18 16:06:38,524 DEBUG RSyncBackup Rsync output: 
+2005-12-18 16:06:38,525 DEBUG RSyncBackup Time backup was started: Sun Dec 18 08:06:37 2005
+2005-12-18 16:06:38,527 INFO RSyncBackup Last Run File updated succesfully
+2005-12-18 16:26:12,239 DEBUG RSyncBackup lastTime: 1134864397.0 nowTime: 1134865572.0
+2005-12-18 16:26:12,240 INFO RSyncBackup Time to perform backup.
+2005-12-18 16:26:12,241 INFO RSyncBackup Starting backup.
+2005-12-18 16:26:12,241 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html' '/home/developer/backup/cospar2006/current/'
+2005-12-18 16:26:12,979 INFO RSyncBackup Rsync backup successful.
+2005-12-18 16:26:12,980 DEBUG RSyncBackup Rsync output: 
+2005-12-18 16:26:12,981 INFO RSyncBackup Starting backup.
+2005-12-18 16:26:12,982 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/home/developer/backup/cospar2006/mysql/csm'
+2005-12-18 16:26:13,043 INFO RSyncBackup Rsync backup successful.
+2005-12-18 16:26:13,044 DEBUG RSyncBackup Rsync output: 
+2005-12-18 16:26:13,045 DEBUG RSyncBackup Time backup was started: Sun Dec 18 08:26:12 2005
+2005-12-18 16:26:13,046 INFO RSyncBackup Last Run File updated succesfully
+2005-12-18 16:26:51,751 DEBUG RSyncBackup lastTime: 1134865572.0 nowTime: 1134865611.0
+2005-12-18 16:26:51,752 INFO RSyncBackup Not yet time to backup.
+2005-12-18 16:27:07,396 DEBUG RSyncBackup lastTime: 1134865572.0 nowTime: 1134865627.0
+2005-12-18 16:27:07,398 INFO RSyncBackup Not yet time to backup.
+2005-12-18 16:28:05,340 DEBUG RSyncBackup lastTime: 1134865572.0 nowTime: 1134865685.0
+2005-12-18 16:28:05,341 INFO RSyncBackup Time to perform backup.
+2005-12-18 16:28:05,342 INFO RSyncBackup Starting backup.
+2005-12-18 16:28:05,343 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html' '/home/developer/backup/cospar2006/current/'
+2005-12-18 16:28:06,021 INFO RSyncBackup Rsync backup successful.
+2005-12-18 16:28:06,022 DEBUG RSyncBackup Rsync output: 
+2005-12-18 16:28:06,023 INFO RSyncBackup Starting backup.
+2005-12-18 16:28:06,024 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/home/developer/backup/cospar2006/mysql/csm'
+2005-12-18 16:28:06,087 INFO RSyncBackup Rsync backup successful.
+2005-12-18 16:28:06,088 DEBUG RSyncBackup Rsync output: 
+2005-12-18 16:28:06,089 DEBUG RSyncBackup Time backup was started: Sun Dec 18 08:28:05 2005
+2005-12-18 16:28:06,090 INFO RSyncBackup Last Run File updated succesfully
+2005-12-18 16:29:28,847 DEBUG RSyncBackup lastTime: 1134865685.0 nowTime: 1134865768.0
+2005-12-18 16:29:28,848 INFO RSyncBackup Time to perform backup.
+2005-12-18 16:29:28,849 INFO RSyncBackup Starting backup.
+2005-12-18 16:29:28,850 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html' '/home/developer/backup/cospar2006/current/'
+2005-12-18 16:29:29,544 INFO RSyncBackup Rsync backup successful.
+2005-12-18 16:29:29,545 DEBUG RSyncBackup Rsync output: 
+2005-12-18 16:29:29,546 INFO RSyncBackup Starting backup.
+2005-12-18 16:29:29,547 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql/csm' '/home/developer/backup/cospar2006/mysql/csm'
+2005-12-18 16:29:29,609 INFO RSyncBackup Rsync backup successful.
+2005-12-18 16:29:29,610 DEBUG RSyncBackup Rsync output: 
+2005-12-18 16:29:29,611 DEBUG RSyncBackup Time backup was started: Sun Dec 18 08:29:28 2005
+2005-12-18 16:29:29,612 INFO RSyncBackup Last Run File updated succesfully
+2005-12-18 16:59:35,094 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-18 16:59:35,232 DEBUG RSyncBackup lastTime: 1134865768.0 nowTime: 1134867575.0
+2005-12-18 16:59:35,233 INFO RSyncBackup Not yet time to backup.
+2005-12-18 17:01:48,942 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-18 17:01:49,013 DEBUG RSyncBackup lastTime: 1134865768.0 nowTime: 1134867709.0
+2005-12-18 17:01:49,014 INFO RSyncBackup Time to perform backup.
+2005-12-18 17:01:49,015 INFO RSyncBackup Starting test run of backup.
+2005-12-18 17:01:49,015 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html/' '/home/developer/backup/cospar2006/current/'
+2005-12-18 17:01:49,016 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/var/www/html/' '/home/developer/backup/cospar2006/current/'
+2005-12-18 17:01:49,017 INFO RSyncBackup Starting test run of backup.
+2005-12-18 17:01:49,018 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql' '/home/developer/backup/mysql/'
+2005-12-18 17:01:49,018 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/var/lib/mysql' '/home/developer/backup/mysql/'
+2005-12-18 17:01:49,019 DEBUG RSyncBackup TestRun - not writing out last run file.
+2005-12-18 17:03:14,172 DEBUG RSyncBackup lastTime: 1134865768.0 nowTime: 1134867794.0
+2005-12-18 17:03:14,173 INFO RSyncBackup Time to perform backup.
+2005-12-18 17:03:14,174 INFO RSyncBackup Starting backup.
+2005-12-18 17:03:14,175 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html/' '/home/developer/backup/cospar2006/current/'
+2005-12-18 17:03:15,344 ERROR RSyncBackup Error running rsync: rsync: mkdir "/home/developer/backup/cospar2006/current" failed: No such file or directory (2)
+rsync error: error in file IO (code 11) at main.c(381)
+rsync: connection unexpectedly closed (8 bytes received so far) [sender]
+rsync error: error in rsync protocol data stream (code 12) at io.c(359)
+2005-12-18 17:03:20,150 INFO RSyncBackup Starting backup.
+2005-12-18 17:03:20,151 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql' '/home/developer/backup/mysql/'
+2005-12-18 17:03:27,433 INFO RSyncBackup Rsync backup successful.
+2005-12-18 17:03:27,435 DEBUG RSyncBackup Rsync output: 
+2005-12-18 17:03:27,436 DEBUG RSyncBackup Time backup was started: Sun Dec 18 09:03:14 2005
+2005-12-18 17:03:27,451 INFO RSyncBackup Last Run File updated succesfully
+2005-12-18 17:11:06,070 DEBUG RSyncBackup lastTime: 1134867794.0 nowTime: 1134868266.0
+2005-12-18 17:11:06,071 INFO RSyncBackup Time to perform backup.
+2005-12-18 17:11:06,072 INFO RSyncBackup Starting backup.
+2005-12-18 17:11:06,073 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html/' '/home/developer/backup/cospar2006-website/'
+2005-12-18 17:14:20,087 INFO RSyncBackup Rsync backup successful.
+2005-12-18 17:14:20,176 DEBUG RSyncBackup Rsync output: 
+2005-12-18 17:14:20,177 INFO RSyncBackup Starting backup.
+2005-12-18 17:14:20,177 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql' '/home/developer/backup/cospar2006-mysql/'
+2005-12-18 17:14:30,135 INFO RSyncBackup Rsync backup successful.
+2005-12-18 17:14:30,136 DEBUG RSyncBackup Rsync output: 
+2005-12-18 17:14:30,137 DEBUG RSyncBackup Time backup was started: Sun Dec 18 09:11:06 2005
+2005-12-18 17:14:30,175 INFO RSyncBackup Last Run File updated succesfully
+2005-12-18 17:19:34,527 DEBUG RSyncBackup lastTime: 1134868266.0 nowTime: 1134868774.0
+2005-12-18 17:19:34,529 INFO RSyncBackup Time to perform backup.
+2005-12-18 17:19:34,529 INFO RSyncBackup Starting backup.
+2005-12-18 17:19:34,530 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html' '/home/developer/backup/cospar2006-website/'
+2005-12-18 17:22:58,477 INFO RSyncBackup Rsync backup successful.
+2005-12-18 17:22:58,555 DEBUG RSyncBackup Rsync output: 
+2005-12-18 17:22:58,556 INFO RSyncBackup Starting backup.
+2005-12-18 17:22:58,556 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql' '/home/developer/backup/cospar2006-mysql/'
+2005-12-18 17:23:08,022 INFO RSyncBackup Rsync backup successful.
+2005-12-18 17:23:08,023 DEBUG RSyncBackup Rsync output: 
+2005-12-18 17:23:08,024 DEBUG RSyncBackup Time backup was started: Sun Dec 18 09:19:34 2005
+2005-12-18 17:23:08,054 INFO RSyncBackup Last Run File updated succesfully
+2005-12-18 17:25:05,371 DEBUG RSyncBackup lastTime: 1134868774.0 nowTime: 1134869105.0
+2005-12-18 17:25:05,372 INFO RSyncBackup Time to perform backup.
+2005-12-18 17:25:05,372 INFO RSyncBackup Starting backup.
+2005-12-18 17:25:05,373 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/www/html' '/home/developer/backup/cospar2006-website/'
+2005-12-18 17:28:25,061 INFO RSyncBackup Rsync backup successful.
+2005-12-18 17:28:25,158 DEBUG RSyncBackup Rsync output: 
+2005-12-18 17:28:25,159 INFO RSyncBackup Starting backup.
+2005-12-18 17:28:25,160 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/var/lib/mysql' '/home/developer/backup/cospar2006-mysql/'
+2005-12-18 17:28:32,686 INFO RSyncBackup Rsync backup successful.
+2005-12-18 17:28:32,688 DEBUG RSyncBackup Rsync output: 
+2005-12-18 17:28:32,688 DEBUG RSyncBackup Time backup was started: Sun Dec 18 09:25:05 2005
+2005-12-18 17:28:32,726 INFO RSyncBackup Last Run File updated succesfully
+2005-12-25 15:02:02,762 INFO RSyncBackup TestRun detected - no file operations will be performed.
+2005-12-25 15:02:02,860 DEBUG RSyncBackup lastTime: 1134869105.0 nowTime: 1135465322.0
+2005-12-25 15:02:02,861 INFO RSyncBackup Time to perform backup.
+2005-12-25 15:02:02,862 INFO RSyncBackup Starting test run of backup.
+2005-12-25 15:02:02,862 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-backup/cospar2006-website' '/var/www/html'
+2005-12-25 15:02:02,863 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-backup/cospar2006-website' '/var/www/html'
+2005-12-25 15:02:02,864 INFO RSyncBackup Starting test run of backup.
+2005-12-25 15:02:02,865 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-backup/cospar2006-mysql/mysql/mysql' '/var/lib/mysql'
+2005-12-25 15:02:02,865 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-backup/cospar2006-mysql/mysql/mysql' '/var/lib/mysql'
+2005-12-25 15:02:02,866 INFO RSyncBackup Starting test run of backup.
+2005-12-25 15:02:02,867 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2005-12-25 15:02:02,868 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/my.cnf' '/etc/my.cnf'
+2005-12-25 15:02:02,869 INFO RSyncBackup Starting test run of backup.
+2005-12-25 15:02:02,870 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2005-12-25 15:02:02,870 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/php.ini' '/etc/php.ini'
+2005-12-25 15:02:02,871 INFO RSyncBackup Starting test run of backup.
+2005-12-25 15:02:02,872 DEBUG RSyncBackup Running command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2005-12-25 15:02:02,873 WARNING RSyncBackup TestRun - would execute command: /usr/bin/rsync --archive --delete '/home/developer/cospar2006-bakcup/cospar2006-config/httpd.conf' '/etc/httpd/conf/httpd.conf'
+2005-12-25 15:02:02,873 DEBUG RSyncBackup TestRun - not writing out last run file.

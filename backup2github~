@@ -1,0 +1,22 @@
+#!/bin/sh
+# backup 'EasyReception' directory under 'Karrigell/ereception' to http://github.com 'EasyReception' repository
+
+# global command variables
+RSYNC=/usr/bin/rsync
+
+# global diretories' names
+SOURCE=/home/broader/develop/R@K/CMS/Karrigell/ereception/
+GITDIR=/home/broader/develop/EasyReception/develop
+
+# first, backup the director to /home/broader/develop/EasyReception
+echo 'Synchronize Karrigell/ereception to local EasyReception.\n'
+$RSYNC   -avzur  --delete --progress $SOURCE $GITDIR
+
+# second, backup the local /home/broader/develop/EasyReception to github
+echo '\nSynchronize local files to git respository.\n'
+message='date -R'
+$message
+cd /home/broader/develop/EasyReception
+git add .
+git commit -m ''
+git push origin master
