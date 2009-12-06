@@ -265,7 +265,7 @@ def page_valid(**args):
     """
     Valid the account informations of user.
     """
-    print '0'
+    print '1'
     
 def page_switchImg(**args):
     """ A function to switch a captcha image and corresponding captcha key.

@@ -208,6 +208,7 @@ def index(**args):
           'captcha':el.getProperty('value'),
           'ckey':$(captchaKey).getProperty('value')
        }); 
+       
        if(capthcaValidTag){
           capthcaValidTag=false;   // reset global variable 'valid' to be 'false'
           return true
