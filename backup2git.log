@@ -125,3 +125,30 @@ sent 19717 bytes  received 20 bytes  39474.00 bytes/sec
 total size is 2946721  speedup is 149.30
 2009-12-06 12:00:49,303 INFO End backup loacl karrigell diretory to local git.
 2009-12-06 12:00:49,303 INFO Begin to backup local github to remote github host.
+2009-12-06 12:00:49,310 INFO Command: 
+git --git-dir=/home/broader/develop/EasyReception/.git add .
+running result is :
+2009-12-06 12:00:49,329 INFO Command: 
+git --git-dir=/home/broader/develop/EasyReception/.git commit -m 'Update time:2009-12-06T12:00:49.303873'
+running result is :Created commit 15928a5: Update time:2009-12-06T12:00:49.303873
+ 1 files changed, 29 insertions(+), 0 deletions(-)
+2009-12-06 12:00:55,179 INFO Command: 
+git --git-dir=/home/broader/develop/EasyReception/.git push origin master
+running result is :Counting objects: 5, done.
+Compressing objects:  33% (1/3)   Compressing objects:  66% (2/3)   Compressing objects: 100% (3/3)   Compressing objects: 100% (3/3), done.
+Writing objects:  33% (1/3)   Writing objects:  66% (2/3)   Writing objects: 100% (3/3)   Writing objects: 100% (3/3), 649 bytes, done.
+Total 3 (delta 2), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   9282c00..15928a5  master -> master
+2009-12-06 12:00:55,180 INFO End backup local github to remote github host.
+2009-12-06 12:06:24,412 INFO Begin to backup loacl karrigell diretory to local git.
+
+2009-12-06 12:06:24,474 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ereception/ /home/broader/develop/EasyReception/develop
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files... 800 files... 900 files...947 files to consider
+
+sent 19717 bytes  received 20 bytes  39474.00 bytes/sec
+total size is 2946721  speedup is 149.30
+2009-12-06 12:06:24,474 INFO End backup loacl karrigell diretory to local git.
+2009-12-06 12:06:24,474 INFO Begin to backup local github to remote github host.
