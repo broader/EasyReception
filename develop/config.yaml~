@@ -1,1 +1,8 @@
-safdsaf
+---
+userBaseInfo:
+  fields: !!python/tuple [prefix, firstname, lastname, gender, organization, phone,
+    fax, aperson, address, city, country, postcode]
+  labels: {address: 'Address :', aperson: 'Accompany Person :', city: 'City :', country: 'Country
+      :', fax: 'Fax :', firstname: 'First Name :', gender: 'Gender :', lastname: 'Last
+      Name :', organization: 'Organization :', phone: 'Phone :', postcode: 'Postal
+      Code :', prefix: 'Prefix :'}
