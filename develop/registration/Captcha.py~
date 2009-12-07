@@ -92,18 +92,11 @@ class Captcha(object):
 		 
 random.seed(time.time())
 tmpdir = 'tmp'
-RELDIR = 'registration'
 
 # a special function for get the absolute path
-def getPath(curpath):
-    from HTMLTags import H2
-    #print H2(relpath)
-    print H2(os.path.join( rel,curpath ))
-    #print H2(rel)
-    # CONFIG is the builltin variable of Karrigell web server
-    root = CONFIG.root_dir
-    #return os.path.join(root, RELDIR, curpath)  
-    return os.path.join( rel,curpath )
+def getPath(curpath):    
+    # RELDIR is a page variable which was transferred by the script that calls this script
+    return os.path.join( RELDIR,curpath )
 
 def getChallenge():
     # get a CAPTCHA object

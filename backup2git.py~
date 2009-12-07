@@ -11,7 +11,8 @@ import logging, os, sys
 
 RSYNC = 'rsync'
 RSYNCOPTIONS = ( '-avzur', '--delete', '--progress' )
-GIT = 'git --git-dir=/home/broader/develop/EasyReception/.git'
+#GIT = 'git --git-dir=/home/broader/develop/EasyReception/.git'
+GIT = 'git'
 LOGFILE = '%s'%os.path.sep.join((os.path.abspath(os.path.curdir), 'backup2git.log'))
 KARRIGELLSRC = '/home/broader/develop/R@K/CMS/Karrigell/ereception/'
 LOCALGIT = '/home/broader/develop/EasyReception/develop'
@@ -39,6 +40,12 @@ def run(test):
    logger = getLogger(LOGFILE, "GitHub update" )   
    rsync = RSYNC
    git = GIT  
+   
+   # delete nousing captcha images
+   cmd = ['rm', '-f', '/'.join((KARRIGELLSRC, 'registration/tmp/.))]
+   cmd = ' '.join(cmd)
+   logger.info('Delete nousing captcha images')
+   res = action(cmd,test,logger)   
 
    # synchronize 'Karrigell/ereception' to '/home/broader/EasyReception' 
    cmd = [ rsync,]   

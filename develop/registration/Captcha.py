@@ -201,6 +201,6 @@ def _delImage(id):
  	       os.unlink(imgPath)
  	 except:
  	    traceback.print_exc()
- 	    pass
+ 	    
  	 return
         

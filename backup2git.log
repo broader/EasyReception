@@ -506,3 +506,524 @@ sent 258643 bytes  received 3226 bytes  174579.33 bytes/sec
 total size is 3212743  speedup is 12.27
 2009-12-07 16:35:51,844 INFO End backup loacl karrigell diretory to local git.
 2009-12-07 16:35:51,844 INFO Begin to backup local github to remote github host.
+2009-12-07 16:35:52,356 INFO Command: 
+git add .
+running result is :
+2009-12-07 16:35:52,835 INFO Command: 
+git commit -m 'Update time:2009-12-07T16:35:51.844968'
+running result is :Created commit bb4b2ca: Update time:2009-12-07T16:35:51.844968
+ 143 files changed, 1127 insertions(+), 122 deletions(-)
+ create mode 100644 develop/config.py
+ create mode 100644 develop/config.py~
+ create mode 100644 develop/config.yaml
+ create mode 100644 develop/config.yaml~
+ create mode 100644 develop/js/lib/moohover/css/button_off.png
+ create mode 100644 develop/js/lib/moohover/css/button_on.png
+ create mode 100644 develop/js/lib/moohover/css/moohover.css
+ create mode 100644 develop/js/lib/moohover/css/moohover.css~
+ create mode 100644 develop/js/lib/moohover/css/stylesheet.css~
+ create mode 100644 develop/js/lib/moohover/demo/images/button_off.png
+ create mode 100644 develop/js/lib/moohover/demo/images/button_on.png
+ create mode 100644 develop/js/lib/moohover/demo/index.html
+ create mode 100644 develop/js/lib/moohover/demo/script/MooHover.js
+ create mode 100644 develop/js/lib/moohover/demo/script/MooHover_compressed.js
+ create mode 100644 develop/js/lib/moohover/demo/script/mootools-1.2.1-core.js
+ create mode 100644 develop/js/lib/moohover/demo/stylesheet.css
+ create mode 100644 develop/js/lib/moohover/js/moohover.js
+ create mode 100644 develop/registration/tmp/031170a5a9.jpeg
+ create mode 100644 develop/registration/tmp/048fb52f74.jpeg
+ create mode 100644 develop/registration/tmp/04919249f9.jpeg
+ create mode 100644 develop/registration/tmp/0a8fcd0080.jpeg
+ create mode 100644 develop/registration/tmp/1011554ab1.jpeg
+ create mode 100644 develop/registration/tmp/12a61684b3.jpeg
+ create mode 100644 develop/registration/tmp/16ba07927e.jpeg
+ create mode 100644 develop/registration/tmp/1b1bb7f219.jpeg
+ create mode 100644 develop/registration/tmp/1b7e1be0b1.jpeg
+ create mode 100644 develop/registration/tmp/1cb1429cc8.jpeg
+ create mode 100644 develop/registration/tmp/1e42364f3c.jpeg
+ create mode 100644 develop/registration/tmp/2077b1220e.jpeg
+ create mode 100644 develop/registration/tmp/211df6bb79.jpeg
+ create mode 100644 develop/registration/tmp/2967d9541f.jpeg
+ create mode 100644 develop/registration/tmp/299ea9dd74.jpeg
+ create mode 100644 develop/registration/tmp/2b2b2ee38f.jpeg
+ create mode 100644 develop/registration/tmp/30f9bcb475.jpeg
+ create mode 100644 develop/registration/tmp/32c4340dd4.jpeg
+ create mode 100644 develop/registration/tmp/33facfc1fe.jpeg
+ create mode 100644 develop/registration/tmp/3a49b515da.jpeg
+ create mode 100644 develop/registration/tmp/3a9bfac9e7.jpeg
+ create mode 100644 develop/registration/tmp/3b0165067b.jpeg
+ create mode 100644 develop/registration/tmp/3c87cb4f45.jpeg
+ create mode 100644 develop/registration/tmp/3d71bdc0bc.jpeg
+ create mode 100644 develop/registration/tmp/3f4e0c8784.jpeg
+ create mode 100644 develop/registration/tmp/481092478b.jpeg
+ create mode 100644 develop/registration/tmp/4822bb11e3.jpeg
+ create mode 100644 develop/registration/tmp/483be35602.jpeg
+ create mode 100644 develop/registration/tmp/4cbf21ac9c.jpeg
+ create mode 100644 develop/registration/tmp/4ee03366fb.jpeg
+ create mode 100644 develop/registration/tmp/51e1539eb7.jpeg
+ create mode 100644 develop/registration/tmp/521e96f4f7.jpeg
+ create mode 100644 develop/registration/tmp/54f5be213d.jpeg
+ create mode 100644 develop/registration/tmp/56c41ad10d.jpeg
+ create mode 100644 develop/registration/tmp/59a6c54a40.jpeg
+ create mode 100644 develop/registration/tmp/5a7467625b.jpeg
+ create mode 100644 develop/registration/tmp/5ba294793b.jpeg
+ create mode 100644 develop/registration/tmp/5cf34e38c0.jpeg
+ create mode 100644 develop/registration/tmp/5fddc0b7c1.jpeg
+ create mode 100644 develop/registration/tmp/6629ee4eb5.jpeg
+ create mode 100644 develop/registration/tmp/68307ead61.jpeg
+ create mode 100644 develop/registration/tmp/68cdb67d47.jpeg
+ create mode 100644 develop/registration/tmp/69a6f9bc91.jpeg
+ create mode 100644 develop/registration/tmp/6bdd5f2bd9.jpeg
+ create mode 100644 develop/registration/tmp/6d1b8a9ba2.jpeg
+ create mode 100644 develop/registration/tmp/6ea061b6ab.jpeg
+ create mode 100644 develop/registration/tmp/725c12f227.jpeg
+ create mode 100644 develop/registration/tmp/73a0a35cd2.jpeg
+ create mode 100644 develop/registration/tmp/78ed670d44.jpeg
+ create mode 100644 develop/registration/tmp/7a1ec33a82.jpeg
+ create mode 100644 develop/registration/tmp/7d4c5ba67b.jpeg
+ create mode 100644 develop/registration/tmp/7f2cfef800.jpeg
+ create mode 100644 develop/registration/tmp/811e405dd5.jpeg
+ create mode 100644 develop/registration/tmp/8369eb212b.jpeg
+ create mode 100644 develop/registration/tmp/85a7e535f4.jpeg
+ create mode 100644 develop/registration/tmp/86c74d2977.jpeg
+ create mode 100644 develop/registration/tmp/876a6053dd.jpeg
+ create mode 100644 develop/registration/tmp/89971cef7d.jpeg
+ create mode 100644 develop/registration/tmp/8b38392986.jpeg
+ create mode 100644 develop/registration/tmp/90702dedf1.jpeg
+ create mode 100644 develop/registration/tmp/940d02c434.jpeg
+ create mode 100644 develop/registration/tmp/952ec01979.jpeg
+ create mode 100644 develop/registration/tmp/959d48e220.jpeg
+ create mode 100644 develop/registration/tmp/96cd17cd84.jpeg
+ create mode 100644 develop/registration/tmp/9e4fd2bf90.jpeg
+ create mode 100644 develop/registration/tmp/9eae0b0ba4.jpeg
+ create mode 100644 develop/registration/tmp/a309313541.jpeg
+ create mode 100644 develop/registration/tmp/a55bbf9428.jpeg
+ create mode 100644 develop/registration/tmp/a7fa8af8d7.jpeg
+ create mode 100644 develop/registration/tmp/ab6cba5694.jpeg
+ create mode 100644 develop/registration/tmp/acdf243184.jpeg
+ create mode 100644 develop/registration/tmp/ae7a0ffacf.jpeg
+ create mode 100644 develop/registration/tmp/b1bfb182a9.jpeg
+ create mode 100644 develop/registration/tmp/b299652685.jpeg
+ create mode 100644 develop/registration/tmp/b38cd10496.jpeg
+ create mode 100644 develop/registration/tmp/b53112bb8f.jpeg
+ create mode 100644 develop/registration/tmp/b8c1c05572.jpeg
+ create mode 100644 develop/registration/tmp/ba8bd35931.jpeg
+ create mode 100644 develop/registration/tmp/bbbd31664b.jpeg
+ create mode 100644 develop/registration/tmp/bc30278288.jpeg
+ create mode 100644 develop/registration/tmp/befb1dd476.jpeg
+ create mode 100644 develop/registration/tmp/c340671784.jpeg
+ create mode 100644 develop/registration/tmp/c75272522f.jpeg
+ create mode 100644 develop/registration/tmp/c82d218e24.jpeg
+ create mode 100644 develop/registration/tmp/ca488f4cf7.jpeg
+ create mode 100644 develop/registration/tmp/ca9e2afb29.jpeg
+ create mode 100644 develop/registration/tmp/ccc92dc302.jpeg
+ create mode 100644 develop/registration/tmp/cf1aead081.jpeg
+ create mode 100644 develop/registration/tmp/cfb8b0e203.jpeg
+ create mode 100644 develop/registration/tmp/cffe35a745.jpeg
+ create mode 100644 develop/registration/tmp/d461659e68.jpeg
+ create mode 100644 develop/registration/tmp/d8ebbd00ff.jpeg
+ create mode 100644 develop/registration/tmp/dddb7e0ca8.jpeg
+ create mode 100644 develop/registration/tmp/e16580dfae.jpeg
+ create mode 100644 develop/registration/tmp/e20a6e5ba2.jpeg
+ create mode 100644 develop/registration/tmp/e2c9e3089e.jpeg
+ create mode 100644 develop/registration/tmp/e342798010.jpeg
+ create mode 100644 develop/registration/tmp/e3599736cd.jpeg
+ create mode 100644 develop/registration/tmp/e559e093a6.jpeg
+ create mode 100644 develop/registration/tmp/e64b20495c.jpeg
+ create mode 100644 develop/registration/tmp/e73d35d41f.jpeg
+ create mode 100644 develop/registration/tmp/e7b3ea3437.jpeg
+ create mode 100644 develop/registration/tmp/e7bd0fca36.jpeg
+ create mode 100644 develop/registration/tmp/eb15908145.jpeg
+ create mode 100644 develop/registration/tmp/eb258fdbb4.jpeg
+ create mode 100644 develop/registration/tmp/ecc77b6edc.jpeg
+ create mode 100644 develop/registration/tmp/ece5fd8199.jpeg
+ create mode 100644 develop/registration/tmp/ee3f386369.jpeg
+ create mode 100644 develop/registration/tmp/f332382364.jpeg
+ create mode 100644 develop/registration/tmp/f857840825.jpeg
+ create mode 100644 develop/registration/tmp/f8ebfa2c7b.jpeg
+ create mode 100644 develop/registration/tmp/f917372bc5.jpeg
+ create mode 100644 develop/registration/tmp/f91f53bf3b.jpeg
+ create mode 100644 develop/registration/tmp/fad03aacb8.jpeg
+ create mode 100644 develop/registration/tmp/fc1f6cac4a.jpeg
+ create mode 100644 develop/registration/tmp/ff070e20fc.jpeg
+2009-12-07 16:36:02,819 INFO Command: 
+git push origin master
+running result is :Counting objects: 170, done.
+Compressing objects:   0% (1/150)   Compressing objects:   1% (2/150)   Compressing objects:   2% (3/150)   Compressing objects:   3% (5/150)   Compressing objects:   4% (6/150)   Compressing objects:   5% (8/150)   Compressing objects:   6% (9/150)   Compressing objects:   7% (11/150)   Compressing objects:   8% (12/150)   Compressing objects:   9% (14/150)   Compressing objects:  10% (15/150)   Compressing objects:  11% (17/150)   Compressing objects:  12% (18/150)   Compressing objects:  13% (20/150)   Compressing objects:  14% (21/150)   Compressing objects:  15% (23/150)   Compressing objects:  16% (24/150)   Compressing objects:  17% (26/150)   Compressing objects:  18% (27/150)   Compressing objects:  19% (29/150)   Compressing objects:  20% (30/150)   Compressing objects:  21% (32/150)   Compressing objects:  22% (33/150)   Compressing objects:  23% (35/150)   Compressing objects:  24% (36/150)   Compressing objects:  25% (38/150)   Compressing objects:  26% (39/150)   Compressing objects:  27% (41/150)   Compressing objects:  28% (42/150)   Compressing objects:  29% (44/150)   Compressing objects:  30% (45/150)   Compressing objects:  31% (47/150)   Compressing objects:  32% (48/150)   Compressing objects:  33% (50/150)   Compressing objects:  34% (51/150)   Compressing objects:  35% (53/150)   Compressing objects:  36% (54/150)   Compressing objects:  37% (56/150)   Compressing objects:  38% (57/150)   Compressing objects:  39% (59/150)   Compressing objects:  40% (60/150)   Compressing objects:  41% (62/150)   Compressing objects:  42% (63/150)   Compressing objects:  43% (65/150)   Compressing objects:  44% (66/150)   Compressing objects:  45% (68/150)   Compressing objects:  46% (69/150)   Compressing objects:  47% (71/150)   Compressing objects:  48% (72/150)   Compressing objects:  49% (74/150)   Compressing objects:  50% (75/150)   Compressing objects:  51% (77/150)   Compressing objects:  52% (78/150)   Compressing objects:  53% (80/150)   Compressing objects:  54% (81/150)   Compressing objects:  55% (83/150)   Compressing objects:  56% (84/150)   Compressing objects:  57% (86/150)   Compressing objects:  58% (87/150)   Compressing objects:  59% (89/150)   Compressing objects:  60% (90/150)   Compressing objects:  61% (92/150)   Compressing objects:  62% (93/150)   Compressing objects:  63% (95/150)   Compressing objects:  64% (96/150)   Compressing objects:  65% (98/150)   Compressing objects:  66% (99/150)   Compressing objects:  67% (101/150)   Compressing objects:  68% (102/150)   Compressing objects:  69% (104/150)   Compressing objects:  70% (105/150)   Compressing objects:  71% (107/150)   Compressing objects:  72% (108/150)   Compressing objects:  73% (110/150)   Compressing objects:  74% (111/150)   Compressing objects:  75% (113/150)   Compressing objects:  76% (114/150)   Compressing objects:  77% (116/150)   Compressing objects:  78% (117/150)   Compressing objects:  79% (119/150)   Compressing objects:  80% (120/150)   Compressing objects:  81% (122/150)   Compressing objects:  82% (123/150)   Compressing objects:  83% (125/150)   Compressing objects:  84% (126/150)   Compressing objects:  85% (128/150)   Compressing objects:  86% (129/150)   Compressing objects:  87% (131/150)   Compressing objects:  88% (132/150)   Compressing objects:  89% (134/150)   Compressing objects:  90% (135/150)   Compressing objects:  91% (137/150)   Compressing objects:  92% (138/150)   Compressing objects:  93% (140/150)   Compressing objects:  94% (141/150)   Compressing objects:  95% (143/150)   Compressing objects:  96% (144/150)   Compressing objects:  97% (146/150)   Compressing objects:  98% (147/150)   Compressing objects:  99% (149/150)   Compressing objects: 100% (150/150)   Compressing objects: 100% (150/150), done.
+Writing objects:   0% (1/153)   Writing objects:   1% (2/153)   Writing objects:   2% (4/153)   Writing objects:   3% (6/153)   Writing objects:   4% (7/153)   Writing objects:   5% (8/153)   Writing objects:   6% (10/153)   Writing objects:   7% (11/153)   Writing objects:   8% (13/153)   Writing objects:   9% (14/153)   Writing objects:  10% (16/153)   Writing objects:  11% (17/153)   Writing objects:  12% (19/153)   Writing objects:  13% (20/153)   Writing objects:  14% (22/153)   Writing objects:  15% (24/153)   Writing objects:  16% (25/153)   Writing objects:  17% (27/153)   Writing objects:  18% (28/153)   Writing objects:  19% (30/153)   Writing objects:  20% (31/153)   Writing objects:  21% (33/153)   Writing objects:  22% (34/153)   Writing objects:  23% (36/153)   Writing objects:  24% (37/153)   Writing objects:  25% (39/153)   Writing objects:  26% (40/153)   Writing objects:  27% (42/153)   Writing objects:  28% (43/153)   Writing objects:  29% (45/153)   Writing objects:  30% (46/153)   Writing objects:  31% (48/153)   Writing objects:  32% (49/153)   Writing objects:  33% (51/153)   Writing objects:  34% (53/153)   Writing objects:  35% (54/153)   Writing objects:  36% (56/153)   Writing objects:  37% (57/153)   Writing objects:  38% (59/153)   Writing objects:  39% (60/153)   Writing objects:  40% (62/153)   Writing objects:  41% (63/153)   Writing objects:  42% (65/153)   Writing objects:  43% (66/153)   Writing objects:  44% (68/153)   Writing objects:  45% (69/153)   Writing objects:  46% (71/153)   Writing objects:  47% (72/153)   Writing objects:  48% (74/153)   Writing objects:  49% (75/153)   Writing objects:  50% (77/153)   Writing objects:  51% (79/153)   Writing objects:  52% (80/153)   Writing objects:  53% (82/153)   Writing objects:  54% (83/153)   Writing objects:  55% (85/153)   Writing objects:  56% (86/153)   Writing objects:  57% (88/153)   Writing objects:  58% (89/153)   Writing objects:  59% (91/153)   Writing objects:  60% (92/153)   Writing objects:  61% (94/153)   Writing objects:  62% (95/153)   Writing objects:  63% (97/153)   Writing objects:  64% (98/153)   Writing objects:  65% (100/153)   Writing objects:  66% (101/153)   Writing objects:  67% (103/153)   Writing objects:  68% (105/153)   Writing objects:  69% (106/153)   Writing objects:  70% (108/153)   Writing objects:  71% (109/153)   Writing objects:  72% (111/153)   Writing objects:  73% (112/153)   Writing objects:  74% (114/153)   Writing objects:  75% (115/153)   Writing objects:  76% (117/153)   Writing objects:  77% (118/153)   Writing objects:  78% (120/153)   Writing objects:  79% (121/153)   Writing objects:  80% (123/153)   Writing objects:  81% (124/153)   Writing objects:  82% (126/153)   Writing objects:  83% (127/153)   Writing objects:  84% (129/153)   Writing objects:  85% (131/153)   Writing objects:  86% (132/153)   Writing objects:  87% (134/153)   Writing objects:  88% (135/153)   Writing objects:  89% (137/153)   Writing objects:  90% (138/153)   Writing objects:  91% (140/153)   Writing objects:  92% (141/153)   Writing objects:  93% (143/153)   Writing objects:  94% (144/153)   Writing objects:  95% (146/153)   Writing objects:  96% (147/153)   Writing objects:  97% (149/153)   Writing objects:  98% (150/153)   Writing objects:  99% (152/153)   Writing objects: 100% (153/153)   Writing objects: 100% (153/153), 214.22 KiB, done.
+Total 153 (delta 16), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   2af9b01..bb4b2ca  master -> master
+2009-12-07 16:36:02,819 INFO End backup local github to remote github host.
+2009-12-07 18:28:34,013 INFO Delete nousing captcha images
+2009-12-07 18:28:34,032 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/ereception//registration/tmp/.
+running result is :Test
+2009-12-07 18:28:34,032 INFO Begin to backup loacl karrigell diretory to local git.
+
+2009-12-07 18:28:34,860 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ereception/ /home/broader/develop/EasyReception/develop
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files...758 files to consider
+deleting registration/tmp/ffa2beec1f.jpeg
+deleting registration/tmp/ff336cad0e.jpeg
+deleting registration/tmp/ff070e20fc.jpeg
+deleting registration/tmp/fe0a78d9ed.jpeg
+deleting registration/tmp/fe03f835ca.jpeg
+deleting registration/tmp/fd68d8ed90.jpeg
+deleting registration/tmp/fc1f6cac4a.jpeg
+deleting registration/tmp/fb6f9fcca1.jpeg
+deleting registration/tmp/fad03aacb8.jpeg
+deleting registration/tmp/f928f93305.jpeg
+deleting registration/tmp/f91f53bf3b.jpeg
+deleting registration/tmp/f917372bc5.jpeg
+deleting registration/tmp/f8ebfa2c7b.jpeg
+deleting registration/tmp/f857840825.jpeg
+deleting registration/tmp/f55bc16f72.jpeg
+deleting registration/tmp/f496248cfa.jpeg
+deleting registration/tmp/f46f5815cb.jpeg
+deleting registration/tmp/f332382364.jpeg
+deleting registration/tmp/f32b4df5e9.jpeg
+deleting registration/tmp/f2141e7ca9.jpeg
+deleting registration/tmp/f1a4ff6de8.jpeg
+deleting registration/tmp/f043fb7d8e.jpeg
+deleting registration/tmp/efbf1af15b.jpeg
+deleting registration/tmp/ef2ce30aee.jpeg
+deleting registration/tmp/ee99a4a370.jpeg
+deleting registration/tmp/ee3f386369.jpeg
+deleting registration/tmp/ee248a54ee.jpeg
+deleting registration/tmp/ed70f31bba.jpeg
+deleting registration/tmp/ece5fd8199.jpeg
+deleting registration/tmp/ecd9207061.jpeg
+deleting registration/tmp/ecc77b6edc.jpeg
+deleting registration/tmp/ecc4970655.jpeg
+deleting registration/tmp/eca62e3f40.jpeg
+deleting registration/tmp/ec501804c6.jpeg
+deleting registration/tmp/eb70eebcfd.jpeg
+deleting registration/tmp/eb258fdbb4.jpeg
+deleting registration/tmp/eb15908145.jpeg
+deleting registration/tmp/ead11c2429.jpeg
+deleting registration/tmp/ea410428fd.jpeg
+deleting registration/tmp/e9ccaf168f.jpeg
+deleting registration/tmp/e95774fa19.jpeg
+deleting registration/tmp/e85eb7ef3c.jpeg
+deleting registration/tmp/e7bd0fca36.jpeg
+deleting registration/tmp/e7b3ea3437.jpeg
+deleting registration/tmp/e75322f372.jpeg
+deleting registration/tmp/e73d35d41f.jpeg
+deleting registration/tmp/e64b20495c.jpeg
+deleting registration/tmp/e559e093a6.jpeg
+deleting registration/tmp/e3599736cd.jpeg
+deleting registration/tmp/e342798010.jpeg
+deleting registration/tmp/e2c9e3089e.jpeg
+deleting registration/tmp/e20a6e5ba2.jpeg
+deleting registration/tmp/e1fab3395d.jpeg
+deleting registration/tmp/e16580dfae.jpeg
+deleting registration/tmp/de6359a02f.jpeg
+deleting registration/tmp/dddb7e0ca8.jpeg
+deleting registration/tmp/ddcb23cff8.jpeg
+deleting registration/tmp/dcdcdd1525.jpeg
+deleting registration/tmp/dca59c92f7.jpeg
+deleting registration/tmp/dc2933a85d.jpeg
+deleting registration/tmp/db0b0c774c.jpeg
+deleting registration/tmp/dafc62cf00.jpeg
+deleting registration/tmp/d9066d3213.jpeg
+deleting registration/tmp/d8ebbd00ff.jpeg
+deleting registration/tmp/d83372c175.jpeg
+deleting registration/tmp/d8180e28e0.jpeg
+deleting registration/tmp/d6c15a8071.jpeg
+deleting registration/tmp/d5cce884c7.jpeg
+deleting registration/tmp/d461659e68.jpeg
+deleting registration/tmp/d3e4907e86.jpeg
+deleting registration/tmp/d3cb897db6.jpeg
+deleting registration/tmp/d0c5e8d29f.jpeg
+deleting registration/tmp/cffe35a745.jpeg
+deleting registration/tmp/cfb8b0e203.jpeg
+deleting registration/tmp/cf1aead081.jpeg
+deleting registration/tmp/cdf728a82f.jpeg
+deleting registration/tmp/cda27d93e6.jpeg
+deleting registration/tmp/cd80861a3b.jpeg
+deleting registration/tmp/cd18bab889.jpeg
+deleting registration/tmp/ccc92dc302.jpeg
+deleting registration/tmp/ca9e2afb29.jpeg
+deleting registration/tmp/ca641d9294.jpeg
+deleting registration/tmp/ca488f4cf7.jpeg
+deleting registration/tmp/c91911865b.jpeg
+deleting registration/tmp/c82d218e24.jpeg
+deleting registration/tmp/c75272522f.jpeg
+deleting registration/tmp/c340671784.jpeg
+deleting registration/tmp/c330fd8e95.jpeg
+deleting registration/tmp/c05ed646c8.jpeg
+deleting registration/tmp/c03fa96cd4.jpeg
+deleting registration/tmp/bf1c734bf8.jpeg
+deleting registration/tmp/befb1dd476.jpeg
+deleting registration/tmp/bef35bdf3f.jpeg
+deleting registration/tmp/bc30278288.jpeg
+deleting registration/tmp/bbbd31664b.jpeg
+deleting registration/tmp/bbad44ed68.jpeg
+deleting registration/tmp/bb27ffffb0.jpeg
+deleting registration/tmp/ba8bd35931.jpeg
+deleting registration/tmp/ba7a704f4c.jpeg
+deleting registration/tmp/b970c4616f.jpeg
+deleting registration/tmp/b8c1c05572.jpeg
+deleting registration/tmp/b7ffeabfb5.jpeg
+deleting registration/tmp/b60192fd73.jpeg
+deleting registration/tmp/b5e41570d0.jpeg
+deleting registration/tmp/b53112bb8f.jpeg
+deleting registration/tmp/b4edd25a16.jpeg
+deleting registration/tmp/b38cd10496.jpeg
+deleting registration/tmp/b327ce725c.jpeg
+deleting registration/tmp/b299652685.jpeg
+deleting registration/tmp/b28922ef90.jpeg
+deleting registration/tmp/b25d989e2e.jpeg
+deleting registration/tmp/b1bfb182a9.jpeg
+deleting registration/tmp/ae7a0ffacf.jpeg
+deleting registration/tmp/ae2eac4e7c.jpeg
+deleting registration/tmp/ad0fd0a38c.jpeg
+deleting registration/tmp/acdf243184.jpeg
+deleting registration/tmp/ab6cba5694.jpeg
+deleting registration/tmp/a7fa8af8d7.jpeg
+deleting registration/tmp/a7f57d4b2e.jpeg
+deleting registration/tmp/a6b95e8f84.jpeg
+deleting registration/tmp/a55bbf9428.jpeg
+deleting registration/tmp/a4571b4856.jpeg
+deleting registration/tmp/a309313541.jpeg
+deleting registration/tmp/a18b9abecd.jpeg
+deleting registration/tmp/a11285c3dd.jpeg
+deleting registration/tmp/a0cda9c62c.jpeg
+deleting registration/tmp/a0769e2019.jpeg
+deleting registration/tmp/9eae0b0ba4.jpeg
+deleting registration/tmp/9e4fd2bf90.jpeg
+deleting registration/tmp/9cb3b3ef1f.jpeg
+deleting registration/tmp/9ba905299e.jpeg
+deleting registration/tmp/9b0637fc7d.jpeg
+deleting registration/tmp/9a940eb0f7.jpeg
+deleting registration/tmp/995982b291.jpeg
+deleting registration/tmp/96cd17cd84.jpeg
+deleting registration/tmp/96bb0caa27.jpeg
+deleting registration/tmp/96bb0555a5.jpeg
+deleting registration/tmp/959d48e220.jpeg
+deleting registration/tmp/952ec01979.jpeg
+deleting registration/tmp/94c3fcbdb5.jpeg
+deleting registration/tmp/9436a15b85.jpeg
+deleting registration/tmp/940d02c434.jpeg
+deleting registration/tmp/93a2412eba.jpeg
+deleting registration/tmp/9342d63c4e.jpeg
+deleting registration/tmp/92bb1e9c29.jpeg
+deleting registration/tmp/90702dedf1.jpeg
+deleting registration/tmp/8fff54d0bf.jpeg
+deleting registration/tmp/8fd93a82a7.jpeg
+deleting registration/tmp/8f9a6544eb.jpeg
+deleting registration/tmp/8f7d4830cf.jpeg
+deleting registration/tmp/8ec27cb48e.jpeg
+deleting registration/tmp/8cdae28a8c.jpeg
+deleting registration/tmp/8c850b0cd0.jpeg
+deleting registration/tmp/8bef890de1.jpeg
+deleting registration/tmp/8b8cbd5502.jpeg
+deleting registration/tmp/8b38392986.jpeg
+deleting registration/tmp/89971cef7d.jpeg
+deleting registration/tmp/88bfb86798.jpeg
+deleting registration/tmp/8896b2922d.jpeg
+deleting registration/tmp/886589099e.jpeg
+deleting registration/tmp/876a6053dd.jpeg
+deleting registration/tmp/86c74d2977.jpeg
+deleting registration/tmp/8675e21812.jpeg
+deleting registration/tmp/85da99374d.jpeg
+deleting registration/tmp/85a7e535f4.jpeg
+deleting registration/tmp/8369eb212b.jpeg
+deleting registration/tmp/828c379e31.jpeg
+deleting registration/tmp/81d9131cc3.jpeg
+deleting registration/tmp/81b294c016.jpeg
+deleting registration/tmp/811e405dd5.jpeg
+deleting registration/tmp/7f2cfef800.jpeg
+deleting registration/tmp/7ef0e2f5d9.jpeg
+deleting registration/tmp/7d81a961f9.jpeg
+deleting registration/tmp/7d4c5ba67b.jpeg
+deleting registration/tmp/7ca31d0089.jpeg
+deleting registration/tmp/7b55ee6b5f.jpeg
+deleting registration/tmp/7a1ec33a82.jpeg
+deleting registration/tmp/79bfe2ee29.jpeg
+deleting registration/tmp/79529a092e.jpeg
+deleting registration/tmp/78ed670d44.jpeg
+deleting registration/tmp/78ced9c929.jpeg
+deleting registration/tmp/7859d44ca8.jpeg
+deleting registration/tmp/766ff4c4ff.jpeg
+deleting registration/tmp/7582f30b3b.jpeg
+deleting registration/tmp/73a0a35cd2.jpeg
+deleting registration/tmp/7364c5f25d.jpeg
+deleting registration/tmp/7339e1399e.jpeg
+deleting registration/tmp/725c12f227.jpeg
+deleting registration/tmp/71ae494d26.jpeg
+deleting registration/tmp/6ef8e7e125.jpeg
+deleting registration/tmp/6ea061b6ab.jpeg
+deleting registration/tmp/6d57c01388.jpeg
+deleting registration/tmp/6d1b8a9ba2.jpeg
+deleting registration/tmp/6bdd5f2bd9.jpeg
+deleting registration/tmp/6b13986a7d.jpeg
+deleting registration/tmp/69a6f9bc91.jpeg
+deleting registration/tmp/68cdb67d47.jpeg
+deleting registration/tmp/68307ead61.jpeg
+deleting registration/tmp/6629ee4eb5.jpeg
+deleting registration/tmp/64b78306b9.jpeg
+deleting registration/tmp/642b5b808e.jpeg
+deleting registration/tmp/62dcae3acc.jpeg
+deleting registration/tmp/61c9447dc3.jpeg
+deleting registration/tmp/5fddc0b7c1.jpeg
+deleting registration/tmp/5f8a8d247a.jpeg
+deleting registration/tmp/5f31e32aff.jpeg
+deleting registration/tmp/5e3456f3e0.jpeg
+deleting registration/tmp/5dc8ed26af.jpeg
+deleting registration/tmp/5cf34e38c0.jpeg
+deleting registration/tmp/5cd445565a.jpeg
+deleting registration/tmp/5bcf647791.jpeg
+deleting registration/tmp/5ba294793b.jpeg
+deleting registration/tmp/5a7467625b.jpeg
+deleting registration/tmp/5a65c4a62a.jpeg
+deleting registration/tmp/5a08199166.jpeg
+deleting registration/tmp/59a6c54a40.jpeg
+deleting registration/tmp/57b4bfec15.jpeg
+deleting registration/tmp/5796c303f8.jpeg
+deleting registration/tmp/57571bb214.jpeg
+deleting registration/tmp/56c41ad10d.jpeg
+deleting registration/tmp/54f5be213d.jpeg
+deleting registration/tmp/521e96f4f7.jpeg
+deleting registration/tmp/521e2bfd2e.jpeg
+deleting registration/tmp/51e1539eb7.jpeg
+deleting registration/tmp/5145a82b7a.jpeg
+deleting registration/tmp/4f5439b4e8.jpeg
+deleting registration/tmp/4f1562f966.jpeg
+deleting registration/tmp/4ee03366fb.jpeg
+deleting registration/tmp/4dd322b7ba.jpeg
+deleting registration/tmp/4cbf21ac9c.jpeg
+deleting registration/tmp/4bc87ea8cb.jpeg
+deleting registration/tmp/4bafbe7c15.jpeg
+deleting registration/tmp/4ac7a6c4b1.jpeg
+deleting registration/tmp/4a1272e496.jpeg
+deleting registration/tmp/49fadfee21.jpeg
+deleting registration/tmp/49aab7753f.jpeg
+deleting registration/tmp/4982fb3427.jpeg
+deleting registration/tmp/497d5d7c15.jpeg
+deleting registration/tmp/4944c40a9c.jpeg
+deleting registration/tmp/4886d5ad38.jpeg
+deleting registration/tmp/4882f8b627.jpeg
+deleting registration/tmp/483be35602.jpeg
+deleting registration/tmp/4822bb11e3.jpeg
+deleting registration/tmp/481092478b.jpeg
+deleting registration/tmp/4713ee5745.jpeg
+deleting registration/tmp/45570ea49e.jpeg
+deleting registration/tmp/43efdca99d.jpeg
+deleting registration/tmp/43aecd8712.jpeg
+deleting registration/tmp/424addbbe8.jpeg
+deleting registration/tmp/41a3d6cf56.jpeg
+deleting registration/tmp/3f4e0c8784.jpeg
+deleting registration/tmp/3d71bdc0bc.jpeg
+deleting registration/tmp/3c87cb4f45.jpeg
+deleting registration/tmp/3bcfa0f30f.jpeg
+deleting registration/tmp/3b0165067b.jpeg
+deleting registration/tmp/3a9bfac9e7.jpeg
+deleting registration/tmp/3a49b515da.jpeg
+deleting registration/tmp/39dda3c9b2.jpeg
+deleting registration/tmp/39ce4851f5.jpeg
+deleting registration/tmp/39a1075019.jpeg
+deleting registration/tmp/398ba6c8bd.jpeg
+deleting registration/tmp/39662262aa.jpeg
+deleting registration/tmp/38f0e1cce0.jpeg
+deleting registration/tmp/3880618a6a.jpeg
+deleting registration/tmp/33facfc1fe.jpeg
+deleting registration/tmp/3344910661.jpeg
+deleting registration/tmp/32c4340dd4.jpeg
+deleting registration/tmp/32a8fbd00b.jpeg
+deleting registration/tmp/3289cd32ca.jpeg
+deleting registration/tmp/325fc601f1.jpeg
+deleting registration/tmp/324dd1d0e6.jpeg
+deleting registration/tmp/30f9bcb475.jpeg
+deleting registration/tmp/305f8229fa.jpeg
+deleting registration/tmp/3022a29657.jpeg
+deleting registration/tmp/2f2cac4681.jpeg
+deleting registration/tmp/2eb8ac4271.jpeg
+deleting registration/tmp/2e0d01b187.jpeg
+deleting registration/tmp/2ba3e103c7.jpeg
+deleting registration/tmp/2b2b2ee38f.jpeg
+deleting registration/tmp/2ac1b536d7.jpeg
+deleting registration/tmp/2a8285abf7.jpeg
+deleting registration/tmp/2a391ca8c1.jpeg
+deleting registration/tmp/299ea9dd74.jpeg
+deleting registration/tmp/2967d9541f.jpeg
+deleting registration/tmp/28f4b9419b.jpeg
+deleting registration/tmp/28983b8d85.jpeg
+deleting registration/tmp/27c7dde7a0.jpeg
+deleting registration/tmp/271dd33718.jpeg
+deleting registration/tmp/25b7b0c9c2.jpeg
+deleting registration/tmp/2446daf7df.jpeg
+deleting registration/tmp/22e9cdda2e.jpeg
+deleting registration/tmp/22ce658873.jpeg
+deleting registration/tmp/211df6bb79.jpeg
+deleting registration/tmp/2077b1220e.jpeg
+deleting registration/tmp/1f69f1125b.jpeg
+deleting registration/tmp/1e9a0aa62a.jpeg
+deleting registration/tmp/1e42364f3c.jpeg
+deleting registration/tmp/1cb1429cc8.jpeg
+deleting registration/tmp/1ca84ea744.jpeg
+deleting registration/tmp/1c439ee8b5.jpeg
+deleting registration/tmp/1b7e1be0b1.jpeg
+deleting registration/tmp/1b3ba3c581.jpeg
+deleting registration/tmp/1b1bb7f219.jpeg
+deleting registration/tmp/1a3673af14.jpeg
+deleting registration/tmp/191b8d5641.jpeg
+deleting registration/tmp/188ee26c4f.jpeg
+deleting registration/tmp/1833bd2908.jpeg
+deleting registration/tmp/17e5a94b7a.jpeg
+deleting registration/tmp/16ba07927e.jpeg
+deleting registration/tmp/12c5cc22b2.jpeg
+deleting registration/tmp/12b81159dc.jpeg
+deleting registration/tmp/12a61684b3.jpeg
+deleting registration/tmp/1087810c49.jpeg
+deleting registration/tmp/1011554ab1.jpeg
+deleting registration/tmp/1002fe8f5a.jpeg
+deleting registration/tmp/0ea1b418da.jpeg
+deleting registration/tmp/0d9a33c1e5.jpeg
+deleting registration/tmp/0c522c3fcc.jpeg
+deleting registration/tmp/0a8fcd0080.jpeg
+deleting registration/tmp/0914337a8e.jpeg
+deleting registration/tmp/08f88dfcba.jpeg
+deleting registration/tmp/0873e67667.jpeg
+deleting registration/tmp/07d4893b87.jpeg
+deleting registration/tmp/07aee3c80f.jpeg
+deleting registration/tmp/06e27c2033.jpeg
+deleting registration/tmp/04919249f9.jpeg
+deleting registration/tmp/048fb52f74.jpeg
+deleting registration/tmp/048b8f4cfb.jpeg
+deleting registration/tmp/0388bd3dd3.jpeg
+deleting registration/tmp/034764f606.jpeg
+deleting registration/tmp/03374036c4.jpeg
+deleting registration/tmp/031170a5a9.jpeg
+deleting registration/tmp/02d7384041.jpeg
+deleting registration/tmp/017558618e.jpeg
+deleting registration/tmp/011b9c0829.jpeg
+deleting registration/tmp/00aa7d8fcc.jpeg
+registration/Captcha.py
+        5900 100%    0.00kB/s    0:00:00        5900 100%    0.00kB/s    0:00:00 (xfer#1, to-check=124/758)
+registration/Captcha.py~
+        5904 100%  411.83kB/s    0:00:00        5904 100%  411.83kB/s    0:00:00 (xfer#2, to-check=123/758)
+registration/tmp/
+registration/tmp/0eedb044d8.jpeg
+        1690 100%  117.89kB/s    0:00:00        1690 100%  117.89kB/s    0:00:00 (xfer#3, to-check=107/758)
+registration/tmp/38f83ce548.jpeg
+        1843 100%  128.56kB/s    0:00:00        1843 100%  128.56kB/s    0:00:00 (xfer#4, to-check=106/758)
+registration/tmp/3a3c6890e2.jpeg
+        1992 100%  129.69kB/s    0:00:00        1992 100%  129.69kB/s    0:00:00 (xfer#5, to-check=105/758)
+registration/tmp/6b6a3aadf9.jpeg
+        1849 100%  120.38kB/s    0:00:00        1849 100%  120.38kB/s    0:00:00 (xfer#6, to-check=104/758)
+registration/tmp/9e5cb0f6b9.jpeg
+        1455 100%   94.73kB/s    0:00:00        1455 100%   94.73kB/s    0:00:00 (xfer#7, to-check=103/758)
+registration/tmp/bb03d14b3b.jpeg
+        1840 100%  112.30kB/s    0:00:00        1840 100%  112.30kB/s    0:00:00 (xfer#8, to-check=102/758)
+registration/tmp/c0417402c4.jpeg
+        1565 100%   95.52kB/s    0:00:00        1565 100%   95.52kB/s    0:00:00 (xfer#9, to-check=101/758)
+registration/tmp/c972b60d57.jpeg
+        1855 100%  113.22kB/s    0:00:00        1855 100%  113.22kB/s    0:00:00 (xfer#10, to-check=100/758)
+
+sent 32771 bytes  received 246 bytes  66034.00 bytes/sec
+total size is 2647003  speedup is 80.17
+2009-12-07 18:28:34,860 INFO End backup loacl karrigell diretory to local git.
+2009-12-07 18:28:34,860 INFO Begin to backup local github to remote github host.
