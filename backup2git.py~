@@ -42,10 +42,10 @@ def run(test):
    git = GIT  
    
    # delete nousing captcha images
-   cmd = ['rm', '-f', '/'.join((KARRIGELLSRC, 'registration/tmp/.))]
+   cmd = ['rm', '-f', '/'.join((KARRIGELLSRC, 'registration/tmp/.'))]
    cmd = ' '.join(cmd)
    logger.info('Delete nousing captcha images')
-   res = action(cmd,test,logger)   
+   res = action(cmd,True,logger)   
 
    # synchronize 'Karrigell/ereception' to '/home/broader/EasyReception' 
    cmd = [ rsync,]   

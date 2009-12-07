@@ -1027,3 +1027,42 @@ sent 32771 bytes  received 246 bytes  66034.00 bytes/sec
 total size is 2647003  speedup is 80.17
 2009-12-07 18:28:34,860 INFO End backup loacl karrigell diretory to local git.
 2009-12-07 18:28:34,860 INFO Begin to backup local github to remote github host.
+2009-12-07 18:28:35,110 INFO Command: 
+git add .
+running result is :
+2009-12-07 18:28:35,784 INFO Command: 
+git commit -m 'Update time:2009-12-07T18:28:34.860731'
+running result is :Created commit 5f1f346: Update time:2009-12-07T18:28:34.860731
+ 13 files changed, 541 insertions(+), 14 deletions(-)
+ create mode 100644 develop/registration/tmp/0eedb044d8.jpeg
+ create mode 100644 develop/registration/tmp/38f83ce548.jpeg
+ create mode 100644 develop/registration/tmp/3a3c6890e2.jpeg
+ create mode 100644 develop/registration/tmp/6b6a3aadf9.jpeg
+ create mode 100644 develop/registration/tmp/9e5cb0f6b9.jpeg
+ create mode 100644 develop/registration/tmp/bb03d14b3b.jpeg
+ create mode 100644 develop/registration/tmp/c0417402c4.jpeg
+ create mode 100644 develop/registration/tmp/c972b60d57.jpeg
+2009-12-07 18:28:43,331 INFO Command: 
+git push origin master
+running result is :Counting objects: 25, done.
+Compressing objects:   5% (1/17)   Compressing objects:  11% (2/17)   Compressing objects:  17% (3/17)   Compressing objects:  23% (4/17)   Compressing objects:  29% (5/17)   Compressing objects:  35% (6/17)   Compressing objects:  41% (7/17)   Compressing objects:  47% (8/17)   Compressing objects:  52% (9/17)   Compressing objects:  58% (10/17)   Compressing objects:  64% (11/17)   Compressing objects:  70% (12/17)   Compressing objects:  76% (13/17)   Compressing objects:  82% (14/17)   Compressing objects:  88% (15/17)   Compressing objects:  94% (16/17)   Compressing objects: 100% (17/17)   Compressing objects: 100% (17/17), done.
+Writing objects:   5% (1/17)   Writing objects:  11% (2/17)   Writing objects:  17% (3/17)   Writing objects:  29% (5/17)   Writing objects:  35% (6/17)   Writing objects:  41% (7/17)   Writing objects:  47% (8/17)   Writing objects:  52% (9/17)   Writing objects:  58% (10/17)   Writing objects:  64% (11/17)   Writing objects:  70% (12/17)   Writing objects:  76% (13/17)   Writing objects:  82% (14/17)   Writing objects:  88% (15/17)   Writing objects:  94% (16/17)   Writing objects: 100% (17/17)   Writing objects: 100% (17/17), 18.65 KiB, done.
+Total 17 (delta 7), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   bb4b2ca..5f1f346  master -> master
+2009-12-07 18:28:43,331 INFO End backup local github to remote github host.
+2009-12-07 18:30:28,274 INFO Delete nousing captcha images
+2009-12-07 18:30:28,274 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/ereception/registration/tmp/.
+running result is :Test
+2009-12-07 18:30:28,274 INFO Begin to backup loacl karrigell diretory to local git.
+
+2009-12-07 18:30:28,313 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ereception/ /home/broader/develop/EasyReception/develop
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files...758 files to consider
+
+sent 14740 bytes  received 20 bytes  29520.00 bytes/sec
+total size is 2647003  speedup is 179.34
+2009-12-07 18:30:28,313 INFO End backup loacl karrigell diretory to local git.
+2009-12-07 18:30:28,313 INFO Begin to backup local github to remote github host.
