@@ -1066,3 +1066,42 @@ sent 14740 bytes  received 20 bytes  29520.00 bytes/sec
 total size is 2647003  speedup is 179.34
 2009-12-07 18:30:28,313 INFO End backup loacl karrigell diretory to local git.
 2009-12-07 18:30:28,313 INFO Begin to backup local github to remote github host.
+2009-12-07 18:30:28,329 INFO Command: 
+git add .
+running result is :
+2009-12-07 18:30:28,354 INFO Command: 
+git commit -m 'Update time:2009-12-07T18:30:28.313685'
+running result is :Created commit 4550267: Update time:2009-12-07T18:30:28.313685
+ 3 files changed, 42 insertions(+), 3 deletions(-)
+2009-12-07 18:30:34,402 INFO Command: 
+git push origin master
+running result is :Counting objects: 7, done.
+Compressing objects:  25% (1/4)   Compressing objects:  50% (2/4)   Compressing objects:  75% (3/4)   Compressing objects: 100% (4/4)   Compressing objects: 100% (4/4), done.
+Writing objects:  25% (1/4)   Writing objects:  50% (2/4)   Writing objects:  75% (3/4)   Writing objects: 100% (4/4)   Writing objects: 100% (4/4), 1.01 KiB, done.
+Total 4 (delta 2), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   5f1f346..4550267  master -> master
+2009-12-07 18:30:34,402 INFO End backup local github to remote github host.
+2009-12-07 18:32:16,149 INFO Delete nousing captcha images
+2009-12-07 18:32:16,156 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/ereception/registration/tmp/*.jpeg
+running result is :
+2009-12-07 18:32:16,156 INFO Begin to backup loacl karrigell diretory to local git.
+
+2009-12-07 18:32:16,213 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ereception/ /home/broader/develop/EasyReception/develop
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files...750 files to consider
+deleting registration/tmp/c972b60d57.jpeg
+deleting registration/tmp/c0417402c4.jpeg
+deleting registration/tmp/bb03d14b3b.jpeg
+deleting registration/tmp/9e5cb0f6b9.jpeg
+deleting registration/tmp/6b6a3aadf9.jpeg
+deleting registration/tmp/3a3c6890e2.jpeg
+deleting registration/tmp/38f83ce548.jpeg
+deleting registration/tmp/0eedb044d8.jpeg
+
+sent 14520 bytes  received 20 bytes  29080.00 bytes/sec
+total size is 2632914  speedup is 181.08
+2009-12-07 18:32:16,213 INFO End backup loacl karrigell diretory to local git.
+2009-12-07 18:32:16,213 INFO Begin to backup local github to remote github host.
