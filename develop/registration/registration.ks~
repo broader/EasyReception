@@ -6,7 +6,8 @@ from HTMLTags import *
 
 # 'THIS.script_url' is a global variable in Karrigell system
 #APPATH = THIS.script_url[1:]
-#RELPATH = (lambda p : p.split('/')[0])(THIS.baseurl)
+RELPATH = (lambda p : p.split('/')[0])(THIS.baseurl)
+config = Import( '/'.join((RELPATH, 'config.py')))
 #model = Import( '/'.join((RELPATH, 'model.py')))
 
 #modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'form':'form.py'}
@@ -36,35 +37,26 @@ TABSINSTANCE = 'tabsContainer'
 # ********************************************************************************************
 # The page functions begining 
 # ********************************************************************************************
-def index():    
-    # the tabs' titles    
-    labels = ['Account', 'Base Info', 'End']
-    links = [ '/'.join(( THIS.baseurl, name))\
+def index():	 
+	 # the tabs' titles
+	 labels = ['Account', 'Base Info', 'End']
+	 links = [ '/'.join(( THIS.baseurl, name))\
               for name in ('accountForm.ks/index', 'baseInfoForm.ks/index', 'actionEnd.ks/index')]
-    
-    """    
-    lis = [ LI(SPAN(A(label,ref=link), **{'class':'tab-label'})) \
+	 lis = [ LI(A(SPAN(label,**{'class':'tab-label'}),ref=link)) \
             for label, link in zip(labels, links)]
-    """
-    lis = [ LI(A(SPAN(label),ref=link), **{'class':'tab-label'})) \
-            for label, link in zip(labels, links)]
-    #ul = UL(Sum(lis), **{ 'id':'tabs-nav','class':'ertabs_title'} )
-    ul = UL(Sum(lis), **{'class':'ertabs_title'} )
-    
-    # the content container for each tab label
-    div = DIV( **{'class':'ertabs_content'} )
-              
-    print DIV( Sum((ul, div)), **{'id':REGTABS,'class':REGTABS})
-
-    # import javascript lib
-    # the files for tabs widget
-    libname=REGJSLIB 
-    paras = [ '/'.join(('js', 'lib', libname, ftype, '.'.join((libname, ftype)))) for ftype in ('css', 'js') ]  
-    paras.append(REGTABS)
-    # the css file for spinner
-    paras.append('/'.join(('js','lib','spinner','spinner.css')))
-    paras = tuple(paras)
-    js = \
+	 ul = UL(Sum(lis), **{'class':'ertabs_title'} )
+	 # the content container for each tab label
+	 div = DIV( **{'class':'ertabs_content'} )
+	 print DIV( Sum((ul, div)), **{'id':REGTABS,'class':REGTABS})
+	 # import javascript lib
+	 # the files for tabs widget
+	 libname=REGJSLIB
+	 paras = [ '/'.join(('js', 'lib', libname, ftype, '.'.join((libname, ftype)))) for ftype in ('css', 'js') ]		
+	 paras.append(REGTABS)
+	 # the css file for spinner
+	 paras.append('/'.join(('js','lib','spinner','spinner.css')))
+	 paras = tuple(paras)
+	 js = \
     """
     var cssUrl="%s", jsUrl="%s", tabsDiv="%s";
     var spinnerCss="%s";
@@ -87,7 +79,9 @@ def index():
     var mtJs = new Asset.javascript(jsUrl,{onload:tabsInit});
 
     """%paras
-    print pagefn.script(js, link=False)
-    return
+	 print pagefn.script(js, link=False)
+	 
+	 print config.config.get('infoFields'),config.request
+	 return
 
     

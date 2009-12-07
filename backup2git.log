@@ -183,3 +183,326 @@ sent 21662 bytes  received 48 bytes  43420.00 bytes/sec
 total size is 2946721  speedup is 135.73
 2009-12-06 12:07:18,907 INFO End backup loacl karrigell diretory to local git.
 2009-12-06 12:07:18,907 INFO Begin to backup local github to remote github host.
+2009-12-06 12:07:18,921 INFO Command: 
+git add .
+running result is :
+2009-12-06 12:07:18,941 INFO Command: 
+git commit -m 'Update time:2009-12-06T12:07:18.908028'
+running result is :Created commit 2af9b01: Update time:2009-12-06T12:07:18.908028
+ 1 files changed, 31 insertions(+), 0 deletions(-)
+2009-12-06 12:07:24,728 INFO Command: 
+git push origin master
+running result is :Counting objects: 5, done.
+Compressing objects:  33% (1/3)   Compressing objects:  66% (2/3)   Compressing objects: 100% (3/3)   Compressing objects: 100% (3/3), done.
+Writing objects:  33% (1/3)   Writing objects:  66% (2/3)   Writing objects: 100% (3/3)   Writing objects: 100% (3/3), 664 bytes, done.
+Total 3 (delta 2), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   9e2a8ec..2af9b01  master -> master
+2009-12-06 12:07:24,728 INFO End backup local github to remote github host.
+2009-12-07 16:35:50,656 INFO Begin to backup loacl karrigell diretory to local git.
+
+2009-12-07 16:35:51,844 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ereception/ /home/broader/develop/EasyReception/develop
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files... 800 files... 900 files... 1000 files...1086 files to consider
+./
+config.py
+         337 100%    0.00kB/s    0:00:00         337 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1084/1086)
+config.py~
+         340 100%  332.03kB/s    0:00:00         340 100%  332.03kB/s    0:00:00 (xfer#2, to-check=1083/1086)
+config.yaml
+           0 100%    0.00kB/s    0:00:00 (xfer#3, to-check=1082/1086)
+config.yaml~
+           8 100%    7.81kB/s    0:00:00           8 100%    7.81kB/s    0:00:00 (xfer#4, to-check=1081/1086)
+header.ks
+        1620 100%    1.54MB/s    0:00:00        1620 100%    1.54MB/s    0:00:00 (xfer#5, to-check=1077/1086)
+header.ks~
+        1620 100%   65.92kB/s    0:00:00        1620 100%   65.92kB/s    0:00:00 (xfer#6, to-check=1076/1086)
+js/lib/
+js/lib/erdialog/css/erdialog.css
+        1641 100%   35.61kB/s    0:00:00        1641 100%   35.61kB/s    0:00:00 (xfer#7, to-check=1033/1086)
+js/lib/erdialog/css/erdialog.css~
+        1636 100%   35.50kB/s    0:00:00        1636 100%   35.50kB/s    0:00:00 (xfer#8, to-check=1032/1086)
+js/lib/erdialog/js/erdialog.js
+       11731 100%  181.84kB/s    0:00:00       11731 100%  181.84kB/s    0:00:00 (xfer#9, to-check=1024/1086)
+js/lib/erdialog/js/erdialog.js~
+       11736 100%  145.08kB/s    0:00:00       11736 100%  145.08kB/s    0:00:00 (xfer#10, to-check=1023/1086)
+js/lib/moohover/
+js/lib/moohover/css/
+js/lib/moohover/css/button_off.png
+        1069 100%   11.86kB/s    0:00:00        1069 100%   11.86kB/s    0:00:00 (xfer#11, to-check=610/1086)
+js/lib/moohover/css/button_on.png
+        1024 100%   11.24kB/s    0:00:00        1024 100%   11.24kB/s    0:00:00 (xfer#12, to-check=609/1086)
+js/lib/moohover/css/moohover.css
+         789 100%    6.53kB/s    0:00:00         789 100%    6.53kB/s    0:00:00 (xfer#13, to-check=608/1086)
+js/lib/moohover/css/moohover.css~
+         789 100%    6.47kB/s    0:00:00         789 100%    6.47kB/s    0:00:00 (xfer#14, to-check=607/1086)
+js/lib/moohover/css/stylesheet.css~
+         802 100%    6.58kB/s    0:00:00         802 100%    6.58kB/s    0:00:00 (xfer#15, to-check=606/1086)
+js/lib/moohover/demo/
+js/lib/moohover/demo/index.html
+        3493 100%   28.43kB/s    0:00:00        3493 100%   28.43kB/s    0:00:00 (xfer#16, to-check=604/1086)
+js/lib/moohover/demo/stylesheet.css
+        1742 100%   14.06kB/s    0:00:00        1742 100%   14.06kB/s    0:00:00 (xfer#17, to-check=603/1086)
+js/lib/moohover/demo/images/
+js/lib/moohover/demo/images/button_off.png
+        1069 100%    8.63kB/s    0:00:00        1069 100%    8.63kB/s    0:00:00 (xfer#18, to-check=601/1086)
+js/lib/moohover/demo/images/button_on.png
+        1024 100%    8.20kB/s    0:00:00        1024 100%    8.20kB/s    0:00:00 (xfer#19, to-check=600/1086)
+js/lib/moohover/demo/script/
+js/lib/moohover/demo/script/MooHover.js
+        1473 100%   11.79kB/s    0:00:00        1473 100%   11.79kB/s    0:00:00 (xfer#20, to-check=598/1086)
+js/lib/moohover/demo/script/MooHover_compressed.js
+         848 100%    6.32kB/s    0:00:00         848 100%    6.32kB/s    0:00:00 (xfer#21, to-check=597/1086)
+js/lib/moohover/demo/script/mootools-1.2.1-core.js
+       32768  65%  233.58kB/s    0:00:00       50377 100%  346.45kB/s    0:00:00 (xfer#22, to-check=596/1086)
+js/lib/moohover/js/
+js/lib/moohover/js/moohover.js
+        1473 100%   10.06kB/s    0:00:00        1473 100%   10.06kB/s    0:00:00 (xfer#23, to-check=594/1086)
+plugins/
+registration/accountForm.ks
+       11669 100%   78.59kB/s    0:00:00       11669 100%   78.59kB/s    0:00:00 (xfer#24, to-check=449/1086)
+registration/accountForm.ks~
+       11669 100%   72.58kB/s    0:00:00       11669 100%   72.58kB/s    0:00:00 (xfer#25, to-check=448/1086)
+registration/registration.ks
+        3029 100%   18.72kB/s    0:00:00        3029 100%   18.72kB/s    0:00:00 (xfer#26, to-check=444/1086)
+registration/registration.ks~
+        3018 100%   18.65kB/s    0:00:00        3018 100%   18.54kB/s    0:00:00 (xfer#27, to-check=443/1086)
+registration/tmp/
+registration/tmp/031170a5a9.jpeg
+        1537 100%    8.99kB/s    0:00:00        1537 100%    8.99kB/s    0:00:00 (xfer#28, to-check=431/1086)
+registration/tmp/048fb52f74.jpeg
+        1623 100%    9.16kB/s    0:00:00        1623 100%    9.16kB/s    0:00:00 (xfer#29, to-check=426/1086)
+registration/tmp/04919249f9.jpeg
+        1923 100%   10.32kB/s    0:00:00        1923 100%   10.32kB/s    0:00:00 (xfer#30, to-check=425/1086)
+registration/tmp/0a8fcd0080.jpeg
+        1764 100%    8.93kB/s    0:00:00        1764 100%    8.93kB/s    0:00:00 (xfer#31, to-check=418/1086)
+registration/tmp/1011554ab1.jpeg
+        1545 100%    7.70kB/s    0:00:00        1545 100%    7.70kB/s    0:00:00 (xfer#32, to-check=413/1086)
+registration/tmp/12a61684b3.jpeg
+        1533 100%    7.60kB/s    0:00:00        1533 100%    7.60kB/s    0:00:00 (xfer#33, to-check=411/1086)
+registration/tmp/16ba07927e.jpeg
+        1763 100%    8.70kB/s    0:00:00        1763 100%    8.70kB/s    0:00:00 (xfer#34, to-check=408/1086)
+registration/tmp/1b1bb7f219.jpeg
+        1747 100%    8.16kB/s    0:00:00        1747 100%    8.16kB/s    0:00:00 (xfer#35, to-check=402/1086)
+registration/tmp/1b7e1be0b1.jpeg
+        1652 100%    7.72kB/s    0:00:00        1652 100%    7.72kB/s    0:00:00 (xfer#36, to-check=400/1086)
+registration/tmp/1cb1429cc8.jpeg
+        1916 100%    8.58kB/s    0:00:00        1916 100%    8.58kB/s    0:00:00 (xfer#37, to-check=397/1086)
+registration/tmp/1e42364f3c.jpeg
+        1821 100%    8.12kB/s    0:00:00        1821 100%    8.12kB/s    0:00:00 (xfer#38, to-check=396/1086)
+registration/tmp/2077b1220e.jpeg
+        1612 100%    7.16kB/s    0:00:00        1612 100%    7.16kB/s    0:00:00 (xfer#39, to-check=393/1086)
+registration/tmp/211df6bb79.jpeg
+        1869 100%    7.80kB/s    0:00:00        1869 100%    7.80kB/s    0:00:00 (xfer#40, to-check=392/1086)
+registration/tmp/2967d9541f.jpeg
+        1687 100%    6.64kB/s    0:00:00        1687 100%    6.64kB/s    0:00:00 (xfer#41, to-check=383/1086)
+registration/tmp/299ea9dd74.jpeg
+        1692 100%    6.64kB/s    0:00:00        1692 100%    6.64kB/s    0:00:00 (xfer#42, to-check=382/1086)
+registration/tmp/2b2b2ee38f.jpeg
+        1746 100%    6.85kB/s    0:00:00        1746 100%    6.82kB/s    0:00:00 (xfer#43, to-check=378/1086)
+registration/tmp/30f9bcb475.jpeg
+        1823 100%    7.12kB/s    0:00:00        1823 100%    7.12kB/s    0:00:00 (xfer#44, to-check=371/1086)
+registration/tmp/32c4340dd4.jpeg
+        1669 100%    6.49kB/s    0:00:00        1669 100%    6.49kB/s    0:00:00 (xfer#45, to-check=366/1086)
+registration/tmp/33facfc1fe.jpeg
+        1718 100%    6.36kB/s    0:00:00        1718 100%    6.36kB/s    0:00:00 (xfer#46, to-check=364/1086)
+registration/tmp/3a49b515da.jpeg
+        1805 100%    6.65kB/s    0:00:00        1805 100%    6.65kB/s    0:00:00 (xfer#47, to-check=356/1086)
+registration/tmp/3a9bfac9e7.jpeg
+        1711 100%    6.28kB/s    0:00:00        1711 100%    6.28kB/s    0:00:00 (xfer#48, to-check=355/1086)
+registration/tmp/3b0165067b.jpeg
+        1767 100%    6.46kB/s    0:00:00        1767 100%    6.46kB/s    0:00:00 (xfer#49, to-check=354/1086)
+registration/tmp/3c87cb4f45.jpeg
+        1894 100%    6.93kB/s    0:00:00        1894 100%    6.90kB/s    0:00:00 (xfer#50, to-check=352/1086)
+registration/tmp/3d71bdc0bc.jpeg
+        1601 100%    5.83kB/s    0:00:00        1601 100%    5.83kB/s    0:00:00 (xfer#51, to-check=351/1086)
+registration/tmp/3f4e0c8784.jpeg
+        1766 100%    6.41kB/s    0:00:00        1766 100%    6.41kB/s    0:00:00 (xfer#52, to-check=350/1086)
+registration/tmp/481092478b.jpeg
+        1716 100%    6.21kB/s    0:00:00        1716 100%    6.21kB/s    0:00:00 (xfer#53, to-check=343/1086)
+registration/tmp/4822bb11e3.jpeg
+        1923 100%    6.68kB/s    0:00:00        1923 100%    6.68kB/s    0:00:00 (xfer#54, to-check=342/1086)
+registration/tmp/483be35602.jpeg
+        1636 100%    5.67kB/s    0:00:00        1636 100%    5.67kB/s    0:00:00 (xfer#55, to-check=341/1086)
+registration/tmp/4cbf21ac9c.jpeg
+        1744 100%    6.02kB/s    0:00:00        1744 100%    6.02kB/s    0:00:00 (xfer#56, to-check=329/1086)
+registration/tmp/4ee03366fb.jpeg
+        1631 100%    5.61kB/s    0:00:00        1631 100%    5.61kB/s    0:00:00 (xfer#57, to-check=327/1086)
+registration/tmp/51e1539eb7.jpeg
+        1684 100%    5.79kB/s    0:00:00        1684 100%    5.79kB/s    0:00:00 (xfer#58, to-check=323/1086)
+registration/tmp/521e96f4f7.jpeg
+        1639 100%    5.62kB/s    0:00:00        1639 100%    5.62kB/s    0:00:00 (xfer#59, to-check=321/1086)
+registration/tmp/54f5be213d.jpeg
+        1767 100%    6.03kB/s    0:00:00        1767 100%    6.03kB/s    0:00:00 (xfer#60, to-check=320/1086)
+registration/tmp/56c41ad10d.jpeg
+        1605 100%    5.46kB/s    0:00:00        1605 100%    5.46kB/s    0:00:00 (xfer#61, to-check=319/1086)
+registration/tmp/59a6c54a40.jpeg
+        1609 100%    5.47kB/s    0:00:00        1609 100%    5.47kB/s    0:00:00 (xfer#62, to-check=315/1086)
+registration/tmp/5a7467625b.jpeg
+        1759 100%    5.96kB/s    0:00:00        1759 100%    5.96kB/s    0:00:00 (xfer#63, to-check=312/1086)
+registration/tmp/5ba294793b.jpeg
+        1617 100%    5.46kB/s    0:00:00        1617 100%    5.46kB/s    0:00:00 (xfer#64, to-check=311/1086)
+registration/tmp/5cf34e38c0.jpeg
+        1744 100%    5.87kB/s    0:00:00        1744 100%    5.87kB/s    0:00:00 (xfer#65, to-check=308/1086)
+registration/tmp/5fddc0b7c1.jpeg
+        1817 100%    6.12kB/s    0:00:00        1817 100%    6.12kB/s    0:00:00 (xfer#66, to-check=303/1086)
+registration/tmp/6629ee4eb5.jpeg
+        1791 100%    5.87kB/s    0:00:00        1791 100%    5.87kB/s    0:00:00 (xfer#67, to-check=298/1086)
+registration/tmp/68307ead61.jpeg
+        1784 100%    5.85kB/s    0:00:00        1784 100%    5.85kB/s    0:00:00 (xfer#68, to-check=297/1086)
+registration/tmp/68cdb67d47.jpeg
+        1780 100%    5.81kB/s    0:00:00        1780 100%    5.81kB/s    0:00:00 (xfer#69, to-check=296/1086)
+registration/tmp/69a6f9bc91.jpeg
+        1750 100%    5.70kB/s    0:00:00        1750 100%    5.70kB/s    0:00:00 (xfer#70, to-check=295/1086)
+registration/tmp/6bdd5f2bd9.jpeg
+        1694 100%    5.50kB/s    0:00:00        1694 100%    5.50kB/s    0:00:00 (xfer#71, to-check=293/1086)
+registration/tmp/6d1b8a9ba2.jpeg
+        1686 100%    5.45kB/s    0:00:00        1686 100%    5.45kB/s    0:00:00 (xfer#72, to-check=292/1086)
+registration/tmp/6ea061b6ab.jpeg
+        1629 100%    5.25kB/s    0:00:00        1629 100%    5.25kB/s    0:00:00 (xfer#73, to-check=290/1086)
+registration/tmp/725c12f227.jpeg
+        1698 100%    5.45kB/s    0:00:00        1698 100%    5.45kB/s    0:00:00 (xfer#74, to-check=287/1086)
+registration/tmp/73a0a35cd2.jpeg
+        1642 100%    5.27kB/s    0:00:00        1642 100%    5.27kB/s    0:00:00 (xfer#75, to-check=284/1086)
+registration/tmp/78ed670d44.jpeg
+        1934 100%    6.19kB/s    0:00:00        1934 100%    6.19kB/s    0:00:00 (xfer#76, to-check=279/1086)
+registration/tmp/7a1ec33a82.jpeg
+        1748 100%    5.58kB/s    0:00:00        1748 100%    5.58kB/s    0:00:00 (xfer#77, to-check=276/1086)
+registration/tmp/7d4c5ba67b.jpeg
+        1669 100%    5.31kB/s    0:00:00        1669 100%    5.31kB/s    0:00:00 (xfer#78, to-check=273/1086)
+registration/tmp/7f2cfef800.jpeg
+        1772 100%    5.64kB/s    0:00:00        1772 100%    5.64kB/s    0:00:00 (xfer#79, to-check=270/1086)
+registration/tmp/811e405dd5.jpeg
+        1671 100%    5.30kB/s    0:00:00        1671 100%    5.30kB/s    0:00:00 (xfer#80, to-check=269/1086)
+registration/tmp/8369eb212b.jpeg
+        1615 100%    5.10kB/s    0:00:00        1615 100%    5.10kB/s    0:00:00 (xfer#81, to-check=265/1086)
+registration/tmp/85a7e535f4.jpeg
+        1860 100%    5.86kB/s    0:00:00        1860 100%    5.86kB/s    0:00:00 (xfer#82, to-check=264/1086)
+registration/tmp/86c74d2977.jpeg
+        1640 100%    5.17kB/s    0:00:00        1640 100%    5.17kB/s    0:00:00 (xfer#83, to-check=261/1086)
+registration/tmp/876a6053dd.jpeg
+        1841 100%    5.78kB/s    0:00:00        1841 100%    5.78kB/s    0:00:00 (xfer#84, to-check=260/1086)
+registration/tmp/89971cef7d.jpeg
+        1797 100%    5.50kB/s    0:00:00        1797 100%    5.50kB/s    0:00:00 (xfer#85, to-check=256/1086)
+registration/tmp/8b38392986.jpeg
+        1614 100%    4.83kB/s    0:00:00        1614 100%    4.83kB/s    0:00:00 (xfer#86, to-check=255/1086)
+registration/tmp/90702dedf1.jpeg
+        1677 100%    5.02kB/s    0:00:00        1677 100%    5.02kB/s    0:00:00 (xfer#87, to-check=245/1086)
+registration/tmp/940d02c434.jpeg
+        1836 100%    5.48kB/s    0:00:00        1836 100%    5.48kB/s    0:00:00 (xfer#88, to-check=241/1086)
+registration/tmp/952ec01979.jpeg
+        1684 100%    5.03kB/s    0:00:00        1684 100%    5.03kB/s    0:00:00 (xfer#89, to-check=238/1086)
+registration/tmp/959d48e220.jpeg
+        1662 100%    4.96kB/s    0:00:00        1662 100%    4.96kB/s    0:00:00 (xfer#90, to-check=237/1086)
+registration/tmp/96cd17cd84.jpeg
+        1680 100%    5.00kB/s    0:00:00        1680 100%    5.00kB/s    0:00:00 (xfer#91, to-check=234/1086)
+registration/tmp/9e4fd2bf90.jpeg
+        1904 100%    5.48kB/s    0:00:00        1904 100%    5.48kB/s    0:00:00 (xfer#92, to-check=228/1086)
+registration/tmp/9eae0b0ba4.jpeg
+        1745 100%    5.03kB/s    0:00:00        1745 100%    5.03kB/s    0:00:00 (xfer#93, to-check=227/1086)
+registration/tmp/a309313541.jpeg
+        1671 100%    4.80kB/s    0:00:00        1671 100%    4.80kB/s    0:00:00 (xfer#94, to-check=222/1086)
+registration/tmp/a55bbf9428.jpeg
+        1506 100%    4.33kB/s    0:00:00        1506 100%    4.33kB/s    0:00:00 (xfer#95, to-check=220/1086)
+registration/tmp/a7fa8af8d7.jpeg
+        1708 100%    4.91kB/s    0:00:00        1708 100%    4.91kB/s    0:00:00 (xfer#96, to-check=217/1086)
+registration/tmp/ab6cba5694.jpeg
+        1686 100%    4.83kB/s    0:00:00        1686 100%    4.83kB/s    0:00:00 (xfer#97, to-check=216/1086)
+registration/tmp/acdf243184.jpeg
+        1780 100%    5.10kB/s    0:00:00        1780 100%    5.10kB/s    0:00:00 (xfer#98, to-check=215/1086)
+registration/tmp/ae7a0ffacf.jpeg
+        1685 100%    4.83kB/s    0:00:00        1685 100%    4.83kB/s    0:00:00 (xfer#99, to-check=212/1086)
+registration/tmp/b1bfb182a9.jpeg
+        1653 100%    4.72kB/s    0:00:00        1653 100%    4.72kB/s    0:00:00 (xfer#100, to-check=211/1086)
+registration/tmp/b299652685.jpeg
+        1507 100%    4.28kB/s    0:00:00        1507 100%    4.28kB/s    0:00:00 (xfer#101, to-check=208/1086)
+registration/tmp/b38cd10496.jpeg
+        1625 100%    4.61kB/s    0:00:00        1625 100%    4.61kB/s    0:00:00 (xfer#102, to-check=206/1086)
+registration/tmp/b53112bb8f.jpeg
+        1914 100%    5.42kB/s    0:00:00        1914 100%    5.42kB/s    0:00:00 (xfer#103, to-check=204/1086)
+registration/tmp/b8c1c05572.jpeg
+        1722 100%    4.87kB/s    0:00:00        1722 100%    4.87kB/s    0:00:00 (xfer#104, to-check=200/1086)
+registration/tmp/ba8bd35931.jpeg
+        1721 100%    4.87kB/s    0:00:00        1721 100%    4.87kB/s    0:00:00 (xfer#105, to-check=197/1086)
+registration/tmp/bbbd31664b.jpeg
+        1697 100%    4.79kB/s    0:00:00        1697 100%    4.79kB/s    0:00:00 (xfer#106, to-check=194/1086)
+registration/tmp/bc30278288.jpeg
+        1746 100%    4.93kB/s    0:00:00        1746 100%    4.93kB/s    0:00:00 (xfer#107, to-check=193/1086)
+registration/tmp/befb1dd476.jpeg
+        1996 100%    5.62kB/s    0:00:00        1996 100%    5.62kB/s    0:00:00 (xfer#108, to-check=191/1086)
+registration/tmp/c340671784.jpeg
+        1617 100%    4.55kB/s    0:00:00        1617 100%    4.55kB/s    0:00:00 (xfer#109, to-check=186/1086)
+registration/tmp/c75272522f.jpeg
+        1622 100%    4.56kB/s    0:00:00        1622 100%    4.56kB/s    0:00:00 (xfer#110, to-check=185/1086)
+registration/tmp/c82d218e24.jpeg
+        1839 100%    4.97kB/s    0:00:00        1839 100%    4.97kB/s    0:00:00 (xfer#111, to-check=184/1086)
+registration/tmp/ca488f4cf7.jpeg
+        1634 100%    4.41kB/s    0:00:00        1634 100%    4.41kB/s    0:00:00 (xfer#112, to-check=182/1086)
+registration/tmp/ca9e2afb29.jpeg
+        1744 100%    4.70kB/s    0:00:00        1744 100%    4.70kB/s    0:00:00 (xfer#113, to-check=180/1086)
+registration/tmp/ccc92dc302.jpeg
+        1695 100%    4.47kB/s    0:00:00        1695 100%    4.47kB/s    0:00:00 (xfer#114, to-check=179/1086)
+registration/tmp/cf1aead081.jpeg
+        1674 100%    4.36kB/s    0:00:00        1674 100%    4.36kB/s    0:00:00 (xfer#115, to-check=174/1086)
+registration/tmp/cfb8b0e203.jpeg
+        1702 100%    4.42kB/s    0:00:00        1702 100%    4.42kB/s    0:00:00 (xfer#116, to-check=173/1086)
+registration/tmp/cffe35a745.jpeg
+        1787 100%    4.64kB/s    0:00:00        1787 100%    4.64kB/s    0:00:00 (xfer#117, to-check=172/1086)
+registration/tmp/d461659e68.jpeg
+        1537 100%    3.98kB/s    0:00:00        1537 100%    3.98kB/s    0:00:00 (xfer#118, to-check=168/1086)
+registration/tmp/d8ebbd00ff.jpeg
+        1829 100%    4.74kB/s    0:00:00        1829 100%    4.74kB/s    0:00:00 (xfer#119, to-check=163/1086)
+registration/tmp/dddb7e0ca8.jpeg
+        1705 100%    4.40kB/s    0:00:00        1705 100%    4.40kB/s    0:00:00 (xfer#120, to-check=155/1086)
+registration/tmp/e16580dfae.jpeg
+        1695 100%    4.38kB/s    0:00:00        1695 100%    4.38kB/s    0:00:00 (xfer#121, to-check=153/1086)
+registration/tmp/e20a6e5ba2.jpeg
+        1698 100%    4.39kB/s    0:00:00        1698 100%    4.39kB/s    0:00:00 (xfer#122, to-check=151/1086)
+registration/tmp/e2c9e3089e.jpeg
+        1698 100%    4.38kB/s    0:00:00        1698 100%    4.38kB/s    0:00:00 (xfer#123, to-check=150/1086)
+registration/tmp/e342798010.jpeg
+        1677 100%    4.32kB/s    0:00:00        1677 100%    4.32kB/s    0:00:00 (xfer#124, to-check=149/1086)
+registration/tmp/e3599736cd.jpeg
+        1856 100%    4.78kB/s    0:00:00        1856 100%    4.78kB/s    0:00:00 (xfer#125, to-check=148/1086)
+registration/tmp/e559e093a6.jpeg
+        1618 100%    4.16kB/s    0:00:00        1618 100%    4.16kB/s    0:00:00 (xfer#126, to-check=147/1086)
+registration/tmp/e64b20495c.jpeg
+        1923 100%    4.94kB/s    0:00:00        1923 100%    4.94kB/s    0:00:00 (xfer#127, to-check=146/1086)
+registration/tmp/e73d35d41f.jpeg
+        1663 100%    4.27kB/s    0:00:00        1663 100%    4.27kB/s    0:00:00 (xfer#128, to-check=145/1086)
+registration/tmp/e7b3ea3437.jpeg
+        1870 100%    4.79kB/s    0:00:00        1870 100%    4.79kB/s    0:00:00 (xfer#129, to-check=143/1086)
+registration/tmp/e7bd0fca36.jpeg
+        1698 100%    4.35kB/s    0:00:00        1698 100%    4.35kB/s    0:00:00 (xfer#130, to-check=142/1086)
+registration/tmp/eb15908145.jpeg
+        1688 100%    4.33kB/s    0:00:00        1688 100%    4.33kB/s    0:00:00 (xfer#131, to-check=136/1086)
+registration/tmp/eb258fdbb4.jpeg
+        1759 100%    4.50kB/s    0:00:00        1759 100%    4.50kB/s    0:00:00 (xfer#132, to-check=135/1086)
+registration/tmp/ecc77b6edc.jpeg
+        1770 100%    4.52kB/s    0:00:00        1770 100%    4.52kB/s    0:00:00 (xfer#133, to-check=130/1086)
+registration/tmp/ece5fd8199.jpeg
+        1621 100%    4.14kB/s    0:00:00        1621 100%    4.14kB/s    0:00:00 (xfer#134, to-check=128/1086)
+registration/tmp/ee3f386369.jpeg
+        1481 100%    3.78kB/s    0:00:00        1481 100%    3.78kB/s    0:00:00 (xfer#135, to-check=125/1086)
+registration/tmp/f332382364.jpeg
+        1672 100%    4.26kB/s    0:00:00        1672 100%    4.26kB/s    0:00:00 (xfer#136, to-check=117/1086)
+registration/tmp/f857840825.jpeg
+        1569 100%    4.00kB/s    0:00:00        1569 100%    4.00kB/s    0:00:00 (xfer#137, to-check=113/1086)
+registration/tmp/f8ebfa2c7b.jpeg
+        1827 100%    4.65kB/s    0:00:00        1827 100%    4.65kB/s    0:00:00 (xfer#138, to-check=112/1086)
+registration/tmp/f917372bc5.jpeg
+        1847 100%    4.70kB/s    0:00:00        1847 100%    4.70kB/s    0:00:00 (xfer#139, to-check=111/1086)
+registration/tmp/f91f53bf3b.jpeg
+        1745 100%    4.43kB/s    0:00:00        1745 100%    4.43kB/s    0:00:00 (xfer#140, to-check=110/1086)
+registration/tmp/fad03aacb8.jpeg
+        1665 100%    4.22kB/s    0:00:00        1665 100%    4.22kB/s    0:00:00 (xfer#141, to-check=108/1086)
+registration/tmp/fc1f6cac4a.jpeg
+        1627 100%    4.13kB/s    0:00:00        1627 100%    4.12kB/s    0:00:00 (xfer#142, to-check=106/1086)
+registration/tmp/ff070e20fc.jpeg
+        1684 100%    4.26kB/s    0:00:00        1684 100%    4.26kB/s    0:00:00 (xfer#143, to-check=102/1086)
+
+sent 258643 bytes  received 3226 bytes  174579.33 bytes/sec
+total size is 3212743  speedup is 12.27
+2009-12-07 16:35:51,844 INFO End backup loacl karrigell diretory to local git.
+2009-12-07 16:35:51,844 INFO Begin to backup local github to remote github host.

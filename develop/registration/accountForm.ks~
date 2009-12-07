@@ -43,7 +43,7 @@ def index(**args):
     key = Captcha.getChallenge()    
     image = '/'.join((THIS.baseurl,Captcha.getImageFile(key)))        
     image = IMG(**{'src':image, 'alt' : 'captchaImage', 'class': CAPTCHACLASS})
-    image = Sum((image, SPAN(_(' If the left image is unidentified, please click it and switch to anther image.'), style='font-size:1.1em;color:red;')))    
+    image = Sum((image, SPAN(_(' If the left image is unidentified, please click it and switch to anther image.'), style='font-size:1.1em;color:#a7a8a0;')))    
     cinput = INPUT(**{'id':CAPTCHAKEY, 'value':key, 'type':'hidden'})
     
     # the form fields
@@ -82,18 +82,12 @@ def index(**args):
     legend = LEGEND(TEXT('Account Information'))    
     form.append(FIELDSET(Sum((legend,divs))))
     
-    # add buttons to this form
-    # buttons style
-    style = pagefn.BUTTON_CSS
-    style.update({'width':'5em','height':'1.8em','font-size':'1.5em'})
-    style = ';'.join([':'.join((k,v)) for k,v in style.items()])
-   
-    bns =[_("Next"), _("Cancel")]
-    sbn = INPUT(**{'class':'', 'type':'submit', 'value':bns[0],'style':style})
-    cbn = INPUT(**{'class':'', 'type':'button', 'value':bns[1],'style':style})
-    span = SPAN(Sum((sbn, TEXT(16*'&nbsp;'),cbn)), **{ 'id':ACCOUNTFORMBNS, 'style':'position:relative;left:18em;'})
-    buttons = DIV(span)
-    form.append(buttons)
+    # add buttons to this form   
+    bns =[_("Next"), _("Cancel")]    
+    sbn = BUTTON(bns[0], **{'class':'MooTrans', 'type':'submit'})    
+    cbn = BUTTON(bns[1],**{'class':'MooTrans', 'type':'button'})
+    span = DIV(Sum((sbn,cbn)), **{ 'id':ACCOUNTFORMBNS, 'style':'position:absolute;left:18em;'})    
+    form.append(span)
     
     # form action url
     action = '/'.join((APPATH, '_'.join(('page', 'valid'))))              
@@ -124,7 +118,7 @@ def index(**args):
     var captchaClass='%s', captchaKey='%s', captchaErr='%s';
     var captchaValid='%s', captchaSwitch='%s';
     var accountValid='%s';
-    var buttons='%s', formId='%s', boxname='%s', tabsClass='%s';
+    var buttonsContainer='%s', formId='%s', boxname='%s', tabsClass='%s';
     var hackCss='%s', fcI18nJs='%s', fcJs='%s', fcCss='%s';
     
     // Add validation function to the form
@@ -146,7 +140,7 @@ def index(**args):
              {
                 submitByAjax: true,
                 onAjaxSuccess: function(response){
-                   if(response != 1){}
+                   if(response != 1){alert('Account creating failed!');}
                    else{
                       tabSwitch();
                    };               
@@ -244,9 +238,11 @@ def index(**args):
           new Request.HTML().get(captchaSwitch);
        });
        
+       // add mouseover effect to buttons
+       new MooHover({container:'buttonsContainer',duration:800});
+
        // Add click callback functions for buttons
-       var bns = $(buttons).getElements('input');
-       
+       var bns = $(buttonsContainer).getElements('button');       
        
        $(bns[0]).addEvent('click',function(event){         
          formchk.onSubmit(event);
@@ -265,7 +261,7 @@ def page_valid(**args):
     """
     Valid the account informations of user.
     """
-    print '0'
+    print '1'
     
 def page_switchImg(**args):
     """ A function to switch a captcha image and corresponding captcha key.

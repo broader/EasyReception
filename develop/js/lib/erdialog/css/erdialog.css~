@@ -66,9 +66,12 @@ background-color:gainsboro;
 a#mb_close_link {
 display: block;
 float: right;
-width: 66px;
 height: 22px;
-/*background: transparent url(../img/closelabel.gif) no-repeat center;*/
+width:15px;
+/*
+width: 66px;
+background: transparent url(../img/closelabel.gif) no-repeat center;
+*/
 background: transparent url(../img/close_16.png) no-repeat center;
 margin: 5px 0;
 }

@@ -215,14 +215,16 @@ var ERDialog = new Class({
    			      }
    		   });
             
-   			if(this.center.clientHeight != this.contents.offsetHeight) {
-   			   /*
+   			if(this.center.clientHeight != this.contents.offsetHeight) {   			   
+   				/*
    				var height = 0;   					   				
-   				[ this.top, this.contents.clientHeight, this.bottom.clientHeight ]
+   				[ this.top, this.contents.clientHeight ]
    				.each(function(item,index){  
    				   height += item;   				   			   			   
-   				});
-   				*/   				
+   				});   				   							
+   				this.fx.resize.start({'height': [this.center.clientHeight, height]});
+   				*/
+   				//height = this.top+this.contents.clientHeight;
    				//this.fx.resize.start({'height': [this.center.clientHeight, height]});
    				this.fx.resize.start({'height': [this.center.clientHeight, this.contents.offsetHeight]});
    				break;

@@ -38,9 +38,11 @@ def index(**args):
     
     # other javascript libraries
     # import files in '/js' directiory
-	 
-	 # import files in '/lib' directiory
-	 
-	 # this page head tag is completed
+    # import files in '/lib' directiory
+    libname = 'moohover'
+    names = ['/'.join(('js','lib',libname,suffix,'.'.join((libname,suffix)))) for suffix in ('css','js')]
+    print pagefn.css(names[0])
+    print pagefn.script(names[1], link=True)
+    # this page head tag is completed
     print "</head>"
     return
