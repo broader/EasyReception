@@ -1105,3 +1105,36 @@ sent 14520 bytes  received 20 bytes  29080.00 bytes/sec
 total size is 2632914  speedup is 181.08
 2009-12-07 18:32:16,213 INFO End backup loacl karrigell diretory to local git.
 2009-12-07 18:32:16,213 INFO Begin to backup local github to remote github host.
+2009-12-07 18:32:16,230 INFO Command: 
+git add .
+running result is :
+2009-12-07 18:32:16,255 INFO Command: 
+git commit -m 'Update time:2009-12-07T18:32:16.213845'
+running result is :Created commit ba97d26: Update time:2009-12-07T18:32:16.213845
+ 3 files changed, 42 insertions(+), 3 deletions(-)
+2009-12-07 18:32:22,333 INFO Command: 
+git push origin master
+running result is :Counting objects: 9, done.
+Compressing objects:  20% (1/5)   Compressing objects:  40% (2/5)   Compressing objects:  60% (3/5)   Compressing objects:  80% (4/5)   Compressing objects: 100% (5/5)   Compressing objects: 100% (5/5), done.
+Writing objects:  20% (1/5)   Writing objects:  40% (2/5)   Writing objects:  60% (3/5)   Writing objects: 100% (5/5)   Writing objects: 100% (5/5), 904 bytes, done.
+Total 5 (delta 3), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   4550267..ba97d26  master -> master
+2009-12-07 18:32:22,334 INFO End backup local github to remote github host.
+2009-12-07 18:37:42,426 INFO Delete nousing captcha images
+2009-12-07 18:37:42,429 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/ereception/registration/tmp/*.jpeg
+running result is :
+2009-12-07 18:37:42,429 INFO Begin to backup loacl karrigell diretory to local git.
+
+2009-12-07 18:37:42,465 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ereception/ /home/broader/develop/EasyReception/develop
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files...750 files to consider
+registration/
+registration/tmp/
+
+sent 14532 bytes  received 32 bytes  29128.00 bytes/sec
+total size is 2632914  speedup is 180.78
+2009-12-07 18:37:42,465 INFO End backup loacl karrigell diretory to local git.
+2009-12-07 18:37:42,465 INFO Begin to backup local github to remote github host.
