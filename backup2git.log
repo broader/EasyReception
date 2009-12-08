@@ -1183,3 +1183,60 @@ sent 18576 bytes  received 164 bytes  37480.00 bytes/sec
 total size is 2635342  speedup is 140.63
 2009-12-07 22:07:32,709 INFO End backup loacl karrigell diretory to local git.
 2009-12-07 22:07:32,709 INFO Begin to backup local github to remote github host.
+2009-12-07 22:07:32,726 INFO Command: 
+git add .
+running result is :
+2009-12-07 22:07:32,769 INFO Command: 
+git commit -m 'Update time:2009-12-07T22:07:32.709791'
+running result is :Created commit b2d9d76: Update time:2009-12-07T22:07:32.709791
+ 7 files changed, 147 insertions(+), 31 deletions(-)
+ rewrite develop/config.py (99%)
+ rewrite develop/config.py~ (99%)
+ rewrite develop/config.yaml~ (100%)
+2009-12-07 22:07:39,769 INFO Command: 
+git push origin master
+running result is :Counting objects: 19, done.
+Compressing objects:  10% (1/10)   Compressing objects:  20% (2/10)   Compressing objects:  30% (3/10)   Compressing objects:  40% (4/10)   Compressing objects:  50% (5/10)   Compressing objects:  60% (6/10)   Compressing objects:  70% (7/10)   Compressing objects:  80% (8/10)   Compressing objects:  90% (9/10)   Compressing objects: 100% (10/10)   Compressing objects: 100% (10/10), done.
+Writing objects:  10% (1/10)   Writing objects:  20% (2/10)   Writing objects:  30% (3/10)   Writing objects:  40% (4/10)   Writing objects:  60% (6/10)   Writing objects:  70% (7/10)   Writing objects:  80% (8/10)   Writing objects: 100% (10/10)   Writing objects: 100% (10/10), 1.98 KiB, done.
+Total 10 (delta 7), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   e6206d3..b2d9d76  master -> master
+2009-12-07 22:07:39,769 INFO End backup local github to remote github host.
+2009-12-08 16:26:55,519 INFO Delete nousing captcha images
+2009-12-08 16:26:55,549 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/ereception/registration/tmp/*.jpeg
+running result is :
+2009-12-08 16:26:55,550 INFO Begin to backup loacl karrigell diretory to local git.
+
+2009-12-08 16:26:56,373 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ereception/ /home/broader/develop/EasyReception/develop
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files...750 files to consider
+config.py
+        1172 100%    0.00kB/s    0:00:00        1172 100%    0.00kB/s    0:00:00 (xfer#1, to-check=748/750)
+config.py~
+        1169 100%    1.11MB/s    0:00:00        1169 100%    1.11MB/s    0:00:00 (xfer#2, to-check=747/750)
+config.yaml
+         530 100%  517.58kB/s    0:00:00         530 100%  517.58kB/s    0:00:00 (xfer#3, to-check=746/750)
+js/lib/ertabs/css/ertabs.css
+        1513 100%  738.77kB/s    0:00:00        1513 100%  738.77kB/s    0:00:00 (xfer#4, to-check=683/750)
+js/lib/ertabs/css/ertabs.css~
+        1497 100%  730.96kB/s    0:00:00        1497 100%  730.96kB/s    0:00:00 (xfer#5, to-check=682/750)
+registration/accountForm.ks
+       11879 100%    2.83MB/s    0:00:00       11879 100%    2.83MB/s    0:00:00 (xfer#6, to-check=113/750)
+registration/accountForm.ks~
+       11878 100%    1.89MB/s    0:00:00       11878 100%    1.62MB/s    0:00:00 (xfer#7, to-check=112/750)
+registration/baseInfoForm.ks
+        3372 100%  470.42kB/s    0:00:00        3372 100%  470.42kB/s    0:00:00 (xfer#8, to-check=110/750)
+registration/baseInfoForm.ks~
+        3393 100%  414.18kB/s    0:00:00        3393 100%  414.18kB/s    0:00:00 (xfer#9, to-check=109/750)
+registration/registration.ks
+        2939 100%  318.90kB/s    0:00:00        2939 100%  318.90kB/s    0:00:00 (xfer#10, to-check=108/750)
+registration/registration.ks~
+        3027 100%  113.69kB/s    0:00:00        3027 100%  113.69kB/s    0:00:00 (xfer#11, to-check=107/750)
+registration/tmp/
+
+sent 30577 bytes  received 268 bytes  20563.33 bytes/sec
+total size is 2641461  speedup is 85.64
+2009-12-08 16:26:56,374 INFO End backup loacl karrigell diretory to local git.
+2009-12-08 16:26:56,374 INFO Begin to backup local github to remote github host.

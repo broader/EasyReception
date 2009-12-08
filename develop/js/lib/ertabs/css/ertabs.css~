@@ -14,19 +14,11 @@ font-size:130%;
 line-height:normal;
 list-style-type: none;
 margin:0;
-/*margin-left: 10px;*/
 padding:0;
 }
 
 * html .ertabs_title{ /*IE only. Add 1em spacing between menu and rest of content*/
 margin-bottom: 1em;
-}
-
-.ertabs_title ul,ol,dl{
-list-style-type: none;
-margin:0;
-/*margin-left: 10px;*/
-padding:0;
 }
 
 .ertabs_title li{
@@ -75,6 +67,14 @@ background-position:0% -125px;
 
 .ertabs_title a:hover span {
 background-position:100% -125px;
+color:cadetBlue;
 }
 
+.ertabs_title .active a {
+background-position:0% -125px;
+}
 
+.ertabs_title .active a span {
+background-position:100% -125px;
+
+}

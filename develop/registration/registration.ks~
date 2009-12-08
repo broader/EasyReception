@@ -81,7 +81,7 @@ def index():
     """%paras
 	 print pagefn.script(js, link=False)
 	 
-	 print config.getData('baseInfo')
+	 print config.getData('userBaseInfo')
 	 return
 
     

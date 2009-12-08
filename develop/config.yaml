@@ -1,4 +1,6 @@
 ---
+userAccountInfo:
+  fields: !!python/tuple [username, usermail, password]
 userBaseInfo:
   fields: !!python/tuple [prefix, firstname, lastname, gender, organization, phone,
     fax, aperson, address, city, country, postcode]

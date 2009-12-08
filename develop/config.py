@@ -3,6 +3,11 @@ import yaml
 
 INICONFIG = os.sep.join((rootdir, 'config.yaml'))
 INIDATA = {}
+INIDATA['userAccountInfo'] = \
+{
+	'fields':( 'username', 'usermail', 'password' ),
+}
+
 INIDATA['userBaseInfo'] = \
 {
 	'fields':( 'prefix', 'firstname', 'lastname', 'gender', \
@@ -19,21 +24,21 @@ INIDATA['userBaseInfo'] = \
 				}
 }
 
-def _init(fieldsName):	
+def _init(field):	
 	stream = open(INICONFIG, 'wb')
 	yaml.dump(INIDATA,stream,explicit_start=True)
 	stream.close()
 	return	
 
-def _getConfig():
+def _getConfig(field):
 	stream = open(INICONFIG, 'rb')
 	config = yaml.load(stream)
 	stream.close()
-	return config
+	return config.get(field)
 	
-def getData(fieldsName):
-	config = _getConfig()
-	if not config or not config.get(fieldsName):
-		_init(fieldsName)
-	return _getConfig()
+def getData(field):
+	config = _getConfig(field)
+	if not config or not config.get(field):
+		_init(field)
+	return _getConfig(field)
 	

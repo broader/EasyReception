@@ -8,7 +8,7 @@ from HTMLTags import *
 #APPATH = THIS.script_url[1:]
 RELPATH = (lambda p : p.split('/')[0])(THIS.baseurl)
 config = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
-#model = Import( '/'.join((RELPATH, 'model.py')))
+
 
 #modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'form':'form.py'}
 modules = {'pagefn' : 'pagefn.py', }
@@ -81,7 +81,6 @@ def index():
     """%paras
 	 print pagefn.script(js, link=False)
 	 
-	 print config.getData('userBaseInfo')
 	 return
 
     
