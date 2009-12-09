@@ -38,34 +38,42 @@ TABSINSTANCE = 'tabsContainer'
 # The page functions begining 
 # ********************************************************************************************
 
-def index(**args):	 
+def index(**args):
+	 """ Show the tabs widget frame. """
 	 # the tabs' titles
 	 labels = ['Account', 'Base Info', 'End']
 	 links = [ '/'.join(( THIS.baseurl, name))\
-              for name in ( 'baseInfoForm.ks/index', 'accountForm.ks/index', 'actionEnd.ks/index')]
+              for name in ( 'accountForm.ks/index', 'baseInfoForm.ks/index', 'actionEnd.ks/index')]
 	 lis = [ LI(A(SPAN(label,**{'class':'tab-label'}),ref=link)) \
             for label, link in zip(labels, links)]
 	 ul = UL(Sum(lis), **{'class':'ertabs_title'} )
 	 # the content container for each tab label
 	 div = DIV( **{'class':'ertabs_content'} )
 	 print DIV( Sum((ul, div)), **{'id':REGTABS,'class':REGTABS})
-	 # import javascript lib
-	 # the files for tabs widget
+	 
+	 # import javascript lib files for tabs widget
+	 
+	 # a css file for hacked yaml style, mainly used for making text align left
+	 paras = [ '/'.join(('css','yaml_hack.css')), ]
+	 
+	 # tabs plugin files
 	 libname=REGJSLIB
-	 paras = [ '/'.join(('js', 'lib', libname, ftype, '.'.join((libname, ftype)))) for ftype in ('css', 'js') ]		
+	 paras.extend([ '/'.join(('js', 'lib', libname, ftype, '.'.join((libname, ftype)))) \
+	 					 for ftype in ('css', 'js') ])		
 	 paras.append(REGTABS)
 	 # the css file for spinner
 	 paras.append('/'.join(('js','lib','spinner','spinner.css')))
 	 paras = tuple(paras)
 	 js = \
     """
+    var hackCss="%s";
     var cssUrl="%s", jsUrl="%s", tabsDiv="%s";
     var spinnerCss="%s";
+    
     // import css file
-    [cssUrl, spinnerCss].each(function(src){
+    [ hackCss, cssUrl, spinnerCss].each(function(src){
        new Asset.css(src);
     });
-    //var mtCss = new Asset.css(cssUrl);
     
     // initialize the tabs widget
     function tabsInit(){
@@ -83,51 +91,3 @@ def index(**args):
 	 print pagefn.script(js, link=False)
 	 
 	 return
-
-def test(**args):	 
-	 # the tabs' titles
-	 labels = ['Account', 'Base Info', 'End']
-	 links = [ '/'.join(( THIS.baseurl, name))\
-              for name in ( 'accountForm.ks/index', 'baseInfoForm.ks/index', 'actionEnd.ks/index')]
-	 lis = [ LI(A(SPAN(label,**{'class':'tab-label'}),ref=link)) \
-            for label, link in zip(labels, links)]
-	 ul = UL(Sum(lis), **{'class':'ertabs_title'} )
-	 # the content container for each tab label
-	 div = DIV( **{'class':'ertabs_content'} )
-	 print DIV( Sum((ul, div)), **{'id':REGTABS,'class':REGTABS})
-	 # import javascript lib
-	 # the files for tabs widget
-	 libname=REGJSLIB
-	 paras = [ '/'.join(('js', 'lib', libname, ftype, '.'.join((libname, ftype)))) for ftype in ('css', 'js') ]		
-	 paras.append(REGTABS)
-	 # the css file for spinner
-	 paras.append('/'.join(('js','lib','spinner','spinner.css')))
-	 paras = tuple(paras)
-	 js = \
-    """
-    var cssUrl="%s", jsUrl="%s", tabsDiv="%s";
-    var spinnerCss="%s";
-    // import css file
-    [cssUrl, spinnerCss].each(function(src){
-       new Asset.css(src);
-    });
-    //var mtCss = new Asset.css(cssUrl);
-    
-    // initialize the tabs widget
-    function tabsInit(){    	 
-       window.addEvent('domready',function(){
-          var tabs = window[tabsDiv] = new ERTabs(tabsDiv);
-          // diable others tabs
-          tabs.disableTabs([1,2]);
-       });
-    };
-    
-    // import javascript file
-    var mtJs = new Asset.javascript(jsUrl,{onload:tabsInit});
-
-    """%paras
-	 print pagefn.script(js, link=False)
-	 
-	 return
-
-    

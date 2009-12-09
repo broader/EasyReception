@@ -111,7 +111,7 @@ def index(**args):
 	 paras = [ accountErr, CAPTCHACLASS,CAPTCHAKEY, cpatchaErr]
 	 paras.extend([ '/'.join((APPATH, name))for name in ( 'page_captchaValid', 'page_switchImg', 'page_accountValid' )])
     
-	 paras.extend([ ACCOUNTFORMBNS, ACCOUNTFORM, pagefn.DIALOG, pagefn.TABSCLASS])
+	 paras.extend([ ACCOUNTFORMBNS, ACCOUNTFORM, pagefn.REGISTERDLG, pagefn.TABSCLASS])
     # add some files' path for validation function
 	 names = ('css/hack.css', 'lang.js.pih', 'formcheck.js', 'theme/red/formcheck.css')
 	 paras.extend([ '/'.join(('js', 'lib', 'formcheck', name )) for name in names])
@@ -122,7 +122,7 @@ def index(**args):
     var captchaClass='%s', captchaKey='%s', captchaErr='%s';
     var captchaValid='%s', captchaSwitch='%s';
     var accountValid='%s';
-    var buttonsContainer='%s', formId='%s', boxname='%s', tabsClass='%s';
+    var buttonsContainer='%s', formId='%s', digname='%s', tabsClass='%s';
     var hackCss='%s', fcI18nJs='%s', fcJs='%s', fcCss='%s';
     
     // Add validation function to the form
@@ -160,22 +160,22 @@ def index(**args):
        }
     });    
     
-    // a Request.JSON class for send validation request to server side
-    var checkRequest = new Request.JSON({async:false});
+    // a Request.JSON class for send validation request to server side    
+    var accountRequest = new Request.JSON({async:false});
     
     // check whether the input account has been used
     var accountValidTag = false;
     function accountCheck(el){
        el.errors.push(accountErr)
        // set some options for Request.JSON instance
-       checkRequest.setOptions({
+       accountRequest.setOptions({
           url: accountValid,
           onSuccess: function(res){
              if(res.valid == 1){accountValidTag=true}
           }
        });
-       alert(checkRequest.options.url);
-       checkRequest.get({'name':el.getProperty('value')});
+       alert(accountRequest.options.url);
+       accountRequest.get({'name':el.getProperty('value')});
        if(accountValidTag){
           accountValidTag=false;   // reset global variable 'accountValid' to be 'false'
           return true
@@ -183,8 +183,11 @@ def index(**args):
        return false;
     }
          
+     
     // captcha image check
     var capthcaValidTag = false;   // a global variable to save the captcha check result
+    // a Request.JSON class for send validation request to server side    
+    var captchaRequest = new Request.JSON({async:false});
     // the really validation function for the captcha field
     function cimgCheck(el){
        el.removeEvents();
@@ -192,17 +195,18 @@ def index(**args):
        // Request captcha check from server side,
        // if it's a valid captcha,the 'cpatchaValidTag' variable
        // will be set to 'true' in the callback function of
-       // 'checkRequest' which is a Request.JSON instance.
+       // 'captchaRequest' which is a Request.JSON instance.
        
        // set some options for Request.JSON instance first
-       checkRequest.setOptions({
+       captchaRequest.setOptions({
           url: captchaValid,
           onSuccess: function(res){
+          	 //alert('captcha image check result is ' + res.valid);
              if(res.valid == 1){capthcaValidTag=true}
           }
        });
        
-       checkRequest.get({ 
+       captchaRequest.get({ 
           'captcha':el.getProperty('value'),
           'ckey':$(captchaKey).getProperty('value')
        }); 
@@ -230,25 +234,24 @@ def index(**args):
        };
        
        // Get the popup dialog object by its name 
-       // which is defined in 'menu.ks._loginScript()'.
-       window[boxname].close();
-       delete window[boxname];
+       // which is defined in 'menu.ks._loginScript()'. 
+       window[digname].close();
+       delete window[digname];
     };
     
     function pageInit(event){       
        // Add click callback function to change captcha image       
        $$('.'+captchaClass)[0].addEvent('click', function(event){
-          //event.stop();
           new Request.HTML().get(captchaSwitch);
        });
        
        // add mouseover effect to buttons
-       new MooHover({container:'buttonsContainer',duration:800});
+       new MooHover({container:buttonsContainer,duration:800});
 
        // Add click callback functions for buttons
        var bns = $(buttonsContainer).getElements('button');       
        
-       $(bns[0]).addEvent('click',function(event){         
+       $(bns[0]).addEvent('click',function(event){
          formchk.onSubmit(event);
        });
 

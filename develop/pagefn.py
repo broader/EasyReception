@@ -1,6 +1,9 @@
 # karrigell modules
 from HTMLTags import *
 
+# the register dialog id
+REGISTERDLG = 'regdialog'
+
 # the global css class' name for 'ertabs' plugin
 TABSCLASS = 'ertabs'
 

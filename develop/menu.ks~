@@ -58,6 +58,9 @@ def index():
 def _loginScript( ):
      paras = [ LOGINSPAN, MAINDIV ]
      
+     # register dialog instance's id, which is a global variable defined in pagefn module.
+     paras.append(pagefn.REGISTERDLG)
+     
      # MavDialog js and css files' path
      libName = 'mavdialog'
      paras.extend([ '/'.join(('js','lib',libName,p,'.'.join((libName,p))))\
@@ -70,7 +73,7 @@ def _loginScript( ):
      var links=$("%s").getElements("a");
      var mainDiv="%s";
      // popup dialog plugin
-     var mavdlgCss="%s", mavdlgJs="%s", mavdigUrl="%s";
+     var dlgId="%s",mavdlgCss="%s", mavdlgJs="%s", mavdigUrl="%s";
      
      function init(){
 	     // pop up dialog for login  action
@@ -80,9 +83,10 @@ def _loginScript( ):
         // Pop up dialog for registration
         $(links[1]).addEvent('click',function(){
            new Asset.css(mavdlgCss);
+           
            new Asset.javascript(mavdlgJs,{
            	  onload:function(){
-           	  	  new MavDialog({
+           	  	  window[dlgId] = new MavDialog({
 					     'force': true,
 					     'removeShade': true,
 					     'ok': false,

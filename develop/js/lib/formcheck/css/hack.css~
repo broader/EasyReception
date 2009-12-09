@@ -14,3 +14,15 @@
 
 .fc-tbx th,td{ padding:0em; }
 
+.fc-tbx p {text-align:left;}
+
+/**
+  *---------------------------------------------------------------------------------------------------*
+  *
+  * Div Hack
+  *
+  * Apply some css rules for adjusting error tip showing result, these rules class deault is '.fc-tbx'.
+  *
+  */ 
+ 
+.fc-tbx div{ z-index:10000;}

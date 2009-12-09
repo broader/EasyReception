@@ -1,9 +1,6 @@
 # karrigell modules
 from HTMLTags import *
 
-# a global name for popup dialog
-DIALOG = 'erpbox'
-
 # the global css class' name for 'ertabs' plugin
 TABSCLASS = 'ertabs'
 

@@ -91,3 +91,49 @@ def index(**args):
                  }
                )
 	print DIV(form, **{'class':'subcolumns'})
+	
+	# javascript functions for this page
+	paras = [ pagefn.REGISTERDLG, FORMBNS ]
+	js = \
+	"""
+	
+	var dialogName='%s', buttonsContainer='%s';
+	
+	// Backforward function
+	function back(event){
+		alert('back button clicked');
+	};
+	 
+	// Next step function
+	function next(event){
+		alert('next button clicked');
+	};
+	 
+	// Cancel function
+	function closeDialog(event){
+	 	window[dialogName].close();
+	 	delete window[dialogName];
+	};
+		 
+	function pageInit(event){
+		 
+      // add mouseover effect to buttons
+      new MooHover({container:buttonsContainer,duration:800});
+		 
+      // Add click callback functions for buttons
+      var bns = $(buttonsContainer).getElements('button');       
+       
+      $(bns[0]).addEvent('click', back);
+      $(bns[1]).addEvent('click', next);
+
+      // Add callback function to 'Cancel' button
+      $(bns[2]).addEvent('click', closeDialog);
+   };
+
+   window.addEvent('domready', pageInit);
+	"""%tuple(paras)
+		
+	print pagefn.script(js, link=False)
+	return
+	
+	

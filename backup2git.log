@@ -1495,3 +1495,86 @@ sent 56992 bytes  received 574 bytes  38377.33 bytes/sec
 total size is 3053982  speedup is 53.05
 2009-12-09 17:21:29,416 INFO End backup loacl karrigell diretory to local git.
 2009-12-09 17:21:29,416 INFO Begin to backup local github to remote github host.
+2009-12-09 17:21:29,722 INFO Command: 
+git add .
+running result is :
+2009-12-09 17:21:30,294 INFO Command: 
+git commit -m 'Update time:2009-12-09T17:21:29.416939'
+running result is :Created commit 3d324c9: Update time:2009-12-09T17:21:29.416939
+ 23 files changed, 1449 insertions(+), 104 deletions(-)
+ create mode 100644 develop/pagefn.py~
+ create mode 100644 develop/plugins/erdialog/css/erdialog.css
+ create mode 100644 develop/plugins/erdialog/css/erdialog.css~
+ create mode 100644 develop/plugins/erdialog/img/close_16.png
+ create mode 100644 develop/plugins/erdialog/img/close_32.png
+ create mode 100644 develop/plugins/erdialog/img/closelabel.gif
+ create mode 100644 develop/plugins/erdialog/img/fancy_block_background.gif
+ create mode 100644 develop/plugins/erdialog/img/loading.gif
+ create mode 100644 develop/plugins/erdialog/js/erdialog.js
+ create mode 100644 develop/plugins/erdialog/js/erdialog.js~
+ create mode 100644 develop/plugins/erdialog/js/erdialog_bak.js
+2009-12-09 17:21:37,196 INFO Command: 
+git push origin master
+running result is :Counting objects: 40, done.
+Compressing objects:   5% (1/20)   Compressing objects:  10% (2/20)   Compressing objects:  15% (3/20)   Compressing objects:  20% (4/20)   Compressing objects:  25% (5/20)   Compressing objects:  30% (6/20)   Compressing objects:  35% (7/20)   Compressing objects:  40% (8/20)   Compressing objects:  45% (9/20)   Compressing objects:  50% (10/20)   Compressing objects:  55% (11/20)   Compressing objects:  60% (12/20)   Compressing objects:  65% (13/20)   Compressing objects:  70% (14/20)   Compressing objects:  75% (15/20)   Compressing objects:  80% (16/20)   Compressing objects:  85% (17/20)   Compressing objects:  90% (18/20)   Compressing objects:  95% (19/20)   Compressing objects: 100% (20/20)   Compressing objects: 100% (20/20), done.
+Writing objects:   4% (1/21)   Writing objects:   9% (2/21)   Writing objects:  14% (3/21)   Writing objects:  19% (4/21)   Writing objects:  23% (5/21)   Writing objects:  28% (6/21)   Writing objects:  33% (7/21)   Writing objects:  38% (8/21)   Writing objects:  42% (9/21)   Writing objects:  47% (10/21)   Writing objects:  52% (11/21)   Writing objects:  57% (12/21)   Writing objects:  61% (13/21)   Writing objects:  66% (14/21)   Writing objects:  71% (15/21)   Writing objects:  76% (16/21)   Writing objects:  80% (17/21)   Writing objects:  85% (18/21)   Writing objects:  90% (19/21)   Writing objects:  95% (20/21)   Writing objects: 100% (21/21)   Writing objects: 100% (21/21), 4.46 KiB, done.
+Total 21 (delta 15), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   838b01a..3d324c9  master -> master
+2009-12-09 17:21:37,197 INFO End backup local github to remote github host.
+2009-12-09 22:24:21,488 INFO Delete nousing captcha images
+2009-12-09 22:24:21,509 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/ereception/registration/tmp/*.jpeg
+running result is :
+2009-12-09 22:24:21,509 INFO Begin to backup loacl karrigell diretory to local git.
+
+2009-12-09 22:24:22,392 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ereception/ /home/broader/develop/EasyReception/develop
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files...789 files to consider
+config.yaml
+         530 100%    0.00kB/s    0:00:00         530 100%    0.00kB/s    0:00:00 (xfer#1, to-check=785/789)
+menu.ks
+        4722 100%    4.50MB/s    0:00:00        4722 100%    4.50MB/s    0:00:00 (xfer#2, to-check=775/789)
+menu.ks~
+        4720 100%    2.25MB/s    0:00:00        4720 100%    2.25MB/s    0:00:00 (xfer#3, to-check=774/789)
+pagefn.py
+        2286 100%  744.14kB/s    0:00:00        2286 100%  744.14kB/s    0:00:00 (xfer#4, to-check=771/789)
+pagefn.py~
+        2234 100%  545.41kB/s    0:00:00        2234 100%  545.41kB/s    0:00:00 (xfer#5, to-check=770/789)
+css/
+css/yaml_hack.css
+         176 100%   42.97kB/s    0:00:00         176 100%   42.97kB/s    0:00:00 (xfer#6, to-check=766/789)
+css/yaml_hack.css~
+         173 100%   42.24kB/s    0:00:00         173 100%   42.24kB/s    0:00:00 (xfer#7, to-check=765/789)
+js/lib/formcheck/formcheck.js
+       32768  79%    3.12MB/s    0:00:00       41105 100%    3.27MB/s    0:00:00 (xfer#8, to-check=707/789)
+js/lib/formcheck/formcheck.js~
+       32768  79%    1.84MB/s    0:00:00       41103 100%    2.06MB/s    0:00:00 (xfer#9, to-check=706/789)
+js/lib/formcheck/css/hack.css
+         705 100%   34.42kB/s    0:00:00         705 100%   34.42kB/s    0:00:00 (xfer#10, to-check=701/789)
+js/lib/formcheck/css/hack.css~
+         708 100%   34.57kB/s    0:00:00         708 100%   34.57kB/s    0:00:00 (xfer#11, to-check=700/789)
+js/lib/moohover/js/
+js/lib/moohover/js/moohover.js
+        1475 100%   72.02kB/s    0:00:00        1475 100%   68.59kB/s    0:00:00 (xfer#12, to-check=273/789)
+js/lib/moohover/js/moohover.js~
+        1541 100%   71.66kB/s    0:00:00        1541 100%   71.66kB/s    0:00:00 (xfer#13, to-check=272/789)
+registration/accountForm.ks
+       12072 100%  512.57kB/s    0:00:00       12072 100%  512.57kB/s    0:00:00 (xfer#14, to-check=113/789)
+registration/accountForm.ks~
+       12074 100%  471.64kB/s    0:00:00       12074 100%  471.64kB/s    0:00:00 (xfer#15, to-check=112/789)
+registration/baseInfoForm.ks
+        4464 100%  167.67kB/s    0:00:00        4464 100%  167.67kB/s    0:00:00 (xfer#16, to-check=110/789)
+registration/baseInfoForm.ks~
+        4504 100%  162.91kB/s    0:00:00        4504 100%  162.91kB/s    0:00:00 (xfer#17, to-check=109/789)
+registration/registration.ks
+        3139 100%  109.48kB/s    0:00:00        3139 100%  109.48kB/s    0:00:00 (xfer#18, to-check=108/789)
+registration/registration.ks~
+        3138 100%  105.67kB/s    0:00:00        3138 100%  105.67kB/s    0:00:00 (xfer#19, to-check=107/789)
+registration/tmp/
+
+sent 60819 bytes  received 456 bytes  40850.00 bytes/sec
+total size is 3056874  speedup is 49.89
+2009-12-09 22:24:22,393 INFO End backup loacl karrigell diretory to local git.
+2009-12-09 22:24:22,393 INFO Begin to backup local github to remote github host.

@@ -62,15 +62,13 @@ def index(**args):
 	form = []
    # get the OL content from formRender.py module	
 	yform = formFn.yform
-	# calculate the fields' number showing in each column of the form
-	
+	# calculate the fields' number showing in each column of the form	
 	interval = int(len(render)/3)			
 	left = DIV(Sum(yform(render[:interval])), **{'class':'c33l'})
 	next = 2*interval
 	center = DIV(Sum(yform(render[interval:next])), **{'class':'c33r'})
 	right = DIV(Sum(yform(render[next:])), **{'class':'c33r'})
-	divs = DIV(Sum((left, center, right)), **{'class':'subcolumns'})
-	
+	divs = DIV(Sum((left, center, right)), **{'class':'subcolumns'})	
 	
    # add the <Legend> tag
 	legend = LEGEND(TEXT('Base Information'))    
@@ -93,3 +91,50 @@ def index(**args):
                  }
                )
 	print DIV(form, **{'class':'subcolumns'})
+	
+	# javascript functions for this page
+	paras = [ pagefn.REGISTERDLG, FORMBNS ]
+	js = \
+	"""
+	
+	var dialogName='%s', buttonsContainer='%s';
+	
+	// Backforward function
+	function back(event){
+		alert('back button clicked');
+	};
+	 
+	// Next step function
+	function next(event){
+		alert('next button clicked');
+	};
+	 
+	// Cancel function
+	function closeDialog(event){
+	 	window[dialogName].close();
+	 	delete window[dialogName];
+	 	alert($defined(window[dialogName]));
+	};
+		 
+	function pageInit(event){
+		 
+      // add mouseover effect to buttons
+      new MooHover({container:buttonsContainer,duration:800});
+		 
+      // Add click callback functions for buttons
+      var bns = $(buttonsContainer).getElements('button');       
+       
+      $(bns[0]).addEvent('click', back);
+      $(bns[1]).addEvent('click', next);
+
+      // Add callback function to 'Cancel' button
+      $(bns[2]).addEvent('click', closeDialog);
+   };
+
+   window.addEvent('domready', pageInit);
+	"""%tuple(paras)
+		
+	print pagefn.script(js, link=False)
+	return
+	
+	

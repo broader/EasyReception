@@ -20,7 +20,8 @@ var MooHover = new Class({
 
 	initialize: function(options) {
 		this.setOptions(options);
-		this.container = $(this.options.container) || document;		
+		this.container = $(this.options.container) || document;
+		alert('moohover.initialize,this.container is ' + this.container);
 		this.start();		
 	},
 	
