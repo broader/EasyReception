@@ -214,21 +214,13 @@ var ERDialog = new Class({
    			         'height': this.options.contentsHeight + "px"
    			      }
    		   });
-            
-   			if(this.center.clientHeight != this.contents.offsetHeight) {   			   
-   				/*
-   				var height = 0;   					   				
-   				[ this.top, this.contents.clientHeight ]
-   				.each(function(item,index){  
-   				   height += item;   				   			   			   
-   				});   				   							
-   				this.fx.resize.start({'height': [this.center.clientHeight, height]});
-   				*/
-   				//height = this.top+this.contents.clientHeight;
-   				//this.fx.resize.start({'height': [this.center.clientHeight, height]});
-   				this.fx.resize.start({'height': [this.center.clientHeight, (this.contents.offsetHeight+20)]});
+              
+   			height = this.top + this.contents.scrollHeight;
+   			if(this.center.clientHeight != this.contents.scrollHeight){
+   				this.fx.resize.start({'height': [this.center.clientHeight, height]});   				
    				break;
-   			}   			
+   			}
+   			  			
    			this.step++;
 					
 		case 2:		      	   
@@ -236,17 +228,11 @@ var ERDialog = new Class({
 			   'background','#D8D8D8 url(js/lib/erdialog/img/fancy_block_background.gif) repeat-y scroll bottom'
 		   );		     
 		   
-		   if(this.center.clientHeight != this.contents.offsetHeight) {      			   				
-				//this.fx.resize.start({'height': [this.center.clientHeight, this.contents.offsetHeight]});
-				//var height = 0;   					   				
-				//[ this.top, this.contents.clientHeight, this.bottom.clientHeight ]
-				/*
-				[ this.top, this.contents.offsetHeight ]
-				.each(function(item,index){  
-				   height += item;   				   			   			   
-				});
-				*/		
-				this.center.setStyle('height', this.center.clientHeight);
+		   if(this.center.clientHeight != this.contents.offsetHeight) {				
+				alert('this.center.clientHeight is '+this.center.clientHeight+',this.contents.scrollHeight is ' + this.contents.scrollHeight);
+				height = this.top + this.contents.scrollHeight;
+				//this.center.setStyle('height', this.center.clientHeight);
+				this.center.setStyle('height', height);
    		};
    		
    		

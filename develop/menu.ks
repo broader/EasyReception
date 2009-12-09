@@ -70,17 +70,24 @@ def _loginScript( ):
      # add the popup dialog name which is a global name in javascript namespace
      paras.append(pagefn.DIALOG)
      
+     # MavDialog js and css files' path
+     libName = 'mavdialog'
+     paras.extend([ '/'.join(('js','lib',libName,p,'.'.join((libName,p))))\
+          		   for p in ('css', 'js')])
+     
      # add the registration action page
      paras.append('registration/registration.ks/index')
      paras = tuple(paras)
      script = '''
-     window.addEvent('domready',function(){
-        var links=$("%s").getElements("a");
-        var mainDiv="%s";	
-        var diaboxCss="%s", diaboxJs="%s", diabox="%s";
-        var regLink="%s";
-        
-        // pop up dialog for login  action
+     var links=$("%s").getElements("a");
+     var mainDiv="%s";	
+     var diaboxCss="%s", diaboxJs="%s", diabox="%s";
+     // another popup dialog plugin
+     var mavdlgCss="%s", mavdlgJs="%s";
+     var regLink="%s";
+     
+     function init(){
+	     // pop up dialog for login  action
         $(links[0]).addEvent('click',function(){
         });
      		
@@ -94,7 +101,25 @@ def _loginScript( ):
                  }
            );
         });
-     });
+        
+        // test popup dialog
+        $(links[2]).addEvent('click',function(){
+           new Asset.css(mavdlgCss);
+           new Asset.javascript(mavdlgJs,{
+           	  onload:function(){
+           	  	  new MavDialog({
+					     'force': true,
+					     'removeShade': true,
+						  'title': 'MavDialog Demonstration',
+						  'message': 'This is the content for the dialog box.',
+						  'draggable': false
+					  });
+           	  }
+           });
+        });
+     };
+     
+     window.addEvent('domready', init);
      '''%paras
      return script
 		
@@ -110,7 +135,7 @@ def page_loginSpan(**args):
 	  backPage = args.get('page')
 	  attr = { 'style' : 'font-weight:bold; font-size:1.2em;'}
 	  if not so.user:
-	     login = [ A(info, href='#', **attr) for info in ( _('Login'), _('Register'))]
+	     login = [ A(info, href='#', **attr) for info in ( _('Login'), _('Register'), _('&nbsp;&nbsp;Test'))]
 	     login.insert( 1, TEXT('&nbsp;|&nbsp;&nbsp;'))
 	     login.append( pagefn.script(_loginScript(), link=False ) )
 	     login = Sum( login )

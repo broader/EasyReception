@@ -1,0 +1,4 @@
+This is the text that was retrieved via an Ajax request. Weeee!<br />
+
+<img src="/library/media/icons/crystal_project/128x128/babelfish.png" style="width:128px;height:128px;display:block;margin:10px auto;" />
+And this is the image that was retrieved. Quiant, eh?

@@ -1240,3 +1240,128 @@ sent 30577 bytes  received 268 bytes  20563.33 bytes/sec
 total size is 2641461  speedup is 85.64
 2009-12-08 16:26:56,374 INFO End backup loacl karrigell diretory to local git.
 2009-12-08 16:26:56,374 INFO Begin to backup local github to remote github host.
+2009-12-08 16:26:56,668 INFO Command: 
+git add .
+running result is :
+2009-12-08 16:26:57,277 INFO Command: 
+git commit -m 'Update time:2009-12-08T16:26:56.374675'
+running result is :Created commit 5108b49: Update time:2009-12-08T16:26:56.374675
+ 12 files changed, 394 insertions(+), 156 deletions(-)
+ rewrite develop/registration/baseInfoForm.ks~ (96%)
+2009-12-08 16:27:05,668 INFO Command: 
+git push origin master
+running result is :Counting objects: 36, done.
+Compressing objects:   5% (1/18)   Compressing objects:  11% (2/18)   Compressing objects:  16% (3/18)   Compressing objects:  22% (4/18)   Compressing objects:  27% (5/18)   Compressing objects:  33% (6/18)   Compressing objects:  38% (7/18)   Compressing objects:  44% (8/18)   Compressing objects:  50% (9/18)   Compressing objects:  55% (10/18)   Compressing objects:  61% (11/18)   Compressing objects:  66% (12/18)   Compressing objects:  72% (13/18)   Compressing objects:  77% (14/18)   Compressing objects:  83% (15/18)   Compressing objects:  88% (16/18)   Compressing objects:  94% (17/18)   Compressing objects: 100% (18/18)   Compressing objects: 100% (18/18), done.
+Writing objects:   5% (1/19)   Writing objects:  10% (2/19)   Writing objects:  15% (3/19)   Writing objects:  21% (4/19)   Writing objects:  31% (6/19)   Writing objects:  36% (7/19)   Writing objects:  42% (8/19)   Writing objects:  47% (9/19)   Writing objects:  52% (10/19)   Writing objects:  57% (11/19)   Writing objects:  68% (13/19)   Writing objects:  73% (14/19)   Writing objects:  84% (16/19)   Writing objects:  89% (17/19)   Writing objects:  94% (18/19)   Writing objects: 100% (19/19)   Writing objects: 100% (19/19), 7.99 KiB, done.
+Total 19 (delta 15), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   b2d9d76..5108b49  master -> master
+2009-12-08 16:27:05,668 INFO End backup local github to remote github host.
+2009-12-09 11:45:28,794 INFO Delete nousing captcha images
+2009-12-09 11:45:28,825 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/ereception/registration/tmp/*.jpeg
+running result is :
+2009-12-09 11:45:28,825 INFO Begin to backup loacl karrigell diretory to local git.
+
+2009-12-09 11:45:29,364 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ereception/ /home/broader/develop/EasyReception/develop
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files...785 files to consider
+deleting js/lib/erdialog/dialog.js~
+deleting js/lib/ertabs/test.html~
+config.yaml
+         530 100%    0.00kB/s    0:00:00         530 100%    0.00kB/s    0:00:00 (xfer#1, to-check=781/785)
+menu.ks
+        5314 100%    5.07MB/s    0:00:00        5314 100%    5.07MB/s    0:00:00 (xfer#2, to-check=771/785)
+menu.ks~
+        5313 100%    2.53MB/s    0:00:00        5313 100%    2.53MB/s    0:00:00 (xfer#3, to-check=770/785)
+js/lib/
+js/lib/erdialog/
+js/lib/erdialog/css/erdialog.css
+        1641 100%  106.84kB/s    0:00:00        1641 100%  106.84kB/s    0:00:00 (xfer#4, to-check=733/785)
+js/lib/erdialog/css/erdialog.css~
+        1660 100%  101.32kB/s    0:00:00        1660 100%  101.32kB/s    0:00:00 (xfer#5, to-check=732/785)
+js/lib/erdialog/js/
+js/lib/erdialog/js/erdialog.js
+       11214 100%  353.26kB/s    0:00:00       11214 100%  353.26kB/s    0:00:00 (xfer#6, to-check=724/785)
+js/lib/erdialog/js/erdialog.js~
+       11201 100%  165.73kB/s    0:00:00       11201 100%  165.73kB/s    0:00:00 (xfer#7, to-check=723/785)
+js/lib/erdialog/js/erdialog_bak.js
+       11214 100%  158.71kB/s    0:00:00       11214 100%  158.71kB/s    0:00:00 (xfer#8, to-check=722/785)
+js/lib/ertabs/
+js/lib/mavdialog/
+js/lib/mavdialog/mavdialog.css~
+        2793 100%   34.53kB/s    0:00:00        2793 100%   34.53kB/s    0:00:00 (xfer#9, to-check=322/785)
+js/lib/mavdialog/md_demo.html~
+        3889 100%   48.07kB/s    0:00:00        3889 100%   48.07kB/s    0:00:00 (xfer#10, to-check=321/785)
+js/lib/mavdialog/css/
+js/lib/mavdialog/css/mavdialog.css
+        2632 100%   32.13kB/s    0:00:00        2632 100%   32.13kB/s    0:00:00 (xfer#11, to-check=319/785)
+js/lib/mavdialog/css/mavdialog.css~
+        2670 100%   32.19kB/s    0:00:00        2670 100%   32.19kB/s    0:00:00 (xfer#12, to-check=318/785)
+js/lib/mavdialog/css/images/
+js/lib/mavdialog/css/images/alert.png
+        1220 100%   14.71kB/s    0:00:00        1220 100%   14.71kB/s    0:00:00 (xfer#13, to-check=316/785)
+js/lib/mavdialog/css/images/b.png
+          84 100%    1.01kB/s    0:00:00          84 100%    1.00kB/s    0:00:00 (xfer#14, to-check=315/785)
+js/lib/mavdialog/css/images/cross.png
+         655 100%    7.80kB/s    0:00:00         655 100%    7.80kB/s    0:00:00 (xfer#15, to-check=314/785)
+js/lib/mavdialog/css/images/crystal_icons.txt
+          96 100%    1.14kB/s    0:00:00          96 100%    1.14kB/s    0:00:00 (xfer#16, to-check=313/785)
+js/lib/mavdialog/css/images/help.png
+        1552 100%   18.26kB/s    0:00:00        1552 100%   18.26kB/s    0:00:00 (xfer#17, to-check=312/785)
+js/lib/mavdialog/css/images/info.png
+        1490 100%   17.53kB/s    0:00:00        1490 100%   17.53kB/s    0:00:00 (xfer#18, to-check=311/785)
+js/lib/mavdialog/css/images/tick.png
+         537 100%    6.24kB/s    0:00:00         537 100%    6.17kB/s    0:00:00 (xfer#19, to-check=310/785)
+js/lib/mavdialog/demo/
+js/lib/mavdialog/demo/MavDialog.js
+       11979 100%  136.03kB/s    0:00:00       11979 100%  136.03kB/s    0:00:00 (xfer#20, to-check=308/785)
+js/lib/mavdialog/demo/class.MavDialog.website.js
+       11586 100%  128.57kB/s    0:00:00       11586 100%  128.57kB/s    0:00:00 (xfer#21, to-check=307/785)
+js/lib/mavdialog/demo/class.MavDialog.website.js~
+       11585 100%  125.71kB/s    0:00:00       11585 100%  125.71kB/s    0:00:00 (xfer#22, to-check=306/785)
+js/lib/mavdialog/demo/mavdialog.css
+        2639 100%   28.32kB/s    0:00:00        2639 100%   28.32kB/s    0:00:00 (xfer#23, to-check=305/785)
+js/lib/mavdialog/demo/mavdialog.css~
+        2632 100%   28.25kB/s    0:00:00        2632 100%   28.25kB/s    0:00:00 (xfer#24, to-check=304/785)
+js/lib/mavdialog/demo/mavdialog_src.doc
+       32768  25%  313.73kB/s    0:00:00      129024 100%    1.11MB/s    0:00:00 (xfer#25, to-check=303/785)
+js/lib/mavdialog/demo/mavdialog_text.txt
+         265 100%    2.33kB/s    0:00:00         265 100%    2.33kB/s    0:00:00 (xfer#26, to-check=302/785)
+js/lib/mavdialog/demo/md_demo.html
+        3890 100%   33.92kB/s    0:00:00        3890 100%   33.92kB/s    0:00:00 (xfer#27, to-check=301/785)
+js/lib/mavdialog/demo/mootools-1.2.4-core.js
+       32768  49%  271.19kB/s    0:00:00       66867 100%  514.17kB/s    0:00:00 (xfer#28, to-check=300/785)
+js/lib/mavdialog/demo/mootools-1.2.4.2-more.js
+       32768  27%  216.22kB/s    0:00:00      117297 100%  677.80kB/s    0:00:00 (xfer#29, to-check=299/785)
+js/lib/mavdialog/demo/images/
+js/lib/mavdialog/demo/images/alert.png
+        1220 100%    7.01kB/s    0:00:00        1220 100%    7.01kB/s    0:00:00 (xfer#30, to-check=297/785)
+js/lib/mavdialog/demo/images/b.png
+          84 100%    0.48kB/s    0:00:00          84 100%    0.48kB/s    0:00:00 (xfer#31, to-check=296/785)
+js/lib/mavdialog/demo/images/cross.png
+         655 100%    3.74kB/s    0:00:00         655 100%    3.74kB/s    0:00:00 (xfer#32, to-check=295/785)
+js/lib/mavdialog/demo/images/crystal_icons.txt
+          96 100%    0.55kB/s    0:00:00          96 100%    0.55kB/s    0:00:00 (xfer#33, to-check=294/785)
+js/lib/mavdialog/demo/images/help.png
+        1552 100%    8.86kB/s    0:00:00        1552 100%    8.86kB/s    0:00:00 (xfer#34, to-check=293/785)
+js/lib/mavdialog/demo/images/info.png
+        1490 100%    8.51kB/s    0:00:00        1490 100%    8.51kB/s    0:00:00 (xfer#35, to-check=292/785)
+js/lib/mavdialog/demo/images/tick.png
+         537 100%    3.07kB/s    0:00:00         537 100%    3.07kB/s    0:00:00 (xfer#36, to-check=291/785)
+js/lib/mavdialog/js/
+js/lib/mavdialog/js/mavdialog.js
+       12170 100%   69.10kB/s    0:00:00       12170 100%   69.10kB/s    0:00:00 (xfer#37, to-check=289/785)
+js/lib/mavdialog/js/mavdialog.js~
+       12166 100%   68.68kB/s    0:00:00       12166 100%   68.68kB/s    0:00:00 (xfer#38, to-check=288/785)
+registration/registration.ks
+        2940 100%   16.60kB/s    0:00:00        2940 100%   16.60kB/s    0:00:00 (xfer#39, to-check=108/785)
+registration/registration.ks~
+        2939 100%   15.77kB/s    0:00:00        2939 100%   15.77kB/s    0:00:00 (xfer#40, to-check=107/785)
+registration/tmp/
+
+sent 132418 bytes  received 966 bytes  88922.67 bytes/sec
+total size is 3049751  speedup is 22.86
+2009-12-09 11:45:29,364 INFO End backup loacl karrigell diretory to local git.
+2009-12-09 11:45:29,364 INFO Begin to backup local github to remote github host.
