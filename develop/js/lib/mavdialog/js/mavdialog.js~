@@ -75,6 +75,7 @@ var MavDialog = new Class({
 		if ($(this.options.id + '_dialog')) { return null; }
 
 		this.request = new Request({
+			'evalScripts': true,// new added, by ZG
 			'url': '',
 			'onSuccess': this.urlRequest.bind(this),
 			'onFailure': this.errorMessage.bind(this)
@@ -188,8 +189,9 @@ var MavDialog = new Class({
 		if (this.delayedShow) { 
 			this.delayedShow = false;
 			this.show();
-		}
+		}		
 	},
+	
 	errorMessage: function(_error) {
 		
 	},
@@ -236,8 +238,16 @@ var MavDialog = new Class({
 		if (this.options.useFx) {
 			this.fx.start('opacity', 0, 1);
 		}
+		
+		this.resize(null);
 	},
-
+	
+	resize: function(element) {
+		// new added function to resize the dialog width and height
+		var size = $('ertabs').getSize(); 
+		alert('tabs container width is ' + size.x +',height is ' + size.y);
+	},
+	
 	hide: function() {
 		this.dialog.setStyle('display', 'none');
 		this.fireEvent('hide');
@@ -261,6 +271,7 @@ var MavDialog = new Class({
 			}
 
 			this.dialog.dispose();
+			
 			// add a judge to remove 'mavdialog_shade' element, added by ZG
 			if (this.options.force) {
 				if(this.options.removeShade){

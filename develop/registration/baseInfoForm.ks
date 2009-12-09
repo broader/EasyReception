@@ -62,13 +62,14 @@ def index(**args):
 	form = []
    # get the OL content from formRender.py module	
 	yform = formFn.yform
-	# calculate the fields' number showing in each column of the form
-	half = int(len(render)/2)
-		
-	left = DIV(Sum(yform(render[:half])), **{'class':'c50l'})
-	right = DIV(Sum(yform(render[half:])), **{'class':'c50r'})
-	divs = DIV(Sum((left, right)), **{'class':'subcolumns'})
-            
+	# calculate the fields' number showing in each column of the form	
+	interval = int(len(render)/3)			
+	left = DIV(Sum(yform(render[:interval])), **{'class':'c33l'})
+	next = 2*interval
+	center = DIV(Sum(yform(render[interval:next])), **{'class':'c33r'})
+	right = DIV(Sum(yform(render[next:])), **{'class':'c33r'})
+	divs = DIV(Sum((left, center, right)), **{'class':'subcolumns'})	
+	
    # add the <Legend> tag
 	legend = LEGEND(TEXT('Base Information'))    
 	form.append(FIELDSET(Sum((legend,divs))))

@@ -57,60 +57,40 @@ def index():
     
 def _loginScript( ):
      paras = [ LOGINSPAN, MAINDIV ]
-     # MOODIABOX js and css files' path
-     libName = 'erdialog'
-     paras.extend(\
-        [ '/'.join(('js',\
-                    'lib',
-                    libName,
-                    p,\
-                    '.'.join((libName,p))))\
-          for p in ('css', 'js')]\
-     )
-     # add the popup dialog name which is a global name in javascript namespace
-     paras.append(pagefn.DIALOG)
      
      # MavDialog js and css files' path
      libName = 'mavdialog'
      paras.extend([ '/'.join(('js','lib',libName,p,'.'.join((libName,p))))\
           		   for p in ('css', 'js')])
-     
-     # add the registration action page
+     # add test mavdialog action page
      paras.append('registration/registration.ks/index')
+     
      paras = tuple(paras)
      script = '''
      var links=$("%s").getElements("a");
-     var mainDiv="%s";	
-     var diaboxCss="%s", diaboxJs="%s", diabox="%s";
-     // another popup dialog plugin
-     var mavdlgCss="%s", mavdlgJs="%s";
-     var regLink="%s";
+     var mainDiv="%s";
+     // popup dialog plugin
+     var mavdlgCss="%s", mavdlgJs="%s", mavdigUrl="%s";
      
      function init(){
 	     // pop up dialog for login  action
         $(links[0]).addEvent('click',function(){
         });
-     		
-        // Pop up dialog for registration
-        $(links[1]).addEvent('click', function(){                   
-           var dialogCss = new Asset.css(diaboxCss, {id: 'diaboxCss'});
-           new Asset.javascript(diaboxJs,
-                 {
-                    id:'diaboxJs',
-                    onload:function(){ window[diabox]=new ERDialog({'url':regLink});}
-                 }
-           );
-        });
         
-        // test popup dialog
-        $(links[2]).addEvent('click',function(){
+        // Pop up dialog for registration
+        $(links[1]).addEvent('click',function(){
            new Asset.css(mavdlgCss);
            new Asset.javascript(mavdlgJs,{
            	  onload:function(){
            	  	  new MavDialog({
 					     'force': true,
 					     'removeShade': true,
-						  'title': 'MavDialog Demonstration',
+					     'ok': false,
+					     'cancel': false,
+					     'width': 800,
+					     'height': 350,
+					     'url': mavdigUrl,
+						  'title': 'Registration Process',
 						  'message': 'This is the content for the dialog box.',
 						  'draggable': false
 					  });
@@ -135,7 +115,7 @@ def page_loginSpan(**args):
 	  backPage = args.get('page')
 	  attr = { 'style' : 'font-weight:bold; font-size:1.2em;'}
 	  if not so.user:
-	     login = [ A(info, href='#', **attr) for info in ( _('Login'), _('Register'), _('&nbsp;&nbsp;Test'))]
+	     login = [ A(info, href='#', **attr) for info in ( _('Login'), _('Register'))]
 	     login.insert( 1, TEXT('&nbsp;|&nbsp;&nbsp;'))
 	     login.append( pagefn.script(_loginScript(), link=False ) )
 	     login = Sum( login )

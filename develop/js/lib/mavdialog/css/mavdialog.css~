@@ -28,7 +28,7 @@
 
 
 .cancel-button { background-image:url(images/cross.png); }
-.ok-button { background-image:url(/library/media/icons/silk/tick.png); }
+.ok-button { background-image:url(images/tick.png); }
 .save-button { background-image:url(/library/media/icons/silk/table_save.png); }
 .savepage-button { background-image:url(/library/media/icons/silk/page_save.png); }
 .note-button { background-image:url(/library/media/icons/silk/note.png); }
@@ -98,7 +98,7 @@
 
 .md-closer {
 	float: right;
-	background-image: url(/library/media/icons/silk/cross.png);
+	background-image: url(images/cross.png);
 	height: 30px;
 }
 

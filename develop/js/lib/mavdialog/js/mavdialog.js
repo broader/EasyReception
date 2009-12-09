@@ -75,6 +75,7 @@ var MavDialog = new Class({
 		if ($(this.options.id + '_dialog')) { return null; }
 
 		this.request = new Request({
+			'evalScripts': true,// new added, by ZG
 			'url': '',
 			'onSuccess': this.urlRequest.bind(this),
 			'onFailure': this.errorMessage.bind(this)
@@ -188,8 +189,9 @@ var MavDialog = new Class({
 		if (this.delayedShow) { 
 			this.delayedShow = false;
 			this.show();
-		}
+		}		
 	},
+	
 	errorMessage: function(_error) {
 		
 	},
@@ -236,8 +238,9 @@ var MavDialog = new Class({
 		if (this.options.useFx) {
 			this.fx.start('opacity', 0, 1);
 		}
-	},
 
+	},
+	
 	hide: function() {
 		this.dialog.setStyle('display', 'none');
 		this.fireEvent('hide');
