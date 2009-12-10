@@ -2,9 +2,51 @@
 userAccountInfo:
   fields: !!python/tuple [username, usermail, password]
 userBaseInfo:
-  fields: !!python/tuple [prefix, firstname, lastname, gender, organization, phone,
-    fax, aperson, address, city, country, postcode]
-  labels: {address: 'Address :', aperson: 'Accompany Person :', city: 'City :', country: 'Country
-      :', fax: 'Fax :', firstname: 'First Name :', gender: 'Gender :', lastname: 'Last
-      Name :', organization: 'Organization :', phone: 'Phone :', postcode: 'Postal
-      Code :', prefix: 'Prefix :'}
+- name: prefix
+  prompt: 'Prefix :'
+  type: text
+  validate: []
+- name: firstname
+  prompt: 'First Name :'
+  type: text
+  validate: []
+- name: lastname
+  prompt: 'Last Name :'
+  type: text
+  validate: []
+- name: gender
+  prompt: 'Gender :'
+  type: text
+  validate: []
+- name: organization
+  prompt: 'Organization :'
+  type: textarea
+  validate: []
+- name: phone
+  prompt: 'Phone :'
+  type: text
+  validate: []
+- name: fax
+  prompt: 'Fax :'
+  type: text
+  validate: []
+- name: aperson
+  prompt: 'Accompany Person :'
+  type: text
+  validate: []
+- name: address
+  prompt: 'Address :'
+  type: text
+  validate: []
+- name: city
+  prompt: 'City :'
+  type: text
+  validate: []
+- name: country
+  prompt: 'Country :'
+  type: text
+  validate: []
+- name: postcode
+  prompt: 'Postal Code :'
+  type: text
+  validate: []

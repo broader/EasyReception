@@ -4,4 +4,6 @@
 {
 /* styling containing DIV elements | Gestaltung der kapselnden DIV-Elemente */
   .yform div.type-text {text-align:left;}
+  
+  .yform .type-text textarea{width:80%;}
 }

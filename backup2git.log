@@ -1578,3 +1578,63 @@ sent 60819 bytes  received 456 bytes  40850.00 bytes/sec
 total size is 3056874  speedup is 49.89
 2009-12-09 22:24:22,393 INFO End backup loacl karrigell diretory to local git.
 2009-12-09 22:24:22,393 INFO Begin to backup local github to remote github host.
+2009-12-09 22:24:22,652 INFO Command: 
+git add .
+running result is :
+2009-12-09 22:24:23,171 INFO Command: 
+git commit -m 'Update time:2009-12-09T22:24:22.393919'
+running result is :Created commit c324401: Update time:2009-12-09T22:24:22.393919
+ 19 files changed, 367 insertions(+), 164 deletions(-)
+ create mode 100644 develop/css/yaml_hack.css
+ create mode 100644 develop/css/yaml_hack.css~
+ create mode 100644 develop/js/lib/moohover/js/moohover.js~
+2009-12-09 22:24:40,155 INFO Command: 
+git push origin master
+running result is :Counting objects: 53, done.
+Compressing objects:   3% (1/28)   Compressing objects:   7% (2/28)   Compressing objects:  10% (3/28)   Compressing objects:  14% (4/28)   Compressing objects:  17% (5/28)   Compressing objects:  21% (6/28)   Compressing objects:  25% (7/28)   Compressing objects:  28% (8/28)   Compressing objects:  32% (9/28)   Compressing objects:  35% (10/28)   Compressing objects:  39% (11/28)   Compressing objects:  42% (12/28)   Compressing objects:  46% (13/28)   Compressing objects:  50% (14/28)   Compressing objects:  53% (15/28)   Compressing objects:  57% (16/28)   Compressing objects:  60% (17/28)   Compressing objects:  64% (18/28)   Compressing objects:  67% (19/28)   Compressing objects:  71% (20/28)   Compressing objects:  75% (21/28)   Compressing objects:  78% (22/28)   Compressing objects:  82% (23/28)   Compressing objects:  85% (24/28)   Compressing objects:  89% (25/28)   Compressing objects:  92% (26/28)   Compressing objects:  96% (27/28)   Compressing objects: 100% (28/28)   Compressing objects: 100% (28/28), done.
+Writing objects:   3% (1/29)   Writing objects:   6% (2/29)   Writing objects:  10% (3/29)   Writing objects:  13% (4/29)   Writing objects:  17% (5/29)   Writing objects:  20% (6/29)   Writing objects:  24% (7/29)   Writing objects:  27% (8/29)   Writing objects:  31% (9/29)   Writing objects:  34% (10/29)   Writing objects:  37% (11/29)   Writing objects:  41% (12/29)   Writing objects:  44% (13/29)   Writing objects:  48% (14/29)   Writing objects:  51% (15/29)   Writing objects:  55% (16/29)   Writing objects:  58% (17/29)   Writing objects:  62% (18/29)   Writing objects:  65% (19/29)   Writing objects:  68% (20/29)   Writing objects:  72% (21/29)   Writing objects:  75% (22/29)   Writing objects:  79% (23/29)   Writing objects:  82% (24/29)   Writing objects:  86% (25/29)   Writing objects:  89% (26/29)   Writing objects:  93% (27/29)   Writing objects:  96% (28/29)   Writing objects: 100% (29/29)   Writing objects: 100% (29/29), 8.79 KiB, done.
+Total 29 (delta 20), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   3d324c9..c324401  master -> master
+2009-12-09 22:24:40,155 INFO End backup local github to remote github host.
+2009-12-10 12:20:57,958 INFO Delete nousing captcha images
+2009-12-10 12:20:57,977 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/ereception/registration/tmp/*.jpeg
+running result is :
+2009-12-10 12:20:57,977 INFO Begin to backup loacl karrigell diretory to local git.
+
+2009-12-10 12:20:58,637 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ereception/ /home/broader/develop/EasyReception/develop
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files...790 files to consider
+deleting css/yaml_hack.css
+config.py
+        1563 100%    0.00kB/s    0:00:00        1563 100%    0.00kB/s    0:00:00 (xfer#1, to-check=788/790)
+config.py~
+        1587 100%    1.51MB/s    0:00:00        1587 100%    1.51MB/s    0:00:00 (xfer#2, to-check=787/790)
+config.yaml
+         897 100%  875.98kB/s    0:00:00         897 100%  875.98kB/s    0:00:00 (xfer#3, to-check=786/790)
+config.yaml~
+         893 100%  872.07kB/s    0:00:00         893 100%  872.07kB/s    0:00:00 (xfer#4, to-check=785/790)
+css/
+css/yaml_hack.css~
+         217 100%  211.91kB/s    0:00:00         217 100%  211.91kB/s    0:00:00 (xfer#5, to-check=767/790)
+js/lib/ertabs/css/
+js/lib/ertabs/css/yaml_hack.css
+         328 100%  320.31kB/s    0:00:00         328 100%  320.31kB/s    0:00:00 (xfer#6, to-check=730/790)
+registration/
+registration/baseInfoForm.ks
+        4261 100%    2.03MB/s    0:00:00        4261 100%    2.03MB/s    0:00:00 (xfer#7, to-check=111/790)
+registration/baseInfoForm.ks~
+        4335 100%    1.38MB/s    0:00:00        4335 100%    1.38MB/s    0:00:00 (xfer#8, to-check=110/790)
+registration/registration.ks
+        3155 100%  770.26kB/s    0:00:00        3155 100%  770.26kB/s    0:00:00 (xfer#9, to-check=109/790)
+registration/registration.ks~
+        3139 100%  766.36kB/s    0:00:00        3139 100%  766.36kB/s    0:00:00 (xfer#10, to-check=108/790)
+registration/test.ks
+        1437 100%  280.66kB/s    0:00:00        1437 100%  280.66kB/s    0:00:00 (xfer#11, to-check=107/790)
+
+sent 24256 bytes  received 280 bytes  49072.00 bytes/sec
+total size is 3059764  speedup is 124.71
+2009-12-10 12:20:58,638 INFO End backup loacl karrigell diretory to local git.
+2009-12-10 12:20:58,638 INFO Begin to backup local github to remote github host.
