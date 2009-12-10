@@ -3,7 +3,7 @@
 @media screen, projection
 {
 /* styling containing DIV elements | Gestaltung der kapselnden DIV-Elemente */
-  .ertabs div .type-text,.type-check,.type-select {text-align:left;}
+  .ertabs div .type-text,.type-check {text-align:left;}
   
   .ertabs form .type-text textarea {width:80%;}
   

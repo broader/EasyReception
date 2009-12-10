@@ -130,6 +130,3 @@ def index(**args):
 	print pagefn.script(js, link=False)
 	return
 	
-def test(**args):
-	render = CONFIG.getData(BASEINFOFIELDS)
-	print render	

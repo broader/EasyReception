@@ -104,7 +104,9 @@ def getField(field):
 				text = option.pop("label")
 				select.append(OPTION(text, **option))
 			
-			[ field.pop(prop) for prop in ("type", "class")]	
+			[ field.pop(prop) for prop in ("type", "class")]		
+			# test
+			print H4(field)	
 			input = SELECT(Sum(select),**field)
 			
 	div.append(input)

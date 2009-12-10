@@ -36,10 +36,9 @@ FORMBNS = 'baseInfoBns'
 
 
 def index(**args):	
-	render = CONFIG.getData(BASEINFOFIELDS)	
-	#render = [{'prompt':labels.get(name) or '', 'name':name,'type':'text', 'validate':[]} for name in fields]	
-	rember = {}	
-	#rember = dict([ (field.get('name'), getattr(SO, field.get('name'), None))  for field in render ])
+	render = CONFIG.getData(BASEINFOFIELDS)		
+	#rember = {}	
+	rember = dict([ (field.get('name'), getattr(SO, field.get('name'), None))  for field in render ])
 	# Add other properties for each field, these properties are 'id','required','oldvalue'
 	for element in render :
 		name = element.get('name')

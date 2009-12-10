@@ -10,14 +10,30 @@ INIDATA['userAccountInfo'] = \
 
 INIDATA['userBaseInfo'] = \
 [ 
-	{ 'name':'prefix', 'prompt':_("Prefix :"), 'type':'text', 'validate':[] },\
+	{ 'name':'prefix', 'prompt':_("Prefix :"), 'type':'radio', 'validate':[],\
+	  'options':[{'value': '0', 'label':_("Mr")},\
+					 {'value': '1', 'label':_("Mrs")},\
+					 {'value': '2', 'label': _("Ms")} ]\  
+	},\
+	
 	{ 'name':'firstname', 'prompt':_("First Name :"), 'type':'text', 'validate':[] },\
 	{ 'name':'lastname',	'prompt':_("Last Name :"), 'type':'text', 'validate':[] },\
-	{ 'name':'gender', 'prompt':_("Gender :"), 'type':'text', 'validate':[] },\
-	{ 'name':'organization', 'prompt': _("Organization :"), 'type':'text', 'validate':[] },\
+	
+	{ 'name':'gender', 'prompt':_("Gender :"), 'type':'radio', 'validate':[],\
+	  'options':[{'value': '0','label':_('Male')},\
+	  				 {'value': '0','label':_('Female')}]\	
+	},\
+	
+	{ 'name':'organization', 'prompt': _("Organization :"), 'type':'textarea', 'validate':[] },\
 	{ 'name':'phone',	'prompt':_("Phone :"), 'type':'text', 'validate':[] },\
 	{ 'name':'fax', 'prompt':_("Fax :"), 'type':'text', 'validate':[] },\
-	{ 'name':'aperson',	'prompt':_("Accompany Person :"), 'type':'text', 'validate':[] },\
+	
+	{ 'name':'aperson',	'prompt':_("Accompany Person :"), 'type':'select', 'validate':[],
+	  'options':[ {'value':'0', 'label':'0'},\
+	  				  {'value':'1', 'label':'1'},\
+	  				  {'value':'2', 'label':'2'}]\
+	},\
+	
 	{ 'name':'address',	'prompt':_("Address :"), 'type':'text', 'validate':[] },\
 	{ 'name':'city',	'prompt':_("City :"), 'type':'text', 'validate':[] },\
 	{ 'name':'country',	'prompt':_("Country :"), 'type':'text', 'validate':[] },\
