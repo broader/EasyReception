@@ -5,7 +5,7 @@ A Class for  importing and removing mootools' Assets.
 var AssetsManager = new Class({
     
     initialize: function (){ 
-    	this.imported = {};
+    	this.imported = new Hash({});
     },
     
     /********************************************************************
@@ -13,41 +13,35 @@ var AssetsManager = new Class({
     Do some prepare works before really importing this file, then call 
     this._importAsset to import this file.
     Parameters:
+    	id: the Dom id for this imported tag
     	object: a javascript object, 
-    			  {'app':..., 'lib':..., 'id':..., 'name':..., 'type':..., 
-    			   'options':...}
+    			  {'app':..., 'lib':..., 'name':..., 'type':... }
+    	options: the options or properties for mootoools.Assets import function
     *********************************************************************/
-    import: function(object){    
-     	var app=object['app'],lib=object['lib']; 
-		var tagId=object['id'], name=object['name'];
-		var fileType=object['type'], options=object['options'];     	
-     	
-     	// get the context of the file to be imported, the context
-     	// means a pointer to this.imported[appName][libName] of this file 
-    	lib = this.getContext(app,lib);
-    	
-    	this._importAsset(fileType, name, tagId, options);
-    	
-    	lib[tagId] = {'type':fileType, 'name':name};
+    import: function(id, object, options){
+    	// store the information of this file to be imported     	
+		this.imported.set(id, $H(object));    	
+    	// import this file 
+    	this._importAsset(id, options);
     },
     
     /**********************************************************************
     Inner import function which really imports a outside asset file, the 
     file maybe a css, js or image file.    
     parameters:
-    	type: the type of this import file,it could
-    			be 'css','js' or 'image';
-    	name: the file name, including its path 
-    			information;
     	id: the id of this imported tag;
     	options: a json object for mootools Assets module.
     **********************************************************************/
-    _importAsset: function(type, name, id, options){
-    	if( !$defined(options['id']) ){
- 			options['id'] = id;
- 		};
+    _importAsset: function(id, options){
+    	var props = this.imported.get(id); 
+    	
+    	// the type of this import file,it could be 'css','js' or 'image'
+    	var filetype = props.get('type');
+    	
+    	// the file name, including its path information
+    	var name = props.get('name'); 
  		
-    	switch(type){
+    	switch(fileType){
     		case 'css':
     			new Asset.css(name, options);
     			break
@@ -61,83 +55,69 @@ var AssetsManager = new Class({
     	}   		
     },
     
-    getContext: function(app,lib){
-    	if($defined(this.imported[app])){    		
-			app = this.imported[app];			    		
-    	}
-    	else{
-    		app = this.imported['anyapp'];
-    	};
+    /***********************************************************************
+    Remove the imported tag by giving 'name' value.
+    Parameters:
+    	name: the value to search and the corresponding tag should be removed
+    	type: the type of name, maybe 'id','app','lib','filePath' 
+    ************************************************************************/
+    remove: function(name, type){
     	
-    	if($defined(app[lib])){    		
-			lib = app[lib];			    		
+    	if(['app','lib'].contains(type)){
+    		this._removeByTag(type,name,true);
     	}
-    	else{
-    		lib = app['anylib'];
-    	};
-    	return lib
+    	else if (type=='id'){
+    		if(this.imported.contains(name)){
+    			this._removeAsset(name);
+    		}
+    	}
+    	else{	// type is 'filePath'
+    		// filter the matched item 
+	    	var toRemoved = this.imported.filter(function(item, index){
+	    		return item.get(type)==name
+	    	});
+	    	toRemoved.each(function(item,index){
+	    		this._removeAsset(name);
+	    	});
+    	}
+    	
     },
     
-    remove: function(name,type){
-    	var app,lib,tagId;
-    	    	
-    	switch(type){
-    	
-    		case 'app':
-    			for (lib in this.imported[name]){
-    				for ( tagId in this.imported[name][lib] ){
-    					this._rmeoveAsset(tagId);
-    				}
-    			}
-    			this.imported[name] = null;
-    			break
-    			
-    		case 'lib':
-    			var libCheck = false;
-    			
-    			for app in this.imported){    			
-    				for (lib in this.imported[app]){
-    					if (lib == name){
-    						libCheck = true;
-    						for( tagId in this.imported[app][lib] ){this._removeAsset(tagId);};
-    						this.imported[app][lib] = null;
-    						break;
-    					}
-    				};
-    				
-    				if(libCheck){ break; };
-    			}
-    			
-    			break
-    			
-    		case 'file':
-    			var fileCheck = false;
-    			for (app in this.imported){
-    				for (lib in this.imported[app]){
-    					for (tagId in this.imported[app][lib]){
-    						if( tagId==name || this.imported[app][lib][tagId]['name']==name ){
-    							fileCheck = true;
-    							this._removeAsset(tagId);
-    							this.imported[app][lib][tagId] = null;
-    							break;
-    						};    						
-    					}
-    					if(fileCheck){break;};
-    				}
-    				if(fileCheck){break;};
-    			}
-    			break
-    			
-    		default:;
-    	}
-    	
+    /*********************************************************************
+    Private function
+    Filter the target item from this.imported by giving tag and vlaue.
+    Parameters:
+    	tag: the target tag name of each item, maybe 'app','lib','filePath';
+    	value: the target value of the tag in each item of this.imported;
+    	inverse: a boolean value, 'false' means removed the item and 'true' 
+    			   means a inverse action; 'true' option has been used in 
+    			   this.filterApp function.
+    			   default value is 'false'
+    **********************************************************************/
+    _removeByTag: function(tag,value, inverse){
+    	this.imported.map(function(item, key){
+    		var condition = (item.get(tag)==value); 
+ 			if((!inverse && condition) || ( inverse && !condition){
+ 				this._removeAsset(key); 					
+ 			};
+ 		}, this)
     },
     
     _removeAsset: function(id){
-    	$(id).dispose();
+    	if($defined($(id))){
+	    	$(id).dispose();
+	    	this.imported.erase(key);
+    	}
     },
     
-    filter: function(appName){
+    /***************************************************************
+    Search the giving application name, only this application imported
+	 files could be existed, ohters will be removed.
+    Parameters:
+    	name: the name of a application   
+    ****************************************************************/
+    filterApp: function(name){
+    	this._removeByTag('app',name, true)
     }
     
 });
