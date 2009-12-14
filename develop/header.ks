@@ -34,7 +34,7 @@ def index(**args):
     # mootools lib
     jsfiles = ( 'mootools-1.2.4-core.js','mootools-1.2.4.2-more.js')
     for name in jsfiles:
-       print pagefn.script('/'.join(('js', 'lib', name)), link=True)
+       print pagefn.script('/'.join(('js', 'lib', 'mootools', name)), link=True)
     
     # other javascript libraries
     # import files in '/js' directiory

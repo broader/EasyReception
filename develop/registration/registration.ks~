@@ -51,13 +51,11 @@ def index(**args):
 	 div = DIV( **{'class':'ertabs_content'} )
 	 print DIV( Sum((ul, div)), **{'id':REGTABS,'class':REGTABS})
 	 
-	 # import javascript lib files for tabs widget
-	 
-	 # a css file for hacked yaml style, mainly used for making text align left
-	 paras = [ '/'.join(('css','yaml_hack.css')), ]
-	 
+	 # import javascript lib files for tabs widget	 
 	 # tabs plugin files
 	 libname=REGJSLIB
+	 # a css file for hacked yaml style, mainly used for making text align left
+	 paras = [ '/'.join(('js', 'lib',libname,'css','yaml_hack.css')), ]
 	 paras.extend([ '/'.join(('js', 'lib', libname, ftype, '.'.join((libname, ftype)))) \
 	 					 for ftype in ('css', 'js') ])		
 	 paras.append(REGTABS)

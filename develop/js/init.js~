@@ -1,0 +1,9 @@
+/*******************************************************
+Some initial functions for application.
+********************************************************/
+
+var DomManager = new Class({
+    
+    initialize: function (){ 
+    },
+});

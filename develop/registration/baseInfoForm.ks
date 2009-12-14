@@ -7,9 +7,7 @@ from HTMLTags import *
 # 'THIS.script_url' is a global variable in Karrigell system
 #APPATH = THIS.script_url[1:]
 RELPATH = (lambda p : p.split('/')[0])(THIS.baseurl)
-
-#model = Import( '/'.join((RELPATH, 'model.py')))
-
+model = Import( '/'.join((RELPATH, 'model.py')))
 modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'formFn':'form.py'}
 [locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items() ]
  

@@ -1695,3 +1695,77 @@ sent 23882 bytes  received 252 bytes  16089.33 bytes/sec
 total size is 3064844  speedup is 126.99
 2009-12-10 22:18:23,517 INFO End backup loacl karrigell diretory to local git.
 2009-12-10 22:18:23,517 INFO Begin to backup local github to remote github host.
+2009-12-10 22:18:23,803 INFO Command: 
+git add .
+running result is :
+2009-12-10 22:18:24,366 INFO Command: 
+git commit -m 'Update time:2009-12-10T22:18:23.517955'
+running result is :Created commit 5da88cd: Update time:2009-12-10T22:18:23.517955
+ 11 files changed, 386 insertions(+), 107 deletions(-)
+ rewrite develop/form.py (92%)
+ create mode 100644 develop/form.py~
+ create mode 100644 develop/js/lib/ertabs/css/yaml_hack.css~
+2009-12-10 22:18:31,568 INFO Command: 
+git push origin master
+running result is :Counting objects: 33, done.
+Compressing objects:   5% (1/17)   Compressing objects:  11% (2/17)   Compressing objects:  17% (3/17)   Compressing objects:  23% (4/17)   Compressing objects:  29% (5/17)   Compressing objects:  35% (6/17)   Compressing objects:  41% (7/17)   Compressing objects:  47% (8/17)   Compressing objects:  52% (9/17)   Compressing objects:  58% (10/17)   Compressing objects:  64% (11/17)   Compressing objects:  70% (12/17)   Compressing objects:  76% (13/17)   Compressing objects:  82% (14/17)   Compressing objects:  88% (15/17)   Compressing objects:  94% (16/17)   Compressing objects: 100% (17/17)   Compressing objects: 100% (17/17), done.
+Writing objects:   5% (1/18)   Writing objects:  11% (2/18)   Writing objects:  16% (3/18)   Writing objects:  22% (4/18)   Writing objects:  33% (6/18)   Writing objects:  38% (7/18)   Writing objects:  44% (8/18)   Writing objects:  55% (10/18)   Writing objects:  61% (11/18)   Writing objects:  66% (12/18)   Writing objects:  72% (13/18)   Writing objects:  77% (14/18)   Writing objects:  83% (15/18)   Writing objects:  88% (16/18)   Writing objects:  94% (17/18)   Writing objects: 100% (18/18)   Writing objects: 100% (18/18), 4.02 KiB, done.
+Total 18 (delta 14), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   ccafc3c..5da88cd  master -> master
+2009-12-10 22:18:31,569 INFO End backup local github to remote github host.
+2009-12-14 11:29:24,168 INFO Delete nousing captcha images
+2009-12-14 11:29:24,200 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/ereception/registration/tmp/*.jpeg
+running result is :
+2009-12-14 11:29:24,201 INFO Begin to backup loacl karrigell diretory to local git.
+
+2009-12-14 11:29:25,068 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ereception/ /home/broader/develop/EasyReception/develop
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files...799 files to consider
+deleting js/lib/mootools-1.2.4.2-more.js
+deleting js/lib/mootools-1.2.4-core.js
+./
+header.ks
+        1632 100%    0.00kB/s    0:00:00        1632 100%    0.00kB/s    0:00:00 (xfer#1, to-check=789/799)
+header.ks~
+        1620 100%   87.89kB/s    0:00:00        1620 100%   87.89kB/s    0:00:00 (xfer#2, to-check=788/799)
+model.py
+       16312 100%  758.56kB/s    0:00:00       16312 100%  758.56kB/s    0:00:00 (xfer#3, to-check=782/799)
+model.py~
+       16379 100%  457.00kB/s    0:00:00       16379 100%  457.00kB/s    0:00:00 (xfer#4, to-check=781/799)
+js/
+js/init.js
+         420 100%    7.60kB/s    0:00:00         420 100%    7.60kB/s    0:00:00 (xfer#5, to-check=748/799)
+js/init.js~
+         230 100%    4.16kB/s    0:00:00         230 100%    4.16kB/s    0:00:00 (xfer#6, to-check=747/799)
+js/lib/
+js/lib/mootools/
+js/lib/mootools/mootools-1.2.4-core.js
+       32768  49%  533.33kB/s    0:00:00       66867 100%  946.37kB/s    0:00:00 (xfer#7, to-check=277/799)
+js/lib/mootools/mootools-1.2.4.2-more.js
+       32768  27%  426.67kB/s    0:00:00      117297 100%    1.15MB/s    0:00:00 (xfer#8, to-check=276/799)
+js/lib/tools/
+js/lib/tools/assetsmanager.js
+        3979 100%   39.65kB/s    0:00:00        3979 100%   39.65kB/s    0:00:00 (xfer#9, to-check=159/799)
+js/lib/tools/assetsmanager.js~
+        3924 100%   38.71kB/s    0:00:00        3924 100%   38.71kB/s    0:00:00 (xfer#10, to-check=158/799)
+registration/accountForm.ks
+       12072 100%  116.72kB/s    0:00:00       12072 100%  116.72kB/s    0:00:00 (xfer#11, to-check=114/799)
+registration/accountForm.ks~
+       12072 100%  103.41kB/s    0:00:00       12072 100%  103.41kB/s    0:00:00 (xfer#12, to-check=113/799)
+registration/baseInfoForm.ks
+        4150 100%   33.22kB/s    0:00:00        4150 100%   33.22kB/s    0:00:00 (xfer#13, to-check=111/799)
+registration/baseInfoForm.ks~
+        4153 100%   30.72kB/s    0:00:00        4153 100%   30.72kB/s    0:00:00 (xfer#14, to-check=110/799)
+registration/registration.ks
+        3155 100%   23.17kB/s    0:00:00        3155 100%   23.17kB/s    0:00:00 (xfer#15, to-check=109/799)
+registration/registration.ks~
+        3155 100%   22.99kB/s    0:00:00        3155 100%   22.99kB/s    0:00:00 (xfer#16, to-check=108/799)
+registration/tmp/
+
+sent 98658 bytes  received 408 bytes  66044.00 bytes/sec
+total size is 3089624  speedup is 31.19
+2009-12-14 11:29:25,069 INFO End backup loacl karrigell diretory to local git.
+2009-12-14 11:29:25,069 INFO Begin to backup local github to remote github host.
