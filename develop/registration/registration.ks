@@ -18,6 +18,10 @@ modules = {'pagefn' : 'pagefn.py', }
 # ********************************************************************************************
 # Page Variables
 # ********************************************************************************************
+
+# get the relative url slice as the application name
+APP = pagefn.getApp(THIS.baseurl)
+
 # the javascript lib name for tabs widget
 REGJSLIB = 'ertabs'
 
@@ -52,10 +56,11 @@ def index(**args):
 	 print DIV( Sum((ul, div)), **{'id':REGTABS,'class':REGTABS})
 	 
 	 # import javascript lib files for tabs widget	 
+	 paras = [APP,]
 	 # tabs plugin files
 	 libname=REGJSLIB
 	 # a css file for hacked yaml style, mainly used for making text align left
-	 paras = [ '/'.join(('js', 'lib',libname,'css','yaml_hack.css')), ]
+	 paras.append( '/'.join(('js', 'lib',libname,'css','yaml_hack.css')))
 	 paras.extend([ '/'.join(('js', 'lib', libname, ftype, '.'.join((libname, ftype)))) \
 	 					 for ftype in ('css', 'js') ])		
 	 paras.append(REGTABS)
@@ -64,16 +69,17 @@ def index(**args):
 	 paras = tuple(paras)
 	 js = \
     """
-    var hackCss="%s";
+    var appName="%s", hackCss="%s";
     var cssUrl="%s", jsUrl="%s", tabsDiv="%s";
     var spinnerCss="%s";
     
+    // get the global Assets manager
     var am = tools['assetsManager'];
     
     // import css file
     [ hackCss, cssUrl, spinnerCss].each(function(src){
        //new Asset.css(src);
-       am.import({'url':src,'app':'registration','lib':'ertabs','type':'css'});
+       am.import({'url':src,'app':appName,'type':'css'});
     });
     
     // initialize the tabs widget
@@ -86,7 +92,8 @@ def index(**args):
     };
     
     // import javascript file
-    var mtJs = new Asset.javascript(jsUrl,{onload:tabsInit});
+    //var mtJs = new Asset.javascript(jsUrl,{onload:tabsInit});
+    am.import({'url':jsUrl,'app':appName,'type':'js'}, {onload:tabsInit});
 
     """%paras
 	 print pagefn.script(js, link=False)

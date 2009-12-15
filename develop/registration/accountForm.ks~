@@ -18,14 +18,22 @@ Captcha = Import('./Captcha.py', relpath=THIS.baseurl, RELDIR=REL())
 # ********************************************************************************************
 # Page Variables
 # ********************************************************************************************
+
+# get the relative url slice as the application name
+APP = pagefn.getApp(THIS.baseurl)
+
 # the session object for this page
 SO = Session()
+
 # config data object
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
+
 # form fields' names in CONFIG file
 ACCOUNTFIELDS = 'userAccountInfo'
+
 # The id for the 'Account' form
 ACCOUNTFORM = 'AccountForm'
+
 # the id for the SPAN component in the account form page which holds buttons 
 ACCOUNTFORMBNS = 'accountBns'
 
@@ -89,7 +97,7 @@ def index(**args):
 	 bns =[_("Next"), _("Cancel")]    
 	 sbn = BUTTON(bns[0], **{'class':'MooTrans', 'type':'submit'})    
 	 cbn = BUTTON(bns[1],**{'class':'MooTrans', 'type':'button'})
-	 span = DIV(Sum((sbn,cbn)), **{ 'id':ACCOUNTFORMBNS, 'style':'position:absolute;left:18em;'})    
+	 span = DIV(Sum((sbn,cbn)), **{ 'id':ACCOUNTFORMBNS, 'style':'position:absolute;left:24em;'})    
 	 form.append(span)
     
     # form action url
@@ -108,7 +116,7 @@ def index(**args):
     # javascript functions for this page 
 	 accountErr = _('This account has been used, please input other name.')    
 	 cpatchaErr = _('Pleas input right info on the below image. If the image is difficult to identify, click it to change another image!')
-	 paras = [ accountErr, CAPTCHACLASS,CAPTCHAKEY, cpatchaErr]
+	 paras = [ APP, accountErr, CAPTCHACLASS,CAPTCHAKEY, cpatchaErr]
 	 paras.extend([ '/'.join((APPATH, name))for name in ( 'page_captchaValid', 'page_switchImg', 'page_accountValid' )])
     
 	 paras.extend([ ACCOUNTFORMBNS, ACCOUNTFORM, pagefn.REGISTERDLG, pagefn.TABSCLASS])
@@ -118,25 +126,54 @@ def index(**args):
     
 	 js = \
     """
-    var accountErr='%s';
+    var appName="%s", accountErr='%s';
     var captchaClass='%s', captchaKey='%s', captchaErr='%s';
     var captchaValid='%s', captchaSwitch='%s';
     var accountValid='%s';
     var buttonsContainer='%s', formId='%s', digname='%s', tabsClass='%s';
     var hackCss='%s', fcI18nJs='%s', fcJs='%s', fcCss='%s';
     
+    // get the global Assets manager
+    var am = tools['assetsManager'];
+    
     // Add validation function to the form
     // import css file for validation
-    new Asset.css(hackCss);
-    new Asset.css(fcCss);
+    //new Asset.css(hackCss);
+    //new Asset.css(fcCss);
+    [ hackCss, fcCss].each(function(src){
+    	am.import({'url':src,'app':appName,'type':'css'});
+    });
+    
     
     // import javascript file for validation
-    new Asset.javascript(fcI18nJs);
+    //new Asset.javascript(fcI18nJs);
+    am.import({'url':fcI18nJs,'app':appName,'type':'js'});
     
     // Set a global variable 'formchk' which will be used as an instance of the validation Class-'FormCheck'.
     var formchk;
     
     // Load the form validation plugin script
+    var options = {
+    	onload:function(){
+    		formchk = new FormCheck( formId,{
+         	submitByAjax: true,
+            onAjaxSuccess: function(response){
+            	if(response != 1){alert('Account creating failed!');}
+               else{	tabSwitch();};               
+            },            
+
+            display:{
+            	errorsLocation : 1,
+               keepFocusOnError : 0, 
+               scrollToFirst : false
+            }
+			});// the end for 'formchk' define
+			alert('formcheck js lib has been imported');
+    	}// the end for 'onload' define
+    };
+    am.import({'url':fcJs,'app':appName,'type':'js'},options);
+    
+    /*
     new Asset.javascript( fcJs, {
        onload:function(){
           formchk = new FormCheck(
@@ -159,6 +196,8 @@ def index(**args):
           );
        }
     });    
+    */
+    
     
     // a Request.JSON class for send validation request to server side    
     var accountRequest = new Request.JSON({async:false});

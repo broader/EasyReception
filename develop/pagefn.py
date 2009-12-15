@@ -1,6 +1,9 @@
 # karrigell modules
 from HTMLTags import *
 
+# a function to return the applicaiton name
+getApp = lambda p : p.split('/')[1]
+
 # the register dialog id
 REGISTERDLG = 'regdialog'
 

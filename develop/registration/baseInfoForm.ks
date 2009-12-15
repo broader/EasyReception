@@ -15,14 +15,19 @@ modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'formFn':'form.py'}
 # ********************************************************************************************
 # Page Variables
 # ********************************************************************************************
+
 # the session object for this page
 SO = Session()
+
 # config data object
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
+
 # account information fields' names in CONFIG file
 ACCOUNTFIELDS = 'userAccountInfo'
+
 # base information fields' names in CONFIG file
 BASEINFOFIELDS = 'userBaseInfo'
+
 # the id for the SPAN component in the form page which holds buttons 
 FORMBNS = 'baseInfoBns'
 
