@@ -68,16 +68,19 @@ def index(**args):
     var cssUrl="%s", jsUrl="%s", tabsDiv="%s";
     var spinnerCss="%s";
     
+    var am = tools['assetsManager'];
+    
     // import css file
     [ hackCss, cssUrl, spinnerCss].each(function(src){
-       new Asset.css(src);
+       //new Asset.css(src);
+       am.import({'url':src,'app':'registration','lib':'ertabs','type':'css'});
     });
     
     // initialize the tabs widget
     function tabsInit(){
        window.addEvent('domready',function(){
           var tabs = window[tabsDiv] = new ERTabs(tabsDiv);
-          // diable others tabs
+          // diable others tabs          
           tabs.disableTabs([1,2]);
        });
     };

@@ -1819,3 +1819,59 @@ sent 20567 bytes  received 152 bytes  13812.67 bytes/sec
 total size is 3090669  speedup is 149.17
 2009-12-14 16:50:12,844 INFO End backup loacl karrigell diretory to local git.
 2009-12-14 16:50:12,845 INFO Begin to backup local github to remote github host.
+2009-12-14 16:50:13,041 INFO Command: 
+git add .
+running result is :
+2009-12-14 16:50:13,549 INFO Command: 
+git commit -m 'Update time:2009-12-14T16:50:12.845415'
+running result is :Created commit e4db02b: Update time:2009-12-14T16:50:12.845415
+ 7 files changed, 364 insertions(+), 358 deletions(-)
+ rewrite develop/js/init.js (62%)
+ rewrite develop/js/lib/tools/assetsmanager.js (64%)
+ rewrite develop/js/lib/tools/assetsmanager.js~ (64%)
+2009-12-14 16:50:20,170 INFO Command: 
+git push origin master
+running result is :Counting objects: 23, done.
+Compressing objects:   8% (1/12)   Compressing objects:  16% (2/12)   Compressing objects:  25% (3/12)   Compressing objects:  33% (4/12)   Compressing objects:  41% (5/12)   Compressing objects:  50% (6/12)   Compressing objects:  58% (7/12)   Compressing objects:  66% (8/12)   Compressing objects:  75% (9/12)   Compressing objects:  83% (10/12)   Compressing objects:  91% (11/12)   Compressing objects: 100% (12/12)   Compressing objects: 100% (12/12), done.
+Writing objects:   8% (1/12)   Writing objects:  16% (2/12)   Writing objects:  25% (3/12)   Writing objects:  33% (4/12)   Writing objects:  41% (5/12)   Writing objects:  50% (6/12)   Writing objects:  66% (8/12)   Writing objects:  75% (9/12)   Writing objects:  83% (10/12)   Writing objects: 100% (12/12)   Writing objects: 100% (12/12), 3.20 KiB, done.
+Total 12 (delta 7), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   bbb7413..e4db02b  master -> master
+2009-12-14 16:50:20,170 INFO End backup local github to remote github host.
+2009-12-15 16:22:58,766 INFO Delete nousing captcha images
+2009-12-15 16:22:58,787 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/ereception/registration/tmp/*.jpeg
+running result is :
+2009-12-15 16:22:58,787 INFO Begin to backup loacl karrigell diretory to local git.
+
+2009-12-15 16:22:59,813 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ereception/ /home/broader/develop/EasyReception/develop
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files...800 files to consider
+./
+header.ks
+        1801 100%    0.00kB/s    0:00:00        1801 100%    0.00kB/s    0:00:00 (xfer#1, to-check=790/800)
+header.ks~
+        1809 100%   80.30kB/s    0:00:00        1809 100%   80.30kB/s    0:00:00 (xfer#2, to-check=789/800)
+home.pih
+        2134 100%   90.61kB/s    0:00:00        2134 100%   90.61kB/s    0:00:00 (xfer#3, to-check=788/800)
+home.pih~
+        2131 100%   90.48kB/s    0:00:00        2131 100%   90.48kB/s    0:00:00 (xfer#4, to-check=787/800)
+js/init.js
+         290 100%   12.31kB/s    0:00:00         290 100%   11.80kB/s    0:00:00 (xfer#5, to-check=748/800)
+js/init.js~
+         289 100%   11.76kB/s    0:00:00         289 100%   11.76kB/s    0:00:00 (xfer#6, to-check=747/800)
+js/lib/tools/assetsmanager.js
+        4691 100%  183.24kB/s    0:00:00        4691 100%  183.24kB/s    0:00:00 (xfer#7, to-check=159/800)
+js/lib/tools/assetsmanager.js~
+        4808 100%  180.59kB/s    0:00:00        4808 100%  180.59kB/s    0:00:00 (xfer#8, to-check=158/800)
+registration/registration.ks
+        3289 100%  123.54kB/s    0:00:00        3289 100%  123.54kB/s    0:00:00 (xfer#9, to-check=109/800)
+registration/registration.ks~
+        3293 100%  119.10kB/s    0:00:00        3293 100%  119.10kB/s    0:00:00 (xfer#10, to-check=108/800)
+registration/tmp/
+
+sent 25846 bytes  received 252 bytes  17398.67 bytes/sec
+total size is 3093914  speedup is 118.55
+2009-12-15 16:22:59,814 INFO End backup loacl karrigell diretory to local git.
+2009-12-15 16:22:59,814 INFO Begin to backup local github to remote github host.

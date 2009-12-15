@@ -43,7 +43,7 @@ def index(**args):
 	 # the tabs' titles
 	 labels = ['Account', 'Base Info', 'End']
 	 links = [ '/'.join(( THIS.baseurl, name))\
-              for name in (  'baseInfoForm.ks/index', 'accountForm.ks/index', 'actionEnd.ks/index')]
+              for name in (  'accountForm.ks/index', 'baseInfoForm.ks/index', 'actionEnd.ks/index')]
 	 lis = [ LI(A(SPAN(label,**{'class':'tab-label'}),ref=link)) \
             for label, link in zip(labels, links)]
 	 ul = UL(Sum(lis), **{'class':'ertabs_title'} )
@@ -68,16 +68,19 @@ def index(**args):
     var cssUrl="%s", jsUrl="%s", tabsDiv="%s";
     var spinnerCss="%s";
     
+    var am = tools['assetsManager'];
+    
     // import css file
     [ hackCss, cssUrl, spinnerCss].each(function(src){
-       new Asset.css(src);
+       //new Asset.css(src);
+       am.import({'fileUrl':src,'app':'registration','lib':'ertabs','type':'css'});
     });
     
     // initialize the tabs widget
     function tabsInit(){
        window.addEvent('domready',function(){
           var tabs = window[tabsDiv] = new ERTabs(tabsDiv);
-          // diable others tabs
+          // diable others tabs          
           tabs.disableTabs([1,2]);
        });
     };

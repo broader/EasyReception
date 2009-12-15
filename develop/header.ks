@@ -6,7 +6,6 @@ model = Import('/'.join((relPath(THIS.baseurl), 'model.py')), REQUEST_HANDLER=RE
 modules = {'pagefn' : 'pagefn.py'}
 [locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items()]
 
-
 TITLE = \
 '''
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -22,31 +21,34 @@ TITLE = \
 <title>%s</title>
 '''%title
 
+
 def index(**args):
 	print TITLE
 	# yaml css files
 	cssfiles = ( 'screen/forms.css', 'add-ons/microformats/microformats.css')
 	for f in cssfiles :
 		print pagefn.css('/'.join(('yaml', f)))
-		    
+	
 	# other css files
    
    # mootools lib
-   jsfiles = ( 'mootools-1.2.4-core.js','mootools-1.2.4.2-more.js')
-   for name in jsfiles:
-   	print pagefn.script('/'.join(('js', 'lib', 'mootools', name)), link=True)
-   	
-   # other javascript libraries
+	jsfiles = ( 'mootools-1.2.4-core.js','mootools-1.2.4.2-more.js')
+	for name in jsfiles:
+		print pagefn.script('/'.join(('js', 'lib', 'mootools', name)), link=True)
+   	   	
+	# other javascript libraries
    # import files in '/js' directiory
-   jsfiles = ( '/'.join(('/','js','lib','tools','assetsmanager.js')),\
-   				'/'.join(('/','js','init.js')))
-	for name in jsfiles:    
-   	print pagefn.script(name, link=True)
+	jsfiles = ( '/'.join(('js','lib','tools','assetsmanager.js')), '/'.join(('js','init.js')))
+	#jsfiles = ( '/'.join(('js','lib','tools','assetsmanager.js')),)
+	
+	for name in jsfiles:
+		print pagefn.script(name, link=True)
+   
    # import files in '/lib' directiory
-   libname = 'moohover'
-   names = ['/'.join(('js','lib',libname,suffix,'.'.join((libname,suffix)))) for suffix in ('css','js')]
-   print pagefn.css(names[0])
-   print pagefn.script(names[1], link=True)
+	libname = 'moohover'
+	names = ['/'.join(('js','lib',libname,suffix,'.'.join((libname,suffix)))) for suffix in ('css','js')]
+	print pagefn.css(names[0])
+	print pagefn.script(names[1], link=True)
    # this page head tag is completed
-   print "</head>"
-   return
+	print "</head>"
+	return
