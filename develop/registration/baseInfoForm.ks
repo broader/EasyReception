@@ -5,7 +5,7 @@ The module for registration application.
 from HTMLTags import *
 
 # 'THIS.script_url' is a global variable in Karrigell system
-#APPATH = THIS.script_url[1:]
+APPATH = THIS.script_url[1:]
 RELPATH = (lambda p : p.split('/')[0])(THIS.baseurl)
 model = Import( '/'.join((RELPATH, 'model.py')))
 modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'formFn':'form.py'}
@@ -23,7 +23,7 @@ SO = Session()
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 
 # account information fields' names in CONFIG file
-ACCOUNTFIELDS = 'userAccountInfo'
+#ACCOUNTFIELDS = 'userAccountInfo'
 
 # base information fields' names in CONFIG file
 BASEINFOFIELDS = 'userBaseInfo'
@@ -49,7 +49,7 @@ def index(**args):
 		element.update({'id':name})
       # Add required property to the needed fields, 
       # here means all the fields will be added the 'required' property.
-		element.update({'required':True})
+		element.update({'required':False})
       # add maybe old value
 		element.update({'oldvalue':rember.get(name)})	
 	
@@ -77,11 +77,14 @@ def index(**args):
 	
 	span = DIV(Sum(buttons), **{ 'id':FORMBNS, 'style':'position:absolute;left:18em;'})    
 	form.append(span)
+	
+	# form action url
+	action = '/'.join((APPATH, '_'.join(('page', 'accountRegister'))))
 	 
 	form = FORM( Sum(form), 
                  **{
-                   'action': '', 
-                   'id': '', 
+                   'action': action, 
+                   'id': BASEINFOFIELDS, 
                    'method':'get',                   
                    'class':'yform'
                  }
@@ -89,20 +92,48 @@ def index(**args):
 	print DIV(form, **{'class':'subcolumns'})
 	
 	# javascript functions for this page
-	paras = [ pagefn.REGISTERDLG, FORMBNS ]
+	paras = [ pagefn.REGISTERDLG, pagefn.TABSCLASS, BASEINFOFIELDS, FORMBNS ]
 	js = \
 	"""
 	
-	var dialogName='%s', buttonsContainer='%s';
+	var dialogName='%s', tabsClass='%s';
+	var formId='%s', buttonsContainer='%s';
 	
 	// Backforward function
 	function back(event){
-		alert('back button clicked');
+		// get the tabs instance in this page
+		var tabs = window[$$('div.'+tabsClass)[0].getAttribute('id')];		
+      // diable action must be done first before switching to last showed tab
+      tabs.disableTabs([tabs.currentTab()]);
+		//tabs.enableTabs([0,]);	// backforward to the last tab
+		tabs.showTab(0);
 	};
 	 
 	// Next step function
+	/*********************************************************************
+	Set a global variable 'formchk', 
+   which will be used as an instance of the validation Class-'FormCheck'.
+   **********************************************************************/
+   
+   var formchk = new FormCheck( formId,{
+		submitByAjax: true,
+		
+	   onAjaxSuccess: function(response){
+	   	if(response != 1){alert('Account creating failed!');}
+	      else{alert('Success!')};               
+	   },            
+	
+	   display:{
+	   	errorsLocation : 1,
+	      keepFocusOnError : 0, 
+	      scrollToFirst : false
+	   }
+	});// the end for 'formchk' define
+	
+	
 	function next(event){
 		alert('next button clicked');
+		formchk.onSubmit(event);
 	};
 	 
 	// Cancel function
@@ -130,5 +161,10 @@ def index(**args):
 	"""%tuple(paras)
 		
 	print pagefn.script(js, link=False)
+	return
+	
+def page_accountRegister(**args):
+	""" Register the new user account. """
+	print '1'
 	return
 	

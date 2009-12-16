@@ -17,7 +17,7 @@ def _getValidClass(field, required):
 		validClass.append("required")
     
 	if validClass :
-		validClass = ["".join(("\"",item, "\"")) for item in validClass]
+		validClass = ["".join(("\'",item, "\'")) for item in validClass]
 		validClass = "".join(( validClassName, "[", ",".join(validClass), "]"))
 		# field type
 		fieldType = field.get("type")
@@ -32,22 +32,26 @@ def _getValidClass(field, required):
 def getField(field):
 	""" Render YAML formats form field."""
 	prompt,required,oldvalue = [ field.pop(prop) for prop in ( "prompt", "required", "oldvalue" )]
+	
 	div = []
 	label = TEXT()
 	
 	if required:
-		# this field should be input
+		# this field must be input by the user
 		old = field.get('class')
 		if old :
-			newclass = old + ' required'
+			newclass = ' '.join((old,'required'))
 		else:
 			newclass = "required"
+			
 		field['class'] = newclass
 		label += SUP("*", title=_("This field is mandotroy."))
 		 
 		if prompt:
 			label += TEXT(prompt)
-	 	 
+	else:
+		label = TEXT(prompt)
+		 
 	label = LABEL(label, **{"for": field.get("id"),"style":"font-size:1.2em"})
 	div.append(label)
     

@@ -32,7 +32,7 @@ CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 ACCOUNTFIELDS = 'userAccountInfo'
 
 # The id for the 'Account' form
-ACCOUNTFORM = 'AccountForm'
+#ACCOUNTFORM = 'AccountForm'
 
 # the id for the SPAN component in the account form page which holds buttons 
 ACCOUNTFORMBNS = 'accountBns'
@@ -60,7 +60,7 @@ def index(**args):
     
 	 # the form fields
 	 fields = \
-      [ {'prompt':_('Login Name :'),'name':username,'type':'text','validate':['length[6,-1]','~accountCheck']},
+      [ {'prompt':_('Login Name :'),'name':username,'type':'text','validate':['~accountCheck',]},
         {'prompt':_("Email address :"), 'name':usermail, 'class':'email', 'type':'text','validate':['email',]},
         {'prompt':_("Confirm Email :"), 'name':'cemail','class':'email', 'type':'text','validate':['email','confirm[%s]'%usermail]},
         {'prompt':_("Password :"),'name':pwd, 'type':'password','validate':['length[6,-1]',]},
@@ -68,7 +68,9 @@ def index(**args):
         {'prompt':_("Captcha Image :"),'name':'captcha','type':'text', 'image':image, 'key':cinput, 'validate':['~cimgCheck',]}
       ]
     
-	 rember = dict([ (name, getattr(SO, name, None))  for name in ('username', 'email')])
+    # get the old input values
+	 rember = dict([ (name, getattr(SO, name, None))  for name in ( username, usermail)])
+	 
     # Add other properties for each field, these properties are 'id','required','oldvalue'
 	 for field in fields :
        # Add 'id' property for each field
@@ -106,7 +108,7 @@ def index(**args):
 	 form = FORM( Sum(form), 
                  **{
                    'action': action, 
-                   'id': ACCOUNTFORM, 
+                   'id': ACCOUNTFIELDS, 
                    'method':'get',                   
                    'class':'yform'
                  }
@@ -119,7 +121,7 @@ def index(**args):
 	 paras = [ APP, accountErr, CAPTCHACLASS,CAPTCHAKEY, cpatchaErr]
 	 paras.extend([ '/'.join((APPATH, name))for name in ( 'page_captchaValid', 'page_switchImg', 'page_accountValid' )])
     
-	 paras.extend([ ACCOUNTFORMBNS, ACCOUNTFORM, pagefn.REGISTERDLG, pagefn.TABSCLASS])
+	 paras.extend([ ACCOUNTFORMBNS, ACCOUNTFIELDS, pagefn.REGISTERDLG, pagefn.TABSCLASS])
     # add some files' path for validation function
 	 names = ('css/hack.css', 'lang.js.pih', 'formcheck.js', 'theme/red/formcheck.css')
 	 paras.extend([ '/'.join(('js', 'lib', 'formcheck', name )) for name in names])
@@ -138,18 +140,15 @@ def index(**args):
     
     // Add validation function to the form
     // import css file for validation
-    //new Asset.css(hackCss);
-    //new Asset.css(fcCss);
     [ hackCss, fcCss].each(function(src){
     	am.import({'url':src,'app':appName,'type':'css'});
     });
     
-    
     // import javascript file for validation
-    //new Asset.javascript(fcI18nJs);
     am.import({'url':fcI18nJs,'app':appName,'type':'js'});
     
-    // Set a global variable 'formchk' which will be used as an instance of the validation Class-'FormCheck'.
+    // Set a global variable 'formchk', 
+    // which will be used as an instance of the validation Class-'FormCheck'.
     var formchk;
     
     // Load the form validation plugin script
@@ -172,33 +171,10 @@ def index(**args):
     };
     am.import({'url':fcJs,'app':appName,'type':'js'},options);
     
-    /*
-    new Asset.javascript( fcJs, {
-       onload:function(){
-          formchk = new FormCheck(
-             formId,
-             {
-                submitByAjax: true,
-                onAjaxSuccess: function(response){
-                   if(response != 1){alert('Account creating failed!');}
-                   else{
-                      tabSwitch();
-                   };               
-                },            
-
-                display:{
-                   errorsLocation : 1,
-                   keepFocusOnError : 0, 
-                   scrollToFirst : false
-                }
-              }
-          );
-       }
-    });    
-    */
     
-    
-    // a Request.JSON class for send validation request to server side    
+    /*****************************************************************************
+    A Request.JSON class for send validation request to server side    
+    *****************************************************************************/
     var accountRequest = new Request.JSON({async:false});
     
     // check whether the input account has been used
@@ -222,7 +198,9 @@ def index(**args):
     }
          
      
-    // captcha image check
+    /********************************************************************************** 
+    Captcha image check
+    ***********************************************************************************/
     var capthcaValidTag = false;   // a global variable to save the captcha check result
     // a Request.JSON class for send validation request to server side    
     var captchaRequest = new Request.JSON({async:false});
@@ -230,10 +208,13 @@ def index(**args):
     function cimgCheck(el){
        el.removeEvents();
        el.errors.push(captchaErr);
-       // Request captcha check from server side,
-       // if it's a valid captcha,the 'cpatchaValidTag' variable
-       // will be set to 'true' in the callback function of
-       // 'captchaRequest' which is a Request.JSON instance.
+       
+       /*****************************************************
+       Request captcha check from server side,
+       if it's a valid captcha,the 'cpatchaValidTag' variable
+       will be set to 'true' in the callback function of
+       'captchaRequest' which is a Request.JSON instance.
+       *****************************************************/
        
        // set some options for Request.JSON instance first
        captchaRequest.setOptions({
@@ -256,15 +237,19 @@ def index(**args):
        return false;
     };
     
-    // Successfully validation, start next step
+    /****************************************************************************
+    Successfully validation, start next step
+    *****************************************************************************/
     function tabSwitch(){       
        var tabs = window[$$('div.'+tabsClass)[0].getAttribute('id')];
        // diable action must be done first before switching to next tab
        tabs.disableTabs([tabs.currentTab()]);
        tabs.nextTab();
     };
-         
-    // The function which will close the popup dialog box.
+    
+    /**************************************************************************** 
+    The function which will close the popup dialog box.
+    *****************************************************************************/
     function closeBox(){
        // revove the displayed invalid info
        if($type(formchk) != false){
@@ -303,15 +288,13 @@ def index(**args):
 	 return
 
 def page_valid(**args):
-	 """
-    Valid the account informations of user.
-    """
-	 import sys
-	 reload(sys)
-	 sys.setdefaultencoding('utf8')
+	 """ Valid the account informations of user. """
+	 #import sys
+	 #reload(sys)
+	 #sys.setdefaultencoding('utf8')	 
 	 for k,v in args.items():
 	 	setattr( SO, k, v)
-	 #print JSON.encode({'type':1, 'session': args})
+	 #print JSON.encode({'type':1, 'session': args})	 
 	 print '1'
 	 return
     
@@ -333,9 +316,7 @@ def page_switchImg(**args):
     $$('.'+imgClass)[0].setProperty('src',imgUrl);
     """%paras
     print pagefn.script(script,link=False)
-    # replace the validation rule for captcha	
-    #url = 'register/formActions.ks/validCaptcha?key=%s' %key
-    #print '$("#captcha").rules("add", {remote: "%s"});' %url 
+     
     return
 
 def page_captchaValid(**args):

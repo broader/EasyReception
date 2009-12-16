@@ -47,7 +47,7 @@ def index(**args):
 	 # the tabs' titles
 	 labels = ['Account', 'Base Info', 'End']
 	 links = [ '/'.join(( THIS.baseurl, name))\
-              for name in (  'accountForm.ks/index', 'baseInfoForm.ks/index', 'actionEnd.ks/index')]
+              for name in ( 'accountForm.ks/index', 'baseInfoForm.ks/index', 'actionEnd.ks/index')]
 	 lis = [ LI(A(SPAN(label,**{'class':'tab-label'}),ref=link)) \
             for label, link in zip(labels, links)]
 	 ul = UL(Sum(lis), **{'class':'ertabs_title'} )
@@ -86,8 +86,7 @@ def index(**args):
     function tabsInit(){
        window.addEvent('domready',function(){
           var tabs = window[tabsDiv] = new ERTabs(tabsDiv);
-          // diable others tabs          
-          tabs.disableTabs([1,2]);
+          tabs.disableTabs([1,2]);	// diable others tabs  
        });
     };
     

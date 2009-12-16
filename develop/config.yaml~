@@ -2,62 +2,84 @@
 userAccountInfo:
   fields: !!python/tuple [username, usermail, password]
 userBaseInfo:
-- name: prefix
+- class: ''
+  name: prefix
   options:
   - {label: Mr, value: '0'}
   - {label: Mrs, value: '1'}
   - {label: Ms, value: '2'}
   prompt: 'Prefix :'
+  required: false
   type: radio
   validate: []
-- name: firstname
+- class: ''
+  name: firstname
   prompt: 'First Name :'
+  required: false
   type: text
   validate: []
 - name: lastname
   prompt: 'Last Name :'
   type: text
   validate: []
-- name: gender
+- class: ''
+  name: gender
   options:
   - {label: Male, value: '0'}
-  - {label: Female, value: '1'}
+  - {label: Female, value: '0'}
   prompt: 'Gender :'
+  required: false
   type: radio
   validate: []
-- name: organization
+- class: ''
+  name: organization
   prompt: 'Organization :'
-  type: text
+  required: false
+  type: textarea
   validate: []
-- name: phone
+- class: ''
+  name: phone
   prompt: 'Phone :'
+  required: false
   type: text
   validate: []
-- name: fax
+- class: ''
+  name: fax
   prompt: 'Fax :'
+  required: false
   type: text
   validate: []
-- name: aperson
+- class: ''
+  name: aperson
   options:
   - {label: '0', value: '0'}
   - {label: '1', value: '1'}
   - {label: '2', value: '2'}
   prompt: 'Accompany Person :'
+  required: false
   type: select
   validate: []
-- name: address
+- class: ''
+  name: address
   prompt: 'Address :'
+  required: false
   type: text
   validate: []
-- name: city
+- class: ''
+  name: city
   prompt: 'City :'
+  required: false
   type: text
   validate: []
-- name: country
+- class: ''
+  name: country
   prompt: 'Country :'
+  required: false
   type: text
   validate: []
-- name: postcode
+- class: ''
+  name: postcode
   prompt: 'Postal Code :'
+  required: false
   type: text
   validate: []

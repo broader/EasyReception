@@ -284,6 +284,7 @@ var FormCheck = new Class({
 		Add event on formular and perform some stuff, you now, like settings, ...
 	*/
 	initialize : function(form, options) {
+		
 		if (this.form = $(form)) {
 			this.form.isValid = true;
 			this.regex = ['length'];
@@ -1086,14 +1087,13 @@ var FormCheck = new Class({
 		
 		Perform check on submit action
 	*/
-	onSubmit: function(event) { 
-		//alert('FormCheck.onSubmit,L1090');    	
+	onSubmit: function(event) { 		    	
 		this.reinitialize();
 		this.fireEvent('onSubmit');
 		
 		this.validations.each(function(el) {
 			var validation = this.manageError(el,'submit');		
-			//alert('FormCheck.onSubmit,L1095,element to be validated is ' + el + ',name is ' + el.getProperty('name') + ',validation result is ' + validation);	
+				
 			if(!validation) this.form.isValid = false;
 		}, this);
 	    
