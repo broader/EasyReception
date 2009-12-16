@@ -1,6 +1,9 @@
 # karrigell modules
 from HTMLTags import *
 
+# some global variables stored in Session object of Karrigell
+SOINFO = {'userinfo':'baseinfo',}
+
 # a function to return the applicaiton name
 getApp = lambda p : p.split('/')[1]
 

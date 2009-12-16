@@ -2,12 +2,13 @@
 The module for registration application. 
 """
 
+import sys
 from HTMLTags import *
 
 # 'THIS.script_url' is a global variable in Karrigell system
 APPATH = THIS.script_url[1:]
 RELPATH = (lambda p : p.split('/')[0])(THIS.baseurl)
-model = Import( '/'.join((RELPATH, 'model.py')))
+model = Import( '/'.join((RELPATH, 'model.py')), REQUEST_HANDLER=REQUEST_HANDLER )
 modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'formFn':'form.py'}
 [locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items() ]
  
@@ -23,7 +24,7 @@ SO = Session()
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 
 # account information fields' names in CONFIG file
-#ACCOUNTFIELDS = 'userAccountInfo'
+ACCOUNTFIELDS = 'userAccountInfo'
 
 # base information fields' names in CONFIG file
 BASEINFOFIELDS = 'userBaseInfo'
@@ -40,8 +41,8 @@ FORMBNS = 'baseInfoBns'
 
 def index(**args):	
 	render = CONFIG.getData(BASEINFOFIELDS)		
-	#rember = {}	
 	rember = dict([ (field.get('name'), getattr(SO, field.get('name'), None))  for field in render ])
+	
 	# Add other properties for each field, these properties are 'id','required','oldvalue'
 	for element in render :
 		name = element.get('name')
@@ -165,6 +166,45 @@ def index(**args):
 	
 def page_accountRegister(**args):
 	""" Register the new user account. """
-	print '1'
+	account = {}	
+	[ account.update({ name:getattr(SO, name, '') })\
+	  for name in list(CONFIG.getData(ACCOUNTFIELDS).get('fields')) ] 
+	
+	# create the account in database
+	form = {'action': 'register','context': 'user','all_props': {('user', None): account}}
+	client = model.get_client()
+	
+	try:
+		client.form = form
+		userId = model.action(client)
+	except:
+		print sys.exc_info()
+		userId = None
+	finally:
+		pass
+	
+	if userId:
+		user = client.user = account.get('username')
+		
+		isSuccess = '1'
+		
+		# set the user's base information, 
+		# which is stored in a csv format file on server side		
+		info = {}		
+		fields = [ item.get('name') for item in CONFIG.getData(BASEINFOFIELDS) ]
+		
+		[ info.update({ name:args.get(name) or '' })\
+		  for name in fields ]
+		  
+		filename = '_'.join(('user', str(userId), 'info' ))	
+		
+		res = model.edit_user_info( user, user, 'create', info, filename, client)
+		if res:
+			setattr( SO, pagefn.SOINFO['userinfo'], info)
+	else:
+		isSuccess = '0'	
+	
+	print isSuccess
+	
 	return
 	

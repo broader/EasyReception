@@ -5,7 +5,7 @@ INICONFIG = os.sep.join((rootdir, 'config.yaml'))
 INIDATA = {}
 INIDATA['userAccountInfo'] = \
 {
-	'fields':( 'username', 'usermail', 'password' ),
+	'fields':( 'username', 'email', 'password' ),
 }
 
 INIDATA['userBaseInfo'] = \
@@ -19,6 +19,7 @@ INIDATA['userBaseInfo'] = \
 	
 	{ 'name':'firstname', 'prompt':_("First Name :"), 'type':'text',\
 	  'class':'', 'required':False, 'validate':[] },\
+	  
 	{ 'name':'lastname',	'prompt':_("Last Name :"), 'type':'text', 'validate':[] },\
 	
 	{ 'name':'gender', 'prompt':_("Gender :"), 'type':'radio',\

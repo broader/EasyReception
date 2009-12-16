@@ -19,12 +19,13 @@ INIDATA['userBaseInfo'] = \
 	
 	{ 'name':'firstname', 'prompt':_("First Name :"), 'type':'text',\
 	  'class':'', 'required':False, 'validate':[] },\
+	  
 	{ 'name':'lastname',	'prompt':_("Last Name :"), 'type':'text', 'validate':[] },\
 	
 	{ 'name':'gender', 'prompt':_("Gender :"), 'type':'radio',\
 	  'class':'', 'required':False,'validate':[],\
 	  'options':[{'value': '0','label':_('Male')},\
-	  				 {'value': '0','label':_('Female')}]\	
+	  				 {'value': '1','label':_('Female')}]\	
 	},\
 	
 	{ 'name':'organization', 'prompt': _("Organization :"), 'type':'textarea',\

@@ -1,6 +1,6 @@
 ---
 userAccountInfo:
-  fields: !!python/tuple [username, usermail, password]
+  fields: !!python/tuple [username, email, password]
 userBaseInfo:
 - class: ''
   name: prefix

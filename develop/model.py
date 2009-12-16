@@ -28,13 +28,14 @@ def create_client( ):
 	tracker = valid_dir(DBPATH )    
 	if not tracker:
 		print _("There is no correct roundup data directory!")
-		client = None        
-	else:	             
+		client = (CONFIG.data_dir, DBPATH)     
+	else:
 		try:
-        		client = ajaxClient.Client(instance=tracker)        	
-        	except:
-        		client = None	        
-        return client
+			client = ajaxClient.Client(instance=tracker)
+		except:
+			client = None
+			
+	return client
 	
 def get_client( ):	
 	handler = REQUEST_HANDLER	
@@ -251,8 +252,8 @@ def edit_user_info(admin, user, actionType, content, filename=None, client=None)
 	if not client.db_open :
 		client.set_user(admin)
 		
-	id = client.db.user.lookup(user)
-	return edit_linkcsv(client, 'user', id, 'info', actionType, content, filename)
+	userId = client.db.user.lookup(user)
+	return edit_linkcsv(client, 'user', userId, 'info', actionType, content, filename)
 	
 def get_adminlist(admin, props, search=None):
 	client = get_client()
