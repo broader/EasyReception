@@ -144,6 +144,14 @@ var ERTabs = new Class({
           tab.removeEvents();  
           this.activeTabs.erase(index);        
        }, this);
+    },
+    
+    // toggle tabs showing by the gived index 
+    toggleTabs: function (index){
+    	// diable action must be done first before switching to other tab
+      this.disableTabs([this.currentTab()]);
+		this.showTab(index);
     }
+    
 });
       

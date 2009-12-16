@@ -38,17 +38,18 @@ def index(**args):
    	   	
 	# other javascript libraries
    # import files in '/js' directiory
-	jsfiles = ( '/'.join(('js','lib','tools','assetsmanager.js')), '/'.join(('js','init.js')))
-	#jsfiles = ( '/'.join(('js','lib','tools','assetsmanager.js')),)
-	
+	jsfiles = ( '/'.join(('js','lib','tools','assetsmanager.js')), '/'.join(('js','init.js')))	
 	for name in jsfiles:
 		print pagefn.script(name, link=True)
    
    # import files in '/lib' directiory
-	libname = 'moohover'
-	names = ['/'.join(('js','lib',libname,suffix,'.'.join((libname,suffix)))) for suffix in ('css','js')]
-	print pagefn.css(names[0])
-	print pagefn.script(names[1], link=True)
+	libnames = ('mavdialog', 'moohover')
+	for lib in libnames:
+		names = ['/'.join(('js','lib',lib,suffix,'.'.join((lib,suffix))))\
+					for suffix in ('css','js')]
+		print pagefn.css(names[0])
+		print pagefn.script(names[1], link=True)
+	
    # this page head tag is completed
 	print "</head>"
 	return

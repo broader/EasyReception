@@ -93,21 +93,20 @@ def index(**args):
 	print DIV(form, **{'class':'subcolumns'})
 	
 	# javascript functions for this page
-	paras = [ pagefn.REGISTERDLG, pagefn.TABSCLASS, BASEINFOFIELDS, FORMBNS ]
+	paras = [ pagefn.REGISTERDLG, pagefn.TABSCLASS, BASEINFOFIELDS,\
+				 FORMBNS, _('Account creating failed!') ]
 	js = \
 	"""
 	
 	var dialogName='%s', tabsClass='%s';
-	var formId='%s', buttonsContainer='%s';
+	var formId='%s', buttonsContainer='%s', errInfo='%s';
+	
+	// get the tabs instance in this page
+	var tabs = window[$$('div.'+tabsClass)[0].getAttribute('id')];
 	
 	// Backforward function
-	function back(event){
-		// get the tabs instance in this page
-		var tabs = window[$$('div.'+tabsClass)[0].getAttribute('id')];		
-      // diable action must be done first before switching to last showed tab
-      tabs.disableTabs([tabs.currentTab()]);
-		//tabs.enableTabs([0,]);	// backforward to the last tab
-		tabs.showTab(0);
+	function back(event){ 
+		tabs.toggleTabs(0);
 	};
 	 
 	// Next step function
@@ -120,8 +119,8 @@ def index(**args):
 		submitByAjax: true,
 		
 	   onAjaxSuccess: function(response){
-	   	if(response != 1){alert('Account creating failed!');}
-	      else{alert('Success!')};               
+	   	if(response != 1){alert(errInfo);}
+	      else{ tabs.toggleTabs(2);};               
 	   },            
 	
 	   display:{
@@ -132,8 +131,7 @@ def index(**args):
 	});// the end for 'formchk' define
 	
 	
-	function next(event){
-		alert('next button clicked');
+	function next(event){		
 		formchk.onSubmit(event);
 	};
 	 
@@ -170,11 +168,10 @@ def page_accountRegister(**args):
 	[ account.update({ name:getattr(SO, name, '') })\
 	  for name in list(CONFIG.getData(ACCOUNTFIELDS).get('fields')) ] 
 	
-	# create the account in database
-	form = {'action': 'register','context': 'user','all_props': {('user', None): account}}
-	client = model.get_client()
-	
 	try:
+		# create the account in database
+		form = {'action': 'register','context': 'user','all_props': {('user', None): account}}
+		client = model.get_client()
 		client.form = form
 		userId = model.action(client)
 	except:

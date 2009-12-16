@@ -82,24 +82,21 @@ def _loginScript( ):
         
         // Pop up dialog for registration
         $(links[1]).addEvent('click',function(){
-           new Asset.css(mavdlgCss);
-           
-           new Asset.javascript(mavdlgJs,{
-           	  onload:function(){
-           	  	  window[dlgId] = new MavDialog({
-					     'force': true,
-					     'removeShade': true,
-					     'ok': false,
-					     'cancel': false,
-					     'width': 800,
-					     'height': 350,
-					     'url': mavdigUrl,
-						  'title': 'Registration Process',
-						  'message': 'This is the content for the dialog box.',
-						  'draggable': false
-					  });
-           	  }
-           });
+        		// This dialog may be closed on others pages,
+        		// so recordes its name in 'window'.
+				window[dlgId] = new MavDialog({
+					'force': true,
+			      'removeShade': true,	// This means close dialog will remove the shade element too.
+			      'ok': false,
+			      'cancel': false,
+			      'width': 800,
+			      'height': 350,
+			      'url': mavdigUrl,
+				   'title': 'Registration Process',
+				   'message': 'This is the content for the dialog box.',
+				   'draggable': false
+				});
+				
         });
      };
      

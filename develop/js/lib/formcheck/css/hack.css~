@@ -25,4 +25,5 @@
   *
   */ 
  
-.fc-tbx div{ z-index:10000;}
+.fc-tbx { z-index:10000;}
+.fc-tbx p { font-weight:bold; }
