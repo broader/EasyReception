@@ -1,6 +1,8 @@
 ---
 userAccountInfo:
-  fields: !!python/tuple [username, email, password]
+- {name: username, prompt: 'Login Name :'}
+- {name: email, prompt: 'Email Address :'}
+- {name: password, prompt: 'Password :'}
 userBaseInfo:
 - class: ''
   name: prefix

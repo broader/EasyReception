@@ -119,7 +119,7 @@ def index(**args):
 		submitByAjax: true,
 		
 	   onAjaxSuccess: function(response){
-	   	if(response != 1){alert('Account creating failed!');}
+	   	if(response != 1){alert(errInfo);}
 	      else{ tabs.toggleTabs(2);};               
 	   },            
 	
@@ -165,8 +165,9 @@ def index(**args):
 def page_accountRegister(**args):
 	""" Register the new user account. """
 	account = {}	
-	[ account.update({ name:getattr(SO, name, '') })\
-	  for name in list(CONFIG.getData(ACCOUNTFIELDS).get('fields')) ] 
+	names = [item.get('name') for item in CONFIG.getData(ACCOUNTFIELDS) ]
+	
+	[ account.update({ name:getattr(SO, name, '') }) for name in names ] 
 	
 	try:
 		# create the account in database

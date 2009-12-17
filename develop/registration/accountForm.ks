@@ -47,8 +47,9 @@ CAPTCHAKEY = 'ckey'
 
 def index(**args):
 	 """Render the form for account's information."""
+	 
 	 # get fields names
-	 username, usermail, pwd = CONFIG.getData(ACCOUNTFIELDS).get('fields')
+	 username, usermail, pwd = CONFIG.getData(ACCOUNTFIELDS)
 	  
     # create a captcha tag 
     # 'THIS.baseurl' and 'REL()' are global variable and function in Karrigell system
@@ -61,16 +62,23 @@ def index(**args):
     
 	 # the form fields
 	 fields = \
-      [ {'prompt':_('Login Name :'),'name':username,'type':'text','validate':['~accountCheck',]},
-        {'prompt':_("Email address :"), 'name':usermail, 'class':'email', 'type':'text','validate':['email',]},
-        {'prompt':_("Confirm Email :"), 'name':'cemail','class':'email', 'type':'text','validate':['email','confirm[%s]'%usermail]},
-        {'prompt':_("Password :"),'name':pwd, 'type':'password','validate':['length[6,-1]',]},
-        {'prompt':_("Confirm Password :"), 'name':'cpwd', 'type':'password','validate':['confirm[password]',]},
-        {'prompt':_("Captcha Image :"),'name':'captcha','type':'text', 'image':image, 'key':cinput, 'validate':['~cimgCheck',]}
+      [ \
+			{'prompt':username.get('prompt'),'name':username.get('name'),'type':'text','validate':['~accountCheck',]},
+			
+			{'prompt':usermail.get('prompt'), 'name':usermail.get('name'), 'class':'email', 'type':'text','validate':['email',]},\
+			
+			{'prompt':_("Confirm Email :"), 'name':'cemail','class':'email', 'type':'text','validate':['email','confirm[%s]'%usermail.get('name')]},\
+			
+			{'prompt':pwd.get('prompt'), 'name':pwd.get('name'), 'type':'password','validate':['length[6,-1]',]},\
+			
+			{'prompt':_("Confirm Password :"), 'name':'cpwd', 'type':'password','validate':['confirm[%s]'%pwd.get('name'),]},\
+			
+			{'prompt':_("Captcha Image :"),'name':'captcha','type':'text', 'image':image, 'key':cinput, 'validate':['~cimgCheck',]}\
       ]
     
     # get the old input values
-	 rember = dict([ (name, getattr(SO, name, None))  for name in ( username, usermail)])
+	 values = [d.get('name') for d in (username, usermail)]
+	 rember = dict([ (name, getattr(SO, name, None))  for name in values ])
 	 
     # Add other properties for each field, these properties are 'id','required','oldvalue'
 	 for field in fields :
@@ -100,7 +108,7 @@ def index(**args):
 	 bns =[_("Next"), _("Cancel")]    
 	 sbn = BUTTON(bns[0], **{'class':'MooTrans', 'type':'submit'})    
 	 cbn = BUTTON(bns[1],**{'class':'MooTrans', 'type':'button'})
-	 span = DIV(Sum((sbn,cbn)), **{ 'id':ACCOUNTFORMBNS, 'style':'position:absolute;left:24em;'})    
+	 span = DIV(Sum((sbn,cbn)), **{ 'id':ACCOUNTFORMBNS, 'style':'position:absolute;margin-left:24em;'})    
 	 form.append(span)
     
     # form action url

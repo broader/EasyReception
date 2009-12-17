@@ -76,7 +76,7 @@ def index(**args):
 	[ BUTTON( name, **{'class':'MooTrans', 'type':'button'}) \
 	  for name in [_("Back"), _("Next"), _("Cancel")] ]
 	
-	span = DIV(Sum(buttons), **{ 'id':FORMBNS, 'style':'position:absolute;left:18em;'})    
+	span = DIV(Sum(buttons), **{ 'id':FORMBNS, 'style':'position:absolute;margin-left:18em;'})    
 	form.append(span)
 	
 	# form action url
@@ -165,8 +165,9 @@ def index(**args):
 def page_accountRegister(**args):
 	""" Register the new user account. """
 	account = {}	
-	[ account.update({ name:getattr(SO, name, '') })\
-	  for name in list(CONFIG.getData(ACCOUNTFIELDS).get('fields')) ] 
+	names = [item.get('name') for item in CONFIG.getData(ACCOUNTFIELDS) ]
+	
+	[ account.update({ name:getattr(SO, name, '') }) for name in names ] 
 	
 	try:
 		# create the account in database

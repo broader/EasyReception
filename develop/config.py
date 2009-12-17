@@ -4,9 +4,15 @@ import yaml
 INICONFIG = os.sep.join((rootdir, 'config.yaml'))
 INIDATA = {}
 INIDATA['userAccountInfo'] = \
-{
-	'fields':( 'username', 'email', 'password' ),
-}
+[
+	{ 'name':'username', 'prompt':_('Login Name :')},\
+	{ 'name':'email', 'prompt':_('Email address :')},\
+	{ 'name':'password' , 'prompt':_('Password :')},\
+]
+
+#{
+#	'fields':( 'username', 'email', 'password' ),
+#}
 
 INIDATA['userBaseInfo'] = \
 [ 

@@ -10,6 +10,7 @@ def yform(fields):
 	return divs
 
 def _getValidClass(field, required):
+	""" Set the form fileld's style class. """
 	validClassName = "validate"
 	validClass = field.pop(validClassName)
 	
@@ -33,8 +34,8 @@ def getField(field):
 	""" Render YAML formats form field."""
 	prompt,required,oldvalue = [ field.pop(prop) for prop in ( "prompt", "required", "oldvalue" )]
 	
-	info = 'form.py,getField,prompt is %s,required is %s, oldvalue is %s'%(prompt,required,oldvalue)
-	print TEXT(info)
+	# for i18n need
+	prompt = _(prompt)
 	
 	div = []
 	label = TEXT()
@@ -92,7 +93,7 @@ def getField(field):
 					
 				option["name"] = name
 				option["type"] = "radio"
-				text = option.pop("label")
+				text = _( option.pop("label") )
 				input = INPUT(**option)
 				text = TEXT("".join(( text, "&nbsp;&nbsp;")))
 				radioes.append( Sum(( input, text)) )
@@ -108,7 +109,7 @@ def getField(field):
 			for option in options:
 				if str(option.get("value")) == str(oldvalue):
 					option["selected"] = ""
-				text = option.pop("label")
+				text = _( option.pop("label") )
 				select.append(OPTION(text, **option))
 			
 			[ field.pop(prop) for prop in ("type", "class")]	
@@ -124,3 +125,45 @@ def getField(field):
 		ctype = "-".join(("type", fieldType))
 	
 	return DIV(Sum(div), **{"class":ctype})
+
+	
+def render_table_fields(names, values, cols, labelStyle, valueStyle):
+	""" 
+	Render the table rows which is mainly used for showing fields.
+	Parameters:
+		names -the list contains fields' names
+	  	values -the list contains fields' values
+	  	cols - the columns divided by field number, 
+	  		   each column contains a label for showing field's name and 
+	  		   a label for showning field's value;
+	  	labelStyle - a dictionary object, which holds the styles of <td> and 
+	  					 <div> for showing field's label;
+	  	valueStyle - a dictionary object, which holds the styles of <td> and 
+	  					 <div> for showing field's value;
+	"""
+	names, values = [ list(item) for item in (names, values)]
+			
+	fieldsNumber = cols
+	cols = divmod(len(names), cols)
+	if cols[1]:
+		cols = cols[0] +1
+	else:
+		cols = cols[0]
+		
+	trs = []	
+	for g in range(cols) :
+		tr = []		 
+		for i in range(fieldsNumber):
+			try:
+				name = names.pop(0)
+				value = values.pop(0)							 
+				attrdiv = DIV(name, style=labelStyle.get('label') or '')
+				valuelabel = LABEL(value,style=valueStyle.get('label') or '')  
+				td = TD(attrdiv, style=labelStyle.get('td') or '')+TD(valuelabel, style=valueStyle.get('td') or '')
+			except:
+				break 		 			
+			tr.append(td)
+		trs.append(TR(Sum(tr)))
+
+	# return the HTMLTag	
+	return Sum(trs)
