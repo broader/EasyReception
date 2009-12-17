@@ -65,36 +65,41 @@ def _loginScript( ):
      libName = 'mavdialog'
      paras.extend([ '/'.join(('js','lib',libName,p,'.'.join((libName,p))))\
           		   for p in ('css', 'js')])
-     # add test mavdialog action page
+     
+     # add registration action page
      paras.append('registration/registration.ks/index')
+     
+     # add title for dialog 
+     paras.append( '<h4 style="font-weight:bold;">%s</h4>'%_('Registration Process'))
      
      paras = tuple(paras)
      script = '''
-     var links=$("%s").getElements("a");
+     var buttons=$("%s").getElements("a");
      var mainDiv="%s";
      // popup dialog plugin
-     var dlgId="%s",mavdlgCss="%s", mavdlgJs="%s", mavdigUrl="%s";
+     var dlgId="%s",mavdlgCss="%s", mavdlgJs="%s";
+     var mavdigUrl="%s", title="%s";
      
      function init(){
 	     // pop up dialog for login  action
-        $(links[0]).addEvent('click',function(){
+        $(buttons[0]).addEvent('click',function(){
         });
         
         // Pop up dialog for registration
-        $(links[1]).addEvent('click',function(){
+        $(buttons[1]).addEvent('click',function(){
         		// This dialog may be closed on others pages,
         		// so recordes its name in 'window'.
 				window[dlgId] = new MavDialog({
-					'force': true,
-			      'removeShade': true,
-			      'ok': false,
-			      'cancel': false,
-			      'width': 800,
-			      'height': 350,
-			      'url': mavdigUrl,
-				   'title': 'Registration Process',
-				   'message': 'This is the content for the dialog box.',
-				   'draggable': false
+					'force': 		true,
+			      'removeShade': true,	// This means close dialog will remove the shade element too.
+			      'ok': 			false,
+			      'cancel': 		false,
+			      'width': 		800,
+			      'height': 		350,
+			      'url': 			mavdigUrl,
+				   'title': 		title ,
+				   'message': 		'This is the content for the dialog box.',
+				   'draggable': 	false
 				});
 				
         });

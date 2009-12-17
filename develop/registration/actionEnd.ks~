@@ -34,7 +34,7 @@ modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'form':'form.py'}
 
 def index(**args):
     header = H2('Congradulations!', style='text-align:left;background:white;')
-    print header, HR(style='color:white;border-color:white;margin:0px;padding:0px;')
+    print header, HR(style='color:white;border-color:none;margin:0px;padding:0px;')
     left = DIV('Test Left', **{'class':'c33l'})
     right = DIV('Test Left', **{'class':'c66r'})
     print DIV( Sum((left,right)), **{'class':'subcolumns'})
