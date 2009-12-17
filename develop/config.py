@@ -5,9 +5,9 @@ INICONFIG = os.sep.join((rootdir, 'config.yaml'))
 INIDATA = {}
 INIDATA['userAccountInfo'] = \
 [
-	{ 'name':'username', 'prompt':_('Login Name :')},\
-	{ 'name':'email', 'prompt':_('Email address :')},\
-	{ 'name':'password' , 'prompt':_('Password :')},\
+	{ 'name':'username', 'prompt':_('Login Name :'), 'type':'text'},\
+	{ 'name':'email', 'prompt':_('Email address :'), 'type':'text'},\
+	{ 'name':'password' , 'prompt':_('Password :'), 'type':'text'},\
 ]
 
 #{
@@ -50,7 +50,7 @@ INIDATA['userBaseInfo'] = \
 	  				  {'value':'2', 'label':'2'}]\
 	},\
 	
-	{ 'name':'address',	'prompt':_("Address :"), 'type':'text',\
+	{ 'name':'address',	'prompt':_("Address :"), 'type':'textarea',\
 	  'class':'', 'required':False, 'validate':[] },\
 	  
 	{ 'name':'city',	'prompt':_("City :"), 'type':'text',\

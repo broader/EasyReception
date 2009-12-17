@@ -108,7 +108,7 @@ def index(**args):
 	 bns =[_("Next"), _("Cancel")]    
 	 sbn = BUTTON(bns[0], **{'class':'MooTrans', 'type':'submit'})    
 	 cbn = BUTTON(bns[1],**{'class':'MooTrans', 'type':'button'})
-	 span = DIV(Sum((sbn,cbn)), **{ 'id':ACCOUNTFORMBNS, 'style':'position:absolute;margin-left:24em;'})    
+	 span = DIV(Sum((sbn,cbn)), **{ 'id':ACCOUNTFORMBNS, 'style':'position:absolute;margin-left:20em;'})    
 	 form.append(span)
     
     # form action url

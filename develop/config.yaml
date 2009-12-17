@@ -1,8 +1,8 @@
 ---
 userAccountInfo:
-- {name: username, prompt: 'Login Name :'}
-- {name: email, prompt: 'Email Address :'}
-- {name: password, prompt: 'Password :'}
+- {name: username, prompt: 'Login Name :', type: text}
+- {name: email, prompt: 'Email address :', type: text}
+- {name: password, prompt: 'Password :', type: text}
 userBaseInfo:
 - class: ''
   name: prefix
@@ -65,7 +65,7 @@ userBaseInfo:
   name: address
   prompt: 'Address :'
   required: false
-  type: text
+  type: textarea
   validate: []
 - class: ''
   name: city

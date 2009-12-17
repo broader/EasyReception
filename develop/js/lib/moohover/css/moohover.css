@@ -7,8 +7,7 @@
 	position:relative; 
 	float:left;
 	margin-right:5px;
-	/*width:123px;*/
-	width:auto; 
+	width:123px; 
 	height:36px; 
 	background:url(button_off.png); 
 	text-decoration:none; 
