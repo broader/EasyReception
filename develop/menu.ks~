@@ -44,7 +44,7 @@ MAINDIV = 'main'
 
 # Page Functions
 def index():
-     divs = [DIV( _header(), **{'id' : HEADERDIV}), DIV(_nav(), **{'id' : NAVDIV})]
+     divs = [DIV( _header(), **{'id' : HEADERDIV, 'style':'padding:25px 2em 1.5em 20px;'}), DIV(_nav(), **{'id' : NAVDIV})]
      print Sum(divs)
      script = \
      '''
@@ -70,7 +70,7 @@ def _loginScript( ):
      paras.append('registration/registration.ks/index')
      
      # add title for dialog 
-     paras.append( '<h4 style="font-weight:bold;">%s</h4>'%_('Registration Process'))
+     paras.append( "<h4 style='font-weight:bold;'>%s</h4>"%_('Registration Process'))
      
      paras = tuple(paras)
      script = '''
@@ -112,8 +112,9 @@ def _loginScript( ):
 def _header(**args):
 	  """ Return the content in <div id="header"></div>."""
 	  contents = [  DIV( SPAN( page_loginSpan(), **{'id' : LOGINSPAN } ), **{'id' : 'topnav'}), \
-		             H1(  _('EasyReception Congress Management Portal')), \
-		             SPAN( _("Simple, Professional and Methodical"), style='margin-left:0.5em;')]
+		             H1(  _('EasyReception Congress Management Portal'),style='font-size:2.2em;'), \
+		             SPAN( _("Simple, Professional and Methodical"),\
+		             		 style='margin-left:0.5em;font-weight:bold;font-style:italic;text-decoration:underline;')]
 
 	  return Sum(contents)
 	
