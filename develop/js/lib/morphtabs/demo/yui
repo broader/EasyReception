@@ -1,7 +1,0 @@
-
-cat "Fx.MorphElement.js" > morphtabs.js
-cat "SlideShow.js" >> morphtabs.js
-cat "Tabs.js" >> morphtabs.js
-cat "MorphTabs.js" >> morphtabs.js
-
-java -jar ../yuicompressor.jar -o MorphTabs-compressed.js morphtabs.js

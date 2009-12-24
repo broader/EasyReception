@@ -1,7 +1,0 @@
-===  Changelog  ===
-
----------------
-Facebox 1.1
----------------
-* Fixed bug which wouldn't show images in IE7
-
