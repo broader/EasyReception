@@ -1,0 +1,27 @@
+<!-- jscroller2 header files -->
+<link rel="stylesheet" type="text/css" href="css/jscroller2-1.0.css"/>
+<script type="text/javascript" src="js/jscroller2-1.5.js"></script>
+
+<!-- The content for the down scrolled window -->
+<div id="scroller_container" style="background:#e3eecf; width: auto; height: 20px; overflow: hidden; border: none">
+	
+      <div class="jscroller2_right jscroller2_mousemove" style="color:#6a6e71; font-weight:600; font-style:italic; font-size:12px; text-shadow:purple ; line-height:20px; white-space:nowrap; margin: 0;">
+	拉丁舞  国标舞  爵士舞
+	现代舞  流行街舞  肚皮舞 
+	迪厅舞 弗拉明戈  踢踏舞  
+	形体身韵  民族舞 古典舞  
+	中国舞考级  跆拳道  瑜伽  
+	普拉提 太极养生  
+	影视表演   影视化妆  模特培训 ......   
+      </div>
+      
+      <!--
+      <div class="jscroller2_right_endless jscroller2_mousemove" style="font-size:15px; line-height:20px; white-space:nowrap; margin: 0;">
+      		This is text ......  Text      		
+      		<a href="http://211.166.10.154" onclick="window.open(this.href, 'AnimeArchive'); return false"> 
+      			会员舞蹈课程</a>      			
+      		<a href="http://211.166.10.154" onclick="window.open(this.href, 'AnimeArchive'); return false"> 
+      			中老年舞蹈健身</a>
+      </div>
+      -->
+</div>

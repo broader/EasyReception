@@ -1,0 +1,45 @@
+<h1>Downloading and installing Karrigell</h1>
+
+Karrigell works with Python ; so if don't have Python installed on your computer, go to <a href="http://www.python.org">the Python website</a> and download and install the latest version
+
+<p>The next step is obviously to download Karrigell. The package is available on sourceforge <a href="http://www.sf.net/projects/karrigell">here</a>. In "Latest file releases", follow the link "download". You will find three files, with the extensions zip, tgz or tar.bz2. Choose one (if you don't know, choose zip) and download the file
+
+<p>Unzip it with the adapted program, in a directory such as <CODE>c:\Karrigell</CODE> on Windows or <CODE>/home/karrigell</CODE> on Unix/Linux. The package will be in a subdirectory with the same name as the file you have downloaded (<CODE>c:\Karrigell\Karrigell-<I>version_number</I></CODE> or <CODE>/home/karrigell/Karrigell-<I>version_number</I></CODE> for instance)
+
+<p>In this directory you will see a subdirectory called <CODE>gadfly-1.0.0</CODE> : the module gadfly is used as the default database engine on Karrigell. It is a fast, in-memory SQL database, mostly written in Python
+
+<p>To install gadfly, open a console window and go to the directory <CODE>gadfly-1.0.0</CODE>, then type <CODE>python setup.py install</CODE>
+
+<p><center><img src="images/installGadfly.PNG"></center>
+
+<p><small><i>Note : there have been reports of messages "python22.dll not found" when starting gadfly on Windows. Not sure, but downloading the python22.dll somewhere and putting in in c:\windows\system32 might solve this</i></small>
+
+<p>You are now ready to start Karrigell : type <CODE>python Karrigell.py</CODE>
+
+<p>
+<center>
+<table style='background-color:black;color:white;font-family:courier new;font-size:14' border="2">
+ <tr><td>C:\Karrigell\Karrigell-2.1.8\python Karrigell.py
+ <br>Karrigell 2.1.8 running on port 80
+ <br>Debug level 1
+ <br>Press Ctrl+C to stop
+ <br>
+ <br>
+ </td></tr>
+</table>
+</center>
+
+<p><i>Note : the message may be different with other versions</i>
+
+<p>This will start the server on the port 80, which is the default port for HTTP. If you want to use another port (for instance on a Unix / Linux machine where you don't have root privilege), specify it on the command line, like this :
+<p><BLOCKQUOTE>
+<CODE>python Karrigell.py -P 8080</CODE>
+</BLOCKQUOTE>
+
+<p>Open a web browser and type <CODE>http://localhost</CODE> in the address field. You should see this page :
+
+<p><center><img src="images/homePage.PNG"></center>
+
+<p>This home page provides link to see many demos and examples ; try the wiki, the "kwiki" which is the same as a wiki but with a wysiwyg editor, the forum, calendar, etc. In the "tour" you will be able to see the source code, this will give you a first idea of the variety of coding styles allowed by Karrigell
+
+<p>In the <a href="tut2.html">next step</a> of this tutorial, I am going to show how you can create your first program with only two lines of Python code

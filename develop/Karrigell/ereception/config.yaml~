@@ -1,0 +1,87 @@
+---
+userAccountInfo:
+- {name: username, prompt: 'Login Name :', type: text}
+- {name: email, prompt: 'Email address :', type: text}
+- {name: password, prompt: 'Password :', type: text}
+userBaseInfo:
+- class: ''
+  name: prefix
+  options:
+  - {label: Mr, value: '0'}
+  - {label: Mrs, value: '1'}
+  - {label: Ms, value: '2'}
+  prompt: 'Prefix :'
+  required: false
+  type: radio
+  validate: []
+- class: ''
+  name: firstname
+  prompt: 'First Name :'
+  required: false
+  type: text
+  validate: []
+- name: lastname
+  prompt: 'Last Name :'
+  type: text
+  validate: []
+- class: ''
+  name: gender
+  options:
+  - {label: Male, value: '0'}
+  - {label: Female, value: '1'}
+  prompt: 'Gender :'
+  required: false
+  type: radio
+  validate: []
+- class: ''
+  name: organization
+  prompt: 'Organization :'
+  required: false
+  type: textarea
+  validate: []
+- class: ''
+  name: phone
+  prompt: 'Phone :'
+  required: false
+  type: text
+  validate: []
+- class: ''
+  name: fax
+  prompt: 'Fax :'
+  required: false
+  type: text
+  validate: []
+- class: ''
+  name: aperson
+  options:
+  - {label: '0', value: '0'}
+  - {label: '1', value: '1'}
+  - {label: '2', value: '2'}
+  prompt: 'Accompany Person :'
+  required: false
+  type: select
+  validate: []
+- class: ''
+  name: address
+  prompt: 'Address :'
+  required: false
+  type: text
+  validate: []
+- class: ''
+  name: city
+  prompt: 'City :'
+  required: false
+  type: text
+  validate: []
+- class: ''
+  name: country
+  prompt: 'Country :'
+  required: false
+  type: text
+  validate: []
+- class: ''
+  name: postcode
+  prompt: 'Postal Code :'
+  required: false
+  type: text
+  validate: []

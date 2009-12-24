@@ -1,0 +1,127 @@
+<html>
+<head>
+<title>Components
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="../lib.css">
+<style type="text/css">
+<!--
+dl {  background-color: #FFFFCC; border-width: 1; border-style:solid;}
+-->
+</style>
+</head>
+
+<body>
+
+<h1><%= chapter %>. Components</h1>
+
+<h2><%= chapter %>.1 Introduction</h2>
+
+The idea behind the notion of "component" in Karrigell is : a script or a set
+of scripts which performs an elementary service (say, news editing, or agenda)
+and can either be run stand-alone, or be included "as is" in another, more
+complete application
+
+<p>Suppose you want to create a site whose layout would be like this
+<p>
+<center>
+<table width="40%" bgcolor="#F0F0F0" border="1">
+<tr height="80"><td colspan="3" align="center">Header</td></tr>
+<tr height="200"><td>Calendar</td><td>Main content</td><td>News</td></tr>
+</table>
+</center>
+
+<p>If there is already somewhere a "calendar" component and a "news" component,
+whose home pages stand at urls <span class="url">calendar_url/dayView.pih</span>
+and <span class="url">news_url/index.pih</span>, they will be included as follows :
+<p>
+<dl><dd><pre class="verbatim">
+&lt;table width="40%" bgcolor="#F0F0F0" border="1"&gt;
+&lt;tr height="80"&gt;&lt;td colspan="3" align="center"&gt;(...header...)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr height="200"&gt;
+    &lt;td&gt;<b>&lt;% IncludeComponent(calendar_url/dayView.pih) %&gt;</b>&lt;/td&gt;
+    &lt;td&gt;(...main content...)&lt;/td&gt;
+    &lt;td&gt;<b>&lt;% IncludeComponent(news_url) %&gt;</b>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</pre></dl>
+<p>
+
+<h2><%= chapter %>.2 Writing a component</h2>
+
+<p>To achieve this simplicity for the builder of an application, there are
+some constraints in writing a component, mostly related to the way of
+specifying urls
+<p>The variable <code>THIS</code>, representing the script itself, is used
+extensively in components, especially two methods, <code>join</code> and
+<code>absolute</code>, and an attribute, <code>dirname</code>
+
+<h3><%= chapter %>.2.1 The <code>join</code> method</h3>
+
+<p>Let's take the example of a calendar component and suppose its home page
+is <span class="file">dayView.pih</span>. Inside it, there will be a table to show
+the calendar of a month, and another table to show the agenda of a day.
+If you click on a day in the month calendar, you expect the page to be reloaded,
+and the agenda for the specified day to show
+<p>The link will be something like <code>&lt;a href="dayView.pih?day=20&month=10"
+&gt;</code>
+<p>As long as the component is run stand-alone, this works. But if included
+as above with <code>IncludeComponent</code>, the url to point at must be the
+portal url, not the calendar home page
+<p>To achieve this, the link in the calendar script must be independant of the
+context (stand alone or included). It must written this way :
+<dl><dd><pre class="verbatim">
+&lt;a href="&lt;%= THIS.join('dayView.pih',day=20,month=10) %>">
+</pre></dl>
+
+<p><code>THIS</code> is an instance of the Script class, representing the
+current script. The <code>join(<i>url</i><b>[</b><i>,kw</i><b>]</b>)</code> 
+method takes an url as argument, and returns another url :
+<ul>
+<li>if the component is run stand-alone, returns the same <code><i>url</i></code>
+<li>if called by <code>IncludeComponent</code>, returns the url of the "caller"
+with a query string identifying the component and the url inside this
+component (here, <code>dayView.pih</code>)
+</ul>
+In both cases, the additional arguments <code>kw</code> are appended to the 
+url query string
+
+<p>The same method will be used in the <code>action</code> attribute of
+a form
+
+<dl><dd><pre class="verbatim">
+&lt;form action="&lt;%= THIS.join('createCalendarEntry.py')%>">
+</pre></dl>
+
+<h3><%= chapter %>.2.2 The <code>absolute</code> method</h3>
+
+<p>Under other circumstances, for instance to refer to an image used
+in the component and stored in the component directory, the url must always
+refer to a file in this directory
+<p>To achieve this, use the <code>absolute</code> method :
+<dl><dd><pre class="verbatim">
+&lt;img src="&lt;%= THIS.absolute('myImage.gif') %&gt;">
+</pre></dl>
+
+<h3><%= chapter %>.2.3 The <code>dirname</code> attribute</h3>
+
+<p>When a component uses a database (this is the case for a forum
+component for instance) we must have a way to specify where this
+database is located in the file system
+
+<p>The <code>dirname</code> attribute of <code>THIS</code> returns
+the "caller" directory :
+<ul>
+<li>if the component is run as stand alone, <code>dirname</code> is the
+script absolute directory
+<li>if it's called by an application with <code>Include</code> or
+<code>IncludeDocument</code>, returns the "caller" directory
+</ul>
+
+<h3><%= chapter %>.2.4 Examples</h3>
+
+See the demo in <code>demo/composed</code> for applications using components
+and components examples in <code>lib</code>
+
+</td></tr>
+</table>

@@ -1,0 +1,5 @@
+2009/12/17 08:45:24 - 127.0.0.1 - GET /admin HTTP/1.1 302 /admin/index.ks
+2009/12/17 08:45:24 - 127.0.0.1 - GET /admin/index.ks HTTP/1.1 302 /admin/index.ks/index
+2009/12/17 08:45:24 - 127.0.0.1 - GET /admin/index.ks/index HTTP/1.1 302 /admin/login.ks/login?valid_in=/&redir_to=%2Fadmin%2Findex.ks%2Findex&role=admin&add_user=0
+2009/12/17 08:45:24 - 127.0.0.1 - GET /admin/login.ks/login?valid_in=/&redir_to=%2Fadmin%2Findex.ks%2Findex&role=admin&add_user=0 HTTP/1.1 200
+2009/12/17 08:45:24 - 127.0.0.1 - GET /admin/karrigell.css HTTP/1.1 200

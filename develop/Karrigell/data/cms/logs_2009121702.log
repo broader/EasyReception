@@ -1,0 +1,9 @@
+2009/12/17 10:19:42 - 127.0.0.1 - GET /register/formActions.ks/existName?username=test091217 HTTP/1.1 200
+2009/12/17 02:19:43 - 127.0.0.1 - GET /register/formActions.ks/step0?username=test091217&email=by%40sina.com&cemail=by%40sina.com&password=990508&cpwd=990508&captcha=xjp1fs HTTP/1.1 200
+2009/12/17 02:19:45 - 127.0.0.1 - GET /lib/ui/css/flick/images/ui-bg_highlight-soft_100_f6f6f6_1x100.png HTTP/1.1 200
+2009/12/17 02:19:45 - 127.0.0.1 - GET /register/step_2.hip?step=1 HTTP/1.1 200
+2009/12/17 02:19:45 - 127.0.0.1 - GET /register/step_2.js.pih?formId=step2&_=1261016385840 HTTP/1.1 200
+2009/12/17 02:19:51 - 127.0.0.1 - POST /register/formActions.ks/step1 HTTP/1.1 200
+2009/12/17 02:19:53 - 127.0.0.1 - GET /register/step_3.hip HTTP/1.1 200
+2009/12/17 02:19:53 - 127.0.0.1 - GET /css/prettyinpink.css HTTP/1.1 200
+2009/12/17 02:19:53 - 127.0.0.1 - GET /images/prettyinpink_row.png HTTP/1.1 200

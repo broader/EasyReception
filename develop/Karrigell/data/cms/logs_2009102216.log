@@ -1,0 +1,3 @@
+2009/10/22 16:39:07 - 127.0.0.1 - GET /menu.ks/page_validForm HTTP/1.1 200
+2009/10/22 16:39:10 - 127.0.0.1 - GET /menu.ks/page_validPwd?user=demo&pwd=990508 HTTP/1.1 200
+2009/10/22 16:39:10 - 127.0.0.1 - GET /menu.ks/page_validName?user=demo HTTP/1.1 200

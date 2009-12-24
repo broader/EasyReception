@@ -1,0 +1,147 @@
+<% Include("accordion.css.pih") %>
+
+<div class="subcolumns">
+	<div class="c75l">
+		<div class="subc">
+			<div class="floatbox">
+						
+				<div id="list1">
+					<div id="item11">
+						<div class="title"><h5>时尚Salsa舞简介</h5></div>
+						<div class="content">
+							<p class="warning">															
+								Salsa 舞是时下最为流行的拉丁社交舞，也称之为拉丁风情舞，
+								主要包括：Salsa、Mambo、Merengue、Bachata、Combia、Chacha等。
+								它起源于南美洲，后流入欧美。 Salsa舞的特点是热情奔放，通俗易学，
+								既有其他国标拉丁舞共有的热烈，却不刻板，又透着Disco的随性，热情奔放却不疯狂。
+								配合浓郁拉丁风情的Salsa音乐翩翩起舞，会让你体会到Salsa舞所给你带来的独特享受…
+								SALSA舞分为很多风格，如：洛杉矶风格、纽约风格、迈阿密风格、古巴风格及CUMBIA风格。
+								它们各有各的特色，古巴风格硬朗奔放，美国风格性感热。
+								Salsa舞已成为白领们的新宠，在舞蹈中抛开沉重，寻找快乐。
+								你还能发现自己的潜在能量和魅力，学会欣赏自己的闪光点。
+							</p>
+						</div>
+					</div>
+
+					<div id="item12">
+						<div class="title">
+							<h5>Salsa难学吗？我没有任何舞蹈基础，能学好Salsa吗？</h5>
+						</div>
+						<div class="content">
+							<p class="warning">
+								和国标拉丁比起来，Salsa是一种相当好学的舞蹈，它比较随意，
+								对身体姿态的要求比较少。一般来说，学完初级+中级，坚持平均每周跳一次以上，
+								几个月就已经可以跳得不错了（Salsa是男士引导女士做动作，男士需要记舞步，学习要求高一点）。
+								其它舞蹈的基础，对学Salsa的确是有一定帮助的，主要体现在对音乐节拍的把握和脚步的灵活程度（有人原来运动较少，刚开始学舞时脚步会很不协调）。
+								但即使没有任何基础，只要认真学习了，经常参加舞会，6个月时间也足够成才了。
+								而这点时间，如果学国标拉丁，恐怕基本功还没练完......
+							</p>
+						</div>
+					</div>
+
+					<div id="item13">
+						<div class="title">
+							<h5>跳过国标拉丁，一定能跳好salsa？</h5>
+						</div>
+						<div class="content">
+							<p class="warning">
+								恰恰相反。实际情况是，由于国标舞特定的风格使得他们在跳salsa时不由自主的身体僵硬，
+								不自然，salsa的风格应该是流畅随意的。
+								（当然，有一些国标拉丁的高手，他们不见得就身体僵硬，只是不屑于Salsa的随意，跳Salsa的时候仍坚持国标的风格。
+								但这样并不见得好看。）
+							</p>
+						</div>
+					</div>
+					<div id="item14">
+						<div class="title">
+							<h5>学salsa一定要先学会听音乐吗？</h5>
+						</div>
+						<div class="content">
+							<p class="warning">
+								如果你在学习前适当了解一些salsa的音乐知识，将非常有助于你今后的学习。
+								一个真正优秀的dancer对音乐的理解是一般人难以想象的。
+							</p>
+						</div>
+					</div>
+					<div id="item15">
+						<div class="title">
+							<h5>我没有舞伴，能学Salsa吗？</h5>				
+						</div>
+						<div class="content">
+							<p class="warning">
+								Salsa是一种社交舞蹈，本来就是以和不同的人跳舞为乐，并不需要固定的舞伴。
+								在学习过程中，也要和不同的人跳；如果只和固定舞伴跳，可能动作错了两人都不知道，
+								等到参加party时，换个人跳就出洋相。
+								但是，鉴于目前Salsa初级班都是女多男少，为了自己能更好的学，女孩子最好还是动员身边的男孩子来一起学。
+							</p>
+						</div>
+					</div>
+					<div id="item16">
+						<div class="title">
+							<h5>为什么Salsa的学费比国标拉丁贵？</h5>
+						</div>
+						<div class="content">
+							<p class="warning">
+								国标拉丁的学费，看起来是比较便宜，但国标学起来很慢，需要较长的时期才能跳好。
+								 Salsa学起来会很快，一期初级，一期中级，认真学完差不多是酒吧party里的中等水平了。
+								  而我们俱乐部，同一课程，还可以免费复读，也就是说，只要交两期的学费，就可以学到中等水平。
+							</p>
+						</div>
+					</div>
+					<div id="item17">
+						<div class="title">
+							<h5>我是否需要等到新一轮课程开始再学？</h5>				
+						</div>
+						<div class="content">
+							<p class="warning">
+								没有这个必要。因为课程是滚动的，而且每次上课都要练习基本动作，随时都可以插班学习。				
+							</p>
+						</div>
+					</div>
+					<div id="item18">
+						<div class="title">
+							<h5>跳salsa舞需要穿什么样的服装？</h5>				
+						</div>
+						<div class="content">
+							<p class="warning">
+								想绅士些？淑女些？休闲、随意些？玩酷、另类些？性感惹火些……
+								总之，你想怎样打扮就怎样打扮。
+								你特别喜欢，平时却不敢或没有合适场合穿的装束，请尽情地来“秀”一番。				
+							</p>
+						</div>
+					</div>
+					<div id="item19">
+						<div class="title">
+							<h5>为什么跳salsa舞的女士比男士多？</h5>
+						</div>
+						<div class="content">
+							<p class="warning">
+								绝大多数的女士一见到salsa，被其动感撩人的姿态迷住了，
+								腰胸胯间的扭动、抖动、颤动将女人骨子里的妖娆展现得淋漓尽致。
+								上得场去试一试——咦，并不难！跟上节奏，学会基本步，一会儿就扭的有些模样了。
+								这好象专门为女人设计的舞蹈。
+								而男人呢？任务重多了——既要听音乐踩准节奏，
+								还要计划好后面若干小节要做的动作组合，比起女人来有确些难，
+								谁让你是leader呢。但是——千万不要退缩，一旦你跳得还可以（还不到准高手）的时候，
+								你已经成了香饽饽（稀缺资源），会有诸多靓女排着队来请你跳舞。
+								过把星瘾！绝不夸张。		
+							</p>
+						</div>
+					</div>
+					
+				</div><!-- accordion end -->			
+				
+			</div><!-- floatbox end -->
+			
+		</div><!-- subcl end -->
+	</div><!-- c75l end -->
+	
+	<div class="c25r">
+		<div class="subcr">			
+		</div>	
+	</div>
+	
+</div><!-- subcolumns end -->		
+
+
+

@@ -1,0 +1,28 @@
+/* *
+The call back function for form submit in account.ks/edit
+*/
+
+$(function() {	
+	$().ajaxError(function(event, xhr, settings) {		
+		//return jFrameSubmitInput(jQuery(":image,:submit,:button", this).get(0));
+		throw e;
+	});
+			
+	// start form validation	
+	var v = $("#<%=_formId%>").validate({		
+		rules:{ 
+			amount : {digits: true}
+		},		
+		onfocusout: false,
+		onkeyup : false,
+		focusCleanup : false,		
+		errorElement: "pre",
+		highlight: function(element, errorClass) {
+					     $(element).fadeOut(function() {
+       							$(element).fadeIn()}) },
+		submitHandler: function(form) {
+			$(form).ajaxSubmit({dataType: "script", type : "POST"});	
+			
+		}
+	});
+});

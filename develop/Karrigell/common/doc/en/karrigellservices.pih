@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>Karrigell Services</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="lib.css">
+<style type="text/css">
+<!--
+dl {  background-color: #FFFFCC; border-width: 1; border-style:solid;}
+-->
+</style></head>
+
+<body>
+
+<h1><%= chapter %>. Karrigell Services</h1>
+
+<p>"Karrigell Services" are Python scripts which can handle several URLs, so that
+a complete service with different HTML pages can be created with just one script
+<p>To achieve this, the functions in a Karrigell service match a URL : the
+function <code>foo()</code> in the script <code>dummy.ks</code> is called by the URL
+<span class="url">dummy.ks/foo</span>
+<p>To call the method <code>foo(arg1,arg2)</code> the URL must be like 
+<span class="url">dummy.ks/foo?arg1=val1&arg2=val2</span> or called by a form with 
+fields <code>arg1</code> and <code>arg2</code>
+
+<p>If no function is specified, Karrigell searches for a function called 
+<code>index()</code> with no argument
+
+<p>Note that for security and readability reasons, only the functions explicitely 
+defined in the ks script, and whose definition starts at the column 0 in the source 
+code, can be called
+
+<p>If you need to define functions inside the script but don't want them to be
+called by a url, prefix them by an underscore (_)
+
+<p>
+<div class="verbatim">
+<pre class="verbatim">
+def _private(value):
+   """Private function - can't be called from the outside"""
+   return value+1
+
+</pre>
+</div>
+
+<p>To "jump" from one function to another, just specify the function name in a link or 
+a form action :
+
+<p>
+<div class="verbatim">
+<pre class="verbatim">
+def index():
+   print '&lt;a href="foo?name=bar"&gt;go to foo&lt;/a&gt;'
+
+def foo(name):
+   print '&lt;IMG SRC="../picture.jpg"&gt;'
+   print name
+</pre>
+</div>
+
+<p>Notice the first line in the <code>foo()</code> function : because of URL resolution 
+methods, the relative URL for files or scripts in the <b>same</b> directory as a ks script 
+must be prefixed by "../"
+
+<p>All the HTTP environment, form fields, custom exceptions, functions for authentication,
+session handling etc. are the same as in Python scripts
+
+<p>Here is an example of a simple Karrigell Service :
+
+<p>
+<div class="verbatim">
+<pre class="verbatim">
+so = Session()
+if not hasattr(so, 'x'):
+    so.x = 0
+
+def index():
+    print "x = %s" %so.x
+    print '&lt;br&gt;&lt;a href="increment"&gt;Increment&lt;/a&gt;'
+    print '&lt;br&gt;&lt;a href="decrement"&gt;Decrement&lt;/a&gt;'
+    print '&lt;br&gt;&lt;a href="reset"&gt;Reset&lt;/a&gt;'
+    
+def increment():
+    so.x = _private(so.x)
+    raise HTTP_REDIRECTION,"index"
+
+def decrement():
+    so.x -= 1
+    raise HTTP_REDIRECTION,"index"
+
+def reset():
+    so.x = 0
+    raise HTTP_REDIRECTION,"index"
+
+def _private(x):
+    """The function name begins with _ : internal function, 
+    can't be call by a url"""
+    return x+1
+
+</pre>
+</div>
+
+</body>
+</html>

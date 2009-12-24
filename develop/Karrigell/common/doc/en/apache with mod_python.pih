@@ -1,0 +1,271 @@
+<html>
+<head>
+<title>Python Inside HTML</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="lib.css">
+<style type="text/css">
+<!--
+dl {  background-color: #FFFFCC; border-width: 1; border-style:solid;}
+-->
+</style></head>
+
+<body>
+
+<h1><%= chapter %>. Karrigell with Apache, lighttpd and Xitami</h1>
+
+Although Karrigell can work stand-alone with the integrated web server,
+you may want to use it with an external server. Apache is the most
+widespread server in the world, it has excellent performance and
+stability, it can work on secure mode (SSL), offers log services, etc.
+
+<h2><%= chapter %>.1 Apache on proxy mode</h2>
+
+<h3><%= chapter %>.1.1 Introduction</h3>
+
+<p>To use Karrigell in Apache you'll need to download and install the following:</p>
+
+<ul>
+    <li><a href="http://httpd.apache.org">Apache</a> - Web server.</li>
+    <li><a href="http://www.python.org">Python</a> - Python.</li>
+    <li><a href="http://sourceforge.net/projects/karrigell/">Karrigell</a> - This!</li>
+</ul>
+
+<p>I recommend you install the latest, stable version of each of the above. Apache 
+will be used as a proxy between the client and the built-in server, so you have to 
+configure Apache so that it sends the requests to the built-in server. Suppose you 
+start Apache on port 80 and the built-in server on port 8081</p>
+
+<p>I copy most of this section from Remi Delon's CherryPy documentation : 
+http://www.cherrypy.org/wiki/BehindApache
+
+<p>For Apache, all you need to do now is add a few lines to Apache's config file 
+<code>httpd.conf</code> (should be under the menu item "configure Apache server" 
+on Windows)
+
+<p>In the Dynamic Shared Object (DSO) section, uncomment the lines
+
+<p><pre class="conf">LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+LoadModule rewrite_module modules/mod_rewrite.so
+</pre>
+
+Somewhere else in the main server configuration section, add the following lines 
+to enable the proxy mode :
+
+<pre class="conf">ProxyRequests On
+
+&lt;Proxy *&gt;
+    Order allow,deny
+    Deny from none
+    Allow from all
+&lt;/Proxy&gt;
+</pre>
+
+<p>To ask Apache to send the requests to the built-in server, use mod_rewrite. This 
+module parses the original url and changes it according to regular expressions. Here 
+the lines to add are :
+
+<pre class="conf">RewriteEngine On
+RewriteCond  %{SCRIPT_FILENAME} !autostart\.cgi$
+RewriteRule ^(.*) http://localhost:8081$1 [P]
+ErrorDocument 502 /cgi-bin/autostart.cgi
+</pre>
+
+The main functionality is provided by the RewriteRule : it tells Apache to rewrite 
+all the urls to an absolute url corresponding to the built-in server running on port 
+8081 and use the proxy mode to pass the request
+
+<p>If the built-in server is not running, an HTTP error 502 is returned ; the last 
+line tells Apache to call the script <CODE>autostart.cgi</CODE> in this case. The 
+second line prevents Apache to use the RewriteRule for this specific script 
+(otherwise it would enter an infinite loop)
+
+<p>autoscript.cgi is a short script, looking like this on Linux/Unix :
+
+<dl><dd><pre class="verbatim">
+#!/usr/local/bin/python
+print "Content-type: text/html\r\n"
+print """&lt;html&gt;&lt;head&gt;&lt;META HTTP-EQUIV="Refresh" CONTENT="10; 
+      URL=/"&gt;&lt;/head&gt;&lt;body&gt;Restarting site ...&lt;a href="/"&gt;click 
+      here&lt;a&gt;&lt;/body&gt;&lt;/html&gt;"""
+import os
+import sys
+os.setpgid(os.getpid(), 0)
+os.system(sys.executable + \
+   ' /home/quentel/karrigell/Karrigell-2.2/Karrigell.py -P 8081 -S ' +\
+   '/home/quentel/karrigell/Karrigell-2.2/Karrigell.ini &')
+</pre></dl>
+
+<p>All you have to adapt is the location of python on the first line, and the 
+path to <CODE>Karrigell.py</CODE> and <CODE>Karrigell.ini</CODE> on the last one
+
+<p>Start the built-in web server on port 8081 and start Apache. This should be 
+enough to get it going. Depending on what <code>ServerName</code> is set to 
+(use 'localhost' for testing), enter the URL of your server into the URL bar 
+of a web browser and Karrigell/Apache should serve web pages like normal Karrigell.
+
+<p>For security reasons, on Linux Karrigell should be started on a port above 
+1024 and not as root
+
+<h3><%= chapter %>.1.2 Virtual Hosts</h3>
+
+Virtual hosts can be used with Apache to serve different hosts on the same
+machine with the same server. Since version 2.2, Karrigell has support for
+virtual hosts, so that you can serve all the virtual hosts with the same
+instance of the built-in server
+
+<p>If you have configured <CODE>[VirtualHost karrigell:8081]</CODE> in 
+the Karrigell configuration file (see the page on
+<a href="webserveroptions.htm">web server options</a>) with the name
+karrigell and the port 8081 (on which the built-in web server runs),
+you add this VirtualHost section in the Apache configuration file :
+<p>
+<pre class="conf">
+NameVirtualHost 127.0.0.1:80
+
+&lt;VirtualHost 127.0.0.1:80&gt;
+        ServerName karrigell
+        # for use with Karrigell
+        RewriteEngine On
+        RewriteCond  %{SCRIPT_FILENAME} !autostart\.cgi$
+        RewriteRule ^(.*) http://karrigell:8081$1 [P]
+        ErrorDocument 502 /cgi-bin/autostart.cgi
+&lt;/VirtualHost&gt;
+</pre>
+
+<p>Of course you change the address and port in &lt;Virtual Host&gt; to the
+appropriate values
+
+<h2><%= chapter %>.2 Apache with mod_python</h2>
+<h3><i>New in version 2.3.5</i></h3>
+
+<p><a href="http://www.modpython.org">Mod_python</a> is an Apache module that embeds 
+the Python interpreter within the server. To install Apache with mod_python, you 
+obviously have to download and install mod_python first. When this is done, you must 
+configure httpd.conf and Karrigell.ini
+
+<h3><%= chapter %>.2.1 httpd.conf</h3>
+
+<p><i>Replace "C:/cygwin/home/Karrigell" by the path to the directory where the Karrigell
+package was extracted</i>
+<p>1. in the DSO section
+<br>
+<pre class="conf">
+LoadModule python_module modules/mod_python.so
+</pre>
+
+<p>2 Aliases
+<br>Rewrite all the aliases defined in Karrigell.ini :
+
+<pre class="conf">
+Alias /doc/ "C:/cygwin/home/Karrigell/doc/"
+Alias /debugger/ "C:/cygwin/home/Karrigell/debugger/"
+Alias /admin/ "C:/cygwin/home/Karrigell/admin/"
+</prE>
+
+<p>3. DirectoryIndex
+
+<br>Set DirectoryIndex to specify the files to search if a url matches a
+directory :
+
+<pre class="conf">
+DirectoryIndex index.html index.htm index.py index.pih index.hip
+index.ks index.html.var
+</pre>
+
+<p>4 Apply mod_python to the required directory and extensions
+
+<pre class="conf">
+# mod_python
+&lt;Directory c:/cygwin/home/karrigell&gt;
+        AddHandler mod_python .py .ks .pih .hip
+        PythonHandler webapps.ApacheHandler
+        PythonDebug On
+&lt;/Directory&gt;
+</pre>
+
+<h3><%= chapter %>.2.3 Karrigell configuration file</h3>
+
+<p>If you run the server on a Unix/Linux OS, in Karrigell.ini, 
+set [Server] persistentSession to 1
+
+<p><b>Warning</b> Because of the way Apache works on Unix, the session data cannot be stored
+in memory. They are stored in a file on disk, which causes some limitations :
+<ul>
+<li>only built-in types can be set as attributes to the session object
+<li>performance is lower because of disk access time
+</ul>
+
+<h2><%= chapter %>.3 lighttpd</h2>
+
+In their <a href="http://www.lighttpd.net/">own words</a> :
+<blockquote>
+Security, speed, compliance, and flexibility--all of these describe LightTPD which is 
+rapidly redefining efficiency of a webserver; as it is designed and optimized for high 
+performance environments. With a small memory footprint compared to other web-servers, 
+effective management of the cpu-load, and advanced feature set (FastCGI, CGI, Auth, 
+Output-Compression, URL-Rewriting and many more) LightTPD is the perfect solution for 
+every server that is suffering load problems. And best of all it's Open Source licensed 
+under the revised BSD license.
+</blockquote>
+<h4><i>Configuration for Karrigell by Laurent Pointal</i></h4>
+
+<ul>
+<li>Make your Karrigell site working, listening on a port (8082 for instance).
+
+<li> Enable mod_proxy in lighttpd
+<p>
+<pre class="conf">
+    cd /etc/lighttpd/conf-enabled
+    ln -s ../conf-available/10-proxy.conf 10-proxy.conf
+</pre>
+
+<li>Use a configuration like this one:
+
+<p>
+<pre class="conf">
+$HTTP["host"] == "my.virtual.host.com" {
+                proxy.server = ( "" =>
+                                   ((
+                                        "host" => "127.0.0.1",
+                                        "port" => 8082
+                                   ))
+                                )
+}
+</pre>
+
+<li>If you want to directly serve some files by lighttpd without going through 
+Karrigell (typically static content, pictures etc), you can make a 
+configuration like this:
+
+<p>
+<pre class="conf">
+$HTTP["host"] == "my.virtual.host.com" {
+        $HTTP["url"] !~ ".*/static/.*" {
+                proxy.server = ( "" =>
+                                   ((
+                                        "host" => "127.0.0.1",
+                                        "port" => 8082
+                                   ))
+                                )
+                }
+        else $HTTP["url"] =~ ".*/static/.*" {
+                server.document-root = "/path/to/my/karrigell/site"
+                dir-listing.activate = "enable"
+                }
+}
+</pre>
+
+<h2><%= chapter %>.4 Xitami</h2>
+
+<a href="http://www.xitami.com">Xitami</a> is a lightweight and fast web server, available for 
+free. Download the latest version and follow the installation instructions
+<p>Launch the server, then open a console window, go to the Karrigell directory and enter 
+<code>python Karrigell_xitami.py</code>. All the requests sent to an URL beginning with 
+<span class="url">http://localhost/karrigell</span> will be handled by Karrigell
+<p>Xitami and Karrigell are interfaced through the "Long Running Web Process", avoiding 
+the overhead of CGI
+<p>You can replace <code>karrigell</code> by another name by editing the file 
+<code>Karrigell_xitami.py</code> and changing the value of the variable 
+<code>karrigellUrl</code>
+</html>

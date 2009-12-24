@@ -1,0 +1,32 @@
+<!-- begin: #col1 - first float column -->
+<div id="col1">
+	<div id="col1_content" class="clearfix">
+        	<div class="info">
+          		<h4>会务管理中面临的问题</h4>
+          		<p>会议组织者都面临着纷杂的会务与有限的人员如何协调的矛盾。</p>
+          		<p class="highlight">会前要发布消息，通知可能的会议参与人员；</p>
+          		<p class="highlight">会议参与者要了解会议日程，食宿安排并为不时向会议主办方询问、确认自己的各项安排;</p>
+          		<p class="highlight">会议之后可能还需要整理会议文档和会议记录，调查会议参与者的反馈意见。</br>
+          		凡此种种，经常令会议组织者焦头烂额，感叹会务工作处理之不易。</p>						
+          		<h4><strong>如何能让会务工作更有效率一些呢？</strong></h4>
+                </div>
+        </div>
+</div><!-- end: #col1 -->
+      
+<!-- begin: #col3 static column -->
+<div id="col3">
+	<div id="col3_content" class="clearfix"> <a id="content" name="content"></a>
+        	<!-- skiplink anchor: Content -->
+        	<h3>电子会务令会议沟通更为顺畅</h3>
+        	<p>据调查，会务工作中大量的事务都是关于会务信息的沟通，通过对会务流程的电子化，大量工作可以更高效率处理：</p>
+        	<blockquote>
+        		<p>1. 建立会议网站，公布会议日程和食宿安排，发布会议相关文件；</p>
+			<p>2. 利用短信、邮件、站内通讯核实食宿、车辆及相关会议参与人员的日程安排；</p>
+			<p>3. 酒店住宿、旅游交通也可通过预订系统网上预订并持续跟踪;</p>
+			<p>4. 会议相关人员（组织者、参与者、服务提供商等）通过由站内通讯、短信、邮件等构成的信息通道互相沟通、协商处理会务；</p>
+			<p>5. 会议结束后根据各类信息分析会务流程中可持续改进之处。</p>
+        	</blockquote>
+        	<p></p>
+        </div>
+ 	<div id="ie_clearing">&nbsp;</div><!-- End: IE Column Clearing -->
+</div><!-- end: #col3 -->

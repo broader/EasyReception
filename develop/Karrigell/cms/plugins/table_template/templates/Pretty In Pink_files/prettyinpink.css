@@ -1,0 +1,18 @@
+caption {font-size: 1.7em; color: #F06; text-align: left;}
+table {margin: 0; padding: 0; border-collapse: collapse; width: 100%;}
+td, th {padding: 10px 4px; border-bottom: 1px solid #EEE;}
+td + td {border-left: 1px solid #FAFAFA; color: #999;}
+td + td + td {color: #666; border-left: none;}
+td a {color: #444; text-decoration: none; text-align: right;}
+td a, th a {display: block; width: 100%;}
+td a:hover {background: #444; color: #FFF;}
+tfoot th {text-align: right;}
+th {text-align: left;}
+th + th {text-align: right;}
+th + th + th {text-align: left;}
+th a {color: #F06; text-decoration: none; font-size: 1.1em;}
+th a:visited {color: #F69;}
+th a:hover {color: #F06; text-decoration: underline;}
+thead tr, tfoot tr {color: #555; font-size: 0.8em;}
+tr {font: 12px sans-serif; background: url(prettyinpink_row.png) repeat-x #F8F8F8; color: #666;}
+tr:hover {background: #FFF;}

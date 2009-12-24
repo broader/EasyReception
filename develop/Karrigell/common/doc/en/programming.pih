@@ -1,0 +1,253 @@
+<html>
+<head>
+<title>Programming</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="lib.css">
+<style type="text/css">
+<!--
+dl {  background-color: #FFFFCC; border-width: 1; border-style:solid;}
+-->
+</style></head>
+
+<body>
+
+<h1><%= chapter %>. Programming</h1>
+<p>There are many programming styles to write programs in Karrigell : 
+<ul>
+<li>pure <a href="pythonscripts.htm">Python scripts</a>, with a simplified variant, 
+<a href="htmlinsidepython.htm">HTML Inside Python</a>
+<li><a href="karrigellservices.htm">Karrigell services</a>, which are Python scripts which can
+handle a whole website (several pages)
+<li>for those who like the PHP-like mix of HTML and programs, see 
+<a href="pythoninsidehtml.htm">Python Inside HTML</a>
+</ul>
+
+<p>The principle of programming with Karrigell is simple : <p>
+<b><i>All the necessary 
+data are available in the namespace where the script is run</i></b>
+
+<p>This namespace is prepared by Karrigell before the script is executed. For instance,
+the script can use the built-in name <CODE>HEADERS</CODE> to get the HTTP header values
+
+<h2><%= chapter %>.1 Accessing HTTP environment</h2>
+Access to the HTTP environment is provided through global variables available in the script's
+namespace :
+<ul>
+<li><code>ENVIRON</code> is a dictionary with the CGI environment variables : 
+<code>SERVER-SOFTWARE, REQUEST-METHOD, QUERY-STRING,</code>, etc.
+<li><code>HEADERS</code> is a dictionary with the HTTP headers sent by the server : 
+the key is the header name, the value is the header's value. For instance 
+<code>HEADERS["accept-language"]</code> will return the value of the 
+<var>accept-language</var> header
+<li><CODE>Role()</CODE> is a function that returns the user's role, as defined in the
+built-in user management framework (see the chapter on <a href=
+"authentication.htm">authentication</a>)
+<li><code>COOKIE</code> is a dictionary-like SimpleCookie objet (in Python <code>Cookie</code>
+module) that stores the cookies sent by the web browser with the HTTP request
+<li><code>ACCEPTED_LANGUAGES</code> is a list of languages accepted by the 
+user's browser, ordered by preference. The items are two-character strings identifying 
+the language, according to the ISO 639 codification (<code>en</code> for English, 
+<code>fr</code> for French, etc)
+<li><code>THIS</code> is an instance of the class <code>Target</code> (in 
+<span class="file">k_target.py</span>) representing the current script
+<li><code>RESPONSE</code> is a dictionary in which you'll set values for the response 
+header that will be sent to the server. This dictionary is insensitive to the 
+case of the keys : <CODE>RESPONSE['Content-type']</CODE> and <CODE>RESPONSE['CONTENT-type']</CODE> 
+return the same result
+<li><code>SET_COOKIE</code> is another SimpleCookie objet to which you can set keys and values 
+which will be stored by the web browser as cookies
+</ul>
+
+<p>The list of built-in names is described in the <a href="namespace.html">namespace</a> section
+
+<h2><%= chapter %>.2 Form fields</h2>
+
+The <code>REQUEST</code> variable is a dictionary representing the query string if the script is
+called with the HTTP <code>GET</code> method, or the fields of a form submitted with the HTTP <code>
+POST</code> method
+
+<p><code>REQUEST</code> keys are the name of the fields. The values are the value of the field
+<ul>
+<li>as a string,
+<li>or a list of strings if the field name ends with <code>[]</code> (if
+it comes from a <code>&lt;SELECT MULTIPLE&gt;</code> form field for instance)
+</ul>
+
+<p>Suppose you have an HTML form such as :
+
+<p>
+<div class="verbatim">
+<pre class="verbatim">
+&lt;form action="myScript.py"&gt;
+  Spam &lt;input name="spam"&gt;
+  &lt;br&gt;&lt;select multiple name="animal[]"&gt;
+  &lt;option value="dog"&gt;Dog
+  &lt;option value="cat"&gt;Cat
+  &lt;option value="frog"&gt;Frog
+  &lt;/select&gt;
+  &lt;br&gt;&lt;input type="submit" value="Ok"&gt;
+&lt;/form&gt;
+</pre>
+</div>
+
+<p>In <code>myScript.py</code> the input would be displayed with :
+<p>
+<div class="verbatim"><pre class="verbatim">
+print "&lt;br&gt;Spam is ",REQUEST["spam"]
+if REQUEST.has_key("animal"):
+    print "&lt;br&gt;Animal is ",str(REQUEST["animal"])
+</pre></div>
+<p>
+
+<p>Access to these data is available through a shortcut, consisting in the underscore <code>_</code>
+prepended to the field name. The code above could be written in this simpler way :
+
+<p>
+<div class="verbatim">
+<pre class="verbatim">
+print "&lt;br&gt;Spam is ",_spam
+if REQUEST.has_key("animal"):
+    print "&lt;br&gt;Animal is ",str(_animal)
+</pre></div>
+<p>
+The underscore is introduced to reduce the risks of naming conflicts with Python reserved words or
+with the name of frequently used modules
+
+<a name="smart"><h2><%= chapter %>.3 Smart urls</h2>
+
+The normal way to pass parameters to a script is to use query strings in the url, or
+post data. An alternative is to pass parameters as a part of the url, like in <code>
+http://host/path/script.py/foo/bar</code> ; here the parameters to the script are 
+<CODE>foo</CODE> and <CODE>bar</CODE>
+
+<p>In the script you can access these additional parameters as a list ; it is an 
+attribute of THIS, THIS.args :
+
+<p>
+<div class="verbatim"><pre class="verbatim">
+print "The parameters are %s" %THIS.args
+</pre></div>
+<p>
+
+A problem with these urls is that if you want to use <code>Include()</code> or write a 
+relative link or insert an image or a JavaScript, the url must be different if the script 
+was called without a subpath or with any number of parameters in the subpath
+
+For instance if you write this relative url in the script :
+<p>
+<div class="verbatim"><pre class="verbatim">
+print '&lt;IMG SRC="images/pic.png"&gt;'
+</pre></div>
+<p>
+
+and you call the script with <CODE>http://host/path/script.py/foo/bar</CODE>, the browser 
+will compute the absolute url <code>http://host/path/script.py/foo/images/pic.png</code>,
+and execute the same script with the parameters <CODE>foo,images,pic.png</CODE> - not what you
+want !
+
+<p>To get the right url, use function <code>THIS.rel()</code> this way :
+
+<p>
+<div class="verbatim"><pre class="verbatim">
+print '&lt;IMG SRC="%s"&gt;' %THIS.rel("images/pic.png")
+</pre></div>
+<p>
+
+<CODE>THIS.rel</CODE> prepends to the relative url provided as argument as many
+<code>'../'</code> as the number of parameters
+
+<h2><%= chapter %>.4 File uploads</h2>
+
+To upload a file from the client to the server, the input tag must have the type "file". For
+instance, the html form will look like this :
+
+<p>
+<div class="verbatim"><pre class="verbatim">
+&lt;FORM ENCTYPE="multipart/form-data" ACTION="fileUpload.py" METHOD=POST&gt;
+File to process: &lt;INPUT NAME="myfile" TYPE="file"&gt;
+&lt;INPUT TYPE="submit" VALUE="Send File"&gt;
+&lt;/FORM&gt;
+</pre></div>
+
+<p>The script which has to handle the file upload will use the variable 
+<CODE>REQUEST['myfile']</CODE> or <CODE>_myfile</CODE>, which is an instance of the 
+class <CODE>FieldStorage</CODE> in the built-in <CODE>cgi</CODE> module.
+This object has two useful attributes :
+<ul>
+<li><CODE>filename</CODE> : the name of the file
+<li><CODE>file</CODE> : a file-like object from which you can read the file content
+</ul>
+
+<p>For instance if you want to store the file in the server's file system, with the
+same name as the original file :
+
+<p>
+<div class="verbatim"><pre class="verbatim">
+import os
+
+f = _myfile.file # file-like object
+dest_name = os.path.basename(_myfile.filename)
+out = open(dest_name,'wb')
+# copy file
+import shutil
+shutil.copyfileobj(f,out)
+out.close()
+</pre></div>
+
+<h2><%= chapter %>.5 Built-in exceptions</h2>
+In Python scripts you can raise special exceptions which are handled by Karrigell
+<ul>
+<li><code>SCRIPT_END</code>
+<br>Use this if you want to stop sending output to the browser without having to process the end of
+the file. This can be useful if you're debugging a script and want to stop its execution at some
+place
+in your script to see the state of some variables
+<p>
+<div class="verbatim"><pre class="verbatim">
+myVar=10
+...
+print myVar
+raise SCRIPT_END
+... (rest of code - won't be run)
+</pre></div>
+<p>
+<li><code>HTTP_REDIRECTION</code>
+<br><code>raise HTTP_REDIRECTION,uri</code> causes Karrigell to redirect the request to the given
+URI
+</ul>
+
+<h2><%= chapter %>.6 HTMLStream </h2>
+
+<code>HTMLStream</code> is a class in the HIP module which makes printing easier than 
+with repetitive <code>print</code> statements. It is the same idea as 
+<a href="htmlinsidepython.htm">HTML Inside Python</a> but implemented otherwise
+
+<p>Create an instance of this class :
+<p>
+<div class="verbatim"><pre class="verbatim">
+import HIP
+H = HIP.HTMLStream()
+</pre></div>
+
+<p>
+Then use "+" and "-" to print data to the standard output : with "+" the string representation
+of data is printed ; with "-", it is cgi-escaped
+
+<p>
+<div class="verbatim"><pre class="verbatim">
+aDict={"one":"unan","two":"daou","three":"tri"}
+H + aDict - type(aDict)
+</pre></div>
+
+<p>is the same as :
+
+<p>
+<div class="verbatim"><pre class="verbatim">
+aDict={"one":"unan";"two":"daou";"three":"tri"}
+print str(aDict),cgi.escape(type(aDict))
+</pre></div>
+
+</body>
+</html>
+
+

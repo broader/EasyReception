@@ -1,0 +1,47 @@
+2009/11/02 02:41:42 - 127.0.0.1 - GET /agenda/agenda.ks/page_searchTip?_=1257129702424 HTTP/1.1 200
+2009/11/02 02:41:42 - 127.0.0.1 - GET /lib/cluetip/images/tl.gif HTTP/1.1 200
+2009/11/02 02:41:42 - 127.0.0.1 - GET /lib/cluetip/images/bl.gif HTTP/1.1 200
+2009/11/02 02:41:42 - 127.0.0.1 - GET /lib/cluetip/images/br.gif HTTP/1.1 200
+2009/11/02 02:41:42 - 127.0.0.1 - GET /lib/cluetip/images/tr.gif HTTP/1.1 200
+2009/11/02 02:41:42 - 127.0.0.1 - GET /lib/cluetip/images/rarrowleft.gif HTTP/1.1 200
+2009/11/02 02:46:52 - 127.0.0.1 - GET /navigation.ks/profile?path=user HTTP/1.1 302 /user/index.hip
+2009/11/02 02:46:52 - 127.0.0.1 - GET /user/index.hip HTTP/1.1 200
+2009/11/02 02:46:53 - 127.0.0.1 - GET /css/screen.css HTTP/1.1 200
+2009/11/02 02:46:53 - 127.0.0.1 - GET /user/account.ks HTTP/1.1 302 /user/account.ks/index
+2009/11/02 02:46:53 - 127.0.0.1 - GET /user/info.ks HTTP/1.1 302 /user/info.ks/index
+2009/11/02 02:46:53 - 127.0.0.1 - GET /user/info.ks/index HTTP/1.1 200
+2009/11/02 02:46:53 - 127.0.0.1 - GET /user/account.ks/index HTTP/1.1 200
+2009/11/02 02:46:56 - 127.0.0.1 - GET /navigation.ks/profile?path=issue HTTP/1.1 302 /issue/index.hip
+2009/11/02 02:46:56 - 127.0.0.1 - GET /issue/index.hip HTTP/1.1 200
+2009/11/02 02:46:56 - 127.0.0.1 - GET /js/jquery.form.js?_=1257130016416 HTTP/1.1 200
+2009/11/02 02:46:56 - 127.0.0.1 - GET /lib/asmselect/jquery.asmselect.css HTTP/1.1 200
+2009/11/02 02:46:56 - 127.0.0.1 - GET /lib/multiselect/style.css HTTP/1.1 200
+2009/11/02 02:46:56 - 127.0.0.1 - GET /lib/dataTable/css/demo_table.css HTTP/1.1 200
+2009/11/02 02:46:56 - 127.0.0.1 - GET /issue/issue.ks/index HTTP/1.1 200
+2009/11/02 02:46:56 - 127.0.0.1 - GET /issue/issue.ks/show HTTP/1.1 200
+2009/11/02 02:46:56 - 127.0.0.1 - GET /issue/issue.ks/page_editIssue HTTP/1.1 200
+2009/11/02 02:46:57 - 127.0.0.1 - GET /lib/dataTable/js/jquery.dataTables.js?_=1257130017655 HTTP/1.1 200
+2009/11/02 02:46:57 - 127.0.0.1 - GET /lib/dataTable/i18n/cn_CN.txt HTTP/1.1 200
+2009/11/02 02:46:58 - 127.0.0.1 - GET /lib/dataTable/images/sort_desc.jpg HTTP/1.1 200
+2009/11/02 02:46:58 - 127.0.0.1 - GET /lib/dataTable/images/sort_both.jpg HTTP/1.1 200
+2009/11/02 02:46:58 - 127.0.0.1 - GET /issue/issue.ks/page_getData?iColumns=5&sColumns=&iDisplayLength=10&iDisplayStart=0&sSearch=&bEscapeRegex=true&sSearch_0=&bEscapeRegex_0=true&sSearch_1=&bEscapeRegex_1=true&sSearch_2=&bEscapeRegex_2=true&sSearch_3=&bEscapeRegex_3=true&sSearch_4=&bEscapeRegex_4=true&iSortingCols=1&iSortCol_0=0&iSortDir_0=desc HTTP/1.1 200
+2009/11/02 02:47:00 - 127.0.0.1 - GET /navigation.ks/profile?path=service HTTP/1.1 302 /service/index.hip
+2009/11/02 02:47:00 - 127.0.0.1 - GET /service/index.hip HTTP/1.1 200
+2009/11/02 02:47:00 - 127.0.0.1 - GET /lib/treeTable/jquery.treeTable.css HTTP/1.1 200
+2009/11/02 02:47:00 - 127.0.0.1 - GET /service/service.ks/page_reserveList?init=1 HTTP/1.1 200
+2009/11/02 02:47:00 - 127.0.0.1 - GET /service/service.ks/page_reserveEdit HTTP/1.1 200
+2009/11/02 02:47:00 - 127.0.0.1 - GET /service/service.ks/index HTTP/1.1 200
+2009/11/02 02:47:01 - 127.0.0.1 - GET /lib/treeTable/jquery.treeTable.js?_=1257130021454 HTTP/1.1 200
+2009/11/02 02:47:01 - 127.0.0.1 - GET /service/serviceChange.js.pih?listUrl=service/service.ks/page_serviceList&listDiv=serviceList&editUrl=service/service.ks/page_reserveEdit&editDiv=reserveEdit&page=&selectId=stype&_=1257130021608 HTTP/1.1 200
+2009/11/02 02:47:01 - 127.0.0.1 - GET /service/reserveList.js.pih?categoryTag=noUsed&serviceDiv=serviceList&editDiv=reserveEdit&editUrl=service/service.ks/page_reserveEdit&subcategoryTag=hasChildren&reserveDiv=reserveList&action=edit&_=1257130021601 HTTP/1.1 200
+2009/11/02 02:47:01 - 127.0.0.1 - GET /lib/treeTable/toggle-expand-dark.png HTTP/1.1 200
+2009/11/02 02:47:03 - 127.0.0.1 - GET /navigation.ks/profile?path=service/travel/app.ks/index HTTP/1.1 200
+2009/11/02 02:47:05 - 127.0.0.1 - GET /lib/treeTable/jquery.treeTable.js?_=1257130025065 HTTP/1.1 200
+2009/11/02 02:47:06 - 127.0.0.1 - GET /lib/treeTable/toggle-collapse-dark.png HTTP/1.1 200
+2009/11/02 02:47:09 - 127.0.0.1 - GET /navigation.ks/profile?path=portal/portal.ks/index HTTP/1.1 200
+2009/11/02 02:47:10 - 127.0.0.1 - GET /lib/ui/js/jquery-ui-1.7.2.custom.min.js?_=1257130030893 HTTP/1.1 200
+2009/11/02 02:47:10 - 127.0.0.1 - GET /lib/validate/jquery.validate.js?_=1257130030967 HTTP/1.1 200
+2009/11/02 02:47:10 - 127.0.0.1 - GET /lib/validate/validation_messages.js.pih?_=1257130030996 HTTP/1.1 200
+2009/11/02 02:47:11 - 127.0.0.1 - GET /lib/timepicker/jquery.ptTimeSelect.js?_=1257130031033 HTTP/1.1 200
+2009/11/02 02:47:11 - 127.0.0.1 - GET /lib/smartlists/smartlists.js.pih?listId=sl&prompt=%E9%80%89%E6%8B%A9%E5%B7%B2%E9%A2%84%E8%AE%A2%E7%9A%84%E6%9C%8D%E5%8A%A1%E7%B1%BB%E5%88%AB&pageItems=3&_=1257130031124 HTTP/1.1 200
+2009/11/02 02:54:00 - 127.0.0.1 - GET /agenda/agenda.ks/page_searchTip?_=1257130440882 HTTP/1.1 200

@@ -1,0 +1,98 @@
+/*
+MorphTabs styles
+*/
+
+#morphTabs, #morphTabsAccordion {
+	position:relative;
+	width:300px;
+	height:200px;
+	overflow:hidden;
+}
+
+#morphTabsAccordion {
+	width:80%;
+	height:200px;
+}
+
+.morphtabs_title {
+   background:#D8D8D8 url(../img/fancy_block_tabs_background.gif) no-repeat scroll left top;
+	list-style-image: none;
+	list-style-type: none;
+	margin: 0px;	
+	/*height: 24px;
+	padding: 0px;*/
+	height:50px;
+	padding:14px 15px 0;
+}
+
+.morphtabs_title li {
+	float: left;
+	/*background-color: #3975BD;*/
+	padding: 2px 8px 2px 8px;
+	margin-right: 2px;
+	cursor: pointer;
+	color: #fff;
+	font-family: "Trebuchet MS";
+	font-size: 20px;
+	height: 50px;
+	line-height: 50px;
+}
+
+.morphtabs_title a {
+   /*background:#C3C3C3 url(../img/fancy_block_tab_left.gif) no-repeat scroll left bottom;*/
+	text-decoration:none;
+	color: gray;
+}
+
+.morphtabs_title a span{
+   /*background:transparent url(../img/fancy_block_tab_right.gif) no-repeat scroll right bottom;*/
+   cursor:pointer;
+   height:47px;
+   line-height:47px;
+   padding:0 20px;
+   text-align:center;
+}
+
+.morphtabs_title li.over {
+	font-weight: bold;
+}
+
+.morphtabs_title li.active {
+	/*background-color: #49A8EC;*/
+	background-color: #fff;
+}
+
+.morphtabs_panelwrap {
+   position: absolute;   
+   /*
+	top:28px;
+	overflow: hidden;	
+	width:300px;
+	height:172px;
+	*/
+}
+
+.morphtabs_panel {
+	/*position:absolute;
+	top:28px;
+	width:300px;
+	height:172px;*/
+	display:none;
+	overflow: auto;
+	/*background-color: #49A8EC;*/
+	background-color:gainsboro;	
+	color: #fff;
+	clear: both;
+}
+
+#morphTabsAccordion .morphtabs_panelwrap,  #morphTabsAccordion .morphtabs_panel {
+	width:100%;
+}
+
+.morphtabs_panel.active {
+	display: block;
+}
+
+.morpthtabs_panel p {
+	margin-left:5px;
+}

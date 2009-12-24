@@ -1,0 +1,219 @@
+from HTMLTags import *
+
+model = Import('model.py', REQUEST_HANDLER=REQUEST_HANDLER)
+
+def _get_session( ):
+	so = Session()
+	if not hasattr(so, 'user'):
+    		so.user = None
+    	return so 
+
+LOGIN_URL = "login.hip"
+
+def topnav_toggle(login):	
+	if login:
+		# 'login' = 1 : It's postlogin status, so display 'Weclome...' information in topnav component.
+		so = _get_session()
+		if so.user :
+			name = so.user
+		else:
+			name = ''
+		txt = '%s,%s' %(_("Welcome"), name)			
+		html = str(A(STRONG(txt)))		
+		print '$("#login").html("%s");' %html
+		
+		# set menu 
+		if so.useroles and 'Admin' in so.useroles:
+			config = Import('admin_config.py')			
+		else:
+			config = Import('config.py')
+		
+		html = []
+		for link, label in config.menus:
+			html.append(LI(A(label, href=link)))			
+				
+		html.append(LI(A(_("Logout"), id='logout', href='#')))
+		html = str(Sum(html))		
+
+		print '''$('#menu').append('%s');''' %html	
+		
+		# add click response to each menu item
+		print ''' jQuery(function( $ ){					
+					$('.hlist a').click(showMain);\
+			      });'''
+
+		# add click response to "logout" menu item
+		print ''' $("#menu a:last")
+			      .unbind()
+			      .bind('click', function(){
+			      			$.getScript("%s?ltype=2");});''' %LOGIN_URL
+									
+	else:
+		# 'login' = 0 : It's prelogin status, so display 'Login' and 'Register' in topnav component.
+		html = []
+		navs = (({'href' : '#'}, _("Login")), ({'href': '#register'}, _("Register") ))
+		for nav in navs:
+			nav[0].update({'style': 'font-weight:bold;font-size:1.2em'})
+			html.append(str(A(nav[1], **nav[0])))
+		html = '&nbsp;| &nbsp;'.join([str(slice) for slice in html])
+		print '''$('#login').html('%s');''' %html
+
+		# add click function to 'Login' menu
+		print ''' $("#login a")[0].onclick = function(){\
+					var url = "%s?ltype=1";\
+					$.getScript(url);};''' %LOGIN_URL
+		
+		# add click function to 'Register' menu
+		print '''$("#login a").slice(1,2).click(showMain);'''
+			
+		
+def logout( ):
+	so = Session()	
+	print 'alert("%s");'%so.user
+	delattr(so, 'user')	
+	so.close()		
+	# remove the post login information in topnav component
+	topnav_toggle(0)
+	# remove the last 'Logout' menu itme in menu component
+	#print "itmes = $('#menu').children();items.eq(items.size() -1).remove();" 	
+	print "$('#menu').html('');"
+	print '$("#main").load("%s");' %'home.pih'
+	
+	
+def tmpl(name='', pwd='', namerr='', pwderr='') :
+	# return the html slice in popup prompt dialog,
+	# according to the input user name and password	
+	input_values = [['text', 'name', 'name', name, ''], ['password', 'pwd', 'pwd', pwd, '']]
+	input_attrs = ('type', 'id', 'name', 'value', 'style')	
+	span_values = [['namerr', 'color:red;'], ['pwderr', 'color:red;']]
+	span_attrs = ('id', 'style')
+	fieldnames = (_("User Name :"), _("Password :"))
+	
+	htmlSlice = TEXT('')
+	err = (namerr, pwderr)
+	for i,v in enumerate((name, pwd)):
+		attrs_i, attrs_s = ({},{})		
+		input_value =input_values[i]		
+		span_value = span_values[i]
+		[attrs_s.update({attr: value}) for attr, value in zip(span_attrs, span_value) ]
+		if err[i] :
+			input_value[-1] = 'border:solid #ff0000 1px'
+			errHtml = SPAN(err[i], **attrs_s)
+		else:
+			errHtml = SPAN(**attrs_s)
+		[attrs_i.update({attr: value}) for attr, value in zip(input_attrs, input_value) ]		
+		htmlSlice += TEXT(fieldnames[i]) + BR() + INPUT(**attrs_i) +errHtml + BR()		
+	htmlSlice = str(DIV(htmlSlice, id='prompt'))	
+	htmlSlice = htmlSlice.replace('\n', '')	
+	return htmlSlice
+
+
+# the callback javascript function for the submit button of Login dialog
+INPUTCHECK =  'function inputcheck(v, m, f){\
+				if (!v) {return true}\
+				else{name = f.name;	\
+				pwd = f.pwd ; \
+				var url = "%s" + "?ltype=1" + "&name=" + f.name +"&pwd=" + f.pwd ;\
+				$.getScript(url);};}' %LOGIN_URL
+
+# some options for javacript $.prompt function
+PREFIX = '{ prefix: "cleanblue", \
+		  buttons: { %s : true, %s : false},\
+		  callback : inputcheck, \
+		  opacity : 0.9}' %(_("Confirm"), _("Cancel"))
+
+def valid(name=None,pwd=None):
+	# check the input username and password
+	inputcheck, prefix = (INPUTCHECK, PREFIX)
+	if not name and not pwd:
+		# that's the Login dialog popup first
+		print inputcheck	
+		print "$.prompt('%s', %s);" %(tmpl(), prefix)
+	elif name:		
+		valid = _valid(name, pwd)	
+		if valid[0] == 1 :			
+			so = _get_session()
+			#setattr(so, 'user', name)	
+			# get user's roles
+			id = valid[-1]
+			data = model.get_item(name, 'user', id, props=('roles',), keyIsId=True)
+			if data:
+				roles = data.get('roles').split(',')
+			else:
+				roles = None
+			# saves user's name and roles to session object			
+			[setattr(so, attr, value) for attr, value in zip(('user', 'useroles'), (name, roles))]
+				
+			# successful login prompt		
+			print '$.prompt("%s", {prefix: "cleanblue", buttons: {%s : true}});' \
+					%(_("Login Successfully! Now user name is "+so.user), _("OK"))
+						
+			# display user name in the topright of the page				
+			topnav_toggle(1)	
+			# display the main page
+			print '$("#main").load("%s");' %'home.pih'
+		elif valid[0] == 0:
+			info = _("Invalid Password !")			
+			print inputcheck			
+			txt = tmpl(name, pwd, None, info)
+			print "$.prompt('%s', %s);" %(txt, prefix)
+		elif valid[0] == 2:
+			# user's name is invalid
+			info = _("Invalid Username !")		
+			txt = tmpl(name, pwd, info, None)		
+			print inputcheck		
+			print "$.prompt('%s', %s);" %(txt, prefix)
+		else:
+			# No web access permission		
+			print '$.prompt("%s", {prefix: "cleanblue", buttons: {%s : true}});' \
+					%(_(" You have no web access permission!"), _("OK"))			
+								
+					
+#The real action to valid user's longin
+def _valid(name=None,pwd=None):
+	# check user's longin name and password		
+	# get ajax client	
+	client = model.get_client()	
+	form = { 'action' : 'login', 'context' : 'user', 'username' : name, 'password' : pwd }
+        client.form = form
+        try:
+        	res = client.main()        	
+        	data = list(res['data'])
+        	data.append(client.userid)              
+        except:         	
+         	data = (0, 'Login Fail')
+	return data         
+ 
+    
+# set new variables in locals()
+for variable in ('name', 'pwd', 'ltype'):
+	vname = '_' + variable
+	d = locals()
+	if d.has_key(vname):
+		d[variable] = d[vname]
+	else:
+		d[variable] = None
+
+
+##### the main entrance of this file #######
+# ltype : None, it's the home page initializing;
+# ltype : 1 , user logining
+# ltype : 2 , user logout
+######################################
+so = _get_session()
+if not ltype :	
+	if so.user:		
+		# user still keep up login status
+		topnav_toggle(1)		
+	else:
+		topnav_toggle(0)
+	# show the home content in 'main' div container
+	print '$("#main").load("%s");' %'home.pih'	
+elif int(ltype) == 1:
+	valid(name, pwd)
+elif int(ltype) == 2:
+	logout()
+	
+
+
+	

@@ -1,0 +1,16 @@
+$(document).ready(function(){
+	$(".register").openDOMWindow({
+		height:500, 
+		width:600,
+		positionType:"fixed",
+		positionTop:10, 
+		positionLeft:180, 
+		eventType:"click",	
+		modal:1,
+		loader:1, 
+		loaderImagePath:"images/ajax_loading.gif",
+		loaderHeight:16, 
+		loaderWidth:17, 
+		windowSource:"ajax"	
+	});
+});

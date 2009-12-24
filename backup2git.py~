@@ -14,7 +14,9 @@ RSYNCOPTIONS = ( '-avzur', '--delete', '--progress' )
 #GIT = 'git --git-dir=/home/broader/develop/EasyReception/.git'
 GIT = 'git'
 LOGFILE = '%s'%os.path.sep.join((os.path.abspath(os.path.curdir), 'backup2git.log'))
-KARRIGELLSRC = '/home/broader/develop/R@K/CMS/Karrigell/ereception/'
+KARRIGELLSRC = '/home/broader/develop/R@K/CMS/Karrigell/'
+MINDMAP = '/home/broader/develop/R@K/CMS/Docs/develop/'
+DIRS = ['Karrigell', 'MindMap']
 LOCALGIT = '/home/broader/develop/EasyReception/develop'
 
 def getLogger(logfile, loggerName=None):
@@ -37,46 +39,45 @@ def action(cmd, test=True, logger=None):
 	return res
 
 def run(test):
-   logger = getLogger(LOGFILE, "GitHub update" )   
-   rsync = RSYNC
-   git = GIT  
-   
+	logger = getLogger(LOGFILE, "GitHub update" )
+	rsync = RSYNC
+	git = GIT
+	  
    # delete nousing captcha images
-   cmd = ['rm', '-f', ''.join((KARRIGELLSRC, 'registration/tmp/*.jpeg'))]
-   cmd = ' '.join(cmd)
-   logger.info('Delete nousing captcha images')
-   res = action(cmd,True,logger)   
-
-   # synchronize 'Karrigell/ereception' to '/home/broader/EasyReception' 
-   cmd = [ rsync,]   
-   [ cmd.extend(a) for a in (RSYNCOPTIONS, [KARRIGELLSRC, LOCALGIT])]
-   cmd = ' '.join(cmd)
+	cmd = ['rm', '-f', ''.join((KARRIGELLSRC, 'registration/tmp/*.jpeg'))]
+	cmd = ' '.join(cmd)
+	logger.info('Delete nousing captcha images')
+	res = action(cmd,test,logger)
+	
+	logger.info('Begin to backup loacl karrigell diretory and mindmap files to local git.\n')
+	# synchronize 'Karrigell/ereception' to '/home/broader/EasyReception'
+	for src, dir in zip( [KARRIGELLSRC, MINDMAP], DIRS ) :
+		cmd = [ rsync,]
+		target = '/'.join((LOCALGIT, dir))
+		[ cmd.extend(a) for a in (RSYNCOPTIONS, [ src, target])]
+		cmd = ' '.join(cmd)
+		res = action(cmd,test,logger)
+		if res[0] != 0 and not test:
+			logger.info('Something is wrong!')
+			return
+			
+	logger.info('End backup loacl karrigell diretory to local git.')
    
-   logger.info('Begin to backup loacl karrigell diretory to local git.\n')
-   	
-   res = action(cmd,test,logger)   
-   if res[0] != 0 and not test:
-      logger.info('Something is wrong!')
-      return   
-   else:
-      logger.info('End backup loacl karrigell diretory to local git.')
-   
-   # synchronize 'EasyReception' to remote github host    
-   logger.info('Begin to backup local github to remote github host.')
-   
-   #[action( cmd, test,logger) for cmd in ('cd /home/broader/develop/EasyReception', 'pwd')]    
+   # synchronize 'EasyReception' to remote github host
+	logger.info('Begin to backup local github to remote github host.')    
    
    # get current date info
-   now = datetime.datetime.today().isoformat()
-   info = 'Update time:%s'%now
-   options = [ 'add .', "commit -m '%s'"%info, 'push origin master']
-   for option in options:
-      cmd = ' '.join((git, option))      
-      res = action(cmd, test,logger)
-      
-   logger.info('End backup local github to remote github host.')
-   logging.shutdown()
-   return
-
+	now = datetime.datetime.today().isoformat()
+	info = 'Update time:%s'%now
+	options = [ 'add .', "commit -m '%s'"%info, 'push origin master']
+	for action in options :
+		cmd = ' '.join([GIT, action])
+		action(cmd,test,logger)
+   	
+	logger.info('End backup local github to remote github host.')
+	logging.shutdown()
+	return
+   
+   
 if __name__ == '__main__':	
 	run(test=False) 

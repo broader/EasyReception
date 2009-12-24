@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>HTML utilities</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="lib.css">
+<style type="text/css">
+<!--
+dl {  background-color: #FFFFCC; border-width: 1; border-style:solid;}
+-->
+</style></head>
+
+<body>
+
+<h1><%= chapter %>. HTML utilities</h1>
+
+<p>The HTML module provides utility functions which can be called from the scripts
+<ul>
+<li><code>HTML.head(<var>args</var>)</code>
+<br>Inserts an HTML <code>&lt;HEAD&gt;</code> section, with <var>args</var> as a
+dictionary of options. For instance :
+<p>
+<dl><dd><pre class="verbatim">
+print HTML.head({"title":"HTML Inside Python test",
+    'style type="text/css"':"TD {color: blue}"})
+</pre></dl>
+<p>
+<li><code>HTML.table(<var>dict,attrs</var>)</code>
+<br>Generates the HTML code for a <code>&lt;table&gt;</code> from a dictionary.
+The lines are <var>dict</var>'s items,  <var>attrs</var> is a dictionary with
+the table attributes, for instance {"border":"2","cellpadding":"3"}
+<p>
+<dl><dd><pre class="verbatim">
+capitals={'France':'Paris','Germany':'Berlin','Spain':'Madrid','Italy':'Rome'}
+print HTML.table(capitals,border="1",cellpadding="4")
+</pre></dl>
+<p>
+<li><code>HTML.select(<var>name,options</var>
+<b>[,</b><var>selected</var>
+<b>[,</b><var>attrs</var>
+<b>]]</b>)</code>
+<br>Generates the HTML code for a <code>SELECT</code> named <var>name</var> 
+from a list of (value,text) 
+<var>options</var>. The option for which value==<var>selected</var> is selected.
+<var>attrs</var> are used as key="value" attributes of the SELECT tag
+<p>For instance, to print a SELECT with the months and with <code>aMonth</code>
+selected :
+<dl><dd><pre class="verbatim">
+import HTML
+print HTML.select("theMonth",
+    [ (h,h) for h in range(1,13) ],
+    selected=aMonth)
+</pre></dl>
+<p>
+
+</ul>
+</body>
+</html>

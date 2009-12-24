@@ -1,0 +1,407 @@
+<html>
+<head>
+<title>Storing objects</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="lib.css">
+<style type="text/css">
+<!--
+dl {  background-color: #FFFFCC; border-width: 1; border-style:solid;}
+-->
+</style></head>
+
+<body>
+
+<h1><%= chapter %>. Storing objects in the gadfly database</h1>
+
+Python scripts can store and retrieve data in databases, either
+relational (such as mySQL, PostGreSQL, SQLite), object (like ZODB) or of
+other types (MetaKit, KirbyBase), using the appropriate modules (see 
+http://www.python.org/cgi-bin/moinmoin/DatabaseProgramming). These 
+products require some time to download,
+install and learn how to use them ; to make things easier Karrigell
+provides an integrated storage solution based on the gadfly database
+
+<h2><%= chapter %>.1 The gadfly database</h2>
+
+<a href="http://gadfly.sourceforge.net/">Gadfly</a> is a simple relational
+database system implemented in Python, based on the SQL Structured Query
+Language
+<p>It is included in Karrigell. Instructions for installing it and to use
+it in Python scripts are provided in the <code>gadfly-1.0.0/doc</code>
+directory. Basically, all you have to do is open a console window, change
+directory to <code>gadfly-1.0.0</code> and run
+<blockquote>
+<code>python setup.py install</code>
+</blockquote>
+Note that for Unix, you must login as root to install. For more information,
+see <code>installation.txt</code>, especially section 4 to speed
+it up if you're on Windows, and the SQL primer <code>gadfly.txt</code>
+<p>Although it cannot rival mySql or PostGreSQL for performance, stability,
+handling of concurrent access etc., for Karrigell's target (simple sites with a 
+moderate traffic, unlikely to use a huge volume of data) it should be a good 
+choice in a vast majority of applications
+
+<h2><%= chapter %>.2 Storing objects</h2>
+
+A common task for programers is to store and retrieve objects in a database.
+When using an object-oriented language such as Python there is a conversion
+to be made between the attributes of an object and the name and type of the
+columns in a table
+<p>Suppose you have a class of persons defined this way :
+<p>
+<dl><dd><pre class="verbatim">
+class Person:
+
+    def __init__(self,name,surname,age,info):
+        self.name=name
+        self.surname=surname
+        self.age=age
+        self.info=info
+
+    def show(self):
+        print "%s, %s (%s) - %s" \
+             %(self.name,self.surname,self.age,self.info)
+
+</pre></dl>
+<p>Before storing an instance of the Person class in a gadfly base you have to
+create a table using :
+<p>
+<dl><dd><pre class="verbatim">
+cx=gadfly.gadfly()
+cx.startup("persons")
+sql="CREATE TABLE Person (name varchar,surname varchar, age integer, info varchar)"
+cursor=cx.cursor()
+cursor.execute(sql)
+</pre></dl>
+
+<p>Then, for each Person instance you'll do something like :
+<p>
+<dl><dd><pre class="verbatim">
+p=Person("caulfield","holden",18,"catcher in the rye")
+vals="name='%s',surname='%s',age=%s,info='%s'" %(p.name,p.surname,p.age,p.info)
+sql="INSERT INTO Person (%s)" %vals
+cursor.execute(sql)
+cx.commit()
+</pre></dl>
+
+<p>To retrieve the object matching the name "caulfield" the code will be :
+<p>
+<dl><dd><pre class="verbatim">
+sql="SELECT name,surname,age,info FROM Person WHERE name='caulfield'"
+cursor.execute(sql)
+result=cursor.fetchall()[0]
+p=Person(res[0],res[1],res[2],res[3])
+</pre></dl>
+
+<p>Well, this works, but after some time you wish there were a more convenient
+interface to save most of the boring work of converting between the attributes
+and the columns
+<p>I have found some modules which do this very well
+(<a href="http://dustman.net/andy/python/SQLDict">SQLDict</a>) but I wasn't
+totally satisfied with the syntax. So I decided to write my own gateway between
+gadfly and Python objects : the gadflyStorage module
+
+<h2><%= chapter %>.3 The gadflyStorage module</h2>
+
+With the gadflyStorage module there is no need to define the name and
+type of the fields in the table : adding the first object will create a table
+whose name is the class name and whose fields are the attributes
+
+<p>All attributes must have one of the following types :
+<ul>
+<li>a Python string, int or float
+<li>a Python object which can be "marshalled" (see the marshal module doc) :
+    this includes Python strings, intergers, floats, and all collections such
+    as Python lists, dictionaries, tuples, etc provided their elements are can
+    be "marshalled" themselves
+<li>a Python object which can be "pickled" (see the pickle module doc) :
+    a wide range of objects, including user-defined class instances under
+    certain conditions
+<li>lists of "picklable" objects, dictionaries whose keys and values can be
+    pickled, etc
+</ul>
+
+<p>The mapping between Python types and gadfly types (varchar, integer, float)
+is made when inserting the first object. Objects which need to be marshaled
+or pickled are stored as strings (varchar)
+
+<p>The interface is provided under two flavours :
+
+<p>- a dictionary-like syntax : easy for simple operations, uses the syntax
+for Python dictionaries with key-value couples. Beware : this requires
+to define which attribute will be used as a key before use
+<p>- an sql-like syntax : requires a minimal knowledge about sql, so it's not
+as simple ; but it allows for more powerful queries using the full range
+of the gadfly SQL syntax (views, indices, WHERE and ORDER BY clauses, etc)
+
+<h3><%= chapter %>.3.1 Creating the base</h3>
+
+<p>Enough theory, let's see how it works for the aforementioned Person class.
+You want to store the objects in a database called "persons", in the current
+directory. Do :
+<p>
+<dl><dd><pre class="verbatim">
+import gadflyStorage
+db=gadflyStorage.Storage("persons","n")
+</pre></dl>
+
+<h3><%= chapter %>.3.2 Inserting objects in the base</h3>
+
+Just write the object with :
+<p>
+<dl><dd><pre class="verbatim">
+db.write(Person("Simpson","Homer",35,"No problemo"))
+</pre></dl>
+
+<p>The first "write" in the base creates a table whose names and types match
+the attributes of the object, here (in gadfly SQL syntax) :
+<p>
+<pre>name varchar, surname varchar, age integer, info varchar</pre>
+<p>
+
+<p>Besides these fields, gadflyStorage automatically adds another attribute
+called <code>__id__</code>, an integer incremeted by one every time an object
+is written - that is, this attribute will be unique and can be used to
+identify the object. This is helpful when dealing with several tables and
+managing relations between tables
+<p>The object receives a method : <code>update()</code> which can be used to 
+update the object in the database when attributes have been modified
+
+<p>Add another one :
+<p>
+<dl><dd><pre class="verbatim">
+db.write(Person("Bidochon","Robert",40,"Râleur"))
+</pre></dl>
+
+<p>To really write the elements in the base don't forget to "commit" the
+changes
+<p>
+<dl><dd><pre class="verbatim">
+db.commit()
+</pre></dl>
+
+<h3><%= chapter %>.3.3 Manipulating objects with a dictionary-like syntax</h3>
+
+There are shortcuts to use the database like a Python dictionary
+<p>To do so the base must be told which attribute will be used as a key. Here
+we choose the "name" attribute :
+<p>
+<dl><dd><pre class="verbatim">
+db.set_key("name")
+</pre></dl>
+
+<p>Then you can use the usual Python dictionary syntax to :
+<ul>
+<li>add or update an object
+<p>
+<dl><dd><pre class="verbatim">
+# add
+db["Caulfield"]=Person("Caulfield","Holden",18,"It killed me")
+
+# alternative to db.write(Person("Caulfield","Holden",18,"It killed me"))
+
+# update
+db["Simpson"]=Person("Simpson","Homer",40,"No problemo")
+</pre></dl>
+<p>
+<li>get an object
+<p>
+<dl><dd><pre class="verbatim">
+p=db["Simpson"]
+</pre></dl>
+
+<p>
+<li>find keys, values, items
+<p>
+<dl><dd><pre class="verbatim">
+k=db.keys()
+v=db.values()
+print [ k for (k,v) in db.items() ]
+</pre></dl>
+
+<p>The field <code>__id__</code> can (and will often) be used as key
+
+<p>On key lookup, three cases may happen :
+<ul>
+<li>no object matches the key : a <code>StorageError</code> exception
+is raised
+<li>one object is found : this object is returned
+<li>several objects are found : the list of these objects is returned
+</ul>
+The number of found objects is given by the the method <code>found()</code>
+
+<p>
+<li>delete an object (raises an exception if no object matches the key)
+<p>
+<dl><dd><pre class="verbatim">
+del db["Bidochon"]
+</pre></dl>
+
+</ul>
+
+<h3><%= chapter %>.3.4 SQL-like syntax</h3>
+
+To find a list of the objects which fulfil a condition :
+<p>
+<pre>
+objList=f.find(where=<i>whereclause</i>,order_by=<i>orderbyclause</i>)
+</pre>
+
+<p>where <i>whereclause</i> and <i>orderbyclause</i> are the corresponding
+SQL selection options :
+<br>- <i>whereclause</i> is a condition on the object attributes
+<br>- <i>orderbyclause</i> asks for results to be sorted by an attribute
+
+<p>To delete an object from the base :
+<p>
+<pre>
+f.remove(where=<i>whereclause</i>)
+</pre>
+<p>where <i>whereclause</i> is the SQL statement to identify the object(s)
+to delete
+
+<p>To update an object :
+<p>
+<pre>
+f.update(new_object=<i>object</i>,where=<i>whereclause</i>)
+</pre>
+<p>where <i>whereclause</i> is the SQL statement to identify the object to
+update, and <i>object</i> is the object with updated values
+
+<p>Example :
+<p>
+<dl><dd><pre class="verbatim">
+# list of all objects in the base
+l1=db.find()
+# only the objects before L in alphabetic order
+l2=db.find(where="name <'L'")
+# "list of all objects ordered by age
+l2=db.find(order_by="age")
+</pre></dl>
+
+<p>Notice that the <code>keys()</code>, <code>values()</code> and 
+<code>items()</code> method support the same
+arguments <code>where</code> and <code>order_by</code> as <code>find()</code>
+
+<p>
+<dl><dd><pre class="verbatim">
+print [ k for (k,v) in db.items(order_by="age") ]
+</pre></dl>
+
+<p>The Storage instance has attributes called <code>cx</code> and <code>cursor
+</code> which are the gadfly connexion and cursor objects. You can always use
+them to execute raw sql commands :
+<p>
+<dl><dd><pre class="verbatim">
+db.cursor.execute("SELECT name FROM Person")
+result=db.cursor.fetchall()
+</pre></dl>
+
+<h3><%= chapter %>.3.5 Using an existing base</h3>
+
+To open an existing base :
+
+<p>
+<dl><dd><pre class="verbatim">
+import gadflyStorage
+db=gadflyStorage.Storage(path,"r")
+</pre></dl>
+
+<p>The class whose instances are stored in the base must be in the namespace
+of the calling script ; if the instances attributes are themselves instances
+of other classes, these classes must also be in the namespace of the
+calling script
+
+<p>With the same example :
+
+<p>
+<dl><dd><pre class="verbatim">
+import Person # the original class must be in module namespace
+db=gadflyStorage.Storage("employees","r")
+</pre></dl>
+
+<p>
+When gadflyStorage is used in Karrigell, the classes must be explicitely
+registered in the Storage instance. This registering is made by :
+
+<p>
+<dl><dd><pre class="verbatim">
+db.register(baseClass[,otherClass1[,otherClass2...]])
+</pre></dl>
+
+   <p>where <code>baseClass</code> is the class object whose instances are
+   stored in the base, and <code>otherClass1, otherClass2,</code> etc. are
+   the classes used in baseClass instances
+
+<blockquote>
+<i>Note 1</i> : if <code>gadflyStorage</code> is used outside
+of Karrigell, registering is generally not required
+
+<p><i>Note 2</i> : another opening mode is 'c' (instead of 'r' or 'n') : 
+if the base did not exist, it is created. Since a class can't be registered
+in an empty base, you must then test the <code>state</code> attribute of
+the base:
+
+<p>
+<dl><dd><pre class="verbatim">
+import Person
+db=gadflyStorage.Storage("persons","c")
+if not db.state=="new":
+    db.register(Person)
+</pre></dl>
+
+</blockquote>
+
+<p>Then you can use the base as above to retrieve object or write new
+objects. When the objects are retrieved they come with the method 
+<code>update()</code>
+<p>
+<dl><dd><pre class="verbatim">
+l=db.find()     # returns a list of all the instances of the Person class
+                # in the base
+db.set_key("__id__")
+p=db[1]         # retrieves the instance of Person with __id__=1
+p.age=33
+p.update()      # updates the change in the base
+p.commit()      # saves
+</pre></dl>
+
+
+<h2><%= chapter %>.4 sqliteStorage</h2>
+
+The above interface to use a gadfly base is available for another database : 
+<a href="http://www.hwaci.com/sw/sqlite/">SQLite</a>, a compact and very 
+efficient solution
+<p>To use it, download and install SQLite following the instructions provided
+on the site ; then download and install the Python API
+<a href="http://sourceforge.net/projects/pysqlite/">pysqlite</a>
+<p>The use of <code>sqliteStorage</code> is exactly the same as for <code>
+gadflyStorage</code>
+
+<h2><%= chapter %>.5 Multi-table database</h2>
+
+So far we've assumed that the database stores instances of only one class ;
+but you can store instance of as many classes as you like
+
+<p>You don't have to specify the class when writing objects :
+always do <code>db.write(user)</code>. The module will know that <code>user
+</code> is an instance of the <code>User</code> class
+
+<p>The main difference is that when selecting items, you must specify the
+name of the class you are selecting instances of. If you have a database with
+instances of classes <code>User</code> and <code>Message</code>, retrieving
+instances is made by such request as
+<p>
+<dl><dd><pre class="verbatim">
+db.User.find(where="name='foo'")
+</pre></dl>
+or
+
+<p>
+<dl><dd><pre class="verbatim">
+db.Message.find(order_by="date")
+</pre></dl>
+
+<p>If you don't specify the name of the class and if there is more than one
+class in the base, you'll get a <code>AmbiguousTableError</code>
+

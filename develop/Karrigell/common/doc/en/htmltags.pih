@@ -1,0 +1,148 @@
+<html>
+<head>
+<title>HTMLTags - generate HTML in Python</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="lib.css">
+<style type="text/css">
+<!--
+dl {  background-color: #FFFFCC; border-width: 1; border-style:solid;}
+dl.html {  background-color: #D0D0D0; border-width: 1; border-style:solid;}
+-->
+</style></head>
+
+<body>
+
+<h1><%= chapter %>. HTMLTags - generate HTML in Python</h1>
+
+
+The HTMLTags module defines a class for all the valid HTML tags, written in 
+uppercase letters. To create a piece of HTML, the general syntax is :
+
+<p>
+<div class="verbatim">
+<pre>
+      t = TAG(innerHTML, key1=val1,key2=val2,...)
+</pre></div>
+
+so that <code>print t</code> results in :
+
+<p>
+<div class="verbatim">
+<pre>    &lt;TAG key1="val1" key2="val2" ...>innerHTML&lt;/TAG>
+</pre></div>
+
+For instance :
+
+<p><div class="verbatim">
+<pre>    print A('bar', href="foo")  ==>  &lt;A href="foo">bar&lt;/A>
+</pre></div>
+
+<p>Attributes with the same name as Python keywords (<code>class</code>,
+<code>type</code>) must be capitalized :
+
+<p><div class="verbatim"><pre>    print DIV('bar', Class="title")  ==>  &lt;DIV class="title">bar&lt;/A>
+</pre></div>
+
+<p>To generate HTML attributes without value, give them the value 
+<code>True</code> :
+
+<p><div class="verbatim">
+<pre>    print OPTION('foo',SELECTED=True,value=5)  ==>  &lt;OPTION value="5" SELECTED>
+</pre></div>
+
+For non-closing tags such as &lt;IMG&gt; or &lt;BR&gt;, the <code>print</code>
+statement does not generate the closing tag
+
+<p>The <em>innerHTML</em> argument can be an instance of an HTML class, so that you 
+can nest tags, like this :
+
+<p>
+<div class="verbatim">
+<pre>    print B(I('foo'))  ==>  &lt;B&gt;&lt;I&gt;foo&lt;/I&gt;&lt;/B&gt;
+</pre></div>
+
+<p>Instances of the HTML classes support addition :
+
+<p>
+<div class="verbatim"><pre>    print B('bar')+INPUT(name="bar")  ==>  &lt;B>bar&lt;/B>&lt;INPUT name="bar">
+</pre></div>
+
+<p>and also repetition :
+
+<p>
+<div class="verbatim">
+<pre>    print TH('&amp;nbsp')*3  ==>  &lt;TD>&amp;nbsp;&lt;/TD>&lt;TD>&amp;nbsp;&lt;/TD>&lt;TD>&amp;nbsp;&lt;/TD>
+</pre></div>
+
+<p>If you have a list of instances, you can't concatenate the items with 
+<code>sum(instanceList)</code> because <code>sum</code> takes only numbers 
+as arguments. So there is a function called <code>Sum</code> which will do 
+the job :
+
+<p>
+<div class="verbatim">
+<pre>    Sum([ TR(TD(i)+TD(i*i)) for i in range(100) ])
+</pre></div>
+
+generates the rows of a table showing the squares of integers from 0 to 99
+
+<P>The <em>innerHTML</em> argument can be a string, but you can't concatenate 
+a string and an instance of an HTML class, like in :
+
+<p>
+<div class="verbatim">
+<pre>    H1('To be or ' + B('not to be'))
+</pre></div>
+
+For this, use a class called <code>TEXT</code>, which will not generate any tag :
+
+<p>
+<div class="verbatim">
+<pre>    H1(TEXT('To be or ') + B('not to be'))
+</pre></div>
+
+A simple document can be produced by :
+
+<p>
+<div class="verbatim">
+<pre>
+    print HTML( HEAD(TITLE('Test document')) +
+        BODY(H1('This is a test document')+
+             TEXT('First line')+BR()+
+             TEXT('Second line')))
+</pre></div>
+
+This will produce :
+
+<p>
+<div class="verbatim">
+<pre>
+    &lt;HTML&gt;
+    &lt;HEAD&gt;
+    &lt;TITLE&gt;Test document&lt;/TITLE&gt;
+    &lt;/HEAD&gt;
+    &lt;BODY&gt;
+    &lt;H1&gt;This is a test document&lt;/H1&gt;
+    First line
+    &lt;BR&gt;
+    Second line
+    &lt;/BODY&gt;
+    &lt;/HTML&gt;
+</pre></div>
+
+If the document is more complex it is more readable to create the elements 
+first, then to print the whole result in one instruction. For example :
+
+<p>
+<div class="verbatim">
+<pre>
+    stylesheet = LINK(rel="Stylesheet",href="doc.css")
+
+    header = TITLE('Record collection')+stylesheet
+    title = H1('My record collection')
+    rows = Sum ([TR(TD(rec.title,Class="title")+TD(rec.artist,Class="Artist")) 
+        for rec in records])
+    table = TABLE(TR(TH('Title')+TH('Artist')) + rows)
+
+    print HTML(HEAD(header) + BODY(title + table))
+</pre></div>

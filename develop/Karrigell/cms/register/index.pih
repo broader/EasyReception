@@ -1,0 +1,54 @@
+<!-- 
+<link type="text/css" href="css/smoothness/jquery-ui-1.7.1.custom.css" rel="stylesheet" />
+-->
+
+<link type="text/css" href="css/screen.css" rel="stylesheet" />
+<link type="text/css" href="lib/ui/css/flick/jquery-ui-1.7.2.custom.css" rel="stylesheet" />
+
+<!--
+<style type="text/css" media="screen">
+@import "register/css/screen.css";
+</style>
+-->
+<!--[if lte IE 7]>
+<style type="text/css" media="all">
+@import "css/required-fields-star1-ie.css";
+</style>
+<![endif]-->
+
+<indent>
+<%
+from HTMLTags import *
+
+jsfiles = ('js/jquery.form.js', 'lib/ui/js/jquery-ui-1.7.2.custom.min.js', 'lib/validate/jquery.validate.js' )
+for src in jsfiles :
+	 print SCRIPT(**{'type':'text/javascript', 'src': src})
+%>
+</indent>
+
+<script type="text/javascript">	
+	$(document).ready(function(){		
+		$.getScript("lib/validate/validation_messages.js.pih");
+		// Initialize the tab widget,
+		// Show the first tab and hide others tabs.
+		$("#tabs").tabs().data('disabled.tabs', [1, 2]);
+	});
+</script>
+
+<h2 ><%=_("The Register Process")%></h2>
+<div id="tabs">
+<ul>
+<indent>
+<%
+tabs = Import('../config.py').tabs
+for i, attr in enumerate(tabs) :
+	tSpan = attr[0]
+	fn = '/'.join(('register', attr[1]))		
+	dAttrs = {'href': fn, 'title': 'tabDiv'}  
+	print LI(A(tSpan, **dAttrs))
+%>
+</indent>
+</ul>
+<div id="tabDiv"></div>
+</div>
+

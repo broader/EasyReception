@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+@media screen, projection
+{
+/* styling containing DIV elements | Gestaltung der kapselnden DIV-Elemente */
+  .ertabs div .type-text,.type-check,.type-select {text-align:left;}
+  
+  .ertabs form .type-text textarea {width:80%;}
+  
+  /*
+  .yform div.type-text {text-align:left;}
+  
+  .yform .type-text textarea{width:80%;}
+  
+  */
+}

@@ -1,0 +1,31 @@
+"""Karrigell configuration loader for mod_cgi
+"""
+import sys
+import os
+
+server_dir = os.path.dirname(os.path.dirname(__file__)) # folder "apache"
+karrigell_dir = os.path.dirname(server_dir) # folder "karrigell"
+root_dir = os.path.dirname(karrigell_dir)
+
+options = {
+    'server_dir':server_dir,
+    'karrigell_dir' : karrigell_dir,
+    'root_dir' : root_dir,
+    'data_dir' : os.path.join(server_dir,"data"),
+    'cgi_dir': None, # cgi scripts are managed by Apache
+    'persistent_sessions' : True,
+    'modules' : {"host_filter":[]}
+    }
+
+execfile(os.path.join(options['data_dir'],"conf.py"),options)
+
+# add core and package to sys.path
+for _dir in ["core","package"]:
+    path = os.path.join(karrigell_dir,_dir)
+    if not path in sys.path:
+        sys.path.append(path)
+
+# set options in k_config
+import k_config
+k_config.init_apache(options)
+k_config.modules = options['modules']

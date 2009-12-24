@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Web server options</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="lib.css">
+<style type="text/css">
+<!--
+-->
+</style></head>
+
+<body>
+<script src="../pf_test.js"></script>
+
+<h1><%= chapter %>. Importing modules</h1>
+
+The standard way in Python to import modules in a script is to use the 
+<code>import</code> keyword. The interpreter searches in a list of directories 
+for a module with the specified name and, if found, adds the module name in the 
+script namespace
+
+<p>This works fine on a mono-user, mono-process environment, but causes problems 
+if several users can interact with the interpreter at the same time. Each of
+them can modify the list of directories to search in, and if 2 users want to import
+modules with the same name, the interpreter might return user A's module to
+user B
+
+<p>To import modules safely in Karrigell, here is what you should do :
+<ul>
+<li>if the module is in your standard Python distribution, or has been installed
+by the setup tools, just use the usual <code>import</code> keyword : there is no risk
+of confusion
+<li>you can store your own modules in the <span class="file">package</span>
+directory of your Karrigell distribution, and import them with <code>import</code>
+<li>for user-defined modules inside your application, use the built-in function 
+<code>Import(<i>module_url[,**kw]</i>)</code>
+</ul>
+
+This function <code>Import()</code> returns an object which will behave like an
+imported module. To use it in the script you must give a name to this object :
+
+<div class="verbatim">
+<pre>
+foo = Import("foo.py")
+</pre>
+</div>
+
+<p>The equivalent of <code>from foo import bar</code> is :
+
+<div class="verbatim">
+<pre>
+bar = Import("foo.py").bar
+</pre>
+</div>
+
+<p>The url of the imported module is resolved like the scripts url, so you don't
+have to specify the extension : <code>foo = Import("foo")</code> works
+
+<p>You can pass parameters to the <code>Import()</code> function. For instance,
+if you need a reference to the script folder in your imported module, you will
+pass the parameter <code>CWD</code> :
+
+<div class="verbatim">
+<pre>
+foo = Import("foo.py",script_dir=CWD)
+</pre>
+</div>
+
+<p>In <span class="file">foo.py</span> the name script_dir will be available :
+
+<div class="verbatim">
+<pre>
+import os
+content = open(os.path.join(script_dir,"data.txt"))
+</pre>
+</div>
+
+
+<p>
+</body>
+</html>
+
+
+
+

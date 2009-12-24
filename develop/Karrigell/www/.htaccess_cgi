@@ -1,0 +1,14 @@
+# this is the .htaccess file for CGI mode
+Options -Indexes
+
+ErrorDocument 403 /karrigell/apache/cgi-bin/k_handler.cgi
+
+# rewrite urls so that Karrigell handles scripts
+# with extensions py,pih,hip and ks
+
+RewriteEngine On
+RewriteRule ^(.*)\.(py|pih|hip|ks) /karrigell/apache/cgi-bin/k_handler.cgi
+
+# and ks scripts with function names
+RewriteRule ^(.*)\.ks/.* /karrigell/apache/cgi-bin/k_handler.cgi
+ 
