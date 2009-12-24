@@ -70,8 +70,8 @@ def run(test):
 	now = datetime.datetime.today().isoformat()
 	info = 'Update time:%s'%now
 	options = [ 'add .', "commit -m '%s'"%info, 'push origin master']
-	for action in options :
-		cmd = ' '.join([GIT, action])
+	for option in options :
+		cmd = ' '.join([GIT, option])
 		action(cmd,test,logger)
    	
 	logger.info('End backup local github to remote github host.')

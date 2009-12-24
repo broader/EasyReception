@@ -1,6 +1,14 @@
 """
 A scripts to run git command in order to synchronize local source with 
 remote github server.
+
+Change Log:
+2009.12.24
+- Restructed files directories which is listed as below
+root
+->develop
+----->Karrigell	All the files in Karrigell Server directory
+----->MindMap		The develop freemind file
 """
 
 __version__ = "0.0.1"

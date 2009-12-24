@@ -54,7 +54,8 @@ INITIALIZE THE TWO MENU 'Login' AND 'Register'
 		it in the onContentLoaded function of the new window. 
  
 -------------------------------------------------------------------- */
-// the names for prelogin menues' click functions 
+
+// the names for prelogin menues' click function 
 var fNames = [ 'login', 'register' ];
 // a object holds two functions for prelogin 
 var loginFns = {
@@ -64,10 +65,22 @@ var loginFns = {
 	},
 	
 	'register': function(event){
-		MochaUI.notification('Register Window');
+		//MochaUI.notification('Register Window');
+		new Event(event).stop();
+		new MUI.Modal({
+			id: 'registerDialog',
+			title: 'Register Dialog',			
+			contentURL: 'license.html',
+			//type: 'modal2',
+			modalOverlayClose: false,
+			width: 350,
+			height: 195,
+			padding: { top: 43, right: 12, bottom: 10, left: 12 },
+			scrollbars: false
+		});
 		return false;
 	}
-}
+};
 
 function preLoginInit(){
 	var menus = $('topNav').getElements('li');
@@ -75,7 +88,7 @@ function preLoginInit(){
 	menus.each(function(item,index){
 		item.addEvent('click', loginFns[fNames[index]]);
 	});
-}
+};
 
 
 // Initialize MochaUI when the DOM is ready

@@ -53,7 +53,7 @@ def index(**args):
 	
 	
 	# page initial js
-	print pagefn.script( '/'.join(('js','init.js')), link=True)
+	print pagefn.script( '/'.join(('js','init.js.pih')), link=True)
 	   
    # this page head tag is completed
 	print "</head>"
