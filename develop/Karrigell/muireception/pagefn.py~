@@ -7,9 +7,7 @@ SOINFO = {'userinfo':'baseinfo',}
 # a function to return the applicaiton name
 getApp = lambda p : p.split('/')[1]
 
-##
-# the register dialog
-#--------------------------------------------------------------------------------------
+# the register dialog 
 REGISTERDIALOG = 'registerDialog'
 REGISTERTABSID = 'registerTabs'
 REGISTERAPPPATH = 'register'
@@ -23,7 +21,6 @@ REGISTERTABS = \
 
 # the global css class' name for 'ertabs' plugin
 TABSCLASS = 'ertabs'
-#--------------------------------------------------------------------------------------
 
 ##
 # Web Icons

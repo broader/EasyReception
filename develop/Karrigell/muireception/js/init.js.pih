@@ -54,7 +54,11 @@ INITIALIZE THE TWO MENU 'Login' AND 'Register'
 		it in the onContentLoaded function of the new window. 
  
 -------------------------------------------------------------------- */
+<%
+# get global variables stored in pagefn.py
+pagefn = Import('/'.join(('', 'pagefn.py')))
 
+%>
 // the names for prelogin menues' click function 
 var fNames = [ 'login', 'register' ];
 // a object holds two functions for prelogin 
@@ -68,15 +72,25 @@ var loginFns = {
 	'register': function(event){
 		new Event(event).stop();
 		new MUI.Modal({
-			id: 'registerDialog',
+			id: '<%=pagefn.REGISTERDIALOG%>',
 			title: '<%=_("Register Dialog") %>',			
-			contentURL: 'register/register.ks/index',
+			contentURL: 'register/accountForm.ks/index',
 			//type: 'modal2',
 			modalOverlayClose: false,
 			width: 750,
 			height: 400,
 			padding: { top: 43, right: 12, bottom: 10, left: 12 },
 			scrollbars: true,
+			//shape: 'gaoge',
+			toolbar: true,
+			toolbarURL:'register/register.ks/tabs',
+			toolbarOnload: function(){
+				var tabsId = '<%=pagefn.REGISTERTABSID%>';
+				// add selected class to each tabs when they are selected				
+				MUI.initializeTabs(tabsId);
+				$(tabsId).getElements('li')[0].fireEvent('click');
+			},
+			
 			require: {
 				css: ['css/forms.css']
 			}
@@ -85,10 +99,8 @@ var loginFns = {
 	}
 };
 
-function preLoginInit(){
-	var menus = $('topNav').getElements('li');
-	
-	menus.each(function(item,index){
+function preLoginInit(){	
+	$('topNav').getElements('li').each(function(item,index){
 		item.addEvent('click', loginFns[fNames[index]]);
 	});
 };

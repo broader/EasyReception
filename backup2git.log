@@ -17888,3 +17888,489 @@ sent 102 bytes  received 20 bytes  244.00 bytes/sec
 total size is 144862  speedup is 1187.39
 2009-12-24 22:36:04,244 INFO End backup loacl karrigell diretory to local git.
 2009-12-24 22:36:04,244 INFO Begin to backup local github to remote github host.
+2009-12-24 22:36:04,464 INFO Command: 
+git add .
+running result is :
+2009-12-24 22:36:04,660 INFO Command: 
+git commit -m 'Update time:2009-12-24T22:36:04.244414'
+running result is :Created commit ffc857f: Update time:2009-12-24T22:36:04.244414
+ 400 files changed, 30691 insertions(+), 8 deletions(-)
+ create mode 100644 develop/Karrigell/cms/register/tmp/b30e7a3164.jpeg
+ create mode 100644 develop/Karrigell/data/cms/logs_2009122413.log
+ create mode 100644 develop/Karrigell/data/cms/logs_2009122421.log
+ create mode 100644 develop/Karrigell/data/ereception/logs_2009122414.log
+ create mode 100644 develop/Karrigell/data/muireception/roundup/config.ini
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/backend_name
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/db
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/dossier/0/dossier1
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/dossier/0/dossier2
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/dossier/0/dossier22~
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/dossier/0/dossier3
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/dossier/0/dossier4
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/dossier/0/dossier5
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/dossier/0/dossier6
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/dossier/0/dossier6~
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/dossier/0/dossier7
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/dossier/0/dossier8
+ create mode 100644 develop/Karrigell/data/muireception/roundup/detectors/messagesummary.py
+ create mode 100644 develop/Karrigell/data/muireception/roundup/detectors/nosyreaction.py
+ create mode 100644 develop/Karrigell/data/muireception/roundup/detectors/statusauditor.py
+ create mode 100644 develop/Karrigell/data/muireception/roundup/detectors/userauditor.py
+ create mode 100644 develop/Karrigell/data/muireception/roundup/extensions/README.txt
+ create mode 100644 develop/Karrigell/data/muireception/roundup/initial_data.py
+ create mode 100644 develop/Karrigell/data/muireception/roundup/schema.py
+ create mode 100644 develop/Karrigell/muireception/config.py
+ create mode 100644 develop/Karrigell/muireception/config.yaml
+ create mode 100644 develop/Karrigell/muireception/css/forms.css
+ create mode 100644 develop/Karrigell/muireception/demjson.py
+ create mode 100644 develop/Karrigell/muireception/form.py
+ create mode 100644 develop/Karrigell/muireception/js/init.js.pih
+ create mode 100644 develop/Karrigell/muireception/js/init.js.pih~
+ create mode 100644 develop/Karrigell/muireception/js/init.js.pij~
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/css/hack.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/css/hack.css~
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/documentation/._index.html
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/documentation/index.html
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/documentation/styles/._main.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/documentation/styles/._reset.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/documentation/styles/img/._bannerbackground1.jpg
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/documentation/styles/img/bannerbackground1.jpg
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/documentation/styles/img/head/._bg.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/documentation/styles/img/head/._mootools.floor.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/documentation/styles/img/head/bg.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/documentation/styles/img/head/mootools.floor.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/documentation/styles/javascript/._main.js
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/documentation/styles/javascript/._searchdata.js
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/documentation/styles/javascript/main.js
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/documentation/styles/javascript/searchdata.js
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/documentation/styles/main.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/documentation/styles/reset.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/examples/Mootools Form Validation Example_form_registration.html
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/examples/Mootools Form Validation Example_form_registration.html~
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/examples/Mootools Form Validation Example_form_registration_files/core.js
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/examples/Mootools Form Validation Example_form_registration_files/en.js
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/examples/Mootools Form Validation Example_form_registration_files/form.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/examples/Mootools Form Validation Example_form_registration_files/formcheck.bak.js
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/examples/Mootools Form Validation Example_form_registration_files/formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/examples/Mootools Form Validation Example_form_registration_files/formcheck.js
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/examples/Mootools Form Validation Example_form_registration_files/formcheck.js~
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/examples/Mootools Form Validation Example_form_registration_files/ga.js
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/examples/Mootools Form Validation Example_form_registration_files/more.js
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/examples/Mootools Form Validation Example_form_registration_files/reset.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/examples/Mootools Form Validation Example_form_registration_files/template.css
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/demo/formcheck.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/demo/lang/bg.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/demo/lang/de.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/demo/lang/en.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/demo/lang/es.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/demo/lang/fr.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/demo/lang/gr.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/demo/lang/hu.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/demo/lang/it.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/demo/lang/jp.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/demo/lang/nl.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/demo/lang/pl.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/demo/lang/pt.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/demo/lang/ru.js
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/source.doc
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/._formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/._b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/._bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/._br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/._c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/._close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/._l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/._r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/._t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/._tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/._tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/blue/img/tr.png
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/._formcheck.css
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/._b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/._bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/._br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/._c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/._close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/._l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/._r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/._t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/._tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/._tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/classic/img/tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/._formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/._b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/._bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/._br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/._c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/._close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/._l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/._r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/._t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/._tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/._tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/green/img/tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/._formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/._b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/._bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/._br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/._c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/._close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/._l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/._r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/._t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/._tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/._tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/grey/img/tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/._formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/._b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/._bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/._br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/._c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/._close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/._l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/._r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/._t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/._tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/._tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/red/img/tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/.DS_Store
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/._.DS_Store
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/._formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/._b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/._bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/._br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/._c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/._close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/._l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/._r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/._t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/._tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/._tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/demo/theme/white/img/tr.png
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/formcheck.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/formcheck.js~
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/formcheck.registration.js
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/lang.js.pih
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/lang.js.pih~
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/lang/bg.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/lang/de.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/lang/en.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/lang/es.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/lang/fr.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/lang/gr.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/lang/hu.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/lang/it.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/lang/jp.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/lang/nl.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/lang/pl.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/lang/pt.js
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/lang/ru.js
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/._formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/._b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/._bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/._br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/._c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/._close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/._l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/._r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/._t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/._tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/._tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/blue/img/tr.png
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/theme/classic/._formcheck.css
+ create mode 100755 develop/Karrigell/muireception/plugins/formcheck/theme/classic/formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/._b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/._bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/._br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/._c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/._close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/._l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/._r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/._t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/._tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/._tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/classic/img/tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/._formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/._b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/._bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/._br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/._c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/._close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/._l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/._r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/._t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/._tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/._tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/green/img/tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/._formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/._b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/._bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/._br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/._c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/._close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/._l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/._r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/._t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/._tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/._tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/grey/img/tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/._formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/._b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/._bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/._br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/._c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/._close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/._l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/._r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/._t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/._tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/._tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/red/img/tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/.DS_Store
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/._.DS_Store
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/._formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/formcheck.css
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/._b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/._bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/._br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/._c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/._close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/._l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/._r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/._t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/._tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/._tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/b.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/bl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/br.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/c.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/close.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/l.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/r.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/t.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/tl.png
+ create mode 100644 develop/Karrigell/muireception/plugins/formcheck/theme/white/img/tr.png
+ create mode 100644 develop/Karrigell/muireception/plugins/moohover/css/button_off.png
+ create mode 100644 develop/Karrigell/muireception/plugins/moohover/css/button_on.png
+ create mode 100644 develop/Karrigell/muireception/plugins/moohover/css/moohover.css
+ create mode 100644 develop/Karrigell/muireception/plugins/moohover/css/moohover.css~
+ create mode 100644 develop/Karrigell/muireception/plugins/moohover/css/stylesheet.css~
+ create mode 100644 develop/Karrigell/muireception/plugins/moohover/demo/images/button_off.png
+ create mode 100644 develop/Karrigell/muireception/plugins/moohover/demo/images/button_on.png
+ create mode 100644 develop/Karrigell/muireception/plugins/moohover/demo/index.html
+ create mode 100644 develop/Karrigell/muireception/plugins/moohover/demo/script/MooHover.js
+ create mode 100644 develop/Karrigell/muireception/plugins/moohover/demo/script/MooHover_compressed.js
+ create mode 100644 develop/Karrigell/muireception/plugins/moohover/demo/script/mootools-1.2.1-core.js
+ create mode 100644 develop/Karrigell/muireception/plugins/moohover/demo/stylesheet.css
+ create mode 100644 develop/Karrigell/muireception/plugins/moohover/js/moohover.js
+ create mode 100644 develop/Karrigell/muireception/plugins/moohover/js/moohover.js~
+ create mode 100644 develop/Karrigell/muireception/register/Captcha.py
+ create mode 100644 develop/Karrigell/muireception/register/Captcha.py~
+ create mode 100644 develop/Karrigell/muireception/register/VeraIt.ttf
+ create mode 100644 develop/Karrigell/muireception/register/accountForm.ks
+ create mode 100644 develop/Karrigell/muireception/register/accountForm.ks~
+ create mode 100644 develop/Karrigell/muireception/register/actionEnd.ks
+ create mode 100644 develop/Karrigell/muireception/register/actionEnd.ks~
+ create mode 100644 develop/Karrigell/muireception/register/baseInfoForm.ks
+ create mode 100644 develop/Karrigell/muireception/register/baseInfoForm.ks~
+ create mode 100644 develop/Karrigell/muireception/register/captcha_bg_images/4.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/captcha_bg_images/6.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/captcha_bg_images/7.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/captcha_bg_images/8.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/register.ks
+ create mode 100644 develop/Karrigell/muireception/register/registration.ks~
+ create mode 100644 develop/Karrigell/muireception/register/test.py~
+2009-12-24 22:36:12,835 INFO Command: 
+git push origin master
+running result is :Counting objects: 46, done.
+Compressing objects:   3% (1/27)   Compressing objects:   7% (2/27)   Compressing objects:  11% (3/27)   Compressing objects:  14% (4/27)   Compressing objects:  18% (5/27)   Compressing objects:  22% (6/27)   Compressing objects:  25% (7/27)   Compressing objects:  29% (8/27)   Compressing objects:  33% (9/27)   Compressing objects:  37% (10/27)   Compressing objects:  40% (11/27)   Compressing objects:  44% (12/27)   Compressing objects:  48% (13/27)   Compressing objects:  51% (14/27)   Compressing objects:  55% (15/27)   Compressing objects:  59% (16/27)   Compressing objects:  62% (17/27)   Compressing objects:  66% (18/27)   Compressing objects:  70% (19/27)   Compressing objects:  74% (20/27)   Compressing objects:  77% (21/27)   Compressing objects:  81% (22/27)   Compressing objects:  85% (23/27)   Compressing objects:  88% (24/27)   Compressing objects:  92% (25/27)   Compressing objects:  96% (26/27)   Compressing objects: 100% (27/27)   Compressing objects: 100% (27/27), done.
+Writing objects:   3% (1/28)   Writing objects:   7% (2/28)   Writing objects:  10% (3/28)   Writing objects:  14% (4/28)   Writing objects:  17% (5/28)   Writing objects:  21% (6/28)   Writing objects:  25% (7/28)   Writing objects:  28% (8/28)   Writing objects:  32% (9/28)   Writing objects:  35% (10/28)   Writing objects:  39% (11/28)   Writing objects:  42% (12/28)   Writing objects:  46% (13/28)   Writing objects:  50% (14/28)   Writing objects:  53% (15/28)   Writing objects:  57% (16/28)   Writing objects:  60% (17/28)   Writing objects:  64% (18/28)   Writing objects:  67% (19/28)   Writing objects:  71% (20/28)   Writing objects:  75% (21/28)   Writing objects:  78% (22/28)   Writing objects:  92% (26/28)   Writing objects:  96% (27/28)   Writing objects: 100% (28/28)   Writing objects: 100% (28/28), 46.36 KiB, done.
+Total 28 (delta 17), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   9b5f9d3..ffc857f  master -> master
+2009-12-24 22:36:12,835 INFO End backup local github to remote github host.
+2009-12-25 11:41:17,701 INFO Delete nousing captcha images
+2009-12-25 11:41:17,720 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2009-12-25 11:41:17,720 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2009-12-25 11:41:19,785 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files... 800 files... 900 files... 1000 files... 1100 files... 1200 files... 1300 files... 1400 files... 1500 files... 1600 files... 1700 files... 1800 files... 1900 files... 2000 files... 2100 files... 2200 files... 2300 files... 2400 files... 2500 files... 2600 files... 2700 files... 2800 files... 2900 files... 3000 files... 3100 files... 3200 files... 3300 files... 3400 files... 3500 files... 3600 files... 3700 files... 3800 files... 3900 files... 4000 files... 4100 files... 4200 files... 4300 files... 4400 files... 4500 files... 4600 files... 4700 files... 4800 files... 4900 files... 5000 files... 5100 files... 5200 files... 5300 files... 5400 files... 5500 files... 5600 files... 5700 files... 5800 files... 5900 files...5981 files to consider
+deleting muireception/register/baseInfoForm.ks
+deleting muireception/register/actionEnd.ks
+data/cms/
+data/cms/logs_2009122509.log
+          92 100%    0.00kB/s    0:00:00          92 100%    0.00kB/s    0:00:00 (xfer#1, to-check=3525/5981)
+data/ereception/
+data/ereception/logs_2009122509.log
+          92 100%   89.84kB/s    0:00:00          92 100%   89.84kB/s    0:00:00 (xfer#2, to-check=3307/5981)
+muireception/
+muireception/pagefn.py
+        2992 100%    2.85MB/s    0:00:00        2992 100%    2.85MB/s    0:00:00 (xfer#3, to-check=1936/5981)
+muireception/pagefn.py~
+        2814 100%    2.68MB/s    0:00:00        2814 100%    2.68MB/s    0:00:00 (xfer#4, to-check=1935/5981)
+muireception/js/init.js.pih
+        2874 100%    2.74MB/s    0:00:00        2874 100%    2.74MB/s    0:00:00 (xfer#5, to-check=1822/5981)
+muireception/js/init.js.pih~
+        2794 100%    2.66MB/s    0:00:00        2794 100%    2.66MB/s    0:00:00 (xfer#6, to-check=1821/5981)
+muireception/lib/mocha/Components/
+muireception/lib/mocha/Components/Tabs.js
+        1171 100%    1.12MB/s    0:00:00        1171 100%    1.12MB/s    0:00:00 (xfer#7, to-check=1811/5981)
+muireception/lib/mocha/Components/Tabs.js~
+        1198 100%    1.14MB/s    0:00:00        1198 100%    1.14MB/s    0:00:00 (xfer#8, to-check=1810/5981)
+muireception/register/
+muireception/register/portfolioForm.ks
+        6245 100%    5.96MB/s    0:00:00        6245 100%    5.96MB/s    0:00:00 (xfer#9, to-check=834/5981)
+muireception/register/register.ks
+        2446 100%    1.17MB/s    0:00:00        2446 100%    1.17MB/s    0:00:00 (xfer#10, to-check=833/5981)
+muireception/register/register.ks~
+        2418 100%    1.15MB/s    0:00:00        2418 100%    1.15MB/s    0:00:00 (xfer#11, to-check=832/5981)
+muireception/register/registerEnd.ks
+        3725 100%  519.67kB/s    0:00:00        3725 100%  519.67kB/s    0:00:00 (xfer#12, to-check=831/5981)
+muireception/register/tmp/
+muireception/register/tmp/04013810b1.jpeg
+        1807 100%  220.58kB/s    0:00:00        1807 100%  220.58kB/s    0:00:00 (xfer#13, to-check=822/5981)
+muireception/register/tmp/14886a15ae.jpeg
+        1801 100%  219.85kB/s    0:00:00        1801 100%  219.85kB/s    0:00:00 (xfer#14, to-check=821/5981)
+muireception/register/tmp/3b0e9fa638.jpeg
+        1671 100%  203.98kB/s    0:00:00        1671 100%  203.98kB/s    0:00:00 (xfer#15, to-check=820/5981)
+muireception/register/tmp/59d5099f51.jpeg
+        1762 100%  215.09kB/s    0:00:00        1762 100%  215.09kB/s    0:00:00 (xfer#16, to-check=819/5981)
+muireception/register/tmp/69b8d5cc64.jpeg
+        1767 100%  215.70kB/s    0:00:00        1767 100%  215.70kB/s    0:00:00 (xfer#17, to-check=818/5981)
+muireception/register/tmp/909f8f3758.jpeg
+        1594 100%  172.96kB/s    0:00:00        1594 100%  172.96kB/s    0:00:00 (xfer#18, to-check=817/5981)
+muireception/register/tmp/92fc6a1e0a.jpeg
+        1696 100%  184.03kB/s    0:00:00        1696 100%  184.03kB/s    0:00:00 (xfer#19, to-check=816/5981)
+muireception/register/tmp/b57f4ae93f.jpeg
+        1605 100%  174.15kB/s    0:00:00        1605 100%  174.15kB/s    0:00:00 (xfer#20, to-check=815/5981)
+muireception/register/tmp/c69093afd2.jpeg
+        1849 100%  200.63kB/s    0:00:00        1849 100%  200.63kB/s    0:00:00 (xfer#21, to-check=814/5981)
+muireception/register/tmp/fb90a3bb68.jpeg
+        1815 100%  177.25kB/s    0:00:00        1815 100%  177.25kB/s    0:00:00 (xfer#22, to-check=813/5981)
+
+sent 154255 bytes  received 540 bytes  61918.00 bytes/sec
+total size is 44618340  speedup is 288.24
+2009-12-25 11:41:19,841 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :building file list ... 
+ 0 files...2 files to consider
+CMP.mm
+       32768  22%    0.00kB/s    0:00:00      144997 100%   17.84MB/s    0:00:00 (xfer#1, to-check=0/2)
+
+sent 34980 bytes  received 42 bytes  70044.00 bytes/sec
+total size is 144997  speedup is 4.14
+2009-12-25 11:41:19,841 INFO End backup loacl karrigell diretory to local git.
+2009-12-25 11:41:19,841 INFO Begin to backup local github to remote github host.
