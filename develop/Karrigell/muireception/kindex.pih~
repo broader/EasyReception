@@ -9,10 +9,14 @@
 			<div id="desktopTitlebar">
 		
 				<h1 class="applicationTitle">EasyReception</h1>
-				<h2 class="tagline">A Web Portal <span class="taglineEm">For Congress Reception Work</span></h2>
+				<h2 class="tagline">
+					<span style="background:transparent url(images/gradient-dark.png) repeat-x scroll 0 0;diplay:block;position:absolute;width:100%;"></span>
+					A Web Portal 
+					<span class="taglineEm">For Congress Reception Work</span>
+				</h2>
 				<div id="topNav">
 					<ul class="menu-right">
-						<li><a href="#" >Login</a>.</li>
+						<li><a href="#" >Login</a></li>
 						<li><a href="#" >Register</a></li>
 					</ul>
 				</div>

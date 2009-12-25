@@ -51,6 +51,8 @@ def index(**args):
 	for name in jsfiles:
 		print pagefn.script( '/'.join(('lib', 'mocha',name)), link=True)
 	
+	# mootools Assets tools
+	print pagefn.script( '/'.join(('lib','tools','assetsmanager.js')), link=True)
 	
 	# page initial js
 	print pagefn.script( '/'.join(('js','init.js.pih')), link=True)

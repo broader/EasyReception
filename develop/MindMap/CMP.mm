@@ -725,7 +725,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1260329928560" FOLDED="true" ID="ID_1432963465" MODIFIED="1261658871147" TEXT="Mootools">
+<node COLOR="#00b439" CREATED="1260329928560" FOLDED="true" ID="ID_1432963465" MODIFIED="1261723558392" TEXT="Mootools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1261625402522" ID="ID_1117421280" MODIFIED="1261625468919" TEXT="Knowledge Or Experience">
@@ -748,7 +748,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1261468491247" ID="ID_325077924" MODIFIED="1261468493732" TEXT="MochaUI">
+<node COLOR="#00b439" CREATED="1261468491247" FOLDED="true" ID="ID_325077924" MODIFIED="1261730284933" TEXT="MochaUI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1261468496862" FOLDED="true" ID="ID_340189399" MODIFIED="1261658868258" TEXT="Layout.js">
@@ -885,392 +885,6 @@
 <font NAME="SansSerif" SIZE="16"/>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1173066298350" FOLDED="true" ID="Freemind_Link_1468412211" MODIFIED="1261625611851" POSITION="right" TEXT="UI">
-<edge STYLE="sharp_bezier" WIDTH="8"/>
-<font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1176041576720" FOLDED="true" ID="Freemind_Link_940755797" MODIFIED="1261625341404" TEXT="Application">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1176041657346" ID="Freemind_Link_784635142" MODIFIED="1261017192616" TEXT="&#x8bb0;&#x4e8b;&#x8d34;">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176041590029" ID="Freemind_Link_70065039" MODIFIED="1176041666980" TEXT="http://blog.reindel.com/2007/03/30/stick-it-plugin-v10-for-jquery-now-in-beta/#">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1176041821021" FOLDED="true" ID="Freemind_Link_1321311209" MODIFIED="1254629040901" TEXT="slider">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176041826870" ID="Freemind_Link_546838355" MODIFIED="1176041829914" TEXT="http://blog.reindel.com/2007/03/17/accessible-news-slider-for-jquery-v11-now-a-plugin-and-more-accessible/#"/>
-</node>
-<node COLOR="#990000" CREATED="1176089423171" FOLDED="true" ID="Freemind_Link_1978721367" MODIFIED="1254629040901" TEXT="File Upload">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176089437502" ID="Freemind_Link_1212889448" MODIFIED="1176089461146" TEXT="http://www.pixeline.be/experiments/jqUploader/index.html&#x6709;&#x8fdb;&#x5ea6;&#x6761;&#x663e;&#x793a;"/>
-<node COLOR="#111111" CREATED="1176089470960" ID="Freemind_Link_1535529853" MODIFIED="1176089480764" TEXT="http://www.fyneworks.com/jquery/multiple-file-upload/&#x591a;&#x6587;&#x4ef6;&#x4e0a;&#x4f20;"/>
-</node>
-<node COLOR="#990000" CREATED="1176041142656" FOLDED="true" ID="Freemind_Link_1106266635" MODIFIED="1254629040901" TEXT="DatePicker">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176041154232" ID="Freemind_Link_642203385" MODIFIED="1176817330405" TEXT="http://kelvinluck.com/assets/jquery/datePicker/">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1176994317983" ID="Freemind_Link_339386922" MODIFIED="1176994322449" TEXT="http://marcgrabanski.com/code/jquery-clean-calendar/">
-<icon BUILTIN="button_ok"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1176040634826" ID="Freemind_Link_7467484" MODIFIED="1254629040901" TEXT="Pager">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176040650708" ID="Freemind_Link_1270021569" MODIFIED="1176817375350" TEXT="http://rikrikrik.com/jquery/pager/">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1176820729613" FOLDED="true" ID="Freemind_Link_528498832" MODIFIED="1254629040902" TEXT="Html Editable">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176820742722" ID="Freemind_Link_325752665" MODIFIED="1176820747378" TEXT="http://www.appelsiini.net/~tuupola/javascript/jEditable/">
-<icon BUILTIN="button_ok"/>
-</node>
-<node COLOR="#111111" CREATED="1176821009495" ID="Freemind_Link_774657277" MODIFIED="1176821063112" TEXT="Ajax Poweredhttp://davehauenstein.com/blog/archives/28"/>
-<node COLOR="#111111" CREATED="1176820761298" ID="Freemind_Link_936641018" MODIFIED="1176820762019" TEXT="http://www.dyve.net/jquery/?editable"/>
-<node COLOR="#111111" CREATED="1176820886008" ID="Freemind_Link_430177853" MODIFIED="1176820903873" TEXT="Table Editablehttp://joshhundley.com/my-work/teditable-in-place-editing-for-tables/"/>
-</node>
-<node COLOR="#990000" CREATED="1182176860166" FOLDED="true" ID="Freemind_Link_434780604" MODIFIED="1254629040902" TEXT="spy">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1182176864142" ID="Freemind_Link_147455743" MODIFIED="1182176865664" TEXT="http://leftlogic.com/lounge/articles/jquery_spy2"/>
-<node COLOR="#111111" CREATED="1182176960380" ID="Freemind_Link_761752705" MODIFIED="1182176962032" TEXT="http://www.jasons-toolbox.com/JTicker/"/>
-</node>
-</node>
-<node COLOR="#00b439" CREATED="1176817204204" FOLDED="true" ID="Freemind_Link_896244382" MODIFIED="1261116131740" TEXT="View">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1176814760970" FOLDED="true" ID="Freemind_Link_1354503750" MODIFIED="1254629040903" TEXT="Corner">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176814765697" ID="Freemind_Link_1526542503" MODIFIED="1176817216441" TEXT="http://methvin.com/jquery/jq-corner-demo.html">
-<font NAME="SansSerif" SIZE="12"/>
-<icon BUILTIN="button_ok"/>
-</node>
-<node COLOR="#111111" CREATED="1176814807437" ID="Freemind_Link_1361486323" MODIFIED="1176817216451" TEXT="http://www.studioindustryllc.com/misc/border/border.html">
-<font NAME="SansSerif" SIZE="12"/>
-<icon BUILTIN="messagebox_warning"/>
-</node>
-<node COLOR="#111111" CREATED="1176814911837" ID="Freemind_Link_268995190" MODIFIED="1176817216451" TEXT="http://www.aspcode.net/articles/l_en-US/t_default/Other/JavaScript/JQuery-Curvy-Corners_article_403.aspx">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1176041180330" ID="Freemind_Link_990878320" MODIFIED="1176817278971" TEXT="http://www.talrasha.com/jquery/curvycorners/demo.html">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1176815524188" FOLDED="true" ID="Freemind_Link_1475985208" MODIFIED="1254629040903" TEXT="OutLine">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176815532420" ID="Freemind_Link_1500647208" MODIFIED="1176817218774" TEXT="http://sam.collett.googlepages.com/outlineTextInputs.html">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1176817039937" FOLDED="true" ID="Freemind_Link_1337128006" MODIFIED="1254629040903" TEXT="Tab">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176817053026" ID="Freemind_Link_515440720" MODIFIED="1176817228899" TEXT="http://www.stilbuero.de/2007/02/05/tabs-plugin-update-support-for-unobtrusive-ajax/">
-<font NAME="SansSerif" SIZE="12"/>
-<icon BUILTIN="button_ok"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1176806253561" FOLDED="true" ID="Freemind_Link_1947201935" MODIFIED="1254629040903" TEXT="Table">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176816958460" ID="Freemind_Link_88748378" MODIFIED="1176817234958" TEXT="sort">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1176816966201" ID="Freemind_Link_753062122" MODIFIED="1184654403562" TEXT="http://motherrussia.polyester.se/jquery-plugins/tablesorter/">
-<icon BUILTIN="button_ok"/>
-<icon BUILTIN="messagebox_warning"/>
-</node>
-<node COLOR="#111111" CREATED="1179028235637" ID="Freemind_Link_646294193" MODIFIED="1184813171073" TEXT="http://ideamill.synaptrixgroup.com/?p=7"/>
-<node COLOR="#111111" CREATED="1179629317010" ID="Freemind_Link_814334193" MODIFIED="1184813964464" TEXT="http://www.trirand.com/blog/?page_id=4ajax support">
-<icon BUILTIN="idea"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1182214002191" ID="Freemind_Link_442002016" MODIFIED="1182214004644" TEXT="hover">
-<node COLOR="#111111" CREATED="1182213997825" ID="Freemind_Link_717975028" MODIFIED="1182214000128" TEXT="http://p.sohei.org/jquery-plugins/tablehover/"/>
-</node>
-<node COLOR="#111111" CREATED="1184654058546" ID="Freemind_Link_22401879" MODIFIED="1184654061380" TEXT="toggle">
-<node COLOR="#111111" CREATED="1184654049192" ID="Freemind_Link_1371234392" MODIFIED="1184654050524" TEXT="http://p.sohei.org/stuff/jquery/columnmanager/demo/demo.html"/>
-</node>
-<node COLOR="#111111" CREATED="1185418482013" ID="Freemind_Link_140573564" MODIFIED="1254629222882" TEXT="Ajax Table">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1185418499428" ID="Freemind_Link_1090064805" MODIFIED="1254629222883" TEXT="Plugin:Tablesorter">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1185418649023" FOLDED="true" ID="Freemind_Link_663009196" MODIFIED="1254629222885" TEXT="Ajax method: $.getJSON()">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1185419956263" ID="Freemind_Link_524815720" MODIFIED="1185420085869" TEXT="&#x6ce8;&#x610f;&#xff1a;$.getJSON()&#x8fd4;&#x56de;&#x503c;&#x4e3a;XMLHttpRequest&#x5bf9;&#x8c61;"/>
-</node>
-<node COLOR="#111111" CREATED="1185418714116" FOLDED="true" ID="Freemind_Link_929316707" MODIFIED="1254629222886" TEXT="setTimeout(function,time)">
-<font NAME="SansSerif" SIZE="12"/>
-<icon BUILTIN="idea"/>
-<icon BUILTIN="help"/>
-<node COLOR="#111111" CREATED="1185419923065" ID="Freemind_Link_273996468" MODIFIED="1185419929925" TEXT="&#x4f7f;&#x7528;&#x6b64;&#x65b9;&#x6cd5;&#x539f;&#x56e0;&#x662f;&#x6d4f;&#x89c8;&#x5668;&#x6e32;&#x67d3;Table&#x5bb9;&#x5668;&#x8fc7;&#x6162;&#xff0c;&#x5fc5;&#x987b;&#x6709;137 ms&#x65f6;&#x5ef6;&#xff08;cospar&#x673a;&#x5668;&#x4e0a;&#x6d4b;&#x9a8c;&#x503c;&#xff09;&#xff0c;&#x73b0;&#x8bbe;&#x4e3a;200ms&#x3002;&#x5982;&#x4e0d;&#x4f7f;&#x7528;&#x6b64;&#x65b9;&#x6cd5;&#xff0c;&#x4f1a;&#x51fa;&#x73b0;&#x9519;&#x8bef;&#x63d0;&#x793a;&#xff1a;table.tBodies[0].rows[0] has no properties&#x4e3a;&#x4f55;jQgrid&#x63d2;&#x4ef6;&#x6ca1;&#x6709;&#x4f7f;&#x7528;&#x6b64;&#x65b9;&#x6cd5;&#xff1f;"/>
-</node>
-<node COLOR="#111111" CREATED="1185418727596" FOLDED="true" ID="Freemind_Link_1855041568" MODIFIED="1254629222888" TEXT="$.map(json,function) ">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1185419941151" ID="Freemind_Link_506292942" MODIFIED="1185419947039" TEXT="&#x6b64;&#x51fd;&#x6570;&#x7528;&#x4e8e;&#x8fed;&#x4ee3;ajax&#x53d6;&#x56de;&#x7684;&#x670d;&#x52a1;&#x5668;&#x7aef;JSON&#x6570;&#x636e;&#xff0c;&#x5e76;&#x8865;&#x5145;&#x5230;Table&#x5143;&#x7d20;&#x4e2d;&#x3002;"/>
-</node>
-<node COLOR="#111111" CREATED="1185420100700" ID="Freemind_Link_1845127543" MODIFIED="1254629222890" TEXT="&#x5206;&#x9875;">
-<font NAME="SansSerif" SIZE="12"/>
-<icon BUILTIN="help"/>
-</node>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1175243703666" FOLDED="true" ID="Freemind_Link_1681360993" MODIFIED="1254629040904" TEXT="DOM">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1175243716905" ID="Freemind_Link_1874361065" MODIFIED="1176817428726" TEXT="JQUICKhttp://jquick.sullof.com/jquick/">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1176089504378" ID="Freemind_Link_1986795322" MODIFIED="1176817428726" TEXT="http://www.talrasha.com/jquery/jquery.easydom.htmlLisp&#x98ce;&#x683c;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1176089718065" FOLDED="true" ID="Freemind_Link_1050210516" MODIFIED="1184769216021" TEXT="http://www.pinkblack.org/itblog/?page_id=22inspired by EasyDOM&apos;s Oslow---&gt;http://mg.to/2006/02/27/easy-dom-creation-for-jquery-and-prototype#comment-176">
-<font NAME="SansSerif" SIZE="12"/>
-<icon BUILTIN="button_ok"/>
-<node COLOR="#111111" CREATED="1185284487237" ID="Freemind_Link_1369588579" MODIFIED="1185284788170" TEXT="&#x6ce8;&#x610f;&#x53c2;&#x6570;&#x4f20;&#x9012;&#x65b9;&#x5f0f;&#xff1a;$.create(tag_name, attributes, [children&#x2026;]);tag_name: &#x6807;&#x7b7e;&#x540d;&#x79f0;attributes: &#x6807;&#x7b7e;&#x7684;&#x5c5e;&#x6027;&#x540d;&#x79f0;[children...]: &#x5b50;&#x8282;&#x70b9;&#xff08;&#x6570;&#x7ec4;&#x5bf9;&#x8c61;&#xff09;&#xff0c;&#x5982;&#x679c;children&#x672c;&#x8eab;&#x5df2;&#x662f;&#x6570;&#x7ec4;&#x5bf9;&#x8c61;&#xff0c;[children]&#x4f1a;&#x51fa;&#x73b0;&#x4ee5;&#x4e0b;&#x9519;&#x8bef;&#x63d0;&#x793a;------&#x300b;Node cannot be inserted at the specified point in the hierarchy&quot; code: &quot;3&#x6b64;&#x65f6;&#x6b63;&#x786e;&#x7684;&#x53c2;&#x6570;&#x4f20;&#x9012;&#x65b9;&#x5f0f;&#x4e3a;&#xff1a;$.create(tag_name, attributes, children);">
-<icon BUILTIN="messagebox_warning"/>
-</node>
-<node COLOR="#111111" CREATED="1185284804723" ID="Freemind_Link_838688137" MODIFIED="1185285047282" TEXT="DOM&#x6a21;&#x677f;&#x521b;&#x5efa;&#x65b9;&#x5f0f;&#xff1a;var json = [{&apos;name&apos; : &quot;John&quot;, &apos;surname&apos; : &quot;Smith&quot;},{&apos;name&apos; : &quot;Sarra&quot;, &apos;surname&apos; : &quot;Sadam&quot;}                    ];var TBNode=[],TDNode=[];   $.map( json, function(member){ TDNode.push($.create(&apos;td&apos;, { &apos;class&apos;:&quot;MyTableCol1&quot; },  [member.name]));TDNode.push($.create(&apos;td&apos;, { &apos;class&apos;:&quot;MyTableCol1&quot; },  [member.surname]));$(&apos;#fill-table &gt; tbody&apos;).append($.create(&apos;tr&apos;, { &apos;class&apos;:&quot;MyTableRow&quot; },TDNode));TDNode = [];});">
-<icon BUILTIN="messagebox_warning"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1176090265453" ID="Freemind_Link_1463911043" MODIFIED="1176817428736" TEXT="http://mg.to/2006/02/27/easy-dom-creation-for-jquery-and-prototype#comment-176&#x63d0;&#x4f9b;&#x4e86;json&#x6a21;&#x677f;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1184769196012" ID="Freemind_Link_242980612" MODIFIED="1184769679177" TEXT="http://bassistance.de/jquery-plugins/jquery-plugin-format/">
-<icon BUILTIN="button_ok"/>
-<icon BUILTIN="messagebox_warning"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1175245223651" FOLDED="true" ID="Freemind_Link_1545473390" MODIFIED="1254629040904" TEXT="Form">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1175246478085" ID="Freemind_Link_1319386158" MODIFIED="1176817431030" TEXT="validate">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1175246485976" ID="Freemind_Link_314856142" MODIFIED="1175246490232" TEXT="http://bassistance.de/jquery-plugins/jquery-plugin-validation/"/>
-<node COLOR="#111111" CREATED="1181115763397" ID="Freemind_Link_1796021509" MODIFIED="1181115770067" TEXT="http://dnaide.blogspot.com/2007/05/validationaide-easy-as-client-side-form.html">
-<icon BUILTIN="messagebox_warning"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1176040807604" FOLDED="true" ID="Freemind_Link_1068766749" MODIFIED="1176817431040" TEXT="Edit">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1176040821204" ID="Freemind_Link_289595599" MODIFIED="1176040825069" TEXT="http://joshhundley.com/my-work/teditable-in-place-editing-for-tables/"/>
-<node COLOR="#111111" CREATED="1176040956047" ID="Freemind_Link_658537376" MODIFIED="1176040960153" TEXT="http://www.appelsiini.net/~tuupola/javascript/jEditable/"/>
-</node>
-<node COLOR="#111111" CREATED="1176041209953" ID="Freemind_Link_875996926" MODIFIED="1176817431040" TEXT="Beauty">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1176041229110" ID="Freemind_Link_707714696" MODIFIED="1176041233306" TEXT="http://kawika.org/jquery/checkbox/"/>
-<node COLOR="#111111" CREATED="1175245230681" FOLDED="true" ID="Freemind_Link_387736626" MODIFIED="1176041235910" TEXT="JFormhttp://www.lexcat.ro/nicejforms/">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1175524351159" ID="Freemind_Link_554180685" MODIFIED="1175524483109" TEXT="style.css&#x4e0e;niceforms-default.css&#x8bbe;&#x7f6e;&#x91cd;&#x53e0;&#x3002;#content {  margin-top: 15px;  /*   * margin-bottom: 0px;        * margin-right: 180px;      */  margin-left: 50px;   float: left;}&#x6ce8;&#x91ca;&#x4e24;&#x884c;&#x6587;&#x4ef6;&#xff0c;&#x540c;&#x65f6;margin-left: 50px"/>
-<node COLOR="#111111" CREATED="1175831090388" ID="Freemind_Link_1217245630" MODIFIED="1175831250678" TEXT="&#x6587;&#x672c;&#x7b49;&#x5f55;&#x5165;&#x6846;&#x5de6;&#x53f3;&#x56fe;&#x7247;&#x51fa;&#x73b0;&#x91cd;&#x53e0;&#xff0c;&#x539f;&#x56e0;&#x662f;&#x5728;content.pih&#x548c;footer.pih&#x4e2d;&#x91cd;&#x590d;&#x5199;&#x5165;&#x4ee5;&#x4e0b;&#x8bed;&#x53e5; &lt;script type=&quot;text/javascript&quot;&gt; $(document).ready( function() { $.NiceJForms.build(); } ); &lt;/script&gt;"/>
-</node>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1176856253019" FOLDED="true" ID="Freemind_Link_1434837539" MODIFIED="1254629040905" TEXT="Menu">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1177034926565" ID="Freemind_Link_1379671019" MODIFIED="1177247040655" TEXT="http://jdsharp.us/jQuery/plugins/jdMenu/">
-<icon BUILTIN="button_ok"/>
-</node>
-<node COLOR="#111111" CREATED="1176856345141" ID="Freemind_Link_1775096871" MODIFIED="1177034940455" TEXT="http://solidgone.com/jquery/jqTOC/jqTOC.htm">
-<icon BUILTIN="idea"/>
-</node>
-<node COLOR="#111111" CREATED="1177034768888" ID="Freemind_Link_1106586911" MODIFIED="1177034779343" TEXT="http://www.trendskitchens.co.nz/jquery/contextmenu/">
-<icon BUILTIN="idea"/>
-</node>
-<node COLOR="#111111" CREATED="1177035209091" FOLDED="true" ID="Freemind_Link_73556373" MODIFIED="1177035218925" TEXT="Horizonal">
-<node COLOR="#111111" CREATED="1177035196103" ID="Freemind_Link_1900795783" MODIFIED="1177035284149" TEXT="Slidinghttp://www.getintothis.com/blog/2006/09/26/my-first-jquery-plugin-a-sliding-menu/"/>
-</node>
-<node COLOR="#111111" CREATED="1177035233997" FOLDED="true" ID="Freemind_Link_589961439" MODIFIED="1177035241538" TEXT="DropDown">
-<node COLOR="#111111" CREATED="1176994269453" ID="Freemind_Link_254314664" MODIFIED="1176994275301" TEXT="Fish Eye">
-<node COLOR="#111111" CREATED="1176994261912" ID="Freemind_Link_634244277" MODIFIED="1176994266369" TEXT="http://ajaxbee.com/jquery/fish/"/>
-</node>
-<node COLOR="#111111" CREATED="1177035060878" ID="Freemind_Link_835629467" MODIFIED="1177035063121" TEXT="http://be.twixt.us/jquery/suckerFish.php"/>
-<node COLOR="#111111" CREATED="1177035142435" ID="Freemind_Link_1277182714" MODIFIED="1177035147783" TEXT="http://users.tpg.com.au/j_birch/plugins/superfish/#">
-<icon BUILTIN="button_ok"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1184655180850" ID="Freemind_Link_567034350" MODIFIED="1184655182102" TEXT="http://www.matthewjrichards.co.uk/files/jquery-perciformes-demo.html#"/>
-</node>
-<node COLOR="#990000" CREATED="1176856691760" FOLDED="true" ID="Freemind_Link_1657650207" MODIFIED="1254629040905" TEXT="Frame">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176856695836" ID="Freemind_Link_1746940061" MODIFIED="1176856697779" TEXT="http://ideamill.synaptrixgroup.com/?p=6"/>
-<node COLOR="#111111" CREATED="1179628968599" ID="Freemind_Link_617152511" MODIFIED="1179629100219" TEXT="http://methvin.com/jquery/splitter/&#x591a;&#x680f;&#x5e03;&#x5c40;"/>
-</node>
-<node COLOR="#990000" CREATED="1176994409695" FOLDED="true" ID="Freemind_Link_1278868394" MODIFIED="1254629040905" TEXT="Color">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176994415333" ID="Freemind_Link_1761778868" MODIFIED="1176994417216" TEXT="http://www.mathias-bank.de/2006/11/21/jquery-plugin-colorgradient/"/>
-</node>
-<node COLOR="#990000" CREATED="1176994982729" ID="Freemind_Link_86434514" MODIFIED="1261114431738" TEXT="Border">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176994990800" ID="Freemind_Link_299047173" MODIFIED="1176994992573" TEXT="http://www.studioindustryllc.com/misc/border/"/>
-</node>
-<node COLOR="#990000" CREATED="1177034825440" FOLDED="true" ID="Freemind_Link_318455942" MODIFIED="1254629040906" TEXT="Accordion">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1177034830567" ID="Freemind_Link_1317121804" MODIFIED="1177034831789" TEXT="http://stilbuero.de/jquery/accordion/"/>
-<node COLOR="#111111" CREATED="1177034854622" ID="Freemind_Link_501200710" MODIFIED="1177034855593" TEXT="http://jquery.bassistance.de/accordion/"/>
-</node>
-<node COLOR="#990000" CREATED="1177037239841" FOLDED="true" ID="Freemind_Link_1416877359" MODIFIED="1254629040906" TEXT="TOC">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1177037250416" ID="Freemind_Link_326730696" MODIFIED="1177037252510" TEXT="http://solidgone.com/jquery/jqTOC/jqTOC.htm"/>
-</node>
-<node COLOR="#990000" CREATED="1182135886303" FOLDED="true" ID="Freemind_Link_656427295" MODIFIED="1254629040906" TEXT="Button">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1182135908705" ID="Freemind_Link_1186383990" MODIFIED="1182135927302" TEXT="Crystal Buttonhttp://www.600it.com/soft/softdown.asp?softid=5030"/>
-<node COLOR="#111111" CREATED="1182137138834" ID="Freemind_Link_1081596233" MODIFIED="1182137197799" TEXT="css&#x8bed;&#x6cd5;&#xff0d;&#x300b;www.alibaba.com.cn">
-<node COLOR="#111111" CREATED="1182137199341" ID="Freemind_Link_1383356057" MODIFIED="1182137204548" TEXT="input.submitButton {style_03.css (line 18)background:transparent url(http://img.china.alibaba.com/images/cn/home/060516/searchbutton.gif) no-repeat scroll 0%;border:0pt none;cursor:pointer;font-size:14px;font-weight:bold;height:26px;width:76px;}"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1182177113931" FOLDED="true" ID="Freemind_Link_1136160904" MODIFIED="1261017231121" TEXT="Thickbox">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1182177125197" ID="Freemind_Link_1582123504" MODIFIED="1182177126579" TEXT="http://jquery.com/demo/thickbox/"/>
-</node>
-<node COLOR="#990000" CREATED="1184655641462" ID="Freemind_Link_392581143" MODIFIED="1254629040907" TEXT="ProLoad">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1184655656634" ID="Freemind_Link_515784063" MODIFIED="1184655658827" TEXT="http://aka-fotos.de/protoload/"/>
-</node>
-<node COLOR="#990000" CREATED="1177380663338" FOLDED="true" ID="Freemind_Link_1648528713" MODIFIED="1254629161412" TEXT="Menu">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1177380670859" ID="Freemind_Link_636214671" MODIFIED="1254629161413" TEXT="jdMneu Pluginhttp://jdsharp.us/jQuery/plugins/jdMenu/">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1177380693231" FOLDED="true" ID="Freemind_Link_518443351" MODIFIED="1254629161414" TEXT="css files adjust">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1177578075576" FOLDED="true" ID="Freemind_Link_627884936" MODIFIED="1177578079863" TEXT="style.css">
-<node COLOR="#111111" CREATED="1177578099701" ID="Freemind_Link_831377224" MODIFIED="1177592299857" TEXT="&#x8c03;&#x6574;margin-left&#x7684;&#x5c5e;&#x6027;&#x503c;&#xff0c;&#x51b3;&#x5b9a;&#x83dc;&#x5355;&#x6761;&#x5728;&#x6c34;&#x5e73;&#x7684;&#x4f4d;&#x7f6e;.&#x6ce8;&#x610f;&#x201c;test&#x201d;&#x662f;&#x9875;&#x9762;&#x4e2d;&lt;div&gt;&#x8bbe;&#x5b9a;&#x7684;id#test{  margin-top:1px;  margin-bottom:0px;  text-align:center;  padding: 5px 0;  margin-left: 170px;/* Change from &apos;0&apos;---&gt;&apos;170&apos;,then the horizonal menu bar will be in the center. B.Z.change*/  border-bottom: 1px solid #0F3974;  font: bold 14px Verdana,arial, sans-serif;}"/>
-</node>
-<node COLOR="#111111" CREATED="1177380703956" FOLDED="true" ID="Freemind_Link_940423503" MODIFIED="1177380818862" TEXT="jdMenu.css">
-<node COLOR="#111111" CREATED="1177380729483" ID="Freemind_Link_1047721539" MODIFIED="1177380793976" TEXT="ul.jd_menu li {float: left;}------&gt;&#x6ce8;&#x91ca;&#x6389;&#x540e;&#xff0c;&#x83dc;&#x5355;&#x4f1a;&#x663e;&#x793a;&#x5728;&lt;ul&gt;&#x4e2d;&#x95f4;"/>
-</node>
-<node COLOR="#111111" CREATED="1177380715793" FOLDED="true" ID="Freemind_Link_935588915" MODIFIED="1177380830869" TEXT="jdMenu_slate.css">
-<node COLOR="#111111" CREATED="1177381610730" ID="Freemind_Link_302741918" MODIFIED="1177382328793" TEXT="&#x6ce8;&#x91ca;&#x4e86;background-color,backgroud&#x8fd9;&#x4e24;&#x9879;&#xff0c;&#x5c06;boder&#x7684;&#x503c;&#x66f4;&#x6539;&#x4e3a;0px&#x6ce8;&#x91ca;&#x4e4b;&#x540e;&#xff0c;&#x83dc;&#x5355;&#x80cc;&#x666f;&#x4e0e;&#x539f;&#x6765;&#x8bbe;&#x8ba1;&#x4e00;&#x81f4;&#x3002;ul.jd_menu_slate {height: 19px;/*background-color: #DDF;background: url(gradient.png) repeat-x;*/border: 0px solid #70777D;border-top: 1px solid #A5AFB8;border-left: 1px solid #A5AFB8;clear: both;}"/>
-<node COLOR="#111111" CREATED="1177558908059" ID="Freemind_Link_783373607" MODIFIED="1177576728640" TEXT="&#x66f4;&#x6539;&#x5f39;&#x51fa;&#x83dc;&#x5355;&#x80cc;&#x666f;&#x8272;ul.jd_menu_slate ul li {padding: 3px 10px 3px 4px;background: #CCCCFF;/* The color of popup menu,B.Z.comment*/border: none;color: #70777D;}"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1177592307608" FOLDED="true" ID="Freemind_Link_1654113358" MODIFIED="1254629161415" TEXT="jquery.jdMenu.js">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1177592389155" ID="Freemind_Link_1038721588" MODIFIED="1177592433299" TEXT="&#x8c03;&#x6574;menu&#x884c;&#x4e3a;&#x7684;&#x51fd;&#x6570;$.fn.jdMenu.defaults = {//The speed adjust of menu&apos;s popup and hide.B.Z.commentactivateDelay: 75,showDelay: 50,hideDelay: 150,onShow: function() { return true; },onHide: function() { return true; },onAnimate: null,offset: 2,iframe: $.browser.msie};"/>
-</node>
-</node>
-</node>
-<node COLOR="#00b439" CREATED="1176817311878" FOLDED="true" ID="Freemind_Link_1225530872" MODIFIED="1261017079474" TEXT="Model">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1176171474243" ID="Freemind_Link_704357880" MODIFIED="1254629040909" TEXT="Template">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176171494903" ID="Freemind_Link_1522873648" MODIFIED="1176817320771" TEXT="http://jamal.moagil.de/wikiMVC&#x7684;&#x5b9e;&#x73b0;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1176197193408" ID="Freemind_Link_951576614" MODIFIED="1176817320771" TEXT="http://trimpath.com/project/wiki/JavaScriptTemplates">
-<font NAME="SansSerif" SIZE="12"/>
-<icon BUILTIN="button_ok"/>
-</node>
-<node COLOR="#111111" CREATED="1176198293821" ID="Freemind_Link_1428836010" MODIFIED="1176817320781" TEXT="http://jstemplate.sourceforge.net/">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1176199110255" ID="Freemind_Link_84986426" MODIFIED="1176817320791" TEXT="http://dev.codeflow.org/trac/genshi2js">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1176199114150" ID="Freemind_Link_1535614637" MODIFIED="1176817320791" TEXT="http://genshi.edgewall.org/">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1184654780093" ID="Freemind_Link_1840536924" MODIFIED="1184654829695" TEXT="http://riiv.net/project/zparse/doc/">
-<icon BUILTIN="button_ok"/>
-<icon BUILTIN="messagebox_warning"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1184813499916" ID="Freemind_Link_1060303071" MODIFIED="1254629040909" TEXT="Database">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1184813505775" ID="Freemind_Link_926564142" MODIFIED="1184813543439" TEXT="http://www.trirand.com/blog/?p=9Transfer query conditions to server only">
-<icon BUILTIN="help"/>
-</node>
-</node>
-</node>
-<node COLOR="#00b439" CREATED="1176817352707" FOLDED="true" ID="Freemind_Link_421883614" MODIFIED="1254629040909" TEXT="Action">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1176817181831" FOLDED="true" ID="Freemind_Link_271723586" MODIFIED="1254629040910" TEXT="Short Keys">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176817187570" ID="Freemind_Link_59194649" MODIFIED="1176817360168" TEXT="http://projects.arkanis-development.de/table_navigation/">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1175244232877" FOLDED="true" ID="Freemind_Link_1794850202" MODIFIED="1254629040910" TEXT="PUSH">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1175244242100" ID="Freemind_Link_1094931026" MODIFIED="1176817382780" TEXT="SPYhttp://leftlogic.com/info/articles/jquery_spy2">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1176040710094" ID="Freemind_Link_932309872" MODIFIED="1176817382780" TEXT="http://www.jasons-toolbox.com/JTicker/">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1176817124499" FOLDED="true" ID="Freemind_Link_301840531" MODIFIED="1254629040910" TEXT="Auto Complete">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176817134023" ID="Freemind_Link_1909595449" MODIFIED="1176817393315" TEXT="http://php.scripts.psu.edu/rja171/widgets/autocomplete.php">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1176856866782" ID="Freemind_Link_1544375535" MODIFIED="1176856868784" TEXT="http://jquery.bassistance.de/autocomplete/"/>
-</node>
-<node COLOR="#990000" CREATED="1175243941287" FOLDED="true" ID="Freemind_Link_1808411254" MODIFIED="1254629040910" TEXT="Edit &amp; AutoComplee">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1175243957400" ID="Freemind_Link_1010480227" MODIFIED="1176817425752" TEXT="http://php.scripts.psu.edu/rja171/widgets/autocomplete.php">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-</node>
-<node COLOR="#00b439" CREATED="1176817342272" FOLDED="true" ID="Freemind_Link_1255282344" MODIFIED="1261017248515" TEXT="Others">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1176041255718" FOLDED="true" ID="Freemind_Link_36090212" MODIFIED="1254629040911" TEXT="BlockUI">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176041265973" ID="Freemind_Link_1566719053" MODIFIED="1176817350113" TEXT="http://kawika.org/jquery/checkbox/">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1173066313702" FOLDED="true" ID="Freemind_Link_1259657082" MODIFIED="1254629040911" TEXT="I18n">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1173066345317" ID="Freemind_Link_684136088" MODIFIED="1176817435146" TEXT="javascript&#x5185;&#x90e8;&#x7f16;&#x7801;&#x4e3a;unicode;&#x670d;&#x52a1;&#x5668;&#x7aef;&#x8fd4;&#x56de;&#x7684;&#x5b57;&#x7b26;&#x7f16;&#x7801;&#x4e3a;UTF&#xff0d;8&#xff1b;&#x4e8c;&#x8005;&#x4e4b;&#x95f4;&#x9700;&#x8981;&#x8f6c;&#x6362;&#x624d;&#x80fd;&#x6b63;&#x5e38;&#x663e;&#x793a;&#x4e2d;&#x6587;&#x3002;&#x5982;&#xff1a;&#x201c;&#x5927;&#x5bb6;&#x597d;&#x201d;unicode-&gt;&quot;\u5927\u5BB6\u597D&quot;utf-8 -&gt;&quot;\u00e5\u00a4\u00a7\u00e5\u00ae\u00b6\u00e5\u00a5\u00bd&quot;">
-<font NAME="SansSerif" SIZE="12"/>
-<icon BUILTIN="help"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1176994453207" FOLDED="true" ID="Freemind_Link_1277921993" MODIFIED="1254629040911" TEXT="Tool Tip">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176994462591" ID="Freemind_Link_43595300" MODIFIED="1176994499824" TEXT="http://bassistance.de/jquery-plugins/jquery-plugin-tooltip/">
-<icon BUILTIN="button_ok"/>
-</node>
-<node COLOR="#111111" CREATED="1176041094657" ID="Freemind_Link_1547667245" MODIFIED="1176817399394" TEXT="http://www.codylindley.com/blogstuff/js/jtip/">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1176994579279" ID="Freemind_Link_920531148" MODIFIED="1254629040912" TEXT="Css">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176994584116" ID="Freemind_Link_249945962" MODIFIED="1176994585608" TEXT="http://www.kelvinluck.com/article/switch-stylesheets-with-jquery"/>
-</node>
-<node COLOR="#990000" CREATED="1176994672042" FOLDED="true" ID="Freemind_Link_1911839834" MODIFIED="1254629040912" TEXT="ScrollPane">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176994679703" ID="Freemind_Link_1166944881" MODIFIED="1176994681315" TEXT="http://kelvinluck.com/assets/jquery/jScrollPane/jScrollPane.html"/>
-</node>
-<node COLOR="#990000" CREATED="1176994706121" ID="Freemind_Link_675409494" MODIFIED="1254629040913" TEXT="Input Control">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176994714613" ID="Freemind_Link_135831812" MODIFIED="1176994736895" TEXT="Numerichttp://www.texotela.co.uk/code/jquery/numeric/"/>
-</node>
-<node COLOR="#990000" CREATED="1176994850028" ID="Freemind_Link_583919690" MODIFIED="1254629040913" TEXT="Font Control">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176994856427" ID="Freemind_Link_530752044" MODIFIED="1176994857529" TEXT="http://monkeysoft.com.au/blog/?p=3"/>
-</node>
-</node>
-<node COLOR="#00b439" CREATED="1176818472848" FOLDED="true" ID="Freemind_Link_963328132" MODIFIED="1254629040914" TEXT="&#x9a8c;&#x8bc1;&#x7801;">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1176818480519" ID="Freemind_Link_603976078" MODIFIED="1254629040914" TEXT="PyCAPTCHAhttp://svn.navi.cx/misc/trunk/pycaptcha/">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176819387022" ID="Freemind_Link_162464845" MODIFIED="1176819408433" TEXT="limodou&#x7684;&#x8bf4;&#x660e;http://blog.donews.com/limodou/archive/2006/12/13/1095755.aspx"/>
-</node>
-</node>
-<node COLOR="#00b439" CREATED="1254629269110" ID="Freemind_Link_104755362" MODIFIED="1261017251613" TEXT="Ajax">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-</node>
-</node>
 <node COLOR="#0033ff" CREATED="1254629537711" FOLDED="true" ID="Freemind_Link_673015721" MODIFIED="1261467391151" POSITION="right" TEXT="Install">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -1317,95 +931,504 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1261709370538" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1261723564141" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1261017335455" FOLDED="true" ID="ID_1512844932" MODIFIED="1261378766557" TEXT="issue tracker">
+<node COLOR="#00b439" CREATED="1173066298350" ID="Freemind_Link_1468412211" MODIFIED="1261723585177" TEXT="UI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261017566442" ID="ID_330137200" MODIFIED="1261017568371" TEXT="http://www.getontracks.org/screenshots/index">
+<node COLOR="#990000" CREATED="1261723589326" FOLDED="true" ID="ID_80373969" MODIFIED="1261730725503" TEXT="Preference">
 <font NAME="SansSerif" SIZE="14"/>
-</node>
-<node COLOR="#990000" CREATED="1261017580357" ID="ID_1273239789" MODIFIED="1261017581506" TEXT="http://paranimage.com/23-open-source-ruby-on-rails-applications/">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-</node>
-<node COLOR="#00b439" CREATED="1261017342273" FOLDED="true" ID="ID_796970066" MODIFIED="1261018163302" TEXT="events or calendar">
+<node COLOR="#111111" CREATED="1176041576720" FOLDED="true" ID="Freemind_Link_940755797" MODIFIED="1261723632727" TEXT="Application">
 <edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261017354609" ID="ID_1181494541" MODIFIED="1261017356796" TEXT="http://icant.co.uk/csstablegallery/index.php?css=60#r60">
-<font NAME="SansSerif" SIZE="14"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176041657346" FOLDED="true" ID="Freemind_Link_784635142" MODIFIED="1261723631041" TEXT="&#x8bb0;&#x4e8b;&#x8d34;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176041590029" ID="Freemind_Link_70065039" MODIFIED="1176041666980" TEXT="http://blog.reindel.com/2007/03/30/stick-it-plugin-v10-for-jquery-now-in-beta/#">
+<font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1261018167104" FOLDED="true" ID="ID_892054405" MODIFIED="1261559220152" TEXT="registration">
+<node COLOR="#111111" CREATED="1176041821021" FOLDED="true" ID="Freemind_Link_1321311209" MODIFIED="1261723578310" TEXT="slider">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176041826870" ID="Freemind_Link_546838355" MODIFIED="1176041829914" TEXT="http://blog.reindel.com/2007/03/17/accessible-news-slider-for-jquery-v11-now-a-plugin-and-more-accessible/#"/>
+</node>
+<node COLOR="#111111" CREATED="1176089423171" FOLDED="true" ID="Freemind_Link_1978721367" MODIFIED="1261723578310" TEXT="File Upload">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176089437502" ID="Freemind_Link_1212889448" MODIFIED="1176089461146" TEXT="http://www.pixeline.be/experiments/jqUploader/index.html&#x6709;&#x8fdb;&#x5ea6;&#x6761;&#x663e;&#x793a;"/>
+<node COLOR="#111111" CREATED="1176089470960" ID="Freemind_Link_1535529853" MODIFIED="1176089480764" TEXT="http://www.fyneworks.com/jquery/multiple-file-upload/&#x591a;&#x6587;&#x4ef6;&#x4e0a;&#x4f20;"/>
+</node>
+<node COLOR="#111111" CREATED="1176041142656" FOLDED="true" ID="Freemind_Link_1106266635" MODIFIED="1261723578311" TEXT="DatePicker">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176041154232" ID="Freemind_Link_642203385" MODIFIED="1176817330405" TEXT="http://kelvinluck.com/assets/jquery/datePicker/">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1176994317983" ID="Freemind_Link_339386922" MODIFIED="1176994322449" TEXT="http://marcgrabanski.com/code/jquery-clean-calendar/">
+<icon BUILTIN="button_ok"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1176040634826" FOLDED="true" ID="Freemind_Link_7467484" MODIFIED="1261723629865" TEXT="Pager">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176040650708" ID="Freemind_Link_1270021569" MODIFIED="1176817375350" TEXT="http://rikrikrik.com/jquery/pager/">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1176820729613" FOLDED="true" ID="Freemind_Link_528498832" MODIFIED="1261723578312" TEXT="Html Editable">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176820742722" ID="Freemind_Link_325752665" MODIFIED="1176820747378" TEXT="http://www.appelsiini.net/~tuupola/javascript/jEditable/">
+<icon BUILTIN="button_ok"/>
+</node>
+<node COLOR="#111111" CREATED="1176821009495" ID="Freemind_Link_774657277" MODIFIED="1176821063112" TEXT="Ajax Poweredhttp://davehauenstein.com/blog/archives/28"/>
+<node COLOR="#111111" CREATED="1176820761298" ID="Freemind_Link_936641018" MODIFIED="1176820762019" TEXT="http://www.dyve.net/jquery/?editable"/>
+<node COLOR="#111111" CREATED="1176820886008" ID="Freemind_Link_430177853" MODIFIED="1176820903873" TEXT="Table Editablehttp://joshhundley.com/my-work/teditable-in-place-editing-for-tables/"/>
+</node>
+<node COLOR="#111111" CREATED="1182176860166" FOLDED="true" ID="Freemind_Link_434780604" MODIFIED="1261723578313" TEXT="spy">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1182176864142" ID="Freemind_Link_147455743" MODIFIED="1182176865664" TEXT="http://leftlogic.com/lounge/articles/jquery_spy2"/>
+<node COLOR="#111111" CREATED="1182176960380" ID="Freemind_Link_761752705" MODIFIED="1182176962032" TEXT="http://www.jasons-toolbox.com/JTicker/"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1176817204204" FOLDED="true" ID="Freemind_Link_896244382" MODIFIED="1261723621321" TEXT="View">
 <edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261018172178" FOLDED="true" ID="ID_425931376" MODIFIED="1261116152250" TEXT="End prompt">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176814760970" FOLDED="true" ID="Freemind_Link_1354503750" MODIFIED="1261723578317" TEXT="Corner">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176814765697" ID="Freemind_Link_1526542503" MODIFIED="1176817216441" TEXT="http://methvin.com/jquery/jq-corner-demo.html">
+<font NAME="SansSerif" SIZE="12"/>
+<icon BUILTIN="button_ok"/>
+</node>
+<node COLOR="#111111" CREATED="1176814807437" ID="Freemind_Link_1361486323" MODIFIED="1176817216451" TEXT="http://www.studioindustryllc.com/misc/border/border.html">
+<font NAME="SansSerif" SIZE="12"/>
+<icon BUILTIN="messagebox_warning"/>
+</node>
+<node COLOR="#111111" CREATED="1176814911837" ID="Freemind_Link_268995190" MODIFIED="1176817216451" TEXT="http://www.aspcode.net/articles/l_en-US/t_default/Other/JavaScript/JQuery-Curvy-Corners_article_403.aspx">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1176041180330" ID="Freemind_Link_990878320" MODIFIED="1176817278971" TEXT="http://www.talrasha.com/jquery/curvycorners/demo.html">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1176815524188" FOLDED="true" ID="Freemind_Link_1475985208" MODIFIED="1261723578318" TEXT="OutLine">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176815532420" ID="Freemind_Link_1500647208" MODIFIED="1176817218774" TEXT="http://sam.collett.googlepages.com/outlineTextInputs.html">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1176817039937" FOLDED="true" ID="Freemind_Link_1337128006" MODIFIED="1261723578318" TEXT="Tab">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176817053026" ID="Freemind_Link_515440720" MODIFIED="1176817228899" TEXT="http://www.stilbuero.de/2007/02/05/tabs-plugin-update-support-for-unobtrusive-ajax/">
+<font NAME="SansSerif" SIZE="12"/>
+<icon BUILTIN="button_ok"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1176806253561" FOLDED="true" ID="Freemind_Link_1947201935" MODIFIED="1261723578319" TEXT="Table">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176816958460" ID="Freemind_Link_88748378" MODIFIED="1176817234958" TEXT="sort">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176816966201" ID="Freemind_Link_753062122" MODIFIED="1184654403562" TEXT="http://motherrussia.polyester.se/jquery-plugins/tablesorter/">
+<icon BUILTIN="button_ok"/>
+<icon BUILTIN="messagebox_warning"/>
+</node>
+<node COLOR="#111111" CREATED="1179028235637" ID="Freemind_Link_646294193" MODIFIED="1184813171073" TEXT="http://ideamill.synaptrixgroup.com/?p=7"/>
+<node COLOR="#111111" CREATED="1179629317010" ID="Freemind_Link_814334193" MODIFIED="1184813964464" TEXT="http://www.trirand.com/blog/?page_id=4ajax support">
+<icon BUILTIN="idea"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1182214002191" ID="Freemind_Link_442002016" MODIFIED="1182214004644" TEXT="hover">
+<node COLOR="#111111" CREATED="1182213997825" ID="Freemind_Link_717975028" MODIFIED="1182214000128" TEXT="http://p.sohei.org/jquery-plugins/tablehover/"/>
+</node>
+<node COLOR="#111111" CREATED="1184654058546" ID="Freemind_Link_22401879" MODIFIED="1184654061380" TEXT="toggle">
+<node COLOR="#111111" CREATED="1184654049192" ID="Freemind_Link_1371234392" MODIFIED="1184654050524" TEXT="http://p.sohei.org/stuff/jquery/columnmanager/demo/demo.html"/>
+</node>
+<node COLOR="#111111" CREATED="1185418482013" ID="Freemind_Link_140573564" MODIFIED="1254629222882" TEXT="Ajax Table">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1185418499428" ID="Freemind_Link_1090064805" MODIFIED="1254629222883" TEXT="Plugin:Tablesorter">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1185418649023" FOLDED="true" ID="Freemind_Link_663009196" MODIFIED="1254629222885" TEXT="Ajax method: $.getJSON()">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1185419956263" ID="Freemind_Link_524815720" MODIFIED="1185420085869" TEXT="&#x6ce8;&#x610f;&#xff1a;$.getJSON()&#x8fd4;&#x56de;&#x503c;&#x4e3a;XMLHttpRequest&#x5bf9;&#x8c61;"/>
+</node>
+<node COLOR="#111111" CREATED="1185418714116" FOLDED="true" ID="Freemind_Link_929316707" MODIFIED="1254629222886" TEXT="setTimeout(function,time)">
+<font NAME="SansSerif" SIZE="12"/>
+<icon BUILTIN="idea"/>
+<icon BUILTIN="help"/>
+<node COLOR="#111111" CREATED="1185419923065" ID="Freemind_Link_273996468" MODIFIED="1185419929925" TEXT="&#x4f7f;&#x7528;&#x6b64;&#x65b9;&#x6cd5;&#x539f;&#x56e0;&#x662f;&#x6d4f;&#x89c8;&#x5668;&#x6e32;&#x67d3;Table&#x5bb9;&#x5668;&#x8fc7;&#x6162;&#xff0c;&#x5fc5;&#x987b;&#x6709;137 ms&#x65f6;&#x5ef6;&#xff08;cospar&#x673a;&#x5668;&#x4e0a;&#x6d4b;&#x9a8c;&#x503c;&#xff09;&#xff0c;&#x73b0;&#x8bbe;&#x4e3a;200ms&#x3002;&#x5982;&#x4e0d;&#x4f7f;&#x7528;&#x6b64;&#x65b9;&#x6cd5;&#xff0c;&#x4f1a;&#x51fa;&#x73b0;&#x9519;&#x8bef;&#x63d0;&#x793a;&#xff1a;table.tBodies[0].rows[0] has no properties&#x4e3a;&#x4f55;jQgrid&#x63d2;&#x4ef6;&#x6ca1;&#x6709;&#x4f7f;&#x7528;&#x6b64;&#x65b9;&#x6cd5;&#xff1f;"/>
+</node>
+<node COLOR="#111111" CREATED="1185418727596" FOLDED="true" ID="Freemind_Link_1855041568" MODIFIED="1254629222888" TEXT="$.map(json,function) ">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1185419941151" ID="Freemind_Link_506292942" MODIFIED="1185419947039" TEXT="&#x6b64;&#x51fd;&#x6570;&#x7528;&#x4e8e;&#x8fed;&#x4ee3;ajax&#x53d6;&#x56de;&#x7684;&#x670d;&#x52a1;&#x5668;&#x7aef;JSON&#x6570;&#x636e;&#xff0c;&#x5e76;&#x8865;&#x5145;&#x5230;Table&#x5143;&#x7d20;&#x4e2d;&#x3002;"/>
+</node>
+<node COLOR="#111111" CREATED="1185420100700" ID="Freemind_Link_1845127543" MODIFIED="1254629222890" TEXT="&#x5206;&#x9875;">
+<font NAME="SansSerif" SIZE="12"/>
+<icon BUILTIN="help"/>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1175243703666" FOLDED="true" ID="Freemind_Link_1681360993" MODIFIED="1261723578323" TEXT="DOM">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1175243716905" ID="Freemind_Link_1874361065" MODIFIED="1176817428726" TEXT="JQUICKhttp://jquick.sullof.com/jquick/">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1176089504378" ID="Freemind_Link_1986795322" MODIFIED="1176817428726" TEXT="http://www.talrasha.com/jquery/jquery.easydom.htmlLisp&#x98ce;&#x683c;">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1176089718065" FOLDED="true" ID="Freemind_Link_1050210516" MODIFIED="1184769216021" TEXT="http://www.pinkblack.org/itblog/?page_id=22inspired by EasyDOM&apos;s Oslow---&gt;http://mg.to/2006/02/27/easy-dom-creation-for-jquery-and-prototype#comment-176">
+<font NAME="SansSerif" SIZE="12"/>
+<icon BUILTIN="button_ok"/>
+<node COLOR="#111111" CREATED="1185284487237" ID="Freemind_Link_1369588579" MODIFIED="1185284788170" TEXT="&#x6ce8;&#x610f;&#x53c2;&#x6570;&#x4f20;&#x9012;&#x65b9;&#x5f0f;&#xff1a;$.create(tag_name, attributes, [children&#x2026;]);tag_name: &#x6807;&#x7b7e;&#x540d;&#x79f0;attributes: &#x6807;&#x7b7e;&#x7684;&#x5c5e;&#x6027;&#x540d;&#x79f0;[children...]: &#x5b50;&#x8282;&#x70b9;&#xff08;&#x6570;&#x7ec4;&#x5bf9;&#x8c61;&#xff09;&#xff0c;&#x5982;&#x679c;children&#x672c;&#x8eab;&#x5df2;&#x662f;&#x6570;&#x7ec4;&#x5bf9;&#x8c61;&#xff0c;[children]&#x4f1a;&#x51fa;&#x73b0;&#x4ee5;&#x4e0b;&#x9519;&#x8bef;&#x63d0;&#x793a;------&#x300b;Node cannot be inserted at the specified point in the hierarchy&quot; code: &quot;3&#x6b64;&#x65f6;&#x6b63;&#x786e;&#x7684;&#x53c2;&#x6570;&#x4f20;&#x9012;&#x65b9;&#x5f0f;&#x4e3a;&#xff1a;$.create(tag_name, attributes, children);">
+<icon BUILTIN="messagebox_warning"/>
+</node>
+<node COLOR="#111111" CREATED="1185284804723" ID="Freemind_Link_838688137" MODIFIED="1185285047282" TEXT="DOM&#x6a21;&#x677f;&#x521b;&#x5efa;&#x65b9;&#x5f0f;&#xff1a;var json = [{&apos;name&apos; : &quot;John&quot;, &apos;surname&apos; : &quot;Smith&quot;},{&apos;name&apos; : &quot;Sarra&quot;, &apos;surname&apos; : &quot;Sadam&quot;}                    ];var TBNode=[],TDNode=[];   $.map( json, function(member){ TDNode.push($.create(&apos;td&apos;, { &apos;class&apos;:&quot;MyTableCol1&quot; },  [member.name]));TDNode.push($.create(&apos;td&apos;, { &apos;class&apos;:&quot;MyTableCol1&quot; },  [member.surname]));$(&apos;#fill-table &gt; tbody&apos;).append($.create(&apos;tr&apos;, { &apos;class&apos;:&quot;MyTableRow&quot; },TDNode));TDNode = [];});">
+<icon BUILTIN="messagebox_warning"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1176090265453" ID="Freemind_Link_1463911043" MODIFIED="1176817428736" TEXT="http://mg.to/2006/02/27/easy-dom-creation-for-jquery-and-prototype#comment-176&#x63d0;&#x4f9b;&#x4e86;json&#x6a21;&#x677f;">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1184769196012" ID="Freemind_Link_242980612" MODIFIED="1184769679177" TEXT="http://bassistance.de/jquery-plugins/jquery-plugin-format/">
+<icon BUILTIN="button_ok"/>
+<icon BUILTIN="messagebox_warning"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1175245223651" FOLDED="true" ID="Freemind_Link_1545473390" MODIFIED="1261723578325" TEXT="Form">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1175246478085" ID="Freemind_Link_1319386158" MODIFIED="1176817431030" TEXT="validate">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1175246485976" ID="Freemind_Link_314856142" MODIFIED="1175246490232" TEXT="http://bassistance.de/jquery-plugins/jquery-plugin-validation/"/>
+<node COLOR="#111111" CREATED="1181115763397" ID="Freemind_Link_1796021509" MODIFIED="1181115770067" TEXT="http://dnaide.blogspot.com/2007/05/validationaide-easy-as-client-side-form.html">
+<icon BUILTIN="messagebox_warning"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1176040807604" FOLDED="true" ID="Freemind_Link_1068766749" MODIFIED="1176817431040" TEXT="Edit">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176040821204" ID="Freemind_Link_289595599" MODIFIED="1176040825069" TEXT="http://joshhundley.com/my-work/teditable-in-place-editing-for-tables/"/>
+<node COLOR="#111111" CREATED="1176040956047" ID="Freemind_Link_658537376" MODIFIED="1176040960153" TEXT="http://www.appelsiini.net/~tuupola/javascript/jEditable/"/>
+</node>
+<node COLOR="#111111" CREATED="1176041209953" ID="Freemind_Link_875996926" MODIFIED="1176817431040" TEXT="Beauty">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176041229110" ID="Freemind_Link_707714696" MODIFIED="1176041233306" TEXT="http://kawika.org/jquery/checkbox/"/>
+<node COLOR="#111111" CREATED="1175245230681" FOLDED="true" ID="Freemind_Link_387736626" MODIFIED="1176041235910" TEXT="JFormhttp://www.lexcat.ro/nicejforms/">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1175524351159" ID="Freemind_Link_554180685" MODIFIED="1175524483109" TEXT="style.css&#x4e0e;niceforms-default.css&#x8bbe;&#x7f6e;&#x91cd;&#x53e0;&#x3002;#content {  margin-top: 15px;  /*   * margin-bottom: 0px;        * margin-right: 180px;      */  margin-left: 50px;   float: left;}&#x6ce8;&#x91ca;&#x4e24;&#x884c;&#x6587;&#x4ef6;&#xff0c;&#x540c;&#x65f6;margin-left: 50px"/>
+<node COLOR="#111111" CREATED="1175831090388" ID="Freemind_Link_1217245630" MODIFIED="1175831250678" TEXT="&#x6587;&#x672c;&#x7b49;&#x5f55;&#x5165;&#x6846;&#x5de6;&#x53f3;&#x56fe;&#x7247;&#x51fa;&#x73b0;&#x91cd;&#x53e0;&#xff0c;&#x539f;&#x56e0;&#x662f;&#x5728;content.pih&#x548c;footer.pih&#x4e2d;&#x91cd;&#x590d;&#x5199;&#x5165;&#x4ee5;&#x4e0b;&#x8bed;&#x53e5; &lt;script type=&quot;text/javascript&quot;&gt; $(document).ready( function() { $.NiceJForms.build(); } ); &lt;/script&gt;"/>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1176856253019" FOLDED="true" ID="Freemind_Link_1434837539" MODIFIED="1261723578328" TEXT="Menu">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1177034926565" ID="Freemind_Link_1379671019" MODIFIED="1177247040655" TEXT="http://jdsharp.us/jQuery/plugins/jdMenu/">
+<icon BUILTIN="button_ok"/>
+</node>
+<node COLOR="#111111" CREATED="1176856345141" ID="Freemind_Link_1775096871" MODIFIED="1177034940455" TEXT="http://solidgone.com/jquery/jqTOC/jqTOC.htm">
+<icon BUILTIN="idea"/>
+</node>
+<node COLOR="#111111" CREATED="1177034768888" ID="Freemind_Link_1106586911" MODIFIED="1177034779343" TEXT="http://www.trendskitchens.co.nz/jquery/contextmenu/">
+<icon BUILTIN="idea"/>
+</node>
+<node COLOR="#111111" CREATED="1177035209091" FOLDED="true" ID="Freemind_Link_73556373" MODIFIED="1177035218925" TEXT="Horizonal">
+<node COLOR="#111111" CREATED="1177035196103" ID="Freemind_Link_1900795783" MODIFIED="1177035284149" TEXT="Slidinghttp://www.getintothis.com/blog/2006/09/26/my-first-jquery-plugin-a-sliding-menu/"/>
+</node>
+<node COLOR="#111111" CREATED="1177035233997" FOLDED="true" ID="Freemind_Link_589961439" MODIFIED="1177035241538" TEXT="DropDown">
+<node COLOR="#111111" CREATED="1176994269453" ID="Freemind_Link_254314664" MODIFIED="1176994275301" TEXT="Fish Eye">
+<node COLOR="#111111" CREATED="1176994261912" ID="Freemind_Link_634244277" MODIFIED="1176994266369" TEXT="http://ajaxbee.com/jquery/fish/"/>
+</node>
+<node COLOR="#111111" CREATED="1177035060878" ID="Freemind_Link_835629467" MODIFIED="1177035063121" TEXT="http://be.twixt.us/jquery/suckerFish.php"/>
+<node COLOR="#111111" CREATED="1177035142435" ID="Freemind_Link_1277182714" MODIFIED="1177035147783" TEXT="http://users.tpg.com.au/j_birch/plugins/superfish/#">
+<icon BUILTIN="button_ok"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1184655180850" ID="Freemind_Link_567034350" MODIFIED="1184655182102" TEXT="http://www.matthewjrichards.co.uk/files/jquery-perciformes-demo.html#"/>
+</node>
+<node COLOR="#111111" CREATED="1176856691760" FOLDED="true" ID="Freemind_Link_1657650207" MODIFIED="1261723578334" TEXT="Frame">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176856695836" ID="Freemind_Link_1746940061" MODIFIED="1176856697779" TEXT="http://ideamill.synaptrixgroup.com/?p=6"/>
+<node COLOR="#111111" CREATED="1179628968599" ID="Freemind_Link_617152511" MODIFIED="1179629100219" TEXT="http://methvin.com/jquery/splitter/&#x591a;&#x680f;&#x5e03;&#x5c40;"/>
+</node>
+<node COLOR="#111111" CREATED="1176994409695" FOLDED="true" ID="Freemind_Link_1278868394" MODIFIED="1261723619816" TEXT="Color">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176994415333" ID="Freemind_Link_1761778868" MODIFIED="1176994417216" TEXT="http://www.mathias-bank.de/2006/11/21/jquery-plugin-colorgradient/"/>
+</node>
+<node COLOR="#111111" CREATED="1176994982729" ID="Freemind_Link_86434514" MODIFIED="1261723578335" TEXT="Border">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176994990800" ID="Freemind_Link_299047173" MODIFIED="1176994992573" TEXT="http://www.studioindustryllc.com/misc/border/"/>
+</node>
+<node COLOR="#111111" CREATED="1177034825440" FOLDED="true" ID="Freemind_Link_318455942" MODIFIED="1261723578335" TEXT="Accordion">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1177034830567" ID="Freemind_Link_1317121804" MODIFIED="1177034831789" TEXT="http://stilbuero.de/jquery/accordion/"/>
+<node COLOR="#111111" CREATED="1177034854622" ID="Freemind_Link_501200710" MODIFIED="1177034855593" TEXT="http://jquery.bassistance.de/accordion/"/>
+</node>
+<node COLOR="#111111" CREATED="1177037239841" FOLDED="true" ID="Freemind_Link_1416877359" MODIFIED="1261723578336" TEXT="TOC">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1177037250416" ID="Freemind_Link_326730696" MODIFIED="1177037252510" TEXT="http://solidgone.com/jquery/jqTOC/jqTOC.htm"/>
+</node>
+<node COLOR="#111111" CREATED="1182135886303" FOLDED="true" ID="Freemind_Link_656427295" MODIFIED="1261723578336" TEXT="Button">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1182135908705" ID="Freemind_Link_1186383990" MODIFIED="1182135927302" TEXT="Crystal Buttonhttp://www.600it.com/soft/softdown.asp?softid=5030"/>
+<node COLOR="#111111" CREATED="1182137138834" ID="Freemind_Link_1081596233" MODIFIED="1182137197799" TEXT="css&#x8bed;&#x6cd5;&#xff0d;&#x300b;www.alibaba.com.cn">
+<node COLOR="#111111" CREATED="1182137199341" ID="Freemind_Link_1383356057" MODIFIED="1182137204548" TEXT="input.submitButton {style_03.css (line 18)background:transparent url(http://img.china.alibaba.com/images/cn/home/060516/searchbutton.gif) no-repeat scroll 0%;border:0pt none;cursor:pointer;font-size:14px;font-weight:bold;height:26px;width:76px;}"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1182177113931" FOLDED="true" ID="Freemind_Link_1136160904" MODIFIED="1261723578337" TEXT="Thickbox">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1182177125197" ID="Freemind_Link_1582123504" MODIFIED="1182177126579" TEXT="http://jquery.com/demo/thickbox/"/>
+</node>
+<node COLOR="#111111" CREATED="1184655641462" ID="Freemind_Link_392581143" MODIFIED="1261723578338" TEXT="ProLoad">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1184655656634" ID="Freemind_Link_515784063" MODIFIED="1184655658827" TEXT="http://aka-fotos.de/protoload/"/>
+</node>
+<node COLOR="#111111" CREATED="1177380663338" FOLDED="true" ID="Freemind_Link_1648528713" MODIFIED="1261723578338" TEXT="Menu">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1177380670859" ID="Freemind_Link_636214671" MODIFIED="1254629161413" TEXT="jdMneu Pluginhttp://jdsharp.us/jQuery/plugins/jdMenu/">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1177380693231" FOLDED="true" ID="Freemind_Link_518443351" MODIFIED="1254629161414" TEXT="css files adjust">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1177578075576" FOLDED="true" ID="Freemind_Link_627884936" MODIFIED="1177578079863" TEXT="style.css">
+<node COLOR="#111111" CREATED="1177578099701" ID="Freemind_Link_831377224" MODIFIED="1177592299857" TEXT="&#x8c03;&#x6574;margin-left&#x7684;&#x5c5e;&#x6027;&#x503c;&#xff0c;&#x51b3;&#x5b9a;&#x83dc;&#x5355;&#x6761;&#x5728;&#x6c34;&#x5e73;&#x7684;&#x4f4d;&#x7f6e;.&#x6ce8;&#x610f;&#x201c;test&#x201d;&#x662f;&#x9875;&#x9762;&#x4e2d;&lt;div&gt;&#x8bbe;&#x5b9a;&#x7684;id#test{  margin-top:1px;  margin-bottom:0px;  text-align:center;  padding: 5px 0;  margin-left: 170px;/* Change from &apos;0&apos;---&gt;&apos;170&apos;,then the horizonal menu bar will be in the center. B.Z.change*/  border-bottom: 1px solid #0F3974;  font: bold 14px Verdana,arial, sans-serif;}"/>
+</node>
+<node COLOR="#111111" CREATED="1177380703956" FOLDED="true" ID="Freemind_Link_940423503" MODIFIED="1177380818862" TEXT="jdMenu.css">
+<node COLOR="#111111" CREATED="1177380729483" ID="Freemind_Link_1047721539" MODIFIED="1177380793976" TEXT="ul.jd_menu li {float: left;}------&gt;&#x6ce8;&#x91ca;&#x6389;&#x540e;&#xff0c;&#x83dc;&#x5355;&#x4f1a;&#x663e;&#x793a;&#x5728;&lt;ul&gt;&#x4e2d;&#x95f4;"/>
+</node>
+<node COLOR="#111111" CREATED="1177380715793" FOLDED="true" ID="Freemind_Link_935588915" MODIFIED="1177380830869" TEXT="jdMenu_slate.css">
+<node COLOR="#111111" CREATED="1177381610730" ID="Freemind_Link_302741918" MODIFIED="1177382328793" TEXT="&#x6ce8;&#x91ca;&#x4e86;background-color,backgroud&#x8fd9;&#x4e24;&#x9879;&#xff0c;&#x5c06;boder&#x7684;&#x503c;&#x66f4;&#x6539;&#x4e3a;0px&#x6ce8;&#x91ca;&#x4e4b;&#x540e;&#xff0c;&#x83dc;&#x5355;&#x80cc;&#x666f;&#x4e0e;&#x539f;&#x6765;&#x8bbe;&#x8ba1;&#x4e00;&#x81f4;&#x3002;ul.jd_menu_slate {height: 19px;/*background-color: #DDF;background: url(gradient.png) repeat-x;*/border: 0px solid #70777D;border-top: 1px solid #A5AFB8;border-left: 1px solid #A5AFB8;clear: both;}"/>
+<node COLOR="#111111" CREATED="1177558908059" ID="Freemind_Link_783373607" MODIFIED="1177576728640" TEXT="&#x66f4;&#x6539;&#x5f39;&#x51fa;&#x83dc;&#x5355;&#x80cc;&#x666f;&#x8272;ul.jd_menu_slate ul li {padding: 3px 10px 3px 4px;background: #CCCCFF;/* The color of popup menu,B.Z.comment*/border: none;color: #70777D;}"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1177592307608" FOLDED="true" ID="Freemind_Link_1654113358" MODIFIED="1254629161415" TEXT="jquery.jdMenu.js">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1177592389155" ID="Freemind_Link_1038721588" MODIFIED="1177592433299" TEXT="&#x8c03;&#x6574;menu&#x884c;&#x4e3a;&#x7684;&#x51fd;&#x6570;$.fn.jdMenu.defaults = {//The speed adjust of menu&apos;s popup and hide.B.Z.commentactivateDelay: 75,showDelay: 50,hideDelay: 150,onShow: function() { return true; },onHide: function() { return true; },onAnimate: null,offset: 2,iframe: $.browser.msie};"/>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1176817311878" FOLDED="true" ID="Freemind_Link_1225530872" MODIFIED="1261723601515" TEXT="Model">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176171474243" ID="Freemind_Link_704357880" MODIFIED="1261723578353" TEXT="Template">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176171494903" ID="Freemind_Link_1522873648" MODIFIED="1176817320771" TEXT="http://jamal.moagil.de/wikiMVC&#x7684;&#x5b9e;&#x73b0;">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1176197193408" ID="Freemind_Link_951576614" MODIFIED="1176817320771" TEXT="http://trimpath.com/project/wiki/JavaScriptTemplates">
+<font NAME="SansSerif" SIZE="12"/>
+<icon BUILTIN="button_ok"/>
+</node>
+<node COLOR="#111111" CREATED="1176198293821" ID="Freemind_Link_1428836010" MODIFIED="1176817320781" TEXT="http://jstemplate.sourceforge.net/">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1176199110255" ID="Freemind_Link_84986426" MODIFIED="1176817320791" TEXT="http://dev.codeflow.org/trac/genshi2js">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1176199114150" ID="Freemind_Link_1535614637" MODIFIED="1176817320791" TEXT="http://genshi.edgewall.org/">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1184654780093" ID="Freemind_Link_1840536924" MODIFIED="1184654829695" TEXT="http://riiv.net/project/zparse/doc/">
+<icon BUILTIN="button_ok"/>
+<icon BUILTIN="messagebox_warning"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1184813499916" ID="Freemind_Link_1060303071" MODIFIED="1261723578354" TEXT="Database">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1184813505775" ID="Freemind_Link_926564142" MODIFIED="1184813543439" TEXT="http://www.trirand.com/blog/?p=9Transfer query conditions to server only">
+<icon BUILTIN="help"/>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1176817352707" FOLDED="true" ID="Freemind_Link_421883614" MODIFIED="1261723601518" TEXT="Action">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176817181831" FOLDED="true" ID="Freemind_Link_271723586" MODIFIED="1261723578356" TEXT="Short Keys">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176817187570" ID="Freemind_Link_59194649" MODIFIED="1176817360168" TEXT="http://projects.arkanis-development.de/table_navigation/">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1175244232877" FOLDED="true" ID="Freemind_Link_1794850202" MODIFIED="1261723578357" TEXT="PUSH">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1175244242100" ID="Freemind_Link_1094931026" MODIFIED="1176817382780" TEXT="SPYhttp://leftlogic.com/info/articles/jquery_spy2">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1176040710094" ID="Freemind_Link_932309872" MODIFIED="1176817382780" TEXT="http://www.jasons-toolbox.com/JTicker/">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1176817124499" FOLDED="true" ID="Freemind_Link_301840531" MODIFIED="1261723578358" TEXT="Auto Complete">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176817134023" ID="Freemind_Link_1909595449" MODIFIED="1176817393315" TEXT="http://php.scripts.psu.edu/rja171/widgets/autocomplete.php">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1176856866782" ID="Freemind_Link_1544375535" MODIFIED="1176856868784" TEXT="http://jquery.bassistance.de/autocomplete/"/>
+</node>
+<node COLOR="#111111" CREATED="1175243941287" FOLDED="true" ID="Freemind_Link_1808411254" MODIFIED="1261723578358" TEXT="Edit &amp; AutoComplee">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1175243957400" ID="Freemind_Link_1010480227" MODIFIED="1176817425752" TEXT="http://php.scripts.psu.edu/rja171/widgets/autocomplete.php">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1176817342272" FOLDED="true" ID="Freemind_Link_1255282344" MODIFIED="1261723601521" TEXT="Others">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176041255718" FOLDED="true" ID="Freemind_Link_36090212" MODIFIED="1261723578361" TEXT="BlockUI">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176041265973" ID="Freemind_Link_1566719053" MODIFIED="1176817350113" TEXT="http://kawika.org/jquery/checkbox/">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1173066313702" FOLDED="true" ID="Freemind_Link_1259657082" MODIFIED="1261723578362" TEXT="I18n">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1173066345317" ID="Freemind_Link_684136088" MODIFIED="1176817435146" TEXT="javascript&#x5185;&#x90e8;&#x7f16;&#x7801;&#x4e3a;unicode;&#x670d;&#x52a1;&#x5668;&#x7aef;&#x8fd4;&#x56de;&#x7684;&#x5b57;&#x7b26;&#x7f16;&#x7801;&#x4e3a;UTF&#xff0d;8&#xff1b;&#x4e8c;&#x8005;&#x4e4b;&#x95f4;&#x9700;&#x8981;&#x8f6c;&#x6362;&#x624d;&#x80fd;&#x6b63;&#x5e38;&#x663e;&#x793a;&#x4e2d;&#x6587;&#x3002;&#x5982;&#xff1a;&#x201c;&#x5927;&#x5bb6;&#x597d;&#x201d;unicode-&gt;&quot;\u5927\u5BB6\u597D&quot;utf-8 -&gt;&quot;\u00e5\u00a4\u00a7\u00e5\u00ae\u00b6\u00e5\u00a5\u00bd&quot;">
+<font NAME="SansSerif" SIZE="12"/>
+<icon BUILTIN="help"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1176994453207" FOLDED="true" ID="Freemind_Link_1277921993" MODIFIED="1261723578362" TEXT="Tool Tip">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176994462591" ID="Freemind_Link_43595300" MODIFIED="1176994499824" TEXT="http://bassistance.de/jquery-plugins/jquery-plugin-tooltip/">
+<icon BUILTIN="button_ok"/>
+</node>
+<node COLOR="#111111" CREATED="1176041094657" ID="Freemind_Link_1547667245" MODIFIED="1176817399394" TEXT="http://www.codylindley.com/blogstuff/js/jtip/">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1176994579279" ID="Freemind_Link_920531148" MODIFIED="1261723578363" TEXT="Css">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176994584116" ID="Freemind_Link_249945962" MODIFIED="1176994585608" TEXT="http://www.kelvinluck.com/article/switch-stylesheets-with-jquery"/>
+</node>
+<node COLOR="#111111" CREATED="1176994672042" FOLDED="true" ID="Freemind_Link_1911839834" MODIFIED="1261723578363" TEXT="ScrollPane">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176994679703" ID="Freemind_Link_1166944881" MODIFIED="1176994681315" TEXT="http://kelvinluck.com/assets/jquery/jScrollPane/jScrollPane.html"/>
+</node>
+<node COLOR="#111111" CREATED="1176994706121" ID="Freemind_Link_675409494" MODIFIED="1261723578364" TEXT="Input Control">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176994714613" ID="Freemind_Link_135831812" MODIFIED="1176994736895" TEXT="Numerichttp://www.texotela.co.uk/code/jquery/numeric/"/>
+</node>
+<node COLOR="#111111" CREATED="1176994850028" ID="Freemind_Link_583919690" MODIFIED="1261723578364" TEXT="Font Control">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176994856427" ID="Freemind_Link_530752044" MODIFIED="1176994857529" TEXT="http://monkeysoft.com.au/blog/?p=3"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1176818472848" FOLDED="true" ID="Freemind_Link_963328132" MODIFIED="1261723601526" TEXT="&#x9a8c;&#x8bc1;&#x7801;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176818480519" ID="Freemind_Link_603976078" MODIFIED="1261723578367" TEXT="PyCAPTCHAhttp://svn.navi.cx/misc/trunk/pycaptcha/">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1176819387022" ID="Freemind_Link_162464845" MODIFIED="1176819408433" TEXT="limodou&#x7684;&#x8bf4;&#x660e;http://blog.donews.com/limodou/archive/2006/12/13/1095755.aspx"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1254629269110" ID="Freemind_Link_104755362" MODIFIED="1261723601528" TEXT="Ajax">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1261723645352" FOLDED="true" ID="ID_454191510" MODIFIED="1261730727823" TEXT="Examples">
 <font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1261017335455" FOLDED="true" ID="ID_1512844932" MODIFIED="1261723671551" TEXT="issue tracker">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1261017566442" ID="ID_330137200" MODIFIED="1261723671551" TEXT="http://www.getontracks.org/screenshots/index">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1261017580357" ID="ID_1273239789" MODIFIED="1261723671551" TEXT="http://paranimage.com/23-open-source-ruby-on-rails-applications/">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1261017342273" FOLDED="true" ID="ID_796970066" MODIFIED="1261723671553" TEXT="events or calendar">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1261017354609" ID="ID_1181494541" MODIFIED="1261723671553" TEXT="http://icant.co.uk/csstablegallery/index.php?css=60#r60">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1261018167104" FOLDED="true" ID="ID_892054405" MODIFIED="1261723671554" TEXT="registration">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1261018172178" FOLDED="true" ID="ID_425931376" MODIFIED="1261723671554" TEXT="End prompt">
+<font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1261018179346" ID="ID_1233393089" MODIFIED="1261035520849" TEXT="http://icant.co.uk/csstablegallery/index.php?css=39#r39"/>
 <node COLOR="#111111" CREATED="1261018191456" ID="ID_1613919919" MODIFIED="1261018193284" TEXT="http://icant.co.uk/csstablegallery/index.php?css=41#r41"/>
 <node COLOR="#111111" CREATED="1261018242097" ID="ID_943743038" MODIFIED="1261018242657" TEXT="http://icant.co.uk/csstablegallery/index.php?css=69#r69"/>
 <node COLOR="#111111" CREATED="1261018229590" ID="ID_95135814" MODIFIED="1261018230299" TEXT="http://icant.co.uk/csstablegallery/index.php?css=42#r42"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1261017385572" ID="ID_1594767766" MODIFIED="1261709372563" TEXT="web site">
+<node COLOR="#111111" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1261730203409" TEXT="web site">
 <edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261017390365" ID="ID_4950788" MODIFIED="1261017392152" TEXT="http://ramblingsoul.com/preview/rs14/index.html">
-<font NAME="SansSerif" SIZE="14"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1261017390365" ID="ID_4950788" MODIFIED="1261723671557" TEXT="http://ramblingsoul.com/preview/rs14/index.html">
+<font NAME="SansSerif" SIZE="12"/>
 </node>
-<node COLOR="#990000" CREATED="1261559272861" ID="ID_1171566340" MODIFIED="1261559273508" TEXT="http://www.opendesigns.org/preview/?template=2682">
-<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1261559272861" ID="ID_1171566340" MODIFIED="1261723671557" TEXT="http://www.opendesigns.org/preview/?template=2682">
+<font NAME="SansSerif" SIZE="12"/>
 </node>
-<node COLOR="#990000" CREATED="1261017403697" ID="ID_363894096" MODIFIED="1261017405702" TEXT="http://www.opendesigns.org/preview/?template=2615">
-<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1261017403697" ID="ID_363894096" MODIFIED="1261723671557" TEXT="http://www.opendesigns.org/preview/?template=2615">
+<font NAME="SansSerif" SIZE="12"/>
 </node>
-<node COLOR="#990000" CREATED="1261116138051" ID="ID_886881172" MODIFIED="1261116148380" TEXT="http://960.gs/">
-<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1261116138051" ID="ID_886881172" MODIFIED="1261723671558" TEXT="http://960.gs/">
+<font NAME="SansSerif" SIZE="12"/>
 <icon BUILTIN="idea"/>
 </node>
-<node COLOR="#990000" CREATED="1261581379542" ID="ID_75942929" MODIFIED="1261581381114" TEXT="http://blog.bingo929.com/99-high-quality-free-xhtml-css-div-templates.html#more-2698">
-<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1261581379542" ID="ID_75942929" MODIFIED="1261723671558" TEXT="http://blog.bingo929.com/99-high-quality-free-xhtml-css-div-templates.html#more-2698">
+<font NAME="SansSerif" SIZE="12"/>
 </node>
-<node COLOR="#990000" CREATED="1261559251111" ID="ID_648549467" MODIFIED="1261559254793" TEXT="nav bar">
-<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1261559251111" ID="ID_648549467" MODIFIED="1261723671558" TEXT="nav bar">
+<font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1261559256260" ID="ID_574316454" MODIFIED="1261559258478" TEXT="http://www.opendesigns.org/preview/?template=2684"/>
 </node>
-<node COLOR="#990000" CREATED="1261710057956" ID="ID_204262037" MODIFIED="1261710058977" TEXT="http://nouincolor.com/">
-<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1261710057956" ID="ID_204262037" MODIFIED="1261723671558" TEXT="http://nouincolor.com/">
+<font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1261116666825" FOLDED="true" ID="ID_1018641055" MODIFIED="1261709398080" TEXT="desktop">
+<node COLOR="#111111" CREATED="1261116666825" FOLDED="true" ID="ID_1018641055" MODIFIED="1261730212577" TEXT="desktop">
 <edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261116670685" ID="ID_1673407314" MODIFIED="1261116672447" TEXT="http://pulseapp.com/tour">
-<font NAME="SansSerif" SIZE="14"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1261116670685" ID="ID_1673407314" MODIFIED="1261723671561" TEXT="http://pulseapp.com/tour">
+<font NAME="SansSerif" SIZE="12"/>
 </node>
-<node COLOR="#990000" CREATED="1176943661851" ID="Freemind_Link_428992295" MODIFIED="1261559235092" TEXT="iframe &amp; ajax requesthttp://66.160.135.85/posts/news">
+<node COLOR="#111111" CREATED="1176943661851" ID="Freemind_Link_428992295" MODIFIED="1261723671561" TEXT="iframe &amp; ajax requesthttp://66.160.135.85/posts/news">
 <edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
+<font NAME="SansSerif" SIZE="12"/>
 </node>
-<node COLOR="#990000" CREATED="1261625621655" ID="ID_727667845" MODIFIED="1261625622564" TEXT="http://0963.trymodx.com/manager/">
-<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1261625621655" ID="ID_727667845" MODIFIED="1261723671561" TEXT="http://0963.trymodx.com/manager/">
+<font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1261625625046" ID="ID_548360256" MODIFIED="1261625640971" TEXT="user:demo_user;password:demo_user"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1261378773857" FOLDED="true" ID="ID_651932540" MODIFIED="1261709392759" TEXT="MochaUI">
+<node COLOR="#111111" CREATED="1261378773857" FOLDED="true" ID="ID_651932540" MODIFIED="1261730210649" TEXT="MochaUI">
 <edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261378789249" ID="ID_1775650821" MODIFIED="1261378791784" TEXT="tutorial">
-<font NAME="SansSerif" SIZE="14"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1261378789249" ID="ID_1775650821" MODIFIED="1261723671563" TEXT="tutorial">
+<font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1261378779450" ID="ID_333848267" MODIFIED="1261378796257" TEXT="http://blog.cnizz.com/2008/11/25/whats-new-with-mocha-ui-095/">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1261561766156" FOLDED="true" ID="ID_1258415620" MODIFIED="1261561781751" TEXT="qooxdoo">
+<node COLOR="#111111" CREATED="1261561766156" FOLDED="true" ID="ID_1258415620" MODIFIED="1261723671565" TEXT="qooxdoo">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1261561774161" ID="ID_1601435720" MODIFIED="1261723671565" TEXT="http://qooxdoo.org/demo">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1261730813032" ID="ID_176890161" MODIFIED="1261730822165" TEXT="&#x6e10;&#x53d8;">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1261730844673" ID="ID_496054024" MODIFIED="1261730846661" TEXT="Image">
+<node COLOR="#111111" CREATED="1261730825806" ID="ID_59816790" MODIFIED="1261730828009" TEXT="http://www.webdesignerwall.com/tutorials/css-decorative-gallery/"/>
+</node>
+<node COLOR="#111111" CREATED="1261730838257" ID="ID_903324626" MODIFIED="1261730840513" TEXT="Text">
+<node COLOR="#111111" CREATED="1261730778018" ID="ID_1595804630" MODIFIED="1261730779372" TEXT="http://www.webdesignerwall.com/tutorials/css-gradient-text-effect/"/>
+</node>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1261723681347" FOLDED="true" ID="ID_1526994899" MODIFIED="1261730281269" TEXT="Site Package">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261561774161" ID="ID_1601435720" MODIFIED="1261561780106" TEXT="http://qooxdoo.org/demo">
-<edge STYLE="bezier" WIDTH="thin"/>
+<node COLOR="#990000" CREATED="1261723699899" FOLDED="true" ID="ID_1334746923" MODIFIED="1261730273388" TEXT="Rules">
 <font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1261723706816" ID="ID_1757088788" MODIFIED="1261723768592" TEXT="Karrigell_root_dir&#xa;--&gt;/lib,&#x4fdd;&#x5b58;&#x7b2c;&#x4e09;&#x65b9;javascript&#x5e93;&#x6587;&#x4ef6;"/>
 </node>
 </node>
 </node>

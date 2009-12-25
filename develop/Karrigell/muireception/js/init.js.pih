@@ -54,11 +54,16 @@ INITIALIZE THE TWO MENU 'Login' AND 'Register'
 		it in the onContentLoaded function of the new window. 
  
 -------------------------------------------------------------------- */
+
+// add a inner object to MUI for managing mootools.Assets importing action 
+MUI.extend({ assetsManager: new AssetsManager()});
+
+
 <%
 # get global variables stored in pagefn.py
 pagefn = Import('/'.join(('', 'pagefn.py')))
-
 %>
+
 // the names for prelogin menues' click function 
 var fNames = [ 'login', 'register' ];
 // a object holds two functions for prelogin 
@@ -89,11 +94,7 @@ var loginFns = {
 				// add selected class to each tabs when they are selected				
 				MUI.initializeTabs(tabsId);
 				$(tabsId).getElements('li')[0].fireEvent('click');
-			},
-			
-			require: {
-				css: ['css/forms.css']
-			}
+			}			
 		});
 		return false;
 	}

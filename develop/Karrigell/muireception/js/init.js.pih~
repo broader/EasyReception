@@ -54,11 +54,15 @@ INITIALIZE THE TWO MENU 'Login' AND 'Register'
 		it in the onContentLoaded function of the new window. 
  
 -------------------------------------------------------------------- */
+
+MUI.extend({ assetsManager: new AssetsManager()});
+alert(MUI.assetsManager.imported);
+
 <%
 # get global variables stored in pagefn.py
 pagefn = Import('/'.join(('', 'pagefn.py')))
-
 %>
+
 // the names for prelogin menues' click function 
 var fNames = [ 'login', 'register' ];
 // a object holds two functions for prelogin 
@@ -85,13 +89,11 @@ var loginFns = {
 			toolbar: true,
 			toolbarURL:'register/register.ks/tabs',
 			toolbarOnload: function(){
+				var tabsId = '<%=pagefn.REGISTERTABSID%>';
 				// add selected class to each tabs when they are selected				
-				MUI.initializeTabs('<%=pagefn.REGISTERTABSID%>');
-			},
-			
-			require: {
-				css: ['css/forms.css']
-			}
+				MUI.initializeTabs(tabsId);
+				$(tabsId).getElements('li')[0].fireEvent('click');
+			}			
 		});
 		return false;
 	}
