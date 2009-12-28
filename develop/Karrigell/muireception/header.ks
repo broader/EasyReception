@@ -34,6 +34,9 @@ def index(**args):
 	"""%'/'.join(('css','yaml','patches','patch_my_layout.css'))
 	print csslice
 	
+	# mootools spinner css fiel
+	print pagefn.css('/'.join(('css', 'spinner', 'spinner.css')))
+	
 	# the css files for the theme of web user interface 
 	cssfiles = ( 'Content.css', 'Core.css', 'Layout.css','Dock.css','Window.css','Tabs.css')
 	for f in cssfiles :

@@ -27,7 +27,7 @@ var AssetsManager = new Class({
     	
     	// store the information of this file to be imported     	
 		this.imported.set(id, $H(object));
-		//for(prop in this.imported[id]){alert(this.imported[id][prop]);}
+		
     	// import this file 
     	this._importAsset(id, options);
     },
@@ -71,8 +71,7 @@ var AssetsManager = new Class({
     	if(['app','lib'].contains(type)){
     		this._removeByTag(type,name,false);
     	}
-    	else if (type=='id'){
-    		alert('remove function,type is '+ type +', id value is '+name+',removing ?'+this.imported.getKeys().contains(name));
+    	else if (type=='id'){    		
     		if(this.imported.getKeys().contains(name)){
     			this._removeAsset(name);
     		}
@@ -104,7 +103,7 @@ var AssetsManager = new Class({
     _removeByTag: function(tag,value, inverse){    	
     	this.imported.map(function(item, key){
     		var condition = (item.get(tag)==value); 
-    		alert('is tag? '+condition+',to be removed?' + (!inverse && condition));
+    		//alert('is tag? '+condition+',to be removed?' + (!inverse && condition));
  			if((!inverse && condition) || ( inverse && !condition)){ 				
  				this._removeAsset(key); 					
  			};

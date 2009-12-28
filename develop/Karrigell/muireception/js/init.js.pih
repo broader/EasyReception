@@ -79,6 +79,23 @@ var loginFns = {
 		var tabsId = '<%=pagefn.REGISTERTABSID %>';
 		var formErrClass = '.<%=pagefn.FORMERRCLASS %>';
 		
+		// using python inside html to set the tabs' url to a javascript array
+		var tabUrls = []; 
+		<% for url in registerTabsUrls: %>					
+			tabUrls.push("<%=url%>");
+		<% end %>
+		
+		// Define a tab switching function. It's a global function and will be called
+		// in registration form submitting process, for this reason we should not use
+		// 'var' before the variable.
+		tabSwitch = function(index) {
+			var spinner = new Spinner(dlgId+'_content'); 						
+			spinner.show();
+			$(tabsId).getElements('li')[index].fireEvent('click');						
+			MUI.updateContent({'element':$(dlgId), 'url':tabUrls[index]});
+			spinner.hide();
+		};
+		
 		new MUI.Modal({
 			id: dlgId,
 			title: '<%=_("Register Dialog") %>',			
@@ -87,7 +104,7 @@ var loginFns = {
 			modalOverlayClose: false,
 			width: 750,
 			height: 400,
-			padding: { top: 43, right: 12, bottom: 10, left: 12 },
+			padding: { top: 10, right: 12, bottom: 10, left: 12 },
 			scrollbars: true,
 			//shape: 'gaoge',
 			toolbar: true,
@@ -95,10 +112,12 @@ var loginFns = {
 			toolbarOnload: function(){				
 				// add selected class to each tabs when they are selected				
 				MUI.initializeTabs(tabsId);
-				$(tabsId).getElements('li')[0].fireEvent('click');				
+				$(tabsId).getElements('li')[0].fireEvent('click');
+				//tabSwitch(0);				
 			},
 			
-			onClose: function(e){	
+			onClose: function(e){
+				new Event(e).stop();	
 				// If there are left error information DIV elements created by 
 				// FormCheck object, remove them.				
 				for ( i in window){
@@ -113,19 +132,7 @@ var loginFns = {
 			
 		});
 		
-		// using python inside html to set the tabs' url to a javascript array
-		var tabUrls = []; 
-		<% for url in registerTabsUrls: %>					
-			tabUrls.push("<%=url%>");
-		<% end %>
 		
-		// Define a tab switching function. It's a global function and will be called
-		// in registration form submitting process, for this reason we should not use
-		// 'var' before the variable. 
-		tabSwitch = function(index) {
-			$(tabsId).getElements('li')[index].fireEvent('click');			
-			MUI.updateContent({'element':$(dlgId), 'url':tabUrls[index]});
-		};
 				
 		return false;
 	}

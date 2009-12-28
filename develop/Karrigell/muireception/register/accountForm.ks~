@@ -19,7 +19,7 @@ Captcha = Import('./Captcha.py', relpath=THIS.baseurl, RELDIR=REL())
 # ********************************************************************************************
 
 # get the relative url slice as the application name
-APP = pagefn.getApp(THIS.baseurl)
+APP = pagefn.getApp(THIS.baseurl,1)
 
 # the session object for this page
 SO = Session()
@@ -94,10 +94,10 @@ def index(**args):
     # render the fields to the form
 	 form = []
     # get the OL content from formRender.py module    
-	 #yform = Import('../form.py').yform
+	 style = 'border-left:1px solid #DDDDDD;'	
 	 yform = formFn.yform
-	 left = DIV(Sum(yform(fields[:3])), **{'class':'c50l'})
-	 right = DIV(Sum(yform(fields[3:])), **{'class':'c50r'})
+	 left = DIV(Sum(yform(fields[:3])), **{'class':'c50l' })
+	 right = DIV(Sum(yform(fields[3:])), **{'class':'c50r', 'style':style})
 	 divs = DIV(Sum((left, right)), **{'class':'subcolumns'})
             
     # add the <Legend> tag
@@ -150,11 +150,17 @@ def index(**args):
     // Add validation function to the form
     // import css file for validation
     [ hackCss, fcCss].each(function(src){
-    	am.import({'url':src,'app':appName,'type':'css'});
+    	if(!$defined(am.imported[src])){
+    		am.import({'url':src,'app':appName,'type':'css'});
+    	}
+    	else{ alert(src + ' has been imported!');}
     });
     
     // import javascript file for validation
-    am.import({'url':fcI18nJs,'app':appName,'type':'js'});
+    if(!$defined(am.imported[fcI18nJs])){
+    	am.import({'url':fcI18nJs,'app':appName,'type':'js'});
+    }
+    else{MUI.notification(fcI18nJs + ' has been imported!');}
     
     // Set a global variable 'formchk', 
     // which will be used as an instance of the validation Class-'FormCheck'.
@@ -180,8 +186,9 @@ def index(**args):
 			});// the end for 'formchk' define
     	}// the end for 'onload' define
     };
-    am.import({'url':fcJs,'app':appName,'type':'js'},options);
     
+    am.import({'url':fcJs,'app':appName,'type':'js'},options);
+        
     
     /*****************************************************************************
     Check whether the input account has been used    

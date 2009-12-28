@@ -20536,3 +20536,189 @@ sent 102 bytes  received 20 bytes  244.00 bytes/sec
 total size is 146625  speedup is 1201.84
 2009-12-28 16:43:36,474 INFO End backup loacl karrigell diretory to local git.
 2009-12-28 16:43:36,474 INFO Begin to backup local github to remote github host.
+2009-12-28 16:43:37,030 INFO Command: 
+git add .
+running result is :
+2009-12-28 16:43:38,674 INFO Command: 
+git commit -m 'Update time:2009-12-28T16:43:36.474553'
+running result is :Created commit 2708573: Update time:2009-12-28T16:43:36.474553
+ 40 files changed, 699 insertions(+), 46 deletions(-)
+ create mode 100644 develop/Karrigell/data/ereception/logs_2009122803.log
+ create mode 100644 develop/Karrigell/data/ereception/logs_2009122808.log
+ create mode 100644 develop/Karrigell/data/ereception/logs_2009122814.log
+ create mode 100644 develop/Karrigell/muireception/register/tmp/07e21fcc52.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/08c049e6b5.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/0a625871cc.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/0dc15ee455.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/150c99453d.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/17d4cb262a.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/1de1f143f7.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/2d0fb0d6ef.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/31bee3095f.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/456c5692e3.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/48ace24bc7.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/5b6a45ce65.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/5f4d761fcd.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/6bd5e3b75f.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/74408d1bbb.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/7fe439fc2c.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/9281a7963d.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/b555a5e8d3.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/b55ca3c980.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/bc3e643a07.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/bf10d6a1f7.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/d9251610c4.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/dccf504891.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/dd670dc924.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/e4d4369bc6.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/e6616dc698.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/e6c75eb7be.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/ec555737c3.jpeg
+2009-12-28 16:43:48,136 INFO Command: 
+git push origin master
+running result is :Counting objects: 67, done.
+Compressing objects:   2% (1/50)   Compressing objects:   4% (2/50)   Compressing objects:   6% (3/50)   Compressing objects:   8% (4/50)   Compressing objects:  10% (5/50)   Compressing objects:  12% (6/50)   Compressing objects:  14% (7/50)   Compressing objects:  16% (8/50)   Compressing objects:  18% (9/50)   Compressing objects:  20% (10/50)   Compressing objects:  22% (11/50)   Compressing objects:  24% (12/50)   Compressing objects:  26% (13/50)   Compressing objects:  28% (14/50)   Compressing objects:  30% (15/50)   Compressing objects:  32% (16/50)   Compressing objects:  34% (17/50)   Compressing objects:  36% (18/50)   Compressing objects:  38% (19/50)   Compressing objects:  40% (20/50)   Compressing objects:  42% (21/50)   Compressing objects:  44% (22/50)   Compressing objects:  46% (23/50)   Compressing objects:  48% (24/50)   Compressing objects:  50% (25/50)   Compressing objects:  52% (26/50)   Compressing objects:  54% (27/50)   Compressing objects:  56% (28/50)   Compressing objects:  58% (29/50)   Compressing objects:  60% (30/50)   Compressing objects:  62% (31/50)   Compressing objects:  64% (32/50)   Compressing objects:  66% (33/50)   Compressing objects:  68% (34/50)   Compressing objects:  70% (35/50)   Compressing objects:  72% (36/50)   Compressing objects:  74% (37/50)   Compressing objects:  76% (38/50)   Compressing objects:  78% (39/50)   Compressing objects:  80% (40/50)   Compressing objects:  82% (41/50)   Compressing objects:  84% (42/50)   Compressing objects:  86% (43/50)   Compressing objects:  88% (44/50)   Compressing objects:  90% (45/50)   Compressing objects:  92% (46/50)   Compressing objects:  94% (47/50)   Compressing objects:  96% (48/50)   Compressing objects:  98% (49/50)   Compressing objects: 100% (50/50)   Compressing objects: 100% (50/50), done.
+Writing objects:   2% (1/50)   Writing objects:   4% (2/50)   Writing objects:   6% (3/50)   Writing objects:   8% (4/50)   Writing objects:  10% (5/50)   Writing objects:  12% (6/50)   Writing objects:  14% (7/50)   Writing objects:  18% (9/50)   Writing objects:  20% (10/50)   Writing objects:  22% (11/50)   Writing objects:  24% (12/50)   Writing objects:  26% (13/50)   Writing objects:  28% (14/50)   Writing objects:  32% (16/50)   Writing objects:  34% (17/50)   Writing objects:  38% (19/50)   Writing objects:  42% (21/50)   Writing objects:  44% (22/50)   Writing objects:  46% (23/50)   Writing objects:  48% (24/50)   Writing objects:  50% (25/50)   Writing objects:  52% (26/50)   Writing objects:  54% (27/50)   Writing objects:  56% (28/50)   Writing objects:  58% (29/50)   Writing objects:  60% (30/50)   Writing objects:  62% (31/50)   Writing objects:  64% (32/50)   Writing objects:  66% (33/50)   Writing objects:  68% (34/50)   Writing objects:  70% (35/50)   Writing objects:  72% (36/50)   Writing objects:  74% (37/50)   Writing objects:  76% (38/50)   Writing objects:  78% (39/50)   Writing objects:  80% (40/50)   Writing objects:  82% (41/50)   Writing objects:  84% (42/50)   Writing objects:  86% (43/50)   Writing objects:  88% (44/50)   Writing objects:  90% (45/50)   Writing objects:  92% (46/50)   Writing objects:  94% (47/50)   Writing objects:  96% (48/50)   Writing objects:  98% (49/50)   Writing objects: 100% (50/50)   Writing objects: 100% (50/50), 57.98 KiB, done.
+Total 50 (delta 17), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   9c6c3fd..2708573  master -> master
+2009-12-28 16:43:48,136 INFO End backup local github to remote github host.
+2009-12-28 22:00:35,672 INFO Delete nousing captcha images
+2009-12-28 22:00:35,689 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2009-12-28 22:00:35,689 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2009-12-28 22:00:38,746 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files... 800 files... 900 files... 1000 files... 1100 files... 1200 files... 1300 files... 1400 files... 1500 files... 1600 files... 1700 files... 1800 files... 1900 files... 2000 files... 2100 files... 2200 files... 2300 files... 2400 files... 2500 files... 2600 files... 2700 files... 2800 files... 2900 files... 3000 files... 3100 files... 3200 files... 3300 files... 3400 files... 3500 files... 3600 files... 3700 files... 3800 files... 3900 files... 4000 files... 4100 files... 4200 files... 4300 files... 4400 files... 4500 files... 4600 files... 4700 files... 4800 files... 4900 files... 5000 files... 5100 files... 5200 files... 5300 files... 5400 files... 5500 files... 5600 files... 5700 files... 5800 files... 5900 files... 6000 files... 6100 files...6200 files to consider
+data/ereception/
+data/ereception/logs_2009122808.log
+        3566 100%    0.00kB/s    0:00:00        3566 100%    0.00kB/s    0:00:00 (xfer#1, to-check=3515/6200)
+data/ereception/logs_2009122819.log
+          92 100%   89.84kB/s    0:00:00          92 100%   89.84kB/s    0:00:00 (xfer#2, to-check=3513/6200)
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%   15.62MB/s    0:00:00      362496 100%   13.83MB/s    0:00:00 (xfer#3, to-check=3470/6200)
+data/muireception/roundup/db/files/dossier/0/
+data/muireception/roundup/db/files/dossier/0/dossier10
+         118 100%    4.61kB/s    0:00:00         118 100%    4.61kB/s    0:00:00 (xfer#4, to-check=3465/6200)
+data/muireception/roundup/db/files/dossier/0/dossier9
+         118 100%    3.72kB/s    0:00:00         118 100%    3.72kB/s    0:00:00 (xfer#5, to-check=3455/6200)
+muireception/header.ks
+        2594 100%   79.16kB/s    0:00:00        2594 100%   79.16kB/s    0:00:00 (xfer#6, to-check=2148/6200)
+muireception/header.ks~
+        2500 100%   76.29kB/s    0:00:00        2500 100%   76.29kB/s    0:00:00 (xfer#7, to-check=2147/6200)
+muireception/css/
+muireception/css/spinner/
+muireception/css/spinner/spinner.css
+         292 100%    8.91kB/s    0:00:00         292 100%    8.91kB/s    0:00:00 (xfer#8, to-check=2132/6200)
+muireception/css/spinner/spinner.css~
+         290 100%    8.58kB/s    0:00:00         290 100%    8.58kB/s    0:00:00 (xfer#9, to-check=2131/6200)
+muireception/css/spinner/spinner.gif
+        2545 100%   75.31kB/s    0:00:00        2545 100%   75.31kB/s    0:00:00 (xfer#10, to-check=2130/6200)
+muireception/js/init.js.pih
+        4210 100%  120.92kB/s    0:00:00        4210 100%  120.92kB/s    0:00:00 (xfer#11, to-check=1971/6200)
+muireception/js/init.js.pih~
+        4324 100%  124.20kB/s    0:00:00        4324 100%  124.20kB/s    0:00:00 (xfer#12, to-check=1970/6200)
+muireception/lib/tools/assetsmanager.js
+        4630 100%  129.19kB/s    0:00:00        4630 100%  129.19kB/s    0:00:00 (xfer#13, to-check=1468/6200)
+muireception/lib/tools/assetsmanager.js~
+        4628 100%  100.43kB/s    0:00:00        4628 100%  100.43kB/s    0:00:00 (xfer#14, to-check=1467/6200)
+muireception/register/
+muireception/register/accountForm.ks
+       13381 100%  284.07kB/s    0:00:00       13381 100%  284.07kB/s    0:00:00 (xfer#15, to-check=984/6200)
+muireception/register/accountForm.ks~
+       13377 100%  272.16kB/s    0:00:00       13377 100%  272.16kB/s    0:00:00 (xfer#16, to-check=983/6200)
+muireception/register/portfolioForm.ks
+        5907 100%  117.73kB/s    0:00:00        5907 100%  117.73kB/s    0:00:00 (xfer#17, to-check=980/6200)
+muireception/register/portfolioForm.ks~
+        5909 100%  115.41kB/s    0:00:00        5909 100%  115.41kB/s    0:00:00 (xfer#18, to-check=979/6200)
+muireception/register/tmp/
+muireception/register/tmp/01277c466b.jpeg
+        1673 100%   32.68kB/s    0:00:00        1673 100%   32.68kB/s    0:00:00 (xfer#19, to-check=967/6200)
+muireception/register/tmp/02b14519a5.jpeg
+        1892 100%   36.95kB/s    0:00:00        1892 100%   36.95kB/s    0:00:00 (xfer#20, to-check=965/6200)
+muireception/register/tmp/0e07ccdd35.jpeg
+        1710 100%   32.74kB/s    0:00:00        1710 100%   32.74kB/s    0:00:00 (xfer#21, to-check=956/6200)
+muireception/register/tmp/1cdbe9548e.jpeg
+        1699 100%   32.53kB/s    0:00:00        1699 100%   32.53kB/s    0:00:00 (xfer#22, to-check=950/6200)
+muireception/register/tmp/2eb716c4e8.jpeg
+        1666 100%   31.29kB/s    0:00:00        1666 100%   31.29kB/s    0:00:00 (xfer#23, to-check=939/6200)
+muireception/register/tmp/3255e460e3.jpeg
+        1639 100%   30.78kB/s    0:00:00        1639 100%   30.78kB/s    0:00:00 (xfer#24, to-check=936/6200)
+muireception/register/tmp/3688373cd6.jpeg
+        1654 100%   31.06kB/s    0:00:00        1654 100%   31.06kB/s    0:00:00 (xfer#25, to-check=933/6200)
+muireception/register/tmp/3d33143ac1.jpeg
+        1682 100%   30.99kB/s    0:00:00        1682 100%   30.99kB/s    0:00:00 (xfer#26, to-check=930/6200)
+muireception/register/tmp/4115890e2f.jpeg
+        1716 100%   31.62kB/s    0:00:00        1716 100%   31.62kB/s    0:00:00 (xfer#27, to-check=928/6200)
+muireception/register/tmp/5b316150b9.jpeg
+        1798 100%   32.52kB/s    0:00:00        1798 100%   32.52kB/s    0:00:00 (xfer#28, to-check=911/6200)
+muireception/register/tmp/610e5de494.jpeg
+        1819 100%   32.90kB/s    0:00:00        1819 100%   32.90kB/s    0:00:00 (xfer#29, to-check=907/6200)
+muireception/register/tmp/614e9f17dc.jpeg
+        1637 100%   29.60kB/s    0:00:00        1637 100%   29.60kB/s    0:00:00 (xfer#30, to-check=906/6200)
+muireception/register/tmp/6b3042764b.jpeg
+        1626 100%   29.41kB/s    0:00:00        1626 100%   29.41kB/s    0:00:00 (xfer#31, to-check=901/6200)
+muireception/register/tmp/6ee6952e7c.jpeg
+        1522 100%   27.52kB/s    0:00:00        1522 100%   27.02kB/s    0:00:00 (xfer#32, to-check=899/6200)
+muireception/register/tmp/7476349a72.jpeg
+        1706 100%   30.29kB/s    0:00:00        1706 100%   30.29kB/s    0:00:00 (xfer#33, to-check=891/6200)
+muireception/register/tmp/74e1ce46d5.jpeg
+        1746 100%   31.00kB/s    0:00:00        1746 100%   31.00kB/s    0:00:00 (xfer#34, to-check=889/6200)
+muireception/register/tmp/7ede46471a.jpeg
+        1673 100%   29.71kB/s    0:00:00        1673 100%   29.71kB/s    0:00:00 (xfer#35, to-check=884/6200)
+muireception/register/tmp/8084697cbb.jpeg
+        1477 100%   26.23kB/s    0:00:00        1477 100%   26.23kB/s    0:00:00 (xfer#36, to-check=882/6200)
+muireception/register/tmp/83eaf97cb9.jpeg
+        1622 100%   28.29kB/s    0:00:00        1622 100%   28.29kB/s    0:00:00 (xfer#37, to-check=881/6200)
+muireception/register/tmp/961fb8f7c1.jpeg
+        1838 100%   32.05kB/s    0:00:00        1838 100%   32.05kB/s    0:00:00 (xfer#38, to-check=873/6200)
+muireception/register/tmp/9a8151cbff.jpeg
+        1604 100%   27.97kB/s    0:00:00        1604 100%   27.97kB/s    0:00:00 (xfer#39, to-check=871/6200)
+muireception/register/tmp/9d524a8280.jpeg
+        1705 100%   29.73kB/s    0:00:00        1705 100%   29.73kB/s    0:00:00 (xfer#40, to-check=869/6200)
+muireception/register/tmp/9d972ff2ee.jpeg
+        1640 100%   28.10kB/s    0:00:00        1640 100%   28.10kB/s    0:00:00 (xfer#41, to-check=868/6200)
+muireception/register/tmp/a3b4e3cb96.jpeg
+        1597 100%   27.36kB/s    0:00:00        1597 100%   27.36kB/s    0:00:00 (xfer#42, to-check=864/6200)
+muireception/register/tmp/adde7cca1b.jpeg
+        1657 100%   28.39kB/s    0:00:00        1657 100%   28.39kB/s    0:00:00 (xfer#43, to-check=861/6200)
+muireception/register/tmp/ae005573f8.jpeg
+        1778 100%   30.46kB/s    0:00:00        1778 100%   30.46kB/s    0:00:00 (xfer#44, to-check=860/6200)
+muireception/register/tmp/bca3163f69.jpeg
+        1745 100%   29.90kB/s    0:00:00        1745 100%   29.90kB/s    0:00:00 (xfer#45, to-check=852/6200)
+muireception/register/tmp/c3ca7e2b01.jpeg
+        1688 100%   28.42kB/s    0:00:00        1688 100%   28.42kB/s    0:00:00 (xfer#46, to-check=847/6200)
+muireception/register/tmp/c7998e5147.jpeg
+        1754 100%   29.53kB/s    0:00:00        1754 100%   29.53kB/s    0:00:00 (xfer#47, to-check=845/6200)
+muireception/register/tmp/db4ebfa428.jpeg
+        1714 100%   28.86kB/s    0:00:00        1714 100%   28.86kB/s    0:00:00 (xfer#48, to-check=836/6200)
+muireception/register/tmp/e43454a1f4.jpeg
+        1633 100%   27.50kB/s    0:00:00        1633 100%   27.50kB/s    0:00:00 (xfer#49, to-check=832/6200)
+muireception/register/tmp/e71ffa902c.jpeg
+        1833 100%   30.34kB/s    0:00:00        1833 100%   30.34kB/s    0:00:00 (xfer#50, to-check=825/6200)
+muireception/register/tmp/ec2d42c19f.jpeg
+        1761 100%   29.15kB/s    0:00:00        1761 100%   29.15kB/s    0:00:00 (xfer#51, to-check=820/6200)
+muireception/register/tmp/ec56d2a67e.jpeg
+        1896 100%   31.38kB/s    0:00:00        1896 100%   31.38kB/s    0:00:00 (xfer#52, to-check=818/6200)
+muireception/register/tmp/f84001fe27.jpeg
+        1843 100%   30.51kB/s    0:00:00        1843 100%   30.51kB/s    0:00:00 (xfer#53, to-check=816/6200)
+muireception/register/tmp/ff9de0f458.jpeg
+        1707 100%   27.78kB/s    0:00:00        1707 100%   27.78kB/s    0:00:00 (xfer#54, to-check=812/6200)
+
+sent 231716 bytes  received 1250 bytes  66561.71 bytes/sec
+total size is 44995676  speedup is 193.14
+2009-12-28 22:00:38,802 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :building file list ... 
+ 0 files...2 files to consider
+CMP.mm
+       32768  22%    0.00kB/s    0:00:00      147039 100%   15.57MB/s    0:00:00 (xfer#1, to-check=0/2)
+
+sent 35338 bytes  received 42 bytes  70760.00 bytes/sec
+total size is 147039  speedup is 4.16
+2009-12-28 22:00:38,802 INFO End backup loacl karrigell diretory to local git.
+2009-12-28 22:00:38,802 INFO Begin to backup local github to remote github host.

@@ -77,8 +77,8 @@ def index(**args):
 	[ BUTTON( name, **{'class':'MooTrans', 'type':'button'}) \
 	  for name in [_("Back"), _("Next")] ]
 	
-	div = DIV(Sum(buttons), **{ 'id':FORMBNS, 'style':'position:absolute;margin-left:18em;'})    
-	form.append(div)
+	span = DIV(Sum(buttons), **{ 'id':FORMBNS, 'style':'position:absolute;margin-left:18em;'})    
+	form.append(span)
 	
 	# form action url
 	action = '/'.join((APPATH, '_'.join(('page', 'accountRegister'))))
