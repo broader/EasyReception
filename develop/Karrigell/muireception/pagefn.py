@@ -5,8 +5,15 @@ from HTMLTags import *
 SOINFO = {'userinfo':'baseinfo',}
 
 # a function to return the applicaiton name
-getApp = lambda p : p.split('/')[1]
+getApp = lambda p,i : p.split('/')[i]
 
+##
+# some global variables for /lib/formcheck/js/formcheck.js lib
+#--------------------------------------------------------------------------------------
+FORMERRCLASS='fc-tbx'
+#--------------------------------------------------------------------------------------
+
+ 
 ##
 # the register dialog
 #--------------------------------------------------------------------------------------

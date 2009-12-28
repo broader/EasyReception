@@ -129,7 +129,7 @@ def index(**args):
 	 paras = [ APP, accountErr, CAPTCHACLASS,CAPTCHAKEY, cpatchaErr]
 	 paras.extend([ '/'.join((APPATH, name))for name in ( 'page_captchaValid', 'page_switchImg', 'page_accountValid' )])
     
-	 paras.extend([ ACCOUNTFORMBNS, ACCOUNTFIELDS, pagefn.REGISTERDIALOG, pagefn.TABSCLASS])
+	 paras.extend([ ACCOUNTFORMBNS, ACCOUNTFIELDS, pagefn.TABSCLASS])
     
     # add some files' path for validation function
 	 names = ('css/hack.css', 'lang.js.pih', 'formcheck.js', 'theme/red/formcheck.css')
@@ -141,7 +141,7 @@ def index(**args):
     var captchaClass='%s', captchaKey='%s', captchaErr='%s';
     var captchaValid='%s', captchaSwitch='%s';
     var accountValid='%s';
-    var buttonsContainer='%s', formId='%s', digname='%s', tabsClass='%s';
+    var buttonsContainer='%s', formId='%s', tabsClass='%s';
     var hackCss='%s', fcI18nJs='%s', fcJs='%s', fcCss='%s';
     
     // get the global Assets manager
@@ -246,11 +246,6 @@ def index(**args):
        }             
        return false;
     };
-    
-    /****************************************************************************
-    
-    *****************************************************************************/
-    
     
     /**************************************************************************** 
     The function which will close the popup dialog box.

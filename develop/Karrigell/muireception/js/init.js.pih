@@ -53,6 +53,13 @@ MUI.extend({ assetsManager: new AssetsManager()});
 # get global variables stored in pagefn.py
 pagefn = Import('/'.join(('', 'pagefn.py')))
 registerTabsUrls = [ item.get('url') for item in pagefn.REGISTERTABS ]
+
+# initial showing tabs' url
+iniTabUrl = registerTabsUrls[0]
+
+# Application name, when closing the registration dialog, 
+# this name will be need to remove all the imported Assets tags.
+registerAppName = pagefn.getApp(iniTabUrl,0)
 %>
 
 // the names for prelogin menues' click function 
@@ -69,12 +76,13 @@ var loginFns = {
 		new Event(event).stop();
 		
 		var dlgId = '<%=pagefn.REGISTERDIALOG %>'; 
-		var tabsId = '<%=pagefn.REGISTERTABSID%>';
+		var tabsId = '<%=pagefn.REGISTERTABSID %>';
+		var formErrClass = '.<%=pagefn.FORMERRCLASS %>';
 		
 		new MUI.Modal({
 			id: dlgId,
 			title: '<%=_("Register Dialog") %>',			
-			contentURL: 'register/accountForm.ks/index',
+			contentURL: '<%=iniTabUrl%>',
 			//type: 'modal2',
 			modalOverlayClose: false,
 			width: 750,
@@ -84,12 +92,25 @@ var loginFns = {
 			//shape: 'gaoge',
 			toolbar: true,
 			toolbarURL:'register/register.ks/tabs',
-			toolbarOnload: function(){
-				
+			toolbarOnload: function(){				
 				// add selected class to each tabs when they are selected				
 				MUI.initializeTabs(tabsId);
 				$(tabsId).getElements('li')[0].fireEvent('click');				
-			}			
+			},
+			
+			onClose: function(e){	
+				// If there are left error information DIV elements created by 
+				// FormCheck object, remove them.				
+				for ( i in window){
+					if ( window[i] instanceof FormCheck ){
+						window[i].removeErrors();
+					}					
+				};
+				
+				// Remove all the imported Assets				
+				MUI.assetsManager.remove('<%=registerAppName %>','app');
+			}		
+			
 		});
 		
 		// using python inside html to set the tabs' url to a javascript array
