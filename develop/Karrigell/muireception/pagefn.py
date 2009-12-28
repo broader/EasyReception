@@ -16,9 +16,9 @@ REGISTERAPPPATH = 'register'
 # Tabs properties
 REGISTERTABS = \
 [ 
-	{'title':'Account', 'url':'/'.join(( REGISTERAPPPATH, 'accountForm.ks'))},\
-	{'title':'Portfolio', 'url':'/'.join(( REGISTERAPPPATH, 'portfolioForm.ks'))},\
-	{'title':'Registration End', 'url':'/'.join(( REGISTERAPPPATH, 'registerEnd.ks'))}\
+	{'title':'Account', 'url':'/'.join(( REGISTERAPPPATH, 'accountForm.ks/index'))},\
+	{'title':'Portfolio', 'url':'/'.join(( REGISTERAPPPATH, 'portfolioForm.ks/index'))},\
+	{'title':'Registration End', 'url':'/'.join(( REGISTERAPPPATH, 'registerEnd.ks/index'))}\
 ]
 
 # the global css class' name for 'ertabs' plugin

@@ -1,6 +1,6 @@
 <div id="footer">
 	<span style="margin-left:15em;">
-		<%=_('Beijing UniRoc Ltd Co,.')%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<%=_('Beijing UniRoc Ltd Co,.')%>
 		<!--
      	<%=_('Address: Room 1007, HanTaiHua Building, Park Road No.13, Haidian Distinct, Beijing')%>,
      	<%=_('Telephone:0086-010-62387205,')%>
@@ -8,7 +8,7 @@
      	<%=_('Email:')%>
      	<a href="mailto:byllan@yahoo.com.cn">
 	     	broader.zhong@yahoo.com.cn
-	   </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	   </a>,
      	<%=_('Web page powered by ')%>
      	<a href="http://www.yaml.de/en/home.html" target="YAML">YAML</a>
    </span>        

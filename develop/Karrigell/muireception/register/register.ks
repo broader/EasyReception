@@ -46,19 +46,6 @@ APP = pagefn.getApp(THIS.baseurl)
 
 def index(**args):
 	""" Show the tabs widget frame. """
-	
-	"""
-	# the tabs' titles
-	labels = ['Account', 'Base Info', 'End']
-	links = [ '/'.join(( THIS.baseurl, name))\
-             for name in ( 'actionEnd.ks/index', 'accountForm.ks/index', 'baseInfoForm.ks/index',  )]
-	lis = [ LI(A(SPAN(label,**{'class':'tab-label'}),ref=link)) \
-           for label, link in zip(labels, links)]
-	ul = UL(Sum(lis), **{'class':'ertabs_title'} )
-	# the content container for each tab label
-	div = DIV( **{'class':'ertabs_content'} )
-	print DIV( Sum((ul, div)), **{'id':REGTABS,'class':REGTABS})
-	"""
 	print H2('Registeration Dialog')	
 	return
 	

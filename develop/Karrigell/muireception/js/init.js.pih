@@ -13,20 +13,10 @@
 INITIALIZE THE TWO MENU 'Login' AND 'Register'
 
 	1. 'Register' menu clicked function
-	
-		var myWindow = function(){ 
-			new MUI.Window({
-				id: 'mywindow',
-				title: 'My Window',
-				contentURL: 'pages/lipsum.html',
-				width: 340,
-				height: 150
-			});
-		}
 
 	2. Build windows on onDomReady
 	
-		myWindow();
+		
 	
 	3. Add link events to build future windows
 	
@@ -62,6 +52,7 @@ MUI.extend({ assetsManager: new AssetsManager()});
 <%
 # get global variables stored in pagefn.py
 pagefn = Import('/'.join(('', 'pagefn.py')))
+registerTabsUrls = [ item.get('url') for item in pagefn.REGISTERTABS ]
 %>
 
 // the names for prelogin menues' click function 
@@ -76,8 +67,12 @@ var loginFns = {
 	
 	'register': function(event){
 		new Event(event).stop();
+		
+		var dlgId = '<%=pagefn.REGISTERDIALOG %>'; 
+		var tabsId = '<%=pagefn.REGISTERTABSID%>';
+		
 		new MUI.Modal({
-			id: '<%=pagefn.REGISTERDIALOG%>',
+			id: dlgId,
 			title: '<%=_("Register Dialog") %>',			
 			contentURL: 'register/accountForm.ks/index',
 			//type: 'modal2',
@@ -90,12 +85,27 @@ var loginFns = {
 			toolbar: true,
 			toolbarURL:'register/register.ks/tabs',
 			toolbarOnload: function(){
-				var tabsId = '<%=pagefn.REGISTERTABSID%>';
+				
 				// add selected class to each tabs when they are selected				
 				MUI.initializeTabs(tabsId);
-				$(tabsId).getElements('li')[0].fireEvent('click');
+				$(tabsId).getElements('li')[0].fireEvent('click');				
 			}			
 		});
+		
+		// using python inside html to set the tabs' url to a javascript array
+		var tabUrls = []; 
+		<% for url in registerTabsUrls: %>					
+			tabUrls.push("<%=url%>");
+		<% end %>
+		
+		// Define a tab switching function. It's a global function and will be called
+		// in registration form submitting process, for this reason we should not use
+		// 'var' before the variable. 
+		tabSwitch = function(index) {
+			$(tabsId).getElements('li')[index].fireEvent('click');			
+			MUI.updateContent({'element':$(dlgId), 'url':tabUrls[index]});
+		};
+				
 		return false;
 	}
 };

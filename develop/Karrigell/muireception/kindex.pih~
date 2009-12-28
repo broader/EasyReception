@@ -9,10 +9,8 @@
 			<div id="desktopTitlebar">
 		
 				<h1 class="applicationTitle">EasyReception</h1>
-				<h2 class="tagline">
-					<span style="background:transparent url(images/gradient-dark.png) repeat-x scroll 0 0;diplay:block;position:absolute;width:100%;"></span>
-					A Web Portal 
-					<span class="taglineEm">For Congress Reception Work</span>
+				<h2 class="tagline">					 
+					<span class="taglineEm">A Web Portal For Congress Reception Work</span>
 				</h2>
 				<div id="topNav">
 					<ul class="menu-right">
@@ -57,7 +55,16 @@
 
 	<div id="desktopFooterWrapper">
 		<div id="desktopFooter">			
-			&copy; 2006-2009 <a target="_blank" href="http://github.com/broader/EasyReception">Broader.ZHONG</a> - <a id="licenseLink" href="license.html">MIT License</a>
+			<span>
+				&copy; 2006-2009
+				<a target="_blank" href="http://github.com/broader/EasyReception">Broader.ZHONG</a>
+				 - 
+				<a id="licenseLink" href="license.html" class="copyright">MIT License</a>,
+			</span>
+			<span style="text-align:center;">
+				<%=_('CSS style powered by ')%>
+     			<a href="http://www.yaml.de/en/home.html" target="YAML" class="copyright">YAML</a>
+			</span>
 		</div>
 	</div>
 

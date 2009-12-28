@@ -65,7 +65,7 @@ def index(**args):
 def tabs(**args):
 	""" Show tabs in dialog's toolbar. """
 	li = [ LI(A(tab.get('title'))) for tab in pagefn.REGISTERTABS ]
-	ul = UL(Sum(li), **{'class':'tab-menu'})
+	ul = UL(Sum(li), **{'class':'tab-menu', 'id':pagefn.REGISTERTABSID})
 	content = [ ul, DIV(**{'class':'clear'}) ]
 	print DIV( Sum(content), **{'class':'toolBarTabs'} )
 	return

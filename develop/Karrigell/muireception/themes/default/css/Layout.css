@@ -246,10 +246,13 @@ li.divider {
 
 #desktopFooter {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 10px;
+	font-size: 10px;	
 	height: 24px;
 	padding: 6px 8px 0 8px;
-	background: #f2f2f2;
+	/*background: #f2f2f2;*/
+	background: #18145D;
+	font-weight:bold;
+	color:white;	
 }
 
 

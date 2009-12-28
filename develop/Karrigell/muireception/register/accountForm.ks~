@@ -107,8 +107,7 @@ def index(**args):
     # add buttons to this form   
 	 bns =[_("Next"), _("Cancel")]    
 	 sbn = BUTTON(bns[0], **{'class':'MooTrans', 'type':'submit'})    
-	 cbn = BUTTON(bns[1],**{'class':'MooTrans', 'type':'button'})
-	 span = DIV(Sum((sbn,cbn)), **{ 'id':ACCOUNTFORMBNS, 'style':'position:absolute;margin-left:24em;'})    
+	 span = DIV(Sum((sbn,)), **{ 'id':ACCOUNTFORMBNS, 'style':'position:absolute;margin-left:20em;'})    
 	 form.append(span)
     
     # form action url
@@ -130,11 +129,12 @@ def index(**args):
 	 paras = [ APP, accountErr, CAPTCHACLASS,CAPTCHAKEY, cpatchaErr]
 	 paras.extend([ '/'.join((APPATH, name))for name in ( 'page_captchaValid', 'page_switchImg', 'page_accountValid' )])
     
-	 paras.extend([ ACCOUNTFORMBNS, ACCOUNTFIELDS, pagefn.REGISTERDLG, pagefn.TABSCLASS])
+	 paras.extend([ ACCOUNTFORMBNS, ACCOUNTFIELDS, pagefn.REGISTERDIALOG, pagefn.TABSCLASS])
+    
     # add some files' path for validation function
 	 names = ('css/hack.css', 'lang.js.pih', 'formcheck.js', 'theme/red/formcheck.css')
-	 paras.extend([ '/'.join(('js', 'lib', 'formcheck', name )) for name in names])
-    
+	 paras.extend([ '/'.join(( 'lib', 'formcheck', name )) for name in names])
+	 
 	 js = \
     """
     var appName="%s", accountErr='%s';
@@ -145,7 +145,7 @@ def index(**args):
     var hackCss='%s', fcI18nJs='%s', fcJs='%s', fcCss='%s';
     
     // get the global Assets manager
-    var am = tools['assetsManager'];
+    var am = MUI.assetsManager;
     
     // Add validation function to the form
     // import css file for validation
@@ -162,12 +162,14 @@ def index(**args):
     
     // Load the form validation plugin script
     var options = {
-    	onload:function(){
+    	onload:function(){    		
     		formchk = new FormCheck( formId,{
          	submitByAjax: true,
             onAjaxSuccess: function(response){
             	if(response != 1){alert('Account creating failed!');}
-               else{	tabSwitch();};               
+               else{	
+               	tabSwitch(1);	// Successfully validation, start next step
+               };               
             },            
 
             display:{
@@ -246,14 +248,9 @@ def index(**args):
     };
     
     /****************************************************************************
-    Successfully validation, start next step
+    
     *****************************************************************************/
-    function tabSwitch(){       
-       var tabs = window[$$('div.'+tabsClass)[0].getAttribute('id')];
-       // diable action must be done first before switching to next tab
-       tabs.disableTabs([tabs.currentTab()]);
-       tabs.nextTab();
-    };
+    
     
     /**************************************************************************** 
     The function which will close the popup dialog box.
@@ -270,6 +267,9 @@ def index(**args):
        delete window[digname];
     };
     
+    /**************************************************************************** 
+    Initialization actions after page loaded.
+    *****************************************************************************/
     function pageInit(event){       
        // Add click callback function to change captcha image       
        $$('.'+captchaClass)[0].addEvent('click', function(event){
@@ -285,13 +285,12 @@ def index(**args):
        $(bns[0]).addEvent('click',function(event){
          formchk.onSubmit(event);
        });
-
-       // Add callback function to 'Cancel' button
-       $(bns[1]).addEvent('click', closeBox);
+       
     };
 
     window.addEvent('domready', pageInit);
     """%tuple(paras)
+    
 	 print pagefn.script(js, link=False)
 	 return
 

@@ -1,0 +1,37 @@
+/**
+	MooHover buttons.
+	We set all styles in one declaration.
+*/
+.default, .MooTrans, .defaultMooButton, .MooButton { 
+	display:block; 
+	position:relative; 
+	float:left;
+	margin-right:5px;
+	/*width:123px;*/
+	width:auto; 
+	height:36px; 
+	background:url(button_off.png); 
+	text-decoration:none; 
+	color:#FFFFFF; 
+	font-weight:bold; 
+	line-height:36px; 
+	text-align:center; 
+	font-family:Arial, Helvetica, sans-serif; 
+	font-size:1.2em; 
+}
+/**
+	set the background for our buttons
+*/
+.MooTrans, .MooButton { 
+	background:url(button_on.png);
+}
+/**
+	The form inputs have a border. Let's get rid of it
+*/
+.MooButton {
+	border:none;	
+}
+/**
+	All positioning for the submit button is done on the .defaultMooButton container div
+*/
+.defaultMooButton { float:right; margin-top:5px; }

@@ -56,7 +56,7 @@ def getField(field):
 	else:
 		label = TEXT(prompt)
 		 
-	label = LABEL(label, **{"for": field.get("id"),"style":"font-size:1.2em"})
+	label = LABEL(label, **{"for": field.get("id"),"style":"font-size:1.2em;text-align:left;width:100%;"})
 	div.append(label)
     
 	klass = _getValidClass(field,required)		

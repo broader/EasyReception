@@ -98,7 +98,8 @@ body {
 	top: 0;
 	color: #d4dce4;
 	text-align: right;
-	padding: 13px 10px 0 0;
+	/*padding: 13px 10px 0 0;*/
+	padding: 24px 10px 0 0;
 }
 
 #topNav a {
@@ -248,7 +249,8 @@ li.divider {
 	font-size: 10px;
 	height: 24px;
 	padding: 6px 8px 0 8px;
-	background: #f2f2f2;
+	/*background: #f2f2f2;*/
+	background: #18145D;
 }
 
 
