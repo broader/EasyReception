@@ -163,7 +163,7 @@ def page_accountRegister(**args):
 		
 	try:
 		# create the account in database
-		form = {'action': 'register','context': 'user','all_props': {('user', None): copy.deepcopy(account)} }
+		form = { 'action': 'register','context': 'user','all_props': {('user', None): copy.deepcopy(account)} }
 		client = model.get_client()
 		client.form = form
 		userId = model.action(client)

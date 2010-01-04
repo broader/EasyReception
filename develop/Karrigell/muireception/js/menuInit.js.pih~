@@ -13,9 +13,15 @@ usermenus = pagefn.USERMENUS
 /*
 **	Portal menu click function
 */
-function test(){
+function test(event){
+	new Event(event).stop();
 	//MUI.notification('Portal menu clicked!');
 	alert('menu clicked');
+	for ( i in window){
+		if ( window[i] instanceof MUI.Modal ){
+			alert(window[i]);
+		}					
+	};
 };
 
 
@@ -39,6 +45,7 @@ menus.each(function(menu){
 	a = new Element('a',{
 		'html': menu['text'],
 	 	'class':'returnFalse',
+	 	'style':'text-decoration:none;',
 	 	'href': '',
 		'events': {
 			'click': menu['function']

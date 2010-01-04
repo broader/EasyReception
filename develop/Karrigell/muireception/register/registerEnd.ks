@@ -77,8 +77,8 @@ def index(**args):
 	table.append(trs)
 	table = TABLE(Sum(table), style='position:relative;left:15em;')
 	
-	account = DIV(table, **{'class':'subcolumns'})		
-	main.append(DIV( account, **{'class':'subcolumns'}))
+	accountDiv = DIV(table, **{'class':'subcolumns'})		
+	main.append(DIV( accountDiv, **{'class':'subcolumns'}))
 	
 	main.append(DIV( HR(), **{'class':'subcolumns'}))
 	
@@ -95,10 +95,14 @@ def index(**args):
 	print DIV(Sum(main), **{'class':'subcolumns', 'style':'background:white;'})
 	
 	paras = [bnId, APP, '/'.join(('js','menuInit.js.pih'))]
+	info = ''.join((_('Welcome, '), account['username'], ' !'))
+	info = H2(info,style='font-size:20px;color:white;')
+	paras.extend([info, pagefn.LOGINPANEL])
 	paras = tuple(paras)
 	js = \
 	"""
-	var bnContainer='%s', appName='%s', jsUrl='%s';
+	var bnContainer='%s', appName='%s', 
+	jsUrl='%s', welcomeInfo='%s', loginPanel='%s';
 	
 	// get the global Assets manager
 	var am = MUI.assetsManager;
@@ -107,8 +111,17 @@ def index(**args):
    new MooHover({container:bnContainer,duration:800});
    
    $(bnContainer).getElements('button')[0].addEvent('click',function(){
-   	alert('i am here');
+   	// load the script which will set the user's menus
    	am.import({'url':jsUrl,'app':appName,'type':'js'});
+   	
+   	// close register dialog
+   	var keys = MUI.Windows.instances.getKeys();
+   	if (keys.length > 0){
+   		MUI.closeWindow($(keys[0]));
+   	}; 
+   	
+   	am.remove(appName,'app');
+   	$(loginPanel).setProperty('html',welcomeInfo);
 	});
 	"""%paras
 	print pagefn.script(js, link=False)

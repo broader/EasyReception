@@ -2,7 +2,7 @@
 from HTMLTags import *
 
 # some global variables stored in Session object of Karrigell
-SOINFO = {'userinfo':'baseinfo',}
+SOINFO = {'userinfo':'portfolio',}
 
 # a function to return the applicaiton name
 getApp = lambda p,i : p.split('/')[i]
@@ -23,12 +23,15 @@ REGISTERAPPPATH = 'register'
 # Tabs properties
 REGISTERTABS = \
 [ 
-	{'title':'Account', 'url':'/'.join(( REGISTERAPPPATH, 'accountForm.ks/index'))},\
+	{'title':'Account', 'url':'/'.join(( REGISTERAPPPATH, 'registerEnd.ks/index'))},\
 	{'title':'Portfolio', 'url':'/'.join(( REGISTERAPPPATH, 'portfolioForm.ks/index'))},\
-	{'title':'Registration End', 'url':'/'.join(( REGISTERAPPPATH, 'registerEnd.ks/index'))}\
+	{'title':'Registration End', 'url':'/'.join(( REGISTERAPPPATH, 'accountForm.ks/index'))}\
 ]
 #--------------------------------------------------------------------------------------
 
+
+# login area on the top and right corner of the screen 
+LOGINPANEL = 'topNav'
 
 ##
 # the normal user's menus 

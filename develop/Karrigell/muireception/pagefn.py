@@ -30,6 +30,9 @@ REGISTERTABS = \
 #--------------------------------------------------------------------------------------
 
 
+# login area on the top and right corner of the screen 
+LOGINPANEL = 'topNav'
+
 ##
 # the normal user's menus 
 #--------------------------------------------------------------------------------------

@@ -151,10 +151,8 @@ def index(**args):
 	
 def page_accountRegister(**args):
 	""" Register the new user account. """
-	#account = {}	
-	#names = [item.get('name') for item in CONFIG.getData(ACCOUNTFIELDS) ]
-	
-	#[ account.update({ name:getattr(SO, name, '') }) for name in names ] 
+	print '1'
+	return 
 	
 	try:
 		account = getattr(SO,pagefn.SOINFO['userinfo'])
