@@ -2,7 +2,7 @@
 from HTMLTags import *
 
 # some global variables stored in Session object of Karrigell
-SOINFO = {'userinfo':'baseinfo',}
+SOINFO = {'userinfo':'portfolio',}
 
 # a function to return the applicaiton name
 getApp = lambda p,i : p.split('/')[i]
@@ -27,10 +27,26 @@ REGISTERTABS = \
 	{'title':'Portfolio', 'url':'/'.join(( REGISTERAPPPATH, 'portfolioForm.ks/index'))},\
 	{'title':'Registration End', 'url':'/'.join(( REGISTERAPPPATH, 'registerEnd.ks/index'))}\
 ]
-
-# the global css class' name for 'ertabs' plugin
-TABSCLASS = 'ertabs'
 #--------------------------------------------------------------------------------------
+
+
+##
+# the normal user's menus 
+#--------------------------------------------------------------------------------------
+USERMENUS = \
+( 
+	{ 'text':_("Portal"), 'function':'test'},\
+	{ 'text':_("Accommodation Service"), 'function':'test'},\       
+	{ 'text':_("Travel Service"), 'function':'test'},\
+	{ 'text':_("Service"), 'function':'test'},\
+	{ 'text':_("Need Help"), 'function':'test'},\
+	{ 'text':_("Portfolio"), 'function':'test'}\          
+)
+
+MENUCONTAINER = 'desktopNavbar'
+
+#--------------------------------------------------------------------------------------
+
 
 ##
 # Web Icons
@@ -64,7 +80,9 @@ SERVICENAMES = {'Hotel' : _('Hotel'), 'Travel' : _('Travel')}
 ##
 # Some  liberary path
 #--------------------------------------------------------------------------
-JSLIBS = {'treeTable': {'js' : 'lib/treeTable/jquery.treeTable.js', 'css' : ' lib/treeTable/jquery.treeTable.css'}}
+
+#JSLIBS = {'treeTable': {'js' : 'lib/treeTable/jquery.treeTable.js', 'css' : ' lib/treeTable/jquery.treeTable.css'}}
+
 #--------------------------------------------------------------------------
 
 # the waiting image for ajax action

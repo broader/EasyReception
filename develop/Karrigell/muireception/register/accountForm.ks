@@ -129,7 +129,7 @@ def index(**args):
 	 paras = [ APP, accountErr, CAPTCHACLASS,CAPTCHAKEY, cpatchaErr]
 	 paras.extend([ '/'.join((APPATH, name))for name in ( 'page_captchaValid', 'page_switchImg', 'page_accountValid' )])
     
-	 paras.extend([ ACCOUNTFORMBNS, ACCOUNTFIELDS, pagefn.TABSCLASS])
+	 paras.extend([ ACCOUNTFORMBNS, ACCOUNTFIELDS ])
     
     # add some files' path for validation function
 	 names = ('css/hack.css', 'lang.js.pih', 'formcheck.js', 'theme/red/formcheck.css')
@@ -141,7 +141,7 @@ def index(**args):
     var captchaClass='%s', captchaKey='%s', captchaErr='%s';
     var captchaValid='%s', captchaSwitch='%s';
     var accountValid='%s';
-    var buttonsContainer='%s', formId='%s', tabsClass='%s';
+    var buttonsContainer='%s', formId='%s';
     var hackCss='%s', fcI18nJs='%s', fcJs='%s', fcCss='%s';
     
     // get the global Assets manager
@@ -301,9 +301,17 @@ def page_valid(**args):
 	 #import sys
 	 #reload(sys)
 	 #sys.setdefaultencoding('utf8')	 
-	 for k,v in args.items():
-	 	setattr( SO, k, v)
-	 #print JSON.encode({'type':1, 'session': args})	 
+
+	 names = [item.get('name') for item in CONFIG.getData(ACCOUNTFIELDS) ]
+	 account = {}
+	 [ account.update({ name:args.get(name) or '' }) for name in names ]
+	 setattr( SO, pagefn.SOINFO['userinfo'], account )
+	 
+	 #for k,v in args.items():
+	 #	setattr( SO, k, v)
+	 
+	 #print JSON.encode({'type':1, 'session': args})
+	 	 
 	 print '1'
 	 return
     

@@ -2,7 +2,7 @@
 The module for registration application. 
 """
 
-import sys
+import sys,copy
 from HTMLTags import *
 
 # 'THIS.script_url' is a global variable in Karrigell system
@@ -110,7 +110,7 @@ def index(**args):
    which will be used as an instance of the validation Class-'FormCheck'.
    **********************************************************************/
    
-   var formchk = new FormCheck( formId,{
+   var pformchk = new FormCheck( formId,{
 		submitByAjax: true,
 		
 	   onAjaxSuccess: function(response){
@@ -127,7 +127,7 @@ def index(**args):
 	
 	
 	function next(event){		
-		formchk.onSubmit(event);
+		pformchk.onSubmit(event);
 	};
 		 
 	function pageInit(event){
@@ -151,14 +151,19 @@ def index(**args):
 	
 def page_accountRegister(**args):
 	""" Register the new user account. """
-	account = {}	
-	names = [item.get('name') for item in CONFIG.getData(ACCOUNTFIELDS) ]
+	#account = {}	
+	#names = [item.get('name') for item in CONFIG.getData(ACCOUNTFIELDS) ]
 	
-	[ account.update({ name:getattr(SO, name, '') }) for name in names ] 
+	#[ account.update({ name:getattr(SO, name, '') }) for name in names ] 
 	
 	try:
+		account = getattr(SO,pagefn.SOINFO['userinfo'])
+	except:
+		account = {}
+		
+	try:
 		# create the account in database
-		form = {'action': 'register','context': 'user','all_props': {('user', None): account}}
+		form = { 'action': 'register','context': 'user','all_props': {('user', None): copy.deepcopy(account)} }
 		client = model.get_client()
 		client.form = form
 		userId = model.action(client)
@@ -169,23 +174,23 @@ def page_accountRegister(**args):
 		pass
 	
 	if userId:
-		user = client.user = account.get('username')
-		
 		isSuccess = '1'
+		user = client.user = account.get('username')		
 		
 		# set the user's base information, 
 		# which is stored in a csv format file on server side		
 		info = {}		
 		fields = [ item.get('name') for item in CONFIG.getData(BASEINFOFIELDS) ]
 		
-		[ info.update({ name:args.get(name) or '' })\
-		  for name in fields ]
+		[ info.update({ name:args.get(name) or '' }) for name in fields ]
 		  
 		filename = '_'.join(('user', str(userId), 'info' ))	
 		
+		# write these informations to database
 		res = model.edit_user_info( user, user, 'create', info, filename, client)
 		if res:
-			setattr( SO, pagefn.SOINFO['userinfo'], info)
+			account.update(info)
+			setattr( SO, pagefn.SOINFO['userinfo'], account)
 	else:
 		isSuccess = '0'	
 	

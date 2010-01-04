@@ -1,0 +1,54 @@
+/*
+INITIALIZE THE USER'S MENUS
+*/
+
+<% 
+# PYTHON CODE SLICE
+
+# get meus stored in pagefn.py
+pagefn = Import('/'.join(('', 'pagefn.py')))
+usermenus = pagefn.USERMENUS
+%>
+
+/*
+**	Portal menu click function
+*/
+function test(){
+	//MUI.notification('Portal menu clicked!');
+	alert('menu clicked');
+};
+
+
+/*
+**	Initialize menus
+*/
+var ul = new Element('ul');
+var menus = [];
+
+<% for menu in pagefn.USERMENUS: %>
+	menus.push( 
+		{ 'text':"<%=menu['text']%>",
+		  'function':<%=menu['function']%>
+		}
+	);
+<% end %>
+
+menus.each(function(menu){
+	li = new Element('li');	
+	
+	a = new Element('a',{
+		'html': menu['text'],
+	 	'class':'returnFalse',
+	 	'href': '',
+		'events': {
+			'click': menu['function']
+		}
+	});
+	a.inject(li);
+	
+	li.inject(ul);
+	
+});
+
+$('<%=pagefn.MENUCONTAINER%>').grab(ul,'top');
+

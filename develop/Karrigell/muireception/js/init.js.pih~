@@ -112,18 +112,10 @@ var loginFns = {
 			toolbarOnload: function(){				
 				// add selected class to each tabs when they are selected				
 				MUI.initializeTabs(tabsId);
-				$(tabsId).getElements('li')[0].fireEvent('click');
-				//tabSwitch(0);				
+				$(tabsId).getElements('li')[0].fireEvent('click');							
 			},
 			
-			onContentLoaded: function(e){
-				//new Event(e).stop();
-				//spinner.hide();
-				//alert(spinner);
-			},
-			
-			onClose: function(e){
-				new Event(e).stop();	
+			onClose: function(e){					
 				// If there are left error information DIV elements created by 
 				// FormCheck object, remove them.				
 				for ( i in window){

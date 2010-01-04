@@ -3,7 +3,7 @@
 <node COLOR="#000000" CREATED="1245853581417" ID="Freemind_Link_1611273437" MODIFIED="1261017091368" TEXT="                     CMP&#xa;(Congress Management Portal)">
 <font NAME="SansSerif" SIZE="20"/>
 <hook NAME="accessories/plugins/AutomaticLayout.properties"/>
-<node COLOR="#0033ff" CREATED="1247629244030" FOLDED="true" ID="Freemind_Link_1151184350" MODIFIED="1256291917794" POSITION="left" TEXT="Roundup">
+<node COLOR="#0033ff" CREATED="1247629244030" FOLDED="true" ID="Freemind_Link_1151184350" MODIFIED="1262052493778" POSITION="left" TEXT="Roundup">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1247629249926" FOLDED="true" ID="Freemind_Link_955678208" MODIFIED="1256291917794" TEXT="ajaxActions.py">
@@ -48,11 +48,11 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1248059627021" FOLDED="true" ID="Freemind_Link_1258736316" MODIFIED="1260254935853" POSITION="right" TEXT="Refactor">
+<node COLOR="#0033ff" CREATED="1248059627021" FOLDED="true" ID="Freemind_Link_1258736316" MODIFIED="1262052572470" POSITION="right" TEXT="Refactor">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="idea"/>
-<node COLOR="#00b439" CREATED="1248059706951" FOLDED="true" ID="Freemind_Link_781324966" MODIFIED="1256291917796" TEXT="Login Unify">
+<node COLOR="#00b439" CREATED="1248059706951" FOLDED="true" ID="Freemind_Link_781324966" MODIFIED="1262052570494" TEXT="Login Unify">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="button_ok"/>
@@ -64,7 +64,7 @@
 <node COLOR="#111111" CREATED="1248146018379" ID="Freemind_Link_1783822577" MODIFIED="1248146149372" TEXT="&#x7528;&#x6237;&#x672a;&#x767b;&#x5f55;&#x524d;&#xff0c;&#x4e0d;&#x663e;&#x793a;&#x83dc;&#x5355;&#xff1b;&#x7528;&#x6237;&#x767b;&#x5f55;&#x540e;&#xff0c;&#x5224;&#x65ad;&#x7528;&#x6237;&#x89d2;&#x8272;---&gt;&apos;Admin&apos;&#xff0c;&#x8bfb;&#x5165;&#x2018;admin_config.py&apos;&#x4e2d;&#x7684;menus---&gt;&#x5176;&#x4ed6;&#xff0c;&#x8bfb;&#x5165;&#x2018;config.py&apos;&#x4e2d;&#x7684;menus&#x6700;&#x540e;&#xff0c;&#x8bbe;&#x7f6e;&#x83dc;&#x5355;&#x7684;&#x70b9;&#x51fb;&#x54cd;&#x5e94;&#x51fd;&#x6570;&#x3002;"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1248059726360" FOLDED="true" ID="Freemind_Link_820217698" MODIFIED="1256291917797" TEXT="Roundup Client Cache">
+<node COLOR="#00b439" CREATED="1248059726360" FOLDED="true" ID="Freemind_Link_820217698" MODIFIED="1262052562926" TEXT="Roundup Client Cache">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="button_ok"/>
@@ -364,7 +364,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1248146194832" FOLDED="true" ID="Freemind_Link_1191327019" MODIFIED="1256291917814" POSITION="left" TEXT="Permissions Control">
+<node COLOR="#0033ff" CREATED="1248146194832" FOLDED="true" ID="Freemind_Link_1191327019" MODIFIED="1262052490298" POSITION="left" TEXT="Permissions Control">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1248146258824" FOLDED="true" ID="Freemind_Link_1852463612" MODIFIED="1256291917814" TEXT="&#x7ed3;&#x6784;">
@@ -389,7 +389,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1261579889230" POSITION="left" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1262052577007" POSITION="left" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -444,7 +444,7 @@
 <node COLOR="#111111" CREATED="1260845378421" ID="ID_163739786" MODIFIED="1260845458885" TEXT="missing : before statement&#xa;&#x68c0;&#x67e5;&#x53d1;&#x73b0;&#xff0c;js&#x6587;&#x4ef6;&#x76f8;&#x5bf9;&#x8def;&#x5f84;&#x4e3a;/js/lib/...&#xff0c;&#x66f4;&#x6539;&#x4e3a;js/lib/...&#x5373;&#x6b63;&#x5e38;"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1254023346114" FOLDED="true" ID="Freemind_Link_186738146" MODIFIED="1260845350911" TEXT="Python">
+<node COLOR="#00b439" CREATED="1254023346114" FOLDED="true" ID="Freemind_Link_186738146" MODIFIED="1262052478577" TEXT="Python">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1254023354342" FOLDED="true" ID="Freemind_Link_1111266812" MODIFIED="1254023356999" TEXT="timezone">
@@ -452,13 +452,21 @@
 <node COLOR="#111111" CREATED="1254023363423" ID="Freemind_Link_1101343072" MODIFIED="1254023401189" TEXT="Error with time.strptime()Things to try:(1) Is it possible that your interactive session and your &quot;bash&quot; are using different locales? Put print time.strftime(some known struct_time) into your script and see if the day and month come out in a different language.(2) Put print repr(date) in your script to show unambiguously what you are getting from the latest.GetCreatedAt() call."/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1254149527478" FOLDED="true" ID="Freemind_Link_17834818" MODIFIED="1260450865770" TEXT="Database">
+<node COLOR="#00b439" CREATED="1254149527478" FOLDED="true" ID="Freemind_Link_17834818" MODIFIED="1262052551678" TEXT="Database">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1254149531747" ID="Freemind_Link_377999212" MODIFIED="1254149623676" TEXT="db.class.retire()">
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="messagebox_warning"/>
 <node COLOR="#111111" CREATED="1254149556997" ID="Freemind_Link_1170431409" MODIFIED="1254149615836" TEXT="&#x64cd;&#x4f5c;&#x540e;&#x9700;&#x8981;&#x8c03;&#x7528;db.commit()&#x5426;&#x5219;db.class.retire()&#x4e0d;&#x4f1a;&#x751f;&#x6548;"/>
+</node>
+<node COLOR="#990000" CREATED="1255161883417" ID="Freemind_Link_640476272" MODIFIED="1262052517599" TEXT="Sqlite">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1255161901118" ID="Freemind_Link_1015808824" MODIFIED="1262052517600" TEXT="Change Records">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255161915178" ID="Freemind_Link_106946224" MODIFIED="1255162026327" TEXT="SQLite Manager &#x66f4;&#x6539;&#x8bb0;&#x5f55;&#x65f6;&#xff0c;&#x6ce8;&#x610f;id&#x7684;&#x5355;&#x5f15;&#x53f7;&#x4e3a;&#x952e;&#x76d8;&#x5de6;&#x4e0a;&#x89d2;&#x7684;&#x5355;&#x5f15;&#x53f7;&#x4f8b;&#x5982;&#xff1a;UPDATE &quot;main&quot;.&quot;_service&quot; SET &quot;_category&quot;=&apos;Hotel&apos; WHERE `id`=1&#x5982;&#x7528;&#x666e;&#x901a;&#x7684;&#x5355;&#x5f15;&#x53f7;&#x4f1a;&#x62a5;&#x9519;&#x3002;"/>
+</node>
 </node>
 </node>
 <node COLOR="#00b439" CREATED="1167544327073" FOLDED="true" ID="Freemind_Link_1636742661" MODIFIED="1260450879419" TEXT="vi">
@@ -495,7 +503,7 @@
 <icon BUILTIN="help"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1261467690947" TEXT="karrigell">
+<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1262052548533" TEXT="karrigell">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1250824602428" FOLDED="true" ID="Freemind_Link_1774893402" MODIFIED="1260244011179" TEXT="_()---i18n">
@@ -512,14 +520,14 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1253975213187" ID="Freemind_Link_155505941" MODIFIED="1261467410579" TEXT="Virtual Host Config">
+<node COLOR="#990000" CREATED="1253975213187" FOLDED="true" ID="Freemind_Link_155505941" MODIFIED="1262052535332" TEXT="Virtual Host Config">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1253975226636" ID="Freemind_Link_1785529272" MODIFIED="1261467684143" TEXT="&#x4e3b;&#x673a;hosts&#x6587;&#x4ef6;&#xff0c;Linux&#x4e0b;&#x4e3a;/etc/hosts&#xa;127.0.0.1 localhost&#xa;127.0.0.1 cms&#xa;&#xa;Karrigell&#x5b89;&#x88c5;&#x76ee;&#x5f55;&#x4e0b;hosts&#x6587;&#x4ef6;&#xff0c;&#x6dfb;&#x52a0;&#xff1a;&#xa;cms /home/broader/develop/R@K/CMS/Karrigell/data/cms/conf.py&#xa;&#xa;&#x91cd;&#x65b0;&#x542f;&#x52a8;Karrigell">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1260451613749" FOLDED="true" ID="ID_1531639743" MODIFIED="1260451827362" TEXT="Indent Error">
+<node COLOR="#990000" CREATED="1260451613749" FOLDED="true" ID="ID_1531639743" MODIFIED="1262052546765" TEXT="Indent Error">
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="messagebox_warning"/>
 <node COLOR="#111111" CREATED="1260451624226" ID="ID_1815202875" MODIFIED="1260451673625" TEXT="&apos;Token Error: EOF in multi-line statement&apos;">
@@ -547,18 +555,6 @@
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1261579713554" ID="ID_124189722" MODIFIED="1261579862299" TEXT="&#x6dfb;&#x52a0;&#x5e94;&#x7528;&#x7a0b;&#x5e8f;&#xff1a;&#xa;&#x53f3;&#x51fb;&#x9762;&#x677f;&#x7684;&#x7a7a;&#x767d;&#x90e8;&#x5206;&#xff0c;&#x663e;&#x793a;&#x9762;&#x677f;&#xff08;&#x4e0a;&#x4e0b;&#x6587;&#xff09;&#x83dc;&#x5355;&#x3002;&#xa;&#x9009;&#x62e9;&quot;&#x6dfb;&#x52a0;&#x5230;&#x9762;&#x677f;&#xff08;Add to panel&#xff09;&quot;&#xa;&#xff0d;&#x300b;&#x201c;&#x81ea;&#x5b9a;&#x4e49;&#x5e94;&#x7528;&#x7a0b;&#x5e8f;&#x8d77;&#x52a8;&#x5668;&#x201d;&#xa;&#xff0d;&#x300b;&#x70b9;&#x51fb;&#x5e94;&#x7528;&#x7a0b;&#x5e8f;&#x56fe;&#x6807;&#x53ef;&#x4ee5;&#x66f4;&#x6539;&#x8be5;&#x56fe;&#x6807;"/>
 </node>
-</node>
-</node>
-</node>
-<node COLOR="#0033ff" CREATED="1255161878975" FOLDED="true" ID="Freemind_Link_1192796131" MODIFIED="1260254931173" POSITION="left" TEXT="Database">
-<edge STYLE="sharp_bezier" WIDTH="8"/>
-<font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1255161883417" ID="Freemind_Link_640476272" MODIFIED="1256291917825" TEXT="Sqlite">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1255161901118" FOLDED="true" ID="Freemind_Link_1015808824" MODIFIED="1255161909387" TEXT="Change Records">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1255161915178" ID="Freemind_Link_106946224" MODIFIED="1255162026327" TEXT="SQLite Manager &#x66f4;&#x6539;&#x8bb0;&#x5f55;&#x65f6;&#xff0c;&#x6ce8;&#x610f;id&#x7684;&#x5355;&#x5f15;&#x53f7;&#x4e3a;&#x952e;&#x76d8;&#x5de6;&#x4e0a;&#x89d2;&#x7684;&#x5355;&#x5f15;&#x53f7;&#x4f8b;&#x5982;&#xff1a;UPDATE &quot;main&quot;.&quot;_service&quot; SET &quot;_category&quot;=&apos;Hotel&apos; WHERE `id`=1&#x5982;&#x7528;&#x666e;&#x901a;&#x7684;&#x5355;&#x5f15;&#x53f7;&#x4f1a;&#x62a5;&#x9519;&#x3002;"/>
 </node>
 </node>
 </node>
