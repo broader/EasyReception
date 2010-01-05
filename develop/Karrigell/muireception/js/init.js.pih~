@@ -1,10 +1,7 @@
 /* 
 
-	In this file we setup our Windows, Columns and Panels,
-	and then inititialize MochaUI.
-	
-	At the bottom of Core.js you can setup lazy loading for your
-	own plugins.
+	In this file, first set the layout of the application, such as desktop and
+	menu dock, etc. Then set the menus' function in login panel.
 
 */
 
@@ -14,35 +11,8 @@ INITIALIZE THE TWO MENU 'Login' AND 'Register'
 
 	1. 'Register' menu clicked function
 
-	2. Build windows on onDomReady
-	
-		
-	
-	3. Add link events to build future windows
-	
-		if ($('myWindowLink')){
-			$('myWindowLink').addEvent('click', function(e) {
-				new Event(e).stop();
-				jsonWindows();
-			});
-		}
-
-		Note: If your link is in the top menu, it opens only a single window, and you would
-		like a check mark next to it when it's window is open, format the link name as follows:
-
-		window.id + LinkCheck, e.g., mywindowLinkCheck
-
-		Otherwise it is suggested you just use mywindowLink
-
-	Associated HTML for link event above:
-
-		<a id="myWindowLink" href="pages/lipsum.html">My Window</a>	
-
-
-	Notes:
-		If you need to add link events to links within windows you are creating, do
-		it in the onContentLoaded function of the new window. 
- 
+	2. 'Login' menu clicked function	
+	 
 -------------------------------------------------------------------- */
 
 // add a inner object to MUI for managing mootools.Assets importing action 
@@ -50,6 +20,7 @@ MUI.extend({ assetsManager: new AssetsManager()});
 
 
 <%
+# PYTHON CODE
 # get global variables stored in pagefn.py
 pagefn = Import('/'.join(('', 'pagefn.py')))
 registerTabsUrls = [ item.get('url') for item in pagefn.REGISTERTABS ]
@@ -68,7 +39,19 @@ var fNames = [ 'login', 'register' ];
 var loginFns = {
 	'login': function(event){
 		new Event(event).stop();
-		MochaUI.notification('Login Window');
+		//MochaUI.notification('Login Window');
+		new MUI.Modal({
+			//id: dlgId,
+			title: '<%=_("Login Dialog") %>',			
+			contentURL: '<%=iniTabUrl%>',
+			//type: 'modal2',
+			modalOverlayClose: false,
+			width: 300,
+			height: 250,
+			//padding: { top: 10, right: 12, bottom: 10, left: 12 },
+			scrollbars: true,			
+			onClose: function(e){}			
+		});
 		return false;
 	},
 	
@@ -126,11 +109,8 @@ var loginFns = {
 				
 				// Remove all the imported Assets				
 				MUI.assetsManager.remove('<%=registerAppName %>','app');
-			}		
-			
+			}			
 		});
-		
-		
 				
 		return false;
 	}

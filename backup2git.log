@@ -21051,3 +21051,84 @@ sent 35383 bytes  received 42 bytes  70850.00 bytes/sec
 total size is 146972  speedup is 4.15
 2010-01-04 22:01:35,229 INFO End backup loacl karrigell diretory to local git.
 2010-01-04 22:01:35,229 INFO Begin to backup local github to remote github host.
+2010-01-04 22:01:35,751 INFO Command: 
+git add .
+running result is :
+2010-01-04 22:01:37,224 INFO Command: 
+git commit -m 'Update time:2010-01-04T22:01:35.229817'
+running result is :Created commit ba80ed1: Update time:2010-01-04T22:01:35.229817
+ 18 files changed, 762 insertions(+), 30 deletions(-)
+ create mode 100644 develop/Karrigell/cms/register/tmp/42cee7d806.jpeg
+ create mode 100644 develop/Karrigell/data/cms/logs_2010010413.log
+ create mode 100644 develop/Karrigell/data/cms/logs_2010010419.log
+ create mode 100644 develop/Karrigell/muireception/register/tmp/0110b8b315.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/41e6fd9465.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/6a80c97238.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/baefc2a5a5.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/e0ca34176e.jpeg
+2010-01-04 22:01:45,233 INFO Command: 
+git push origin master
+running result is :Counting objects: 52, done.
+Compressing objects:   3% (1/30)   Compressing objects:   6% (2/30)   Compressing objects:  10% (3/30)   Compressing objects:  13% (4/30)   Compressing objects:  16% (5/30)   Compressing objects:  20% (6/30)   Compressing objects:  23% (7/30)   Compressing objects:  26% (8/30)   Compressing objects:  30% (9/30)   Compressing objects:  33% (10/30)   Compressing objects:  36% (11/30)   Compressing objects:  40% (12/30)   Compressing objects:  43% (13/30)   Compressing objects:  46% (14/30)   Compressing objects:  50% (15/30)   Compressing objects:  53% (16/30)   Compressing objects:  56% (17/30)   Compressing objects:  60% (18/30)   Compressing objects:  63% (19/30)   Compressing objects:  66% (20/30)   Compressing objects:  70% (21/30)   Compressing objects:  73% (22/30)   Compressing objects:  76% (23/30)   Compressing objects:  80% (24/30)   Compressing objects:  83% (25/30)   Compressing objects:  86% (26/30)   Compressing objects:  90% (27/30)   Compressing objects:  93% (28/30)   Compressing objects:  96% (29/30)   Compressing objects: 100% (30/30)   Compressing objects: 100% (30/30), done.
+Writing objects:   3% (1/31)   Writing objects:   6% (2/31)   Writing objects:   9% (3/31)   Writing objects:  12% (4/31)   Writing objects:  16% (5/31)   Writing objects:  19% (6/31)   Writing objects:  22% (7/31)   Writing objects:  25% (8/31)   Writing objects:  29% (9/31)   Writing objects:  32% (10/31)   Writing objects:  35% (11/31)   Writing objects:  38% (12/31)   Writing objects:  41% (13/31)   Writing objects:  45% (14/31)   Writing objects:  48% (15/31)   Writing objects:  51% (16/31)   Writing objects:  54% (17/31)   Writing objects:  61% (19/31)   Writing objects:  64% (20/31)   Writing objects:  67% (21/31)   Writing objects:  74% (23/31)   Writing objects:  77% (24/31)   Writing objects:  80% (25/31)   Writing objects:  83% (26/31)   Writing objects:  87% (27/31)   Writing objects:  90% (28/31)   Writing objects:  93% (29/31)   Writing objects:  96% (30/31)   Writing objects: 100% (31/31)   Writing objects: 100% (31/31), 19.20 KiB, done.
+Total 31 (delta 19), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   0de3861..ba80ed1  master -> master
+2010-01-04 22:01:45,234 INFO End backup local github to remote github host.
+2010-01-05 11:31:20,157 INFO Delete nousing captcha images
+2010-01-05 11:31:20,183 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-01-05 11:31:20,183 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-01-05 11:31:22,802 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files... 800 files... 900 files... 1000 files... 1100 files... 1200 files... 1300 files... 1400 files... 1500 files... 1600 files... 1700 files... 1800 files... 1900 files... 2000 files... 2100 files... 2200 files... 2300 files... 2400 files... 2500 files... 2600 files... 2700 files... 2800 files... 2900 files... 3000 files... 3100 files... 3200 files... 3300 files... 3400 files... 3500 files... 3600 files... 3700 files... 3800 files... 3900 files... 4000 files... 4100 files... 4200 files... 4300 files... 4400 files... 4500 files... 4600 files... 4700 files... 4800 files... 4900 files... 5000 files... 5100 files... 5200 files... 5300 files... 5400 files... 5500 files... 5600 files... 5700 files... 5800 files... 5900 files... 6000 files... 6100 files... 6200 files...6262 files to consider
+data/cms/
+data/cms/logs_2010010509.log
+          92 100%    0.00kB/s    0:00:00          92 100%    0.00kB/s    0:00:00 (xfer#1, to-check=3795/6262)
+muireception/
+muireception/menu.ks
+        3450 100%    3.29MB/s    0:00:00        3450 100%    3.29MB/s    0:00:00 (xfer#2, to-check=2177/6262)
+muireception/menu.ks~
+        3424 100%    3.27MB/s    0:00:00        3424 100%    3.27MB/s    0:00:00 (xfer#3, to-check=2176/6262)
+muireception/js/init.js.pih
+        3759 100%    3.58MB/s    0:00:00        3759 100%    3.58MB/s    0:00:00 (xfer#4, to-check=2006/6262)
+muireception/js/init.js.pih~
+        3744 100%    3.57MB/s    0:00:00        3744 100%    3.57MB/s    0:00:00 (xfer#5, to-check=2005/6262)
+muireception/register/tmp/
+muireception/register/tmp/00778133b7.jpeg
+        1793 100%    1.71MB/s    0:00:00        1793 100%    1.71MB/s    0:00:00 (xfer#6, to-check=1005/6262)
+muireception/register/tmp/2a3e20d83e.jpeg
+        1693 100%    1.61MB/s    0:00:00        1693 100%    1.61MB/s    0:00:00 (xfer#7, to-check=975/6262)
+muireception/register/tmp/32a3c39945.jpeg
+        1758 100%  122.63kB/s    0:00:00        1758 100%  122.63kB/s    0:00:00 (xfer#8, to-check=966/6262)
+muireception/register/tmp/4448d5bf02.jpeg
+        1601 100%  111.68kB/s    0:00:00        1601 100%  111.68kB/s    0:00:00 (xfer#9, to-check=955/6262)
+muireception/register/tmp/48f2ac92e1.jpeg
+        1671 100%  108.79kB/s    0:00:00        1671 100%  108.79kB/s    0:00:00 (xfer#10, to-check=947/6262)
+muireception/register/tmp/62fff5713f.jpeg
+        1598 100%  104.04kB/s    0:00:00        1598 100%  104.04kB/s    0:00:00 (xfer#11, to-check=927/6262)
+muireception/register/tmp/6546ebb920.jpeg
+        1674 100%  108.98kB/s    0:00:00        1674 100%  108.98kB/s    0:00:00 (xfer#12, to-check=926/6262)
+muireception/register/tmp/72be880cb8.jpeg
+        1774 100%  115.49kB/s    0:00:00        1774 100%  115.49kB/s    0:00:00 (xfer#13, to-check=912/6262)
+muireception/register/tmp/87bafa0025.jpeg
+        1683 100%  102.72kB/s    0:00:00        1683 100%  102.72kB/s    0:00:00 (xfer#14, to-check=895/6262)
+muireception/register/tmp/cc3be2a166.jpeg
+        1481 100%   90.39kB/s    0:00:00        1481 100%   90.39kB/s    0:00:00 (xfer#15, to-check=848/6262)
+muireception/register/tmp/fee05ad4a3.jpeg
+        1731 100%  105.65kB/s    0:00:00        1731 100%  105.65kB/s    0:00:00 (xfer#16, to-check=814/6262)
+
+sent 155968 bytes  received 390 bytes  62543.20 bytes/sec
+total size is 45110699  speedup is 288.51
+2010-01-05 11:31:22,863 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :building file list ... 
+ 0 files...2 files to consider
+
+sent 102 bytes  received 20 bytes  244.00 bytes/sec
+total size is 146972  speedup is 1204.69
+2010-01-05 11:31:22,863 INFO End backup loacl karrigell diretory to local git.
+2010-01-05 11:31:22,863 INFO Begin to backup local github to remote github host.
