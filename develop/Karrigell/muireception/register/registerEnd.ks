@@ -114,11 +114,8 @@ def index(**args):
    	// load the script which will set the user's menus
    	am.import({'url':jsUrl,'app':appName,'type':'js'});
    	
-   	// close register dialog
-   	var keys = MUI.Windows.instances.getKeys();
-   	if (keys.length > 0){
-   		MUI.closeWindow($(keys[0]));
-   	}; 
+   	// close register dialog, this function has been defined in init.js
+   	MUI.closeModalDialog();
    	
    	am.remove(appName,'app');
    	$(loginPanel).setProperty('html',welcomeInfo);

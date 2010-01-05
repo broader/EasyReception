@@ -15,8 +15,20 @@ INITIALIZE THE TWO MENU 'Login' AND 'Register'
 	 
 -------------------------------------------------------------------- */
 
-// add a inner object to MUI for managing mootools.Assets importing action 
-MUI.extend({ assetsManager: new AssetsManager()});
+// Add some assistant tools to MUI
+MUI.extend({
+	// add a inner object to MUI for managing mootools.Assets importing action 
+	assetsManager: new AssetsManager(),
+	// a plugin to close single popup dialog window, such as login or register dialog 
+	closeModalDialog: function(){
+		var keys = MUI.Windows.instances.getKeys();
+   	if (keys.length > 0){
+   		MUI.closeWindow($(keys[0]));
+   	}; 
+   	return true
+	}
+	
+});
 
 
 <%
@@ -46,8 +58,8 @@ var loginFns = {
 			contentURL: "<%='menu.ks/page_loginForm'%>",
 			//type: 'modal2',
 			modalOverlayClose: false,
-			width: 300,
-			height: 250,
+			width: 400,
+			height: 300,
 			//padding: { top: 10, right: 12, bottom: 10, left: 12 },
 			scrollbars: true,			
 			onClose: function(e){}			

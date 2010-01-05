@@ -95,7 +95,7 @@ def index(**args):
 	print DIV(Sum(main), **{'class':'subcolumns', 'style':'background:white;'})
 	
 	paras = [bnId, APP, '/'.join(('js','menuInit.js.pih'))]
-	info = ''.join((_('Welcome, '), account['username']))
+	info = ''.join((_('Welcome, '), account['username'], ' !'))
 	info = H2(info,style='font-size:20px;color:white;')
 	paras.extend([info, pagefn.LOGINPANEL])
 	paras = tuple(paras)
@@ -114,11 +114,15 @@ def index(**args):
    	// load the script which will set the user's menus
    	am.import({'url':jsUrl,'app':appName,'type':'js'});
    	
+   	
    	// close register dialog
+   	MUI.closeModalDialog();
+   	/*
    	var keys = MUI.Windows.instances.getKeys();
    	if (keys.length > 0){
    		MUI.closeWindow($(keys[0]));
    	}; 
+   	*/
    	
    	am.remove(appName,'app');
    	$(loginPanel).setProperty('html',welcomeInfo);
