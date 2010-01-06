@@ -389,7 +389,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1262052577007" POSITION="left" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1262749261743" POSITION="left" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -940,7 +940,7 @@
 <node COLOR="#00b439" CREATED="1173066298350" ID="Freemind_Link_1468412211" MODIFIED="1262613463591" TEXT="UI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261723589326" FOLDED="true" ID="ID_80373969" MODIFIED="1262613496666" TEXT="Preference">
+<node COLOR="#990000" CREATED="1261723589326" FOLDED="true" ID="ID_80373969" MODIFIED="1262749242175" TEXT="Preference">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1176041576720" FOLDED="true" ID="Freemind_Link_940755797" MODIFIED="1262613476161" TEXT="Application">
 <edge STYLE="bezier" WIDTH="thin"/>
@@ -1325,7 +1325,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1261723645352" ID="ID_454191510" MODIFIED="1262613495071" TEXT="Examples">
+<node COLOR="#990000" CREATED="1261723645352" FOLDED="true" ID="ID_454191510" MODIFIED="1262749244607" TEXT="Examples">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1261017335455" FOLDED="true" ID="ID_1512844932" MODIFIED="1261723671551" TEXT="issue tracker">
 <edge STYLE="bezier" WIDTH="thin"/>
@@ -1382,9 +1382,10 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1261116666825" ID="ID_1018641055" MODIFIED="1262613510632" TEXT="desktop">
+<node COLOR="#111111" CREATED="1261116666825" ID="ID_1018641055" MODIFIED="1262749227705" TEXT="desktop">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="12"/>
+<icon BUILTIN="messagebox_warning"/>
 <node COLOR="#111111" CREATED="1261116670685" ID="ID_1673407314" MODIFIED="1261723671561" TEXT="http://pulseapp.com/tour">
 <font NAME="SansSerif" SIZE="12"/>
 </node>

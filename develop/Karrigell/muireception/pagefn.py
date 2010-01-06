@@ -10,7 +10,9 @@ getApp = lambda p,i : p.split('/')[i]
 ##
 # some global variables for /lib/formcheck/js/formcheck.js lib
 #--------------------------------------------------------------------------------------
-FORMERRCLASS='fc-tbx'
+FORMERRCLASS = 'fc-tbx'
+ACCOUNTERR = _('This account has been used, please input other name.')
+PWDERR = _('The input password is wrong, please input the valid password!') 
 #--------------------------------------------------------------------------------------
 
  

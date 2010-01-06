@@ -464,7 +464,7 @@ def permissionCheck(user, roles, path):
 def userCheck(name):
 	""" 
 	Give a user's ID by its name. 
-	This function is offten used in checking user's name.
+	This function is offten used in checking user name.
 	"""
 	
 	try:

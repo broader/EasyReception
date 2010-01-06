@@ -124,7 +124,8 @@ def index(**args):
 	 print DIV(form, **{'class':'subcolumns'})
     
     # javascript functions for this page 
-	 accountErr = _('This account has been used, please input other name.')    
+	 #accountErr = _('This account has been used, please input other name.')  
+	 accountErr = pagefn.ACCOUNTERR  
 	 cpatchaErr = _('Pleas input right info on the below image. If the image is difficult to identify, click it to change another image!')
 	 paras = [ APP, accountErr, CAPTCHACLASS,CAPTCHAKEY, cpatchaErr]
 	 paras.extend([ '/'.join((APPATH, name))for name in ( 'page_captchaValid', 'page_switchImg', 'page_accountValid' )])
@@ -152,15 +153,13 @@ def index(**args):
     [ hackCss, fcCss].each(function(src){
     	if(!$defined(am.imported[src])){
     		am.import({'url':src,'app':appName,'type':'css'});
-    	}
-    	//else{ alert(src + ' has been imported!');}
+    	}	
     });
     
     // import javascript file for validation
     if(!$defined(am.imported[fcI18nJs])){
     	am.import({'url':fcI18nJs,'app':appName,'type':'js'});
     }
-    //else{MUI.notification(fcI18nJs + ' has been imported!');}
     
     // Set a global variable 'formchk', 
     // which will be used as an instance of the validation Class-'FormCheck'.
@@ -209,7 +208,7 @@ def index(**args):
        
        accountRequest.get({'name':el.getProperty('value')});
        if(accountValidTag){
-          accountValidTag=false;   // reset global variable 'accountValid' to be 'false'
+          accountValidTag=false;   // reset global variable 'accountValidTag' to be 'false'
           return true
        }             
        return false;
@@ -248,7 +247,7 @@ def index(**args):
        }); 
        
        if(capthcaValidTag){
-          capthcaValidTag=false;   // reset global variable 'valid' to be 'false'
+          capthcaValidTag = false;   // reset global variable 'capthcaValidTag' to be 'false'
           return true
        }             
        return false;
@@ -349,24 +348,7 @@ def page_accountValid(**args):
 	 """ Check whether the input account name has been used."""
 	 username = args.get('name') or ''
 	 res = {'valid':0}
-	 
-	 try:
-	 	client = model.get_client()	 	
-	 except:
-	 	import sys
-	 	res['info'] = sys.exc_info()
-	 
-	 if not hasattr(client, 'db') or client.db_open == 0:
-		# now client has no 'db' attribute or the db has been closed, 
-		# so open the database as 'anonymous' user
-		client.opendb('anonymous')    
-    
-	 try:
-	 	# try to find the username in database
-	 	userId = client.db.user.lookup(username)
-	 except (KeyError, TypeError):
-		userId = None
-	 
+	 userId = model.userCheck(username)
 	 if not userId :
 	 	res['valid'] = 1
 		
