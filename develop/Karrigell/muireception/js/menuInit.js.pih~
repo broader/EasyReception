@@ -4,10 +4,15 @@ INITIALIZE THE USER'S MENUS
 
 <% 
 # PYTHON CODE SLICE
+from HTMLTags import H2
 
 # get meus stored in pagefn.py
 pagefn = Import('/'.join(('', 'pagefn.py')))
-usermenus = pagefn.USERMENUS
+#usermenus = pagefn.USERMENUS
+So = Session()
+username = getattr(so, pagefn.SOINFO['userinfo']).get('user')
+info = ''.join((_('Welcome, '), username, ' !'))
+info = H2(info,style='font-size:20px;color:white;')
 %>
 
 /*
@@ -16,14 +21,13 @@ usermenus = pagefn.USERMENUS
 function test(event){
 	new Event(event).stop();
 	//MUI.notification('Portal menu clicked!');
-	alert('menu clicked');
-	for ( i in window){
-		if ( window[i] instanceof MUI.Modal ){
-			alert(window[i]);
-		}					
-	};
+	alert('menu clicked');	
 };
 
+/*
+**	Initialize the top navigation info on the top right of the screen
+*/
+//$('<%=pagefn.LOGINPANEL %>').setProperty('html', '<%=info %>');
 
 /*
 **	Initialize menus

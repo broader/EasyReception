@@ -122,6 +122,10 @@ def _formJs():
 	
 	# append the action urls for fields' validation 
 	paras.append( '/'.join((APPATH, 'page_accountValid')))
+	
+	# append menus initialization js file
+	paras.append(pagefn.MENUINITJS)
+	
 	paras = tuple(paras)
 	script = \
 	"""
@@ -131,6 +135,9 @@ def _formJs():
 	var hackCss='%s', fcCss='%s',fcI18nJs='%s', fcJs='%s';
 	var appName='%s', accountErr='%s', pwdErr='%s', 
 	checkUrl='%s';
+	
+	// menu initialization js
+	var menuInit = '%s';
 	
 	// get the global Assets manager
 	var am = MUI.assetsManager;
@@ -157,8 +164,11 @@ def _formJs():
 			formchk = new FormCheck( loginForm,{
 				submit: false,
 				
-				onValidateSuccess: function(){
-					alert(this.form.isValid);
+				onValidateSuccess: function(){					
+					// load the script which will set the user's menus
+   				am.import({'url':menuInit,'app':appName,'type':'js'});
+   				am.remove(appName,'app');
+   				MUI.closeModalDialog();
 					return false
 				},
 				
@@ -178,8 +188,7 @@ def _formJs():
  	var accountRequest = new Request.JSON({async:false});
  
  	var accountValidTag = false;
- 	var accountCheck = function(el){
- 		alert('account check');
+ 	var accountCheck = function(el){ 		
    	el.errors.push(accountErr)
     	// set some options for Request.JSON instance
     	accountRequest.setOptions({
@@ -205,14 +214,13 @@ def _formJs():
  
  	var pwdValidTag = false;
  	function pwdCheck(el){
- 		alert('password check');
    	el.errors.push(pwdErr)
    	// get account input information
    	var input = $(loginForm).getElements('input')[0];
+		var actionUrl = checkUrl + '?'+[input.getProperty('name'), input.getProperty('value')].join('=');
     	// set some options for Request.JSON instance
     	pwdRequest.setOptions({
-      	url: checkUrl,
-      	data: [input.getProperty('name'), input.getProperty('value')].join('='),
+      	url: actionUrl,      	
        	onSuccess: function(res){
          	if(res.valid == 1){ pwdValidTag=true };
        	}
@@ -266,21 +274,36 @@ def _formJs():
 	return script
 
 def page_accountValid(**args):
+	"""
+	This action has two functions,
+	one is to check whether the input user name is existed;
+	second is to check whether the password is valid.
+	Because this action url could be called by two javascript function,
+	so according to the arguments to determine which function is needed. 
+	"""
 	res = {'valid':0}
 	# check validation type
 	fields = [field.get('name') for field in FORMFIELDS ]
 	keys = args.keys()
-	if set(fields) == set(keys):
-		# check whether the password is valid		
-		pass	
+	if len(keys) >= 2:
+		# check whether the password is valid	
+		account = [args.get(name) for name in ( fields[0], 'name')]
+		#username = args.get(fields[0])
+		#pwd = args.get('name')
+		#data = model.login(username, pwd)	
+		data = model.login(*tuple(account))
+		# There are three validation results,
+	   # (0, "Invalid password")
+	   # (1, "Valid user name and password")
+	   # (2, "Invalid user name")
+		if data[0] == 1:
+			res['valid'] = 1	
+			info = dict([(k,v) for k,v in zip(fields, acount)])			
+			setattr( SO, pagefn.SOINFO['userinfo'], info)
 	else:
 		# check whether the account is existed 
-		username = args.get(fields[0])
-		res['chkname'] = fields
-		userId = model.userCheck(username) 
-		if userId :
-			res['valid'] = 1
-		res['info'] = userId
+		if model.userCheck( args.get('name') ) :
+			res['valid'] = 1		
 
 	print JSON.encode(res)
 	return

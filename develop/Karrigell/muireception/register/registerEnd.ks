@@ -94,7 +94,7 @@ def index(**args):
 	main.append(DIV( span, **{'class':'subcolumns'}))
 	print DIV(Sum(main), **{'class':'subcolumns', 'style':'background:white;'})
 	
-	paras = [bnId, APP, '/'.join(('js','menuInit.js.pih'))]
+	paras = [bnId, APP, pagefn.MENUINITJS ]
 	info = ''.join((_('Welcome, '), account['username'], ' !'))
 	info = H2(info,style='font-size:20px;color:white;')
 	paras.extend([info, pagefn.LOGINPANEL])
