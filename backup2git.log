@@ -21715,3 +21715,22 @@ sent 102 bytes  received 20 bytes  244.00 bytes/sec
 total size is 147023  speedup is 1205.11
 2010-01-06 21:56:32,389 INFO End backup loacl karrigell diretory to local git.
 2010-01-06 21:56:32,389 INFO Begin to backup local github to remote github host.
+2010-01-06 21:56:32,827 INFO Command: 
+git add .
+running result is :
+2010-01-06 21:56:34,159 INFO Command: 
+git commit -m 'Update time:2010-01-06T21:56:32.389840'
+running result is :Created commit 673592a: Update time:2010-01-06T21:56:32.389840
+ 15 files changed, 359 insertions(+), 203 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010010619.log
+ rewrite develop/Karrigell/muireception/js/menuInit.js.pih (71%)
+ rewrite develop/Karrigell/muireception/js/menuInit.js.pih~ (71%)
+2010-01-06 21:56:41,122 INFO Command: 
+git push origin master
+running result is :Counting objects: 42, done.
+Compressing objects:   4% (1/22)   Compressing objects:   9% (2/22)   Compressing objects:  13% (3/22)   Compressing objects:  18% (4/22)   Compressing objects:  22% (5/22)   Compressing objects:  27% (6/22)   Compressing objects:  31% (7/22)   Compressing objects:  36% (8/22)   Compressing objects:  40% (9/22)   Compressing objects:  45% (10/22)   Compressing objects:  50% (11/22)   Compressing objects:  54% (12/22)   Compressing objects:  59% (13/22)   Compressing objects:  63% (14/22)   Compressing objects:  68% (15/22)   Compressing objects:  72% (16/22)   Compressing objects:  77% (17/22)   Compressing objects:  81% (18/22)   Compressing objects:  86% (19/22)   Compressing objects:  90% (20/22)   Compressing objects:  95% (21/22)   Compressing objects: 100% (22/22)   Compressing objects: 100% (22/22), done.
+Writing objects:   4% (1/22)   Writing objects:   9% (2/22)   Writing objects:  13% (3/22)   Writing objects:  18% (4/22)   Writing objects:  22% (5/22)   Writing objects:  27% (6/22)   Writing objects:  31% (7/22)   Writing objects:  36% (8/22)   Writing objects:  40% (9/22)   Writing objects:  45% (10/22)   Writing objects:  50% (11/22)   Writing objects:  54% (12/22)   Writing objects:  59% (13/22)   Writing objects:  63% (14/22)   Writing objects:  68% (15/22)   Writing objects:  72% (16/22)   Writing objects:  77% (17/22)   Writing objects:  81% (18/22)   Writing objects:  86% (19/22)   Writing objects:  90% (20/22)   Writing objects:  95% (21/22)   Writing objects: 100% (22/22)   Writing objects: 100% (22/22), 5.48 KiB, done.
+Total 22 (delta 17), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   fbd07f3..673592a  master -> master
+2010-01-06 21:56:41,122 INFO End backup local github to remote github host.
