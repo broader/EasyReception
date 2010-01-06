@@ -35,7 +35,7 @@ REGISTERTABS = \
 # Menu setup
 #---------------------------------------------------------------------------------------
 # js file for seting up the menu
-
+MENUINITJS = '/'.join(('js','menuInit.js.pih'))
 # login area on the top and right corner of the screen 
 LOGINPANEL = 'topNav'
 #---------------------------------------------------------------------------------------
@@ -51,7 +51,8 @@ USERMENUS = \
 	{ 'text':_("Travel Service"), 'function':'test'},\
 	{ 'text':_("Service"), 'function':'test'},\
 	{ 'text':_("Need Help"), 'function':'test'},\
-	{ 'text':_("Portfolio"), 'function':'test'}\          
+	{ 'text':_("Portfolio"), 'function':'test'},\
+	{ 'text':_("LogOut"), 'function':'test'}\          
 )
 
 MENUCONTAINER = 'desktopNavbar'

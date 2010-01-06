@@ -348,25 +348,6 @@ def page_accountValid(**args):
 	 """ Check whether the input account name has been used."""
 	 username = args.get('name') or ''
 	 res = {'valid':0}
-	 
-	 """
-	 try:
-	 	client = model.get_client()	 	
-	 except:
-	 	import sys
-	 	res['info'] = sys.exc_info()
-	 
-	 if not hasattr(client, 'db') or client.db_open == 0:
-		# now client has no 'db' attribute or the db has been closed, 
-		# so open the database as 'anonymous' user
-		client.opendb('anonymous')    
-    
-	 try:
-	 	# try to find the username in database
-	 	userId = client.db.user.lookup(username)
-	 except (KeyError, TypeError):
-		userId = None
-	 """
 	 userId = model.userCheck(username)
 	 if not userId :
 	 	res['valid'] = 1

@@ -4,16 +4,44 @@ INITIALIZE THE USER'S MENUS
 
 <% 
 # PYTHON CODE SLICE
-from HTMLTags import H2
-
 # get meus stored in pagefn.py
 pagefn = Import('/'.join(('', 'pagefn.py')))
-#usermenus = pagefn.USERMENUS
-So = Session()
-username = getattr(so, pagefn.SOINFO['userinfo']).get('user') or ''
-info = ''.join((_('Welcome, '), username, ' !'))
-info = H2(info,style='font-size:20px;color:white;')
 %>
+
+
+/*
+Initialize the top navigation info on the top right of the screen, 
+then switch the menu according user's login status.
+*/
+function topNavSwitch(login){
+	var topNav = $('<%=pagefn.LOGINPANEL %>')
+	var children = topNav.getChildren();
+	var url = '<%="menu.ks/page_welcomeInfo"%>';
+	
+	switch(login){
+		case true:			
+			if(children.length < 2){
+				var span = new Element('span');
+				span.load(url);			
+				topNav.grab(span);
+				topNav.getElements('ul')[0].setProperty('style','display:none;');
+			}
+			else{
+				children[0].setProperty('style','display:none;');
+				children[1].load(url).setProperty('style','display:block;');
+			}
+			break
+		case false:
+			children[0].setProperty('style','display:block;');
+			children[1].setProperties({
+				'html': '',
+				'style': 'display:none;'
+			});
+			break
+	}
+	
+};
+
 
 /*
 **	Portal menu click function
@@ -25,41 +53,55 @@ function test(event){
 };
 
 /*
-**	Initialize the top navigation info on the top right of the screen
+**
 */
-//$('<%=pagefn.LOGINPANEL %>').setProperty('html', '<%=info %>');
+function logout(event){
+	new Event(event).stop();
+	MUI.notification('Really log out?');
+	// remove menus in menu bar
+	// reset the top navigation info
+	topNavSwitch(false);
+};
+
 
 /*
 **	Initialize menus
 */
-var ul = new Element('ul');
-var menus = [];
-
-<% for menu in pagefn.USERMENUS: %>
-	menus.push( 
-		{ 'text':"<%=menu['text']%>",
-		  'function':<%=menu['function']%>
-		}
-	);
-<% end %>
-
-menus.each(function(menu){
-	li = new Element('li');	
+function menuInit(){
+	var ul = new Element('ul');
+	var menus = [];
 	
-	a = new Element('a',{
-		'html': menu['text'],
-	 	'class':'returnFalse',
-	 	'style':'text-decoration:none;',
-	 	'href': '',
-		'events': {
-			'click': menu['function']
-		}
+	<% for menu in pagefn.USERMENUS: %>
+		menus.push({ 
+			'text':"<%=menu['text']%>",
+			'function':<%=menu['function']%>
+		});
+	<% end %>
+
+	menus.each(function(menu){
+		li = new Element('li');	
+		
+		a = new Element('a',{
+			'html': menu['text'],
+		 	'class':'returnFalse',
+		 	'style':'text-decoration:none;',
+		 	'href': '',
+			'events': {
+				'click': menu['function']
+			}
+		});
+		a.inject(li);		
+		li.inject(ul);		
 	});
-	a.inject(li);
 	
-	li.inject(ul);
-	
-});
+	$('<%=pagefn.MENUCONTAINER%>').grab(ul,'top');
 
-$('<%=pagefn.MENUCONTAINER%>').grab(ul,'top');
+};
+
+var menuChain = new Chain();
+menuChain.chain(
+	topNavSwitch(true),
+	menuInit()
+).callChain();
+
 

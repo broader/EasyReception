@@ -19,7 +19,7 @@ modules = {'pagefn' : 'pagefn.py', 'form':'form.py'}
 # ********************************************************************************************
 
 # the session object for this page
-SO = Session()
+so = Session()
 
 # config data object
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
@@ -55,7 +55,7 @@ def index(**args):
 					  style='text-align: center; font-size: 1.2em;font-weight:bold;'))
 	
 	try:
-		account = getattr(SO,pagefn.SOINFO['userinfo'])
+		account = getattr(so,pagefn.SOINFO['userinfo'])
 	except:
 		account = {}
 		  
@@ -64,7 +64,6 @@ def index(**args):
 	for field in fieldvalues :
 		value = {}
 		[ value.update({prop:field.get(prop)}) for prop in ('prompt','type')]		
-		#value['value'] = getattr(SO, field.get('name'), '')
 		value['value'] = account.get(field.get('name'))
 		values.append(value)
 		
@@ -118,7 +117,6 @@ def index(**args):
    	MUI.closeModalDialog();
    	
    	am.remove(appName,'app');
-   	$(loginPanel).setProperty('html',welcomeInfo);
 	});
 	"""%paras
 	print pagefn.script(js, link=False)

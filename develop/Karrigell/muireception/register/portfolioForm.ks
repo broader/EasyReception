@@ -18,7 +18,7 @@ modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'formFn':'form.py'}
 # ********************************************************************************************
 
 # the session object for this page
-SO = Session()
+so = Session()
 
 # config data object
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
@@ -41,7 +41,7 @@ FORMBNS = 'baseInfoBns'
 
 def index(**args):	
 	render = CONFIG.getData(BASEINFOFIELDS)		
-	rember = dict([ (field.get('name'), getattr(SO, field.get('name'), None))  for field in render ])
+	rember = dict([ (field.get('name'), getattr(so, field.get('name'), None))  for field in render ])
 	
 	# Add other properties for each field, these properties are 'id','required','oldvalue'
 	for element in render :
@@ -155,7 +155,7 @@ def page_accountRegister(**args):
 	return 
 	
 	try:
-		account = getattr(SO,pagefn.SOINFO['userinfo'])
+		account = getattr(so,pagefn.SOINFO['userinfo'])
 	except:
 		account = {}
 		
@@ -188,7 +188,8 @@ def page_accountRegister(**args):
 		res = model.edit_user_info( user, user, 'create', info, filename, client)
 		if res:
 			account.update(info)
-			setattr( SO, pagefn.SOINFO['userinfo'], account)
+			account.pop('pwd')
+			setattr( so, pagefn.SOINFO['userinfo'], account)
 	else:
 		isSuccess = '0'	
 	

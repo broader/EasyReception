@@ -77,8 +77,11 @@ var loginFns = {
 			width: 400,
 			height: 300,
 			//padding: { top: 10, right: 12, bottom: 10, left: 12 },
-			scrollbars: true,			
-			onClose: function(e){}			
+			scrollbars: true,
+						
+			onClose: function(e){
+				MUI.removeErr();
+			}			
 		});
 		return false;
 	},

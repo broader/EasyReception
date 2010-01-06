@@ -22,7 +22,7 @@ Captcha = Import('./Captcha.py', relpath=THIS.baseurl, RELDIR=REL())
 APP = pagefn.getApp(THIS.baseurl,1)
 
 # the session object for this page
-SO = Session()
+so = Session()
 
 # config data object
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
@@ -78,7 +78,7 @@ def index(**args):
     
     # get the old input values
 	 values = [d.get('name') for d in (username, usermail)]
-	 rember = dict([ (name, getattr(SO, name, None))  for name in values ])
+	 rember = dict([ (name, getattr(so, name, None))  for name in values ])
 	 
     # Add other properties for each field, these properties are 'id','required','oldvalue'
 	 for field in fields :
@@ -304,10 +304,10 @@ def page_valid(**args):
 	 names = [item.get('name') for item in CONFIG.getData(ACCOUNTFIELDS) ]
 	 account = {}
 	 [ account.update({ name:args.get(name) or '' }) for name in names ]
-	 setattr( SO, pagefn.SOINFO['userinfo'], account )
+	 setattr( so, pagefn.SOINFO['userinfo'], account )
 	 
 	 #for k,v in args.items():
-	 #	setattr( SO, k, v)
+	 #	setattr( so, k, v)
 	 
 	 #print JSON.encode({'type':1, 'session': args})
 	 	 

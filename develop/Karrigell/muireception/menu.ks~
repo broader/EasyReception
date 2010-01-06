@@ -21,7 +21,7 @@ VERSION = Import('/'.join((RELPATH, 'version.py')))
 #APP = pagefn.getApp(THIS.baseurl,1)
 
 # the session object for this page
-SO = Session()
+so = Session()
 
 # config data object
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
@@ -165,11 +165,11 @@ def _formJs():
 				submit: false,
 				
 				onValidateSuccess: function(){					
-					// load the script which will set the user's menus
+					// load the script which will set the user's menus					
    				am.import({'url':menuInit,'app':appName,'type':'js'});
    				am.remove(appName,'app');
    				MUI.closeModalDialog();
-					return false
+   				return false
 				},
 				
 				display:{
@@ -287,19 +287,16 @@ def page_accountValid(**args):
 	keys = args.keys()
 	if len(keys) >= 2:
 		# check whether the password is valid	
-		account = [args.get(name) for name in ( fields[0], 'name')]
-		#username = args.get(fields[0])
-		#pwd = args.get('name')
-		#data = model.login(username, pwd)	
-		data = model.login(*tuple(account))
+		account = [args.get(name) for name in ( fields[0], 'name')]	
+		data = model.login(*account)
+		
 		# There are three validation results,
 	   # (0, "Invalid password")
 	   # (1, "Valid user name and password")
 	   # (2, "Invalid user name")
 		if data[0] == 1:
-			res['valid'] = 1	
-			info = dict([(k,v) for k,v in zip(fields, acount)])			
-			setattr( SO, pagefn.SOINFO['userinfo'], info)
+			res['valid'] = 1			
+			setattr( so, pagefn.SOINFO['userinfo'], {fields[0]:account[0]})
 	else:
 		# check whether the account is existed 
 		if model.userCheck( args.get('name') ) :
@@ -307,5 +304,17 @@ def page_accountValid(**args):
 
 	print JSON.encode(res)
 	return
+
+def page_welcomeInfo(**args):
+	""" 
+	Return the welcome information, 
+	which will be shown on the top right of the screen.
+	"""
+	username = getattr(so, pagefn.SOINFO['userinfo']).get('user') or ''
 	
+	# set the welcome information which will be shown on the top right of the screen
+	welcomeInfo = ''.join((_('Welcome, '), username, ' !'))
+	welcomeInfo = H2(welcomeInfo, style='font-size:20px;color:white;')
+	print JSON.encode(str(welcomeInfo))
+	return
 	

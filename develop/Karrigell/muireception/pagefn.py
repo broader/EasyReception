@@ -51,7 +51,8 @@ USERMENUS = \
 	{ 'text':_("Travel Service"), 'function':'test'},\
 	{ 'text':_("Service"), 'function':'test'},\
 	{ 'text':_("Need Help"), 'function':'test'},\
-	{ 'text':_("Portfolio"), 'function':'test'}\          
+	{ 'text':_("Portfolio"), 'function':'test'},\
+	{ 'text':_("LogOut"), 'function':'logout'}\          
 )
 
 MENUCONTAINER = 'desktopNavbar'
