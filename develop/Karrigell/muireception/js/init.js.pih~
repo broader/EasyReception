@@ -19,13 +19,29 @@ INITIALIZE THE TWO MENU 'Login' AND 'Register'
 MUI.extend({
 	// add a inner object to MUI for managing mootools.Assets importing action 
 	assetsManager: new AssetsManager(),
+	
 	// a plugin to close single popup dialog window, such as login or register dialog 
-	closeModal: function(){
+	closeModalDialog: function(){
+		// Remove form validation error informations that may be left.
+		MUI.removeErr();
+		
+		// close modal dialog
 		var keys = MUI.Windows.instances.getKeys();
    	if (keys.length > 0){
    		MUI.closeWindow($(keys[0]));
    	}; 
    	return true
+	},
+	
+	// a function to remove error prompts for FormCheck lib
+	removeErr: function(){
+		// If there are left error information DIV elements created by 
+		// FormCheck object, remove them.				
+		for ( i in window){
+			if ( window[i] instanceof FormCheck ){
+				window[i].removeErrors();
+			}					
+		};		
 	}
 	
 });
@@ -110,15 +126,10 @@ var loginFns = {
 				$(tabsId).getElements('li')[0].fireEvent('click');							
 			},
 			
-			onClose: function(e){					
-				// If there are left error information DIV elements created by 
-				// FormCheck object, remove them.				
-				for ( i in window){
-					if ( window[i] instanceof FormCheck ){
-						window[i].removeErrors();
-					}					
-				};
-				
+			onClose: function(e){	
+				// remove validation errors' information	
+				MUI.removeErr();		
+					
 				// Remove all the imported Assets				
 				MUI.assetsManager.remove('<%=registerAppName %>','app');
 			}			

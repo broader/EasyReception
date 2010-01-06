@@ -30,8 +30,8 @@ LOGINFORM = 'loginForm'
 
 FORMFIELDS = \
 [\
-	{'name':'user','label':_('Login Name'),'class':'validate[required, ~accountCheck]'},\
-	{'name':'pwd','label':_('Password'),'class':'validate[required, ~pwdCheck]'}\
+	{'name':'user','label':_('Login Name'),'class':"validate['required','~accountCheck']"},\
+	{'name':'pwd','label':_('Password'),'class':"validate['required','~pwdCheck']"}\
 ]  
 
 DEMOSELECT = 'demoSelect'
@@ -92,7 +92,7 @@ def page_loginForm(**args):
 	bns = DIV(Sum(bns),**{'id':FORMBUTTONS,'style':'position:relative;float:right;'})
 	form = Sum([table, bns])
 	# render form		
-	print FORM(form,**{'id':LOGINFORM, 'class':'yform'})
+	print FORM(form,**{'id':LOGINFORM, 'class':'yform' })
 	print pagefn.script(_formJs(),link=False)
 	return
 		
@@ -125,104 +125,110 @@ def _formJs():
 	paras = tuple(paras)
 	script = \
 	"""
+	var loginForm='%s', select='%s',	bnsContainer='%s';
+		
+	// variables for formcheck js lib 
+	var hackCss='%s', fcCss='%s',fcI18nJs='%s', fcJs='%s';
+	var appName='%s', accountErr='%s', pwdErr='%s', 
+	checkUrl='%s';
+	
+	// get the global Assets manager
+	var am = MUI.assetsManager;
+    
+	// Add validation function to the form
+	// import css file for validation
+	[ hackCss, fcCss].each(function(src){
+		if(!$defined(am.imported[src])){
+			am.import({'url':src,'app':appName,'type':'css'});
+		}	
+	});
+		
+	// import js file for validation
+	am.import({'url':fcI18nJs,'app':appName,'type':'js'});
+	
+	// Set a global variable 'formchk', 
+ 	// which will be used as an instance of the validation Class-'FormCheck'.
+ 	var formchk;
+ 
+	// Load the form validation plugin script
+	var options = {
+		onload:function(){  
+			
+			formchk = new FormCheck( loginForm,{
+				submit: false,
+				
+				onValidateSuccess: function(){
+					alert(this.form.isValid);
+					return false
+				},
+				
+				display:{
+					errorsLocation : 1,
+					keepFocusOnError : 0, 
+					scrollToFirst : false
+				}
+			});// the end for 'formchk' define
+		}// the end for 'onload' define
+	};    
+	am.import({'url':fcJs,'app':appName,'type':'js'},options);		
+		
+		
+	/*** Check whether the input account is existed.************************************/    
+ 	// A Request.JSON class for send validation request to server side
+ 	var accountRequest = new Request.JSON({async:false});
+ 
+ 	var accountValidTag = false;
+ 	var accountCheck = function(el){
+ 		alert('account check');
+   	el.errors.push(accountErr)
+    	// set some options for Request.JSON instance
+    	accountRequest.setOptions({
+      	url: checkUrl,
+       	onSuccess: function(res){
+         	if(res.valid == 1){accountValidTag=true};
+       	}
+    	});
+    
+    	accountRequest.get({'name':el.getProperty('value')});
+    	if(accountValidTag){
+      	accountValidTag=false;   // reset global variable 'accountValid' to be 'false'
+       	return true
+    	}             
+    	return false;
+ 	};
+ 	/***********************************************************************************/
+    
+    
+ 	/*** Check whether the input password is valid************************************/    
+ 	// A Request.JSON class for send validation request to server side
+ 	var pwdRequest = new Request.JSON({async:false});
+ 
+ 	var pwdValidTag = false;
+ 	function pwdCheck(el){
+ 		alert('password check');
+   	el.errors.push(pwdErr)
+   	// get account input information
+   	var input = $(loginForm).getElements('input')[0];
+    	// set some options for Request.JSON instance
+    	pwdRequest.setOptions({
+      	url: checkUrl,
+      	data: [input.getProperty('name'), input.getProperty('value')].join('='),
+       	onSuccess: function(res){
+         	if(res.valid == 1){ pwdValidTag=true };
+       	}
+    	});
+    
+    	pwdRequest.get({'name':el.getProperty('value')});
+    	if(pwdValidTag){
+      	pwdValidTag=false;   // reset global variable 'pwdValidTag' to be 'false'
+       	return true
+    	}             
+    	return false;
+ 	};
+ 	/***********************************************************************************/
+   
+	
 	window.addEvent('domready', function() {
-		var loginForm='%s', select='%s',	bnsContainer='%s';
-		
-		// variables for formcheck js lib 
-		var hackCss='%s', fcCss='%s',fcLangJs='%s', fcJs='%s';
-		var appName='%s', accountErr='%s', pwdErr='%s', 
-		checkUrl='%s';
-		
-		// get the global Assets manager
-		var am = MUI.assetsManager;
-	    
-		// Add validation function to the form
-		// import css file for validation
-		[ hackCss, fcCss].each(function(src){
-			if(!$defined(am.imported[src])){
-				am.import({'url':src,'app':appName,'type':'css'});
-			}	
-		});
-		
-		// import js file for validation
-		am.import({'url':fcI18nJs,'app':appName,'type':'js'});
-		
-		// Set a global variable 'formchk', 
-    	// which will be used as an instance of the validation Class-'FormCheck'.
-    	var formchk;
-    
-		// Load the form validation plugin script
-		var options = {
-			onload:function(){    		
-				formchk = new FormCheck( loginForm,{
-					
-					onValidateSuccess: function(){
-						MUI.notification('Success');
-					},
-					
-					display:{
-						errorsLocation : 1,
-						keepFocusOnError : 0, 
-						scrollToFirst : false
-					}
-				});// the end for 'formchk' define
-			}// the end for 'onload' define
-		};    
-		am.import({'url':fcJs,'app':appName,'type':'js'},options);		
-		
-		
-		/*** Check whether the input account is existed.************************************/    
-    	// A Request.JSON class for send validation request to server side
-    	var accountRequest = new Request.JSON({async:false});
-    
-    	var accountValidTag = false;
-    	function accountCheck(el){
-      	el.errors.push(accountErr)
-       	// set some options for Request.JSON instance
-       	accountRequest.setOptions({
-         	url: checkUrl,
-          	onSuccess: function(res){
-            	if(res.valid == 1){accountValidTag=true};
-          	}
-       	});
-       
-       	accountRequest.get({'name':el.getProperty('value')});
-       	if(accountValidTag){
-         	accountValidTag=false;   // reset global variable 'accountValid' to be 'false'
-          	return true
-       	}             
-       	return false;
-    	};
-    	/***********************************************************************************/
-    
-    
-    	/*** Check whether the input password is valid************************************/    
-    	// A Request.JSON class for send validation request to server side
-    	var pwdRequest = new Request.JSON({async:false});
-    
-    	var pwdValidTag = false;
-    	function pwdCheck(el){
-      	el.errors.push(pwdErr)
-      	// get account input information
-      	var input = $(loginForm).getElements('input')[0];
-       	// set some options for Request.JSON instance
-       	pwdRequest.setOptions({
-         	url: checkUrl,
-         	data: [input.getProperty('name'), input.getProperty('value')].join('='),
-          	onSuccess: function(res){
-            	if(res.valid == 1){ pwdValidTag=true };
-          	}
-       	});
-       
-       	pwdRequest.get({'name':el.getProperty('value')});
-       	if(pwdValidTag){
-         	pwdValidTag=false;   // reset global variable 'pwdValidTag' to be 'false'
-          	return true
-       	}             
-       	return false;
-    	};
-    	/***********************************************************************************/
-    	
     	
 		// add callback function to select changing
 		$(select).addEvent('change',function(e){
@@ -244,8 +250,8 @@ def _formJs():
 		
 		// submit button
 		buttons[0].addEvent('click',function(e){
-			new Event(e).stop();
-			MUI.notification('ok');
+			//alert('china');
+			formchk.onSubmit(e);			
 		});
 		
 		// cancel button
@@ -269,9 +275,12 @@ def page_accountValid(**args):
 		pass	
 	else:
 		# check whether the account is existed 
-		username = args.get(fields[0])
-		if model.userCheck(username) :
+		username = args.get('name')
+		res['chkname'] = fields
+		userId = model.userCheck(username) 
+		if userId :
 			res['valid'] = 1
+		res['info'] = userId
 
 	print JSON.encode(res)
 	return

@@ -21290,3 +21290,283 @@ sent 35394 bytes  received 42 bytes  70872.00 bytes/sec
 total size is 147023  speedup is 4.15
 2010-01-06 12:03:33,838 INFO End backup loacl karrigell diretory to local git.
 2010-01-06 12:03:33,844 INFO Begin to backup local github to remote github host.
+2010-01-06 12:03:34,315 INFO Command: 
+git add .
+running result is :
+2010-01-06 12:03:35,752 INFO Command: 
+git commit -m 'Update time:2010-01-06T12:03:33.844349'
+running result is :Created commit 1dfa2a4: Update time:2010-01-06T12:03:33.844349
+ 16 files changed, 1014 insertions(+), 52 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010010520.log
+ create mode 100644 develop/Karrigell/data/cms/logs_2010010609.log
+ create mode 100644 develop/Karrigell/muireception/model.py~
+ create mode 100644 develop/Karrigell/muireception/register/tmp/4f1ab67977.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/7ae0d33b3c.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/996c94b56f.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/d4c0f5a2e6.jpeg
+2010-01-06 12:03:42,610 INFO Command: 
+git push origin master
+running result is :Counting objects: 44, done.
+Compressing objects:   4% (1/25)   Compressing objects:   8% (2/25)   Compressing objects:  12% (3/25)   Compressing objects:  16% (4/25)   Compressing objects:  20% (5/25)   Compressing objects:  24% (6/25)   Compressing objects:  28% (7/25)   Compressing objects:  32% (8/25)   Compressing objects:  36% (9/25)   Compressing objects:  40% (10/25)   Compressing objects:  44% (11/25)   Compressing objects:  48% (12/25)   Compressing objects:  52% (13/25)   Compressing objects:  56% (14/25)   Compressing objects:  60% (15/25)   Compressing objects:  64% (16/25)   Compressing objects:  68% (17/25)   Compressing objects:  72% (18/25)   Compressing objects:  76% (19/25)   Compressing objects:  80% (20/25)   Compressing objects:  84% (21/25)   Compressing objects:  88% (22/25)   Compressing objects:  92% (23/25)   Compressing objects:  96% (24/25)   Compressing objects: 100% (25/25)   Compressing objects: 100% (25/25), done.
+Writing objects:   3% (1/26)   Writing objects:   7% (2/26)   Writing objects:  11% (3/26)   Writing objects:  15% (4/26)   Writing objects:  19% (5/26)   Writing objects:  23% (6/26)   Writing objects:  26% (7/26)   Writing objects:  30% (8/26)   Writing objects:  34% (9/26)   Writing objects:  38% (10/26)   Writing objects:  46% (12/26)   Writing objects:  53% (14/26)   Writing objects:  57% (15/26)   Writing objects:  61% (16/26)   Writing objects:  65% (17/26)   Writing objects:  69% (18/26)   Writing objects:  73% (19/26)   Writing objects:  76% (20/26)   Writing objects:  80% (21/26)   Writing objects:  84% (22/26)   Writing objects:  88% (23/26)   Writing objects:  92% (24/26)   Writing objects:  96% (25/26)   Writing objects: 100% (26/26)   Writing objects: 100% (26/26), 16.23 KiB, done.
+Total 26 (delta 16), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   89e4bfc..1dfa2a4  master -> master
+2010-01-06 12:03:42,610 INFO End backup local github to remote github host.
+2010-01-06 15:52:02,107 INFO Delete nousing captcha images
+2010-01-06 15:52:02,133 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-01-06 15:52:02,133 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-01-06 15:52:05,628 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files... 800 files... 900 files... 1000 files... 1100 files... 1200 files... 1300 files... 1400 files... 1500 files... 1600 files... 1700 files... 1800 files... 1900 files... 2000 files... 2100 files... 2200 files... 2300 files... 2400 files... 2500 files... 2600 files... 2700 files... 2800 files... 2900 files... 3000 files... 3100 files... 3200 files... 3300 files... 3400 files... 3500 files... 3600 files... 3700 files... 3800 files... 3900 files... 4000 files... 4100 files... 4200 files... 4300 files... 4400 files... 4500 files... 4600 files... 4700 files... 4800 files... 4900 files... 5000 files... 5100 files... 5200 files... 5300 files... 5400 files... 5500 files... 5600 files... 5700 files... 5800 files... 5900 files... 6000 files...6081 files to consider
+deleting muireception/register/tmp/ffa0f691bc.jpeg
+deleting muireception/register/tmp/ff9de0f458.jpeg
+deleting muireception/register/tmp/ff75431f82.jpeg
+deleting muireception/register/tmp/fee05ad4a3.jpeg
+deleting muireception/register/tmp/fb90a3bb68.jpeg
+deleting muireception/register/tmp/fb88f5f8d1.jpeg
+deleting muireception/register/tmp/fb2610c85a.jpeg
+deleting muireception/register/tmp/f84001fe27.jpeg
+deleting muireception/register/tmp/f5db037e68.jpeg
+deleting muireception/register/tmp/f1f7ae168d.jpeg
+deleting muireception/register/tmp/f1423a8139.jpeg
+deleting muireception/register/tmp/ec56d2a67e.jpeg
+deleting muireception/register/tmp/ec555737c3.jpeg
+deleting muireception/register/tmp/ec2d42c19f.jpeg
+deleting muireception/register/tmp/eae0329bd9.jpeg
+deleting muireception/register/tmp/e8c814cc41.jpeg
+deleting muireception/register/tmp/e88d63d666.jpeg
+deleting muireception/register/tmp/e737c63063.jpeg
+deleting muireception/register/tmp/e71ffa902c.jpeg
+deleting muireception/register/tmp/e6e7f2b0dc.jpeg
+deleting muireception/register/tmp/e6c75eb7be.jpeg
+deleting muireception/register/tmp/e6616dc698.jpeg
+deleting muireception/register/tmp/e5c78f7982.jpeg
+deleting muireception/register/tmp/e59e6e2aa4.jpeg
+deleting muireception/register/tmp/e4d5f742dc.jpeg
+deleting muireception/register/tmp/e4d4369bc6.jpeg
+deleting muireception/register/tmp/e43454a1f4.jpeg
+deleting muireception/register/tmp/e3536a5ba4.jpeg
+deleting muireception/register/tmp/e0ca34176e.jpeg
+deleting muireception/register/tmp/e03980ab0e.jpeg
+deleting muireception/register/tmp/dd670dc924.jpeg
+deleting muireception/register/tmp/dccf504891.jpeg
+deleting muireception/register/tmp/db4ebfa428.jpeg
+deleting muireception/register/tmp/d9251610c4.jpeg
+deleting muireception/register/tmp/d7b392d91b.jpeg
+deleting muireception/register/tmp/d4c0f5a2e6.jpeg
+deleting muireception/register/tmp/d20280396d.jpeg
+deleting muireception/register/tmp/d186b7b5ef.jpeg
+deleting muireception/register/tmp/d0e4462962.jpeg
+deleting muireception/register/tmp/cc3be2a166.jpeg
+deleting muireception/register/tmp/cbfd2ba734.jpeg
+deleting muireception/register/tmp/cbfc69c211.jpeg
+deleting muireception/register/tmp/cbaa9b632f.jpeg
+deleting muireception/register/tmp/c7c0bcffeb.jpeg
+deleting muireception/register/tmp/c7998e5147.jpeg
+deleting muireception/register/tmp/c69093afd2.jpeg
+deleting muireception/register/tmp/c3ca7e2b01.jpeg
+deleting muireception/register/tmp/c21bccdeaa.jpeg
+deleting muireception/register/tmp/bf16d53569.jpeg
+deleting muireception/register/tmp/bf10d6a1f7.jpeg
+deleting muireception/register/tmp/bda7c0e036.jpeg
+deleting muireception/register/tmp/bd84cd6a45.jpeg
+deleting muireception/register/tmp/bca3163f69.jpeg
+deleting muireception/register/tmp/bc3e643a07.jpeg
+deleting muireception/register/tmp/bc1d7d6206.jpeg
+deleting muireception/register/tmp/baefc2a5a5.jpeg
+deleting muireception/register/tmp/b7229cb991.jpeg
+deleting muireception/register/tmp/b7085a1813.jpeg
+deleting muireception/register/tmp/b637a403a7.jpeg
+deleting muireception/register/tmp/b57f4ae93f.jpeg
+deleting muireception/register/tmp/b55ca3c980.jpeg
+deleting muireception/register/tmp/b555a5e8d3.jpeg
+deleting muireception/register/tmp/b32b7e1d61.jpeg
+deleting muireception/register/tmp/ae005573f8.jpeg
+deleting muireception/register/tmp/adde7cca1b.jpeg
+deleting muireception/register/tmp/ac371191f5.jpeg
+deleting muireception/register/tmp/a50cc54223.jpeg
+deleting muireception/register/tmp/a3b4e3cb96.jpeg
+deleting muireception/register/tmp/a23f081007.jpeg
+deleting muireception/register/tmp/a0efb33267.jpeg
+deleting muireception/register/tmp/9f79d18153.jpeg
+deleting muireception/register/tmp/9f4135ecb0.jpeg
+deleting muireception/register/tmp/9d972ff2ee.jpeg
+deleting muireception/register/tmp/9d524a8280.jpeg
+deleting muireception/register/tmp/9c7e816df5.jpeg
+deleting muireception/register/tmp/9c7cf75b7f.jpeg
+deleting muireception/register/tmp/9a8151cbff.jpeg
+deleting muireception/register/tmp/996c94b56f.jpeg
+deleting muireception/register/tmp/96c0018fd7.jpeg
+deleting muireception/register/tmp/961fb8f7c1.jpeg
+deleting muireception/register/tmp/9418c4d637.jpeg
+deleting muireception/register/tmp/92fc6a1e0a.jpeg
+deleting muireception/register/tmp/9281a7963d.jpeg
+deleting muireception/register/tmp/909f8f3758.jpeg
+deleting muireception/register/tmp/8d748e1d34.jpeg
+deleting muireception/register/tmp/8c925dd2a4.jpeg
+deleting muireception/register/tmp/8b1c2edbc0.jpeg
+deleting muireception/register/tmp/87bafa0025.jpeg
+deleting muireception/register/tmp/8712b2572d.jpeg
+deleting muireception/register/tmp/83eaf97cb9.jpeg
+deleting muireception/register/tmp/8084697cbb.jpeg
+deleting muireception/register/tmp/7fe439fc2c.jpeg
+deleting muireception/register/tmp/7ede46471a.jpeg
+deleting muireception/register/tmp/7ae0d33b3c.jpeg
+deleting muireception/register/tmp/7aaac19651.jpeg
+deleting muireception/register/tmp/7a8f858fe4.jpeg
+deleting muireception/register/tmp/788f894211.jpeg
+deleting muireception/register/tmp/77532f5a70.jpeg
+deleting muireception/register/tmp/74fe8db9eb.jpeg
+deleting muireception/register/tmp/74e1ce46d5.jpeg
+deleting muireception/register/tmp/74c6fc785c.jpeg
+deleting muireception/register/tmp/7476349a72.jpeg
+deleting muireception/register/tmp/74408d1bbb.jpeg
+deleting muireception/register/tmp/739b9119dc.jpeg
+deleting muireception/register/tmp/72d3b10972.jpeg
+deleting muireception/register/tmp/72be880cb8.jpeg
+deleting muireception/register/tmp/72b701da4f.jpeg
+deleting muireception/register/tmp/713ca6a367.jpeg
+deleting muireception/register/tmp/711475eafa.jpeg
+deleting muireception/register/tmp/70aa13419f.jpeg
+deleting muireception/register/tmp/70897117af.jpeg
+deleting muireception/register/tmp/6f78521cdd.jpeg
+deleting muireception/register/tmp/6ee6952e7c.jpeg
+deleting muireception/register/tmp/6defb53c23.jpeg
+deleting muireception/register/tmp/6bd5e3b75f.jpeg
+deleting muireception/register/tmp/6b3042764b.jpeg
+deleting muireception/register/tmp/6a80c97238.jpeg
+deleting muireception/register/tmp/6a698a74db.jpeg
+deleting muireception/register/tmp/69b8d5cc64.jpeg
+deleting muireception/register/tmp/670a680b4e.jpeg
+deleting muireception/register/tmp/6546ebb920.jpeg
+deleting muireception/register/tmp/62fff5713f.jpeg
+deleting muireception/register/tmp/618c828a21.jpeg
+deleting muireception/register/tmp/614e9f17dc.jpeg
+deleting muireception/register/tmp/610e5de494.jpeg
+deleting muireception/register/tmp/60c3785f38.jpeg
+deleting muireception/register/tmp/5f4d761fcd.jpeg
+deleting muireception/register/tmp/5e113aa74a.jpeg
+deleting muireception/register/tmp/5b6a45ce65.jpeg
+deleting muireception/register/tmp/5b316150b9.jpeg
+deleting muireception/register/tmp/59d5099f51.jpeg
+deleting muireception/register/tmp/57bd79ad65.jpeg
+deleting muireception/register/tmp/5790141250.jpeg
+deleting muireception/register/tmp/5468953863.jpeg
+deleting muireception/register/tmp/5379d1fb48.jpeg
+deleting muireception/register/tmp/50dce9a338.jpeg
+deleting muireception/register/tmp/4ff5ca101d.jpeg
+deleting muireception/register/tmp/4f1ab67977.jpeg
+deleting muireception/register/tmp/4ec7895b7b.jpeg
+deleting muireception/register/tmp/4d1aabee3e.jpeg
+deleting muireception/register/tmp/4c5733b8ec.jpeg
+deleting muireception/register/tmp/496abccadb.jpeg
+deleting muireception/register/tmp/48f2ac92e1.jpeg
+deleting muireception/register/tmp/48c18cf386.jpeg
+deleting muireception/register/tmp/48ace24bc7.jpeg
+deleting muireception/register/tmp/4823fd9a8b.jpeg
+deleting muireception/register/tmp/473445afe2.jpeg
+deleting muireception/register/tmp/46dc005b7a.jpeg
+deleting muireception/register/tmp/45eeaddff1.jpeg
+deleting muireception/register/tmp/456c5692e3.jpeg
+deleting muireception/register/tmp/453888ffe9.jpeg
+deleting muireception/register/tmp/4448d5bf02.jpeg
+deleting muireception/register/tmp/438f864f3c.jpeg
+deleting muireception/register/tmp/41e6fd9465.jpeg
+deleting muireception/register/tmp/4115890e2f.jpeg
+deleting muireception/register/tmp/3e9df32140.jpeg
+deleting muireception/register/tmp/3d33143ac1.jpeg
+deleting muireception/register/tmp/3b0e9fa638.jpeg
+deleting muireception/register/tmp/39749b39da.jpeg
+deleting muireception/register/tmp/3688373cd6.jpeg
+deleting muireception/register/tmp/35005d5404.jpeg
+deleting muireception/register/tmp/346bec2363.jpeg
+deleting muireception/register/tmp/32a3c39945.jpeg
+deleting muireception/register/tmp/3255e460e3.jpeg
+deleting muireception/register/tmp/31bee3095f.jpeg
+deleting muireception/register/tmp/314369ee7f.jpeg
+deleting muireception/register/tmp/2f272900f0.jpeg
+deleting muireception/register/tmp/2eb716c4e8.jpeg
+deleting muireception/register/tmp/2d0fb0d6ef.jpeg
+deleting muireception/register/tmp/2bbaeb7225.jpeg
+deleting muireception/register/tmp/2a7b622a4d.jpeg
+deleting muireception/register/tmp/2a3e20d83e.jpeg
+deleting muireception/register/tmp/29933c1702.jpeg
+deleting muireception/register/tmp/2906712710.jpeg
+deleting muireception/register/tmp/2726c538da.jpeg
+deleting muireception/register/tmp/24b3d3499b.jpeg
+deleting muireception/register/tmp/1de1f143f7.jpeg
+deleting muireception/register/tmp/1dce36a90d.jpeg
+deleting muireception/register/tmp/1d9d16182f.jpeg
+deleting muireception/register/tmp/1d9335ab91.jpeg
+deleting muireception/register/tmp/1cdbe9548e.jpeg
+deleting muireception/register/tmp/1c46a95c16.jpeg
+deleting muireception/register/tmp/17d4cb262a.jpeg
+deleting muireception/register/tmp/150c99453d.jpeg
+deleting muireception/register/tmp/14886a15ae.jpeg
+deleting muireception/register/tmp/0fb8c083b4.jpeg
+deleting muireception/register/tmp/0f98439a5d.jpeg
+deleting muireception/register/tmp/0e07ccdd35.jpeg
+deleting muireception/register/tmp/0dc15ee455.jpeg
+deleting muireception/register/tmp/0ced2a3ce6.jpeg
+deleting muireception/register/tmp/0c68420955.jpeg
+deleting muireception/register/tmp/0ac579dba3.jpeg
+deleting muireception/register/tmp/0a625871cc.jpeg
+deleting muireception/register/tmp/08c049e6b5.jpeg
+deleting muireception/register/tmp/07e21fcc52.jpeg
+deleting muireception/register/tmp/0647409887.jpeg
+deleting muireception/register/tmp/0620d60ee6.jpeg
+deleting muireception/register/tmp/04013810b1.jpeg
+deleting muireception/register/tmp/02b14519a5.jpeg
+deleting muireception/register/tmp/020787074e.jpeg
+deleting muireception/register/tmp/01277c466b.jpeg
+deleting muireception/register/tmp/0110b8b315.jpeg
+deleting muireception/register/tmp/00778133b7.jpeg
+data/cms/
+data/cms/logs_2010010613.log
+          92 100%    0.00kB/s    0:00:00          92 100%    0.00kB/s    0:00:00 (xfer#1, to-check=3610/6081)
+data/cms/logs_2010010615.log
+        2373 100%    2.26MB/s    0:00:00        2373 100%    2.26MB/s    0:00:00 (xfer#2, to-check=3609/6081)
+muireception/menu.ks
+        8803 100%    8.40MB/s    0:00:00        8803 100%    8.40MB/s    0:00:00 (xfer#3, to-check=1991/6081)
+muireception/menu.ks~
+        8806 100%    4.20MB/s    0:00:00        8806 100%    4.20MB/s    0:00:00 (xfer#4, to-check=1990/6081)
+muireception/js/init.js.pih
+        4331 100%    2.07MB/s    0:00:00        4331 100%    2.07MB/s    0:00:00 (xfer#5, to-check=1818/6081)
+muireception/js/init.js.pih~
+        4302 100%    1.37MB/s    0:00:00        4302 100%    1.37MB/s    0:00:00 (xfer#6, to-check=1817/6081)
+muireception/lib/formcheck/formcheck.js
+       32768  79%    5.21MB/s    0:00:00       40998 100%    4.34MB/s    0:00:00 (xfer#7, to-check=1806/6081)
+muireception/lib/formcheck/formcheck.js~
+       32768  79%    2.84MB/s    0:00:00       41029 100%    3.56MB/s    0:00:00 (xfer#8, to-check=1805/6081)
+muireception/register/tmp/
+muireception/register/tmp/0aebcc2873.jpeg
+        1761 100%  143.31kB/s    0:00:00        1761 100%  143.31kB/s    0:00:00 (xfer#9, to-check=817/6081)
+muireception/register/tmp/14998a1a6d.jpeg
+        1615 100%  131.43kB/s    0:00:00        1615 100%  131.43kB/s    0:00:00 (xfer#10, to-check=816/6081)
+muireception/register/tmp/584250cd70.jpeg
+        1847 100%  150.31kB/s    0:00:00        1847 100%  150.31kB/s    0:00:00 (xfer#11, to-check=815/6081)
+muireception/register/tmp/ba65e82ac7.jpeg
+        1941 100%  157.96kB/s    0:00:00        1941 100%  157.96kB/s    0:00:00 (xfer#12, to-check=814/6081)
+muireception/register/tmp/c047eb1a83.jpeg
+        1617 100%  121.47kB/s    0:00:00        1617 100%  121.47kB/s    0:00:00 (xfer#13, to-check=813/6081)
+muireception/register/tmp/c8311798a7.jpeg
+        1807 100%  135.74kB/s    0:00:00        1807 100%  135.74kB/s    0:00:00 (xfer#14, to-check=812/6081)
+muireception/register/tmp/f813b64fcb.jpeg
+        1595 100%  119.82kB/s    0:00:00        1595 100%  119.82kB/s    0:00:00 (xfer#15, to-check=811/6081)
+
+sent 171514 bytes  received 362 bytes  49107.43 bytes/sec
+total size is 44824049  speedup is 260.79
+2010-01-06 15:52:05,728 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :building file list ... 
+ 0 files...2 files to consider
+
+sent 102 bytes  received 20 bytes  244.00 bytes/sec
+total size is 147023  speedup is 1205.11
+2010-01-06 15:52:05,729 INFO End backup loacl karrigell diretory to local git.
+2010-01-06 15:52:05,729 INFO Begin to backup local github to remote github host.

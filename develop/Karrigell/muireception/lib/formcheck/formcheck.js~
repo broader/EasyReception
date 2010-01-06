@@ -349,9 +349,9 @@ var FormCheck = new Class({
 	See also:
 		<FormCheck::dispose>
 	*/
-	register : function(el, position) {
+	register : function(el, position) {		
 		el.validation = [];
-		el.getProperty("class").split(' ').each(function(classX) {
+		el.getProperty("class").split(' ').each(function(classX) {			
 			if(classX.match(/^validate(\[.+\])$/)) {
 				var valid = true;
 				//we check if group is already registered
@@ -746,7 +746,8 @@ var FormCheck = new Class({
 		
 		Manage display of errors boxes
 	*/
-	manageError : function(el, method) {	   
+	manageError : function(el, method) {
+		alert('manageError,L750');	   
 		var isValid = this.validate(el);
 		
 		if (method == 'testonly') return isValid;
@@ -1017,13 +1018,12 @@ var FormCheck = new Class({
 		Reinitialize form before submit check. You can use this also to remove all tips from a form, passing the argument "forced" ( formcheck.reinitialize('forced'); )
 	*/
 	reinitialize: function(forced) {
+		//alert('reinitialize,L1020');
 		this.validations.each(function(el) {
 			if (el.element) {
 				el.errors = [];
-				el.isOK = true;
-				//if(this.options.display.flashTips == 1 || forced == 'forced') {
-				if(this.options.display.flashTips == 1) {
-				   alert('reinitialize,L1020');
+				el.isOK = true;				
+				if(this.options.display.flashTips == 1) {				   
 					el.element.destroy();
 					el.element = false;
 				}
@@ -1087,15 +1087,13 @@ var FormCheck = new Class({
 		
 		Perform check on submit action
 	*/
-	onSubmit: function(event) { 		    	
+	onSubmit: function(event) {		 		    	
 		this.reinitialize();
 		this.fireEvent('onSubmit');
-		
-		alert('FormChcek.onSubmit,L1094,');
-		
-		this.validations.each(function(el) {
-			var validation = this.manageError(el,'submit');		
-			alert('FormChcek.onSubmit,L1096,'+el.getProperty('name')+',is valid?'+validation);
+		//alert('onSubmit,L1093,'+this.validations.length) 	
+		this.validations.each(function(el) {			
+			var validation = this.manageError(el,'submit');	
+			//alert('onSubmit,L1095,input element is ' + el + ', is valid? '+ validation);		
 			if(!validation) this.form.isValid = false;
 		}, this);
 	    
