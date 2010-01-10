@@ -83,12 +83,12 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1261625375316" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1262921109444" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="button_cancel"/>
-<node COLOR="#00b439" CREATED="1251723337068" FOLDED="true" ID="Freemind_Link_1911060026" MODIFIED="1257068522519" TEXT="Admin">
+<node COLOR="#00b439" CREATED="1251723337068" FOLDED="true" ID="Freemind_Link_1911060026" MODIFIED="1262920528336" TEXT="Admin">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1252293820448" ID="Freemind_Link_710266881" MODIFIED="1252293826154" TEXT="Functions">
@@ -216,7 +216,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1176858964077" FOLDED="true" ID="Freemind_Link_1801314834" MODIFIED="1261625310678" TEXT="Application">
+<node COLOR="#00b439" CREATED="1176858964077" ID="Freemind_Link_1801314834" MODIFIED="1262920529580" TEXT="Application">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="button_cancel"/>
@@ -242,7 +242,7 @@
 <node COLOR="#111111" CREATED="1177129628503" ID="Freemind_Link_1157679003" MODIFIED="1177129631478" TEXT="http://www.williamlong.info/archives/816.html"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1177583746793" ID="Freemind_Link_1907240359" MODIFIED="1255507915743" TEXT="Search">
+<node COLOR="#990000" CREATED="1177583746793" FOLDED="true" ID="Freemind_Link_1907240359" MODIFIED="1262920535952" TEXT="Search">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1177583755305" ID="Freemind_Link_844781613" MODIFIED="1255507915743" TEXT="http://advas.sourceforge.net/">
@@ -252,7 +252,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1255507685812" ID="Freemind_Link_987975584" MODIFIED="1255507915751" TEXT="Hotel">
+<node COLOR="#990000" CREATED="1255507685812" FOLDED="true" ID="Freemind_Link_987975584" MODIFIED="1262920536984" TEXT="Hotel">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1255507725364" ID="Freemind_Link_721304315" MODIFIED="1255507915752" TEXT="&#x623f;&#x95f4;&#x7ba1;&#x7406;">
 <font NAME="SansSerif" SIZE="12"/>
@@ -260,7 +260,7 @@
 <node COLOR="#111111" CREATED="1255507810040" ID="Freemind_Link_853779090" MODIFIED="1255507813095" TEXT="&#x623f;&#x95f4;&#x5206;&#x914d;"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1255507695811" ID="Freemind_Link_1044950566" MODIFIED="1255507915762" TEXT="File Management">
+<node COLOR="#990000" CREATED="1255507695811" FOLDED="true" ID="Freemind_Link_1044950566" MODIFIED="1262920537912" TEXT="File Management">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1255507733566" ID="Freemind_Link_91793143" MODIFIED="1255507915762" TEXT="&#x6587;&#x4ef6;&#x7ba1;&#x7406;">
 <font NAME="SansSerif" SIZE="12"/>
@@ -276,7 +276,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="help"/>
 </node>
-<node COLOR="#990000" CREATED="1255507704078" ID="Freemind_Link_1853534374" MODIFIED="1255507915771" TEXT="Web UI Style">
+<node COLOR="#990000" CREATED="1255507704078" FOLDED="true" ID="Freemind_Link_1853534374" MODIFIED="1262920532808" TEXT="Web UI Style">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1255507767130" ID="Freemind_Link_1681947692" MODIFIED="1255507915771" TEXT="Logo &#x66ff;&#x6362;">
 <font NAME="SansSerif" SIZE="12"/>
@@ -288,7 +288,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1257233438846" ID="ID_1216660804" MODIFIED="1257235207281" TEXT="Web Map">
+<node COLOR="#990000" CREATED="1257233438846" FOLDED="true" ID="ID_1216660804" MODIFIED="1262920534080" TEXT="Web Map">
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="help"/>
 <icon BUILTIN="yes"/>
@@ -300,6 +300,10 @@
 <node COLOR="#111111" CREATED="1261378609375" ID="ID_658374767" MODIFIED="1261378612190" TEXT="http://www.openlayers.org/"/>
 <node COLOR="#111111" CREATED="1261378940940" ID="ID_1531604039" MODIFIED="1261378941889" TEXT="http://mapserver.org/"/>
 </node>
+</node>
+<node COLOR="#990000" CREATED="1262920540396" FOLDED="true" ID="ID_1121366219" MODIFIED="1262920548792" TEXT="Notification">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1262920545243" ID="ID_1738387294" MODIFIED="1262920546806" TEXT="http://www.paquitosoft.com/notimoo/"/>
 </node>
 </node>
 </node>
@@ -389,7 +393,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1262749261743" POSITION="left" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1262786722582" POSITION="left" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -558,7 +562,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1245853638712" FOLDED="true" ID="_" MODIFIED="1259914037204" POSITION="right" TEXT="Used Web Widgets">
+<node COLOR="#0033ff" CREATED="1245853638712" FOLDED="true" ID="_" MODIFIED="1262920520879" POSITION="right" TEXT="Used Web Widgets">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1258549795684" FOLDED="true" ID="ID_1371740104" MODIFIED="1258549819050" TEXT="jquery lib">
@@ -916,7 +920,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1182136397087" FOLDED="true" ID="Freemind_Link_1172109286" MODIFIED="1260450903532" POSITION="left" TEXT="&#x6559;&#x7a0b;">
+<node COLOR="#0033ff" CREATED="1182136397087" FOLDED="true" ID="Freemind_Link_1172109286" MODIFIED="1262786318542" POSITION="left" TEXT="&#x6559;&#x7a0b;">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1182136418298" ID="Freemind_Link_633954730" MODIFIED="1260450897394" TEXT="Html">
@@ -934,7 +938,21 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1262606756979" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1262786726152" FOLDED="true" ID="ID_476877394" MODIFIED="1262786773791" POSITION="left" TEXT="Source management">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1262786735562" FOLDED="true" ID="ID_495182632" MODIFIED="1262786773279" TEXT="GitHub">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1262786764185" FOLDED="true" ID="ID_875290458" MODIFIED="1262786772791" TEXT="&#x4f7f;&#x7528;&#x8bf4;&#x660e;">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1262786741353" ID="ID_1161409631" MODIFIED="1262786771419" TEXT="&#x521b;&#x5efa;&#x76ee;&#x5f55;&#x6307;&#x5bfc;&#xff1a;&#xa;http://hi.baidu.com/jspring/blog/item/59f7dfcdce190a560fb345c1.html&#xa;&#xa;&#x4e0a;&#x4f20;&#x540c;&#x6b65;&#x6587;&#x4ef6;&#xff1a;&#xa;#git add &apos;your file or directory name&apos;&#xa;git commit -m &apos;you commit message&apos;&#xa;git push origin master&#xa;&#xa;&#x5220;&#x9664;&#x6587;&#x4ef6;&#xff1a;&#xa;git rm ./develop/Karrigell/muireception/register/tmp/*.jpeg&#xa;git commit -m &apos;you message&apos;&#xa;git push origin master&#xa;">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1263009686604" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1173066298350" ID="Freemind_Link_1468412211" MODIFIED="1262613463591" TEXT="UI">
@@ -1325,7 +1343,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1261723645352" FOLDED="true" ID="ID_454191510" MODIFIED="1262749244607" TEXT="Examples">
+<node COLOR="#990000" CREATED="1261723645352" ID="ID_454191510" MODIFIED="1263009804606" TEXT="Examples">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1261017335455" FOLDED="true" ID="ID_1512844932" MODIFIED="1261723671551" TEXT="issue tracker">
 <edge STYLE="bezier" WIDTH="thin"/>
@@ -1355,7 +1373,7 @@
 <node COLOR="#111111" CREATED="1261018229590" ID="ID_95135814" MODIFIED="1261018230299" TEXT="http://icant.co.uk/csstablegallery/index.php?css=42#r42"/>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1261730203409" TEXT="web site">
+<node COLOR="#111111" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1263009826744" TEXT="web site">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1261017390365" ID="ID_4950788" MODIFIED="1261723671557" TEXT="http://ramblingsoul.com/preview/rs14/index.html">
@@ -1367,10 +1385,6 @@
 <node COLOR="#111111" CREATED="1261017403697" ID="ID_363894096" MODIFIED="1261723671557" TEXT="http://www.opendesigns.org/preview/?template=2615">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
-<node COLOR="#111111" CREATED="1261116138051" ID="ID_886881172" MODIFIED="1261723671558" TEXT="http://960.gs/">
-<font NAME="SansSerif" SIZE="12"/>
-<icon BUILTIN="idea"/>
-</node>
 <node COLOR="#111111" CREATED="1261581379542" ID="ID_75942929" MODIFIED="1261723671558" TEXT="http://blog.bingo929.com/99-high-quality-free-xhtml-css-div-templates.html#more-2698">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
@@ -1381,8 +1395,10 @@
 <node COLOR="#111111" CREATED="1261710057956" ID="ID_204262037" MODIFIED="1261723671558" TEXT="http://nouincolor.com/">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
+<node COLOR="#111111" CREATED="1262920308425" ID="ID_600538248" MODIFIED="1262920309470" TEXT="http://www.opendesigns.org/preview/?design=1700"/>
+<node COLOR="#111111" CREATED="1262920335165" ID="ID_1002294359" MODIFIED="1262920335841" TEXT="http://www.opendesigns.org/preview/?design=1699"/>
 </node>
-<node COLOR="#111111" CREATED="1261116666825" ID="ID_1018641055" MODIFIED="1262749227705" TEXT="desktop">
+<node COLOR="#111111" CREATED="1261116666825" FOLDED="true" ID="ID_1018641055" MODIFIED="1263009825103" TEXT="desktop">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="12"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -1397,6 +1413,23 @@
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1261625625046" ID="ID_548360256" MODIFIED="1261625640971" TEXT="user:demo_user;password:demo_user"/>
 </node>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1261730813032" FOLDED="true" ID="ID_176890161" MODIFIED="1263009689880" TEXT="&#x6e10;&#x53d8;">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1261730844673" ID="ID_496054024" MODIFIED="1261730846661" TEXT="Image">
+<node COLOR="#111111" CREATED="1261730825806" ID="ID_59816790" MODIFIED="1261730828009" TEXT="http://www.webdesignerwall.com/tutorials/css-decorative-gallery/"/>
+</node>
+<node COLOR="#111111" CREATED="1261730838257" ID="ID_903324626" MODIFIED="1261730840513" TEXT="Text">
+<node COLOR="#111111" CREATED="1261730778018" ID="ID_1595804630" MODIFIED="1261730779372" TEXT="http://www.webdesignerwall.com/tutorials/css-gradient-text-effect/"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1263009691239" ID="ID_1853015666" MODIFIED="1263009695976" TEXT="Framework">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1263009697067" ID="ID_1781009959" MODIFIED="1263009698398" TEXT="http://www.lucid-desktop.org/"/>
+<node COLOR="#111111" CREATED="1261116138051" ID="ID_886881172" MODIFIED="1261723671558" TEXT="http://960.gs/">
+<font NAME="SansSerif" SIZE="12"/>
+<icon BUILTIN="idea"/>
 </node>
 <node COLOR="#111111" CREATED="1261378773857" FOLDED="true" ID="ID_651932540" MODIFIED="1262613509650" TEXT="MochaUI">
 <edge STYLE="bezier" WIDTH="thin"/>
@@ -1417,20 +1450,11 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1261730813032" ID="ID_176890161" MODIFIED="1261730822165" TEXT="&#x6e10;&#x53d8;">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1261730844673" ID="ID_496054024" MODIFIED="1261730846661" TEXT="Image">
-<node COLOR="#111111" CREATED="1261730825806" ID="ID_59816790" MODIFIED="1261730828009" TEXT="http://www.webdesignerwall.com/tutorials/css-decorative-gallery/"/>
 </node>
-<node COLOR="#111111" CREATED="1261730838257" ID="ID_903324626" MODIFIED="1261730840513" TEXT="Text">
-<node COLOR="#111111" CREATED="1261730778018" ID="ID_1595804630" MODIFIED="1261730779372" TEXT="http://www.webdesignerwall.com/tutorials/css-gradient-text-effect/"/>
-</node>
-</node>
-</node>
-<node COLOR="#00b439" CREATED="1261723681347" FOLDED="true" ID="ID_1526994899" MODIFIED="1261730281269" TEXT="Site Package">
+<node COLOR="#00b439" CREATED="1261723681347" FOLDED="true" ID="ID_1526994899" MODIFIED="1262920300715" TEXT="Site Package">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261723699899" FOLDED="true" ID="ID_1334746923" MODIFIED="1261730273388" TEXT="Rules">
+<node COLOR="#990000" CREATED="1261723699899" ID="ID_1334746923" MODIFIED="1262920294585" TEXT="Rules">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1261723706816" ID="ID_1757088788" MODIFIED="1261723768592" TEXT="Karrigell_root_dir&#xa;--&gt;/lib,&#x4fdd;&#x5b58;&#x7b2c;&#x4e09;&#x65b9;javascript&#x5e93;&#x6587;&#x4ef6;"/>
 </node>

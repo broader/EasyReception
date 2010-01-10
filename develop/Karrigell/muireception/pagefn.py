@@ -34,8 +34,6 @@ REGISTERTABS = \
 ##
 # Menu setup
 #---------------------------------------------------------------------------------------
-# js file for seting up the menu
-MENUINITJS = '/'.join(('js','menuInit.js.pih'))
 # login area on the top and right corner of the screen 
 LOGINPANEL = 'topNav'
 #---------------------------------------------------------------------------------------

@@ -166,7 +166,8 @@ def _formJs():
 				
 				onValidateSuccess: function(){					
 					// load the script which will set the user's menus					
-   				am.import({'url':menuInit,'app':appName,'type':'js'});
+   				//am.import({'url':menuInit,'app':appName,'type':'js'});
+   				MUI.login();
    				am.remove(appName,'app');
    				MUI.closeModalDialog();
    				return false
@@ -310,11 +311,15 @@ def page_welcomeInfo(**args):
 	Return the welcome information, 
 	which will be shown on the top right of the screen.
 	"""
-	username = getattr(so, pagefn.SOINFO['userinfo']).get('user') or ''
+	try:
+		username = getattr(so, pagefn.SOINFO['userinfo']).get('user') or ''
+	except:
+		username = ''
+	
 	
 	# set the welcome information which will be shown on the top right of the screen
 	welcomeInfo = ''.join((_('Welcome, '), username, ' !'))
 	welcomeInfo = H2(welcomeInfo, style='font-size:20px;color:white;')
-	print JSON.encode(str(welcomeInfo))
+	print str(welcomeInfo)
 	return
 	

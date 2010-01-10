@@ -1,0 +1,9 @@
+2010/01/07 09:42:29 - 127.0.0.1 - GET /menu.ks/page_validForm HTTP/1.1 200
+2010/01/07 09:42:33 - 127.0.0.1 - GET /menu.ks/page_validName?user=supervisor HTTP/1.1 200
+2010/01/07 09:42:33 - 127.0.0.1 - GET /menu.ks/page_validPwd?user=supervisor&pwd=990508 HTTP/1.1 200
+2010/01/07 09:42:34 - 127.0.0.1 - GET /menu.ks/page_postValid?_=1262857354395 HTTP/1.1 200
+2010/01/07 09:42:34 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/01/07 09:42:34 - 127.0.0.1 - GET /menu.ks/page_toggleMenu?showMenu=1&_=1262857354683 HTTP/1.1 200
+2010/01/07 09:42:35 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/01/07 09:42:35 - 127.0.0.1 - GET /menu.ks/page_loginSpan?page=0 HTTP/1.1 200
+2010/01/07 09:42:35 - 127.0.0.1 - GET /menu.ks/page_menuList?page=0 HTTP/1.1 200

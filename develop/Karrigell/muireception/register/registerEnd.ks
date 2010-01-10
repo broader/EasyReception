@@ -93,15 +93,11 @@ def index(**args):
 	main.append(DIV( span, **{'class':'subcolumns'}))
 	print DIV(Sum(main), **{'class':'subcolumns', 'style':'background:white;'})
 	
-	paras = [bnId, APP, pagefn.MENUINITJS ]
-	info = ''.join((_('Welcome, '), account['username'], ' !'))
-	info = H2(info,style='font-size:20px;color:white;')
-	paras.extend([info, pagefn.LOGINPANEL])
+	paras = [bnId, APP, pagefn.LOGINPANEL]
 	paras = tuple(paras)
 	js = \
 	"""
-	var bnContainer='%s', appName='%s', 
-	jsUrl='%s', welcomeInfo='%s', loginPanel='%s';
+	var bnContainer='%s', appName='%s', loginPanel='%s';
 	
 	// get the global Assets manager
 	var am = MUI.assetsManager;
@@ -110,8 +106,8 @@ def index(**args):
    new MooHover({container:bnContainer,duration:800});
    
    $(bnContainer).getElements('button')[0].addEvent('click',function(){
-   	// load the script which will set the user's menus
-   	am.import({'url':jsUrl,'app':appName,'type':'js'});
+   	// call login function which is a inner function of MUI object
+   	MUI.login();
    	
    	// close register dialog, this function has been defined in init.js
    	MUI.closeModalDialog();

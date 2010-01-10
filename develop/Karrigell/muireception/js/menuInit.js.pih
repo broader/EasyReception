@@ -98,10 +98,16 @@ function menuInit(){
 
 };
 
-var menuChain = new Chain();
-menuChain.chain(
-	topNavSwitch(true),
-	menuInit()
-).callChain();
 
 
+// Add some assistant tools to MUI
+MUI.extend({
+	// login function
+	login: function(){
+		var menuChain = new Chain();
+		menuChain.chain(
+			topNavSwitch(true),
+			menuInit()
+		).callChain();
+	}	
+});

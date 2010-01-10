@@ -123,9 +123,6 @@ def _formJs():
 	# append the action urls for fields' validation 
 	paras.append( '/'.join((APPATH, 'page_accountValid')))
 	
-	# append menus initialization js file
-	paras.append(pagefn.MENUINITJS)
-	
 	paras = tuple(paras)
 	script = \
 	"""
@@ -135,9 +132,6 @@ def _formJs():
 	var hackCss='%s', fcCss='%s',fcI18nJs='%s', fcJs='%s';
 	var appName='%s', accountErr='%s', pwdErr='%s', 
 	checkUrl='%s';
-	
-	// menu initialization js
-	var menuInit = '%s';
 	
 	// get the global Assets manager
 	var am = MUI.assetsManager;
@@ -165,8 +159,8 @@ def _formJs():
 				submit: false,
 				
 				onValidateSuccess: function(){					
-					// load the script which will set the user's menus					
-   				am.import({'url':menuInit,'app':appName,'type':'js'});
+					// load the script which will set the user's menus
+   				MUI.login();
    				am.remove(appName,'app');
    				MUI.closeModalDialog();
    				return false
@@ -310,7 +304,11 @@ def page_welcomeInfo(**args):
 	Return the welcome information, 
 	which will be shown on the top right of the screen.
 	"""
-	username = getattr(so, pagefn.SOINFO['userinfo']).get('user') or ''
+	try:
+		username = getattr(so, pagefn.SOINFO['userinfo']).get('user') or ''
+	except:
+		username = ''
+	
 	
 	# set the welcome information which will be shown on the top right of the screen
 	welcomeInfo = ''.join((_('Welcome, '), username, ' !'))
