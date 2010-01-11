@@ -319,6 +319,5 @@ def page_menu(**args):
 	"""
 	Return the menus data corresponding to user role.
 	"""
-	menu = {'data':pagefn.USERMENUS}
-	print JSON.encode(menu)
+	print JSON.encode(pagefn.USERMENUS)
 	return

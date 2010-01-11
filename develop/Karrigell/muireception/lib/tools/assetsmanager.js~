@@ -51,6 +51,7 @@ var AssetsManager = new Class({
     		new Asset.css(name, options);
     		break;
     	case 'js':
+    		alert('assetsmanager.js,_importAsset,L54,url is ' + name+',options is '+options['onload']);
     		new Asset.javascript(name, options);    			
     		break;
     	case 'image':
@@ -112,7 +113,7 @@ var AssetsManager = new Class({
     
     _removeAsset: function(id){
     	if($defined($(id))){
-    		alert('asset to be removed,its id is'+id);
+    		//alert('asset to be removed,its id is'+id);
 	    	$(id).dispose();
 	    	this.imported.erase(id);
     	}

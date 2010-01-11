@@ -71,7 +71,7 @@ var loginFns = {
 		new MUI.Modal({
 			//id: dlgId,
 			title: '<%=_("Login Dialog") %>',			
-			contentURL: "<%='menu.ks/page_loginForm'%>",
+			contentURL: "<%=pagefn.LOGINFORM%>",
 			//type: 'modal2',
 			modalOverlayClose: false,
 			width: 400,

@@ -22,6 +22,7 @@ PWDERR = _('The input password is wrong, please input the valid password!')
 REGISTERDIALOG = 'registerDialog'
 REGISTERTABSID = 'registerTabs'
 REGISTERAPPPATH = 'register'
+
 # Tabs properties
 REGISTERTABS = \
 [ 
@@ -34,29 +35,37 @@ REGISTERTABS = \
 ##
 # Menu setup
 #---------------------------------------------------------------------------------------
-# js file for seting up the menu
-MENUINITJS = '/'.join(('js','menuInit.js.pih'))
-# login area on the top and right corner of the screen 
+# login area on the top and right corner of the screen
+LOGINAPPNAME = 'loginApp' 
+LOGINMODULE = 'layout.ks'
 LOGINPANEL = 'topNav'
-#---------------------------------------------------------------------------------------
+MENUURLS = [ '/'.join(('layout.ks', url)) for url in ('page_welcomeInfo', 'page_menu') ] 
 
-
-##
 # The normal user's menus 
-#--------------------------------------------------------------------------------------
 USERMENUS = \
-( 
-	{ 'text':_("Portal"), 'function':'test'},\
-	{ 'text':_("Accommodation Service"), 'function':'test'},\       
-	{ 'text':_("Travel Service"), 'function':'test'},\
-	{ 'text':_("Service"), 'function':'test'},\
-	{ 'text':_("Need Help"), 'function':'test'},\
-	{ 'text':_("Portfolio"), 'function':'test'},\
-	{ 'text':_("LogOut"), 'function':'logout'}\          
-)
+{
+'data': 
+	( 
+		{ 'id':'00', 'text':_("Portal"), 'function':'test'},\
+		{ 'id':'01', 'text':_("Accommodation Service"), 'function':'test'},\       
+		{ 'id':'02', 'text':_("Travel Service"), 'function':'test'},\
+		{ 'id':'03', 'text':_("Service"), 'function':'test'},\
+		{ 'id':'04', 'text':_("Need Help"), 'function':'test'},\
+		{ 'id':'05', 'text':_("Portfolio"), 'function':'test'},\
+		{ 'id':'06', 'text':_("Logout"), 'function':'logout'}\          
+	),
+'js': 'js/usermenus.js'
+}
 
 MENUCONTAINER = 'desktopNavbar'
 
+#--------------------------------------------------------------------------------------
+
+
+##
+# Columns in main window setting up
+#--------------------------------------------------------------------------------------
+COLUMNS = ('leftColumn', 'mainColumn')
 #--------------------------------------------------------------------------------------
 
 

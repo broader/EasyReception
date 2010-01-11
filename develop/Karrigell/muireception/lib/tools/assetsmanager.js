@@ -50,7 +50,7 @@ var AssetsManager = new Class({
     	case 'css':
     		new Asset.css(name, options);
     		break;
-    	case 'js':
+    	case 'js':    		
     		new Asset.javascript(name, options);    			
     		break;
     	case 'image':

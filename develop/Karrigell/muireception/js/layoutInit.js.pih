@@ -7,6 +7,7 @@ INITIALIZE THE USER'S MENUS
 # get meus stored in pagefn.py
 pagefn = Import('/'.join(('', 'pagefn.py')))
 loginApp = pagefn.LOGINAPPNAME
+sideBar, mainColumn = pagefn.COLUMNS
 %>
 
 // get the global Assets manager
@@ -98,16 +99,40 @@ function menuInit(){
 };
 
 
+/*
+Initialize layout in main window
+Add two columns, one is sidebar and the other is the main column.
+*/
+function columnInit(){
+	new MUI.Column({
+		'id':'<%=sideBar %>', placement:'left', width:200, resizeLimit:[100, 300]
+	});
+	
+	new MUI.Column({'id':'<%=mainColumn %>', placement:'main'});
+	
+	// add panels for left column
+	new MUI.Panel({
+		id:'testPanel', title:'Portal', contentURL:'',
+		column: '<%=sideBar%>',
+		onContentLoaded: function(){
+		}
+	}); 
+	
+};
+
 // Add some assistant tools to MUI
 MUI.extend({
+
 	// login function
 	login: function(){
 		var menuChain = new Chain();
 		menuChain.chain(
 			topNavSwitch(true),
-			menuInit()			
+			menuInit(),
+			columnInit()			
 		).callChain();
 	},
+	
 	// logout function
 	logout: function(event){
 		new Event(event).stop();
