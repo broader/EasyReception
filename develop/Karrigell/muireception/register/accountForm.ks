@@ -7,10 +7,11 @@ from HTMLTags import *
 # 'THIS.script_url' is a global variable in Karrigell system
 APPATH = THIS.script_url[1:]
 RELPATH = (lambda p : p.split('/')[0])(THIS.baseurl)
+
 model = Import( '/'.join((RELPATH, 'model.py')), REQUEST_HANDLER=REQUEST_HANDLER )
 modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'formFn':'form.py'}
 [locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items() ]
- 
+
 # import captcha module
 Captcha = Import('./Captcha.py', relpath=THIS.baseurl, RELDIR=REL())
 

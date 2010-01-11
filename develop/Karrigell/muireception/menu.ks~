@@ -123,9 +123,6 @@ def _formJs():
 	# append the action urls for fields' validation 
 	paras.append( '/'.join((APPATH, 'page_accountValid')))
 	
-	# append menus initialization js file
-	paras.append(pagefn.MENUINITJS)
-	
 	paras = tuple(paras)
 	script = \
 	"""
@@ -135,9 +132,6 @@ def _formJs():
 	var hackCss='%s', fcCss='%s',fcI18nJs='%s', fcJs='%s';
 	var appName='%s', accountErr='%s', pwdErr='%s', 
 	checkUrl='%s';
-	
-	// menu initialization js
-	var menuInit = '%s';
 	
 	// get the global Assets manager
 	var am = MUI.assetsManager;
@@ -165,8 +159,7 @@ def _formJs():
 				submit: false,
 				
 				onValidateSuccess: function(){					
-					// load the script which will set the user's menus					
-   				//am.import({'url':menuInit,'app':appName,'type':'js'});
+					// load the script which will set the user's menus
    				MUI.login();
    				am.remove(appName,'app');
    				MUI.closeModalDialog();
@@ -322,4 +315,11 @@ def page_welcomeInfo(**args):
 	welcomeInfo = H2(welcomeInfo, style='font-size:20px;color:white;')
 	print str(welcomeInfo)
 	return
-	
+
+def page_menu(**args):
+	"""
+	Return the menus data corresponding to user role.
+	"""
+	menu = {'data':pagefn.USERMENUS}
+	print JSON.encode(menu)
+	return

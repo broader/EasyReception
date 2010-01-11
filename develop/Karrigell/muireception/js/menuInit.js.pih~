@@ -6,6 +6,7 @@ INITIALIZE THE USER'S MENUS
 # PYTHON CODE SLICE
 # get meus stored in pagefn.py
 pagefn = Import('/'.join(('', 'pagefn.py')))
+RELPATH = pagefn.getApp(THIS.baseurl,0)
 %>
 
 
@@ -64,30 +65,22 @@ function logout(event){
 };
 
 
-/*
-**	Initialize menus
-*/
-function menuInit(){
+/*********************************************************************************
+Initialize menus
+Parameters:
+	data - a Array instance, for which format is [{'text':'..','function':'...'},]
+**********************************************************************************/
+function menuSet(data){	
 	var ul = new Element('ul');
-	var menus = [];
-	
-	<% for menu in pagefn.USERMENUS: %>
-		menus.push({ 
-			'text':"<%=menu['text']%>",
-			'function':<%=menu['function']%>
-		});
-	<% end %>
-
-	menus.each(function(menu){
-		li = new Element('li');	
-		
+	data.each(function(menu){
+		li = new Element('li');			
 		a = new Element('a',{
 			'html': menu['text'],
 		 	'class':'returnFalse',
 		 	'style':'text-decoration:none;',
 		 	'href': '',
 			'events': {
-				'click': menu['function']
+				'click': window[menu['function']]
 			}
 		});
 		a.inject(li);		
@@ -99,16 +92,29 @@ function menuInit(){
 };
 
 
+/*
+**	Initialize menu by json data from server side
+*/
+function menuInitByJson(){
+	var menurl = '<%='/'.join((RELPATH,'menu.ks','page_menu'))%>';
+	var data = new Request.JSON({
+		url: menurl, 
+		onSuccess:function(data,html){
+			menuSet(data['data']);
+		}
+	}).get();
+	
+};
+
 
 // Add some assistant tools to MUI
 MUI.extend({
 	// login function
 	login: function(){
-		alert('MUI.login function');
 		var menuChain = new Chain();
 		menuChain.chain(
 			topNavSwitch(true),
-			menuInit()
+			menuInit()			
 		).callChain();
 	}	
 });

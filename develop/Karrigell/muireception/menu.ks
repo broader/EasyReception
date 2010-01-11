@@ -252,7 +252,6 @@ def _formJs():
 		
 		// submit button
 		buttons[0].addEvent('click',function(e){
-			//alert('china');
 			formchk.onSubmit(e);			
 		});
 		
@@ -315,4 +314,11 @@ def page_welcomeInfo(**args):
 	welcomeInfo = H2(welcomeInfo, style='font-size:20px;color:white;')
 	print str(welcomeInfo)
 	return
-	
+
+def page_menu(**args):
+	"""
+	Return the menus data corresponding to user role.
+	"""
+	menu = {'data':pagefn.USERMENUS}
+	print JSON.encode(menu)
+	return
