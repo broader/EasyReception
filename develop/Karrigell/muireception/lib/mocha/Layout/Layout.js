@@ -1420,7 +1420,7 @@ MUI.extend({
 		false - the column was not closed
 
 	*/	
-	closeColumn: function(columnEl){
+	closeColumn: function(columnEl){		
 		var instances = MUI.Columns.instances;
 		var instance = instances.get(columnEl.id);
 		if (columnEl != $(columnEl) || instance.isClosing) return;

@@ -34,7 +34,7 @@ MUI.Desktop = {
 		// If you change the IDs of the MochaUI Desktop containers in your HTML, you need to change them here as well.
 		desktop:             'desktop',
 		desktopHeader:       'desktopHeader',
-		//desktopFooter:       'desktopFooter',
+		//desktopFooter:       'desktopFooter',	// comment by B.Z 
 		desktopNavBar:       'desktopNavbar',
 		pageWrapper:         'pageWrapper',
 		page:                'page',
@@ -1421,6 +1421,7 @@ MUI.extend({
 
 	*/	
 	closeColumn: function(columnEl){
+		alert('MUI.closeColumn,Layout.js,L1424,'+$type(columnEl));
 		var instances = MUI.Columns.instances;
 		var instance = instances.get(columnEl.id);
 		if (columnEl != $(columnEl) || instance.isClosing) return;
