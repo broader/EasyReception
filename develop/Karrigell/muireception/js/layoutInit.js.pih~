@@ -6,7 +6,11 @@ INITIALIZE THE USER'S MENUS
 # PYTHON CODE SLICE
 # get meus stored in pagefn.py
 pagefn = Import('/'.join(('', 'pagefn.py')))
-loginApp = pagefn.LOGINAPPNAME
+
+# initialize some page variables
+loginApp, layoutUrls, sidePanelPrefix = \
+[getattr(pagefn,name) for name in ('LOGINAPPNAME', 'LAYOUTURLS', 'SIDEPANELPREFIX')]
+
 sideBar, mainColumn = pagefn.COLUMNS
 %>
 
@@ -20,7 +24,7 @@ then switch the menu according user's login status.
 function topNavSwitch(login){
 	var topNav = $('<%=pagefn.LOGINPANEL %>')
 	var children = topNav.getChildren();
-	var url = '<%=pagefn.MENUURLS[0]%>';
+	var url = '<%=layoutUrls[0]%>';
 	
 	switch(login){
 		case true:			
@@ -78,7 +82,7 @@ function menuSet(data){
 **	Initialize menu by json data from server side
 */
 function menuInit(){
-	var menurl = '<%=pagefn.MENUURLS[1] %>';
+	var menurl = '<%=layoutUrls[1] %>';
 	var data = new Request.JSON({
 		url: menurl, 
 		onSuccess:function(json,html){			
@@ -120,7 +124,7 @@ function addColumns(){
 // Add panels to columns
 function layoutInit(){	
 	// get panels on the left column
-	var menurl = '<%=pagefn.MENUURLS[1] %>';
+	var menurl = '<%=layoutUrls[2] %>';
 	var data = new Request.JSON({
 		url: menurl, 
 		onSuccess:function(json,html){			
@@ -132,15 +136,16 @@ function layoutInit(){
 				{	onload: function(){
 						addColumns();
 						
-						var sideColumn = '<%=sideBar%>';
+						var sideColumn = '<%=sideBar%>',
+						panelsNumber = json['data'].length;
 						
-						json['data'].each(function(item,index){							
-							var pid=['<%=pagefn.SIDEBARPREFIX %>', item['id']].join('-'),
-							text=item['text'];	
-													
+						json['data'].each(function(item,index){														
+							var pid=['<%=sidePanelPrefix %>', item['id']].join('-'),
+							text=item['text'], url=item['contentURL'], expandfn=item['onExpand'];
+										
 							// add panels for left column
 							var panel = new MUI.Panel({
-								id: pid, title: text, content:'<h2>Test</h2>',								
+								id: pid, title: text, contentURL:url, onExpand: window[expandfn],								
 								column: sideColumn,								
 								onContentLoaded: function(){}
 							});

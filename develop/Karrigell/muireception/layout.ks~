@@ -321,9 +321,3 @@ def page_menu(**args):
 	"""
 	print JSON.encode(pagefn.USERMENUS)
 	return
-	
-def page_sideBarPanels(**args):
-	"""
-	"""
-	print JSON.encode(pagefn.SIDEBARPANELS)
-	return

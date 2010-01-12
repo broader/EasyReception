@@ -39,33 +39,43 @@ REGISTERTABS = \
 LOGINAPPNAME = 'loginApp' 
 LOGINFORM = '/'.join(('layout.ks', 'page_loginForm'))
 LOGINPANEL = 'topNav'
-MENUURLS = [ '/'.join(('layout.ks', url)) for url in ('page_welcomeInfo', 'page_menu') ] 
+LAYOUTURLS = [ '/'.join(('layout.ks', url)) for url in ('page_welcomeInfo', 'page_menu', 'page_sideBarPanels') ] 
 
 # The normal user's menus 
 USERMENUS = \
 {
 'data': 
 	( 
-		{ 	'id':'00', 'text':_("Portal"), 'function':'test' },\
-		
-		{ 'id':'01', 'text':_("Accommodation Service"), 'function':'test'},\
-		       
-		{ 'id':'02', 'text':_("Travel Service"), 'function':'test'},\
-		
-		{ 'id':'03', 'text':_("Service"), 'function':'test'},\
-		
-		{ 'id':'04', 'text':_("Need Help"), 'function':'test'},\
-		
-		{ 	'id':'05', 'text':_("Portfolio"), 'function':'test' },\
-		
-		{ 'id':'06', 'text':_("Logout"), 'function':'logout'}\          
+		{ 'id':'00', 'text':_("Setting"), 'function':'test' },\				
+		{ 'id':'01', 'text':_("Logout"), 'function':'logout'}\          
 	),
 'js': 'js/usermenus.js'
 }
 
 MENUCONTAINER = 'desktopNavbar'
 
-SIDEBARPREFIX = 'sidebar'
+SIDEPANELPREFIX = 'sidebar'
+
+SIDEBARPANELS = \
+{
+'data': 
+	( 
+		{ 'id':'00', 'text':_("Portal"), 'onExpand':'portalPanel','contentURL':'portal/portal.ks/index' },
+		
+		{ 'id':'01', 'text':_("Accommodation Service"), 'onExpand':'hotelPanel'},
+		       
+		{ 'id':'02', 'text':_("Travel Service"), 'onExpand':'travelPanel'},
+		
+		{ 'id':'03', 'text':_("Service"), 'onExpand':'servicePanel'},
+		
+		{ 'id':'04', 'text':_("Need Help"), 'onExpand':'issuePanel'},
+		
+		{ 'id':'05', 'text':_("Portfolio"), 'onExpand':'portfolioPanel' }
+       
+	),
+	
+'js': 'js/userSidePanels.js'
+}
 #--------------------------------------------------------------------------------------
 
 

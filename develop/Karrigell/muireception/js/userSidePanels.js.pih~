@@ -1,0 +1,69 @@
+/*
+FUNCTIONS FOR SIDE PANELS EXPAND
+*/
+
+<% 
+# PYTHON CODE SLICE
+# get meus stored in pagefn.py
+pagefn = Import('/'.join(('', 'pagefn.py')))
+
+# initialize some page variables
+sideBar, mainColumn = pagefn.COLUMNS
+%>
+
+var mainColumn = MUI.Columns.instances.get('<%=mainColumn %>');
+
+/*
+**	Portal side panel expand function
+*/
+function portalPanel(event){
+	//new Event(event).stop();
+	//MUI.notification('Portal menu clicked!');
+	alert('Portal panel expanded');	
+};
+
+/*
+**	Accommodation side panel expand function
+*/
+function hotelPanel(event){
+	//new Event(event).stop();
+	//MUI.notification('Portal menu clicked!');
+	alert('Accommodation panel expanded');	
+};
+
+/*
+**	Travel side panel expand function
+*/
+function travelPanel(event){
+	//new Event(event).stop();
+	//MUI.notification('Portal menu clicked!');
+	alert('Travel panel expanded');	
+};
+
+/*
+**	Service side panel expand function
+*/
+function servicePanel(event){
+	//new Event(event).stop();	
+	alert('Service panel expanded');	
+};
+
+/*
+**	Issue side panel expand function
+*/
+function issuePanel(event){
+	//new Event(event).stop();
+	alert('Issue panel expanded');	
+};
+
+
+/*
+**	Portfolio side panel expand function
+*/
+function portfolioPanel(event){
+	//new Event(event).stop();
+	
+	//alert('Portfolio panel expanded');	
+	alert($type(mainColumn));
+};
+
