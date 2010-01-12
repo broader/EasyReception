@@ -33,11 +33,11 @@ REGISTERTABS = \
 #--------------------------------------------------------------------------------------
 
 ##
-# Menu setup
+# Layout setup
 #---------------------------------------------------------------------------------------
 # login area on the top and right corner of the screen
 LOGINAPPNAME = 'loginApp' 
-LOGINMODULE = 'layout.ks'
+LOGINFORM = '/'.join(('layout.ks', 'page_loginForm'))
 LOGINPANEL = 'topNav'
 MENUURLS = [ '/'.join(('layout.ks', url)) for url in ('page_welcomeInfo', 'page_menu') ] 
 
@@ -46,12 +46,18 @@ USERMENUS = \
 {
 'data': 
 	( 
-		{ 'id':'00', 'text':_("Portal"), 'function':'test'},\
-		{ 'id':'01', 'text':_("Accommodation Service"), 'function':'test'},\       
+		{ 	'id':'00', 'text':_("Portal"), 'function':'test' },\
+		
+		{ 'id':'01', 'text':_("Accommodation Service"), 'function':'test'},\
+		       
 		{ 'id':'02', 'text':_("Travel Service"), 'function':'test'},\
+		
 		{ 'id':'03', 'text':_("Service"), 'function':'test'},\
+		
 		{ 'id':'04', 'text':_("Need Help"), 'function':'test'},\
-		{ 'id':'05', 'text':_("Portfolio"), 'function':'test'},\
+		
+		{ 	'id':'05', 'text':_("Portfolio"), 'function':'test' },\
+		
 		{ 'id':'06', 'text':_("Logout"), 'function':'logout'}\          
 	),
 'js': 'js/usermenus.js'
@@ -59,6 +65,7 @@ USERMENUS = \
 
 MENUCONTAINER = 'desktopNavbar'
 
+SIDEBARPREFIX = 'sidebar'
 #--------------------------------------------------------------------------------------
 
 

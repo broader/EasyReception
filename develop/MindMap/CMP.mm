@@ -701,7 +701,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1183969360528" FOLDED="true" ID="Freemind_Link_1717488379" MODIFIED="1262008817323" POSITION="right" TEXT="javascript">
+<node COLOR="#0033ff" CREATED="1183969360528" ID="Freemind_Link_1717488379" MODIFIED="1263284598911" POSITION="right" TEXT="javascript">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1260329913465" FOLDED="true" ID="ID_484061448" MODIFIED="1260684184934" TEXT="jQuery">
@@ -725,14 +725,14 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1260329928560" ID="ID_1432963465" MODIFIED="1262008696506" TEXT="Mootools">
+<node COLOR="#00b439" CREATED="1260329928560" FOLDED="true" ID="ID_1432963465" MODIFIED="1263264419020" TEXT="Mootools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261625402522" ID="ID_1117421280" MODIFIED="1261625468919" TEXT="Knowledge Or Experience">
+<node COLOR="#990000" CREATED="1261625402522" FOLDED="true" ID="ID_1117421280" MODIFIED="1263264417909" TEXT="Knowledge Or Experience">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1260684210949" ID="ID_149622745" MODIFIED="1261625423451" TEXT="Class">
 <font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1260329937821" FOLDED="true" ID="ID_850938943" MODIFIED="1262008703219" TEXT="addEvent">
+<node COLOR="#111111" CREATED="1260329937821" ID="ID_850938943" MODIFIED="1263264407865" TEXT="addEvent">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1260753630399" ID="ID_1668631451" MODIFIED="1260753645351" TEXT="mootools &#x5b98;&#x65b9;&#x8bf4;&#x660e;">
 <node COLOR="#111111" CREATED="1260753647397" ID="ID_1315568376" MODIFIED="1260753649199" TEXT="http://mootools.net/docs/core/Class/Class.Extras#Options:setOptions"/>
@@ -751,12 +751,17 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1261468491247" FOLDED="true" ID="ID_325077924" MODIFIED="1261730284933" TEXT="MochaUI">
+<node COLOR="#00b439" CREATED="1261468491247" ID="ID_325077924" MODIFIED="1263284600335" TEXT="MochaUI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261468496862" FOLDED="true" ID="ID_340189399" MODIFIED="1261658868258" TEXT="Layout.js">
+<node COLOR="#990000" CREATED="1261468496862" FOLDED="true" ID="ID_340189399" MODIFIED="1263285113735" TEXT="Layout.js">
 <font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1263284614698" FOLDED="true" ID="ID_376439298" MODIFIED="1263284631851" TEXT="MUI.Desktop">
 <node COLOR="#111111" CREATED="1261468527787" ID="ID_1974077677" MODIFIED="1261468675424" TEXT="MUI.Desktop = {&#x9;&#xa;&#x9;options: {&#xa;&#x9;&#x9;// Naming options:&#xa;&#x9;&#x9;// If you change the IDs of the MochaUI Desktop containers in your HTML, you need to change them here as well.&#xa;&#x9;&#x9;...,&#x9;&#x9;&#xa;&#x9;&#x9;//desktopFooter:       &apos;desktopFooter&apos;,&#xa;&#x9;&#x9;desktopFooter:       &apos;desktopFooterWrapper&apos;&#xa;&#x9;},&#x9;&#xa;&#x6b64;&#x5904;&apos;desktop&apos;&#x88ab;&#x91cd;&#x590d;&#x5b9a;&#x4e49;&#xff0c;&#x7ecf;firebug&#x6d4b;&#x8bd5;&#xff0c;&#x6700;&#x540e;&#x4e00;&#x4e2a;&#x5b9a;&#x4e49;&apos;desktopFooterWrapper&apos;&#x6709;&#x6548;&#xff0c;&#x6545;&#x5c06;&#x53e6;&#x4e00;&#x4e2a;&#x91cd;&#x590d;&#x5b9a;&#x4e49;&#x6ce8;&#x91ca;&#x5f03;&#x7528;&#x3002;"/>
+</node>
+<node COLOR="#111111" CREATED="1263284633143" FOLDED="true" ID="ID_506785355" MODIFIED="1263285111951" TEXT="MUI.Panel">
+<node COLOR="#111111" CREATED="1263284642567" ID="ID_1995229220" MODIFIED="1263285106390" TEXT="MUI.Panel&#xa;-&gt;collapseToggleInit()&#xa;----&gt;L835,&#xa;&#x539f;&#x4ee3;&#x7801;&#x4e3a;&#xff1a;this.collapseToggleEl.addEvent(&apos;click&apos;, function(event){&#xa;&#x6b64;&#x65b9;&#x6cd5;&#x4e2d;&#x6240;&#x6709;&#x4ee3;&#x7801;copy&#x81f3;&#x65b0;&#x589e;&#x6dfb;&#x65b9;&#x6cd5;MUI.Panel.toggleExpand()&#x4e2d;&#xa;}.bind(this));&#xa;&#xa;&#x66f4;&#x6539;&#x4e3a;&#xff1a; this.collapseToggleEl.addEvent(&apos;click&apos;, function(event){this.toggleExpand();}.bind(this));&#xa;&#x4e3a;&#x6b64;&#xff0c;&#xa;MUI.Panel &#x589e;&#x6dfb;&#x65b0;&#x65b9;&#x6cd5;-&gt;toggleExpand&#xff1a;function&#xff08;&#xff09;{...}&#xa;&#xa;&quot;&quot;&quot;&#xa;&#x6b64;&#x6539;&#x52a8;&#x4e3a;&#x65b9;&#x4fbf;&#x5916;&#x90e8;&#x8c03;&#x7528;&#x5207;&#x6362;Panel&#x5b9e;&#x4f8b;&#x7684;Expand &#x72b6;&#x6001;&#x3002;&#xa;&quot;&quot;&quot;&#xa;"/>
+</node>
 </node>
 </node>
 </node>
@@ -952,7 +957,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1263009686604" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1263284597998" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1173066298350" FOLDED="true" ID="Freemind_Link_1468412211" MODIFIED="1263175602076" TEXT="UI">

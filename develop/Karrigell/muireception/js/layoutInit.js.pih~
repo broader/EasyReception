@@ -101,24 +101,61 @@ function menuInit(){
 
 /*
 Initialize layout in main window
-Add two columns, one is sidebar and the other is the main column.
 */
-function columnsInit(){
+
+// Add two columns, one is sidebar and the other is the main column.
+function addColumns(){
+	// first, add columns to main window of the desktop	
 	new MUI.Column({
-		'id':'<%=sideBar %>', placement:'left', width:200, resizeLimit:[100, 300], sortable: false
+		id:'<%=sideBar %>', placement:'left', width:200, 
+		resizeLimit:[100, 300], sortable: false
 	});
-	
-	new MUI.Column({'id':'<%=mainColumn %>', placement:'main', sortable: false});
-	
-	// add panels for left column
-	new MUI.Panel({
-		id:'testPanel', title:'Portal', contentURL:'',
-		column: '<%=sideBar%>',
-		onContentLoaded: function(){
-		}
-	}); 
-	
+
+	new MUI.Column({ 
+		id:'<%=mainColumn %>', placement:'main',
+		resizeLimit:[100, 500], sortable: false
+	});
 };
+
+// Add panels to columns
+function layoutInit(){	
+	// get panels on the left column
+	var menurl = '<%=pagefn.MENUURLS[1] %>';
+	var data = new Request.JSON({
+		url: menurl, 
+		onSuccess:function(json,html){			
+			am.import(
+				{	'url':json['js'],	// load the menus' corresponding clickable functions
+					'app':'<%=loginApp %>',
+					'type':'js'
+				},
+				{	onload: function(){
+						addColumns();
+						
+						var sideColumn = '<%=sideBar%>';
+						
+						json['data'].each(function(item,index){							
+							var pid=['<%=pagefn.SIDEBARPREFIX %>', item['id']].join('-'),
+							text=item['text'];	
+													
+							// add panels for left column
+							var panel = new MUI.Panel({
+								id: pid, title: text, content:'<h2>Test</h2>',								
+								column: sideColumn,								
+								onContentLoaded: function(){}
+							});
+							
+							// collapse others panels, only left the first panel expand
+							if(index != 0){panel.toggleExpand();};
+						});												
+					}
+				}
+			);
+		}
+	}).get();	
+};
+
+
 
 // Add some assistant tools to MUI
 MUI.extend({
@@ -129,7 +166,7 @@ MUI.extend({
 		menuChain.chain(
 			topNavSwitch(true),
 			menuInit(),
-			columnsInit()			
+			layoutInit()			
 		).callChain();
 	},
 	
@@ -142,9 +179,8 @@ MUI.extend({
 		// reset the top navigation info
 		topNavSwitch(false);
 		// remove the columns in main window
-		MUI.Columns.instances.each(function(EL){
-			alert($type(EL));
-			MUI.closeColumn(EL);
+		MUI.Columns.instances.getKeys().each(function(key){			
+			MUI.closeColumn($(key));
 		});
 		// remove all the imported mootools.Assets
 		am.remove('<%=loginApp %>', 'app');
