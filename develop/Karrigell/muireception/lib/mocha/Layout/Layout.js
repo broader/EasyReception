@@ -1438,7 +1438,7 @@ MUI.extend({
 			
 		instance.isClosing = true;
 		
-		if (instance.options.sortable){
+		if (instance.options.sortable && instance.container != undefined ){
 			instance.container.retrieve('sortables').removeLists(this.columnEl);
 		}	
 		

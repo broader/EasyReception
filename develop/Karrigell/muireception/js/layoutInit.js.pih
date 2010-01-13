@@ -117,12 +117,17 @@ function addColumns(){
 	// first, add columns to main window of the desktop	
 	new MUI.Column({
 		id:'<%=sideBar %>', placement:'left', width:200, 
-		resizeLimit:[100, 300], sortable: false
+		resizeLimit:[100, 300], sortable: true
 	});
 
 	new MUI.Column({ 
 		id:'<%=mainColumn %>', placement:'main',
 		resizeLimit:[100, 500], sortable: false
+	});
+	
+	// add the main MUI.Panel to the main MUI.Column
+	new MUI.Panel({
+		id: '<%=pagefn.MAINPANEL %>', header:false, column: '<%=mainColumn %>'
 	});
 };
 
@@ -151,7 +156,8 @@ function layoutInit(){
 										
 							// add panels for left column
 							var panel = new MUI.Panel({
-								id:pid, title:text, contentURL:url, onExpand:window[expandfn],
+								id:pid, title:text, contentURL:url, 
+								onExpand:window[expandfn].bind(this),
 								onCollapse: window[collapse].bind(this),								
 								column: sideColumn,								
 								onContentLoaded: function(){}
@@ -198,10 +204,21 @@ MUI.extend({
 			// Only the first two key ( the ids of side column and main column )
 			// are the reall existed MUI.Column instance,
 			// others should be no existed.
-			if(index <= 1){ MUI.closeColumn($(key));};
+			var columns = ['<%=sideBar %>','<%=mainColumn%>'];
+			if(columns.contains(key)){ MUI.closeColumn($(key));};
 		});
 		
 		// remove all the imported mootools.Assets
 		am.remove('<%=loginApp %>', 'app');
+	},
+	
+	// remove all the MUI.Columns in the main panel
+	clearMainPanel: function (){	
+		MUI.Columns.instances.each(function(column){
+			if(column.options.container.id == '<%=pagefn.MAINPANEL %>'){
+				MUI.closeColumn($(column.options.id));
+			}
+		});
 	}
+	
 });

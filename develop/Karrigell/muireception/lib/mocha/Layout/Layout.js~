@@ -883,7 +883,8 @@ MUI.Panel = new Class({
 			this.isCollapsed = true;				
 			panelWrapper.addClass('collapsed');
 			panelWrapper.removeClass('expanded');				
-			MUI.panelHeight(options.column, panel, 'collapsing');
+			//MUI.panelHeight(options.column, panel, 'collapsing');
+			MUI.panelHeight(this.options.column, panel, 'collapsing');
 			MUI.panelHeight(); // Run this a second time for panels within panels
 			
 			this.collapseToggleEl.removeClass('panel-collapsed');				

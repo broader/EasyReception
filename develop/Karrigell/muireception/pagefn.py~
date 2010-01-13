@@ -64,24 +64,27 @@ SIDEBARPANELS = \
 		  'onCollapse':'sidePanelCollapse', 'contentURL':'portal/portal.ks/index' },
 		
 		{ 'id':'01', 'text':_("Accommodation Service"), 'onExpand':'hotelPanel',\
-		  'onCollape':'sidePanelCollapse' },
+		  'onCollapse':'sidePanelCollapse' },
 		       
 		{ 'id':'02', 'text':_("Travel Service"), 'onExpand':'travelPanel',\
-		  'onCollape':'sidePanelCollapse' },
+		  'onCollapse':'sidePanelCollapse' },
 		
 		{ 'id':'03', 'text':_("Service"), 'onExpand':'servicePanel',\
-		  'onCollape':'sidePanelCollapse' },
+		  'onCollapse':'sidePanelCollapse' },
 		
 		{ 'id':'04', 'text':_("Need Help"), 'onExpand':'issuePanel',\
-		  'onCollape':'sidePanelCollapse' },
+		  'onCollapse':'sidePanelCollapse' },
 		
 		{ 'id':'05', 'text':_("Portfolio"), 'onExpand':'portfolioPanel',\
-		  'onCollape':'sidePanelCollapse' },
+		  'onCollapse':'sidePanelCollapse', 'contentURL':'portfolio/portfolio.ks/index' },
        
 	),
 	
 'js': 'js/userSidePanels.js.pih'
 }
+
+# the main panel's id
+MAINPANEL = 'maniPanel'
 #--------------------------------------------------------------------------------------
 
 

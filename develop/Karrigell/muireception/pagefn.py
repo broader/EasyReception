@@ -76,12 +76,15 @@ SIDEBARPANELS = \
 		  'onCollapse':'sidePanelCollapse' },
 		
 		{ 'id':'05', 'text':_("Portfolio"), 'onExpand':'portfolioPanel',\
-		  'onCollapse':'sidePanelCollapse' },
+		  'onCollapse':'sidePanelCollapse', 'contentURL':'portfolio/portfolio.ks/index' },
        
 	),
 	
 'js': 'js/userSidePanels.js.pih'
 }
+
+# the main panel's id
+MAINPANEL = 'mainPanel'
 #--------------------------------------------------------------------------------------
 
 

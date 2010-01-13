@@ -124,6 +124,11 @@ function addColumns(){
 		id:'<%=mainColumn %>', placement:'main',
 		resizeLimit:[100, 500], sortable: false
 	});
+	
+	// add the main MUI.Panel to the main MUI.Column
+	new MUI.Panel({
+		id: '<%=pagefn.MAINPANEL %>', header:false, column: '<%=mainColumn %>'
+	});
 };
 
 // Add panels to columns
@@ -151,7 +156,8 @@ function layoutInit(){
 										
 							// add panels for left column
 							var panel = new MUI.Panel({
-								id:pid, title:text, contentURL:url, onExpand:window[expandfn],
+								id:pid, title:text, contentURL:url, 
+								onExpand:window[expandfn].bind(this),
 								onCollapse: window[collapse].bind(this),								
 								column: sideColumn,								
 								onContentLoaded: function(){}
@@ -186,15 +192,33 @@ MUI.extend({
 	logout: function(event){
 		new Event(event).stop();
 		MUI.notification('Really log out?');
+		
 		// remove menus in menu bar
 		$('<%=pagefn.MENUCONTAINER%>').getElement('ul').dispose();
+		
 		// reset the top navigation info
 		topNavSwitch(false);
+		
 		// remove the columns in main window
 		MUI.Columns.instances.getKeys().each(function(key,index){
-			if(index <= 1){ MUI.closeColumn($(key));};
+			// Only the first two key ( the ids of side column and main column )
+			// are the reall existed MUI.Column instance,
+			// others should be no existed.
+			var columns = ['<%=sideBar %>','<%=mainColumn%>'];
+			if(columns.contains(key)){ MUI.closeColumn($(key));};
 		});
+		
 		// remove all the imported mootools.Assets
 		am.remove('<%=loginApp %>', 'app');
+	},
+	
+	// remove all the MUI.Columns in the main panel
+	clearMainPanel: function (){	
+		MUI.Columns.instances.each(function(column){
+			if(column.options.container.id == '<%=pagefn.MAINPANEL %>'){
+				MUI.closeColumn($(column.options.id));
+			}
+		});
 	}
+	
 });

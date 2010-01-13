@@ -11,18 +11,12 @@ pagefn = Import('/'.join(('', 'pagefn.py')))
 sideBar, mainColumn = pagefn.COLUMNS
 %>
 
+
 /*
 ** The public function for side panels collapsing
 */
 function sidePanelCollapse(event){	
-	MUI.Panels.instances.each(function(panel){
-		// When a side panel is to be collapsed,
-		// remove all the current contents in main column,
-		// because these contents is belong to this collapsed panel.		 
-		if( panel.options.column == '<%=mainColumn %>'){
-			MUI.closePanel($(panel.options.id));
-		};
-	});
+	//alert('panel collapsed');
 };
 
 
@@ -73,35 +67,31 @@ function issuePanel(event){
 /*
 **	Portfolio side panel expand function
 */
-function portfolioPanel(event){
-	//new Event(event).stop();
+function portfolioPanel(event){	
+	//MUI.clearMainPanel();
+	/*
+	var mainPanelId = '<%=pagefn.MAINPANEL %>'; 
 	
-	//alert('Portfolio panel expanded');
-	//var mainColumn = MUI.Columns.instances.get('<%=mainColumn %>');	
-	
-	
-	var mainPanel = 'portfolioPanel'; 
-	new MUI.Panel({
-		id: mainPanel, title: 'Portfolio Edit', column: '<%=mainColumn %>'
+	new MUI.Column({
+		container:mainPanelId, id: 'portfolioColumn', placement: 'left', 
+		sortable: false, width: 700, resizeLimit: [500,900] 
 	});
 	
 	new MUI.Column({
-		container:mainPanel, id: 'test_info', placement: 'left',
-		width: 700, resizeLimit: [500,900] 
-	});
-	
-	new MUI.Column({
-		container:mainPanel, id: 'test_account', placement: 'main',
-		width: null, resizeLimit: [100,300] 
+		container:mainPanelId, id: 'accountColumn', placement: 'main',  
+		sortable: false, width: null, resizeLimit: [100,300] 
 	});
 	
 	new MUI.Panel({
-		id: 'editPortfolioPanel', header: false, column: 'test_info'
+		id: 'editPortfolioPanel', header: false, column: 'portfolioColumn',
+		contentURL:'portfolio/portfolio.ks/page_portfolio'
 	});
 	
 	new MUI.Panel({
-		id: 'editAccountPanel', header: false,  column: 'test_account'
+		id: 'editAccountPanel', header: false,  column: 'accountColumn',
+		contentURL:'portfolio/portfolio.ks/page_account'
 	});
-	
+	*/
+		
 };
 
