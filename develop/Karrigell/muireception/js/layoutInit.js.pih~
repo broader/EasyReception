@@ -29,17 +29,22 @@ function topNavSwitch(login){
 	switch(login){
 		case true:			
 			if(children.length < 2){
+				// append welcom information to top navigation bar
 				var span = new Element('span');
 				span.load(url);			
 				topNav.grab(span);
 				topNav.getElements('ul')[0].setProperty('style','display:none;');
 			}
 			else{
+				// just insert content to the welcome information container and 
+				// envisible the container element
 				children[0].setProperty('style','display:none;');
 				children[1].load(url).setProperty('style','display:block;');
 			}
 			break
 		case false:
+			// delete the content in the welcome information container and 
+			// make it invisible
 			children[0].setProperty('style','display:block;');
 			children[1].setProperties({
 				'html': '',
@@ -129,7 +134,7 @@ function layoutInit(){
 		url: menurl, 
 		onSuccess:function(json,html){			
 			am.import(
-				{	'url':json['js'],	// load the menus' corresponding clickable functions
+				{	'url':json['js'],	// load the functions for the events of sidePanels
 					'app':'<%=loginApp %>',
 					'type':'js'
 				},
@@ -141,11 +146,13 @@ function layoutInit(){
 						
 						json['data'].each(function(item,index){														
 							var pid=['<%=sidePanelPrefix %>', item['id']].join('-'),
-							text=item['text'], url=item['contentURL'], expandfn=item['onExpand'];
+							text=item['text'], url=item['contentURL'], 
+							expandfn=item['onExpand'], collapse=item['onCollapse'];
 										
 							// add panels for left column
 							var panel = new MUI.Panel({
-								id: pid, title: text, contentURL:url, onExpand: window[expandfn],								
+								id:pid, title:text, contentURL:url, onExpand:window[expandfn],
+								onCollapse: window[collapse].bind(panel),								
 								column: sideColumn,								
 								onContentLoaded: function(){}
 							});

@@ -11,6 +11,21 @@ pagefn = Import('/'.join(('', 'pagefn.py')))
 sideBar, mainColumn = pagefn.COLUMNS
 %>
 
+/*
+** The public function for side panels collapsing
+*/
+function sidePanelCollapse(event){
+	//alert('Side panel collapsed');
+	//var mainColumn = MUI.Columns.instances.get('<%=mainColumn %>');
+	
+	alert(['column is '+this.options.column, 'panel id is '+this.options.id].join(','));
+	
+	MUI.Panels.instances.each(function(panel){		 
+		if( panel.options.column == '<%=mainColumn %>'){
+			MUI.closePanel(panel);
+		};
+	});
+};
 
 
 /*
@@ -64,7 +79,31 @@ function portfolioPanel(event){
 	//new Event(event).stop();
 	
 	//alert('Portfolio panel expanded');
-	var mainColumn = MUI.Columns.instances.get('<%=mainColumn %>');	
-	alert($type(mainColumn));
+	//var mainColumn = MUI.Columns.instances.get('<%=mainColumn %>');	
+	
+	
+	var mainPanel = 'portfolioPanel'; 
+	new MUI.Panel({
+		id: mainPanel, title: 'Portfolio Edit', column: '<%=mainColumn %>'
+	});
+	
+	new MUI.Column({
+		container:mainPanel, id: 'test_info', placement: 'left',
+		width: 700, resizeLimit: [500,900] 
+	});
+	
+	new MUI.Column({
+		container:mainPanel, id: 'test_account', placement: 'main',
+		width: null, resizeLimit: [100,300] 
+	});
+	
+	new MUI.Panel({
+		id: 'editPortfolioPanel', header: false, column: 'test_info'
+	});
+	
+	new MUI.Panel({
+		id: 'editAccountPanel', header: false,  column: 'test_account'
+	});
+	
 };
 
