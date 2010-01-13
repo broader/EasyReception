@@ -754,13 +754,19 @@
 <node COLOR="#00b439" CREATED="1261468491247" ID="ID_325077924" MODIFIED="1263284600335" TEXT="MochaUI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261468496862" FOLDED="true" ID="ID_340189399" MODIFIED="1263285113735" TEXT="Layout.js">
+<node COLOR="#990000" CREATED="1261468496862" ID="ID_340189399" MODIFIED="1263365176216" TEXT="Layout.js">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1263284614698" FOLDED="true" ID="ID_376439298" MODIFIED="1263284631851" TEXT="MUI.Desktop">
 <node COLOR="#111111" CREATED="1261468527787" ID="ID_1974077677" MODIFIED="1261468675424" TEXT="MUI.Desktop = {&#x9;&#xa;&#x9;options: {&#xa;&#x9;&#x9;// Naming options:&#xa;&#x9;&#x9;// If you change the IDs of the MochaUI Desktop containers in your HTML, you need to change them here as well.&#xa;&#x9;&#x9;...,&#x9;&#x9;&#xa;&#x9;&#x9;//desktopFooter:       &apos;desktopFooter&apos;,&#xa;&#x9;&#x9;desktopFooter:       &apos;desktopFooterWrapper&apos;&#xa;&#x9;},&#x9;&#xa;&#x6b64;&#x5904;&apos;desktop&apos;&#x88ab;&#x91cd;&#x590d;&#x5b9a;&#x4e49;&#xff0c;&#x7ecf;firebug&#x6d4b;&#x8bd5;&#xff0c;&#x6700;&#x540e;&#x4e00;&#x4e2a;&#x5b9a;&#x4e49;&apos;desktopFooterWrapper&apos;&#x6709;&#x6548;&#xff0c;&#x6545;&#x5c06;&#x53e6;&#x4e00;&#x4e2a;&#x91cd;&#x590d;&#x5b9a;&#x4e49;&#x6ce8;&#x91ca;&#x5f03;&#x7528;&#x3002;"/>
 </node>
-<node COLOR="#111111" CREATED="1263284633143" FOLDED="true" ID="ID_506785355" MODIFIED="1263285111951" TEXT="MUI.Panel">
-<node COLOR="#111111" CREATED="1263284642567" ID="ID_1995229220" MODIFIED="1263285106390" TEXT="MUI.Panel&#xa;-&gt;collapseToggleInit()&#xa;----&gt;L835,&#xa;&#x539f;&#x4ee3;&#x7801;&#x4e3a;&#xff1a;this.collapseToggleEl.addEvent(&apos;click&apos;, function(event){&#xa;&#x6b64;&#x65b9;&#x6cd5;&#x4e2d;&#x6240;&#x6709;&#x4ee3;&#x7801;copy&#x81f3;&#x65b0;&#x589e;&#x6dfb;&#x65b9;&#x6cd5;MUI.Panel.toggleExpand()&#x4e2d;&#xa;}.bind(this));&#xa;&#xa;&#x66f4;&#x6539;&#x4e3a;&#xff1a; this.collapseToggleEl.addEvent(&apos;click&apos;, function(event){this.toggleExpand();}.bind(this));&#xa;&#x4e3a;&#x6b64;&#xff0c;&#xa;MUI.Panel &#x589e;&#x6dfb;&#x65b0;&#x65b9;&#x6cd5;-&gt;toggleExpand&#xff1a;function&#xff08;&#xff09;{...}&#xa;&#xa;&quot;&quot;&quot;&#xa;&#x6b64;&#x6539;&#x52a8;&#x4e3a;&#x65b9;&#x4fbf;&#x5916;&#x90e8;&#x8c03;&#x7528;&#x5207;&#x6362;Panel&#x5b9e;&#x4f8b;&#x7684;Expand &#x72b6;&#x6001;&#x3002;&#xa;&quot;&quot;&quot;&#xa;"/>
+<node COLOR="#111111" CREATED="1263284633143" ID="ID_506785355" MODIFIED="1263365179166" TEXT="MUI.Panel">
+<node COLOR="#111111" CREATED="1263365366222" ID="ID_65409135" MODIFIED="1263365382811" TEXT="collapseToggleInit()">
+<node COLOR="#111111" CREATED="1263365384998" ID="ID_168823966" MODIFIED="1263365416457" TEXT="----&gt;L835,&#xa;&#x539f;&#x4ee3;&#x7801;&#x4e3a;&#xff1a;this.collapseToggleEl.addEvent(&apos;click&apos;, function(event){&#xa;&#x6b64;&#x65b9;&#x6cd5;&#x4e2d;&#x6240;&#x6709;&#x4ee3;&#x7801;copy&#x81f3;&#x65b0;&#x589e;&#x6dfb;&#x65b9;&#x6cd5;MUI.Panel.toggleExpand()&#x4e2d;&#xa;}.bind(this));&#xa;&#xa;&#x66f4;&#x6539;&#x4e3a;&#xff1a; this.collapseToggleEl.addEvent(&apos;click&apos;, function(event){this.toggleExpand();}.bind(this));&#xa;&#x4e3a;&#x6b64;&#xff0c;&#xa;MUI.Panel &#x589e;&#x6dfb;&#x65b0;&#x65b9;&#x6cd5;-&gt;toggleExpand&#xff1a;function&#xff08;&#xff09;{...}"/>
+</node>
+<node COLOR="#111111" CREATED="1263365429915" ID="ID_1004655328" MODIFIED="1263365501814" TEXT="toggleExpand()--&gt;&#x65b0;&#x589e;&#x52a0;">
+<icon BUILTIN="yes"/>
+<node COLOR="#111111" CREATED="1263365530630" ID="ID_1152025245" MODIFIED="1263365683000" TEXT="&quot;&quot;&quot;&#xa;&#x6b64;&#x6539;&#x52a8;&#x4e3a;&#x65b9;&#x4fbf;&#x5916;&#x90e8;&#x8c03;&#x7528;&#x5207;&#x6362;Panel&#x5b9e;&#x4f8b;&#x7684;Expand &#x72b6;&#x6001;&#x3002;&#xa;&quot;&quot;&quot;&#xa;&#x539f;&#x4ee3;&#x7801;&#x6539;&#x52a8;&#xa;&#xa;// Collapse Panel&#xa;if (this.isCollapsed == false) {&#xa;---&gt;L868&#xa;//var currentColumn = MUI.Columns.instances.get($(options.column).id);&#xa;var currentColumn = MUI.Columns.instances.get($(this.options.column).id);&#xa;...&#xa;---&gt;L886&#xa;//MUI.panelHeight(options.column, panel, &apos;collapsing&apos;);&#xa;MUI.panelHeight(this.options.column, panel, &apos;collapsing&apos;);"/>
+</node>
 </node>
 </node>
 </node>

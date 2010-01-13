@@ -152,7 +152,7 @@ function layoutInit(){
 							// add panels for left column
 							var panel = new MUI.Panel({
 								id:pid, title:text, contentURL:url, onExpand:window[expandfn],
-								onCollapse: window[collapse].bind(panel),								
+								onCollapse: window[collapse].bind(this),								
 								column: sideColumn,								
 								onContentLoaded: function(){}
 							});
@@ -191,8 +191,8 @@ MUI.extend({
 		// reset the top navigation info
 		topNavSwitch(false);
 		// remove the columns in main window
-		MUI.Columns.instances.getKeys().each(function(key){			
-			MUI.closeColumn($(key));
+		MUI.Columns.instances.getKeys().each(function(key,index){
+			if(index <= 1){ MUI.closeColumn($(key));};
 		});
 		// remove all the imported mootools.Assets
 		am.remove('<%=loginApp %>', 'app');

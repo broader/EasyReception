@@ -833,6 +833,7 @@ MUI.Panel = new Class({
 		}).inject(this.panelHeaderCollapseBoxEl);
 
 		this.collapseToggleEl.addEvent('click', function(event){
+			new Event(event).stop();
 			this.toggleExpand();
 		}.bind(this));
 	},
@@ -864,7 +865,8 @@ MUI.Panel = new Class({
 
 		// Collapse Panel
 		if (this.isCollapsed == false) {
-			var currentColumn = MUI.Columns.instances.get($(options.column).id);
+			//var currentColumn = MUI.Columns.instances.get($(options.column).id);
+			var currentColumn = MUI.Columns.instances.get($(this.options.column).id);
 
 			if (expandedSiblings.length == 0 && currentColumn.options.placement != 'main'){
 				var currentColumn = MUI.Columns.instances.get($(options.column).id);
@@ -1507,7 +1509,10 @@ MUI.extend({
 		$(column).getChildren('.panelWrapper').each(function(panelWrapper){
 			panelWrapper.getElement('.panel').removeClass('bottomPanel');
 		});
-		$(column).getChildren('.panelWrapper').getLast().getElement('.panel').addClass('bottomPanel');
+		
+		el = $(column).getChildren('.panelWrapper').getLast();
+		if(el != null){el.getElement('.panel').addClass('bottomPanel');};		
+		//$(column).getChildren('.panelWrapper').getLast().getElement('.panel').addClass('bottomPanel');
 		
 		instances.erase(instance.options.id);
 		return true;

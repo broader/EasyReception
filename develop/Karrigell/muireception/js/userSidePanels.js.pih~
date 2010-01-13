@@ -14,15 +14,12 @@ sideBar, mainColumn = pagefn.COLUMNS
 /*
 ** The public function for side panels collapsing
 */
-function sidePanelCollapse(event){
-	//alert('Side panel collapsed');
-	//var mainColumn = MUI.Columns.instances.get('<%=mainColumn %>');
-	
-	alert(['column is '+this.options.column, 'panel id is '+this.options.id].join(','));
-	
-	MUI.Panels.instances.each(function(panel){		 
+function sidePanelCollapse(event){	
+	MUI.Panels.instances.each(function(panel){
+		// When a side panel is to be collapsed,
+		// remove all the current content in main column.		 
 		if( panel.options.column == '<%=mainColumn %>'){
-			MUI.closePanel(panel);
+			MUI.closePanel($(panel.options.id));
 		};
 	});
 };

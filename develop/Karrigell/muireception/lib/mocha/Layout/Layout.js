@@ -865,7 +865,8 @@ MUI.Panel = new Class({
 
 		// Collapse Panel
 		if (this.isCollapsed == false) {
-			var currentColumn = MUI.Columns.instances.get($(options.column).id);
+			//var currentColumn = MUI.Columns.instances.get($(options.column).id);
+			var currentColumn = MUI.Columns.instances.get($(this.options.column).id);
 
 			if (expandedSiblings.length == 0 && currentColumn.options.placement != 'main'){
 				var currentColumn = MUI.Columns.instances.get($(options.column).id);
@@ -882,7 +883,8 @@ MUI.Panel = new Class({
 			this.isCollapsed = true;				
 			panelWrapper.addClass('collapsed');
 			panelWrapper.removeClass('expanded');				
-			MUI.panelHeight(options.column, panel, 'collapsing');
+			//MUI.panelHeight(options.column, panel, 'collapsing');
+			MUI.panelHeight(this.options.column, panel, 'collapsing');
 			MUI.panelHeight(); // Run this a second time for panels within panels
 			
 			this.collapseToggleEl.removeClass('panel-collapsed');				
@@ -1508,7 +1510,10 @@ MUI.extend({
 		$(column).getChildren('.panelWrapper').each(function(panelWrapper){
 			panelWrapper.getElement('.panel').removeClass('bottomPanel');
 		});
-		$(column).getChildren('.panelWrapper').getLast().getElement('.panel').addClass('bottomPanel');
+		
+		el = $(column).getChildren('.panelWrapper').getLast();
+		if(el != null){el.getElement('.panel').addClass('bottomPanel');};		
+		//$(column).getChildren('.panelWrapper').getLast().getElement('.panel').addClass('bottomPanel');
 		
 		instances.erase(instance.options.id);
 		return true;
