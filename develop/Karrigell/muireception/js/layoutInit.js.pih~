@@ -117,7 +117,7 @@ function addColumns(){
 	// first, add columns to main window of the desktop	
 	new MUI.Column({
 		id:'<%=sideBar %>', placement:'left', width:200, 
-		resizeLimit:[100, 300], sortable: false
+		resizeLimit:[100, 300], sortable: true
 	});
 
 	new MUI.Column({ 
@@ -218,6 +218,19 @@ MUI.extend({
 			if(column.options.container.id == '<%=pagefn.MAINPANEL %>'){
 				MUI.closeColumn($(column.options.id));
 			}
+		});
+	},
+	
+	// collapse all other panels, only left user selected panel
+	accordionPanels: function(currentId){
+		var column = '<%=pagefn.sidebar %>';
+		MUI.Panels.instances.each(function(panel){
+			if (panel.options.column != column){
+				return
+			};
+			if (panel.options.id != currentId && panel.isCollapsed != true ){
+				panel.toggleExpand();
+			};
 		});
 	}
 	

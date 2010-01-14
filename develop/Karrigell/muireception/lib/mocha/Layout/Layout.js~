@@ -485,7 +485,9 @@ MUI.Column = new Class({
 		// Collapse
 		if (this.isCollapsed == false){
 			this.oldWidth = column.getStyle('width').toInt();
-
+			
+			alert('columnToggle(),L489,column to toggle id is '+ this.columnEl.id);			
+			
 			this.resize.detach();
 			this.handleEl.removeEvents('dblclick');
 			this.handleEl.addEvent('click', function(){
@@ -869,7 +871,8 @@ MUI.Panel = new Class({
 			var currentColumn = MUI.Columns.instances.get($(this.options.column).id);
 
 			if (expandedSiblings.length == 0 && currentColumn.options.placement != 'main'){
-				var currentColumn = MUI.Columns.instances.get($(options.column).id);
+				//var currentColumn = MUI.Columns.instances.get($(options.column).id);
+				var currentColumn = MUI.Columns.instances.get($(this.options.column).id);
 				currentColumn.columnToggle();
 				return;
 			}
@@ -1438,7 +1441,7 @@ MUI.extend({
 			
 		instance.isClosing = true;
 		
-		if (instance.options.sortable){
+		if (instance.options.sortable && instance.container != undefined ){
 			instance.container.retrieve('sortables').removeLists(this.columnEl);
 		}	
 		

@@ -26,7 +26,8 @@ function sidePanelCollapse(event){
 function portalPanel(event){
 	//new Event(event).stop();
 	//MUI.notification('Portal menu clicked!');
-	alert('Portal panel expanded');	
+	alert('Expanded panel id is '+this.options.id);	
+	MUI.accordionPanels(this.options.id);
 };
 
 /*
@@ -68,7 +69,10 @@ function issuePanel(event){
 **	Portfolio side panel expand function
 */
 function portfolioPanel(event){	
-	//MUI.clearMainPanel();
+	
+	MUI.accordionPanels(this.options.id);
+	
+	MUI.clearMainPanel();
 	
 	var mainPanelId = '<%=pagefn.MAINPANEL %>'; 
 	
@@ -82,15 +86,17 @@ function portfolioPanel(event){
 		sortable: false, width: null, resizeLimit: [100,300] 
 	});
 	
+	
 	new MUI.Panel({
-		id: 'editPortfolioPanel', header: false, column: 'portfolioColumn',
+		id: 'editPortfolioPanel', title: 'test', column: 'portfolioColumn',
 		contentURL:'portfolio/portfolio.ks/page_portfolio'
 	});
 	
 	new MUI.Panel({
-		id: 'editAccountPanel', header: false,  column: 'accountColumn',
+		id: 'editAccountPanel', title: 'test',  column: 'accountColumn',
 		contentURL:'portfolio/portfolio.ks/page_account'
 	});
 	
+		
 };
 

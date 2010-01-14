@@ -219,6 +219,19 @@ MUI.extend({
 				MUI.closeColumn($(column.options.id));
 			}
 		});
+	},
+	
+	// collapse all other panels, only left user selected panel
+	accordionPanels: function(currentId){
+		var column = '<%=sideBar %>';
+		MUI.Panels.instances.each(function(panel){
+			if (panel.options.column != column){
+				return
+			};
+			if (panel.options.id != currentId && panel.isCollapsed != true ){
+				panel.toggleExpand();
+			};
+		});
 	}
 	
 });
