@@ -69,7 +69,7 @@ function portfolioPanel(panelId){
 	
 	new MUI.Column({
 		container:mainPanelId, id: 'portfolioColumn', placement: 'left', 
-		sortable: false, width: 700, resizeLimit: [500,900] 
+		sortable: false, width: 500, resizeLimit: [100,300] 
 	});
 	
 	new MUI.Column({

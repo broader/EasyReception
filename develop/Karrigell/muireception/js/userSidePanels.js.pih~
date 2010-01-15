@@ -15,7 +15,7 @@ sideBar, mainColumn = pagefn.COLUMNS
 /*
 ** The public function for side panels collapsing
 */
-function sidePanelCollapse(event){	
+function sidePanelCollapse(panelId){	
 	//alert('panel collapsed');
 };
 
@@ -69,7 +69,7 @@ function portfolioPanel(panelId){
 	
 	new MUI.Column({
 		container:mainPanelId, id: 'portfolioColumn', placement: 'left', 
-		sortable: false, width: 700, resizeLimit: [500,900] 
+		sortable: false, width: 700, resizeLimit: [400,700] 
 	});
 	
 	new MUI.Column({

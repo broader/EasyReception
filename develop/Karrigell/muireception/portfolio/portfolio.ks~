@@ -17,7 +17,12 @@ modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'formFn':'form.py'}
 # Page Variables
 # ********************************************************************************************
 # form fields' names in CONFIG file
-ACCOUNTFIELDS = 'userAccountInfo'
+ACCOUNTFIELDS = \
+[
+	{ 'name':'username', 'prompt':_('Login Name :'), 'type':'text'},\
+	{ 'name':'email', 'prompt':_('Email address :'), 'type':'text'},\
+	{ 'name':'creation' , 'prompt':_('Created Time :'), 'type':'text'},\
+]
 
 # ********************************************************************************************
 
@@ -47,35 +52,28 @@ def page_portfolio(**args):
 	
 def page_account(**args):
 	print H2('Account Information')
-	user = getattr( so, pagefn.SOINFO['userinfo']).get('user')
-	print H2(user)
+	
+	user = getattr( so, pagefn.SOINFO['userinfo']).get('username')
+	account = {'username':user}
 
 	# get account info
 	props = ['email', 'creation']
-	account = model.get_item(user, 'user', user, props, keyIsId=False)
-	account.update({'username':user})
+	res = model.get_item(user, 'user', user, props, keyIsId=False)
+	if type(res) == type({}):
+		account.update(res)
+	#account.update({'username':user})
 	
 	main = []
-	text = _("Below is your account information.<BR>")
-		     
-	header = H2( text, style='text-align:left;color:saddleBrown;')	
-	main.append(DIV(header, **{'class':'subcolumns' }))
-	main.append(DIV( HR(), **{'class':'subcolumns' }))	
+	#main.append(DIV( HR(), **{'class':'subcolumns' }))	
 	
 	# the account informations
 	table = []
 	# append the caption
 	table.append( CAPTION(_("Login Information"),\
 					  style='text-align: center; font-size: 1.2em;font-weight:bold;'))
-	
-	try:
-		account = getattr(so,pagefn.SOINFO['userinfo'])
-	except:
-		account = {}
 		  
-	fieldvalues = CONFIG.getData(ACCOUNTFIELDS)
 	values = []	
-	for field in fieldvalues :
+	for field in ACCOUNTFIELDS :
 		value = {}
 		[ value.update({prop:field.get(prop)}) for prop in ('prompt','type')]		
 		value['value'] = account.get(field.get('name'))
@@ -86,25 +84,19 @@ def page_account(**args):
 					  
 	valueStyle = {'label':'color:#ff6600;font-size:1.2em;', 'td':'text-align:left;'}
 	
-	trs = form.render_table_fields( values, 1, labelStyle, valueStyle)
+	trs = formFn.render_table_fields( values, 1, labelStyle, valueStyle)
 	table.append(trs)
-	table = TABLE(Sum(table), style='position:relative;left:15em;')
+	table = TABLE(Sum(table), style='position:relative;left:10em;')
 	
 	accountDiv = DIV(table, **{'class':'subcolumns'})		
 	main.append(DIV( accountDiv, **{'class':'subcolumns'}))
 	
-	main.append(DIV( HR(), **{'class':'subcolumns'}))
+	bnId = 'editAccountBn'
+	button = BUTTON( _('Edit'), **{'class':'MooTrans', 'type':'button', 'style':'font-size:0.9em;width:atuo;'})
+	span = DIV( button, **{ 'id':bnId, 'style':'position:absolute;margin-left:15em;'}) 
 	
-	text = _("You could edit your account and other portfolio information in this system later.<BR>\
-				If you have any question, please contact with us.<BR>You're welcom always !")
-	prompt = DIV( H2(text), **{'class':'warning', 'style':'text-align:left;color:saddleBrown;'})	
-	main.append(DIV( prompt, **{'class':'subcolumns' }))
+	main.append(span)
 	
-	bnId = 'endRegister'
-	button = BUTTON( _('End Registration'), **{'class':'MooTrans', 'type':'button', 'style':'font-size:0.9em;width:atuo;'})
-	span = DIV( button, **{ 'id':bnId, 'style':'position:absolute;margin-left:20em;'}) 
-	
-	main.append(DIV( span, **{'class':'subcolumns'}))
-	print DIV(Sum(main), **{'class':'subcolumns', 'style':'background:white;'})
+	print Sum(main)
 	return
 	

@@ -215,8 +215,10 @@ MUI.extend({
 	// remove all the MUI.Columns in the main panel
 	clearMainPanel: function (){	
 		MUI.Columns.instances.each(function(column){
-			if(column.options.container.id == '<%=pagefn.MAINPANEL %>'){
-				MUI.closeColumn($(column.options.id));
+			//alert($type(column.options.container));
+			var toClose = $(column.options.id); 
+			if(column.options.container.id == '<%=pagefn.MAINPANEL %>' && toClose != null){
+				MUI.closeColumn(toClose);
 			}
 		});
 	},

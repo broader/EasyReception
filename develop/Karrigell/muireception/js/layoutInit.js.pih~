@@ -158,7 +158,7 @@ function layoutInit(){
 							var panel = new MUI.Panel({
 								id:pid, title:text, contentURL:url, 
 								onExpand:window[expandfn].pass(pid),
-								onCollapse: window[collapse].bind(this),								
+								onCollapse: window[collapse].pass(pid),								
 								column: sideColumn,								
 								onContentLoaded: function(){}
 							});
@@ -215,8 +215,12 @@ MUI.extend({
 	// remove all the MUI.Columns in the main panel
 	clearMainPanel: function (){	
 		MUI.Columns.instances.each(function(column){
-			if(column.options.container.id == '<%=pagefn.MAINPANEL %>'){
-				MUI.closeColumn($(column.options.id));
+			//alert($type(column.options.container));
+			var toClose = $(column.options.id); 
+			if(column.options.container.id == '<%=pagefn.MAINPANEL %>' && toClose != null){
+				alert(column.options.id);
+				//MUI.closeColumn($(column.options.id));
+				MUI.closeColumn(toClose);
 			}
 		});
 	},

@@ -131,7 +131,7 @@ class Client:
         '''
         '''        
         try:                            
-            #print 'ajaxClient.Client.inner_main,L135, form is ', self.form
+            print 'ajaxClient.Client.inner_main,L135, form is ', self.form
             self.determine_user()
             #print 'ajaxClient.Client.inner_main,L137'
             # figure out the object class this client action for.
@@ -400,8 +400,12 @@ class Client:
             This method used to handle non-existence of the 'anonymous'
             user, but that user is mandatory now.
         '''
-        self.userid = self.db.user.lookup('anonymous')
+        if not hasattr(self, 'db'):
+            self.opendb('anonymous')
+            
         self.user = 'anonymous'
+        #self.userid = self.db.user.lookup('anonymous')        
+            
     
     def parsePropsFromForm(self, create=0):         
         return FormParser(self).parse(create=create)
