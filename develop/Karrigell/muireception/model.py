@@ -83,9 +83,10 @@ def get_item(operator, klass, key, props=None, keyIsId=False):
         if res['success']:
         	data = res.get('data')        	
         	if props:
-        		d = {}
-        		[d.update({name:value}) for name,value in zip(props,data)]
-        		data = d 		
+        		#d = {}
+        		#[d.update({name:value}) for name,value in zip(props,data)]
+        		#data = d
+        		data = dict([(k,v) for k,v in zip(props,data)]) 		
         else:
         	data = None
         return data

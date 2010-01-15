@@ -30,8 +30,8 @@ LOGINFORM = 'loginForm'
 
 FORMFIELDS = \
 [\
-	{'name':'user','label':_('Login Name'),'class':"validate['required','~accountCheck']"},\
-	{'name':'pwd','label':_('Password'),'class':"validate['required','~pwdCheck']"}\
+	{'name':'username','label':_('Login Name'),'class':"validate['required','~accountCheck']"},\
+	{'name':'password','label':_('Password'),'class':"validate['required','~pwdCheck']"}\
 ]  
 
 DEMOSELECT = 'demoSelect'
@@ -288,7 +288,8 @@ def page_accountValid(**args):
 	   # (1, "Valid user name and password")
 	   # (2, "Invalid user name")
 		if data[0] == 1:
-			res['valid'] = 1			
+			res['valid'] = 1		
+			# valid user name and password, save them to session object	
 			setattr( so, pagefn.SOINFO['userinfo'], {fields[0]:account[0]})
 	else:
 		# check whether the account is existed 
@@ -304,7 +305,7 @@ def page_welcomeInfo(**args):
 	which will be shown on the top right of the screen.
 	"""
 	try:
-		username = getattr(so, pagefn.SOINFO['userinfo']).get('user') or ''
+		username = getattr(so, pagefn.SOINFO['userinfo']).get('username') or ''
 	except:
 		username = ''
 	
@@ -320,4 +321,10 @@ def page_menu(**args):
 	Return the menus data corresponding to user role.
 	"""
 	print JSON.encode(pagefn.USERMENUS)
+	return
+	
+def page_sideBarPanels(**args):
+	"""
+	"""
+	print JSON.encode(pagefn.SIDEBARPANELS)
 	return

@@ -23,54 +23,45 @@ function sidePanelCollapse(event){
 /*
 **	Portal side panel expand function
 */
-function portalPanel(event){
-	//new Event(event).stop();
-	//MUI.notification('Portal menu clicked!');
-	alert('Expanded panel id is '+this.options.id);	
-	MUI.accordionPanels(this.options.id);
+function portalPanel(panelId){
+	MUI.accordionPanels(panelId);
 };
 
 /*
 **	Accommodation side panel expand function
 */
-function hotelPanel(event){
-	//new Event(event).stop();
-	//MUI.notification('Portal menu clicked!');
-	alert('Accommodation panel expanded');	
+function hotelPanel(panelId){		
+	MUI.accordionPanels(panelId);
 };
 
 /*
 **	Travel side panel expand function
 */
-function travelPanel(event){
-	//new Event(event).stop();
-	//MUI.notification('Portal menu clicked!');
-	alert('Travel panel expanded');	
+function travelPanel(panelId){	
+	MUI.accordionPanels(panelId);	
 };
 
 /*
 **	Service side panel expand function
 */
-function servicePanel(event){
-	//new Event(event).stop();	
-	alert('Service panel expanded');	
+function servicePanel(panelId){	
+	MUI.accordionPanels(panelId);	
 };
 
 /*
 **	Issue side panel expand function
 */
-function issuePanel(event){
-	//new Event(event).stop();
-	alert('Issue panel expanded');	
+function issuePanel(panelId){
+	MUI.accordionPanels(panelId);	
 };
 
 
 /*
 **	Portfolio side panel expand function
 */
-function portfolioPanel(event){	
+function portfolioPanel(panelId){	
 	
-	MUI.accordionPanels(this.options.id);
+	MUI.accordionPanels(panelId);
 	
 	MUI.clearMainPanel();
 	
@@ -88,12 +79,12 @@ function portfolioPanel(event){
 	
 	
 	new MUI.Panel({
-		id: 'editPortfolioPanel', title: 'test', column: 'portfolioColumn',
+		id: 'editPortfolioPanel', header:false, column: 'portfolioColumn',
 		contentURL:'portfolio/portfolio.ks/page_portfolio'
 	});
 	
 	new MUI.Panel({
-		id: 'editAccountPanel', title: 'test',  column: 'accountColumn',
+		id: 'editAccountPanel', header:false, column: 'accountColumn',
 		contentURL:'portfolio/portfolio.ks/page_account'
 	});
 	

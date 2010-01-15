@@ -157,8 +157,8 @@ function layoutInit(){
 							// add panels for left column
 							var panel = new MUI.Panel({
 								id:pid, title:text, contentURL:url, 
-								onExpand:window[expandfn].bind(this),
-								onCollapse: window[collapse].bind(this),								
+								onExpand:window[expandfn].pass(pid),
+								onCollapse: window[collapse].pass(pid),								
 								column: sideColumn,								
 								onContentLoaded: function(){}
 							});

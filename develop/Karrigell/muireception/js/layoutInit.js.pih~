@@ -157,7 +157,7 @@ function layoutInit(){
 							// add panels for left column
 							var panel = new MUI.Panel({
 								id:pid, title:text, contentURL:url, 
-								onExpand:window[expandfn].bind(this),
+								onExpand:window[expandfn].pass(pid),
 								onCollapse: window[collapse].bind(this),								
 								column: sideColumn,								
 								onContentLoaded: function(){}
@@ -223,7 +223,7 @@ MUI.extend({
 	
 	// collapse all other panels, only left user selected panel
 	accordionPanels: function(currentId){
-		var column = '<%=pagefn.sidebar %>';
+		var column = '<%=sideBar %>';
 		MUI.Panels.instances.each(function(panel){
 			if (panel.options.column != column){
 				return
