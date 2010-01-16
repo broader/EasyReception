@@ -8,8 +8,8 @@ INITIALIZE THE USER'S MENUS
 pagefn = Import('/'.join(('', 'pagefn.py')))
 
 # initialize some page variables
-loginApp, layoutUrls, sidePanelPrefix = \
-[getattr(pagefn,name) for name in ('LOGINAPPNAME', 'LAYOUTURLS', 'SIDEPANELPREFIX')]
+loginApp, layoutUrls, sidePanelPrefix, logoutUrl = \
+[getattr(pagefn,name) for name in ('LOGINAPPNAME', 'LAYOUTURLS', 'SIDEPANELPREFIX', 'LOGOUT')]
 
 sideBar, mainColumn = pagefn.COLUMNS
 %>
@@ -210,17 +210,20 @@ MUI.extend({
 		
 		// remove all the imported mootools.Assets
 		am.remove('<%=loginApp %>', 'app');
+		
+		// close session object on server side
+		 
 	},
 	
 	// remove all the MUI.Columns in the main panel
 	clearMainPanel: function (){	
-		MUI.Columns.instances.each(function(column){
-			//alert($type(column.options.container));
-			var toClose = $(column.options.id); 
-			if(column.options.container.id == '<%=pagefn.MAINPANEL %>' && toClose != null){
-				alert(column.options.id);
-				//MUI.closeColumn($(column.options.id));
-				MUI.closeColumn(toClose);
+		MUI.Columns.instances
+		.filter(function(column,key){	// filter the instances whose element has been removed
+			return $(column.options.id) != null;
+		})
+		.each(function(column){			
+			if(column.options.container.id == '<%=pagefn.MAINPANEL %>'){
+				MUI.closeColumn($(column.options.id));
 			}
 		});
 	},

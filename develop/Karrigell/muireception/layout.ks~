@@ -74,7 +74,7 @@ def page_loginForm(**args):
 		attr = {'name':name}
 		attr['class'] = ' '.join((field.get('class'), 'type-text'))
 		
-		if name != 'pwd':		
+		if name != 'password':		
 			attr['type'] = 'text'
 		else:
 			attr['type'] = 'password'
@@ -328,3 +328,9 @@ def page_sideBarPanels(**args):
 	"""
 	print JSON.encode(pagefn.SIDEBARPANELS)
 	return
+	
+def page_logout(**args):
+	""" Logout action, remove current session. """
+	so.close()
+	return
+	

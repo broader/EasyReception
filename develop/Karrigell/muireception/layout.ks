@@ -328,3 +328,9 @@ def page_sideBarPanels(**args):
 	"""
 	print JSON.encode(pagefn.SIDEBARPANELS)
 	return
+	
+def page_logout(**args):
+	""" Logout action, remove current session. """
+	so.close()
+	return
+	

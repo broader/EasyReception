@@ -85,6 +85,9 @@ SIDEBARPANELS = \
 
 # the main panel's id
 MAINPANEL = 'mainPanel'
+
+# the logout action url
+LOGOUT = 'layout.ks/page_logout'
 #--------------------------------------------------------------------------------------
 
 

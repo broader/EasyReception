@@ -84,7 +84,7 @@ SIDEBARPANELS = \
 }
 
 # the main panel's id
-MAINPANEL = 'maniPanel'
+MAINPANEL = 'mainPanel'
 #--------------------------------------------------------------------------------------
 
 
