@@ -85,7 +85,7 @@ initializeWindows = function(){
 	
 	MUI.jsonWindows = function(){
 		var request = new Request.JSON({
-			url: 'data/json-windows-data.js',
+			url: 'scripts/json-windows-data.js',
 			onComplete: function(properties) {
 				MUI.newWindowsFromJSON(properties.windows);
 			}

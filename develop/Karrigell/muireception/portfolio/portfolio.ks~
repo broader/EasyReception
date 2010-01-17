@@ -21,6 +21,7 @@ ACCOUNTFIELDS = \
 [
 	{ 'name':'username', 'prompt':_('Login Name :'), 'type':'text'},\
 	{ 'name':'email', 'prompt':_('Email address :'), 'type':'text'},\
+	{ 'name':'password', 'prompt':_('Password :'), 'type':'text'},\
 	{ 'name':'creation' , 'prompt':_('Created Time :'), 'type':'text'},\
 ]
 
@@ -35,6 +36,8 @@ so = Session()
 # config data object
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 
+# Account edit button's id
+ACCOUNTEDITBN = 'editAccountBn'
 # End*****************************************************************************************
 
 
@@ -61,6 +64,7 @@ def page_account(**args):
 	res = model.get_item(user, 'user', user, props, keyIsId=False)
 	if type(res) == type({}):
 		account.update(res)
+		account['password'] = _('/')
 	#account.update({'username':user})
 	
 	main = []
@@ -69,8 +73,7 @@ def page_account(**args):
 	# the account informations
 	table = []
 	# append the caption
-	table.append( CAPTION(_("Login Information"),\
-					  style='text-align: center; font-size: 1.2em;font-weight:bold;'))
+	#table.append( CAPTION(_("Login Information"),style='text-align: center; font-size: 1.2em;font-weight:bold;'))
 		  
 	values = []	
 	for field in ACCOUNTFIELDS :
@@ -86,17 +89,44 @@ def page_account(**args):
 	
 	trs = formFn.render_table_fields( values, 1, labelStyle, valueStyle)
 	table.append(trs)
-	table = TABLE(Sum(table), style='position:relative;left:10em;')
+	table = TABLE(Sum(table), style='position:relative;left:4em;')
 	
 	accountDiv = DIV(table, **{'class':'subcolumns'})		
 	main.append(DIV( accountDiv, **{'class':'subcolumns'}))
 	
-	bnId = 'editAccountBn'
-	button = BUTTON( _('Edit'), **{'class':'MooTrans', 'type':'button', 'style':'font-size:0.9em;width:atuo;'})
-	span = DIV( button, **{ 'id':bnId, 'style':'position:absolute;margin-left:15em;'}) 
+	button = BUTTON( _('Edit'), **{'class':'MooTrans', 'type':'button', 'style':'font-size:1.6em;width:atuo;'})
+	div = DIV( button, **{ 'id':ACCOUNTEDITBN, 'style':'position:absolute;margin-left:10em;'}) 
 	
-	main.append(span)
+	main.append(div)
 	
 	print Sum(main)
-	return
 	
+	print pagefn.script(_accountJs(), link=False)
+	
+	return
+
+def _accountJs(**args):
+	paras = [ACCOUNTEDITBN,]
+	paras = tuple(paras)
+	js = \
+	"""
+	var buttonsContainer='%s';
+	function pageInit(){
+		// add mouseover effect to buttons
+   	new MooHover({container:buttonsContainer,duration:800});
+   	
+   	// Add click callback functions for buttons
+      $(buttonsContainer)
+      .getElements('button')[0]
+      .addEvent('click',function(event){
+         new MUI.Modal({
+         	id:'', contentURL:'', width:400, height:300,
+         	title: 'Edit Account'
+         });
+      });
+	};
+	
+	window.addEvent('domready', pageInit);
+	"""%paras
+	
+	return js

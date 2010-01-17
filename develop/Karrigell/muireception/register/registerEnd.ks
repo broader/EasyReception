@@ -105,7 +105,9 @@ def index(**args):
 	// add mouseover effect to buttons
    new MooHover({container:bnContainer,duration:800});
    
-   $(bnContainer).getElements('button')[0].addEvent('click',function(){
+   $(bnContainer)
+   .getElements('button')[0]
+   .addEvent('click',function(){
    	// call login function which is a inner function of MUI object
    	MUI.login();
    	

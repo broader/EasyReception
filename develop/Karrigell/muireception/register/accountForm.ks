@@ -282,9 +282,9 @@ def index(**args):
        new MooHover({container:buttonsContainer,duration:800});
 
        // Add click callback functions for buttons
-       var bns = $(buttonsContainer).getElements('button');       
-       
-       $(bns[0]).addEvent('click',function(event){
+       $(buttonsContainer)
+       .getElements('button')[0]
+       .addEvent('click',function(event){
          formchk.onSubmit(event);
        });
        

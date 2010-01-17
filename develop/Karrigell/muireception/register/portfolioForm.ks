@@ -136,10 +136,9 @@ def index(**args):
       new MooHover({container:buttonsContainer,duration:800});
 		 
       // Add click callback functions for buttons
-      var bns = $(buttonsContainer).getElements('button');       
-       
-      $(bns[0]).addEvent('click', back);
-      $(bns[1]).addEvent('click', next);
+      var bns = $(buttonsContainer).getElements('button');
+      bns[0].addEvent('click', back);
+      bns[1].addEvent('click', next);
       
    };
 

@@ -10,7 +10,7 @@ RELPATH = (lambda p : p.split('/')[0])(THIS.baseurl)
 
 #model = Import( '/'.join((RELPATH, 'model.py')))
 
-modules = {'pagefn' : 'pagefn.py', 'formfn':'form.py'}
+modules = {'pagefn' : 'pagefn.py', 'formFn':'form.py'}
 [locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items() ]
  
 
@@ -72,7 +72,7 @@ def index(**args):
 					  
 	valueStyle = {'label':'color:#ff6600;font-size:1.2em;', 'td':'text-align:left;'}
 	
-	trs = formfn.render_table_fields( values, 1, labelStyle, valueStyle)
+	trs = formFn.render_table_fields( values, 1, labelStyle, valueStyle)
 	table.append(trs)
 	table = TABLE(Sum(table), style='position:relative;left:15em;')
 	

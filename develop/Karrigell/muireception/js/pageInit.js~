@@ -961,9 +961,9 @@ window.addEvent('load', function(){ //using load instead of domready for IE8
 	MUI.myChain = new Chain();
 	MUI.myChain.chain(
 		function(){MUI.Desktop.initialize();},
-		function(){MUI.Dock.initialize();}
-		//function(){initializeColumns();},	
-		//function(){initializeWindows();}		
+		function(){MUI.Dock.initialize();},
+		function(){initializeColumns();},	
+		function(){initializeWindows();}		
 	).callChain();	
 
 });
