@@ -6,7 +6,7 @@ from HTMLTags import *
 
 def yform(fields):
 	""" Render YAML formats form components."""
-	divs = [ getField(field) for field in fields ]
+	divs = [ getField(item) for item in fields ]
 	return divs
 
 def _getValidClass(field, required):
@@ -32,6 +32,7 @@ def _getValidClass(field, required):
     
 def getField(field):
 	""" Render YAML formats form field."""
+	
 	prompt,required,oldvalue = [ field.pop(prop) for prop in ( "prompt", "required", "oldvalue" )]
 	
 	# for i18n need
@@ -55,6 +56,7 @@ def getField(field):
 			label += TEXT(prompt)
 	else:
 		label = TEXT(prompt)
+	
 		 
 	label = LABEL(label, **{"for": field.get("id"),"style":"font-size:1.2em;text-align:left;width:100%;"})
 	div.append(label)
@@ -114,7 +116,7 @@ def getField(field):
 			
 			[ field.pop(prop) for prop in ("type", "class")]	
 			input = SELECT(Sum(select),**field)
-			
+		
 	div.append(input)
 	
 	if fieldType in ("text", "textarea", "input", "password"):

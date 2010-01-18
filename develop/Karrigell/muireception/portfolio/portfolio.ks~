@@ -16,25 +16,19 @@ modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'formFn':'form.py'}
 # ********************************************************************************************
 # Page Variables
 # ********************************************************************************************
-# form fields' names in CONFIG file
-ACCOUNTFIELDS = \
-[
-	{ 'name':'username', 'prompt':_('Login Name :'), 'type':'text'},\
-	{ 'name':'email', 'prompt':_('Email address :'), 'type':'text'},\
-	{ 'name':'password', 'prompt':_('Password :'), 'type':'text'},\
-	{ 'name':'creation' , 'prompt':_('Created Time :'), 'type':'text'},\
-]
-
-# ********************************************************************************************
 
 # get the relative url slice as the application name
 APP = pagefn.getApp(THIS.baseurl,1)
 
 # the session object for this page
 so = Session()
+user = getattr( so, pagefn.SOINFO['userinfo']).get('username')
 
 # config data object
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
+
+# form fields' names in CONFIG file
+ACCOUNTFIELDS = 'userAccountInfo'
 
 # Account edit button's id
 ACCOUNTEDITBN = 'editAccountBn'
@@ -56,7 +50,6 @@ def page_portfolio(**args):
 def page_account(**args):
 	print H2('Account Information')
 	
-	user = getattr( so, pagefn.SOINFO['userinfo']).get('username')
 	account = {'username':user}
 
 	# get account info
@@ -64,11 +57,9 @@ def page_account(**args):
 	res = model.get_item(user, 'user', user, props, keyIsId=False)
 	if type(res) == type({}):
 		account.update(res)
-		account['password'] = _('/')
-	#account.update({'username':user})
+		account['password'] = '/'
 	
 	main = []
-	#main.append(DIV( HR(), **{'class':'subcolumns' }))	
 	
 	# the account informations
 	table = []
@@ -76,7 +67,9 @@ def page_account(**args):
 	#table.append( CAPTION(_("Login Information"),style='text-align: center; font-size: 1.2em;font-weight:bold;'))
 		  
 	values = []	
-	for field in ACCOUNTFIELDS :
+	fields = CONFIG.getData(ACCOUNTFIELDS)
+	fields.append({ 'name':'creation' , 'prompt':_('Created Time :'), 'type':'text'})
+	for field in fields :
 		value = {}
 		[ value.update({prop:field.get(prop)}) for prop in ('prompt','type')]		
 		value['value'] = account.get(field.get('name'))
@@ -101,16 +94,17 @@ def page_account(**args):
 	
 	print Sum(main)
 	
-	print pagefn.script(_accountJs(), link=False)
+	# import js slice  
+	print pagefn.script(_accountShowJs(), link=False)
 	
 	return
 
-def _accountJs(**args):
-	paras = [ACCOUNTEDITBN,]
+def _accountShowJs(**args):
+	paras = [ACCOUNTEDITBN, _('Edit Account'), '/'.join((APPATH,'page_editAccount'))]
 	paras = tuple(paras)
 	js = \
 	"""
-	var buttonsContainer='%s';
+	var buttonsContainer='%s', dlgTitle='%s',url='%s';
 	function pageInit(){
 		// add mouseover effect to buttons
    	new MooHover({container:buttonsContainer,duration:800});
@@ -120,8 +114,10 @@ def _accountJs(**args):
       .getElements('button')[0]
       .addEvent('click',function(event){
          new MUI.Modal({
-         	id:'', contentURL:'', width:400, height:300,
-         	title: 'Edit Account'
+         	id:'', contentURL:'', width:250, height:350,
+         	contentURL: url,
+         	title: dlgTitle,
+         	modalOverlayClose: false,
          });
       });
 	};
@@ -130,3 +126,78 @@ def _accountJs(**args):
 	"""%paras
 	
 	return js
+	
+def page_editAccount(**args):
+	
+	fields = CONFIG.getData(ACCOUNTFIELDS)
+	
+	# remove 'username' field
+	fields.pop(0)
+	[ fields[index].update({'validate':value}) \
+	  for index,value in zip((0,1),(['email',], ['length[6,-1]',]))]
+	fields.insert(1, \
+		{'prompt':_("Confirm Email :"), \
+		 'name':'cemail', 'type':'text',\
+		 'validate':['email','confirm[%s]'%fields[0].get('name')]}\
+	)
+	
+	fields.append(\
+		{'prompt':_("Confirm Password :"),\
+		 'name':'cpwd', \
+		 'type':'password',\
+		 'validate':['confirm[%s]'%fields[-1].get('name'),]}\
+	)
+	
+	
+	# get account info
+	props = ['email',]
+	values = model.get_item(user, 'user', user, props, keyIsId=False)
+	if type(values) != type({}):
+		values = {}
+	
+	# Add other properties for each field, these properties are 'id','required','oldvalue'
+	for field in fields :
+		# Add 'id' property for each field
+	 	name = field.get('name')
+	 	field.update({'id':name})
+	 	# Add required property to the needed fields, 
+	 	# here means all the fields will be added the 'required' property.
+	 	field.update({'required':True})
+	 	# add maybe old value
+	 	field.update({'oldvalue':values.get(name)})
+   
+	
+   
+	# render the fields to the form
+	form = []
+	# get the OL content from formRender.py module	
+	yform = formFn.yform(fields)
+	
+	div = DIV( Sum(yform), **{'class':'subcolumns'})
+            
+	# add the <Legend> tag
+	info = '--->'.join((_('Login Name'), user))
+	
+	legend = LEGEND(TEXT(info))    
+	form.append(FIELDSET(Sum((legend,div))))
+    
+	# add buttons to this form   
+	bns =[_("OK"), _("Cancel")] 
+	btypes = ('submit','button') 
+	bns = [BUTTON(text, **{'class':'MooTrans', 'type': btype}) for text, btype in zip( bns, btypes)]
+	span = DIV(Sum(bns), **{ 'id':ACCOUNTEDITBN, 'style':'position:absolute;margin-left:5em;'})    
+	form.append(span)
+    
+	# form action url
+	action = '/'.join((APPATH, '_'.join(('page', 'valid'))))              
+              
+	form = FORM( \
+				Sum(form),\ 
+				**{'action': action, 'id': ACCOUNTFIELDS, 'method':'get','class':'yform'}\
+				)
+				
+	print DIV(form, **{'class':'subcolumns'})
+	
+	return
+	
+	

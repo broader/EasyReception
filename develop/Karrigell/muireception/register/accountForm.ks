@@ -66,9 +66,9 @@ def index(**args):
       [ \
 			{'prompt':username.get('prompt'),'name':username.get('name'),'type':'text','validate':['~accountCheck',]},
 			
-			{'prompt':usermail.get('prompt'), 'name':usermail.get('name'), 'class':'email', 'type':'text','validate':['email',]},\
+			{'prompt':usermail.get('prompt'), 'name':usermail.get('name'), 'type':'text','validate':['email',]},\
 			
-			{'prompt':_("Confirm Email :"), 'name':'cemail','class':'email', 'type':'text','validate':['email','confirm[%s]'%usermail.get('name')]},\
+			{'prompt':_("Confirm Email :"), 'name':'cemail', 'type':'text','validate':['email','confirm[%s]'%usermail.get('name')]},\
 			
 			{'prompt':pwd.get('prompt'), 'name':pwd.get('name'), 'type':'password','validate':['length[6,-1]',]},\
 			

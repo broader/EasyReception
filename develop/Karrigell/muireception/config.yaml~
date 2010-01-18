@@ -2,7 +2,7 @@
 userAccountInfo:
 - {name: username, prompt: 'Login Name :', type: text}
 - {name: email, prompt: 'Email address :', type: text}
-- {name: password, prompt: 'Password :', type: password}
+- {name: password, prompt: 'Password :', type: text}
 userBaseInfo:
 - class: ''
   name: prefix
