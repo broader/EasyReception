@@ -58,7 +58,7 @@ def login(usr=None, pwd=None):
 	client = get_client()
 	client.set_user('admin')	
 	form = { 'action' : 'login', 'context' : 'user', 'username' : usr, 'password' : pwd }
-        client.form = form
+	client.form = form
 	return action(client)     	
 
 def get_item(operator, klass, key, props=None, keyIsId=False):
@@ -197,7 +197,6 @@ def get_file(admin, klass, id):
 		     }
 	client.form = form
 	res = client.main()
-	#return res.get('data')
 	return action(client)
 	
 def edit_item(operator, klass, key, props=None, actionType='edit', keyIsId=False):
@@ -488,6 +487,11 @@ def userCheck(name):
 
 def action(client):
 	""" A encapsulated function for client.main() result.
+	the format of action result is a dictionary, 
+	for success status, its format is :
+	{'success':True, 'data':'...','ok':'...'}
+	for failed status, its format is :
+	{'success':False, 'error':'...'}	
 	"""	
 	try :
 		res = client.main()

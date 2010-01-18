@@ -136,11 +136,8 @@ def index(**args):
       new MooHover({container:buttonsContainer,duration:800});
 		 
       // Add click callback functions for buttons
-      var bns = $(buttonsContainer).getElements('button');       
-       
-      //$(bns[0]).addEvent('click', back);
+      var bns = $(buttonsContainer).getElements('button');
       bns[0].addEvent('click', back);
-      //$(bns[1]).addEvent('click', next);
       bns[1].addEvent('click', next);
       
    };
@@ -153,8 +150,8 @@ def index(**args):
 	
 def page_accountRegister(**args):
 	""" Register the new user account. """
-	print '1'
-	return 
+	#print '1'
+	#return 
 	
 	try:
 		account = getattr(so,pagefn.SOINFO['userinfo'])

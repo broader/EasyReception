@@ -11,7 +11,7 @@ host_conf_dir = server_dir
 persistent_sessions = False
 
 # server port
-port = 80
+port = 8080
 
 # maximum number of threads (for multi threaded server only)
 max_threads = 150

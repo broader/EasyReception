@@ -21,8 +21,8 @@ modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'formFn':'form.py'}
 APP = pagefn.getApp(THIS.baseurl,1)
 
 # the session object for this page
-so = Session()
-user = getattr( so, pagefn.SOINFO['userinfo']).get('username')
+
+#user = getattr( so, pagefn.SOINFO['userinfo']).get('username')
 
 # config data object
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
@@ -46,14 +46,36 @@ portfolioPanel,accountPanel = pagefn.PORTFOLIO.get('panelsId')
 def index(**args):
 	print H2('Test Portfolio')
 	return
+
+def _getUser():
+	so = Session()
+	user = getattr( so, pagefn.SOINFO['userinfo']).get('username')
+	return user
+	
+def _getCsv(operator, user):
+	# get link id	
+	prop = 'info'	
+	values = model.get_item( operator, 'user', user, (prop,))
+	nodeId = values.get(prop) 
+	if not nodeId :
+		content = {}
+	else:
+		# get file content
+		content = model.get_file( operator, 'dossier', nodeId)		
+	data = model.csv2dict(content)			
+	return data	
 	
 def page_showPortfolio(**args):
 	print H2('Portfolio Information')
+	user = _getUser()
+	values = _getCsv(user,user)
+	print values
 	return
 	
 def page_showAccount(**args):
 	print H2('Account Information')
 	
+	user = _getUser()
 	account = {'username':user}
 
 	# get account info
@@ -67,6 +89,7 @@ def page_showAccount(**args):
 	
 	# the account informations
 	table = []
+	
 	# append the caption
 	#table.append( CAPTION(_("Login Information"),style='text-align: center; font-size: 1.2em;font-weight:bold;'))
 		  

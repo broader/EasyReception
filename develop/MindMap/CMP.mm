@@ -48,7 +48,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1248059627021" FOLDED="true" ID="Freemind_Link_1258736316" MODIFIED="1262052572470" POSITION="right" TEXT="Refactor">
+<node COLOR="#0033ff" CREATED="1248059627021" ID="Freemind_Link_1258736316" MODIFIED="1263802940931" POSITION="right" TEXT="Refactor">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="idea"/>
@@ -82,8 +82,16 @@
 </node>
 </node>
 </node>
+<node COLOR="#00b439" CREATED="1263802943086" ID="ID_1034875767" MODIFIED="1263802946832" TEXT="model.py">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1263802948027" ID="ID_314215476" MODIFIED="1263802952539" TEXT="used functions">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1263802953879" ID="ID_883199259" MODIFIED="1263802984755" TEXT="get_item&#xa;edit_item"/>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1262921109444" POSITION="right" TEXT="ToDo">
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1263825162950" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -393,7 +401,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1262786722582" POSITION="left" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1263825168275" POSITION="left" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -701,7 +709,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1183969360528" ID="Freemind_Link_1717488379" MODIFIED="1263284598911" POSITION="right" TEXT="javascript">
+<node COLOR="#0033ff" CREATED="1183969360528" FOLDED="true" ID="Freemind_Link_1717488379" MODIFIED="1263802931881" POSITION="right" TEXT="javascript">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1260329913465" FOLDED="true" ID="ID_484061448" MODIFIED="1260684184934" TEXT="jQuery">
@@ -963,7 +971,19 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1263613862940" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1263825176522" FOLDED="true" ID="ID_850866582" MODIFIED="1263826622253" POSITION="left" TEXT="Questions">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<icon BUILTIN="help"/>
+<node COLOR="#00b439" CREATED="1263825181828" ID="ID_854025776" MODIFIED="1263826582891" TEXT="Session">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1263825186476" ID="ID_260522020" MODIFIED="1263826620180" TEXT="model.py&#x4e2d;&#x7684;function&#x5982;&#x679c;&#x53d1;&#x751f;exception&#xff0c;&#x4f1a;&#x5bfc;&#x81f4;session object &#x6df7;&#x4e71;&#xff1f;&#xa;&#x591a;&#x6b21;&#x5237;&#x65b0;&#x9875;&#x9762;&#xff0c;&#x4e5f;&#x4f1a;&#x5bfc;&#x81f4;session object &#x8bfb;&#x5199;&#x9519;&#x8bef;&#xff1f;">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1263802924758" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1173066298350" FOLDED="true" ID="Freemind_Link_1468412211" MODIFIED="1263615791990" TEXT="UI">

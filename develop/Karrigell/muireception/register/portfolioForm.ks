@@ -150,8 +150,8 @@ def index(**args):
 	
 def page_accountRegister(**args):
 	""" Register the new user account. """
-	print '1'
-	return 
+	#print '1'
+	#return 
 	
 	try:
 		account = getattr(so,pagefn.SOINFO['userinfo'])
@@ -187,7 +187,7 @@ def page_accountRegister(**args):
 		res = model.edit_user_info( user, user, 'create', info, filename, client)
 		if res:
 			account.update(info)
-			account.pop('pwd')
+			account.pop('password')
 			setattr( so, pagefn.SOINFO['userinfo'], account)
 	else:
 		isSuccess = '0'	
