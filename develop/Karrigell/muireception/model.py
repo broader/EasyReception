@@ -498,6 +498,7 @@ def action(client):
 			res = None
 	except:
 		print sys.exc_info()
+		res = None
 	return res
 	
 def csv2dict(content):	

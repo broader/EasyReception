@@ -134,8 +134,9 @@ def index(**args):
 	 paras.extend([ ACCOUNTFORMBNS, ACCOUNTFIELDS ])
     
     # add some files' path for validation function
-	 names = ('css/hack.css', 'lang.js.pih', 'formcheck.js', 'theme/red/formcheck.css')
-	 paras.extend([ '/'.join(( 'lib', 'formcheck', name )) for name in names])
+	 #names = ('css/hack.css', 'lang.js.pih', 'formcheck.js', 'theme/red/formcheck.css')
+	 #paras.extend([ '/'.join(( 'lib', 'formcheck', name )) for name in names])
+	 paras.extend(pagefn.FCLIBFILES)
 	 
 	 js = \
     """

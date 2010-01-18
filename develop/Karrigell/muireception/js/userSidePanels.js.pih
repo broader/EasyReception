@@ -9,6 +9,8 @@ pagefn = Import('/'.join(('', 'pagefn.py')))
 
 # initialize some page variables
 sideBar, mainColumn = pagefn.COLUMNS
+
+portfolio = pagefn.PORTFOLIO
 %>
 
 
@@ -79,13 +81,13 @@ function portfolioPanel(panelId){
 	
 	
 	new MUI.Panel({
-		id: 'editPortfolioPanel', header:false, column: 'portfolioColumn',
-		contentURL:'portfolio/portfolio.ks/page_portfolio'
+		id: '<%=portfolio.get('panelsId')[0]%>', header:false, column: 'portfolioColumn',
+		contentURL:'portfolio/portfolio.ks/page_showPortfolio'
 	});
 	
 	new MUI.Panel({
-		id: 'editAccountPanel', header:false, column: 'accountColumn',
-		contentURL:'portfolio/portfolio.ks/page_account'
+		id: '<%=portfolio.get('panelsId')[1]%>', header:false, column: 'accountColumn',
+		contentURL:'portfolio/portfolio.ks/page_showAccount'
 	});
 	
 		

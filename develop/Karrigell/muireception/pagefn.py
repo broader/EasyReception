@@ -13,6 +13,10 @@ getApp = lambda p,i : p.split('/')[i]
 FORMERRCLASS = 'fc-tbx'
 ACCOUNTERR = _('This account has been used, please input other name.')
 PWDERR = _('The input password is wrong, please input the valid password!') 
+FCLIBFILES = \
+['/'.join(( 'lib', 'formcheck', name )) \
+for name in ('css/hack.css', 'lang.js.pih', 'formcheck.js', 'theme/red/formcheck.css')]
+
 #--------------------------------------------------------------------------------------
 
  
@@ -97,6 +101,11 @@ LOGOUT = 'layout.ks/page_logout'
 COLUMNS = ('leftColumn', 'mainColumn')
 #--------------------------------------------------------------------------------------
 
+##
+# Portfolio module
+#--------------------------------------------------------------------------------------
+PORTFOLIO = {'panelsId':('editPortfolioPanel','editAccountPanel'),}
+#---End--------------------------------------------------------------------------------
 
 ##
 # Web Icons

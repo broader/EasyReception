@@ -30,8 +30,12 @@ CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 # form fields' names in CONFIG file
 ACCOUNTFIELDS = 'userAccountInfo'
 
-# Account edit button's id
+# The ids for the buttons' container to edit account information
 ACCOUNTEDITBN = 'editAccountBn'
+ACCOUNTACTIONBN = 'AccountActionBn'
+
+# The ids for MUI.Panels
+portfolioPanel,accountPanel = pagefn.PORTFOLIO.get('panelsId') 
 # End*****************************************************************************************
 
 
@@ -43,11 +47,11 @@ def index(**args):
 	print H2('Test Portfolio')
 	return
 	
-def page_portfolio(**args):
+def page_showPortfolio(**args):
 	print H2('Portfolio Information')
 	return
 	
-def page_account(**args):
+def page_showAccount(**args):
 	print H2('Account Information')
 	
 	account = {'username':user}
@@ -176,7 +180,7 @@ def page_editAccount(**args):
 	div = DIV( Sum(yform), **{'class':'subcolumns'})
             
 	# add the <Legend> tag
-	info = '--->'.join((_('Login Name'), user))
+	info = ': '.join((_('Login Name'), user))
 	
 	legend = LEGEND(TEXT(info))    
 	form.append(FIELDSET(Sum((legend,div))))
@@ -185,11 +189,11 @@ def page_editAccount(**args):
 	bns =[_("OK"), _("Cancel")] 
 	btypes = ('submit','button') 
 	bns = [BUTTON(text, **{'class':'MooTrans', 'type': btype}) for text, btype in zip( bns, btypes)]
-	span = DIV(Sum(bns), **{ 'id':ACCOUNTEDITBN, 'style':'position:absolute;margin-left:5em;'})    
+	span = DIV(Sum(bns), **{ 'id':ACCOUNTACTIONBN, 'style':'position:absolute;margin-left:5em;'})    
 	form.append(span)
     
 	# form action url
-	action = '/'.join((APPATH, '_'.join(('page', 'valid'))))              
+	action = '/'.join((APPATH, '_'.join(('page', 'editAccountAction'))))              
               
 	form = FORM( \
 				Sum(form),\ 
@@ -198,6 +202,128 @@ def page_editAccount(**args):
 				
 	print DIV(form, **{'class':'subcolumns'})
 	
+	print pagefn.script(_editAccountJs(), link=False)
+	
 	return
+
+def _editAccountJs(**args):
+	paras = [ accountPanel, APP, ACCOUNTACTIONBN, ACCOUNTFIELDS ]
+	
+	# add some files' path for validation function
+	paras.extend(pagefn.FCLIBFILES)
+	
+	paras = tuple(paras)
+	
+	js =\
+	"""
+	var panelId='%s',appName='%s', 
+	buttonsContainer='%s', formId='%s',
+	hackCss='%s', fcI18nJs='%s', fcJs='%s', fcCss='%s';
+	
+	
+	// get the global Assets manager
+   var am = MUI.assetsManager;
+    
+   // Add validation function to the form
+   // import css file for validation
+   [ hackCss, fcCss].each(function(src){
+   	if(!$defined(am.imported[src])){
+    		am.import({'url':src,'app':appName,'type':'css'});
+    	}	
+	});
+	
+	// Set a global variable 'formchk', 
+	// which will be used as an instance of the validation Class-'FormCheck'.
+	var formchk;
+    
+	// Load the form validation plugin script
+	var options = {
+		onload:function(){    		
+			formchk = new FormCheck( formId,{
+				submitByAjax: true,
+				onAjaxSuccess: function(response){
+					if(response != 1){
+						MUI.notification('Account creating failed!');
+					}
+					else{	
+						MUI.notification('Edit Successfully');	// Successfully action
+						// close edit dialog
+						closeDialog();
+						
+						// refresh account show page
+						var panel = MUI.Panels.instances.get(panelId),
+						options = panel.options;
+						MUI.updateContent({
+							'element': panel.panelEl,
+							'content': options.content,
+							'method': options.method,
+							'data': options.data,
+							'url': options.contentURL,
+							'onContentLoaded': null
+						});
+					};               
+				},            
+
+				display:{
+					errorsLocation : 1,
+					keepFocusOnError : 0, 
+					scrollToFirst : false
+				}
+			});// the end for 'formchk' define
+		}// the end for 'onload' define
+	};
+    
+   am.import({'url':fcJs,'app':appName,'type':'js'},options);
+   
+   function edit(event){
+		formchk.onSubmit(event);
+	};
+	
+	function closeDialog(){
+		// close register dialog, this function has been defined in init.js
+   	MUI.closeModalDialog();
+   	
+   	am.remove(appName,'app');
+	};
+	
+	function exit(event){
+		new Event(event).stop();
+		closeDialog();
+	};
+	
+	function pageInit(){
+		// add mouseover effect to buttons
+   	new MooHover({container:buttonsContainer,duration:800});
+   	
+   	var fns = [exit, edit]
+   	$(buttonsContainer)
+	   .getElements('button')
+	   .each(function(button){
+		   button.addEvent('click', fns.pop());
+	   });
+	};
+	
+	window.addEvent('domready', pageInit);
+	"""%paras
+	
+	return js
+
+def page_editAccountAction(**args):
+	""" Edit the user's account information. """
+	fields = CONFIG.getData(ACCOUNTFIELDS)	
+	# remove 'username' field
+	fields.pop(0)
+	
+	names = [field.get('name') for field in fields ]
+	
+	props = {}
+	[props.update({key: args.get(key)}) for key in names ]	
+	
+	# excute user's edit action
+	model.edit_item(user, 'user', user, props, actionType='edit', keyIsId=False)
+	
+	print '1'
+	return
+	
 	
 	
