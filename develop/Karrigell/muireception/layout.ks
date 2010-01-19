@@ -290,10 +290,8 @@ def page_accountValid(**args):
 		if data[0] == 1:
 			res['valid'] = 1		
 			# valid user name and password, save them to session object	
-			data = {fields[0]:account[0]}
-			#so.close()
-			so = Session()
-			setattr( so, pagefn.SOINFO['userinfo'], data)
+			#data = {fields[0]:account[0]}
+			setattr( so, pagefn.SOINFO['user'], account[0])
 	else:
 		# check whether the account is existed 
 		if model.userCheck( args.get('name') ) :
@@ -308,7 +306,7 @@ def page_welcomeInfo(**args):
 	which will be shown on the top right of the screen.
 	"""
 	try:
-		username = getattr(so, pagefn.SOINFO['userinfo']).get('username') or ''
+		username = getattr(so, pagefn.SOINFO['user']) or ''
 	except:
 		username = ''
 	

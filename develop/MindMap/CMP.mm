@@ -971,14 +971,14 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1263825176522" FOLDED="true" ID="ID_850866582" MODIFIED="1263826622253" POSITION="left" TEXT="Questions">
+<node COLOR="#0033ff" CREATED="1263825176522" ID="ID_850866582" MODIFIED="1263873228587" POSITION="left" TEXT="Questions">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="help"/>
-<node COLOR="#00b439" CREATED="1263825181828" ID="ID_854025776" MODIFIED="1263826582891" TEXT="Session">
+<node COLOR="#00b439" CREATED="1263825181828" FOLDED="true" ID="ID_854025776" MODIFIED="1263874435535" TEXT="Session">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1263825186476" ID="ID_260522020" MODIFIED="1263826620180" TEXT="model.py&#x4e2d;&#x7684;function&#x5982;&#x679c;&#x53d1;&#x751f;exception&#xff0c;&#x4f1a;&#x5bfc;&#x81f4;session object &#x6df7;&#x4e71;&#xff1f;&#xa;&#x591a;&#x6b21;&#x5237;&#x65b0;&#x9875;&#x9762;&#xff0c;&#x4e5f;&#x4f1a;&#x5bfc;&#x81f4;session object &#x8bfb;&#x5199;&#x9519;&#x8bef;&#xff1f;">
+<node COLOR="#990000" CREATED="1263825186476" ID="ID_260522020" MODIFIED="1263873435654" TEXT="model.py&#x4e2d;&#x7684;function&#x5982;&#x679c;&#x53d1;&#x751f;exception&#xff0c;&#x4f1a;&#x5bfc;&#x81f4;session object &#x6df7;&#x4e71;&#xff1f;&#xa;&#x591a;&#x6b21;&#x5237;&#x65b0;&#x9875;&#x9762;&#xff0c;&#x4e5f;&#x4f1a;&#x5bfc;&#x81f4;session object &#x8bfb;&#x5199;&#x9519;&#x8bef;&#xff1f;&#xa;&#x4fee;&#x6b63;&#xff1a;&#xa;&#x6dfb;&#x52a0;MUI.removeCookie() function-&gt;&#x6e05;&#x9664;sessionId;&#xa;-&gt;init.js.pih-&gt;preLoginInit()&#x4e2d;&#x8c03;&#x7528;MUI.removeCookie,&#x5373;&#x6bcf;&#x6b21;&#x767b;&#x5f55;&#x524d;&#x6e05;&#x9664;sessionId&#xa;-&gt;layoutInit.js.pih&#x4e2d;-&gt;MUI.logout()&#x4e2d;&#x8c03;&#x7528;MUI.removeCookie,&#x5373;&#x6bcf;&#x6b21;&#x9000;&#x51fa;&#x767b;&#x5f55;&#x540e;&#x6e05;&#x9664;sessionId">
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>

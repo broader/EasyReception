@@ -212,7 +212,8 @@ MUI.extend({
 		am.remove('<%=loginApp %>', 'app');
 		
 		// close session object on server side
-		new Request.HTML().get('<%=logoutUrl %>'); 
+		new Request.HTML().get('<%=logoutUrl %>');
+		//MUI.removeCookie(); 
 	},
 	
 	// remove all the MUI.Columns in the main panel

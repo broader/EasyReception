@@ -197,7 +197,6 @@ def get_file(admin, klass, id):
 		     }
 	client.form = form
 	res = client.main()
-	#return res.get('data')
 	return action(client)
 	
 def edit_item(operator, klass, key, props=None, actionType='edit', keyIsId=False):

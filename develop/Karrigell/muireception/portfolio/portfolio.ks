@@ -21,8 +21,8 @@ modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'formFn':'form.py'}
 APP = pagefn.getApp(THIS.baseurl,1)
 
 # the session object for this page
-
-#user = getattr( so, pagefn.SOINFO['userinfo']).get('username')
+so = Session()
+USER = getattr( so, pagefn.SOINFO['user'])
 
 # config data object
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
@@ -46,11 +46,6 @@ portfolioPanel,accountPanel = pagefn.PORTFOLIO.get('panelsId')
 def index(**args):
 	print H2('Test Portfolio')
 	return
-
-def _getUser():
-	so = Session()
-	user = getattr( so, pagefn.SOINFO['userinfo']).get('username')
-	return user
 	
 def _getCsv(operator, user):
 	# get link id	
@@ -67,7 +62,7 @@ def _getCsv(operator, user):
 	
 def page_showPortfolio(**args):
 	print H2('Portfolio Information')
-	user = _getUser()
+	user = USER
 	values = _getCsv(user,user)
 	print values
 	return
@@ -75,7 +70,7 @@ def page_showPortfolio(**args):
 def page_showAccount(**args):
 	print H2('Account Information')
 	
-	user = _getUser()
+	user = USER
 	account = {'username':user}
 
 	# get account info

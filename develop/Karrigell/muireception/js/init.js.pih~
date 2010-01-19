@@ -15,10 +15,32 @@ INITIALIZE THE TWO MENU 'Login' AND 'Register'
 	 
 -------------------------------------------------------------------- */
 
+<%
+# PYTHON CODE
+# get global variables stored in pagefn.py
+pagefn = Import('/'.join(('', 'pagefn.py')))
+registerTabsUrls = [ item.get('url') for item in pagefn.REGISTERTABS ]
+
+# initial showing tabs' url
+iniTabUrl = registerTabsUrls[0]
+
+# Application name, when closing the registration dialog, 
+# this name will be need to remove all the imported Assets tags.
+registerAppName = pagefn.getApp(iniTabUrl,0)
+%>
+
+
 // Add some assistant tools to MUI
 MUI.extend({
 	// add a inner object to MUI for managing mootools.Assets importing action 
 	assetsManager: new AssetsManager(),
+	
+	// clear cookie of this application, the cookie name is defined in 'pagefn.py' file
+	removeCookie: function(){
+		alert('remove cookie,name is '+'<%=pagefn.COOKIENAME %>');
+		alert(Cookie.read('<%=pagefn.COOKIENAME %>'));
+		Cookie.dispose('<%=pagefn.COOKIENAME %>');
+	},
 	
 	// a plugin to close single popup dialog window, such as login or register dialog 
 	closeModalDialog: function(){
@@ -47,20 +69,6 @@ MUI.extend({
 });
 
 
-<%
-# PYTHON CODE
-# get global variables stored in pagefn.py
-pagefn = Import('/'.join(('', 'pagefn.py')))
-registerTabsUrls = [ item.get('url') for item in pagefn.REGISTERTABS ]
-
-# initial showing tabs' url
-iniTabUrl = registerTabsUrls[0]
-
-# Application name, when closing the registration dialog, 
-# this name will be need to remove all the imported Assets tags.
-registerAppName = pagefn.getApp(iniTabUrl,0)
-%>
-
 // the names for prelogin menues' click function 
 var fNames = [ 'login', 'register' ];
 // a object holds two functions for prelogin 
@@ -71,7 +79,7 @@ var loginFns = {
 		new MUI.Modal({
 			//id: dlgId,
 			title: '<%=_("Login Dialog") %>',			
-			contentURL: "<%='menu.ks/page_loginForm'%>",
+			contentURL: "<%=pagefn.LOGINFORM%>",
 			//type: 'modal2',
 			modalOverlayClose: false,
 			width: 400,
@@ -146,6 +154,7 @@ function preLoginInit(){
 	$('topNav').getElements('li').each(function(item,index){
 		item.addEvent('click', loginFns[fNames[index]]);
 	});
+	MUI.removeCookie();
 };
 
 
@@ -156,8 +165,7 @@ window.addEvent('load', function(){ //using load instead of domready for IE8
 	MUI.myChain.chain(
 		function(){MUI.Desktop.initialize();},
 		function(){MUI.Dock.initialize();},
-		preLoginInit()	
-		//function(){initializeWindows();}		
+		preLoginInit()		
 	).callChain();	
 
 });

@@ -22884,3 +22884,96 @@ sent 36897 bytes  received 42 bytes  73878.00 bytes/sec
 total size is 153347  speedup is 4.15
 2010-01-18 22:57:30,779 INFO End backup loacl karrigell diretory to local git.
 2010-01-18 22:57:30,780 INFO Begin to backup local github to remote github host.
+2010-01-18 22:57:31,461 INFO Command: 
+git add .
+running result is :
+2010-01-18 22:57:33,252 INFO Command: 
+git commit -m 'Update time:2010-01-18T22:57:30.780266'
+running result is :Created commit 87a698b: Update time:2010-01-18T22:57:30.780266
+ 16 files changed, 209 insertions(+), 27 deletions(-)
+ create mode 100644 develop/Karrigell/Karrigell_async.pyc
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Gk0QzkJJjIil6X6A
+ create mode 100644 develop/Karrigell/muireception/register/tmp/d2225f5afd.jpeg
+2010-01-18 22:57:41,815 INFO Command: 
+git push origin master
+running result is :Counting objects: 52, done.
+Compressing objects:   3% (1/27)   Compressing objects:   7% (2/27)   Compressing objects:  11% (3/27)   Compressing objects:  14% (4/27)   Compressing objects:  18% (5/27)   Compressing objects:  22% (6/27)   Compressing objects:  25% (7/27)   Compressing objects:  29% (8/27)   Compressing objects:  33% (9/27)   Compressing objects:  37% (10/27)   Compressing objects:  40% (11/27)   Compressing objects:  44% (12/27)   Compressing objects:  48% (13/27)   Compressing objects:  51% (14/27)   Compressing objects:  55% (15/27)   Compressing objects:  59% (16/27)   Compressing objects:  62% (17/27)   Compressing objects:  66% (18/27)   Compressing objects:  70% (19/27)   Compressing objects:  74% (20/27)   Compressing objects:  77% (21/27)   Compressing objects:  81% (22/27)   Compressing objects:  85% (23/27)   Compressing objects:  88% (24/27)   Compressing objects:  92% (25/27)   Compressing objects:  96% (26/27)   Compressing objects: 100% (27/27)   Compressing objects: 100% (27/27), done.
+Writing objects:   3% (1/29)   Writing objects:   6% (2/29)   Writing objects:  10% (3/29)   Writing objects:  13% (4/29)   Writing objects:  17% (5/29)   Writing objects:  20% (6/29)   Writing objects:  24% (7/29)   Writing objects:  27% (8/29)   Writing objects:  31% (9/29)   Writing objects:  34% (10/29)   Writing objects:  37% (11/29)   Writing objects:  41% (12/29)   Writing objects:  44% (13/29)   Writing objects:  48% (14/29)   Writing objects:  51% (15/29)   Writing objects:  55% (16/29)   Writing objects:  62% (18/29)   Writing objects:  65% (19/29)   Writing objects:  68% (20/29)   Writing objects:  72% (21/29)   Writing objects:  75% (22/29)   Writing objects:  79% (23/29)   Writing objects:  82% (24/29)   Writing objects:  86% (25/29)   Writing objects:  89% (26/29)   Writing objects:  93% (27/29)   Writing objects:  96% (28/29)   Writing objects: 100% (29/29)   Writing objects: 100% (29/29), 13.36 KiB, done.
+Total 29 (delta 19), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   3b7734b..87a698b  master -> master
+2010-01-18 22:57:41,815 INFO End backup local github to remote github host.
+2010-01-19 12:14:24,638 INFO Delete nousing captcha images
+2010-01-19 12:14:24,663 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-01-19 12:14:24,664 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-01-19 12:14:27,368 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files... 800 files... 900 files... 1000 files... 1100 files... 1200 files... 1300 files... 1400 files... 1500 files... 1600 files... 1700 files... 1800 files... 1900 files... 2000 files... 2100 files... 2200 files... 2300 files... 2400 files... 2500 files... 2600 files... 2700 files... 2800 files... 2900 files... 3000 files... 3100 files... 3200 files... 3300 files... 3400 files... 3500 files... 3600 files... 3700 files... 3800 files... 3900 files... 4000 files... 4100 files... 4200 files... 4300 files... 4400 files... 4500 files... 4600 files... 4700 files... 4800 files... 4900 files... 5000 files... 5100 files... 5200 files... 5300 files... 5400 files... 5500 files... 5600 files... 5700 files... 5800 files... 5900 files... 6000 files... 6100 files...6116 files to consider
+server_config.py
+         672 100%    0.00kB/s    0:00:00         672 100%    0.00kB/s    0:00:00 (xfer#1, to-check=6102/6116)
+server_config.py~
+         673 100%  657.23kB/s    0:00:00         673 100%  657.23kB/s    0:00:00 (xfer#2, to-check=6101/6116)
+data/muireception/sessions/
+data/muireception/sessions/4HiQENgQgZu44uYI
+         100 100%    2.71kB/s    0:00:00         100 100%    2.71kB/s    0:00:00 (xfer#3, to-check=3330/6116)
+data/muireception/sessions/6j2lfgrGAnUGVtxr
+          99 100%    2.69kB/s    0:00:00          99 100%    2.69kB/s    0:00:00 (xfer#4, to-check=3329/6116)
+data/muireception/sessions/Gk0QzkJJjIil6X6A
+         116 100%    3.15kB/s    0:00:00         116 100%    3.06kB/s    0:00:00 (xfer#5, to-check=3328/6116)
+data/muireception/sessions/PL2jYZpM4alGkgMl
+          99 100%    2.61kB/s    0:00:00          99 100%    2.61kB/s    0:00:00 (xfer#6, to-check=3327/6116)
+data/muireception/sessions/cd3xYFkJP67FVGQz
+          79 100%    2.09kB/s    0:00:00          79 100%    2.09kB/s    0:00:00 (xfer#7, to-check=3326/6116)
+data/www/portal/news.pdl
+         406 100%   10.72kB/s    0:00:00         406 100%   10.72kB/s    0:00:00 (xfer#8, to-check=3309/6116)
+data/www/sessions/
+data/www/sessions/H6dUn8D2kgQwuovl
+          93 100%    2.39kB/s    0:00:00          93 100%    2.39kB/s    0:00:00 (xfer#9, to-check=3306/6116)
+data/www/sessions/XwAavQhQWaI9IzeH
+          93 100%    2.39kB/s    0:00:00          93 100%    2.39kB/s    0:00:00 (xfer#10, to-check=3305/6116)
+data/www/sessions/ZxXKN8ALOmBFuN61
+         109 100%    2.80kB/s    0:00:00         109 100%    2.80kB/s    0:00:00 (xfer#11, to-check=3304/6116)
+data/www/sessions/rMxXOZuHCQfRBOsw
+          93 100%    2.39kB/s    0:00:00          93 100%    2.39kB/s    0:00:00 (xfer#12, to-check=3303/6116)
+muireception/layout.ks
+       10278 100%  233.42kB/s    0:00:00       10278 100%  233.42kB/s    0:00:00 (xfer#13, to-check=2016/6116)
+muireception/layout.ks~
+       10298 100%  223.48kB/s    0:00:00       10298 100%  223.48kB/s    0:00:00 (xfer#14, to-check=2015/6116)
+muireception/model.py
+       17093 100%  347.76kB/s    0:00:00       17093 100%  347.76kB/s    0:00:00 (xfer#15, to-check=2012/6116)
+muireception/model.py~
+       17070 100%  326.86kB/s    0:00:00       17070 100%  326.86kB/s    0:00:00 (xfer#16, to-check=2011/6116)
+muireception/pagefn.py
+        5736 100%   86.18kB/s    0:00:00        5736 100%   86.18kB/s    0:00:00 (xfer#17, to-check=2010/6116)
+muireception/pagefn.py~
+        5711 100%   84.50kB/s    0:00:00        5711 100%   84.50kB/s    0:00:00 (xfer#18, to-check=2009/6116)
+muireception/js/init.js.pih
+        4549 100%   67.31kB/s    0:00:00        4549 100%   67.31kB/s    0:00:00 (xfer#19, to-check=1841/6116)
+muireception/js/init.js.pih~
+        4580 100%   66.76kB/s    0:00:00        4580 100%   66.76kB/s    0:00:00 (xfer#20, to-check=1840/6116)
+muireception/js/layoutInit.js.pih
+        6211 100%   87.90kB/s    0:00:00        6211 100%   87.90kB/s    0:00:00 (xfer#21, to-check=1837/6116)
+muireception/js/layoutInit.js.pih~
+        6213 100%   86.68kB/s    0:00:00        6213 100%   86.68kB/s    0:00:00 (xfer#22, to-check=1836/6116)
+muireception/portfolio/portfolio.ks
+        9438 100%  129.81kB/s    0:00:00        9438 100%  129.81kB/s    0:00:00 (xfer#23, to-check=846/6116)
+muireception/portfolio/portfolio.ks~
+        9424 100%  126.07kB/s    0:00:00        9424 100%  126.07kB/s    0:00:00 (xfer#24, to-check=845/6116)
+
+sent 168118 bytes  received 560 bytes  48193.71 bytes/sec
+total size is 44933370  speedup is 266.39
+2010-01-19 12:14:27,444 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :building file list ... 
+ 0 files...2 files to consider
+CMP.mm
+       32768  21%    0.00kB/s    0:00:00      153791 100%   16.49MB/s    0:00:00 (xfer#1, to-check=0/2)
+
+sent 37037 bytes  received 42 bytes  74158.00 bytes/sec
+total size is 153791  speedup is 4.15
+2010-01-19 12:14:27,444 INFO End backup loacl karrigell diretory to local git.
+2010-01-19 12:14:27,444 INFO Begin to backup local github to remote github host.

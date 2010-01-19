@@ -290,10 +290,8 @@ def page_accountValid(**args):
 		if data[0] == 1:
 			res['valid'] = 1		
 			# valid user name and password, save them to session object	
-			data = {fields[0]:account[0]}
-			so.close()
-			so = Session()
-			setattr( so, pagefn.SOINFO['userinfo'], data)
+			#data = {fields[0]:account[0]}
+			setattr( so, pagefn.SOINFO['user'], account[0])
 	else:
 		# check whether the account is existed 
 		if model.userCheck( args.get('name') ) :
