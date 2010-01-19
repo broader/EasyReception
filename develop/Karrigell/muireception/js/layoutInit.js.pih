@@ -213,6 +213,8 @@ MUI.extend({
 		
 		// close session object on server side
 		new Request.HTML().get('<%=logoutUrl %>');
+		
+		// remove cookie 
 		MUI.removeCookie(); 
 	},
 	

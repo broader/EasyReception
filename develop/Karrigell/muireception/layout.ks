@@ -22,6 +22,12 @@ VERSION = Import('/'.join((RELPATH, 'version.py')))
 
 # the session object for this page
 so = Session()
+sname = pagefn.COOKIENAME
+# SET_COOKIE is a instance of Cookie.SimpleCookie,
+# When a new key is set for a SimpleCookie object, a Morsel instance is created.
+SET_COOKIE[sname]=getattr(REQUEST_HANDLER, sname)
+# set cookie path
+SET_COOKIE[sname]['path'] = '/'
 
 # config data object
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)

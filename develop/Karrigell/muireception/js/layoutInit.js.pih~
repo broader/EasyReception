@@ -213,7 +213,7 @@ MUI.extend({
 		
 		// close session object on server side
 		new Request.HTML().get('<%=logoutUrl %>');
-		//MUI.removeCookie(); 
+		MUI.removeCookie(); 
 	},
 	
 	// remove all the MUI.Columns in the main panel
