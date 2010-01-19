@@ -63,6 +63,7 @@ def _getCsv(operator, user):
 def page_showPortfolio(**args):
 	print H2('Portfolio Information')
 	user = USER
+	print 'page_showPortfolio, current user is %s'%user,BR()
 	values = _getCsv(user,user)
 	print values
 	return

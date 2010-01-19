@@ -53,6 +53,8 @@ FORMBUTTONS = 'loginFormbns'
 # ********************************************************************************************
 # The page functions begining 
 # ********************************************************************************************
+def _getSession():
+	return Session()
 
 def index(**args):
 	pass
@@ -291,6 +293,7 @@ def page_accountValid(**args):
 			res['valid'] = 1		
 			# valid user name and password, save them to session object	
 			#data = {fields[0]:account[0]}
+			
 			setattr( so, pagefn.SOINFO['user'], account[0])
 	else:
 		# check whether the account is existed 
@@ -305,6 +308,7 @@ def page_welcomeInfo(**args):
 	Return the welcome information, 
 	which will be shown on the top right of the screen.
 	"""
+	
 	try:
 		username = getattr(so, pagefn.SOINFO['user']) or ''
 	except:

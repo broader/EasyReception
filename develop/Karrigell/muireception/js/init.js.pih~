@@ -36,10 +36,17 @@ MUI.extend({
 	assetsManager: new AssetsManager(),
 	
 	// clear cookie of this application, the cookie name is defined in 'pagefn.py' file
-	removeCookie: function(){
-		alert('remove cookie,name is '+'<%=pagefn.COOKIENAME %>');
-		alert(Cookie.read('<%=pagefn.COOKIENAME %>'));
-		Cookie.dispose('<%=pagefn.COOKIENAME %>');
+	removeCookie: function(){		
+		var name = 'sessionId';		
+		alert('remove cookie,session id '+ Cookie.read(name, {domain:'/layout.ks/'}));
+		if(Cookie.read('sessionId')==null){}
+		else{Cookie.dispose(name);}
+		/*
+		if(Cookie.read('testSession')==null){
+			Cookie.write('testSession','test');
+		};
+		*/
+		
 	},
 	
 	// a plugin to close single popup dialog window, such as login or register dialog 

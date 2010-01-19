@@ -21,7 +21,7 @@ modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'formFn':'form.py'}
 APP = pagefn.getApp(THIS.baseurl,1)
 
 # the session object for this page
-
+so = Session()
 USER = getattr( so, pagefn.SOINFO['user'])
 
 # config data object
@@ -63,6 +63,7 @@ def _getCsv(operator, user):
 def page_showPortfolio(**args):
 	print H2('Portfolio Information')
 	user = USER
+	print 'page_showPortfolio, current user is %s'%user
 	values = _getCsv(user,user)
 	print values
 	return

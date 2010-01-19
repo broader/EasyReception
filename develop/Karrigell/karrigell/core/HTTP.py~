@@ -456,7 +456,7 @@ class HTTP:
             self.sessionId,self.sessionObj = \
                 k_sessions.make_session_object(self.config,expires)
             self.SET_COOKIE["sessionId"] = self.sessionId
-	    #self.SET_COOKIE["sessionId"]["path"] = "/"
+	    self.SET_COOKIE["sessionId"]["path"] = "/"
 
         return self.sessionObj
 

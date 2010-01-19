@@ -8,7 +8,7 @@ host_conf_dir = server_dir
 # indicates if session data should be stored on disk (True)
 # or in memory (False)
 #persistent_sessions = True
-persistent_sessions = False
+persistent_sessions = True
 
 # server port
 port = 8080
