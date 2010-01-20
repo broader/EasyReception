@@ -86,8 +86,8 @@ class Action:
         if classname is self._marker:
             classname = self.client.classname        
         
-        #print 'ajaxAction.Action.hasPermission,L89, operator is %s, permission is %s, action name is %s'\
-        #            %(self.user, permission, self.name)
+        print 'ajaxAction.Action.hasPermission,L89, operator is %s, permission is %s, action name is %s'\
+                    %(self.user, permission, self.name)
         
         x = self.db.security.hasPermission(permission, self.client.userid,\
             classname=classname, itemid=itemid)

@@ -44,6 +44,7 @@ def get_client( ):
 		ajaxclients = getattr(handler, 'ajaxclients')
 		for client in ajaxclients:
 			if hasattr(client, 'db') and client.db_open == 0 :
+				client.form = None
 				return client
 		client = create_client()		
 	else:

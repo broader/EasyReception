@@ -3,7 +3,7 @@ fax,
 firstname,
 gender,0
 address,
-aperson,0
+aperson,1
 phone,
 prefix,0
 postcode,

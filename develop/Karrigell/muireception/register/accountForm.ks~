@@ -307,11 +307,6 @@ def page_valid(**args):
 	 account = {}
 	 [ account.update({ name:args.get(name) or '' }) for name in names ]
 	 setattr( so, pagefn.SOINFO['user'], account )
-	 
-	 #for k,v in args.items():
-	 #	setattr( so, k, v)
-	 
-	 #print JSON.encode({'type':1, 'session': args})
 	 	 
 	 print '1'
 	 return

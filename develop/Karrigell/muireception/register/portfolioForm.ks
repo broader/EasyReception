@@ -69,7 +69,7 @@ def index(**args):
 	divs = DIV(Sum((left, center, right)), **{'class':'subcolumns'})	
 	
    # add the <Legend> tag
-	legend = LEGEND(TEXT('Base Information'))    
+	legend = LEGEND(TEXT(_('Base Information')))    
 	form.append(FIELDSET(Sum((legend,divs))))
 	
 	# add buttons to this form	
@@ -87,7 +87,7 @@ def index(**args):
                  **{
                    'action': action, 
                    'id': BASEINFOFIELDS, 
-                   'method':'get',                   
+                   'method':'post',                   
                    'class':'yform'
                  }
                )
@@ -181,10 +181,10 @@ def page_accountRegister(**args):
 		
 		[ info.update({ name:args.get(name) or '' }) for name in fields ]
 		  
-		filename = '_'.join(('user', str(userId), 'info' ))	
+		#filename = '_'.join(('user', str(userId), 'info' ))	
 		
 		# write these informations to database
-		res = model.edit_user_info( user, user, 'create', info, filename, client)
+		res = model.edit_user_info( user, user, 'create', info, None, client)
 		if res:
 			account.update(info)
 			account.pop('password')

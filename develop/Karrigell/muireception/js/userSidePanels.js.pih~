@@ -71,12 +71,12 @@ function portfolioPanel(panelId){
 	
 	new MUI.Column({
 		container:mainPanelId, id: 'portfolioColumn', placement: 'main', 
-		sortable: false, width: 300, resizeLimit: [200,400] 
+		sortable: false, width: null, resizeLimit: [100,200] 
 	});
 	
 	new MUI.Column({
 		container:mainPanelId, id: 'accountColumn', placement: 'right',  
-		sortable: false, width: 500, resizeLimit: [200,400] 
+		sortable: false, width: 500, resizeLimit: [500,600] 
 	});
 	
 	
@@ -86,7 +86,7 @@ function portfolioPanel(panelId){
 	});
 	
 	new MUI.Panel({
-		id: 'editAccountPanel', header:false, column: 'accountColumn',
+		id: '<%=portfolio.get('panelsId')[1]%>', header:false, column: 'accountColumn',
 		contentURL:'portfolio/portfolio.ks/page_showAccount'
 	});
 	

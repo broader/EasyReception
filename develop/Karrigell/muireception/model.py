@@ -254,6 +254,9 @@ def edit_user_info(admin, user, actionType, content, filename=None, client=None)
 		client.set_user(admin)
 		
 	userId = client.db.user.lookup(user)
+	if not filename:
+		filename = '_'.join(('user', str(userId), 'info' ))
+		
 	return edit_linkcsv(client, 'user', userId, 'info', actionType, content, filename)
 	
 def get_adminlist(admin, props, search=None):
