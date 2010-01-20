@@ -23,7 +23,10 @@ VERSION = Import('/'.join((RELPATH, 'version.py')))
 # the session object for this page
 so = Session()
 sname = pagefn.COOKIENAME
+# SET_COOKIE is a instance of Cookie.SimpleCookie,
+# When a new key is set for a SimpleCookie object, a Morsel instance is created.
 SET_COOKIE[sname]=getattr(REQUEST_HANDLER, sname)
+# set cookie path
 SET_COOKIE[sname]['path'] = '/'
 
 # config data object
@@ -295,9 +298,9 @@ def page_accountValid(**args):
 		if data[0] == 1:
 			res['valid'] = 1		
 			# valid user name and password, save them to session object	
-			#data = {fields[0]:account[0]}
-			
-			setattr( so, pagefn.SOINFO['user'], account[0])
+			#data = {fields[0]:account[0]}			
+			#setattr( so, pagefn.SOINFO['user'], account[0])
+			setattr( so, pagefn.SOINFO['user'], {fields[0]:account[0]})
 	else:
 		# check whether the account is existed 
 		if model.userCheck( args.get('name') ) :

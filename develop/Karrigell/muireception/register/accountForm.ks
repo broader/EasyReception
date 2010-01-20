@@ -306,12 +306,7 @@ def page_valid(**args):
 	 names = [item.get('name') for item in CONFIG.getData(ACCOUNTFIELDS) ]
 	 account = {}
 	 [ account.update({ name:args.get(name) or '' }) for name in names ]
-	 setattr( so, pagefn.SOINFO['userinfo'], account )
-	 
-	 #for k,v in args.items():
-	 #	setattr( so, k, v)
-	 
-	 #print JSON.encode({'type':1, 'session': args})
+	 setattr( so, pagefn.SOINFO['user'], account )
 	 	 
 	 print '1'
 	 return

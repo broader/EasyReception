@@ -154,7 +154,7 @@ def page_accountRegister(**args):
 	#return 
 	
 	try:
-		account = getattr(so,pagefn.SOINFO['userinfo'])
+		account = getattr(so,pagefn.SOINFO['user'])
 	except:
 		account = {}
 		
@@ -188,7 +188,7 @@ def page_accountRegister(**args):
 		if res:
 			account.update(info)
 			account.pop('password')
-			setattr( so, pagefn.SOINFO['userinfo'], account)
+			setattr( so, pagefn.SOINFO['user'], account)
 	else:
 		isSuccess = '0'	
 	

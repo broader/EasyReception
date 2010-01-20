@@ -4,7 +4,7 @@ from HTMLTags import *
 # some global variables stored in Session object of Karrigell
 COOKIENAME = "sessionId"
 
-SOINFO = {'user':'username',}
+SOINFO = {'user':'userinfo',}
 
 # a function to return the applicaiton name
 getApp = lambda p,i : p.split('/')[i]

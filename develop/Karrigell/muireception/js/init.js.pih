@@ -37,7 +37,8 @@ MUI.extend({
 	
 	// clear cookie of this application, the cookie name is defined in 'pagefn.py' file
 	removeCookie: function(){		
-		var name = 'sessionId';	
+		var name = '<%=pagefn.COOKIENAME %>';	
+		alert('the cookie to be removed is '+Cookie.read(name));
 		if(Cookie.read(name) != null){
 			Cookie.dispose(name);
 		};

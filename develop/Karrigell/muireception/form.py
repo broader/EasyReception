@@ -128,7 +128,30 @@ def getField(field):
 	
 	return DIV(Sum(div), **{"class":ctype})
 
-	
+
+def filterProps(fields,values):
+	""" Filter the needed properties of fields for render_table_fields function."""
+	postValues = []	
+	for field in fields :
+		temp = {}
+		[ temp.update({prop:field.get(prop)}) for prop in ('prompt','type')]
+		
+		if not temp['type'] :
+			temp['type'] = 'text'
+		
+		propName = field.get('name')
+		if temp['type'] in ('radio','select') :			
+			for option in field['options'] :
+				if option['value'] == str(values.get(propName)):
+					temp['value'] = option['label']
+					break
+		else:
+			temp['value'] = values.get(propName)
+			
+		postValues.append(temp)
+		
+	return postValues
+		
 def render_table_fields( fields, cols, labelStyle, valueStyle):
 	""" 
 	Render the table rows which is mainly used for showing fields.
@@ -156,16 +179,14 @@ def render_table_fields( fields, cols, labelStyle, valueStyle):
 	for g in range(cols) :
 		tr = []		 
 		for i in range(fieldsNumber):
-			try:
-				#name = names.pop(0)
-				#value = values.pop(0)
+			try:				
 				field = fields.pop(0)
 				name, value, type = [ field.get(prop) for prop in ('prompt', 'value', 'type') ]							 
 				attrdiv = DIV(name, style=labelStyle.get('label') or '')
 				if type !='textarea':
 					valuelabel = LABEL(value,style=valueStyle.get('label') or '')
 				else:
-					valuelabel = TEXTAREA(value,style=valueStyle.get('label') or '', disabled='')
+					valuelabel = TEXTAREA(value,style=valueStyle.get('textarea') or '', disabled='')
 				td = TD(attrdiv, style=labelStyle.get('td') or '')+TD(valuelabel, style=valueStyle.get('td') or '')
 			except:
 				break 		 			

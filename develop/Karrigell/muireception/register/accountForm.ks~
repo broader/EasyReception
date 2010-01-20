@@ -134,8 +134,9 @@ def index(**args):
 	 paras.extend([ ACCOUNTFORMBNS, ACCOUNTFIELDS ])
     
     # add some files' path for validation function
-	 names = ('css/hack.css', 'lang.js.pih', 'formcheck.js', 'theme/red/formcheck.css')
-	 paras.extend([ '/'.join(( 'lib', 'formcheck', name )) for name in names])
+	 #names = ('css/hack.css', 'lang.js.pih', 'formcheck.js', 'theme/red/formcheck.css')
+	 #paras.extend([ '/'.join(( 'lib', 'formcheck', name )) for name in names])
+	 paras.extend(pagefn.FCLIBFILES)
 	 
 	 js = \
     """
@@ -305,7 +306,7 @@ def page_valid(**args):
 	 names = [item.get('name') for item in CONFIG.getData(ACCOUNTFIELDS) ]
 	 account = {}
 	 [ account.update({ name:args.get(name) or '' }) for name in names ]
-	 setattr( so, pagefn.SOINFO['userinfo'], account )
+	 setattr( so, pagefn.SOINFO['user'], account )
 	 
 	 #for k,v in args.items():
 	 #	setattr( so, k, v)

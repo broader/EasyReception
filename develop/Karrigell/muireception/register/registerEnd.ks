@@ -55,22 +55,18 @@ def index(**args):
 					  style='text-align: center; font-size: 1.2em;font-weight:bold;'))
 	
 	try:
-		account = getattr(so,pagefn.SOINFO['userinfo'])
+		account = getattr(so,pagefn.SOINFO['user'])
 	except:
 		account = {}
 		  
 	fieldvalues = CONFIG.getData(ACCOUNTFIELDS)
-	values = []	
-	for field in fieldvalues :
-		value = {}
-		[ value.update({prop:field.get(prop)}) for prop in ('prompt','type')]		
-		value['value'] = account.get(field.get('name'))
-		values.append(value)
-		
+	values = formFn.filterProps(fieldvalues, account)
+	
 	labelStyle = {'label':'font-weight:bold;font-size:1.2em;color:white;', \
 					  'td':'text-align:right;background:#9ca2cb'}
 					  
-	valueStyle = {'label':'color:#ff6600;font-size:1.2em;', 'td':'text-align:left;'}
+	valueStyle = {'label':'color:#ff6600;font-size:1.2em;', 'td':'text-align:center;',\
+					  'textarea':'width:10em;color:#ff6600;font-size:1.2em;'}
 	
 	trs = formFn.render_table_fields( values, 1, labelStyle, valueStyle)
 	table.append(trs)

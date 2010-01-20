@@ -6,7 +6,6 @@ from HTMLTags import *
 
 def yform(fields):
 	""" Render YAML formats form components."""
-	print fields,BR()
 	divs = [ getField(item) for item in fields ]
 	return divs
 
@@ -129,7 +128,12 @@ def getField(field):
 	
 	return DIV(Sum(div), **{"class":ctype})
 
-	
+
+def filterProps(fields,values):
+	""" Filter the needed properties of fields for render_table_fields function."""
+	pass
+	return
+		
 def render_table_fields( fields, cols, labelStyle, valueStyle):
 	""" 
 	Render the table rows which is mainly used for showing fields.
@@ -157,16 +161,14 @@ def render_table_fields( fields, cols, labelStyle, valueStyle):
 	for g in range(cols) :
 		tr = []		 
 		for i in range(fieldsNumber):
-			try:
-				#name = names.pop(0)
-				#value = values.pop(0)
+			try:				
 				field = fields.pop(0)
 				name, value, type = [ field.get(prop) for prop in ('prompt', 'value', 'type') ]							 
 				attrdiv = DIV(name, style=labelStyle.get('label') or '')
 				if type !='textarea':
 					valuelabel = LABEL(value,style=valueStyle.get('label') or '')
 				else:
-					valuelabel = TEXTAREA(value,style=valueStyle.get('label') or '', disabled='')
+					valuelabel = TEXTAREA(value,style=valueStyle.get('textarea') or '', disabled='')
 				td = TD(attrdiv, style=labelStyle.get('td') or '')+TD(valuelabel, style=valueStyle.get('td') or '')
 			except:
 				break 		 			

@@ -39,7 +39,7 @@ MUI.extend({
 	removeCookie: function(){		
 		var name = 'sessionId';	
 		if(Cookie.read(name) != null){
-			Cookie.disose(name);
+			Cookie.dispose(name);
 		};
 	},
 	

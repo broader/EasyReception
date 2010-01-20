@@ -22,17 +22,23 @@ APP = pagefn.getApp(THIS.baseurl,1)
 
 # the session object for this page
 so = Session()
-USER = getattr( so, pagefn.SOINFO['user'])
+USER = getattr( so, pagefn.SOINFO['user']).get('username')
 
 # config data object
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 
 # form fields' names in CONFIG file
 ACCOUNTFIELDS = 'userAccountInfo'
+BASEINFO = 'userBaseInfo'
 
-# The ids for the buttons' container to edit account information
+# The ids for the buttons' container to edit information
 ACCOUNTEDITBN = 'editAccountBn'
-ACCOUNTACTIONBN = 'AccountActionBn'
+ACCOUNTACTIONBN = 'accountActionBn'
+
+PORTFOLIOEDITBN = 'editPortfolioBn'
+PORTFOLIOACTIONBN = 'portfolioActionBn'
+
+BNLABELS = ( _('Edit'), _('OK'), _('Cancel'))
 
 # The ids for MUI.Panels
 portfolioPanel,accountPanel = pagefn.PORTFOLIO.get('panelsId') 
@@ -63,11 +69,32 @@ def _getCsv(operator, user):
 def page_showPortfolio(**args):
 	print H2('Portfolio Information')
 	user = USER
-	print 'page_showPortfolio, current user is %s'%user
 	values = _getCsv(user,user)
-	print values
-	return
 	
+	fields = CONFIG.getData(BASEINFO)
+	newFields = formFn.filterProps(fields,values)
+	
+	main,table = ([],[])	
+	
+	labelStyle = {'label':'font-weight:bold;font-size:1.2em;color:white;', \
+					  'td':'text-align:right;background:#9ca2cb'}
+					  
+	valueStyle = {'label':'color:#ff6600;font-size:1.2em;', 'td':'text-align:center;',\
+					  'textarea':'width:20em;color:#ff6600;font-size:1.2em;'}
+	
+	trs = formFn.render_table_fields( newFields, 2, labelStyle, valueStyle)
+	table.append(trs)
+	table = TABLE(Sum(table), style='position:relative;left:4em;')
+	
+	div = DIV(table, **{'class':'subcolumns'})		
+	main.append(DIV( div, **{'class':'subcolumns'}))
+	
+	button = BUTTON( BNLABELS[0], **{'class':'MooTrans', 'type':'button', 'style':'font-size:1.6em;width:atuo;'})
+	div = DIV( button, **{ 'id':PORTFOLIOEDITBN, 'style':'position:absolute;margin-left:12em;'})	
+	main.append(div)	
+	print Sum(main)	
+	return
+		
 def page_showAccount(**args):
 	print H2('Account Information')
 	
@@ -88,20 +115,24 @@ def page_showAccount(**args):
 	
 	# append the caption
 	#table.append( CAPTION(_("Login Information"),style='text-align: center; font-size: 1.2em;font-weight:bold;'))
-		  
-	values = []	
+		  	
 	fields = CONFIG.getData(ACCOUNTFIELDS)
 	fields.append({ 'name':'creation' , 'prompt':_('Created Time :'), 'type':'text'})
+	values = formFn.filterProps(fields, account)
+	"""
+	values = []	
 	for field in fields :
 		value = {}
 		[ value.update({prop:field.get(prop)}) for prop in ('prompt','type')]		
 		value['value'] = account.get(field.get('name'))
 		values.append(value)
+	"""
 		
 	labelStyle = {'label':'font-weight:bold;font-size:1.2em;color:white;', \
 					  'td':'text-align:right;background:#9ca2cb'}
 					  
-	valueStyle = {'label':'color:#ff6600;font-size:1.2em;', 'td':'text-align:left;'}
+	valueStyle = {'label':'color:#ff6600;font-size:1.2em;', 'td':'text-align:center;',\
+					  'textarea':'width:10em;color:#ff6600;font-size:1.2em;'}
 	
 	trs = formFn.render_table_fields( values, 1, labelStyle, valueStyle)
 	table.append(trs)
@@ -110,7 +141,7 @@ def page_showAccount(**args):
 	accountDiv = DIV(table, **{'class':'subcolumns'})		
 	main.append(DIV( accountDiv, **{'class':'subcolumns'}))
 	
-	button = BUTTON( _('Edit'), **{'class':'MooTrans', 'type':'button', 'style':'font-size:1.6em;width:atuo;'})
+	button = BUTTON( BNLABELS[0], **{'class':'MooTrans', 'type':'button', 'style':'font-size:1.6em;width:atuo;'})
 	div = DIV( button, **{ 'id':ACCOUNTEDITBN, 'style':'position:absolute;margin-left:10em;'}) 
 	
 	main.append(div)
@@ -174,6 +205,7 @@ def page_editAccount(**args):
 	
 	# get account info
 	props = ['email',]
+	user = USER
 	values = model.get_item(user, 'user', user, props, keyIsId=False)
 	if type(values) != type({}):
 		values = {}
@@ -205,7 +237,7 @@ def page_editAccount(**args):
 	form.append(FIELDSET(Sum((legend,div))))
     
 	# add buttons to this form   
-	bns =[_("OK"), _("Cancel")] 
+	bns = BNLABELS[1:]
 	btypes = ('submit','button') 
 	bns = [BUTTON(text, **{'class':'MooTrans', 'type': btype}) for text, btype in zip( bns, btypes)]
 	span = DIV(Sum(bns), **{ 'id':ACCOUNTACTIONBN, 'style':'position:absolute;margin-left:5em;'})    
