@@ -1,12 +1,12 @@
 city,
 fax,
 firstname,
-gender,
+gender,0
 address,
-aperson,
+aperson,1
 phone,
-prefix,
+prefix,0
 postcode,
 lastname,
-organization,
+organization,曹魏
 country,

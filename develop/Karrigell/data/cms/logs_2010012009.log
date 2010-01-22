@@ -1,0 +1,135 @@
+2010/01/20 09:17:59 - 127.0.0.1 - GET / HTTP/1.1 302 /index.pih
+2010/01/20 09:17:59 - 127.0.0.1 - GET /index.pih HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /yaml/screen/forms.css HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /yaml/add-ons/microformats/microformats.css HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /css/layout_3col_standard.css HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /css/impromptu.css HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /js/jquery.js HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /lib/smartlists/smartlists.css HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /lib/cluetip/jquery.cluetip.css HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /yaml/core/base.css HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /css/screen/basemod_3col.css HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /yaml/navigation/nav_shinybuttons.css HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /yaml/print/print_003_draft.css HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /css/screen/content.css HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /yaml/core/print_base.css HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /js/jquery.scrollTo-min.js HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /js/jquery.corner.js HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /js/jquery.impromptu.2.7.js HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /js/jquery.cookie.js HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /js/jquery.form.js HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /js/jquery.jframe.js HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /js/jquery.domec-1.0.1.js HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /lib/smartlists/jquery.smartlists.js HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /lib/validate/jquery.validate.js HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /lib/validate/validation_messages.js.pih HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /lib/cluetip/jquery.cluetip.js HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /images/bg_blue.png HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /yaml/navigation/images/shiny_buttons/background.png HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/01/20 09:18:00 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found
+2010/01/20 09:18:02 - 127.0.0.1 - GET /images/ajax_loading.gif HTTP/1.1 200
+2010/01/20 09:18:02 - 127.0.0.1 - GET /menu.ks/page_validForm HTTP/1.1 200
+2010/01/20 09:18:03 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found
+2010/01/20 09:18:06 - 127.0.0.1 - GET /menu.ks/page_validName?user=supervisor HTTP/1.1 200
+2010/01/20 09:18:06 - 127.0.0.1 - GET /menu.ks/page_validPwd?user=supervisor&pwd=990508 HTTP/1.1 200
+2010/01/20 09:18:06 - 127.0.0.1 - GET /menu.ks/page_postValid?_=1263979086653 HTTP/1.1 200
+2010/01/20 09:18:06 - 127.0.0.1 - GET /menu.ks/page_toggleMenu?showMenu=1&_=1263979086929 HTTP/1.1 200
+2010/01/20 09:18:07 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/01/20 09:18:07 - 127.0.0.1 - GET /menu.ks/page_loginSpan?page=0 HTTP/1.1 200
+2010/01/20 09:18:07 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/01/20 09:18:07 - 127.0.0.1 - GET /menu.ks/page_menuList?page=0 HTTP/1.1 200
+2010/01/20 09:18:12 - 127.0.0.1 - GET /navigation.ks/profile?path=sysadmin HTTP/1.1 302 /sysadmin/index.hip
+2010/01/20 09:18:12 - 127.0.0.1 - GET /sysadmin/index.hip HTTP/1.1 200
+2010/01/20 09:18:12 - 127.0.0.1 - GET /lib/dataTable/css/demo_table.css HTTP/1.1 200
+2010/01/20 09:18:12 - 127.0.0.1 - GET /yaml/navigation/images/sliding_door/round/bg.gif HTTP/1.1 200
+2010/01/20 09:18:12 - 127.0.0.1 - GET /lib/treeTable/jquery.treeTable.css HTTP/1.1 200
+2010/01/20 09:18:12 - 127.0.0.1 - GET /yaml/navigation/images/sliding_door/round/right_on.png HTTP/1.1 200
+2010/01/20 09:18:12 - 127.0.0.1 - GET /yaml/navigation/images/sliding_door/round/left.png HTTP/1.1 200
+2010/01/20 09:18:12 - 127.0.0.1 - GET /yaml/navigation/images/sliding_door/round/right.png HTTP/1.1 200
+2010/01/20 09:18:12 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showClass?name=keyword HTTP/1.1 200
+2010/01/20 09:18:12 - 127.0.0.1 - GET /yaml/navigation/images/sliding_door/round/left_on.png HTTP/1.1 200
+2010/01/20 09:18:12 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showProps?klass=keyword&target=classEdit HTTP/1.1 200
+2010/01/20 09:18:13 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_edit HTTP/1.1 200
+2010/01/20 09:18:15 - 127.0.0.1 - GET /navigation.ks/profile?path=user HTTP/1.1 302 /user/index.hip
+2010/01/20 09:18:15 - 127.0.0.1 - GET /user/index.hip HTTP/1.1 200
+2010/01/20 09:18:15 - 127.0.0.1 - GET /css/screen.css HTTP/1.1 200
+2010/01/20 09:18:15 - 127.0.0.1 - GET /user/account.ks HTTP/1.1 302 /user/account.ks/index
+2010/01/20 09:18:15 - 127.0.0.1 - GET /user/info.ks HTTP/1.1 302 /user/info.ks/index
+2010/01/20 09:18:15 - 127.0.0.1 - GET /user/account.ks/index HTTP/1.1 200
+2010/01/20 09:18:16 - 127.0.0.1 - GET /user/info.ks/index HTTP/1.1 200
+2010/01/20 09:18:18 - 127.0.0.1 - GET /navigation.ks/profile?path=sysadmin HTTP/1.1 302 /sysadmin/index.hip
+2010/01/20 09:18:18 - 127.0.0.1 - GET /sysadmin/index.hip HTTP/1.1 200
+2010/01/20 09:18:19 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showClass?name=keyword HTTP/1.1 200
+2010/01/20 09:18:19 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showProps?klass=keyword&target=classEdit HTTP/1.1 200
+2010/01/20 09:18:20 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_edit HTTP/1.1 200
+2010/01/20 09:18:21 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showClass?name=user HTTP/1.1 200
+2010/01/20 09:18:22 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showProps?klass=user&target=classEdit HTTP/1.1 200
+2010/01/20 09:18:22 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_edit HTTP/1.1 200
+2010/01/20 09:18:29 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_edit?klass=user HTTP/1.1 200
+2010/01/20 09:18:29 - 127.0.0.1 - GET /yaml/screen/images/button_blue.png HTTP/1.1 200
+2010/01/20 09:18:37 - 127.0.0.1 - POST /sysadmin/sysadmin.ks/postedit HTTP/1.1 200
+2010/01/20 09:19:42 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showClass?name=status HTTP/1.1 200
+2010/01/20 09:19:42 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showProps?klass=status&target=classEdit HTTP/1.1 200
+2010/01/20 09:19:42 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_edit HTTP/1.1 200
+2010/01/20 09:19:44 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showClass?name=service HTTP/1.1 200
+2010/01/20 09:19:45 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showProps?klass=service&target=classEdit HTTP/1.1 200
+2010/01/20 09:19:45 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_edit?klass=service HTTP/1.1 200
+2010/01/20 09:19:45 - 127.0.0.1 - GET /service/serviceChange.js.pih?listUrl=service/service.ks/page_serviceList&listDiv=serviceList&editUrl=service/service.ks/page_serviceEdit&editDiv=serviceEdit&page=admin&selectId=stype&_=1263979185886 HTTP/1.1 200
+2010/01/20 09:19:45 - 127.0.0.1 - GET /service/service.ks/page_serviceEdit HTTP/1.1 200
+2010/01/20 09:19:50 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showClass?name=role HTTP/1.1 200
+2010/01/20 09:19:50 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showProps?klass=role&target=classEdit HTTP/1.1 200
+2010/01/20 09:19:50 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_edit HTTP/1.1 200
+2010/01/20 09:19:53 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showClass?name=webaction HTTP/1.1 200
+2010/01/20 09:19:53 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showProps?klass=webaction&target=classEdit HTTP/1.1 200
+2010/01/20 09:19:53 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_edit HTTP/1.1 200
+2010/01/20 09:19:55 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_edit?klass=webaction HTTP/1.1 200
+2010/01/20 09:20:13 - 127.0.0.1 - GET /navigation.ks/profile?path=sysadmin HTTP/1.1 302 /sysadmin/index.hip
+2010/01/20 09:20:13 - 127.0.0.1 - GET /sysadmin/index.hip HTTP/1.1 200
+2010/01/20 09:20:13 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showClass?name=keyword HTTP/1.1 200
+2010/01/20 09:20:14 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showProps?klass=keyword&target=classEdit HTTP/1.1 200
+2010/01/20 09:20:14 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_edit HTTP/1.1 200
+2010/01/20 09:20:16 - 127.0.0.1 - GET /navigation.ks/profile?path=agenda/agenda.ks/index HTTP/1.1 200
+2010/01/20 09:20:16 - 127.0.0.1 - GET /lib/ui/css/flick/jquery-ui-1.7.2.custom.css HTTP/1.1 200
+2010/01/20 09:20:16 - 127.0.0.1 - GET /lib/timepicker/jquery.ptTimeSelect.css HTTP/1.1 200
+2010/01/20 09:20:16 - 127.0.0.1 - GET /yaml/add-ons/microformats/images/hcalendar.png HTTP/1.1 200
+2010/01/20 09:20:16 - 127.0.0.1 - GET /yaml/add-ons/microformats/images/external_link.gif HTTP/1.1 200
+2010/01/20 09:20:16 - 127.0.0.1 - GET /lib/ui/js/jquery-ui-1.7.2.custom.min.js?_=1263979216754 HTTP/1.1 200
+2010/01/20 09:20:16 - 127.0.0.1 - GET /lib/validate/jquery.validate.js?_=1263979216984 HTTP/1.1 200
+2010/01/20 09:20:17 - 127.0.0.1 - GET /lib/validate/validation_messages.js.pih?_=1263979217017 HTTP/1.1 200
+2010/01/20 09:20:17 - 127.0.0.1 - GET /lib/timepicker/jquery.ptTimeSelect.js?_=1263979217055 HTTP/1.1 200
+2010/01/20 09:20:17 - 127.0.0.1 - GET /lib/cluetip/images/wait.gif HTTP/1.1 200
+2010/01/20 09:20:17 - 127.0.0.1 - GET /lib/ui/css/flick/images/ui-icons_666666_256x240.png HTTP/1.1 200
+2010/01/20 09:20:17 - 127.0.0.1 - GET /lib/ui/css/flick/images/ui-bg_highlight-soft_100_f6f6f6_1x100.png HTTP/1.1 200
+2010/01/20 09:20:17 - 127.0.0.1 - GET /navigation.ks/profile?path=broadcast/info.ks/page_manage HTTP/1.1 200
+2010/01/20 09:20:18 - 127.0.0.1 - GET /lib/ui/js/jquery-ui-1.7.2.custom.min.js?_=1263979218262 HTTP/1.1 200
+2010/01/20 09:20:18 - 127.0.0.1 - GET /lib/validate/jquery.validate.js?_=1263979218315 HTTP/1.1 200
+2010/01/20 09:20:18 - 127.0.0.1 - GET /lib/validate/validation_messages.js.pih?_=1263979218343 HTTP/1.1 200
+2010/01/20 09:20:19 - 127.0.0.1 - GET /navigation.ks/profile?path=issue HTTP/1.1 302 /issue/index.hip
+2010/01/20 09:20:19 - 127.0.0.1 - GET /issue/index.hip HTTP/1.1 200
+2010/01/20 09:20:19 - 127.0.0.1 - GET /lib/multiselect/style.css HTTP/1.1 200
+2010/01/20 09:20:19 - 127.0.0.1 - GET /js/jquery.form.js?_=1263979219637 HTTP/1.1 200
+2010/01/20 09:20:19 - 127.0.0.1 - GET /lib/asmselect/jquery.asmselect.css HTTP/1.1 200
+2010/01/20 09:20:19 - 127.0.0.1 - GET /issue/issue.ks/index HTTP/1.1 200
+2010/01/20 09:20:20 - 127.0.0.1 - GET /issue/issue.ks/page_editIssue HTTP/1.1 200
+2010/01/20 09:20:20 - 127.0.0.1 - GET /issue/issue.ks/show HTTP/1.1 200
+2010/01/20 09:20:20 - 127.0.0.1 - GET /lib/dataTable/js/jquery.dataTables.js?_=1263979220655 HTTP/1.1 200
+2010/01/20 09:20:20 - 127.0.0.1 - GET /lib/dataTable/i18n/cn_CN.txt HTTP/1.1 200
+2010/01/20 09:20:20 - 127.0.0.1 - GET /issue/issue.ks/page_getData?iColumns=5&sColumns=&iDisplayLength=10&iDisplayStart=0&sSearch=&bEscapeRegex=true&sSearch_0=&bEscapeRegex_0=true&sSearch_1=&bEscapeRegex_1=true&sSearch_2=&bEscapeRegex_2=true&sSearch_3=&bEscapeRegex_3=true&sSearch_4=&bEscapeRegex_4=true&iSortingCols=1&iSortCol_0=0&iSortDir_0=desc HTTP/1.1 200
+2010/01/20 09:20:21 - 127.0.0.1 - GET /lib/dataTable/images/sort_desc.jpg HTTP/1.1 200
+2010/01/20 09:20:21 - 127.0.0.1 - GET /lib/dataTable/images/sort_both.jpg HTTP/1.1 200
+2010/01/20 09:20:24 - 127.0.0.1 - GET /navigation.ks/profile?path=manage/userlist.hip HTTP/1.1 200
+2010/01/20 09:20:24 - 127.0.0.1 - GET /lib/dataTable/css/demo_page.css HTTP/1.1 200
+2010/01/20 09:20:24 - 127.0.0.1 - GET /manage/userlist.ks HTTP/1.1 302 /manage/userlist.ks/index
+2010/01/20 09:20:24 - 127.0.0.1 - GET /manage/userlist.ks/page_account HTTP/1.1 200
+2010/01/20 09:20:25 - 127.0.0.1 - GET /manage/userlist.ks/index HTTP/1.1 200
+2010/01/20 09:20:25 - 127.0.0.1 - GET /lib/dataTable/js/jquery.dataTables.js?_=1263979225366 HTTP/1.1 200
+2010/01/20 09:20:25 - 127.0.0.1 - GET /manage/userlist.ks/getData?iColumns=5&sColumns=&iDisplayLength=10&iDisplayStart=0&sSearch=&bEscapeRegex=true&sSearch_0=&bEscapeRegex_0=true&sSearch_1=&bEscapeRegex_1=true&sSearch_2=&bEscapeRegex_2=true&sSearch_3=&bEscapeRegex_3=true&sSearch_4=&bEscapeRegex_4=true&iSortingCols=1&iSortCol_0=0&iSortDir_0=asc HTTP/1.1 200
+2010/01/20 09:20:25 - 127.0.0.1 - GET /lib/dataTable/images/sort_asc.jpg HTTP/1.1 200
+2010/01/20 09:20:34 - 127.0.0.1 - GET /manage/userlist.ks/page_account?username=remote&columns=2 HTTP/1.1 302 /user/info.ks/index?username=remote&columns=2
+2010/01/20 09:20:34 - 127.0.0.1 - GET /user/info.ks/index?username=remote&columns=2 HTTP/1.1 200
+2010/01/20 09:20:37 - 127.0.0.1 - GET /user/info.ks/page_edit?username=remote&columns=2 HTTP/1.1 200
+2010/01/20 09:20:37 - 127.0.0.1 - GET /css/images/required_star.gif HTTP/1.1 200
+2010/01/20 09:20:37 - 127.0.0.1 - GET /css/images/fieldset_gradient.jpg HTTP/1.1 200
+2010/01/20 09:20:37 - 127.0.0.1 - GET /css/images/button_s.png HTTP/1.1 200
+2010/01/20 09:20:37 - 127.0.0.1 - GET /user/info.js.pih?formId=baseinfo&_=1263979237319 HTTP/1.1 200

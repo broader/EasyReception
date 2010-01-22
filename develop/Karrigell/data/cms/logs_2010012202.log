@@ -1,0 +1,13 @@
+2010/01/22 02:56:19 - 127.0.0.1 - GET /navigation.ks/profile?path=manage/userlist.hip HTTP/1.1 200
+2010/01/22 02:56:19 - 127.0.0.1 - GET /css/screen.css HTTP/1.1 200
+2010/01/22 02:56:19 - 127.0.0.1 - GET /lib/dataTable/css/demo_page.css HTTP/1.1 200
+2010/01/22 02:56:19 - 127.0.0.1 - GET /manage/userlist.ks HTTP/1.1 302 /manage/userlist.ks/index
+2010/01/22 02:56:19 - 127.0.0.1 - GET /manage/userlist.ks/page_account HTTP/1.1 200
+2010/01/22 02:56:19 - 127.0.0.1 - GET /manage/userlist.ks/index HTTP/1.1 200
+2010/01/22 02:56:20 - 127.0.0.1 - GET /lib/dataTable/js/jquery.dataTables.js?_=1264128980125 HTTP/1.1 200
+2010/01/22 02:56:20 - 127.0.0.1 - GET /lib/dataTable/i18n/cn_CN.txt HTTP/1.1 200
+2010/01/22 02:56:20 - 127.0.0.1 - GET /manage/userlist.ks/getData?iColumns=5&sColumns=&iDisplayLength=10&iDisplayStart=0&sSearch=&bEscapeRegex=true&sSearch_0=&bEscapeRegex_0=true&sSearch_1=&bEscapeRegex_1=true&sSearch_2=&bEscapeRegex_2=true&sSearch_3=&bEscapeRegex_3=true&sSearch_4=&bEscapeRegex_4=true&iSortingCols=1&iSortCol_0=0&iSortDir_0=asc HTTP/1.1 200
+2010/01/22 02:56:20 - 127.0.0.1 - GET /lib/dataTable/images/sort_both.jpg HTTP/1.1 200
+2010/01/22 02:56:20 - 127.0.0.1 - GET /lib/dataTable/images/sort_asc.jpg HTTP/1.1 200
+2010/01/22 02:56:40 - 127.0.0.1 - GET /manage/userlist.ks/page_account?username=demo&columns=2 HTTP/1.1 302 /user/info.ks/index?username=demo&columns=2
+2010/01/22 02:56:40 - 127.0.0.1 - GET /user/info.ks/index?username=demo&columns=2 HTTP/1.1 200

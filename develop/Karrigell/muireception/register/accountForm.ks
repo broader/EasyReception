@@ -24,12 +24,6 @@ APP = pagefn.getApp(THIS.baseurl,1)
 
 # the session object for this page
 so = Session()
-sname = pagefn.COOKIENAME
-# SET_COOKIE is a instance of Cookie.SimpleCookie,
-# When a new key is set for a SimpleCookie object, a Morsel instance is created.
-SET_COOKIE[sname]=getattr(REQUEST_HANDLER, sname)
-# set cookie path
-SET_COOKIE[sname]['path'] = '/'
 
 # config data object
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
@@ -54,6 +48,9 @@ CAPTCHAKEY = 'ckey'
 
 def index(**args):
 	 """Render the form for account's information."""
+	 # set cookie's path to '/', 
+	 # so every request page could access the same session object by the cookie info "sessionId"	 
+	 pagefn.setCookie(SET_COOKIE,REQUEST_HANDLER)
 	 
 	 # get fields names
 	 username, usermail, pwd = CONFIG.getData(ACCOUNTFIELDS)

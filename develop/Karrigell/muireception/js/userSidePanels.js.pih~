@@ -1,5 +1,5 @@
 /*
-FUNCTIONS FOR SIDE PANELS EXPAND
+** FUNCTIONS FOR SIDE PANELS EXPAND, THESE SIDEPANELS BELONGS TO NORMAL USER ROLE.
 */
 
 <% 
@@ -8,7 +8,7 @@ FUNCTIONS FOR SIDE PANELS EXPAND
 pagefn = Import('/'.join(('', 'pagefn.py')))
 
 # initialize some page variables
-sideBar, mainColumn = pagefn.COLUMNS
+#sideBar, mainColumn = pagefn.COLUMNS
 
 portfolio = pagefn.PORTFOLIO
 %>
@@ -76,7 +76,7 @@ function portfolioPanel(panelId){
 	
 	new MUI.Column({
 		container:mainPanelId, id: 'accountColumn', placement: 'right',  
-		sortable: false, width: 500, resizeLimit: [500,600] 
+		sortable: false, width: 500, resizeLimit: [400,500] 
 	});
 	
 	

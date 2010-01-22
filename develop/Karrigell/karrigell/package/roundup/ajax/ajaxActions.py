@@ -871,8 +871,7 @@ class RegisterAction(EditCommon):
         if pwd :
             user_props['password'] = password.Password(pwd)
         if user_props.has_key('roles'):
-            raise exceptions.Unauthorised, self._(
-                "It is not permitted to supply roles at registration.")
+            raise exceptions.Unauthorised, "It is not permitted to supply roles at registration."
 
         # skip the confirmation step?
         if self.db.config['INSTANT_REGISTRATION']:            
@@ -975,7 +974,7 @@ class LoginAction(Action):
         
         # we need the username at a minimum        
         if not self.form.has_key('username'):
-            self.client.error_message.append(self._('Username required'))
+            self.client.error_message.append('Username required')
             return
 
         # get the login info                
@@ -995,17 +994,18 @@ class LoginAction(Action):
         self.client.opendb(self.client.user)
         return auth
 
-    def verifyLogin(self, username, password):        
+    def verifyLogin(self, username, password): 
+        info = None
         # make sure the user exists
         try:                        
-            self.client.userid = self.db.user.lookup(username)                        
+            userid = self.db.user.lookup(username)                        
         except KeyError:
             #raise exceptions.LoginError, self._('Invalid login')
             # 2 means user is invalid
             return (2, 'Invalid Username')
         
         # verify the password
-        if not self.verifyPassword(self.client.userid, password):
+        if not self.verifyPassword(userid, password):
             return (0, 'Invalid Password')
         
         # Determine whether the user has permission to log in.
@@ -1013,7 +1013,8 @@ class LoginAction(Action):
         if not self.hasPermission("Web Access"):            
             return (3, 'Not has Web Access permission')
         
-        return (1, 'Login Successfully')
+        roles = self.db.user.get(userid,'roles')
+        return (1, 'Login Successfully',roles)
         
 
     def verifyPassword(self, userid, password):

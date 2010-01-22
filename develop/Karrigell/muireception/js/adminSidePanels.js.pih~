@@ -1,0 +1,66 @@
+/*
+** FUNCTIONS FOR SIDE PANELS EXPAND, THESE SIDEPANELS BELONGS TO NORMAL USER ROLE.
+*/
+
+<% 
+# PYTHON CODE SLICE
+# get meus stored in pagefn.py
+pagefn = Import('/'.join(('', 'pagefn.py')))
+
+# initialize some page variables
+sideBar, mainColumn = pagefn.COLUMNS
+
+%>
+
+
+/*
+** The public function for side panels collapsing
+*/
+function sidePanelCollapse(panelId){	
+	//alert('panel collapsed');
+};
+
+/*
+**	Portal side panel expand function
+*/
+function portalPanel(panelId){
+	MUI.accordionPanels(panelId);
+};
+
+/*
+**	"Users List" side panel expand function
+*/
+function userManagementPanel(panelId){
+	MUI.accordionPanels(panelId);
+	MUI.clearMainPanel();
+	
+	var mainPanelId = '<%=pagefn.MAINPANEL %>'; 
+};
+
+/*
+**	Issues side panel expand function
+*/
+function issuePanel(panelId){
+	MUI.accordionPanels(panelId);
+};
+
+/*
+**	News side panel expand function
+*/
+function newsPanel(panelId){
+	MUI.accordionPanels(panelId);
+};
+
+/*
+**	Agenda side panel expand function
+*/
+function agendaPanel(panelId){
+	MUI.accordionPanels(panelId);
+};
+
+/*
+**	"Service Management" side panel expand function
+*/
+function servicePanel(panelId){
+	MUI.accordionPanels(panelId);
+};

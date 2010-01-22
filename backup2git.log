@@ -23269,3 +23269,165 @@ sent 102 bytes  received 20 bytes  244.00 bytes/sec
 total size is 156363  speedup is 1281.66
 2010-01-20 17:11:58,271 INFO End backup loacl karrigell diretory to local git.
 2010-01-20 17:11:58,271 INFO Begin to backup local github to remote github host.
+2010-01-20 17:11:58,965 INFO Command: 
+git add .
+running result is :
+2010-01-20 17:12:01,034 INFO Command: 
+git commit -m 'Update time:2010-01-20T17:11:58.272017'
+running result is :Created commit 414bd11: Update time:2010-01-20T17:11:58.272017
+ 20 files changed, 554 insertions(+), 64 deletions(-)
+ create mode 100644 develop/Karrigell/muireception/register/tmp/8847abd97a.jpeg
+2010-01-20 17:12:08,413 INFO Command: 
+git push origin master
+running result is :Counting objects: 66, done.
+Compressing objects:   3% (1/32)   Compressing objects:   6% (2/32)   Compressing objects:   9% (3/32)   Compressing objects:  12% (4/32)   Compressing objects:  15% (5/32)   Compressing objects:  18% (6/32)   Compressing objects:  21% (7/32)   Compressing objects:  25% (8/32)   Compressing objects:  28% (9/32)   Compressing objects:  31% (10/32)   Compressing objects:  34% (11/32)   Compressing objects:  37% (12/32)   Compressing objects:  40% (13/32)   Compressing objects:  43% (14/32)   Compressing objects:  46% (15/32)   Compressing objects:  50% (16/32)   Compressing objects:  53% (17/32)   Compressing objects:  56% (18/32)   Compressing objects:  59% (19/32)   Compressing objects:  62% (20/32)   Compressing objects:  65% (21/32)   Compressing objects:  68% (22/32)   Compressing objects:  71% (23/32)   Compressing objects:  75% (24/32)   Compressing objects:  78% (25/32)   Compressing objects:  81% (26/32)   Compressing objects:  84% (27/32)   Compressing objects:  87% (28/32)   Compressing objects:  90% (29/32)   Compressing objects:  93% (30/32)   Compressing objects:  96% (31/32)   Compressing objects: 100% (32/32)   Compressing objects: 100% (32/32), done.
+Writing objects:   2% (1/34)   Writing objects:   5% (2/34)   Writing objects:   8% (3/34)   Writing objects:  11% (4/34)   Writing objects:  14% (5/34)   Writing objects:  17% (6/34)   Writing objects:  20% (7/34)   Writing objects:  23% (8/34)   Writing objects:  26% (9/34)   Writing objects:  29% (10/34)   Writing objects:  32% (11/34)   Writing objects:  35% (12/34)   Writing objects:  38% (13/34)   Writing objects:  41% (14/34)   Writing objects:  44% (15/34)   Writing objects:  47% (16/34)   Writing objects:  50% (17/34)   Writing objects:  52% (18/34)   Writing objects:  55% (19/34)   Writing objects:  58% (20/34)   Writing objects:  61% (21/34)   Writing objects:  64% (22/34)   Writing objects:  67% (23/34)   Writing objects:  70% (24/34)   Writing objects:  73% (25/34)   Writing objects:  76% (26/34)   Writing objects:  79% (27/34)   Writing objects:  82% (28/34)   Writing objects:  85% (29/34)   Writing objects:  88% (30/34)   Writing objects:  91% (31/34)   Writing objects:  94% (32/34)   Writing objects:  97% (33/34)   Writing objects: 100% (34/34)   Writing objects: 100% (34/34), 9.58 KiB, done.
+Total 34 (delta 26), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   eb55dc9..414bd11  master -> master
+2010-01-20 17:12:08,414 INFO End backup local github to remote github host.
+2010-01-22 12:12:23,696 INFO Delete nousing captcha images
+2010-01-22 12:12:23,723 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-01-22 12:12:23,723 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-01-22 12:12:26,580 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files... 600 files... 700 files... 800 files... 900 files... 1000 files... 1100 files... 1200 files... 1300 files... 1400 files... 1500 files... 1600 files... 1700 files... 1800 files... 1900 files... 2000 files... 2100 files... 2200 files... 2300 files... 2400 files... 2500 files... 2600 files... 2700 files... 2800 files... 2900 files... 3000 files... 3100 files... 3200 files... 3300 files... 3400 files... 3500 files... 3600 files... 3700 files... 3800 files... 3900 files... 4000 files... 4100 files... 4200 files... 4300 files... 4400 files... 4500 files... 4600 files... 4700 files... 4800 files... 4900 files... 5000 files... 5100 files... 5200 files... 5300 files... 5400 files... 5500 files... 5600 files... 5700 files... 5800 files... 5900 files... 6000 files... 6100 files...6166 files to consider
+deleting muireception/js/usermenus.js
+data/cms/
+data/cms/logs_2010012009.log
+       12873 100%    0.00kB/s    0:00:00       12873 100%    0.00kB/s    0:00:00 (xfer#1, to-check=3677/6166)
+data/cms/logs_2010012013.log
+        2277 100%  444.73kB/s    0:00:00        2277 100%  444.73kB/s    0:00:00 (xfer#2, to-check=3676/6166)
+data/cms/logs_2010012020.log
+        2373 100%  386.23kB/s    0:00:00        2373 100%  386.23kB/s    0:00:00 (xfer#3, to-check=3675/6166)
+data/cms/logs_2010012201.log
+        5792 100%  942.71kB/s    0:00:00        5792 100%  942.71kB/s    0:00:00 (xfer#4, to-check=3674/6166)
+data/cms/logs_2010012202.log
+        1474 100%  239.91kB/s    0:00:00        1474 100%  239.91kB/s    0:00:00 (xfer#5, to-check=3673/6166)
+data/cms/roundup/db/
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%    3.91MB/s    0:00:00      362496 100%   11.52MB/s    0:00:00 (xfer#6, to-check=3390/6166)
+data/muireception/roundup/db/files/dossier/0/
+data/muireception/roundup/db/files/dossier/0/dossier10
+         127 100%    2.00kB/s    0:00:00         127 100%    2.00kB/s    0:00:00 (xfer#7, to-check=3385/6166)
+data/muireception/roundup/db/files/dossier/0/dossier11
+         154 100%    2.43kB/s    0:00:00         154 100%    2.43kB/s    0:00:00 (xfer#8, to-check=3384/6166)
+data/muireception/roundup/db/files/dossier/0/dossier12
+         121 100%    1.91kB/s    0:00:00         121 100%    1.91kB/s    0:00:00 (xfer#9, to-check=3383/6166)
+data/muireception/roundup/db/files/dossier/0/dossier13
+         121 100%    1.91kB/s    0:00:00         121 100%    1.91kB/s    0:00:00 (xfer#10, to-check=3382/6166)
+karrigell/package/roundup/ajax/
+karrigell/package/roundup/ajax/ajaxActions.py
+       32768  29%  500.00kB/s    0:00:00      111517 100%    1.50MB/s    0:00:00 (xfer#11, to-check=2371/6166)
+karrigell/package/roundup/ajax/ajaxActions.pyc
+       32768  37%  438.36kB/s    0:00:00       87431 100%  889.39kB/s    0:00:00 (xfer#12, to-check=2370/6166)
+muireception/
+muireception/layout.ks
+       10895 100%  109.69kB/s    0:00:00       10895 100%  109.69kB/s    0:00:00 (xfer#13, to-check=2049/6166)
+muireception/layout.ks~
+       11156 100%  111.17kB/s    0:00:00       11156 100%  111.17kB/s    0:00:00 (xfer#14, to-check=2048/6166)
+muireception/pagefn.py
+        7349 100%   73.23kB/s    0:00:00        7349 100%   73.23kB/s    0:00:00 (xfer#15, to-check=2043/6166)
+muireception/pagefn.py~
+        7292 100%   71.93kB/s    0:00:00        7292 100%   71.93kB/s    0:00:00 (xfer#16, to-check=2042/6166)
+muireception/js/
+muireception/js/adminMenus.js
+         368 100%    3.63kB/s    0:00:00         368 100%    3.63kB/s    0:00:00 (xfer#17, to-check=1874/6166)
+muireception/js/adminSidePanels.js.pih
+        1143 100%   11.27kB/s    0:00:00        1143 100%   11.05kB/s    0:00:00 (xfer#18, to-check=1873/6166)
+muireception/js/adminSidePanels.js.pih~
+        1142 100%   11.04kB/s    0:00:00        1142 100%   11.04kB/s    0:00:00 (xfer#19, to-check=1872/6166)
+muireception/js/init.js.pih
+        4532 100%   43.39kB/s    0:00:00        4532 100%   43.39kB/s    0:00:00 (xfer#20, to-check=1871/6166)
+muireception/js/init.js.pih~
+        4590 100%   38.98kB/s    0:00:00        4590 100%   38.98kB/s    0:00:00 (xfer#21, to-check=1870/6166)
+muireception/js/userMenus.js
+         368 100%    3.12kB/s    0:00:00         368 100%    3.12kB/s    0:00:00 (xfer#22, to-check=1862/6166)
+muireception/js/userSidePanels.js.pih
+        1804 100%   15.32kB/s    0:00:00        1804 100%   15.32kB/s    0:00:00 (xfer#23, to-check=1861/6166)
+muireception/js/userSidePanels.js.pih~
+        1805 100%   15.33kB/s    0:00:00        1805 100%   15.33kB/s    0:00:00 (xfer#24, to-check=1860/6166)
+muireception/lib/
+muireception/lib/grid/
+muireception/lib/grid/omnigrid.css
+        6154 100%   49.26kB/s    0:00:00        6154 100%   49.26kB/s    0:00:00 (xfer#25, to-check=1483/6166)
+muireception/lib/grid/omnigrid.js
+       32768  94%  258.06kB/s    0:00:00       34858 100%  274.52kB/s    0:00:00 (xfer#26, to-check=1482/6166)
+muireception/lib/grid/images/
+muireception/lib/grid/images/bg.gif
+         854 100%    6.57kB/s    0:00:00         854 100%    6.57kB/s    0:00:00 (xfer#27, to-check=1480/6166)
+muireception/lib/grid/images/btn-sprite.gif
+         955 100%    7.34kB/s    0:00:00         955 100%    7.34kB/s    0:00:00 (xfer#28, to-check=1479/6166)
+muireception/lib/grid/images/ddn.png
+         111 100%    0.85kB/s    0:00:00         111 100%    0.85kB/s    0:00:00 (xfer#29, to-check=1478/6166)
+muireception/lib/grid/images/dn.png
+         220 100%    1.68kB/s    0:00:00         220 100%    1.68kB/s    0:00:00 (xfer#30, to-check=1477/6166)
+muireception/lib/grid/images/fhbg.gif
+         836 100%    6.38kB/s    0:00:00         836 100%    6.38kB/s    0:00:00 (xfer#31, to-check=1476/6166)
+muireception/lib/grid/images/first.gif
+         415 100%    3.09kB/s    0:00:00         415 100%    3.09kB/s    0:00:00 (xfer#32, to-check=1475/6166)
+muireception/lib/grid/images/hl.png
+         189 100%    1.40kB/s    0:00:00         189 100%    1.40kB/s    0:00:00 (xfer#33, to-check=1474/6166)
+muireception/lib/grid/images/last.gif
+         419 100%    3.10kB/s    0:00:00         419 100%    3.10kB/s    0:00:00 (xfer#34, to-check=1473/6166)
+muireception/lib/grid/images/line.gif
+         817 100%    6.04kB/s    0:00:00         817 100%    6.04kB/s    0:00:00 (xfer#35, to-check=1472/6166)
+muireception/lib/grid/images/load.gif
+         847 100%    6.27kB/s    0:00:00         847 100%    6.27kB/s    0:00:00 (xfer#36, to-check=1471/6166)
+muireception/lib/grid/images/magnifier.png
+         615 100%    4.52kB/s    0:00:00         615 100%    4.52kB/s    0:00:00 (xfer#37, to-check=1470/6166)
+muireception/lib/grid/images/next.gif
+         335 100%    2.46kB/s    0:00:00         335 100%    2.46kB/s    0:00:00 (xfer#38, to-check=1469/6166)
+muireception/lib/grid/images/prev.gif
+         334 100%    2.45kB/s    0:00:00         334 100%    2.45kB/s    0:00:00 (xfer#39, to-check=1468/6166)
+muireception/lib/grid/images/refresh.gif
+         763 100%    5.60kB/s    0:00:00         763 100%    5.60kB/s    0:00:00 (xfer#40, to-check=1467/6166)
+muireception/lib/grid/images/up.png
+         224 100%    1.63kB/s    0:00:00         224 100%    1.63kB/s    0:00:00 (xfer#41, to-check=1466/6166)
+muireception/lib/grid/images/uup.png
+         130 100%    0.94kB/s    0:00:00         130 100%    0.94kB/s    0:00:00 (xfer#42, to-check=1465/6166)
+muireception/lib/grid/images/wbg.gif
+         868 100%    6.28kB/s    0:00:00         868 100%    6.28kB/s    0:00:00 (xfer#43, to-check=1464/6166)
+muireception/portal/
+muireception/portal/portal4admin.ks
+        1257 100%    9.09kB/s    0:00:00        1257 100%    9.09kB/s    0:00:00 (xfer#44, to-check=856/6166)
+muireception/portal/portal4admin.ks~
+        1251 100%    9.05kB/s    0:00:00        1251 100%    9.05kB/s    0:00:00 (xfer#45, to-check=855/6166)
+muireception/register/accountForm.ks
+       13134 100%   94.31kB/s    0:00:00       13134 100%   94.31kB/s    0:00:00 (xfer#46, to-check=848/6166)
+muireception/register/accountForm.ks~
+       13218 100%   94.22kB/s    0:00:00       13218 100%   94.22kB/s    0:00:00 (xfer#47, to-check=847/6166)
+muireception/register/portfolioForm.ks
+        6174 100%   43.69kB/s    0:00:00        6174 100%   43.69kB/s    0:00:00 (xfer#48, to-check=846/6166)
+muireception/register/portfolioForm.ks~
+        6130 100%   43.38kB/s    0:00:00        6130 100%   43.38kB/s    0:00:00 (xfer#49, to-check=845/6166)
+muireception/register/tmp/
+muireception/register/tmp/de2da2c458.jpeg
+        1613 100%   11.41kB/s    0:00:00        1613 100%   11.41kB/s    0:00:00 (xfer#50, to-check=818/6166)
+muireception/service/
+muireception/service/service.ks
+        1253 100%    8.87kB/s    0:00:00        1253 100%    8.87kB/s    0:00:00 (xfer#51, to-check=671/6166)
+muireception/user/
+muireception/user/userManagement.ks
+        1326 100%    9.32kB/s    0:00:00        1326 100%    9.32kB/s    0:00:00 (xfer#52, to-check=341/6166)
+muireception/user/userManagement.ks~
+        1307 100%    9.18kB/s    0:00:00        1307 100%    9.18kB/s    0:00:00 (xfer#53, to-check=340/6166)
+
+sent 259565 bytes  received 1270 bytes  74524.29 bytes/sec
+total size is 45061742  speedup is 172.76
+2010-01-22 12:12:26,628 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :building file list ... 
+ 0 files...2 files to consider
+CMP.mm
+       32768  20%    0.00kB/s    0:00:00      160965 100%   15.28MB/s    0:00:00 (xfer#1, to-check=0/2)
+
+sent 38738 bytes  received 42 bytes  77560.00 bytes/sec
+total size is 160965  speedup is 4.15
+2010-01-22 12:12:26,628 INFO End backup loacl karrigell diretory to local git.
+2010-01-22 12:12:26,628 INFO Begin to backup local github to remote github host.

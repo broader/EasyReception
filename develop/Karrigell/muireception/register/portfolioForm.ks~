@@ -184,10 +184,15 @@ def page_accountRegister(**args):
 		#filename = '_'.join(('user', str(userId), 'info' ))	
 		
 		# write these informations to database
-		res = model.edit_user_info( user, user, 'create', info )
+		res = model.edit_user_info( user, user, 'create', info, None, client)
 		if res:
 			account.update(info)
 			account.pop('password')
+			# get the 'roles' property of this account
+			props = ['roles',]
+			res = model.get_item(user, 'user', userId, props, keyIsId=True)
+			if type(res) == type({}):
+				account.update(res)				
 			setattr( so, pagefn.SOINFO['user'], account)
 	else:
 		isSuccess = '0'	

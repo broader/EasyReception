@@ -187,7 +187,15 @@ def page_accountRegister(**args):
 		res = model.edit_user_info( user, user, 'create', info, None, client)
 		if res:
 			account.update(info)
+			
+			# don't save password in session
 			account.pop('password')
+			
+			# get the 'roles' property of this account
+			props = ['roles',]
+			res = model.get_item(user, 'user', userId, props, keyIsId=True)
+			if type(res) == type({}):
+				account.update(res)				
 			setattr( so, pagefn.SOINFO['user'], account)
 	else:
 		isSuccess = '0'	

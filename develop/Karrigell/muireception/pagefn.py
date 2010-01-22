@@ -1,9 +1,6 @@
 # karrigell modules
 from HTMLTags import *
 
-# some global variables stored in Session object of Karrigell
-COOKIENAME = "sessionId"
-
 SOINFO = {'user':'userinfo',}
 
 # a function to return the applicaiton name
@@ -47,6 +44,9 @@ LOGINFORM = '/'.join(('layout.ks', 'page_loginForm'))
 LOGINPANEL = 'topNav'
 LAYOUTURLS = [ '/'.join(('layout.ks', url)) for url in ('page_welcomeInfo', 'page_menu', 'page_sideBarPanels') ] 
 
+# The normal user's role 
+USEROLE = 'User'
+
 # The normal user's menus 
 USERMENUS = \
 {
@@ -55,14 +55,25 @@ USERMENUS = \
 		{ 'id':'00', 'text':_("Setting"), 'function':'test' },\				
 		{ 'id':'01', 'text':_("Logout"), 'function':'logout'}\          
 	),
-'js': 'js/usermenus.js'
+'js': 'js/userMenus.js'
 }
+
+ADMINMENUS = \
+{
+'data':
+	(
+		{ 'id':'00', 'text':_("Setting"), 'function':'test' },\				
+		{ 'id':'01', 'text':_("Logout"), 'function':'logout'}\  
+	),
+'js': 'js/adminMenus.js'
+}
+
 
 MENUCONTAINER = 'desktopNavbar'
 
 SIDEPANELPREFIX = 'sidebar'
 
-SIDEBARPANELS = \
+USERSIDEBARPANELS = \
 {
 'data': 
 	( 
@@ -88,6 +99,35 @@ SIDEBARPANELS = \
 	
 'js': 'js/userSidePanels.js.pih'
 }
+
+
+ADMINSIDEBARPANELS = \
+{
+'data': 
+	( 
+		{ 'id':'00', 'text':_("Portal"), 'onExpand':'portalPanel',\
+		  'onCollapse':'sidePanelCollapse', 'contentURL':'portal/portal4admin.ks/index' },
+		
+		{ 'id':'01', 'text':_("Users' List"), 'onExpand':'userManagementPanel',\
+		  'onCollapse':'sidePanelCollapse', 'contentURL':'user/userManagement.ks/index' },
+		       
+		{ 'id':'02', 'text':_("Issues"), 'onExpand':'issuePanel',\
+		  'onCollapse':'sidePanelCollapse' },
+		
+		{ 'id':'03', 'text':_("News"), 'onExpand':'newsPanel',\
+		  'onCollapse':'sidePanelCollapse' },
+		
+		{ 'id':'04', 'text':_("Agenda"), 'onExpand':'agendaPanel',\
+		  'onCollapse':'sidePanelCollapse' },
+		
+		{ 'id':'05', 'text':_("Service Management"), 'onExpand':'servicePanel',\
+		  'onCollapse':'sidePanelCollapse', 'contentURL':'service/service.ks/index' },
+       
+	),
+	
+'js': 'js/adminSidePanels.js.pih'
+}
+
 
 # the main panel's id
 MAINPANEL = 'mainPanel'
@@ -178,4 +218,18 @@ def script(src, link=True):
 	else:
 		script =  SCRIPT(type='text/javascript', src=src)
 	return script
-	
+
+#-----New added functins -----------------------------------------------------------------
+
+# some global variables stored in Session object of Karrigell
+COOKIENAME = "sessionId"
+def setCookie(setCookie,requestHandler):
+	""" Set cookie info in the header of a html page. """	
+	sname = COOKIENAME
+	# setCookie is the Karrigell's global variable "SET_COOKIE",
+	# which is a instance of Cookie.SimpleCookie.
+	# When a new key is set for a SimpleCookie object, a Morsel instance is created.
+	setCookie[sname]=getattr(requestHandler, sname)
+	# set cookie path
+	setCookie[sname]['path'] = '/'
+	return

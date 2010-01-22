@@ -22,12 +22,6 @@ VERSION = Import('/'.join((RELPATH, 'version.py')))
 
 # the session object for this page
 so = Session()
-sname = pagefn.COOKIENAME
-# SET_COOKIE is a instance of Cookie.SimpleCookie,
-# When a new key is set for a SimpleCookie object, a Morsel instance is created.
-SET_COOKIE[sname]=getattr(REQUEST_HANDLER, sname)
-# set cookie path
-SET_COOKIE[sname]['path'] = '/'
 
 # config data object
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
@@ -293,14 +287,17 @@ def page_accountValid(**args):
 		
 		# There are three validation results,
 	   # (0, "Invalid password")
-	   # (1, "Valid user name and password")
+	   # (1, "Valid user name and password", roles)
 	   # (2, "Invalid user name")
 		if data[0] == 1:
 			res['valid'] = 1		
 			# valid user name and password, save them to session object	
-			#data = {fields[0]:account[0]}			
+			data = {fields[0]:account[0],'roles':data[-1]}			
 			#setattr( so, pagefn.SOINFO['user'], account[0])
-			setattr( so, pagefn.SOINFO['user'], {fields[0]:account[0]})
+			#setattr( so, pagefn.SOINFO['user'], {fields[0]:account[0]})
+			setattr( so, pagefn.SOINFO['user'], data)
+			res['user'] = data
+			pagefn.setCookie(SET_COOKIE,REQUEST_HANDLER)
 	else:
 		# check whether the account is existed 
 		if model.userCheck( args.get('name') ) :
@@ -324,20 +321,32 @@ def page_welcomeInfo(**args):
 	# set the welcome information which will be shown on the top right of the screen
 	welcomeInfo = ''.join((_('Welcome, '), username, ' !'))
 	welcomeInfo = H2(welcomeInfo, style='font-size:20px;color:white;')
+	
 	print str(welcomeInfo)
 	return
 
 def page_menu(**args):
-	"""
-	Return the menus data corresponding to user role.
-	"""
-	print JSON.encode(pagefn.USERMENUS)
+	""" Return the menus data corresponding to user role. """
+	roles = getattr(so, pagefn.SOINFO['user']).get('roles') or ''
+		
+	if pagefn.USEROLE in roles:
+		menus = pagefn.USERMENUS
+	else:
+		menus = pagefn.ADMINMENUS
+	
+	print JSON.encode(menus)
 	return
 	
 def page_sideBarPanels(**args):
-	"""
-	"""
-	print JSON.encode(pagefn.SIDEBARPANELS)
+	""" Return the panels info in the left side bar. """
+	roles = getattr(so, pagefn.SOINFO['user']).get('roles') or ''	
+	
+	if pagefn.USEROLE in roles:
+		panels = pagefn.USERSIDEBARPANELS
+	else:
+		panels = pagefn.ADMINSIDEBARPANELS
+		
+	print JSON.encode(panels)
 	return
 	
 def page_logout(**args):
