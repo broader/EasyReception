@@ -42,7 +42,9 @@ REGISTERTABS = \
 LOGINAPPNAME = 'loginApp' 
 LOGINFORM = '/'.join(('layout.ks', 'page_loginForm'))
 LOGINPANEL = 'topNav'
-LAYOUTURLS = [ '/'.join(('layout.ks', url)) for url in ('page_welcomeInfo', 'page_menu', 'page_sideBarPanels') ] 
+LAYOUTURLS = \
+[ '/'.join(('layout.ks', url)) \
+  for url in ('page_welcomeInfo', 'page_menu', 'page_sideBarPanels', 'page_closeSession') ] 
 
 # The normal user's role 
 USEROLE = 'User'
@@ -133,7 +135,7 @@ ADMINSIDEBARPANELS = \
 MAINPANEL = 'mainPanel'
 
 # the logout action url
-LOGOUT = 'layout.ks/page_logout'
+LOGOUT = 'layout.ks/page_closeSession'
 #--------------------------------------------------------------------------------------
 
 
@@ -226,7 +228,8 @@ COOKIENAME = "sessionId"
 def setCookie(setCookie,requestHandler):
 	""" Set cookie info in the header of a html page. """	
 	sname = COOKIENAME
-	# SET_COOKIE is a instance of Cookie.SimpleCookie,
+	# setCookie is the Karrigell's global variable "SET_COOKIE",
+	# which is a instance of Cookie.SimpleCookie.
 	# When a new key is set for a SimpleCookie object, a Morsel instance is created.
 	setCookie[sname]=getattr(requestHandler, sname)
 	# set cookie path

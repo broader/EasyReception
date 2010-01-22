@@ -42,7 +42,9 @@ REGISTERTABS = \
 LOGINAPPNAME = 'loginApp' 
 LOGINFORM = '/'.join(('layout.ks', 'page_loginForm'))
 LOGINPANEL = 'topNav'
-LAYOUTURLS = [ '/'.join(('layout.ks', url)) for url in ('page_welcomeInfo', 'page_menu', 'page_sideBarPanels') ] 
+LAYOUTURLS = \
+[ '/'.join(('layout.ks', url)) \
+  for url in ('page_welcomeInfo', 'page_menu', 'page_sideBarPanels', 'page_closeSession') ] 
 
 # The normal user's role 
 USEROLE = 'User'
@@ -132,8 +134,6 @@ ADMINSIDEBARPANELS = \
 # the main panel's id
 MAINPANEL = 'mainPanel'
 
-# the logout action url
-LOGOUT = 'layout.ks/page_logout'
 #--------------------------------------------------------------------------------------
 
 

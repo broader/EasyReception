@@ -6,6 +6,13 @@ from HTMLTags import *
 modules = {'pagefn' : 'pagefn.py'}
 [locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items()]
 
+so = Session()
+sname = pagefn.COOKIENAME
+SET_COOKIE[sname]=getattr(REQUEST_HANDLER, sname)
+# set cookie path
+SET_COOKIE[sname]['path'] = '/'
+	
+	
 TITLE = \
 '''
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -76,7 +83,7 @@ def index(**args):
 	print pagefn.script( '/'.join(('lib','tools','assetsmanager.js')), link=True)
 	
 	# page initial js
-	jsfiles = ('init.js.pih', 'menuInit.js.pih')
+	jsfiles = ('init.js.pih', 'layoutInit.js.pih')
 	for name in jsfiles:
 		print pagefn.script( '/'.join(('js', name)), link=True)
 	   

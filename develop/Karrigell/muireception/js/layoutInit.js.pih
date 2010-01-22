@@ -8,8 +8,10 @@ INITIALIZE THE USER'S MENUS
 pagefn = Import('/'.join(('', 'pagefn.py')))
 
 # initialize some page variables
-loginApp, layoutUrls, sidePanelPrefix, logoutUrl = \
-[getattr(pagefn,name) for name in ('LOGINAPPNAME', 'LAYOUTURLS', 'SIDEPANELPREFIX', 'LOGOUT')]
+loginApp, layoutUrls, sidePanelPrefix = \
+[getattr(pagefn,name) for name in ('LOGINAPPNAME', 'LAYOUTURLS', 'SIDEPANELPREFIX')]
+
+logoutUrl = layoutUrls[-1]
 
 sideBar, mainColumn = pagefn.COLUMNS
 %>
@@ -89,6 +91,7 @@ function menuSet(data){
 function menuInit(){
 	var menurl = '<%=layoutUrls[1] %>';
 	var data = new Request.JSON({
+		async: false,
 		url: menurl, 
 		onSuccess:function(json,html){			
 			am.import(
@@ -134,9 +137,9 @@ function addColumns(){
 // Add panels to columns
 function layoutInit(){	
 	// get panels on the left column
-	var menurl = '<%=layoutUrls[2] %>';
+	var panelsDataUrl = '<%=layoutUrls[2] %>';
 	var data = new Request.JSON({
-		url: menurl, 
+		url: panelsDataUrl, 
 		onSuccess:function(json,html){			
 			am.import(
 				{	'url':json['js'],	// load the functions for the events of sidePanels
@@ -214,8 +217,8 @@ MUI.extend({
 		// close session object on server side
 		new Request.HTML().get('<%=logoutUrl %>');
 		
-		// remove cookie 
-		MUI.removeCookie(); 
+		// application initialization, including closing old session and removing old cookie
+		MUI.appInit();
 	},
 	
 	// remove all the MUI.Columns in the main panel

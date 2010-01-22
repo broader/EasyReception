@@ -36,12 +36,14 @@ MUI.extend({
 	assetsManager: new AssetsManager(),
 	
 	// clear cookie of this application, the cookie name is defined in 'pagefn.py' file
-	removeCookie: function(){		
-		var name = '<%=pagefn.COOKIENAME %>';	
-		alert('the cookie to be removed is '+Cookie.read(name));
+	appInit: function(){
+		// remove old cookie		
+		var name = '<%=pagefn.COOKIENAME %>';		
 		if(Cookie.read(name) != null){
 			Cookie.dispose(name);
 		};
+		// close old session object
+		initRequest = new Request.HTML().get('<%=pagefn.LAYOUTURLS[-1] %>');
 	},
 	
 	// a plugin to close single popup dialog window, such as login or register dialog 
@@ -156,6 +158,8 @@ function preLoginInit(){
 	$('topNav').getElements('li').each(function(item,index){
 		item.addEvent('click', loginFns[fNames[index]]);
 	});
+	
+	// remove old cookie
 	MUI.removeCookie();
 };
 

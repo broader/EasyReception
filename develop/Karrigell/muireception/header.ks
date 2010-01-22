@@ -4,8 +4,8 @@ from HTMLTags import *
 #model = Import('/'.join((relPath(THIS.baseurl), 'model.py')), REQUEST_HANDLER=REQUEST_HANDLER)
 
 modules = {'pagefn' : 'pagefn.py'}
-[locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items()]
-
+[locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items()]	
+	
 TITLE = \
 '''
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">

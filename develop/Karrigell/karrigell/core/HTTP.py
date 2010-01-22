@@ -442,11 +442,11 @@ class HTTP:
         else:
             return None
 
-    def Session(self,expires=15*60):
+    def Session(self, expires=15*60):
         """Function called in scripts, retrieves the session object
         expires is the time (in seconds) after which the session object
         is removed from the session database if it has not been used"""
-        if hasattr(self,"sessionObj"):
+	if hasattr(self,"sessionObj"):	    
             return self.sessionObj
         elif self.COOKIE.has_key("sessionId"):
             self.sessionId = self.COOKIE["sessionId"].value
@@ -456,7 +456,6 @@ class HTTP:
             self.sessionId,self.sessionObj = \
                 k_sessions.make_session_object(self.config,expires)
             self.SET_COOKIE["sessionId"] = self.sessionId
-	    #self.SET_COOKIE["sessionId"]["path"] = "/"
 
         return self.sessionObj
 

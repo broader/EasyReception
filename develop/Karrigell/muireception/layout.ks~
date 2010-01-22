@@ -22,12 +22,7 @@ VERSION = Import('/'.join((RELPATH, 'version.py')))
 
 # the session object for this page
 so = Session()
-#sname = pagefn.COOKIENAME
-# SET_COOKIE is a instance of Cookie.SimpleCookie,
-# When a new key is set for a SimpleCookie object, a Morsel instance is created.
-#SET_COOKIE[sname]=getattr(REQUEST_HANDLER, sname)
-# set cookie path
-#SET_COOKIE[sname]['path'] = '/'
+pagefn.setCookie(SET_COOKIE,REQUEST_HANDLER)
 
 # config data object
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
@@ -59,8 +54,6 @@ FORMBUTTONS = 'loginFormbns'
 # ********************************************************************************************
 # The page functions begining 
 # ********************************************************************************************
-def _getSession():
-	return Session()
 
 def index(**args):
 	pass
@@ -169,7 +162,10 @@ def _formJs():
 				onValidateSuccess: function(){					
 					// load the script which will set the user's menus
    				MUI.login();
+   				
+   				// remove all the imported Assets of login module
    				am.remove(appName,'app');
+   				
    				MUI.closeModalDialog();
    				return false
 				},
@@ -286,7 +282,7 @@ def page_accountValid(**args):
 	# check validation type
 	fields = [field.get('name') for field in FORMFIELDS ]
 	keys = args.keys()
-	if len(keys) >= 2:
+	if len(keys) == 2:
 		# check whether the password is valid	
 		account = [args.get(name) for name in ( fields[0], 'name')]	
 		data = model.login(*account)
@@ -301,9 +297,11 @@ def page_accountValid(**args):
 			data = {fields[0]:account[0],'roles':data[-1]}			
 			#setattr( so, pagefn.SOINFO['user'], account[0])
 			#setattr( so, pagefn.SOINFO['user'], {fields[0]:account[0]})
+			#so = Session()
 			setattr( so, pagefn.SOINFO['user'], data)
 			res['user'] = data
 			pagefn.setCookie(SET_COOKIE,REQUEST_HANDLER)
+			
 	else:
 		# check whether the account is existed 
 		if model.userCheck( args.get('name') ) :
@@ -317,7 +315,7 @@ def page_welcomeInfo(**args):
 	Return the welcome information, 
 	which will be shown on the top right of the screen.
 	"""
-	
+	#so = Session()
 	try:
 		username = getattr(so, pagefn.SOINFO['user']).get('username') or ''
 	except:
@@ -333,6 +331,7 @@ def page_welcomeInfo(**args):
 
 def page_menu(**args):
 	""" Return the menus data corresponding to user role. """
+	#so = Session()
 	roles = getattr(so, pagefn.SOINFO['user']).get('roles') or ''
 		
 	if pagefn.USEROLE in roles:
@@ -345,6 +344,7 @@ def page_menu(**args):
 	
 def page_sideBarPanels(**args):
 	""" Return the panels info in the left side bar. """
+	#so = Session()
 	roles = getattr(so, pagefn.SOINFO['user']).get('roles') or ''	
 	
 	if pagefn.USEROLE in roles:
@@ -355,8 +355,9 @@ def page_sideBarPanels(**args):
 	print JSON.encode(panels)
 	return
 	
-def page_logout(**args):
+def page_closeSession(**args):
 	""" Logout action, remove current session. """
+	#so = Session()
 	so.close()
 	return
 	
