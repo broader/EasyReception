@@ -159,8 +159,8 @@ function preLoginInit(){
 		item.addEvent('click', loginFns[fNames[index]]);
 	});
 	
-	// remove old cookie
-	MUI.removeCookie();
+	// application initialization, including closing old session and removing old cookie
+	MUI.appInit();
 };
 
 

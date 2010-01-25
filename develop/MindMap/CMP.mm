@@ -612,7 +612,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1245853638712" FOLDED="true" ID="_" MODIFIED="1263995305684" POSITION="right" TEXT="Used Web Widgets">
+<node COLOR="#0033ff" CREATED="1245853638712" FOLDED="true" ID="_" MODIFIED="1264307475693" POSITION="right" TEXT="Used Web Widgets">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1258549795684" FOLDED="true" ID="ID_1371740104" MODIFIED="1258549819050" TEXT="jquery lib">
@@ -698,7 +698,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1258549813016" FOLDED="true" ID="ID_1232595129" MODIFIED="1263993408716" TEXT="mootools">
+<node COLOR="#00b439" CREATED="1258549813016" ID="ID_1232595129" MODIFIED="1264306112595" TEXT="mootools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1258549821023" ID="ID_399916535" MODIFIED="1259806094940" TEXT="tabs">
@@ -714,7 +714,7 @@
 <node COLOR="#111111" CREATED="1258777545977" ID="ID_1235747866" MODIFIED="1258777629755" TEXT="Tabs.detach()&#xa;Line 245, &#x589e;&#x52a0;&#x4e86;this&#x7ed1;&#x5b9a;&#xff0c;&#x5982;&#x679c;&#x6ca1;&#x6709;&#xff0c;&#x6b64;&#x65b9;&#x6cd5;&#x65e0;&#x6cd5;&#x6b63;&#x5e38;&#x8fd0;&#x884c;&#x3002;"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1258549873754" ID="ID_341332789" MODIFIED="1259824763950" TEXT="formCheck">
+<node COLOR="#990000" CREATED="1258549873754" FOLDED="true" ID="ID_341332789" MODIFIED="1264306129168" TEXT="formCheck">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1259824766209" ID="ID_1092667720" MODIFIED="1259824770925" TEXT="site">
 <node COLOR="#111111" CREATED="1258549883768" ID="ID_379894263" MODIFIED="1258549885307" TEXT="http://mootools.floor.ch/en/demos/formcheck/"/>
@@ -733,7 +733,7 @@
 <node COLOR="#111111" CREATED="1259826690943" ID="ID_1100742116" MODIFIED="1259826692691" TEXT="onAjaxSuccess"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1258549889570" ID="ID_377818865" MODIFIED="1258549891997" TEXT="dialog">
+<node COLOR="#990000" CREATED="1258549889570" FOLDED="true" ID="ID_377818865" MODIFIED="1264307474363" TEXT="dialog">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1258549952599" ID="ID_616227543" MODIFIED="1258549955034" TEXT="http://www.e-magine.ro/web-dev-and-design/36/moodalbox/"/>
 </node>
@@ -751,7 +751,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1183969360528" FOLDED="true" ID="Freemind_Link_1717488379" MODIFIED="1264043082524" POSITION="right" TEXT="javascript">
+<node COLOR="#0033ff" CREATED="1183969360528" ID="Freemind_Link_1717488379" MODIFIED="1264306011060" POSITION="right" TEXT="javascript">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1260329913465" FOLDED="true" ID="ID_484061448" MODIFIED="1260684184934" TEXT="jQuery">
@@ -775,10 +775,10 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1260329928560" FOLDED="true" ID="ID_1432963465" MODIFIED="1263995307157" TEXT="Mootools">
+<node COLOR="#00b439" CREATED="1260329928560" FOLDED="true" ID="ID_1432963465" MODIFIED="1264308168605" TEXT="Mootools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261625402522" FOLDED="true" ID="ID_1117421280" MODIFIED="1263993401840" TEXT="Knowledge Or Experience">
+<node COLOR="#990000" CREATED="1261625402522" FOLDED="true" ID="ID_1117421280" MODIFIED="1264306027257" TEXT="Knowledge Or Experience">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1260684210949" ID="ID_149622745" MODIFIED="1261625423451" TEXT="Class">
 <font NAME="SansSerif" SIZE="12"/>
@@ -791,7 +791,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1261625377953" ID="ID_1827272195" MODIFIED="1261625382272" TEXT="Plugins">
+<node COLOR="#990000" CREATED="1261625377953" ID="ID_1827272195" MODIFIED="1264307511383" TEXT="Plugins">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1261625384035" ID="ID_1027010126" MODIFIED="1261625390033" TEXT="Chart">
 <node COLOR="#111111" CREATED="1261625391132" ID="ID_147615027" MODIFIED="1261625392863" TEXT="http://highcharts.com/"/>
@@ -800,12 +800,19 @@
 <node COLOR="#111111" CREATED="1262008745103" ID="ID_1531222631" MODIFIED="1262008811440" TEXT="Class FormCheck&#xa;--&gt;function removeErrors()&#x9;//&#x7528;&#x4e8e;&#x81ea;&#x52a8;&#x6e05;&#x9664;&#x5df2;&#x663e;&#x793a;&#x7684;&#x6821;&#x9a8c;&#x9519;&#x8bef;&#x4fe1;&#x606f;"/>
 </node>
 </node>
-</node>
-<node COLOR="#00b439" CREATED="1261468491247" FOLDED="true" ID="ID_325077924" MODIFIED="1263993397127" TEXT="MochaUI">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261468496862" FOLDED="true" ID="ID_340189399" MODIFIED="1263453784101" TEXT="Layout.js">
+<node COLOR="#990000" CREATED="1264307483351" ID="ID_379783643" MODIFIED="1264307485151" TEXT="Lib">
 <font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1264307492932" ID="ID_809217467" MODIFIED="1264307506442" TEXT="Meteora">
+<node COLOR="#111111" CREATED="1264307507472" ID="ID_1818217045" MODIFIED="1264307509331" TEXT="http://meteora.astrata.com.mx/pages/documentation"/>
+</node>
+<node COLOR="#111111" CREATED="1264306041749" ID="ID_1958103031" MODIFIED="1264306045436" TEXT="jxlib">
+<node COLOR="#111111" CREATED="1264306046678" ID="ID_675277577" MODIFIED="1264306048353" TEXT="http://jxlib.org/"/>
+</node>
+<node COLOR="#111111" CREATED="1261468491247" FOLDED="true" ID="ID_325077924" MODIFIED="1264306037627" TEXT="MochaUI">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1261468496862" FOLDED="true" ID="ID_340189399" MODIFIED="1264306037627" TEXT="Layout.js">
+<font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1263284614698" FOLDED="true" ID="ID_376439298" MODIFIED="1263284631851" TEXT="MUI.Desktop">
 <node COLOR="#111111" CREATED="1261468527787" ID="ID_1974077677" MODIFIED="1261468675424" TEXT="MUI.Desktop = {&#x9;&#xa;&#x9;options: {&#xa;&#x9;&#x9;// Naming options:&#xa;&#x9;&#x9;// If you change the IDs of the MochaUI Desktop containers in your HTML, you need to change them here as well.&#xa;&#x9;&#x9;...,&#x9;&#x9;&#xa;&#x9;&#x9;//desktopFooter:       &apos;desktopFooter&apos;,&#xa;&#x9;&#x9;desktopFooter:       &apos;desktopFooterWrapper&apos;&#xa;&#x9;},&#x9;&#xa;&#x6b64;&#x5904;&apos;desktop&apos;&#x88ab;&#x91cd;&#x590d;&#x5b9a;&#x4e49;&#xff0c;&#x7ecf;firebug&#x6d4b;&#x8bd5;&#xff0c;&#x6700;&#x540e;&#x4e00;&#x4e2a;&#x5b9a;&#x4e49;&apos;desktopFooterWrapper&apos;&#x6709;&#x6548;&#xff0c;&#x6545;&#x5c06;&#x53e6;&#x4e00;&#x4e2a;&#x91cd;&#x590d;&#x5b9a;&#x4e49;&#x6ce8;&#x91ca;&#x5f03;&#x7528;&#x3002;"/>
 </node>
@@ -816,6 +823,8 @@
 <node COLOR="#111111" CREATED="1263365429915" FOLDED="true" ID="ID_1004655328" MODIFIED="1263453779909" TEXT="toggleExpand() (&#x65b0;&#x589e;&#x52a0;)">
 <icon BUILTIN="yes"/>
 <node COLOR="#111111" CREATED="1263365530630" ID="ID_1152025245" MODIFIED="1263453749403" TEXT="&quot;&quot;&quot;&#xa;&#x6b64;&#x6539;&#x52a8;&#x4e3a;&#x65b9;&#x4fbf;&#x5916;&#x90e8;&#x8c03;&#x7528;&#x5207;&#x6362;Panel&#x5b9e;&#x4f8b;&#x7684;Expand &#x72b6;&#x6001;&#x3002;&#xa;&quot;&quot;&quot;&#xa;&#x539f;&#x4ee3;&#x7801;&#x6539;&#x52a8;&#xa;&#xa;// Collapse Panel&#xa;if (this.isCollapsed == false) {&#xa;---&gt;L868, options-&gt;this.options&#xa;//var currentColumn = MUI.Columns.instances.get($(options.column).id);&#xa;var currentColumn = MUI.Columns.instances.get($(this.options.column).id);&#xa;...&#xa;---&gt;L886, options-&gt;this.options&#xa;//MUI.panelHeight(options.column, panel, &apos;collapsing&apos;);&#xa;MUI.panelHeight(this.options.column, panel, &apos;collapsing&apos;);&#xa;...&#xa;}&#xa;&#xa;---&gt;L874, options -&gt; this.options&#xa;if (expandedSiblings.length == 0 &amp;&amp; currentColumn.options.placement != &apos;main&apos;){&#xa;  //var currentColumn = MUI.Columns.instances.get($(options.column).id);&#xa;  var currentColumn = MUI.Columns.instances.get($(this.options.column).id);&#xa;  ...&#xa;}"/>
+</node>
+</node>
 </node>
 </node>
 </node>
@@ -1018,10 +1027,10 @@
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="help"/>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1264042349431" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1264392594181" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1173066298350" FOLDED="true" ID="Freemind_Link_1468412211" MODIFIED="1264042388405" TEXT="UI">
+<node COLOR="#00b439" CREATED="1173066298350" FOLDED="true" ID="Freemind_Link_1468412211" MODIFIED="1264392593509" TEXT="UI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1261723589326" FOLDED="true" ID="ID_80373969" MODIFIED="1262749242175" TEXT="Preference">
@@ -1409,7 +1418,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1261723645352" FOLDED="true" ID="ID_454191510" MODIFIED="1264042387297" TEXT="Examples">
+<node COLOR="#990000" CREATED="1261723645352" ID="ID_454191510" MODIFIED="1264389013902" TEXT="Examples">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1261017335455" FOLDED="true" ID="ID_1512844932" MODIFIED="1261723671551" TEXT="issue tracker">
 <edge STYLE="bezier" WIDTH="thin"/>
@@ -1442,7 +1451,7 @@
 <node COLOR="#111111" CREATED="1264042376170" ID="ID_1251394535" MODIFIED="1264042381010" TEXT="portfolio">
 <node COLOR="#111111" CREATED="1264042381949" ID="ID_1850665483" MODIFIED="1264042383975" TEXT="http://www.opendesigns.org/preview/?design=1716"/>
 </node>
-<node COLOR="#111111" CREATED="1261017385572" ID="ID_1594767766" MODIFIED="1263174506579" TEXT="web site">
+<node COLOR="#111111" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1264389015348" TEXT="web site">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1261017390365" ID="ID_4950788" MODIFIED="1261723671557" TEXT="http://ramblingsoul.com/preview/rs14/index.html">
@@ -1481,9 +1490,12 @@
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="12"/>
 </node>
-<node COLOR="#111111" CREATED="1261625621655" ID="ID_727667845" MODIFIED="1263613875792" TEXT="http://0963.trymodx.com/manager/">
+<node COLOR="#111111" CREATED="1261625621655" FOLDED="true" ID="ID_727667845" MODIFIED="1264389018537" TEXT="http://0963.trymodx.com/manager/">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1261625625046" ID="ID_548360256" MODIFIED="1261625640971" TEXT="user:demo_user;password:demo_user"/>
+</node>
+<node COLOR="#111111" CREATED="1264389019854" ID="ID_42920771" MODIFIED="1264389044324" TEXT="http://osx.portraitofakite.com/">
+<icon BUILTIN="idea"/>
 </node>
 </node>
 <node COLOR="#111111" CREATED="1261730813032" FOLDED="true" ID="ID_176890161" MODIFIED="1264042369392" TEXT="&#x6e10;&#x53d8;">

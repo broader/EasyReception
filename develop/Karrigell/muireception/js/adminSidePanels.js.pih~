@@ -8,7 +8,7 @@
 pagefn = Import('/'.join(('', 'pagefn.py')))
 
 # initialize some page variables
-sideBar, mainColumn = pagefn.COLUMNS
+#sideBar, mainColumn = pagefn.COLUMNS
 
 %>
 
@@ -28,13 +28,18 @@ function portalPanel(panelId){
 };
 
 /*
-**	"Users List" side panel expand function
+**	"Users Management" side panel expand function
 */
 function userManagementPanel(panelId){
 	MUI.accordionPanels(panelId);
 	MUI.clearMainPanel();
 	
 	var mainPanelId = '<%=pagefn.MAINPANEL %>'; 
+	var panel = MUI.Panels.instances.get(mainPanelId);
+	MUI.updateContent({
+		'element': panel.panelEl,
+		'content': 'test'
+	}); 
 };
 
 /*
