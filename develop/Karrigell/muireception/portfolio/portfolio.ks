@@ -249,7 +249,7 @@ def _editPortfolioJs(**args):
 				}
 			});// the end for 'formchk' define
 		}// the end for 'onload' define
-	};
+	};// the end for 'options' define
     
    am.import({'url':fcJs,'app':appName,'type':'js'},options);
    

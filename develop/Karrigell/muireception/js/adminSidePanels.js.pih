@@ -43,7 +43,7 @@ function userManagementPanel(panelId){
 	
 	new MUI.Panel({
 		id: 'userMangementPanel', header:false, column: cid,
-		contentURL:'user/userManagement.ks/index'
+		contentURL:'user/userManagement.ks/usersTrid'
 	});
 	
 	/*

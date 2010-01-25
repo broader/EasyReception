@@ -7,7 +7,7 @@ SOINFO = {'user':'userinfo',}
 getApp = lambda p,i : p.split('/')[i]
 
 ##
-# some global variables for /lib/formcheck/js/formcheck.js lib
+# Some global variables for /lib/formcheck/js/formcheck.js lib
 #--------------------------------------------------------------------------------------
 FORMERRCLASS = 'fc-tbx'
 ACCOUNTERR = _('This account has been used, please input other name.')
@@ -15,8 +15,16 @@ PWDERR = _('The input password is wrong, please input the valid password!')
 FCLIBFILES = \
 ['/'.join(( 'lib', 'formcheck', name )) \
 for name in ('css/hack.css', 'lang.js.pih', 'formcheck.js', 'theme/red/formcheck.css')]
-
 #--------------------------------------------------------------------------------------
+
+
+##
+# Datagrid Plugin Files
+#--------------------------------------------------------------------------------------
+GRIDFILES = \
+['/'.join(( 'lib', 'grid', name )) \
+for name in ('css/hack.css', 'lang.js.pih', 'formcheck.js', 'theme/red/formcheck.css')]
+#---End--------------------------------------------------------------------------------
 
  
 ##
@@ -134,8 +142,6 @@ ADMINSIDEBARPANELS = \
 # the main panel's id
 MAINPANEL = 'mainPanel'
 
-# the logout action url
-LOGOUT = 'layout.ks/page_closeSession'
 #--------------------------------------------------------------------------------------
 
 

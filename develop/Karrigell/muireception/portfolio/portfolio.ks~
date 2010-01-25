@@ -249,7 +249,7 @@ def _editPortfolioJs(**args):
 				}
 			});// the end for 'formchk' define
 		}// the end for 'onload' define
-	};
+	};// the end for 'option' define
     
    am.import({'url':fcJs,'app':appName,'type':'js'},options);
    
@@ -293,7 +293,10 @@ def page_editPortfolioAction(**args):
 	user = USER
 	# write these informations to database
 	res = model.edit_user_info( user, user, 'create', info)
-	print '1'
+	if res :
+		print '1'
+	else:
+		print '0'
 	return
 			
 def page_showAccount(**args):

@@ -18,7 +18,7 @@ VERSION = Import('/'.join((RELPATH, 'version.py')))
 # ********************************************************************************************
 
 # get the relative url slice as the application name
-#APP = pagefn.getApp(THIS.baseurl,1)
+APP = 'loginDialog'
 
 # the session object for this page
 so = Session()
@@ -116,7 +116,8 @@ def _formJs():
 	# add some files' path for validation function
 	names = ('css/hack.css', 'theme/red/formcheck.css', 'lang.js.pih', 'formcheck.js')
 	paras.extend([ '/'.join(( 'lib', 'formcheck', name )) for name in names])
-	paras.append('loginDialog')
+	#paras.append('loginDialog')
+	paras.append(APP)
 	
 	# append the error prompts for fields' validation 
 	paras.extend([pagefn.ACCOUNTERR, pagefn.PWDERR])

@@ -34,12 +34,26 @@ function userManagementPanel(panelId){
 	MUI.accordionPanels(panelId);
 	MUI.clearMainPanel();
 	
-	var mainPanelId = '<%=pagefn.MAINPANEL %>'; 
+	var mainPanelId = '<%=pagefn.MAINPANEL %>';
+	var cid = 'userMangementColumn'; 
+	new MUI.Column({
+		container:mainPanelId, id: cid, placement: 'main', 
+		sortable: false, width: null, resizeLimit: [100,200] 
+	});
+	
+	new MUI.Panel({
+		id: 'userMangementPanel', header:false, column: cid,
+		contentURL:'user/userManagement.ks/index'
+	});
+	
+	/*
 	var panel = MUI.Panels.instances.get(mainPanelId);
 	MUI.updateContent({
 		'element': panel.panelEl,
-		'content': 'test'
-	}); 
+		'content': 'test',
+		'url': ''
+	});
+	*/ 
 };
 
 /*
