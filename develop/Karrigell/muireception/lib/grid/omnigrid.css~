@@ -108,7 +108,7 @@
 /* ************************************** */
 .omnigrid div.tDiv 
 {
-	background: #fafafa url(images/bg.gif) repeat-x top;
+	background: #fafafa url(omnigrid/bg.gif) repeat-x top;
 	position: relative;			
 	border: 1px solid #ccc;
 	border-bottom: 0px;
@@ -206,7 +206,7 @@
 
 .omnigrid div.cDrag div.dragging
 {
-	background: url(images/line.gif) repeat-y 2px center;
+	background: url(omnigrid/line.gif) repeat-y 2px center;
 }
 
 /* ************************************** */
@@ -215,13 +215,13 @@
 
 .omnigrid div.hDiv div.DESC
 {
-	background: url(images/dn.png) no-repeat center top;
+	background: url(omnigrid/dn.png) no-repeat center top;
 	border-bottom: 1px solid orange !important;
 }	
 
 .omnigrid div.hDiv  div.ASC
 {
-	background: url(images/up.png) no-repeat center top;
+	background: url(omnigrid/up.png) no-repeat center top;
 	border-bottom: 1px solid orange !important;
 }	
 
@@ -232,7 +232,7 @@
 
 .omnigrid div.pDiv
 {
-	background: url(images/wbg.gif) repeat-x 0 -1px;
+	background: url(omnigrid/wbg.gif) repeat-x 0 -1px;
 	border: 1px solid #ccc;
 	border-top: 0px;
 	overflow: hidden;
@@ -308,37 +308,37 @@ div.pGroup
 
 .omnigrid .pSearch
 {
-	background: url(images/magnifier.png) no-repeat center;
+	background: url(omnigrid/magnifier.png) no-repeat center;
 }
 
 .omnigrid .pFirst
 {
-	background: url(images/first.gif) no-repeat ;
+	background: url(omnigrid/first.gif) no-repeat ;
 }
 
 .omnigrid .pPrev
 {
-	background: url(images/prev.gif) no-repeat;
+	background: url(omnigrid/prev.gif) no-repeat;
 }
 
 .omnigrid .pNext
 {
-	background: url(images/next.gif) no-repeat;
+	background: url(omnigrid/next.gif) no-repeat;
 }
 
 .omnigrid .pLast
 {
-	background: url(images/last.gif) no-repeat;
+	background: url(omnigrid/last.gif) no-repeat;
 }
 
 .omnigrid .pReload
 {
-	background: url(images/refresh.gif) no-repeat;
+	background: url(omnigrid/refresh.gif) no-repeat;
 }
 
 .omnigrid .pReload.loading
 {
-	background: url(images/load.gif) no-repeat;
+	background: url(omnigrid/load.gif) no-repeat;
 	background-position:0 0 !important;
 }
 

@@ -51,7 +51,8 @@ def _usersTridJs(**args):
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName='%s', gridId='%s',gridCss='%s',gridJs='%s',
+	var appName='%s', gridId='%s',
+	gridCss='%s',gridSupplement='%s',gridJs='%s',
 	dataUrl='%s';
 	
 	var cmu = 
@@ -68,8 +69,8 @@ def _usersTridJs(**args):
    	alert('button clicked!');
    };
    
-	function renderGrid(){
-		alert('render grid');
+	function renderGrid(){	
+			
 		var datagrid = new omniGrid( gridId, {
 			columnModel: cmu,
 			buttons : [
@@ -92,21 +93,25 @@ def _usersTridJs(**args):
 			alternaterows: true,
 			resizeColumns: true,
 			multipleSelection:true,
-			width:600,
+			width:300,
 			height: 220
 		});
 	};
 	
-	ftypes = ['css','js'], functions=[null, renderGrid];
-   [gridCss,gridJs].each(function(src){
-   	ftype = ftypes.shift(),fn=functions.shift();
+	var toImport =
+	[	{'type':'css','src':gridCss,'options':null},
+		{'type':'css','src':gridSupplement,'options':null},
+		{'type':'js','src':gridJs,'options': {'onload':renderGrid}}
+	] 
+	
+   toImport.each(function(props){
+   	src = props['src'], type=props['type'], options=props['options'];
 		if(!$defined(am.imported[src])){
-			if (fn != null){
-				options = {'onload':fn};
-				am.import({'url':src,'app':appName,'type':ftype},options);
+			if (options != null){
+				am.import({'url':src,'app':appName,'type':type},options);
 			}
 			else{
-		 		am.import({'url':src,'app':appName,'type':ftype});
+		 		am.import({'url':src,'app':appName,'type': type});
 		 	}
 		};	
    });

@@ -23,7 +23,7 @@ for name in ('css/hack.css', 'lang.js.pih', 'formcheck.js', 'theme/red/formcheck
 #--------------------------------------------------------------------------------------
 GRIDFILES = \
 ['/'.join(( 'lib', 'grid', name )) \
-for name in ('omnigrid.css', 'omnigrid.js')]
+for name in ('omnigrid.css', 'gridSupplement.css','omnigrid.js')]
 #---End--------------------------------------------------------------------------------
 
  

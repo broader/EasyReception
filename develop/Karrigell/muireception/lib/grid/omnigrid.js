@@ -39,7 +39,6 @@ var omniGrid = new Class({
 	},
 	
 	initialize: function(container, options){
-		alert('omnigrid.initialize,L42,container is '+container);
 		
 		this.setOptions(this.getOptions(), options);
 		this.container = $(container);

@@ -1,0 +1,10 @@
+/*
+** Some suplement css style rules for omnigrid plugin
+******************************************************/
+.omnigrid div.fbutton .add {
+	background:transparent url(images/add.png) no-repeat scroll left center;
+}
+
+.omnigrid div.fbutton .delete {
+	background:transparent url(images/delete.png) no-repeat scroll left center;
+}
