@@ -24,7 +24,13 @@ APP = pagefn.getApp(THIS.baseurl,1)
 so = Session()
 
 # config data object
-#CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
+CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
+
+# variables for data grid
+USERCOLUMNS = ['username','firstname','lastname','gender','country','organization','email']
+ACCOUNTFIELDS = 'userAccountInfo'
+PORTFOLIOFIELDS = 'userBaseInfo'
+
 # End*****************************************************************************************
 
 
@@ -47,22 +53,27 @@ def usersTrid(**args):
 def _usersTridJs(**args):
 	paras = [ APP,GRIDID,]
 	paras.extend(pagefn.GRIDFILES)
-	paras.append('/'.join((APPATH,'page_usersData')))
+	[ paras.append('/'.join((APPATH,name)))\ 
+	  for name in ('page_usersData','page_colsModel')]
 	paras = tuple(paras)
 	js = \
 	"""
 	var appName='%s', gridId='%s',
 	gridCss='%s',gridSupplement='%s',gridJs='%s',
-	dataUrl='%s';
+	dataUrl='%s',colsModelUrl='%s';
 	
-	var cmu = 
-	[	{header: 'ID', dataIndex: 'id', dataType:'number'},
-		{header: 'Name', dataIndex: 'name', dataType:'string'},
-		{header: 'Parent ID', dataIndex: 'blog', dataType:'number'}
-	];
+	var colsModel = null; 
+	var jsonRequest = new Request.JSON({
+		async: false,
+		url: colsModelUrl, 
+		onSuccess: function(json){
+    		colsModel = json['data'];
+    	}
+	}).get();
 	
 	// get the global Assets manager
    var am = MUI.assetsManager;
+   am.remove(appName,'app');
    
    function gridButtonClick(event){
    	new Event(event).stop();
@@ -70,16 +81,9 @@ def _usersTridJs(**args):
    };
    
 	function renderGrid(){	
-		// add css style to buttons
-		bns = $(document.body).getElements('.fbutton .add');
-		alert(bns.length);
-		bns.each(function(element){
-			alert(element);
-			element.setStyle('background','transparent url(images/add.png) no-repeat scroll left center');
-		});
 			
 		var datagrid = new omniGrid( gridId, {
-			columnModel: cmu,
+			columnModel: colsModel,
 			buttons : [
 				{name: 'Add', bclass: 'add', onclick : gridButtonClick},
 				{name: 'Delete', bclass: 'delete', onclick : gridButtonClick},
@@ -100,8 +104,8 @@ def _usersTridJs(**args):
 			alternaterows: true,
 			resizeColumns: true,
 			multipleSelection:true,
-			width:300,
-			height: 220
+			width:720,
+			height: 320
 		});
 	};
 	
@@ -113,7 +117,7 @@ def _usersTridJs(**args):
 	
    toImport.each(function(props){
    	src = props['src'], type=props['type'], options=props['options'];
-		if(!$defined(am.imported[src])){
+		if(!$defined(am.imported[src])){			
 			if (options != null){
 				am.import({'url':src,'app':appName,'type':type},options);
 			}
@@ -126,10 +130,26 @@ def _usersTridJs(**args):
 	
 	return js
 
+def page_colsModel(**args):
+	colsModel = []
+	fields = CONFIG.getData(ACCOUNTFIELDS)
+	fields.extend(CONFIG.getData(PORTFOLIOFIELDS))
+	
+	for field in fields :
+		name = field['name']		
+		if not name in USERCOLUMNS :
+			continue		
+		colsModel.append({'header':field['prompt'],'dataIndex':name,'dataType':'string'})
+	
+	print JSON.encode({'data':colsModel})
+	return
+	
 def page_usersData(**args):
-	d = {'page':1,'total':'164','data':[]}
+	d = {'page':1,'total':'16','data':[]}
+	
 	for i in range(10):
-		d['data'].append({'id':i,'name':i,'blog':i})
+		row = dict([(name,i) for name in USERCOLUMNS ])
+		d['data'].append(row)
 	
 	print JSON.encode(d)
 	return
