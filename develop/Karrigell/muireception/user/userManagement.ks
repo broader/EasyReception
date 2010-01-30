@@ -44,7 +44,7 @@ def index(**args):
 
 GRIDID = 'usersGrid'
 def usersTrid(**args):
-	title = _('Registered Users List')
+	title = _("Registered Users' List")
 	print H2(title)
 	print DIV(**{'id':GRIDID})
 	print pagefn.script(_usersTridJs(), link=False)
@@ -73,6 +73,7 @@ def _usersTridJs(**args):
 	
 	// get the global Assets manager
    var am = MUI.assetsManager;
+   // clear existed imported Assets 
    am.remove(appName,'app');
    
    function gridButtonClick(event){

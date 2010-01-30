@@ -48,7 +48,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1248059627021" ID="Freemind_Link_1258736316" MODIFIED="1263802940931" POSITION="right" TEXT="Refactor">
+<node COLOR="#0033ff" CREATED="1248059627021" FOLDED="true" ID="Freemind_Link_1258736316" MODIFIED="1264824521721" POSITION="right" TEXT="Refactor">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="idea"/>
@@ -401,7 +401,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1264156434776" POSITION="left" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1264737308788" POSITION="left" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -520,7 +520,7 @@
 <icon BUILTIN="help"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1174877401376" ID="Freemind_Link_503549801" MODIFIED="1264132903908" TEXT="karrigell">
+<node COLOR="#00b439" CREATED="1174877401376" ID="Freemind_Link_503549801" MODIFIED="1264737209622" TEXT="karrigell">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1250824602428" FOLDED="true" ID="Freemind_Link_1774893402" MODIFIED="1260244011179" TEXT="_()---i18n">
@@ -544,7 +544,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1260451613749" FOLDED="true" ID="ID_1531639743" MODIFIED="1264133512326" TEXT="Indent Error">
+<node COLOR="#990000" CREATED="1260451613749" ID="ID_1531639743" MODIFIED="1264734328909" TEXT="Indent Error">
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="messagebox_warning"/>
 <icon BUILTIN="yes"/>
@@ -1030,7 +1030,7 @@
 <node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1264478952041" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1173066298350" ID="Freemind_Link_1468412211" MODIFIED="1264478953782" TEXT="UI">
+<node COLOR="#00b439" CREATED="1173066298350" ID="Freemind_Link_1468412211" MODIFIED="1264824523549" TEXT="UI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1261723589326" FOLDED="true" ID="ID_80373969" MODIFIED="1262749242175" TEXT="Preference">
@@ -1449,7 +1449,12 @@
 </node>
 </node>
 <node COLOR="#111111" CREATED="1264478977744" ID="ID_1020930360" MODIFIED="1264478979224" TEXT="form">
+<node COLOR="#111111" CREATED="1264824539702" ID="ID_3123359" MODIFIED="1264824541172" TEXT="style">
 <node COLOR="#111111" CREATED="1264478980235" ID="ID_865833122" MODIFIED="1264478982078" TEXT="http://cssrainbow.cn/index.php/articles/web-roundups/941.html"/>
+</node>
+<node COLOR="#111111" CREATED="1264824546946" ID="ID_626762816" MODIFIED="1264824567958" TEXT="action">
+<node COLOR="#111111" CREATED="1264824530832" ID="ID_1404039310" MODIFIED="1264824532633" TEXT="http://cssrainbow.cn/index.php/tutorials/mootools/1045.html"/>
+</node>
 </node>
 <node COLOR="#111111" CREATED="1264042376170" ID="ID_1251394535" MODIFIED="1264042381010" TEXT="portfolio">
 <node COLOR="#111111" CREATED="1264042381949" ID="ID_1850665483" MODIFIED="1264042383975" TEXT="http://www.opendesigns.org/preview/?design=1716"/>
@@ -1482,7 +1487,7 @@
 <node COLOR="#111111" CREATED="1263174515439" ID="ID_1908253916" MODIFIED="1263174516788" TEXT="http://www.opendesigns.org/preview/?design=1709"/>
 <node COLOR="#111111" CREATED="1263175553706" ID="ID_403260123" MODIFIED="1263175555174" TEXT="http://www.opendesigns.org/preview/?design=1699"/>
 </node>
-<node COLOR="#111111" CREATED="1261116666825" ID="ID_1018641055" MODIFIED="1264568809472" TEXT="desktop">
+<node COLOR="#111111" CREATED="1261116666825" FOLDED="true" ID="ID_1018641055" MODIFIED="1264824527506" TEXT="desktop">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="12"/>
 <icon BUILTIN="messagebox_warning"/>

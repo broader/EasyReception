@@ -44,7 +44,7 @@ def index(**args):
 
 GRIDID = 'usersGrid'
 def usersTrid(**args):
-	title = _('Registered Users List')
+	title = _("Registered Users' List")
 	print H2(title)
 	print DIV(**{'id':GRIDID})
 	print pagefn.script(_usersTridJs(), link=False)
@@ -104,7 +104,7 @@ def _usersTridJs(**args):
 			alternaterows: true,
 			resizeColumns: true,
 			multipleSelection:true,
-			width:720,
+			width:710,
 			height: 320
 		});
 	};
