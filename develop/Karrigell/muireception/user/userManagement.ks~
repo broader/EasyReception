@@ -1,6 +1,7 @@
 """
 User Management module 
 """
+import sys
 
 from HTMLTags import *
 
@@ -22,6 +23,7 @@ APP = pagefn.getApp(THIS.baseurl,1)
 
 # the session object for this page
 so = Session()
+USER = getattr( so, pagefn.SOINFO['user']).get('username')
 
 # config data object
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
@@ -107,7 +109,7 @@ def _usersTridJs(**args):
 			perPage:10,
 			page:1,
 			pagination:true,
-			serverSort:false,
+			serverSort:true,
 			showHeader: true,
 			sortHeader: true,
 			alternaterows: true,
@@ -159,13 +161,44 @@ def page_colsModel(**args):
 	
 	print JSON.encode({'data':colsModel})
 	return
+
+def _getData(search=None):
 	
+	pass
+		
 def page_usersData(**args):
-	d = {'page':1,'total':'16','data':[]}
+	# paging arguments
+	showPage = int(args.get('page'))
+	pageNumber = int(args.get('perpage'))	
 	
-	for i in range(10):
-		row = dict([(name,i) for name in USERCOLUMNS ])
-		d['data'].append(row)
+	# returned data object
+	d = {'page':showPage,'data':[]}
 	
-	print JSON.encode(d)
+	# column's property name
+	propnames = USERCOLUMNS
+	total, data = model.get_userlist(USER, USERCOLUMNS, None)
+	#print total,data
+	d['total'] = total
+	
+	# set python default encoding to 'utf8'
+	
+	reload(sys)
+	sys.setdefaultencoding('utf8')
+	
+	if data:		
+		# get the data of the displayed page
+		start = (showPage-1)*pageNumber
+		end = start + pageNumber - 1
+		if end >= total-1:
+			end = total
+		# get data slice in the displayed page from the data 	
+		rslice = data[start : end]
+		
+		# if ascii chars mixins with no ascii chars will result
+		# JSON.encode error, so decode all the data items to unicode. 
+		encoded = [[i.decode('utf8') for i in row] for row in rslice]
+		encoded = [dict([(prop,value) for prop,value in zip(propnames,row)]) for row in rslice]
+		d['data'] = encoded
+	print JSON.encode(d,encoding='utf8')
+	
 	return

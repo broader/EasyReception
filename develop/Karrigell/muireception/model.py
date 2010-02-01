@@ -275,9 +275,9 @@ def get_adminlist(admin, props, search=None):
 		data = []			
 	return data
 	 
-def get_userlist(admin, props, search=None):
+def get_userlist(operator, props, search=None):
 	client = get_client()
-	client.set_user(admin)
+	client.set_user(operator)
 	user_props = client.db.user.getprops()
 	propnames = [prop for prop in props if prop in user_props]
 	propnames.append('info')
@@ -295,14 +295,17 @@ def get_userlist(admin, props, search=None):
 		data = []		
 	else:
 		total = client.form.get('total')
-		for rowindex, row in enumerate(data):			
+		for rowindex, row in enumerate(data):	
+			# transformat the content from csv format to a dict object		
 			propsinfile = csv2dict(row[-1])	
 			new = []				 
 			for prop in props:
+				# the property of User Class
 				if prop in user_props:
 					index = propnames.index(prop)
 					value = row[index]
 					new.append(value)
+				# propterty in the content of linked file
 				else:
 					new.append(propsinfile.get(prop))
 			data[rowindex] = new

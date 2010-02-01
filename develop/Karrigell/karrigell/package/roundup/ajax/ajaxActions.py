@@ -1417,7 +1417,7 @@ class FilterByTextAction(Action):
     
     def handle(self):
         ''' Get the item's values by the specified text, 
-           search the value in 'Sring' properties and a specified linked files' content,
+           search the specified text value in 'Sring' properties and a specified linked files' content,
            matched items will selected and returned.                       
            returned value is a list, whose sequence is as the argument properties' list sequence.           
         '''        

@@ -24164,3 +24164,90 @@ sent 39593 bytes  received 31 bytes  79248.00 bytes/sec
 total size is 164354  speedup is 4.15
 2010-02-01 09:01:16,409 INFO End backup loacl karrigell diretory to local git.
 2010-02-01 09:01:16,410 INFO Begin to backup local github to remote github host.
+2010-02-01 09:01:17,503 INFO Command: 
+git add .
+running result is :
+2010-02-01 09:01:19,838 INFO Command: 
+git commit -m 'Update time:2010-02-01T09:01:16.410313'
+running result is :Created commit ce08ca2: Update time:2010-02-01T09:01:16.410313
+ 117 files changed, 1231 insertions(+), 759 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010013104.log
+ create mode 100644 develop/Karrigell/data/cms/logs_2010013112.log
+ create mode 100644 develop/Karrigell/data/cms/logs_2010013123.log
+ create mode 100644 develop/Karrigell/data/cms/logs_2010020100.log
+ create mode 100644 develop/Karrigell/data/cms/logs_2010020107.log
+ rewrite develop/Karrigell/karrigell/core/compat2_3.pyc (64%)
+ rewrite develop/Karrigell/karrigell/core/k_exceptions.pyc (75%)
+ rewrite develop/Karrigell/karrigell/core/k_translation.pyc (73%)
+ rewrite develop/Karrigell/karrigell/core/k_users_db.pyc (78%)
+ rewrite develop/Karrigell/karrigell/package/roundup/actions.pyc (69%)
+ rewrite develop/Karrigell/karrigell/package/roundup/ajax/ajaxExceptions.pyc (72%)
+ rewrite develop/Karrigell/karrigell/package/roundup/backends/__init__.pyc (71%)
+ rewrite develop/Karrigell/karrigell/package/roundup/backends/indexer_common.pyc (62%)
+ rewrite develop/Karrigell/karrigell/package/roundup/backends/sessions_rdbms.pyc (62%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/PageTemplates/Expressions.pyc (67%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/PageTemplates/GlobalTranslationService.pyc (68%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/PageTemplates/MultiMapping.pyc (79%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/PageTemplates/PageTemplate.pyc (67%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/PageTemplates/PythonExpr.pyc (73%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/PageTemplates/TALES.pyc (72%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/TAL/HTMLTALParser.pyc (67%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/TAL/TALDefs.pyc (61%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/TAL/TALInterpreter.pyc (60%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/TAL/TALParser.pyc (63%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/TAL/XMLParser.pyc (61%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/TAL/markupbase.pyc (81%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/TranslationService.pyc (70%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/ZTUtils/Iterator.pyc (80%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/exceptions.pyc (65%)
+ create mode 100644 develop/Karrigell/muireception/register/tmp/25dd174eca.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/344b30f084.jpeg
+2010-02-01 09:01:42,705 INFO Command: 
+git push origin master
+running result is :Counting objects: 264, done.
+Compressing objects:   0% (1/138)   Compressing objects:   1% (2/138)   Compressing objects:   2% (3/138)   Compressing objects:   3% (5/138)   Compressing objects:   4% (6/138)   Compressing objects:   5% (7/138)   Compressing objects:   6% (9/138)   Compressing objects:   7% (10/138)   Compressing objects:   8% (12/138)   Compressing objects:   9% (13/138)   Compressing objects:  10% (14/138)   Compressing objects:  11% (16/138)   Compressing objects:  12% (17/138)   Compressing objects:  13% (18/138)   Compressing objects:  14% (20/138)   Compressing objects:  15% (21/138)   Compressing objects:  16% (23/138)   Compressing objects:  17% (24/138)   Compressing objects:  18% (25/138)   Compressing objects:  19% (27/138)   Compressing objects:  20% (28/138)   Compressing objects:  21% (29/138)   Compressing objects:  22% (31/138)   Compressing objects:  23% (32/138)   Compressing objects:  24% (34/138)   Compressing objects:  25% (35/138)   Compressing objects:  26% (36/138)   Compressing objects:  27% (38/138)   Compressing objects:  28% (39/138)   Compressing objects:  29% (41/138)   Compressing objects:  30% (42/138)   Compressing objects:  31% (43/138)   Compressing objects:  32% (45/138)   Compressing objects:  33% (46/138)   Compressing objects:  34% (47/138)   Compressing objects:  35% (49/138)   Compressing objects:  36% (50/138)   Compressing objects:  37% (52/138)   Compressing objects:  38% (53/138)   Compressing objects:  39% (54/138)   Compressing objects:  40% (56/138)   Compressing objects:  41% (57/138)   Compressing objects:  42% (58/138)   Compressing objects:  43% (60/138)   Compressing objects:  44% (61/138)   Compressing objects:  45% (63/138)   Compressing objects:  46% (64/138)   Compressing objects:  47% (65/138)   Compressing objects:  48% (67/138)   Compressing objects:  49% (68/138)   Compressing objects:  50% (69/138)   Compressing objects:  51% (71/138)   Compressing objects:  52% (72/138)   Compressing objects:  53% (74/138)   Compressing objects:  54% (75/138)   Compressing objects:  55% (76/138)   Compressing objects:  56% (78/138)   Compressing objects:  57% (79/138)   Compressing objects:  58% (81/138)   Compressing objects:  59% (82/138)   Compressing objects:  60% (83/138)   Compressing objects:  61% (85/138)   Compressing objects:  62% (86/138)   Compressing objects:  63% (87/138)   Compressing objects:  64% (89/138)   Compressing objects:  65% (90/138)   Compressing objects:  66% (92/138)   Compressing objects:  67% (93/138)   Compressing objects:  68% (94/138)   Compressing objects:  69% (96/138)   Compressing objects:  70% (97/138)   Compressing objects:  71% (98/138)   Compressing objects:  72% (100/138)   Compressing objects:  73% (101/138)   Compressing objects:  74% (103/138)   Compressing objects:  75% (104/138)   Compressing objects:  76% (105/138)   Compressing objects:  77% (107/138)   Compressing objects:  78% (108/138)   Compressing objects:  79% (110/138)   Compressing objects:  80% (111/138)   Compressing objects:  81% (112/138)   Compressing objects:  82% (114/138)   Compressing objects:  83% (115/138)   Compressing objects:  84% (116/138)   Compressing objects:  85% (118/138)   Compressing objects:  86% (119/138)   Compressing objects:  87% (121/138)   Compressing objects:  88% (122/138)   Compressing objects:  89% (123/138)   Compressing objects:  90% (125/138)   Compressing objects:  91% (126/138)   Compressing objects:  92% (127/138)   Compressing objects:  93% (129/138)   Compressing objects:  94% (130/138)   Compressing objects:  95% (132/138)   Compressing objects:  96% (133/138)   Compressing objects:  97% (134/138)   Compressing objects:  98% (136/138)   Compressing objects:  99% (137/138)   Compressing objects: 100% (138/138)   Compressing objects: 100% (138/138), done.
+Writing objects:   0% (1/139)   Writing objects:   1% (2/139)   Writing objects:   2% (3/139)   Writing objects:   3% (5/139)   Writing objects:   4% (6/139)   Writing objects:   5% (7/139)   Writing objects:   6% (9/139)   Writing objects:   8% (12/139)   Writing objects:   9% (13/139)   Writing objects:  10% (14/139)   Writing objects:  11% (16/139)   Writing objects:  12% (17/139)   Writing objects:  13% (19/139)   Writing objects:  14% (20/139)   Writing objects:  15% (21/139)   Writing objects:  16% (23/139)   Writing objects:  17% (24/139)   Writing objects:  18% (26/139)   Writing objects:  19% (27/139)   Writing objects:  20% (28/139)   Writing objects:  21% (30/139)   Writing objects:  22% (31/139)   Writing objects:  23% (32/139)   Writing objects:  24% (34/139)   Writing objects:  25% (35/139)   Writing objects:  26% (37/139)   Writing objects:  27% (38/139)   Writing objects:  28% (39/139)   Writing objects:  29% (41/139)   Writing objects:  30% (42/139)   Writing objects:  31% (44/139)   Writing objects:  32% (45/139)   Writing objects:  33% (46/139)   Writing objects:  34% (48/139)   Writing objects:  35% (49/139)   Writing objects:  36% (51/139)   Writing objects:  37% (52/139)   Writing objects:  38% (53/139)   Writing objects:  39% (55/139)   Writing objects:  40% (56/139)   Writing objects:  41% (57/139)   Writing objects:  42% (59/139)   Writing objects:  43% (60/139)   Writing objects:  44% (62/139)   Writing objects:  45% (63/139)   Writing objects:  46% (64/139)   Writing objects:  47% (66/139)   Writing objects:  48% (67/139)   Writing objects:  49% (69/139)   Writing objects:  50% (70/139)   Writing objects:  51% (71/139)   Writing objects:  52% (73/139)   Writing objects:  53% (74/139)   Writing objects:  54% (76/139)   Writing objects:  55% (77/139)   Writing objects:  56% (78/139)   Writing objects:  57% (80/139)   Writing objects:  58% (81/139)   Writing objects:  59% (83/139)   Writing objects:  60% (84/139)   Writing objects:  61% (85/139)   Writing objects:  62% (87/139)   Writing objects:  63% (88/139)   Writing objects:  64% (89/139)   Writing objects:  65% (91/139)   Writing objects:  66% (92/139)   Writing objects:  67% (94/139)   Writing objects:  68% (95/139)   Writing objects:  69% (96/139)   Writing objects:  70% (98/139)   Writing objects:  71% (99/139)   Writing objects:  72% (101/139)   Writing objects:  73% (102/139)   Writing objects:  74% (103/139)   Writing objects:  75% (105/139)   Writing objects:  76% (106/139)   Writing objects:  77% (108/139)   Writing objects:  78% (109/139)   Writing objects:  79% (110/139)   Writing objects:  80% (112/139)   Writing objects:  81% (113/139)   Writing objects:  82% (114/139)   Writing objects:  83% (116/139)   Writing objects:  84% (117/139)   Writing objects:  85% (119/139)   Writing objects:  86% (120/139)   Writing objects:  87% (121/139)   Writing objects:  88% (123/139)   Writing objects:  89% (124/139)   Writing objects:  90% (126/139)   Writing objects:  91% (127/139)   Writing objects:  92% (128/139)   Writing objects:  93% (130/139)   Writing objects:  94% (131/139)   Writing objects:  95% (133/139)   Writing objects:  96% (134/139)   Writing objects:  97% (135/139)   Writing objects:  98% (137/139)   Writing objects:  99% (138/139)   Writing objects: 100% (139/139)   Writing objects: 100% (139/139), 58.75 KiB, done.
+Total 139 (delta 124), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   f080e58..ce08ca2  master -> master
+2010-02-01 09:01:42,706 INFO End backup local github to remote github host.
+2010-02-01 17:54:07,357 INFO Delete nousing captcha images
+2010-02-01 17:54:07,447 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-02-01 17:54:07,448 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-02-01 17:54:12,984 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010020107.log
+        4746 100%    0.00kB/s    0:00:00          4746 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1005/3528)
+data/cms/logs_2010020109.log
+        2373 100%  121.97kB/s    0:00:00          2373 100%  121.97kB/s    0:00:00 (xfer#2, to-check=1004/3528)
+karrigell/core/
+karrigell/core/k_traceback.pyc
+        2930 100%    4.69kB/s    0:00:00          2930 100%    4.69kB/s    0:00:00 (xfer#3, to-check=1029/4749)
+karrigell/package/roundup/ajax/ajaxActions.py
+       32768  29%   39.80kB/s    0:00:01        111532 100%  132.34kB/s    0:00:00 (xfer#4, to-check=1008/4839)
+muireception/model.py
+       17365 100%   12.52kB/s    0:00:00         17365 100%   12.52kB/s    0:00:01 (xfer#5, to-check=1020/5170)
+muireception/model.py~
+       17303 100%   12.44kB/s    0:00:00         17303 100%   12.44kB/s    0:00:01 (xfer#6, to-check=1019/5170)
+muireception/user/userManagement.ks
+        5625 100%    0.00kB/s    0:00:00          5625 100%    0.00kB/s    0:00:00 (xfer#7, to-check=339/6200)
+muireception/user/userManagement.ks~
+        5627 100%  274.76kB/s    0:00:00          5627 100%  274.76kB/s    0:00:00 (xfer#8, to-check=338/6200)
+
+sent 170579 bytes  received 1305 bytes  31251.64 bytes/sec
+total size is 45166061  speedup is 262.77
+2010-02-01 17:54:13,166 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768  19%    0.00kB/s    0:00:00        164368 100%    5.23MB/s    0:00:00 (xfer#1, to-check=0/2)
+
+sent 39598 bytes  received 31 bytes  26419.33 bytes/sec
+total size is 164368  speedup is 4.15
+2010-02-01 17:54:13,167 INFO End backup loacl karrigell diretory to local git.
+2010-02-01 17:54:13,167 INFO Begin to backup local github to remote github host.
