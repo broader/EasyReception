@@ -7,7 +7,7 @@ INIDATA['userAccountInfo'] = \
 [
 	{ 'name':'username', 'prompt':_('Login Name :'), 'type':'text'},\
 	{ 'name':'email', 'prompt':_('Email address :'), 'type':'text'},\
-	{ 'name':'password' , 'prompt':_('Password :'), 'type':'text'},\
+	{ 'name':'password' , 'prompt':_('Password :'), 'type':'password'},\
 ]
 
 #{

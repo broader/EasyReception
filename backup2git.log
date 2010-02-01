@@ -23880,3 +23880,287 @@ sent 39636 bytes  received 42 bytes  26452.00 bytes/sec
 total size is 164340  speedup is 4.14
 2010-01-30 21:19:07,085 INFO End backup loacl karrigell diretory to local git.
 2010-01-30 21:19:07,085 INFO Begin to backup local github to remote github host.
+2010-01-30 21:19:07,643 INFO Command: 
+git add .
+running result is :
+2010-01-30 21:19:10,568 INFO Command: 
+git commit -m 'Update time:2010-01-30T21:19:07.085366'
+running result is :Created commit f080e58: Update time:2010-01-30T21:19:07.085366
+ 5 files changed, 98 insertions(+), 9 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010013011.log
+2010-01-30 21:19:20,998 INFO Command: 
+git push origin master
+running result is :Counting objects: 26, done.
+Compressing objects:   7% (1/13)   Compressing objects:  15% (2/13)   Compressing objects:  23% (3/13)   Compressing objects:  30% (4/13)   Compressing objects:  38% (5/13)   Compressing objects:  46% (6/13)   Compressing objects:  53% (7/13)   Compressing objects:  61% (8/13)   Compressing objects:  69% (9/13)   Compressing objects:  76% (10/13)   Compressing objects:  84% (11/13)   Compressing objects:  92% (12/13)   Compressing objects: 100% (13/13)   Compressing objects: 100% (13/13), done.
+Writing objects:   7% (1/14)   Writing objects:  14% (2/14)   Writing objects:  21% (3/14)   Writing objects:  28% (4/14)   Writing objects:  35% (5/14)   Writing objects:  42% (6/14)   Writing objects:  50% (7/14)   Writing objects:  57% (8/14)   Writing objects:  64% (9/14)   Writing objects:  71% (10/14)   Writing objects:  85% (12/14)   Writing objects:  92% (13/14)   Writing objects: 100% (14/14)   Writing objects: 100% (14/14), 2.37 KiB, done.
+Total 14 (delta 9), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   484d034..f080e58  master -> master
+2010-01-30 21:19:20,999 INFO End backup local github to remote github host.
+2010-02-01 09:01:10,147 INFO Delete nousing captcha images
+2010-02-01 09:01:10,174 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-02-01 09:01:10,175 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-02-01 09:01:16,237 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+./
+config_loader.pyc
+        1822 100%    0.00kB/s    0:00:00          1822 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1044/1054)
+data/cms/
+data/cms/logs_2010013104.log
+        3326 100%    0.00kB/s    0:00:00          3326 100%    0.00kB/s    0:00:00 (xfer#2, to-check=1008/3527)
+data/cms/logs_2010013112.log
+        2373 100%  579.35kB/s    0:00:00          2373 100%  579.35kB/s    0:00:00 (xfer#3, to-check=1007/3527)
+data/cms/logs_2010013123.log
+        2373 100%  579.35kB/s    0:00:00          2373 100%  579.35kB/s    0:00:00 (xfer#4, to-check=1006/3527)
+data/cms/logs_2010020100.log
+        2373 100%  463.48kB/s    0:00:00          2373 100%  463.48kB/s    0:00:00 (xfer#5, to-check=1005/3527)
+data/cms/logs_2010020107.log
+        2373 100%  463.48kB/s    0:00:00          2373 100%  463.48kB/s    0:00:00 (xfer#6, to-check=1004/3527)
+karrigell/core/
+karrigell/core/HTTP.pyc
+       17677 100%   20.50kB/s    0:00:00         17677 100%   20.50kB/s    0:00:00 (xfer#7, to-check=1062/4748)
+karrigell/core/PythonInsideHTML.pyc
+       12898 100%   14.91kB/s    0:00:00         12898 100%   14.91kB/s    0:00:00 (xfer#8, to-check=1058/4748)
+karrigell/core/compat2_3.pyc
+        1475 100%    1.70kB/s    0:00:00          1475 100%    1.70kB/s    0:00:00 (xfer#9, to-check=1055/4748)
+karrigell/core/k_capture.pyc
+        1342 100%    1.55kB/s    0:00:00          1342 100%    1.55kB/s    0:00:00 (xfer#10, to-check=1051/4748)
+karrigell/core/k_config.pyc
+        4680 100%    5.40kB/s    0:00:00          4680 100%    5.40kB/s    0:00:00 (xfer#11, to-check=1049/4748)
+karrigell/core/k_environ.pyc
+        2276 100%    2.62kB/s    0:00:00          2276 100%    2.62kB/s    0:00:00 (xfer#12, to-check=1046/4748)
+karrigell/core/k_exceptions.pyc
+         593 100%    0.68kB/s    0:00:00           593 100%    0.68kB/s    0:00:00 (xfer#13, to-check=1044/4748)
+karrigell/core/k_gzip.pyc
+        1517 100%    1.74kB/s    0:00:00          1517 100%    1.74kB/s    0:00:00 (xfer#14, to-check=1042/4748)
+karrigell/core/k_logging.pyc
+        1337 100%    1.54kB/s    0:00:00          1337 100%    1.54kB/s    0:00:00 (xfer#15, to-check=1040/4748)
+karrigell/core/k_modules.pyc
+         542 100%    0.62kB/s    0:00:00           542 100%    0.62kB/s    0:00:00 (xfer#16, to-check=1038/4748)
+karrigell/core/k_sessions.pyc
+        5952 100%    6.83kB/s    0:00:00          5952 100%    6.83kB/s    0:00:00 (xfer#17, to-check=1033/4748)
+karrigell/core/k_target.pyc
+       18072 100%   20.33kB/s    0:00:00         18072 100%   20.33kB/s    0:00:00 (xfer#18, to-check=1031/4748)
+karrigell/core/k_translation.pyc
+        2653 100%    2.98kB/s    0:00:00          2653 100%    2.98kB/s    0:00:00 (xfer#19, to-check=1027/4748)
+karrigell/core/k_users_db.pyc
+        2049 100%    2.30kB/s    0:00:00          2049 100%    2.30kB/s    0:00:00 (xfer#20, to-check=1025/4748)
+karrigell/core/python_code.pyc
+        2146 100%    2.41kB/s    0:00:00          2146 100%    2.41kB/s    0:00:00 (xfer#21, to-check=1020/4748)
+karrigell/core/transform_script.pyc
+        4832 100%    5.42kB/s    0:00:00          4832 100%    5.42kB/s    0:00:00 (xfer#22, to-check=1015/4748)
+karrigell/package/
+karrigell/package/HTMLTags.pyc
+        6685 100%    7.48kB/s    0:00:00          6685 100%    7.48kB/s    0:00:00 (xfer#23, to-check=1010/4756)
+karrigell/package/modules/
+karrigell/package/modules/__init__.pyc
+         164 100%    0.18kB/s    0:00:00           164 100%    0.18kB/s    0:00:00 (xfer#24, to-check=1004/4776)
+karrigell/package/modules/host_filter.pyc
+        1432 100%    1.57kB/s    0:00:00          1432 100%    1.57kB/s    0:00:00 (xfer#25, to-check=1002/4776)
+karrigell/package/roundup/
+karrigell/package/roundup/__init__.pyc
+        2820 100%    3.00kB/s    0:00:00          2820 100%    3.00kB/s    0:00:00 (xfer#26, to-check=1049/4825)
+karrigell/package/roundup/actions.pyc
+        3069 100%    3.26kB/s    0:00:00          3069 100%    3.26kB/s    0:00:00 (xfer#27, to-check=1047/4825)
+karrigell/package/roundup/configuration.pyc
+       32768  60%   34.56kB/s    0:00:00         53794 100%   56.25kB/s    0:00:00 (xfer#28, to-check=1043/4825)
+karrigell/package/roundup/date.pyc
+       32768  82%   34.01kB/s    0:00:00         39511 100%   40.79kB/s    0:00:00 (xfer#29, to-check=1041/4825)
+karrigell/package/roundup/exceptions.pyc
+        1545 100%    1.59kB/s    0:00:00          1545 100%    1.59kB/s    0:00:00 (xfer#30, to-check=1037/4825)
+karrigell/package/roundup/hyperdb.pyc
+       32768  53%   33.58kB/s    0:00:00         61609 100%   62.48kB/s    0:00:00 (xfer#31, to-check=1035/4825)
+karrigell/package/roundup/i18n.pyc
+        6302 100%    6.36kB/s    0:00:00          6302 100%    6.36kB/s    0:00:00 (xfer#32, to-check=1033/4825)
+karrigell/package/roundup/mailer.pyc
+        8128 100%    8.19kB/s    0:00:00          8128 100%    8.19kB/s    0:00:00 (xfer#33, to-check=1025/4825)
+karrigell/package/roundup/mailgw.pyc
+       32768  77%   32.79kB/s    0:00:00         42415 100%   42.18kB/s    0:00:00 (xfer#34, to-check=1023/4825)
+karrigell/package/roundup/msgfmt.pyc
+        5095 100%    5.05kB/s    0:00:00          5095 100%    5.05kB/s    0:00:00 (xfer#35, to-check=1021/4825)
+karrigell/package/roundup/password.pyc
+        5411 100%    5.35kB/s    0:00:00          5411 100%    5.35kB/s    0:00:00 (xfer#36, to-check=1019/4825)
+karrigell/package/roundup/rfc2822.pyc
+        5711 100%    5.64kB/s    0:00:00          5711 100%    5.64kB/s    0:00:00 (xfer#37, to-check=1017/4825)
+karrigell/package/roundup/roundupdb.pyc
+       18141 100%   17.82kB/s    0:00:00         18141 100%   17.82kB/s    0:00:00 (xfer#38, to-check=1015/4825)
+karrigell/package/roundup/security.pyc
+        8616 100%    8.44kB/s    0:00:00          8616 100%    8.44kB/s    0:00:00 (xfer#39, to-check=1013/4825)
+karrigell/package/roundup/support.pyc
+        8693 100%    8.50kB/s    0:00:00          8693 100%    8.50kB/s    0:00:00 (xfer#40, to-check=1011/4825)
+karrigell/package/roundup/token.pyc
+        2532 100%    2.47kB/s    0:00:00          2532 100%    2.47kB/s    0:00:01 (xfer#41, to-check=1009/4825)
+karrigell/package/roundup/xmlrpc.pyc
+        6878 100%    6.71kB/s    0:00:00          6878 100%    6.71kB/s    0:00:01 (xfer#42, to-check=1005/4825)
+karrigell/package/roundup/ajax/
+karrigell/package/roundup/ajax/FormParser.pyc
+        4403 100%    4.22kB/s    0:00:00          4403 100%    4.22kB/s    0:00:01 (xfer#43, to-check=1011/4838)
+karrigell/package/roundup/ajax/__init__.pyc
+         288 100%    0.28kB/s    0:00:00           288 100%    0.28kB/s    0:00:01 (xfer#44, to-check=1009/4838)
+karrigell/package/roundup/ajax/ajaxActions.pyc
+       32768  37%   31.19kB/s    0:00:01         65536  75%   61.90kB/s    0:00:00         87201 100%   81.57kB/s    0:00:01 (xfer#45, to-check=1007/4838)
+karrigell/package/roundup/ajax/ajaxClient.pyc
+       12395 100%  864.61kB/s    0:00:00         12395 100%  864.61kB/s    0:00:00 (xfer#46, to-check=1005/4838)
+karrigell/package/roundup/ajax/ajaxExceptions.pyc
+        3540 100%  230.47kB/s    0:00:00          3540 100%  230.47kB/s    0:00:00 (xfer#47, to-check=1002/4838)
+karrigell/package/roundup/ajax/ajaxInstance.pyc
+        6768 100%  413.09kB/s    0:00:00          6768 100%  413.09kB/s    0:00:00 (xfer#48, to-check=1000/4838)
+karrigell/package/roundup/anypy/
+karrigell/package/roundup/anypy/__init__.pyc
+         348 100%   10.30kB/s    0:00:00           348 100%   10.30kB/s    0:00:00 (xfer#49, to-check=1004/4844)
+karrigell/package/roundup/anypy/hashlib_.pyc
+         431 100%   12.38kB/s    0:00:00           431 100%   12.38kB/s    0:00:00 (xfer#50, to-check=1002/4844)
+karrigell/package/roundup/anypy/sets_.pyc
+         777 100%   22.32kB/s    0:00:00           777 100%   22.32kB/s    0:00:00 (xfer#51, to-check=1000/4844)
+karrigell/package/roundup/backends/
+karrigell/package/roundup/backends/__init__.pyc
+        2113 100%   24.86kB/s    0:00:00          2113 100%   24.86kB/s    0:00:00 (xfer#52, to-check=1049/4895)
+karrigell/package/roundup/backends/back_sqlite.pyc
+       16413 100%  184.23kB/s    0:00:00         16413 100%  184.23kB/s    0:00:00 (xfer#53, to-check=1041/4895)
+karrigell/package/roundup/backends/blobfiles.pyc
+       13960 100%  149.81kB/s    0:00:00         13960 100%  149.81kB/s    0:00:00 (xfer#54, to-check=1037/4895)
+karrigell/package/roundup/backends/indexer_common.pyc
+        3629 100%   38.52kB/s    0:00:00          3629 100%   38.52kB/s    0:00:00 (xfer#55, to-check=1035/4895)
+karrigell/package/roundup/backends/indexer_xapian.pyc
+        4873 100%   50.63kB/s    0:00:00          4873 100%   50.63kB/s    0:00:00 (xfer#56, to-check=1029/4895)
+karrigell/package/roundup/backends/locking.pyc
+        1091 100%   11.22kB/s    0:00:00          1091 100%   11.22kB/s    0:00:00 (xfer#57, to-check=1027/4895)
+karrigell/package/roundup/backends/portalocker.pyc
+        3869 100%   39.36kB/s    0:00:00          3869 100%   39.36kB/s    0:00:00 (xfer#58, to-check=1025/4895)
+karrigell/package/roundup/backends/rdbms_common.pyc
+       32768  37%  313.73kB/s    0:00:00         86344 100%  691.15kB/s    0:00:00 (xfer#59, to-check=1023/4895)
+karrigell/package/roundup/backends/sessions_rdbms.pyc
+        5339 100%   41.38kB/s    0:00:00          5339 100%   41.38kB/s    0:00:00 (xfer#60, to-check=1019/4895)
+karrigell/package/roundup/cgi/
+karrigell/package/roundup/cgi/TranslationService.pyc
+        4909 100%   30.53kB/s    0:00:00          4909 100%   30.53kB/s    0:00:00 (xfer#61, to-check=1039/4921)
+karrigell/package/roundup/cgi/__init__.pyc
+         261 100%    1.62kB/s    0:00:00           261 100%    1.62kB/s    0:00:00 (xfer#62, to-check=1037/4921)
+karrigell/package/roundup/cgi/accept_language.pyc
+        2033 100%   12.65kB/s    0:00:00          2033 100%   12.65kB/s    0:00:00 (xfer#63, to-check=1035/4921)
+karrigell/package/roundup/cgi/actions.pyc
+       32768  91%  195.12kB/s    0:00:00         35637 100%  208.39kB/s    0:00:00 (xfer#64, to-check=1033/4921)
+karrigell/package/roundup/cgi/cgitb.pyc
+        8784 100%   50.16kB/s    0:00:00          8784 100%   50.16kB/s    0:00:00 (xfer#65, to-check=1029/4921)
+karrigell/package/roundup/cgi/client.pyc
+       32768  79%  179.78kB/s    0:00:00         41474 100%  221.32kB/s    0:00:00 (xfer#66, to-check=1027/4921)
+karrigell/package/roundup/cgi/exceptions.pyc
+        3204 100%   16.82kB/s    0:00:00          3204 100%   16.82kB/s    0:00:00 (xfer#67, to-check=1025/4921)
+karrigell/package/roundup/cgi/form_parser.pyc
+       15714 100%   81.19kB/s    0:00:00         15714 100%   81.19kB/s    0:00:00 (xfer#68, to-check=1023/4921)
+karrigell/package/roundup/cgi/templating.pyc
+       32768  31%  163.27kB/s    0:00:00        102896 100%  454.68kB/s    0:00:00 (xfer#69, to-check=1021/4921)
+karrigell/package/roundup/cgi/PageTemplates/
+karrigell/package/roundup/cgi/PageTemplates/Expressions.pyc
+       13922 100%   59.89kB/s    0:00:00         13922 100%   59.89kB/s    0:00:00 (xfer#70, to-check=1036/4945)
+karrigell/package/roundup/cgi/PageTemplates/GlobalTranslationService.pyc
+        2181 100%    9.34kB/s    0:00:00          2181 100%    9.34kB/s    0:00:00 (xfer#71, to-check=1034/4945)
+karrigell/package/roundup/cgi/PageTemplates/MultiMapping.pyc
+        2397 100%   10.22kB/s    0:00:00          2397 100%   10.22kB/s    0:00:00 (xfer#72, to-check=1032/4945)
+karrigell/package/roundup/cgi/PageTemplates/PageTemplate.pyc
+        8842 100%   37.54kB/s    0:00:00          8842 100%   37.54kB/s    0:00:00 (xfer#73, to-check=1030/4945)
+karrigell/package/roundup/cgi/PageTemplates/PathIterator.pyc
+        1731 100%    7.32kB/s    0:00:00          1731 100%    7.32kB/s    0:00:00 (xfer#74, to-check=1028/4945)
+karrigell/package/roundup/cgi/PageTemplates/PythonExpr.pyc
+        4324 100%   18.20kB/s    0:00:00          4324 100%   18.20kB/s    0:00:00 (xfer#75, to-check=1026/4945)
+karrigell/package/roundup/cgi/PageTemplates/TALES.pyc
+       14357 100%   59.66kB/s    0:00:00         14357 100%   59.66kB/s    0:00:00 (xfer#76, to-check=1024/4945)
+karrigell/package/roundup/cgi/PageTemplates/__init__.pyc
+         719 100%    2.96kB/s    0:00:00           719 100%    2.96kB/s    0:00:00 (xfer#77, to-check=1022/4945)
+karrigell/package/roundup/cgi/TAL/
+karrigell/package/roundup/cgi/TAL/HTMLParser.pyc
+       14143 100%   57.31kB/s    0:00:00         14143 100%   57.31kB/s    0:00:00 (xfer#78, to-check=1021/4948)
+karrigell/package/roundup/cgi/TAL/HTMLTALParser.pyc
+       12514 100%   49.88kB/s    0:00:00         12514 100%   49.88kB/s    0:00:00 (xfer#79, to-check=1019/4948)
+karrigell/package/roundup/cgi/TAL/TALDefs.pyc
+        7159 100%   28.42kB/s    0:00:00          7159 100%   28.42kB/s    0:00:00 (xfer#80, to-check=1017/4948)
+karrigell/package/roundup/cgi/TAL/TALGenerator.pyc
+       24546 100%   94.37kB/s    0:00:00         24546 100%   94.37kB/s    0:00:00 (xfer#81, to-check=1015/4948)
+karrigell/package/roundup/cgi/TAL/TALInterpreter.pyc
+       28142 100%  104.50kB/s    0:00:00         28142 100%  104.50kB/s    0:00:00 (xfer#82, to-check=1013/4948)
+karrigell/package/roundup/cgi/TAL/TALParser.pyc
+        5600 100%   20.71kB/s    0:00:00          5600 100%   20.71kB/s    0:00:00 (xfer#83, to-check=1011/4948)
+karrigell/package/roundup/cgi/TAL/TranslationContext.pyc
+        1290 100%    4.74kB/s    0:00:00          1290 100%    4.74kB/s    0:00:00 (xfer#84, to-check=1009/4948)
+karrigell/package/roundup/cgi/TAL/XMLParser.pyc
+        3379 100%   12.36kB/s    0:00:00          3379 100%   12.36kB/s    0:00:00 (xfer#85, to-check=1007/4948)
+karrigell/package/roundup/cgi/TAL/__init__.pyc
+         232 100%    0.85kB/s    0:00:00           232 100%    0.85kB/s    0:00:00 (xfer#86, to-check=1005/4948)
+karrigell/package/roundup/cgi/TAL/markupbase.pyc
+        8072 100%   29.20kB/s    0:00:00          8072 100%   29.20kB/s    0:00:00 (xfer#87, to-check=1003/4948)
+karrigell/package/roundup/cgi/ZTUtils/
+karrigell/package/roundup/cgi/ZTUtils/Batch.pyc
+        4958 100%   16.52kB/s    0:00:00          4958 100%   16.52kB/s    0:00:00 (xfer#88, to-check=1007/4956)
+karrigell/package/roundup/cgi/ZTUtils/Iterator.pyc
+        9685 100%   32.06kB/s    0:00:00          9685 100%   32.06kB/s    0:00:00 (xfer#89, to-check=1005/4956)
+karrigell/package/roundup/cgi/ZTUtils/__init__.pyc
+         559 100%    1.85kB/s    0:00:00           559 100%    1.85kB/s    0:00:00 (xfer#90, to-check=1003/4956)
+karrigell/package/yaml/
+karrigell/package/yaml/__init__.pyc
+       11814 100%   28.84kB/s    0:00:00         11814 100%   28.84kB/s    0:00:00 (xfer#91, to-check=1034/5125)
+karrigell/package/yaml/composer.pyc
+        4849 100%   11.81kB/s    0:00:00          4849 100%   11.81kB/s    0:00:00 (xfer#92, to-check=1032/5125)
+karrigell/package/yaml/constructor.pyc
+       23418 100%   56.19kB/s    0:00:00         23418 100%   56.19kB/s    0:00:00 (xfer#93, to-check=1030/5125)
+karrigell/package/yaml/cyaml.pyc
+        4113 100%    9.84kB/s    0:00:00          4113 100%    9.84kB/s    0:00:00 (xfer#94, to-check=1028/5125)
+karrigell/package/yaml/dumper.pyc
+        2728 100%    6.51kB/s    0:00:00          2728 100%    6.51kB/s    0:00:00 (xfer#95, to-check=1026/5125)
+karrigell/package/yaml/emitter.pyc
+       32768  96%   76.92kB/s    0:00:00         33852 100%   78.90kB/s    0:00:00 (xfer#96, to-check=1024/5125)
+karrigell/package/yaml/error.pyc
+        3203 100%    7.45kB/s    0:00:00          3203 100%    7.45kB/s    0:00:00 (xfer#97, to-check=1022/5125)
+karrigell/package/yaml/events.pyc
+        5508 100%   12.78kB/s    0:00:00          5508 100%   12.78kB/s    0:00:00 (xfer#98, to-check=1020/5125)
+karrigell/package/yaml/loader.pyc
+        2051 100%    4.72kB/s    0:00:00          2051 100%    4.72kB/s    0:00:00 (xfer#99, to-check=1018/5125)
+karrigell/package/yaml/nodes.pyc
+        2416 100%    5.56kB/s    0:00:00          2416 100%    5.56kB/s    0:00:00 (xfer#100, to-check=1016/5125)
+karrigell/package/yaml/parser.pyc
+       15440 100%   35.23kB/s    0:00:00         15440 100%   35.23kB/s    0:00:00 (xfer#101, to-check=1014/5125)
+karrigell/package/yaml/reader.pyc
+        7109 100%   16.11kB/s    0:00:00          7109 100%   16.11kB/s    0:00:00 (xfer#102, to-check=1012/5125)
+karrigell/package/yaml/representer.pyc
+       15800 100%   35.55kB/s    0:00:00         15800 100%   35.55kB/s    0:00:00 (xfer#103, to-check=1010/5125)
+karrigell/package/yaml/resolver.pyc
+        6987 100%   15.65kB/s    0:00:00          6987 100%   15.65kB/s    0:00:00 (xfer#104, to-check=1008/5125)
+karrigell/package/yaml/scanner.pyc
+       32768  92%   72.40kB/s    0:00:00         35320 100%   77.51kB/s    0:00:00 (xfer#105, to-check=1006/5125)
+karrigell/package/yaml/serializer.pyc
+        4597 100%   10.07kB/s    0:00:00          4597 100%   10.04kB/s    0:00:00 (xfer#106, to-check=1004/5125)
+karrigell/package/yaml/tokens.pyc
+        7218 100%   15.66kB/s    0:00:00          7218 100%   15.66kB/s    0:00:00 (xfer#107, to-check=1002/5125)
+muireception/config.py
+        2515 100%    5.16kB/s    0:00:00          2515 100%    5.16kB/s    0:00:00 (xfer#108, to-check=1038/5169)
+muireception/config.py~
+        2545 100%    5.22kB/s    0:00:00          2545 100%    5.22kB/s    0:00:00 (xfer#109, to-check=1037/5169)
+muireception/config.yaml
+        1553 100%    3.18kB/s    0:00:00          1553 100%    3.18kB/s    0:00:00 (xfer#110, to-check=1036/5169)
+muireception/config.yaml~
+        1613 100%    3.29kB/s    0:00:00          1613 100%    3.29kB/s    0:00:00 (xfer#111, to-check=1035/5169)
+muireception/register/tmp/
+muireception/register/tmp/25dd174eca.jpeg
+        1821 100%    1.65kB/s    0:00:00          1821 100%    1.65kB/s    0:00:01 (xfer#112, to-check=829/6199)
+muireception/register/tmp/344b30f084.jpeg
+        1769 100%    1.60kB/s    0:00:00          1769 100%    1.60kB/s    0:00:01 (xfer#113, to-check=828/6199)
+muireception/user/userManagement.ks
+        4704 100%    4.25kB/s    0:00:00          4704 100%    4.25kB/s    0:00:01 (xfer#114, to-check=339/6199)
+muireception/user/userManagement.ks~
+        4705 100%    4.25kB/s    0:00:00          4705 100%    4.25kB/s    0:00:01 (xfer#115, to-check=338/6199)
+
+sent 568085 bytes  received 3377 bytes  87917.23 bytes/sec
+total size is 45159248  speedup is 79.02
+2010-02-01 09:01:16,409 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768  19%    0.00kB/s    0:00:00        164354 100%    5.46MB/s    0:00:00 (xfer#1, to-check=0/2)
+
+sent 39593 bytes  received 31 bytes  79248.00 bytes/sec
+total size is 164354  speedup is 4.15
+2010-02-01 09:01:16,409 INFO End backup loacl karrigell diretory to local git.
+2010-02-01 09:01:16,410 INFO Begin to backup local github to remote github host.

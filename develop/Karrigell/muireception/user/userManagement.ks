@@ -76,14 +76,22 @@ def _usersTridJs(**args):
    // clear existed imported Assets 
    am.remove(appName,'app');
    
-   function gridButtonClick(event){
-   	new Event(event).stop();
+   function gridButtonClick(event){   	
    	alert('button clicked!');
    };
    
+   function gridRowSelect(evt){
+   	// evt.target:the grid object
+   	// evt.indices:the multi selected rows' indexes
+   	// evt.row:a json object which hold name and value pair of each column field
+   	row = evt.target.getDataByRow(evt.row);
+   };
+   
+   var datagrid = null;
+   
 	function renderGrid(){	
 			
-		var datagrid = new omniGrid( gridId, {
+		datagrid = new omniGrid( gridId, {
 			columnModel: colsModel,
 			buttons : [
 				{name: 'Add', bclass: 'add', onclick : gridButtonClick},
@@ -99,7 +107,7 @@ def _usersTridJs(**args):
 			perPage:10,
 			page:1,
 			pagination:true,
-			serverSort:false,
+			serverSort:true,
 			showHeader: true,
 			sortHeader: true,
 			alternaterows: true,
@@ -108,6 +116,8 @@ def _usersTridJs(**args):
 			width:710,
 			height: 320
 		});
+		
+		datagrid.addEvent('click', gridRowSelect);
 	};
 	
 	var toImport =
@@ -132,6 +142,11 @@ def _usersTridJs(**args):
 	return js
 
 def page_colsModel(**args):
+	""" 
+	Return the columns' model of the trid on the client side, which is used to show registered users.
+	Format:
+		[{'header':...,'dataIndex':...,'dataType':...},...]
+	"""
 	colsModel = []
 	fields = CONFIG.getData(ACCOUNTFIELDS)
 	fields.extend(CONFIG.getData(PORTFOLIOFIELDS))
