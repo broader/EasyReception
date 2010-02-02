@@ -1,6 +1,8 @@
 """
 User Management module 
 """
+import sys
+
 from HTMLTags import *
 
 # 'THIS.script_url' is a global variable in Karrigell system
@@ -27,7 +29,7 @@ USER = getattr( so, pagefn.SOINFO['user']).get('username')
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 
 # variables for data grid
-GRIDID, FILTERINPUTID = ('usersGrid', 'filterInput')
+GRIDID, FILTERINPUTID,FILTERBN,FILTERCLEARBN = ('usersGrid', 'filterInput','filterbn','filtereset')
 USERCOLUMNS = ['username','firstname','lastname','gender','country','organization','email']
 ACCOUNTFIELDS = 'userAccountInfo'
 PORTFOLIOFIELDS = 'userBaseInfo'
@@ -46,15 +48,21 @@ def index(**args):
 
 def usersTrid(**args):
 	title = _("Registered Users' List")
-	li = []
-	input = INPUT(**{style:'margin:15px 5px 15px 0;','id':FILTERINPUTID})
-	print H2(title)
-	print DIV(**{'id':GRIDID})
+	#li = []
+	input = INPUT(**{'style':'margin:15px 5px 15px 0;','id':FILTERINPUTID,'value':''})
+	bn = A(_('Filter'),**{'id':FILTERBN, 'href':'javascript:;'})
+	rbn = A(_('Clear Filter'),**{'id':FILTERCLEARBN, 'href':'javascript:;'})
+	
+	print H2(title),HR(style='padding:0 0 0.1em'),SPAN(Sum((input,bn,TEXT('|'),rbn))),DIV(**{'id':GRIDID})
 	print pagefn.script(_usersTridJs(), link=False)
 	return
 
 def _usersTridJs(**args):
 	paras = [ APP,GRIDID,]
+	
+	# append the ids of the elements for filter function 
+	paras.extend([FILTERINPUTID,FILTERBN,FILTERCLEARBN])
+	
 	paras.extend(pagefn.GRIDFILES)
 	[ paras.append('/'.join((APPATH,name)))\ 
 	  for name in ('page_usersData','page_colsModel')]
@@ -62,6 +70,7 @@ def _usersTridJs(**args):
 	js = \
 	"""
 	var appName='%s', gridId='%s',
+	filterInput='%s',filterBn='%s',filterClearBn='%s',
 	gridCss='%s',gridSupplement='%s',gridJs='%s',
 	dataUrl='%s',colsModelUrl='%s';
 	
@@ -79,9 +88,15 @@ def _usersTridJs(**args):
    // clear existed imported Assets 
    am.remove(appName,'app');
    
-   function gridButtonClick(event){   	
-   	alert('button clicked!');
-   };
+   
+   $(filterBn).addEvent('click',function (e){
+   	datagrid.filter($(filterInput).value);
+   });
+   
+   $(filterClearBn).addEvent('click', function(e){
+   	datagrid.clearFilter();
+   });
+   
    
    function gridRowSelect(evt){
    	// evt.target:the grid object
@@ -109,7 +124,7 @@ def _usersTridJs(**args):
 			accordion: false,
 			accordionRenderer: null,
 			autoSectionToggle: false,
-			perPageOptions: [10,20,50,100,200],
+			perPageOptions: [20,40,50,100,200],
 			perPage:10,
 			page:1,
 			pagination:true,
@@ -119,8 +134,8 @@ def _usersTridJs(**args):
 			alternaterows: true,
 			resizeColumns: true,
 			multipleSelection:true,
-			width:710,
-			height: 320
+			width:810,
+			height: 420
 		});
 		
 		datagrid.addEvent('click', gridRowSelect);
@@ -188,7 +203,11 @@ def page_usersData(**args):
 	
 	d['total'] = total
 	
-	if data:	
+	if data:
+		# set python default encoding to 'utf8'
+		reload(sys)
+		sys.setdefaultencoding('utf8')
+			
 		# sort data
 		if sortby :			
 			data.sort(key=lambda row:row[propnames.index(sortby)])	
@@ -213,6 +232,6 @@ def page_usersData(**args):
 		
 		d['data'] = encoded
 	
-	print JSON.encode(d)
+	print JSON.encode(d, encoding='utf8')
 	
 	return
