@@ -68,21 +68,31 @@ def usersTrid(**args):
 	return
 
 def _usersTridJs(**args):
-	paras = [ APP,GRIDID,]
+	paras = [APP,GRIDID]
 	
 	# append the ids of the elements for filter function 
 	paras.extend([FILTERINPUTID,FILTERBN,FILTERCLEARBN])
 	
+	# files for grid plugin	
 	paras.extend(pagefn.GRIDFILES)
+	
+	# url links
 	[ paras.append('/'.join((APPATH,name)))\ 
 	  for name in ('page_usersData','page_colsModel')]
+	
+	# the url to edit portfolio
+	paras.append('portfolio/portfolio.ks/page_editPortfolio')
+	
+	paras.append(_('Portfolio Edit'))
+		
 	paras = tuple(paras)
 	js = \
 	"""
 	var appName='%s', gridId='%s',
 	filterInput='%s',filterBn='%s',filterClearBn='%s',
 	gridCss='%s',gridSupplement='%s',gridJs='%s',
-	dataUrl='%s',colsModelUrl='%s';
+	dataUrl='%s',colsModelUrl='%s', editUrl='%s',
+	dialogTitle='%s';
 	
 	var colsModel=null, datagrid=null; 
 	var jsonRequest = new Request.JSON({
@@ -98,22 +108,34 @@ def _usersTridJs(**args):
    // clear existed imported Assets 
    am.remove(appName,'app');
    
-   
+   // search action for grid
    $(filterBn).addEvent('click',function (e){
    	datagrid.loadData(dataUrl, {'filter':$(filterInput).value || ''});
    });
    
+   // refresh grid
    $(filterClearBn).addEvent('click', function(e){
    	$(filterInput).setProperty('value','');
    	datagrid.loadData(dataUrl);
-   });
-   
+   });   
    
    function gridRowSelect(evt){
-   	// evt.target:the grid object
+   	//	evt.target:the grid object
    	// evt.indices:the multi selected rows' indexes
    	// evt.row:a json object which hold name and value pair of each column field
    	row = evt.target.getDataByRow(evt.row);
+   	//name = row['username'];
+   	url = editUrl + '?'+'user='+row['username'];
+   	
+   	// the dialog to edit portfolio
+   	new MUI.Modal({
+      	width:600, height:380,
+      	contentURL: url,
+      	title: dialogTitle,
+      	modalOverlayClose: false,
+      	onClose: function(e){datagrid.loadData();},
+      });
+   	
    };
    
    var datagrid = null;
@@ -122,15 +144,6 @@ def _usersTridJs(**args):
 			
 		datagrid = new omniGrid( gridId, {
 			columnModel: colsModel,
-			/*
-			buttons : [
-				{name: 'Add', bclass: 'add', onclick : gridButtonClick},
-				{name: 'Delete', bclass: 'delete', onclick : gridButtonClick},
-				{separator: true},
-				{name: 'Duplicate', bclass: 'duplicate', onclick : gridButtonClick}
-				],
-			*/
-			//buttons: null,
 			url: dataUrl,
 			accordion: false,
 			accordionRenderer: null,
@@ -204,6 +217,7 @@ def _getData(search=None):
 	pass
 		
 def page_usersData(**args):
+	
 	# paging arguments
 	showPage, pageNumber = [ int(args.get(name)) for name in ('page', 'perpage') ]
 	search = args.get('filter')
@@ -221,11 +235,7 @@ def page_usersData(**args):
 	
 	d['total'] = total
 	
-	if data:
-		# set python default encoding to 'utf8'
-		reload(sys)
-		sys.setdefaultencoding('utf8')
-			
+	if data:			
 		# sort data
 		if sortby :			
 			data.sort(key=lambda row:row[propnames.index(sortby)])	
@@ -241,9 +251,13 @@ def page_usersData(**args):
 		# get data slice in the displayed page from the data 	
 		rslice = data[start : end]
 		
-		# if ascii chars mixins with no ascii chars will result
-		# JSON.encode error, so decode all the data items to unicode.		 
-		encoded = [[i.decode('utf8') for i in row] for row in rslice]
+		# if ascii chars mixins with non ascii chars will result
+		# JSON.encode error, so decode all the data items to unicode.	
+		# set python default encoding to 'utf8'
+		reload(sys)
+		sys.setdefaultencoding('utf8')	 
+		#encoded = [[i.decode('utf8').encode('utf8') for i in row] for row in rslice]
+		encoded = [[unicode(i,'utf8').encode('utf8') for i in row] for row in rslice]
 		
 		# constructs each row to be a dict object that key is a property.
 		encoded = [dict([(prop,value) for prop,value in zip(showProps,row)]) for row in rslice]
@@ -251,14 +265,14 @@ def page_usersData(**args):
 		# some properties need to be transformated
 		transProps = [{'name':'gender','function':(lambda i: pagefn.GENDER[int(i)] )},]
 		names = [prop.get('name') for prop in transProps]
+		
 		for row in encoded :
 			for prop in transProps:
 				old = row[prop.get('name')]
 				new = prop.get('function')(old)
 				row[prop.get('name')] = new
-				
+			
 		d['data'] = encoded
 	
-	print JSON.encode(d, encoding='utf8')
-	
+	print JSON.encode(d, encoding='utf8')	
 	return

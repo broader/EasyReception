@@ -1431,8 +1431,8 @@ class FilterByTextAction(Action):
         if not search:
             search = ''
         
-        print 'ajaxActions.FilterByTextAction,L1433,klass is %s, props are %s, search is %s, require is %s'\
-                    %(klass, props, search,require)
+        #print 'ajaxActions.FilterByTextAction,L1433,klass is %s, props are %s, search is %s, require is %s'\
+        #            %(klass, props, search,require)
         
         # get  the required nodes' ids of this class
         if require:
@@ -1440,13 +1440,17 @@ class FilterByTextAction(Action):
         else:
             ids = klass.list()
         self.form['total'] = len(ids)
-        print 'FilterByTextAction,L1442, propnames are %s, search value is %s, item ids are %s'%(props, search, ids)
+        
+        #print 'FilterByTextAction,L1442, propnames are %s, search value is %s, item ids are %s'%(props, search, ids)
+        
         rows = []
         for id in ids:
             row = searchString(klass, id, props, search)
             if row:
                 rows.append(row)                               
-        print 'FilterByTextAction,L1448, searched values are ', rows
+        
+        #print 'FilterByTextAction,L1448, searched values are ', rows
+        
         return rows
  
  

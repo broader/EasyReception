@@ -8,7 +8,8 @@ from roundup import  __version__ as roundup_version
 from roundup.i18n import _
 
 from roundup.ajax import ajaxInstance, ajaxClient
-     	
+
+   	
 def valid_dir(path):    
     """ Check wether the path is a correct directory located data.
     """    
@@ -243,15 +244,15 @@ def edit_linkcsv(client, klass, nodeid, linkprop, actionType, content, filename=
 	client.form = form
 	return action(client)
 	
-def edit_user_info(admin, user, actionType, content, filename=None, client=None):
+def edit_user_info(operator, user, actionType, content, filename=None, client=None):
 	""" Edit User's 'info' property which is a link csv file.
 	"""
 	if not client:
 		client = get_client()
-		client.set_user(admin)
+		client.set_user(operator)
 		
 	if not client.db_open :
-		client.set_user(admin)
+		client.set_user(operator)
 		
 	userId = client.db.user.lookup(user)
 	if not filename:

@@ -127,8 +127,13 @@ def _portfolioShowJs(**args):
 	return js
 
 def page_editPortfolio(**args):
-	user = USER
-	rember = _getCsv(user,user)
+	name = args.get('user')
+	if not name:
+		user = USER
+	else:
+		user = name
+		
+	rember = _getCsv(USER,user)
 	
 	render = CONFIG.getData(BASEINFO)
 	
@@ -160,6 +165,10 @@ def page_editPortfolio(**args):
 	legend = LEGEND(TEXT(_('Base Information')))    
 	form.append(FIELDSET(Sum((legend,divs))))
 	
+	if user != USER :
+		# not self edit action, so save the name of editing user into the form body
+		form.append(INPUT(**{'name':'username','value':user,'type':'hidden'}))
+		
 	# add buttons to this form	
 	buttons = \
 	[ BUTTON( name, **{'class':'MooTrans', 'type':'button'}) \
@@ -249,7 +258,7 @@ def _editPortfolioJs(**args):
 				}
 			});// the end for 'formchk' define
 		}// the end for 'onload' define
-	};// the end for 'option' define
+	};// the end for 'options' define
     
    am.import({'url':fcJs,'app':appName,'type':'js'},options);
    
@@ -290,9 +299,10 @@ def page_editPortfolioAction(**args):
 	info = {}		
 	fields = [ item.get('name') for item in CONFIG.getData(BASEINFO) ]
 	[ info.update({ name:args.get(name) or '' }) for name in fields ]	
-	user = USER
+	operator = USER
+	user = args.get('username') or USER
 	# write these informations to database
-	res = model.edit_user_info( user, user, 'create', info)
+	res = model.edit_user_info( operator, user, 'create', info)
 	if res :
 		print '1'
 	else:
@@ -372,7 +382,7 @@ def _accountShowJs(**args):
       .getElements('button')[0]
       .addEvent('click',function(event){
          new MUI.Modal({
-         	contentURL:'', width:400, height:350,
+         	width:400, height:350,
          	contentURL: accountEditUrl,
          	title: accountDlgTitle,
          	modalOverlayClose: false,
