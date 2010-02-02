@@ -1,6 +1,7 @@
 # karrigell modules
 from HTMLTags import *
 
+# session object config
 SOINFO = {'user':'userinfo',}
 
 # a function to return the applicaiton name
@@ -170,6 +171,7 @@ ICONS = {'edit' : _relPath('edit.png'), 'delete' : _relPath('delete.png')}
 #---------------------------------------------------------------------------
 WEEKDAYS = ( _('Monday'), _('Tuesday'), _('Wednesday'), _('Thursday'), _('Friday'), _('Saturday'), _('Sunday') )
 HALFDAY = {'AM' : _('AM'), 'PM': _('PM')}
+GENDER = (_('Male'),_('Female'))
 
 # form confirm buttons and its css sytle 
 FORM_BNS = [_("OK"), _("Cancel")]

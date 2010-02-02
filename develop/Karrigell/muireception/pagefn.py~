@@ -1,6 +1,7 @@
 # karrigell modules
 from HTMLTags import *
 
+# session object config
 SOINFO = {'user':'userinfo',}
 
 # a function to return the applicaiton name
@@ -23,7 +24,7 @@ for name in ('css/hack.css', 'lang.js.pih', 'formcheck.js', 'theme/red/formcheck
 #--------------------------------------------------------------------------------------
 GRIDFILES = \
 ['/'.join(( 'lib', 'grid', name )) \
-for name in ('omnigrid.css', 'omnigrid.js')]
+for name in ('omnigrid.css', 'gridSupplement.css','omnigrid.js')]
 #---End--------------------------------------------------------------------------------
 
  
@@ -170,7 +171,7 @@ ICONS = {'edit' : _relPath('edit.png'), 'delete' : _relPath('delete.png')}
 #---------------------------------------------------------------------------
 WEEKDAYS = ( _('Monday'), _('Tuesday'), _('Wednesday'), _('Thursday'), _('Friday'), _('Saturday'), _('Sunday') )
 HALFDAY = {'AM' : _('AM'), 'PM': _('PM')}
-
+GENDER = (_('Male'),_('Female'))
 # form confirm buttons and its css sytle 
 FORM_BNS = [_("OK"), _("Cancel")]
 BUTTON_CSS = {'float':'center',\

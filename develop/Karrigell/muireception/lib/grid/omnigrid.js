@@ -305,12 +305,10 @@ var omniGrid = new Class({
 	},
 	
 	// API
-	loadData: function (url)
+	loadData: function (url, options)
 	{
 		if (!this.options.url)
-			return;
-		
-		var data = {};
+			return;			
 		
 		// ************* pagination *************************
 		if (this.options.pagination)
@@ -321,6 +319,10 @@ var omniGrid = new Class({
 			data.sorton = this.options.sortOn;
 			data.sortby = this.options.sortBy;
 		}
+		
+		// add others options data 
+		if($type(options) != false)
+			for (key in options){data[key]=options[key]};				
 			
 		// ************* white overflow & loader ************
 		if ( this.container.getElement('.gBlock') )
@@ -344,6 +346,7 @@ var omniGrid = new Class({
 		// **************************************************
 		
 		var url = (url != null) ? url : this.options.url;
+		
 		var request = new Request.JSON({url:url, data:data});
 
 		request.addEvent("complete", this.onLoadData.bind(this) ) ;

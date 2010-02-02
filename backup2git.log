@@ -24342,3 +24342,60 @@ sent 66 bytes  received 12 bytes  156.00 bytes/sec
 total size is 164368  speedup is 2107.28
 2010-02-02 11:56:37,654 INFO End backup loacl karrigell diretory to local git.
 2010-02-02 11:56:37,654 INFO Begin to backup local github to remote github host.
+2010-02-02 11:56:38,135 INFO Command: 
+git add .
+running result is :
+2010-02-02 11:56:40,122 INFO Command: 
+git commit -m 'Update time:2010-02-02T11:56:37.654912'
+running result is :[master cef734c] Update time:2010-02-02T11:56:37.654912
+ 4 files changed, 201 insertions(+), 26 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010020210.log
+2010-02-02 11:56:48,655 INFO Command: 
+git push origin master
+running result is :Counting objects: 22, done.
+Delta compression using up to 2 threads.
+Compressing objects:   8% (1/12)   Compressing objects:  16% (2/12)   Compressing objects:  25% (3/12)   Compressing objects:  33% (4/12)   Compressing objects:  41% (5/12)   Compressing objects:  50% (6/12)   Compressing objects:  58% (7/12)   Compressing objects:  66% (8/12)   Compressing objects:  75% (9/12)   Compressing objects:  83% (10/12)   Compressing objects:  91% (11/12)   Compressing objects: 100% (12/12)   Compressing objects: 100% (12/12), done.
+Writing objects:   8% (1/12)   Writing objects:  16% (2/12)   Writing objects:  25% (3/12)   Writing objects:  33% (4/12)   Writing objects:  41% (5/12)   Writing objects:  50% (6/12)   Writing objects:  58% (7/12)   Writing objects:  66% (8/12)   Writing objects:  75% (9/12)   Writing objects:  83% (10/12)   Writing objects: 100% (12/12)   Writing objects: 100% (12/12), 2.73 KiB, done.
+Total 12 (delta 8), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   e1fc6aa..cef734c  master -> master
+2010-02-02 11:56:48,655 INFO End backup local github to remote github host.
+2010-02-02 16:37:52,970 INFO Delete nousing captcha images
+2010-02-02 16:37:52,998 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-02-02 16:37:52,999 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-02-02 16:37:58,528 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010020213.log
+        2373 100%    0.00kB/s    0:00:00          2373 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1005/3532)
+data/cms/logs_2010020214.log
+        2373 100%    2.26MB/s    0:00:00          2373 100%    2.26MB/s    0:00:00 (xfer#2, to-check=1004/3532)
+muireception/pagefn.py
+        7697 100%    5.46kB/s    0:00:00          7697 100%    5.46kB/s    0:00:01 (xfer#3, to-check=1018/5174)
+muireception/pagefn.py~
+        7696 100%    5.45kB/s    0:00:00          7696 100%    5.45kB/s    0:00:01 (xfer#4, to-check=1017/5174)
+muireception/lib/grid/omnigrid.js
+       32768  93%    0.00kB/s    0:00:00         34972 100%    2.10MB/s    0:00:00 (xfer#5, to-check=1013/5745)
+muireception/lib/grid/omnigrid.js~
+       32768  93%   15.62MB/s    0:00:00         34973 100%   16.68MB/s    0:00:00 (xfer#6, to-check=1012/5745)
+muireception/user/userManagement.ks
+        7528 100%   25.79kB/s    0:00:00          7528 100%   25.79kB/s    0:00:00 (xfer#7, to-check=339/6204)
+muireception/user/userManagement.ks~
+        7523 100%   24.41kB/s    0:00:00          7523 100%   24.41kB/s    0:00:00 (xfer#8, to-check=338/6204)
+
+sent 157849 bytes  received 1302 bytes  28936.55 bytes/sec
+total size is 45184410  speedup is 283.91
+2010-02-02 16:37:58,636 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768  19%    0.00kB/s    0:00:00        165349 100%    5.75MB/s    0:00:00 (xfer#1, to-check=0/2)
+
+sent 39863 bytes  received 31 bytes  79788.00 bytes/sec
+total size is 165349  speedup is 4.14
+2010-02-02 16:37:58,636 INFO End backup loacl karrigell diretory to local git.
+2010-02-02 16:37:58,637 INFO Begin to backup local github to remote github host.
