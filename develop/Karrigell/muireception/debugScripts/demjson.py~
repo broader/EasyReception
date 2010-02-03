@@ -1410,6 +1410,8 @@ class JSON(object):
                 # directly to the JSON output without worry (unless the user
                 # has supplied a custom is-encodable function).
                 
+                print 'demjson.encode_string,L1412,ascii char encoding'
+                
                 j = i
                 i += 1
                 while i < imax:
@@ -2138,4 +2140,6 @@ def decode( txt, strict=False, encoding=None, **kw ):
     obj = j.decode( unitxt )
     return obj
 
+def test():
+	print 'china'
 # end file

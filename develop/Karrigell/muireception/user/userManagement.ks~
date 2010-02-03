@@ -251,13 +251,17 @@ def page_usersData(**args):
 		# get data slice in the displayed page from the data 	
 		rslice = data[start : end]
 		
-		# if ascii chars mixins with non ascii chars will result
-		# JSON.encode error, so decode all the data items to unicode.	
+		# if ascii chars mixins with non-ascii chars will result
+		# JSON.encode error, so decode all the data items to utf8.	
 		# set python default encoding to 'utf8'
 		reload(sys)
-		sys.setdefaultencoding('utf8')	 
-		encoded = [[i.decode('utf8').encode('utf8') for i in row] for row in rslice]
-		#encoded = [[unicode(i,'utf8') for i in row] for row in rslice]
+		sys.setdefaultencoding('utf8')
+		
+		for row in rslice:
+			for i,s in enumerate(row) :
+				row[i] = s.decode('utf8')
+		
+		#encoded = rslice		
 		
 		# constructs each row to be a dict object that key is a property.
 		encoded = [dict([(prop,value) for prop,value in zip(showProps,row)]) for row in rslice]

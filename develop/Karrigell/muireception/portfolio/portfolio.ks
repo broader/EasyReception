@@ -298,7 +298,8 @@ def _editPortfolioJs(**args):
 def page_editPortfolioAction(**args):
 	info = {}		
 	fields = [ item.get('name') for item in CONFIG.getData(BASEINFO) ]
-	[ info.update({ name:args.get(name) or '' }) for name in fields ]	
+	[ info.update( {name: args.get(name) or ''} ) for name in fields ]
+	
 	operator = USER
 	user = args.get('username') 
 	if user :

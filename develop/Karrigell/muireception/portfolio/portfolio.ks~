@@ -298,11 +298,18 @@ def _editPortfolioJs(**args):
 def page_editPortfolioAction(**args):
 	info = {}		
 	fields = [ item.get('name') for item in CONFIG.getData(BASEINFO) ]
-	[ info.update({ name:args.get(name) or '' }) for name in fields ]	
+	[ info.update( {name: args.get(name) or ''} ) for name in fields ]
+	#[ info.update({ name:(u'%s'%(args.get(name) or '')).encode('utf8') }) for name in fields ]	
+	#[ info.update({ name:(args.get(name) or '').encode('utf8') }) for name in fields ]
 	operator = USER
-	user = args.get('username') or USER
+	user = args.get('username') 
+	if user :
+		action = 'edit'
+	else:
+		action = 'create'
+		user = USER	
 	# write these informations to database
-	res = model.edit_user_info( operator, user, 'create', info)
+	res = model.edit_user_info( operator, user, action, info)
 	if res :
 		print '1'
 	else:

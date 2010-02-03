@@ -1,12 +1,12 @@
 city,
 fax,
 firstname,
-gender,0
-address,
-aperson,0
-phone,
+gender,1
+address,{}<>()(&(*&&^%$
+aperson,1
+phone,8982439721
 prefix,0
 postcode,
 lastname,
-organization,"禁卫军江洋大盗被收编?"
+organization,"禁卫军江洋大盗被收编？?,.*&(**&^%&^"
 country,

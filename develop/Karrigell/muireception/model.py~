@@ -9,9 +9,6 @@ from roundup.i18n import _
 
 from roundup.ajax import ajaxInstance, ajaxClient
 
-# set python default encoding to 'utf8'
-reload(sys)
-sys.setdefaultencoding('utf8')
    	
 def valid_dir(path):    
     """ Check wether the path is a correct directory located data.
@@ -525,7 +522,8 @@ def csv2dict(content):
 		reader = csv.reader(s)
 		# each row is a key,value pair, such as [[key1, value1], [key2, value2],......]
 		data = dict([row for row in reader])
-			
+	
+	print data	
 	return data	
 
 def serial2id(serial):

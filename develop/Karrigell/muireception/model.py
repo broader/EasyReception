@@ -522,7 +522,7 @@ def csv2dict(content):
 		reader = csv.reader(s)
 		# each row is a key,value pair, such as [[key1, value1], [key2, value2],......]
 		data = dict([row for row in reader])
-			
+		
 	return data	
 
 def serial2id(serial):
