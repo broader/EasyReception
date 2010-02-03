@@ -44,7 +44,7 @@ USERCOLUMNS = \
 ACCOUNTFIELDS = 'userAccountInfo'
 PORTFOLIOFIELDS = 'userBaseInfo'
 GRIDSORTONTAG, GRIDSORTBYTAG = ('sorton', 'sortby')
-
+BASEINFO = 'userBaseInfo'
 # End*****************************************************************************************
 
 
@@ -80,6 +80,9 @@ def _usersTridJs(**args):
 	[ paras.append('/'.join((APPATH,name)))\ 
 	  for name in ('page_usersData','page_colsModel', 'page_userInfo')]
 	
+	#[ paras.append('/'.join(('portfolio/portfolio.ks',name)))\ 
+	#  for name in ('page_simpleDossier', 'page_editPortfolio')]
+	  
 	# the url to edit portfolio
 	paras.append('portfolio/portfolio.ks/page_editPortfolio')
 	
@@ -157,8 +160,7 @@ def _usersTridJs(**args):
    	*/
    	row = obj.grid.getDataByRow(obj.row);
    	name = row['username'];
-   	//obj.parent.set('html','current user name is '+name);
-   	url = userInfoUrl+'?username='+name
+   	url = userInfoUrl+'?username='+name;
    	obj.parent.load(url);
    };
    
@@ -261,7 +263,7 @@ def page_usersData(**args):
 	if data:			
 		# sort data
 		if sortby :			
-			data.sort(key=lambda row:row[propnames.index(sortby)])	
+			data.sort(key=lambda row:row[showProps.index(sortby)])	
 		
 		if sorton == 'DESC':
 			data.reverse()
@@ -304,6 +306,22 @@ def page_usersData(**args):
 
 def page_userInfo(**args):
 	user = args.get('username')
-	content = DIV(user)
-	print content
+	values = model.getUserDossier(USER, user)
+	fields = CONFIG.getData(BASEINFO)
+	showProps = [item.get('name') for item in USERCOLUMNS]
+	fields = [item for item in fields if item.get('name') not in showProps]
+	newFields = formFn.filterProps(fields,values)
+		
+	labelStyle = {'label':'font-weight:bold;font-size:1.0em;color:white;', \
+					  'td':'text-align:right;background:#9ca2cb'}
+					  
+	valueStyle = {'label':'color:#ff6600;font-size:1.0em;', 'td':'text-align:center;width:5em;',\
+					  'textarea':'width:10em;color:#ff6600;font-size:1.1em;'}
+					  
+	trs = formFn.render_table_fields( newFields, 4, labelStyle, valueStyle)
+	table = []
+	table.append(trs)
+	tableStyle = 'position:relative;'	
+	table = TABLE(Sum(table), style=tableStyle)
+	print DIV(table)
 	return

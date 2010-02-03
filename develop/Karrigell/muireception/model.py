@@ -129,6 +129,23 @@ def get_items_ByString(operator, klass, search, propnames=None, needId=False):
         client.form = form
         return action(client)
 
+def getUserDossier(operator, user):
+	"""
+	Return the dossier data which is saved in a csv formatted file on server side.
+	"""
+	# get link id	
+	prop = 'info'
+	values = get_item( operator, 'user', user, (prop,))
+	nodeId = values.get(prop) 
+	if not nodeId :
+		content = {}
+	else:
+		# get file content
+		content = get_file( operator, 'dossier', nodeId)		
+	
+	data = csv2dict(content)			
+	return data
+	
 def filterByFunction(operator, klass, props, fn, fnArgs):
 	client = get_client()
 	if not client:

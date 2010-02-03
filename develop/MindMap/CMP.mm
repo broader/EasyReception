@@ -401,7 +401,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" ID="Freemind_Link_986904229" MODIFIED="1265093940886" POSITION="left" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1265207875997" POSITION="left" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -520,7 +520,7 @@
 <icon BUILTIN="help"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1174877401376" ID="Freemind_Link_503549801" MODIFIED="1265166596712" TEXT="karrigell">
+<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1265207874509" TEXT="karrigell">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1250824602428" FOLDED="true" ID="Freemind_Link_1774893402" MODIFIED="1265166091674" TEXT="_()---i18n">
@@ -797,16 +797,13 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1261625377953" FOLDED="true" ID="ID_1827272195" MODIFIED="1265095018287" TEXT="Plugins">
+<node COLOR="#990000" CREATED="1261625377953" ID="ID_1827272195" MODIFIED="1265201540826" TEXT="Plugins">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1261625384035" ID="ID_1027010126" MODIFIED="1261625390033" TEXT="Chart">
 <node COLOR="#111111" CREATED="1261625391132" ID="ID_147615027" MODIFIED="1261625392863" TEXT="http://highcharts.com/"/>
 </node>
-<node COLOR="#111111" CREATED="1262008710082" ID="ID_1744885849" MODIFIED="1262008714311" TEXT="formcheck">
-<node COLOR="#111111" CREATED="1262008745103" ID="ID_1531222631" MODIFIED="1262008811440" TEXT="Class FormCheck&#xa;--&gt;function removeErrors()&#x9;//&#x7528;&#x4e8e;&#x81ea;&#x52a8;&#x6e05;&#x9664;&#x5df2;&#x663e;&#x793a;&#x7684;&#x6821;&#x9a8c;&#x9519;&#x8bef;&#x4fe1;&#x606f;"/>
 </node>
-</node>
-<node COLOR="#990000" CREATED="1264307483351" FOLDED="true" ID="ID_379783643" MODIFIED="1265095028743" TEXT="Lib">
+<node COLOR="#990000" CREATED="1264307483351" ID="ID_379783643" MODIFIED="1265201535008" TEXT="Lib">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1264307492932" ID="ID_809217467" MODIFIED="1264307506442" TEXT="Meteora">
 <node COLOR="#111111" CREATED="1264307507472" ID="ID_1818217045" MODIFIED="1264307509331" TEXT="http://meteora.astrata.com.mx/pages/documentation"/>
@@ -834,13 +831,27 @@
 </node>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1265094822278" FOLDED="true" ID="ID_68100126" MODIFIED="1265095014444" TEXT="Omnigrid">
+<node COLOR="#111111" CREATED="1265094822278" ID="ID_68100126" MODIFIED="1265201562052" TEXT="Omnigrid">
 <icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1265094835103" ID="ID_1925202062" MODIFIED="1265094839525" TEXT="monigrid.js">
-<node COLOR="#111111" CREATED="1265094841143" ID="ID_292964798" MODIFIED="1265094846865" TEXT="loadData">
+<node COLOR="#111111" CREATED="1265094835103" FOLDED="true" ID="ID_1925202062" MODIFIED="1265207871149" TEXT="omnigrid.js">
+<node COLOR="#111111" CREATED="1265094841143" FOLDED="true" ID="ID_292964798" MODIFIED="1265207861308" TEXT="loadData">
 <node COLOR="#111111" CREATED="1265094863586" ID="ID_1893340089" MODIFIED="1265095005886" TEXT="&#x4e3a;&#x589e;&#x52a0;&#x5411;&#x670d;&#x52a1;&#x5668;&#x4f20;&#x9012;&#x7684;&#x53c2;&#x6570;&#xff0c;&#xa;1 &#x6dfb;&#x52a0;&#x6b64;&#x65b9;&#x6cd5;&#x7684;&#x4f20;&#x5165;&#x53c2;&#x6570;options(&#x4e00;&#x4e2a;JSON object)&#xa;loadData: function (url)---&gt;loadData: function (url, options)&#xa;&#xa;2 &#x6dfb;&#x52a0;&#x4ee3;&#x7801;&#xff08;L323&#xff09;&#xa;// add others options data &#xa;if($type(options) != false)&#xa;  for (key in options){data[key]=options[key]};"/>
 </node>
+<node COLOR="#111111" CREATED="1265202336037" ID="ID_1791843591" MODIFIED="1265207862074" TEXT="accordion &#x52a8;&#x6001;&#x5bfc;&#x5165;&#x5185;&#x5bb9;">
+<node COLOR="#111111" CREATED="1265201580159" FOLDED="true" ID="ID_1915350818" MODIFIED="1265207863844" TEXT="renderData">
+<icon BUILTIN="full-1"/>
+<node COLOR="#111111" CREATED="1265201938784" ID="ID_1717815800" MODIFIED="1265202209267" TEXT="&#x4e3a;&#x907f;&#x514d;&#x5728;&#x521d;&#x59cb;&#x5316;grid&#x65f6;&#x5c31;&#x5bfc;&#x5165;Accordion&#x6570;&#x636e;&#xff0c;&#xa;if (this.options.accordion)&#xa;{&#xa;&#xa;var li2 = new Element(&apos;li&apos;);&#xa;li2.addClass(&apos;section&apos;);&#xa;li2.addClass(&apos;section-&apos;+r);&#xa; // inace se Div-ovi wrapaju, a u IE nastaje cudan 1px border ispod LI el.&#xa;li2.setStyle(&apos;width&apos;, this.sumWidth+2*this.visibleColumns);&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#xa;this.ulBody.appendChild(li2);&#xa;&#xa;/****************&#x6ce8;&#x91ca;&#x4ee5;&#x4e0b;&#x5185;&#x5bb9;**********************&#xa;if (this.options.accordionRenderer)&#x9;&#xa;  this.options.accordionRenderer({parent:li2, row:r, grid:this});&#xa;***************************************************/&#xa;&#xa;}"/>
 </node>
+<node COLOR="#111111" CREATED="1265202353676" FOLDED="true" ID="ID_1671902291" MODIFIED="1265207864948" TEXT="onRowClick">
+<icon BUILTIN="full-2"/>
+<node COLOR="#111111" CREATED="1265202394045" ID="ID_1661583897" MODIFIED="1265202543987" TEXT="if (this.options.accordion)&#xa;{&#xa;...&#xa;  if (this.options.accordionRenderer)&#xa;  {&#xa;    /*******&#x65b0;&#x589e;&#x52a0;&#x8c03;&#x7528;accordionRenderer function &#x529f;&#x80fd;**************************&#xa;    this.options.accordionRenderer({parent: section, row: li.retrieve(&apos;row&apos;), grid:this});&#xa;    *****************************************************************************/&#xa;    this.toggle( section );&#xa;  }&#xa;...&#xa;}"/>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1262008710082" FOLDED="true" ID="ID_1744885849" MODIFIED="1265201563356" TEXT="formcheck">
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#111111" CREATED="1262008745103" ID="ID_1531222631" MODIFIED="1262008811440" TEXT="Class FormCheck&#xa;--&gt;function removeErrors()&#x9;//&#x7528;&#x4e8e;&#x81ea;&#x52a8;&#x6e05;&#x9664;&#x5df2;&#x663e;&#x793a;&#x7684;&#x6821;&#x9a8c;&#x9519;&#x8bef;&#x4fe1;&#x606f;"/>
 </node>
 </node>
 </node>
@@ -1042,7 +1053,7 @@
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="help"/>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1265114271715" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1265201525800" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1173066298350" FOLDED="true" ID="Freemind_Link_1468412211" MODIFIED="1265166073387" TEXT="UI">

@@ -54,37 +54,31 @@ def index(**args):
 	return
 	
 def _getCsv(operator, user):
-	# get link id	
-	prop = 'info'	
-	values = model.get_item( operator, 'user', user, (prop,))
-	nodeId = values.get(prop) 
-	if not nodeId :
-		content = {}
-	else:
-		# get file content
-		content = model.get_file( operator, 'dossier', nodeId)		
-	data = model.csv2dict(content)			
-	return data	
+	return model.getUserDossier(operator, user)		
+		
+def _portfolioTable(user,colsNumber=1,labelStyle='',valueStyle='',tableStyle=''):
+	table = []
+	values = _getCsv( USER, user)
+	fields = CONFIG.getData(BASEINFO)
+	newFields = formFn.filterProps(fields,values)	
+	trs = formFn.render_table_fields( newFields, colsNumber, labelStyle, valueStyle)
+	table.append(trs)
+	table = TABLE(Sum(table), style=tableStyle)
+	return table
 	
 def page_showPortfolio(**args):
 	print H2('Portfolio Information')
-	user = USER
-	values = _getCsv(user,user)
 	
-	fields = CONFIG.getData(BASEINFO)
-	newFields = formFn.filterProps(fields,values)
-	
-	main,table = ([],[])	
+	main = []
 	
 	labelStyle = {'label':'font-weight:bold;font-size:1.2em;color:white;', \
 					  'td':'text-align:right;background:#9ca2cb'}
 					  
 	valueStyle = {'label':'color:#ff6600;font-size:1.2em;', 'td':'text-align:center;width:10em;',\
 					  'textarea':'width:10em;color:#ff6600;font-size:1.2em;'}
-	
-	trs = formFn.render_table_fields( newFields, 2, labelStyle, valueStyle)
-	table.append(trs)
-	table = TABLE(Sum(table), style='position:relative;left:0.5em;')
+					  
+	tableStyle = 'position:relative;left:0.5em;'
+	table = _portfolioTable(USER,2,labelStyle,valueStyle,tableStyle)
 	
 	div = DIV(table, **{'class':'subcolumns'})		
 	main.append(DIV( div, **{'class':'subcolumns'}))

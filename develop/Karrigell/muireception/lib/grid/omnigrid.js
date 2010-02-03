@@ -271,10 +271,9 @@ var omniGrid = new Class({
 					section.setStyle('display', 'block');
 			}
 			
-			if (this.options.accordionRenderer){				
-				// judge whether it's need to load accordion data 
-				var rowIndex = li.retrieve('row');				
-				this._accordionContent(li, rowIndex);				
+			if (this.options.accordionRenderer){			
+				// new added by B.Z, for dynamicly loading accordion content	
+				this.options.accordionRenderer({parent: section, row: li.retrieve('row'), grid:this});				
 				this.toggle(section);
 			}
 			
@@ -282,20 +281,6 @@ var omniGrid = new Class({
 		}
 		
 		this.fireEvent("click", {indices:this.selected, target:this, row:li.retrieve('row'), element:li });
-	},
-	
-	_accordionContent: function(toAttach,rowIndex){
-		/* Judge whether it's need to load accordion data,
-		when it's needed, reall run the accordion function.
-		*/	
-		if(!toAttach || !rowIndex) return;
-		li = toAttach.getNext();
-		
-		//if( !toAttach.getNext().hasClass(indexTag2) ){
-		if(!li.get('html')){			
-			this.options.accordionRenderer({parent:li, row:rowIndex, grid:this});
-		}
-		
 	},
 	
 	onRowDblClick: function (evt){
@@ -838,8 +823,7 @@ var omniGrid = new Class({
 					li2.addClass('section-'+r);
 					li2.setStyle('width', this.sumWidth+2*this.visibleColumns); // inace se Div-ovi wrapaju, a u IE nastaje cudan 1px border ispod LI el.
 					
-					this.ulBody.appendChild(li2);
-					
+					this.ulBody.appendChild(li2);	
 					
 					/*
 					if (this.options.accordionRenderer)	

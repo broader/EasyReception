@@ -304,7 +304,7 @@ class LinkCSVAction(Action):
             except:
                 print 'ajaxActions.LinkCSVAction,L317', sys.exc_info()
                 
-            message = "New user id  %s, info link dossier id %s"%(id, newid)
+            message = "New user id  %s, info link dossier id %s"%(nodeId, newLinkPropId)
         elif actiontype == 'edit':
             # find the link propterty's value
             linkId = klass.get(nodeId, linkprop)
