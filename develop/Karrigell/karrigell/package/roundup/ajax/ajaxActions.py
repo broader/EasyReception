@@ -279,7 +279,7 @@ class LinkCSVAction(Action):
         """ CRUD(Create, Read, Update, Delete) the csv format file which is a link property of a class.
         """
         #print 'ajaxActions.LinkCSVAction,L301'
-        cn,id = self.client.form['context']
+        cn,nodeId = self.client.form['context']
         linkprop = self.client.form['linkprop']
         actiontype = self.client.form['actiontype']
         filename = self.client.form['filename']
@@ -288,31 +288,36 @@ class LinkCSVAction(Action):
         klass = self.db.getclass(cn)
         linklass_name = klass.getprops()[linkprop].classname
         linklass = self.db.getclass(linklass_name)
-        rows = [[key, content.get(key)] for key in content.keys()]
+        #rows = [[key, content.get(key)] for key in content.keys()]
+        rows = [[key, value] for key,value in content.items()]
         if actiontype == 'create':
             # 'create' action must assign a file name
             if not filename:
                 self.client.error_message.append('Please assigns a file name to write content.')
                 return 
                 
-            newid,fn = create_file(self.db,linklass, filename)
+            newLinkPropId,fn = create_file(self.db,linklass, filename)
             #print 'ajaxActions.LinkCSVAction,L313, new file node id is %s, name is %s'%(newid, fn)
-            d = {linkprop: newid}
-            klass.set(id,**d)                
+            klass.set(nodeId,**{linkprop: newLinkPropId})                
             try:
                 write2csv(fn, rows)
             except:
                 print 'ajaxActions.LinkCSVAction,L317', sys.exc_info()
+                
             message = "New user id  %s, info link dossier id %s"%(id, newid)
         elif actiontype == 'edit':
             # find the link propterty's value
-            linkId = klass.get(id, linkprop)
+            linkId = klass.get(nodeId, linkprop)
             fn = get_filepath(self.db, linklass, linkId)            
             try:
                 write2csv(fn, rows, 'wb')
             except:
                 print 'ajaxActions.LinkCSVAction,edit,L329', sys.exc_info()
             
+            # journal the action
+            if klass.do_journal:
+                self.db.addjournal(cn, nodeId, ''"set", {linkprop:content})
+                
             message = 'Edit Successfully!'            
         
         self.db.commit()

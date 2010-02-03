@@ -1,0 +1,45 @@
+2010/02/03 06:50:12 - 127.0.0.1 - GET /images/ajax_loading.gif HTTP/1.1 200
+2010/02/03 06:50:12 - 127.0.0.1 - GET /menu.ks/page_validForm HTTP/1.1 200
+2010/02/03 06:50:18 - 127.0.0.1 - GET /menu.ks/page_validName?user=supervisor HTTP/1.1 200
+2010/02/03 06:50:18 - 127.0.0.1 - GET /menu.ks/page_validPwd?user=supervisor&pwd=990508 HTTP/1.1 200
+2010/02/03 06:50:19 - 127.0.0.1 - GET /menu.ks/page_postValid?_=1265179819004 HTTP/1.1 200
+2010/02/03 06:50:19 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/02/03 06:50:19 - 127.0.0.1 - GET /menu.ks/page_toggleMenu?showMenu=1&_=1265179819266 HTTP/1.1 200
+2010/02/03 06:50:19 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/02/03 06:50:19 - 127.0.0.1 - GET /menu.ks/page_loginSpan?page=0 HTTP/1.1 200
+2010/02/03 06:50:19 - 127.0.0.1 - GET /menu.ks/page_menuList?page=0 HTTP/1.1 200
+2010/02/03 06:50:22 - 127.0.0.1 - GET /navigation.ks/profile?path=sysadmin HTTP/1.1 302 /sysadmin/index.hip
+2010/02/03 06:50:22 - 127.0.0.1 - GET /sysadmin/index.hip HTTP/1.1 200
+2010/02/03 06:50:22 - 127.0.0.1 - GET /lib/dataTable/css/demo_table.css HTTP/1.1 200
+2010/02/03 06:50:23 - 127.0.0.1 - GET /yaml/navigation/images/sliding_door/round/right_on.png HTTP/1.1 200
+2010/02/03 06:50:23 - 127.0.0.1 - GET /yaml/navigation/images/sliding_door/round/left.png HTTP/1.1 200
+2010/02/03 06:50:22 - 127.0.0.1 - GET /yaml/navigation/images/sliding_door/round/bg.gif HTTP/1.1 200
+2010/02/03 06:50:23 - 127.0.0.1 - GET /yaml/navigation/images/sliding_door/round/right.png HTTP/1.1 200
+2010/02/03 06:50:22 - 127.0.0.1 - GET /lib/treeTable/jquery.treeTable.css HTTP/1.1 200
+2010/02/03 06:50:23 - 127.0.0.1 - GET /yaml/navigation/images/sliding_door/round/left_on.png HTTP/1.1 200
+2010/02/03 06:50:23 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showClass?name=keyword HTTP/1.1 200
+2010/02/03 06:50:23 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_edit HTTP/1.1 200
+2010/02/03 06:50:23 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showProps?klass=keyword&target=classEdit HTTP/1.1 200
+2010/02/03 06:50:24 - 127.0.0.1 - GET /navigation.ks/profile?path=manage/userlist.hip HTTP/1.1 200
+2010/02/03 06:50:24 - 127.0.0.1 - GET /css/screen.css HTTP/1.1 200
+2010/02/03 06:50:24 - 127.0.0.1 - GET /manage/userlist.ks HTTP/1.1 302 /manage/userlist.ks/index
+2010/02/03 06:50:24 - 127.0.0.1 - GET /lib/dataTable/css/demo_page.css HTTP/1.1 200
+2010/02/03 06:50:24 - 127.0.0.1 - GET /manage/userlist.ks/page_account HTTP/1.1 200
+2010/02/03 06:50:24 - 127.0.0.1 - GET /manage/userlist.ks/index HTTP/1.1 200
+2010/02/03 06:50:25 - 127.0.0.1 - GET /lib/dataTable/js/jquery.dataTables.js?_=1265179825188 HTTP/1.1 200
+2010/02/03 06:50:25 - 127.0.0.1 - GET /lib/dataTable/i18n/cn_CN.txt HTTP/1.1 200
+2010/02/03 06:50:25 - 127.0.0.1 - GET /lib/dataTable/images/sort_asc.jpg HTTP/1.1 200
+2010/02/03 06:50:25 - 127.0.0.1 - GET /lib/dataTable/images/sort_both.jpg HTTP/1.1 200
+2010/02/03 06:50:25 - 127.0.0.1 - GET /manage/userlist.ks/getData?iColumns=5&sColumns=&iDisplayLength=10&iDisplayStart=0&sSearch=&bEscapeRegex=true&sSearch_0=&bEscapeRegex_0=true&sSearch_1=&bEscapeRegex_1=true&sSearch_2=&bEscapeRegex_2=true&sSearch_3=&bEscapeRegex_3=true&sSearch_4=&bEscapeRegex_4=true&iSortingCols=1&iSortCol_0=0&iSortDir_0=asc HTTP/1.1 200
+2010/02/03 06:50:27 - 127.0.0.1 - GET /manage/userlist.ks/page_account?username=demo&columns=2 HTTP/1.1 302 /user/info.ks/index?username=demo&columns=2
+2010/02/03 06:50:27 - 127.0.0.1 - GET /user/info.ks/index?username=demo&columns=2 HTTP/1.1 200
+2010/02/03 06:50:30 - 127.0.0.1 - GET /user/info.ks/page_edit?username=demo&columns=2 HTTP/1.1 200
+2010/02/03 06:50:30 - 127.0.0.1 - GET /css/images/required_star.gif HTTP/1.1 200
+2010/02/03 06:50:30 - 127.0.0.1 - GET /css/images/fieldset_gradient.jpg HTTP/1.1 200
+2010/02/03 06:50:30 - 127.0.0.1 - GET /css/images/button_s.png HTTP/1.1 200
+2010/02/03 06:50:30 - 127.0.0.1 - GET /user/info.js.pih?formId=baseinfo&_=1265179830556 HTTP/1.1 200
+2010/02/03 06:50:36 - 127.0.0.1 - GET /user/info.ks/postedit?username=demo&columns=2&prefix=0&firstname=&lastname=&gender=0&organization=%E4%B8%89%E5%86%9B%E4%BB%AA%E4%BB%97%E9%98%9F%3F&address=%E5%A4%A9%E5%AE%89%E9%97%A8&postcode=&country=%E4%B8%AD%E5%9B%BD&city=%E5%8C%97%E4%BA%AC&phone=1234567&fax=&aperson=0&_=1265179836701 HTTP/1.1 200
+2010/02/03 06:50:36 - 127.0.0.1 - GET /manage/userlist.ks/getData?iColumns=5&sColumns=&iDisplayLength=10&iDisplayStart=0&sSearch=&bEscapeRegex=true&sSearch_0=&bEscapeRegex_0=true&sSearch_1=&bEscapeRegex_1=true&sSearch_2=&bEscapeRegex_2=true&sSearch_3=&bEscapeRegex_3=true&sSearch_4=&bEscapeRegex_4=true&iSortingCols=1&iSortCol_0=0&iSortDir_0=asc HTTP/1.1 200
+2010/02/03 06:50:36 - 127.0.0.1 - GET /user/info.ks/postedit?username=demo&columns=2&prefix=0&firstname=&lastname=&gender=0&organization=%E4%B8%89%E5%86%9B%E4%BB%AA%E4%BB%97%E9%98%9F%3F&address=%E5%A4%A9%E5%AE%89%E9%97%A8&postcode=&country=%E4%B8%AD%E5%9B%BD&city=%E5%8C%97%E4%BA%AC&phone=1234567&fax=&aperson=0&submit=%E7%A1%AE%E5%AE%9A HTTP/1.1 200
+2010/02/03 06:50:45 - 127.0.0.1 - GET /manage/userlist.ks/page_account?username=demo&columns=2 HTTP/1.1 302 /user/info.ks/index?username=demo&columns=2
+2010/02/03 06:50:45 - 127.0.0.1 - GET /user/info.ks/index?username=demo&columns=2 HTTP/1.1 200

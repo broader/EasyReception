@@ -78,7 +78,7 @@ def _usersTridJs(**args):
 	
 	# url links
 	[ paras.append('/'.join((APPATH,name)))\ 
-	  for name in ('page_usersData','page_colsModel')]
+	  for name in ('page_usersData','page_colsModel', 'page_userInfo')]
 	
 	# the url to edit portfolio
 	paras.append('portfolio/portfolio.ks/page_editPortfolio')
@@ -91,10 +91,13 @@ def _usersTridJs(**args):
 	var appName='%s', gridId='%s',
 	filterInput='%s',filterBn='%s',filterClearBn='%s',
 	gridCss='%s',gridSupplement='%s',gridJs='%s',
-	dataUrl='%s',colsModelUrl='%s', editUrl='%s',
+	dataUrl='%s',colsModelUrl='%s', userInfoUrl='%s',
+	editUrl='%s',
 	dialogTitle='%s';
 	
-	var colsModel=null, datagrid=null; 
+	var colsModel=null, datagrid=null;
+	
+	// load column model for the grid from server side 
 	var jsonRequest = new Request.JSON({
 		async: false,
 		url: colsModelUrl, 
@@ -105,6 +108,7 @@ def _usersTridJs(**args):
 	
 	// get the global Assets manager
    var am = MUI.assetsManager;
+   
    // clear existed imported Assets 
    am.remove(appName,'app');
    
@@ -116,15 +120,18 @@ def _usersTridJs(**args):
    // refresh grid
    $(filterClearBn).addEvent('click', function(e){
    	$(filterInput).setProperty('value','');
-   	datagrid.loadData(dataUrl);
+   	datagrid.loadData();
    });   
    
-   function gridRowSelect(evt){
-   	//	evt.target:the grid object
-   	// evt.indices:the multi selected rows' indexes
-   	// evt.row:a json object which hold name and value pair of each column field
+   // edit the data of selected row
+   function gridRowEdit(evt){
+   	/* Parameters
+   	evt.target:the grid object
+   	evt.indices:the multi selected rows' indexes
+   	evt.row: the index of the row in the grid
+   	*/
+   	// get the data of the selected row
    	row = evt.target.getDataByRow(evt.row);
-   	//name = row['username'];
    	url = editUrl + '?'+'user='+row['username'];
    	
    	// the dialog to edit portfolio
@@ -138,15 +145,31 @@ def _usersTridJs(**args):
    	
    };
    
-   var datagrid = null;
+   // accordion function which show more data for each row
+   function gridRowAccordion(obj){
+   	/* Parameters
+   	obj :
+   	{ 
+   		parent: Li element which holds the content for accordion, 
+   		row: the index for the row in the grid, 
+   		grid: table grid instance
+   	}
+   	*/
+   	row = obj.grid.getDataByRow(obj.row);
+   	name = row['username'];
+   	//obj.parent.set('html','current user name is '+name);
+   	url = userInfoUrl+'?username='+name
+   	obj.parent.load(url);
+   };
+   
    
 	function renderGrid(){	
 			
 		datagrid = new omniGrid( gridId, {
 			columnModel: colsModel,
 			url: dataUrl,
-			accordion: false,
-			accordionRenderer: null,
+			accordion: true,
+			accordionRenderer: gridRowAccordion,
 			autoSectionToggle: false,
 			perPageOptions: [20,40,50,100,200],
 			perPage:10,
@@ -162,7 +185,7 @@ def _usersTridJs(**args):
 			height: 420
 		});
 		
-		datagrid.addEvent('click', gridRowSelect);
+		datagrid.addEvent('dblclick', gridRowEdit);
 	};
 	
 	var toImport =
@@ -259,9 +282,7 @@ def page_usersData(**args):
 		
 		for row in rslice:
 			for i,s in enumerate(row) :
-				row[i] = s.decode('utf8')
-		
-		#encoded = rslice		
+				row[i] = s.decode('utf8')		
 		
 		# constructs each row to be a dict object that key is a property.
 		encoded = [dict([(prop,value) for prop,value in zip(showProps,row)]) for row in rslice]
@@ -279,4 +300,10 @@ def page_usersData(**args):
 		d['data'] = encoded
 	
 	print JSON.encode(d, encoding='utf8')	
+	return
+
+def page_userInfo(**args):
+	user = args.get('username')
+	content = DIV(user)
+	print content
 	return

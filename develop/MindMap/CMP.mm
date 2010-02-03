@@ -405,7 +405,7 @@
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
-<node COLOR="#00b439" CREATED="1252499786714" FOLDED="true" ID="Freemind_Link_774228154" MODIFIED="1260450922709" TEXT="URL  &#x7f16;&#x7801;">
+<node COLOR="#00b439" CREATED="1252499786714" FOLDED="true" ID="Freemind_Link_774228154" MODIFIED="1265166157506" TEXT="URL  &#x7f16;&#x7801;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -461,10 +461,10 @@
 <node COLOR="#111111" CREATED="1260845378421" ID="ID_163739786" MODIFIED="1260845458885" TEXT="missing : before statement&#xa;&#x68c0;&#x67e5;&#x53d1;&#x73b0;&#xff0c;js&#x6587;&#x4ef6;&#x76f8;&#x5bf9;&#x8def;&#x5f84;&#x4e3a;/js/lib/...&#xff0c;&#x66f4;&#x6539;&#x4e3a;js/lib/...&#x5373;&#x6b63;&#x5e38;"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1254023346114" FOLDED="true" ID="Freemind_Link_186738146" MODIFIED="1262052478577" TEXT="Python">
+<node COLOR="#00b439" CREATED="1254023346114" FOLDED="true" ID="Freemind_Link_186738146" MODIFIED="1265166155666" TEXT="Python">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1254023354342" FOLDED="true" ID="Freemind_Link_1111266812" MODIFIED="1254023356999" TEXT="timezone">
+<node COLOR="#990000" CREATED="1254023354342" FOLDED="true" ID="Freemind_Link_1111266812" MODIFIED="1265166154338" TEXT="timezone">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1254023363423" ID="Freemind_Link_1101343072" MODIFIED="1254023401189" TEXT="Error with time.strptime()Things to try:(1) Is it possible that your interactive session and your &quot;bash&quot; are using different locales? Put print time.strftime(some known struct_time) into your script and see if the day and month come out in a different language.(2) Put print repr(date) in your script to show unambiguously what you are getting from the latest.GetCreatedAt() call."/>
 </node>
@@ -520,31 +520,31 @@
 <icon BUILTIN="help"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1265093943640" TEXT="karrigell">
+<node COLOR="#00b439" CREATED="1174877401376" ID="Freemind_Link_503549801" MODIFIED="1265166596712" TEXT="karrigell">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1250824602428" FOLDED="true" ID="Freemind_Link_1774893402" MODIFIED="1260244011179" TEXT="_()---i18n">
+<node COLOR="#990000" CREATED="1250824602428" FOLDED="true" ID="Freemind_Link_1774893402" MODIFIED="1265166091674" TEXT="_()---i18n">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1250824620013" ID="Freemind_Link_452775334" MODIFIED="1260243699317" TEXT="_(&quot;...&quot;)&#x63d0;&#x793a;str not callable &#x9519;&#x8bef;&#xff0c;&#x68c0;&#x67e5;&#x53d1;&#x73b0;URL&#x4e2d;&#x5e26;&#x6709;&quot;&quot;&#x53c2;&#x6570;&#xff0c;&#x5373;&#x7a7a;&#x7684;&#x8868;&#x5355;&#x53d8;&#x91cf;&#xff0c;&#x5bfc;&#x81f4;Karrigell&#x4e2d;&#x7684;_&#x51fd;&#x6570;&#x53d1;&#x751f;&#x89e3;&#x6790;&#x9519;&#x8bef;">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1170422421911" FOLDED="true" ID="Freemind_Link_61090711" MODIFIED="1260451611476" TEXT="&#x6587;&#x4ef6;&#x7f16;&#x7801;&#x8bbe;&#x5b9a;">
+<node COLOR="#990000" CREATED="1170422421911" FOLDED="true" ID="Freemind_Link_61090711" MODIFIED="1265166095426" TEXT="&#x6587;&#x4ef6;&#x7f16;&#x7801;&#x8bbe;&#x5b9a;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1174877413413" ID="Freemind_Link_42008706" MODIFIED="1260243705160" TEXT="karrigell.ini&#x4fee;&#x6539;&#xff1a;outputEncoding = utf-8">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1253975213187" FOLDED="true" ID="Freemind_Link_155505941" MODIFIED="1264132932445" TEXT="Virtual Host Config">
+<node COLOR="#990000" CREATED="1253975213187" FOLDED="true" ID="Freemind_Link_155505941" MODIFIED="1265166094554" TEXT="Virtual Host Config">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1253975226636" ID="Freemind_Link_1785529272" MODIFIED="1261467684143" TEXT="&#x4e3b;&#x673a;hosts&#x6587;&#x4ef6;&#xff0c;Linux&#x4e0b;&#x4e3a;/etc/hosts&#xa;127.0.0.1 localhost&#xa;127.0.0.1 cms&#xa;&#xa;Karrigell&#x5b89;&#x88c5;&#x76ee;&#x5f55;&#x4e0b;hosts&#x6587;&#x4ef6;&#xff0c;&#x6dfb;&#x52a0;&#xff1a;&#xa;cms /home/broader/develop/R@K/CMS/Karrigell/data/cms/conf.py&#xa;&#xa;&#x91cd;&#x65b0;&#x542f;&#x52a8;Karrigell">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1260451613749" ID="ID_1531639743" MODIFIED="1264734328909" TEXT="Indent Error">
+<node COLOR="#990000" CREATED="1260451613749" FOLDED="true" ID="ID_1531639743" MODIFIED="1265166096962" TEXT="Indent Error">
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="messagebox_warning"/>
 <icon BUILTIN="yes"/>
@@ -587,6 +587,12 @@
 <node COLOR="#111111" CREATED="1264156078809" ID="ID_1550093625" MODIFIED="1264156381563" TEXT="//RequestHandler&#x4e2d;&#x4fdd;&#x5b58;&#x6709;Session Object ,&#x76f4;&#x63a5;&#x8c03;&#x7528;&#x6b64;Object&#x3002;&#x95ee;&#x9898;&#xff1a;&#x8fd9;&#x6837;&#x4f1a;&#x5bfc;&#x81f4;&#x65b0;&#x9875;&#x9762;&#x8c03;&#x7528;&#x65e7; Session&#xff1f;&#xa;if hasattr(self,&quot;sessionObj&quot;):&#x9;&#xa;    return self.sessionObj&#xa;&#xa;// Request header &#x4e2d;&#x5305;&#x542b;&#x6709;cookie&#x4fe1;&#x606f;&#xff0c;&#x6839;&#x636e;&#x6b64;&#x4fe1;&#x606f;&#x83b7;&#x5f97;&#x5185;&#x5b58;&#x4e2d;&#x7684;Session Object&#xa;elif self.COOKIE.has_key(&quot;sessionId&quot;):&#xa;     self.sessionId = self.COOKIE[&quot;sessionId&quot;].value&#xa;     self.sessionObj = k_sessions.get_session_object(self.config,self.sessionId,expires)&#xa;&#xa;// &#x521b;&#x5efa;&#x65b0;&#x7684;Session Object&#xa;else:&#xa;     self.sessionId,self.sessionObj = k_sessions.make_session_object(self.config,expires)&#xa;     self.SET_COOKIE[&quot;sessionId&quot;] = self.sessionId&#xa;&#xa;return self.sessionObj"/>
 </node>
 </node>
+</node>
+<node COLOR="#990000" CREATED="1265166162729" ID="ID_1537892475" MODIFIED="1265166449091" TEXT="Unicode &amp; UTF8">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#111111" CREATED="1265166193364" ID="ID_669740718" MODIFIED="1265166645385" TEXT="&#x89e3;&#x51b3;&#x4ee5;&#x4e0b;&#x9519;&#x8bef;&#xff1a;&#xa;UnicodeDecodeError: &apos;utf8&apos; codec can&apos;t decode byte 0xbc in position 0: unexpected code byte&#xa;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xa;reload(sys)&#xa;sys.setdefaultencoding(&apos;utf8&apos;)&#x9; &#xa;&#xa;# &#x91c7;&#x7528;&#x5217;&#x8868;&#x9012;&#x5f52;&#x65b9;&#x5f0f;&#x6709;&#x65f6;&#x4f1a;&#x5f15;&#x53d1;&#x9519;&#x8bef;&#xff0c;&#x6b64;&#x65f6;&#x9700;&#x5bf9;&#x6bcf;&#x4e2a;&#x5b57;&#x7b26;&#x4e32;&#x8fdb;&#x884c;utf8&#x89e3;&#x7801;&#xa;#encoded = [[i.decode(&apos;utf8&apos;) for i in row] for row in rslice]&#xa;&#xa;for row in rslice:&#xa;  for i,s in enumerate(row) :&#xa;    row[i] = s.decode(&apos;utf8&apos;)"/>
 </node>
 </node>
 <node COLOR="#00b439" CREATED="1260243754255" FOLDED="true" ID="ID_1224555425" MODIFIED="1265093959351" TEXT="Ubuntu">
@@ -1039,7 +1045,7 @@
 <node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1265114271715" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1173066298350" ID="Freemind_Link_1468412211" MODIFIED="1265094467846" TEXT="UI">
+<node COLOR="#00b439" CREATED="1173066298350" FOLDED="true" ID="Freemind_Link_1468412211" MODIFIED="1265166073387" TEXT="UI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1261723589326" FOLDED="true" ID="ID_80373969" MODIFIED="1262749242175" TEXT="Preference">

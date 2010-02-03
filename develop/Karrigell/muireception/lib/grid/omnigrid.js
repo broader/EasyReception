@@ -271,14 +271,31 @@ var omniGrid = new Class({
 					section.setStyle('display', 'block');
 			}
 			
-			if (this.options.accordionRenderer){
-				this.toggle( section );
+			if (this.options.accordionRenderer){				
+				// judge whether it's need to load accordion data 
+				var rowIndex = li.retrieve('row');				
+				this._accordionContent(li, rowIndex);				
+				this.toggle(section);
 			}
 			
 			this.lastsection = section;
 		}
 		
 		this.fireEvent("click", {indices:this.selected, target:this, row:li.retrieve('row'), element:li });
+	},
+	
+	_accordionContent: function(toAttach,rowIndex){
+		/* Judge whether it's need to load accordion data,
+		when it's needed, reall run the accordion function.
+		*/	
+		if(!toAttach || !rowIndex) return;
+		li = toAttach.getNext();
+		
+		//if( !toAttach.getNext().hasClass(indexTag2) ){
+		if(!li.get('html')){			
+			this.options.accordionRenderer({parent:li, row:rowIndex, grid:this});
+		}
+		
 	},
 	
 	onRowDblClick: function (evt){
@@ -815,6 +832,7 @@ var omniGrid = new Class({
 					
 					li.appendChild(div);
 				*/
+					
 					var li2 = new Element('li');
 					li2.addClass('section');
 					li2.addClass('section-'+r);
@@ -822,8 +840,11 @@ var omniGrid = new Class({
 					
 					this.ulBody.appendChild(li2);
 					
+					
+					/*
 					if (this.options.accordionRenderer)	
 						this.options.accordionRenderer({parent:li2, row:r, grid:this});
+					*/
 				}
 				
 			}
