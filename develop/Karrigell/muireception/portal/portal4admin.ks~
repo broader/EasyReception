@@ -1,5 +1,5 @@
 """
-Portal module 
+Admin Portal module 
 """
 
 from HTMLTags import *

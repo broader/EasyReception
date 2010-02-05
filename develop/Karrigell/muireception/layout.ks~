@@ -18,8 +18,7 @@ VERSION = Import('/'.join((RELPATH, 'version.py')))
 # ********************************************************************************************
 
 # get the relative url slice as the application name
-APP = pagefn.getApp(THIS.baseurl,0)
-print 'layout.ks,APP name is %s,base url is %s'%(APP,THIS.baseurl)
+APP = 'loginDialog'
 
 # the session object for this page
 so = Session()

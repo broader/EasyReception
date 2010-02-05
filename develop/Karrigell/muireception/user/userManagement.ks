@@ -51,14 +51,14 @@ BASEINFO = 'userBaseInfo'
 # ********************************************************************************************
 # The page functions begining 
 # ********************************************************************************************
-
-def index(**args):
+	
+def page_info(**args):
 	print DIV(_("Monitor user's registration and edit their information"),**{'class':'info'})
 	return
 
-def usersTrid(**args):
+def index(**args):
 	title = _("Registered Users' List")
-	#li = []
+	
 	input = INPUT(**{'style':'margin:15px 5px 15px 0;','id':FILTERINPUTID,'value':''})
 	bn = A(_('Filter'),**{'id':FILTERBN, 'href':'javascript:;'})
 	rbn = A(_('Clear Filter'),**{'id':FILTERCLEARBN, 'href':'javascript:;'})

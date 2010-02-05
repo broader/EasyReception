@@ -89,7 +89,7 @@ USERSIDEBARPANELS = \
 'data': 
 	( 
 		{ 'id':'00', 'text':_("Portal"), 'onExpand':'portalPanel',\
-		  'onCollapse':'sidePanelCollapse', 'contentURL':'portal/portal.ks/index' },
+		  'onCollapse':'sidePanelCollapse', 'contentURL':'portal/portal.ks/page_info' },
 		
 		{ 'id':'01', 'text':_("Accommodation Service"), 'onExpand':'hotelPanel',\
 		  'onCollapse':'sidePanelCollapse' },
@@ -104,7 +104,7 @@ USERSIDEBARPANELS = \
 		  'onCollapse':'sidePanelCollapse' },
 		
 		{ 'id':'05', 'text':_("Portfolio"), 'onExpand':'portfolioPanel',\
-		  'onCollapse':'sidePanelCollapse', 'contentURL':'portfolio/portfolio.ks/index' },
+		  'onCollapse':'sidePanelCollapse', 'contentURL':'portfolio/portfolio.ks/page_info' },
        
 	),
 	
@@ -117,10 +117,10 @@ ADMINSIDEBARPANELS = \
 'data': 
 	( 
 		{ 'id':'00', 'text':_("Portal"), 'onExpand':'portalPanel',\
-		  'onCollapse':'sidePanelCollapse', 'contentURL':'portal/portal4admin.ks/index' },
+		  'onCollapse':'sidePanelCollapse', 'contentURL':'portal/portal4admin.ks/page_info' },
 		
 		{ 'id':'01', 'text':_("Users' List"), 'onExpand':'userManagementPanel',\
-		  'onCollapse':'sidePanelCollapse', 'contentURL':'user/userManagement.ks/index' },
+		  'onCollapse':'sidePanelCollapse', 'contentURL':'user/userManagement.ks/page_info' },
 		       
 		{ 'id':'02', 'text':_("Issues"), 'onExpand':'issuePanel',\
 		  'onCollapse':'sidePanelCollapse' },
@@ -132,7 +132,7 @@ ADMINSIDEBARPANELS = \
 		  'onCollapse':'sidePanelCollapse' },
 		
 		{ 'id':'05', 'text':_("Service Management"), 'onExpand':'servicePanel',\
-		  'onCollapse':'sidePanelCollapse', 'contentURL':'service/service.ks/index' },
+		  'onCollapse':'sidePanelCollapse', 'contentURL':'service/service.ks/page_info' },
        
 	),
 	

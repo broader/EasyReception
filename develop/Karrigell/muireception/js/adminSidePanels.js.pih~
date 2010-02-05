@@ -12,6 +12,8 @@ pagefn = Import('/'.join(('', 'pagefn.py')))
 
 %>
 
+// the id of main panel in right main column
+var mainPanelId = '<%=pagefn.MAINPANEL %>';
 
 /*
 ** The public function for side panels collapsing
@@ -34,7 +36,7 @@ function userManagementPanel(panelId){
 	MUI.accordionPanels(panelId);
 	MUI.clearMainPanel();
 	
-	var mainPanelId = '<%=pagefn.MAINPANEL %>';
+	//var mainPanelId = '<%=pagefn.MAINPANEL %>';
 	var cid = 'userMangementColumn'; 
 	new MUI.Column({
 		container:mainPanelId, id: cid, placement: 'main', 
@@ -46,14 +48,6 @@ function userManagementPanel(panelId){
 		contentURL:'user/userManagement.ks/index'
 	});
 	
-	/*
-	var panel = MUI.Panels.instances.get(mainPanelId);
-	MUI.updateContent({
-		'element': panel.panelEl,
-		'content': 'test',
-		'url': ''
-	});
-	*/ 
 };
 
 /*
@@ -82,4 +76,23 @@ function agendaPanel(panelId){
 */
 function servicePanel(panelId){
 	MUI.accordionPanels(panelId);
+	MUI.clearMainPanel();
+	
+	var columnId = 'serviceManagementColumn'; 
+	new MUI.Column({
+		container:mainPanelId, id: columnId, placement: 'main', 
+		sortable: false, width: null, resizeLimit: [100,200] 
+	});
+	
+	contentPanelId = 'serviceManagementPanel';
+	url = ['service/service.ks', ['panelid',contentPanelId].join('=')].join('?'); 
+	new MUI.Panel({
+		id: contentPanelId, column: columnId,
+		tabsURL: url,
+		require: {
+			css: [MUI.themePath() + 'css/Tabs.css']
+		},
+		contentURL:'pages/overview.html'
+	});
+	
 };

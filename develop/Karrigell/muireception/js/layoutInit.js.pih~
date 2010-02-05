@@ -134,21 +134,22 @@ function addColumns(){
 	});
 };
 
+
 // Add panels to columns
 function layoutInit(){	
 	// get panels on the left column
 	var panelsDataUrl = '<%=layoutUrls[2] %>';
 	var data = new Request.JSON({
 		url: panelsDataUrl, 
-		onSuccess:function(json,html){			
+		onSuccess:function(json,html){	
+					
 			am.import(
 				{	'url':json['js'],	// load the functions for the events of sidePanels
 					'app':'<%=loginApp %>',
 					'type':'js'
 				},
-				{	onload: function(){
-						addColumns();
-						
+				{	onload: function(){	// arrange the panels in left side bar
+						addColumns();						
 						var sideColumn = '<%=sideBar%>',
 						panelsNumber = json['data'].length;
 						
@@ -156,7 +157,7 @@ function layoutInit(){
 							var pid=['<%=sidePanelPrefix %>', item['id']].join('-'),
 							text=item['text'], url=item['contentURL'], 
 							expandfn=item['onExpand'], collapse=item['onCollapse'];
-										
+							
 							// add panels for left column
 							var panel = new MUI.Panel({
 								id:pid, title:text, contentURL:url, 
@@ -168,7 +169,7 @@ function layoutInit(){
 							
 							// collapse others panels, only left the first panel expand
 							if(index != 0){panel.toggleExpand();};
-						});												
+						});					
 					}
 				}
 			);
@@ -224,7 +225,7 @@ MUI.extend({
 	// remove all the MUI.Columns in the main panel
 	clearMainPanel: function (){	
 		MUI.Columns.instances
-		.filter(function(column,key){	// filter the instances whose element has been removed
+		.filter(function(column,key){		// filter the instances whose element has been removed
 			return $(column.options.id) != null;
 		})
 		.each(function(column){			

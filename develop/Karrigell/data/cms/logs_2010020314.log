@@ -28,3 +28,4 @@
 2010/02/03 14:28:06 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
 2010/02/03 14:28:06 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found
 2010/02/03 14:28:06 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found
+2010/02/03 14:39:05 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found

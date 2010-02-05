@@ -1,14 +1,14 @@
 /*
 ** FUNCTIONS FOR SIDE PANELS EXPAND, THESE SIDEPANELS BELONGS TO NORMAL USER ROLE.
 */
-
+alert('userSidePanels.js.pih is loading');
 <% 
 # PYTHON CODE SLICE
 # get meus stored in pagefn.py
 pagefn = Import('/'.join(('', 'pagefn.py')))
 
 # initialize some page variables
-#sideBar, mainColumn = pagefn.COLUMNS
+sideBar, mainColumn = pagefn.COLUMNS
 
 portfolio = pagefn.PORTFOLIO
 %>

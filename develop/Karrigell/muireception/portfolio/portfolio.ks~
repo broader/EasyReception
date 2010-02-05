@@ -66,19 +66,6 @@ def _portfolioTable(user,colsNumber=1,labelStyle='',valueStyle='',tableStyle='')
 	table = TABLE(Sum(table), style=tableStyle)
 	return table
 	
-def page_simpleDossier(**args):	
-	labelStyle = {'label':'font-weight:bold;font-size:0.8em;color:white;', \
-					  'td':'text-align:right;background:#9ca2cb'}
-					  
-	valueStyle = {'label':'color:#ff6600;font-size:0.2em;', 'td':'text-align:center;width:5em;',\
-					  'textarea':'width:10em;color:#ff6600;font-size:0.8em;'}
-					  
-	tableStyle = 'position:relative;left:0.8em;'	
-	
-	table = _portfolioTable(args.get('username'),5,labelStyle,valueStyle,tableStyle)
-	print DIV(table)
-	return
-	
 def page_showPortfolio(**args):
 	print H2('Portfolio Information')
 	

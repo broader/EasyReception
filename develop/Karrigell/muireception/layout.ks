@@ -39,15 +39,6 @@ DEMOSELECT = 'demoSelect'
 
 FORMBUTTONS = 'loginFormbns'
 
-# form fields' names in CONFIG file
-#ACCOUNTFIELDS = 'userAccountInfo'
-
-# The id for the 'Account' form
-#ACCOUNTFORM = 'AccountForm'
-
-# the id for the SPAN component in the account form page which holds buttons 
-#ACCOUNTFORMBNS = 'accountBns'
-
 # End*****************************************************************************************
 
 

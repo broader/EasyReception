@@ -1,0 +1,20 @@
+2010/02/04 03:09:46 - 127.0.0.1 - GET /navigation.ks/profile?path=manage/userlist.hip HTTP/1.1 200
+2010/02/04 03:09:46 - 127.0.0.1 - GET /manage/userlist.ks HTTP/1.1 302 /manage/userlist.ks/index
+2010/02/04 03:09:46 - 127.0.0.1 - GET /manage/userlist.ks/page_account HTTP/1.1 200
+2010/02/04 03:09:46 - 127.0.0.1 - GET /manage/userlist.ks/index HTTP/1.1 200
+2010/02/04 03:09:46 - 127.0.0.1 - GET /lib/dataTable/js/jquery.dataTables.js?_=1265252986872 HTTP/1.1 200
+2010/02/04 03:09:46 - 127.0.0.1 - GET /manage/userlist.ks/getData?iColumns=5&sColumns=&iDisplayLength=10&iDisplayStart=0&sSearch=&bEscapeRegex=true&sSearch_0=&bEscapeRegex_0=true&sSearch_1=&bEscapeRegex_1=true&sSearch_2=&bEscapeRegex_2=true&sSearch_3=&bEscapeRegex_3=true&sSearch_4=&bEscapeRegex_4=true&iSortingCols=1&iSortCol_0=0&iSortDir_0=asc HTTP/1.1 200
+2010/02/04 03:10:18 - 127.0.0.1 - GET /navigation.ks/profile?path=sysadmin HTTP/1.1 302 /sysadmin/index.hip
+2010/02/04 03:10:18 - 127.0.0.1 - GET /sysadmin/index.hip HTTP/1.1 200
+2010/02/04 03:10:18 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showClass?name=keyword HTTP/1.1 200
+2010/02/04 03:10:19 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showProps?klass=keyword&target=classEdit HTTP/1.1 200
+2010/02/04 03:10:19 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_edit HTTP/1.1 200
+2010/02/04 03:10:20 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showClass?name=service HTTP/1.1 200
+2010/02/04 03:10:20 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_showProps?klass=service&target=classEdit HTTP/1.1 200
+2010/02/04 03:10:20 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_edit?klass=service HTTP/1.1 200
+2010/02/04 03:10:21 - 127.0.0.1 - GET /service/serviceChange.js.pih?listUrl=service/service.ks/page_serviceList&listDiv=serviceList&editUrl=service/service.ks/page_serviceEdit&editDiv=serviceEdit&page=admin&selectId=stype&_=1265253021850 HTTP/1.1 200
+2010/02/04 03:10:21 - 127.0.0.1 - GET /service/service.ks/page_serviceEdit HTTP/1.1 200
+2010/02/04 03:11:07 - 127.0.0.1 - GET /service/service.ks/page_serviceEdit HTTP/1.1 200
+2010/02/04 03:11:07 - 127.0.0.1 - GET /service/service.ks/page_serviceList?action=edit&name=Hotel&page=admin HTTP/1.1 200
+2010/02/04 03:11:08 - 127.0.0.1 - GET /lib/treeTable/jquery.treeTable.js?_=1265253068252 HTTP/1.1 200
+2010/02/04 03:11:08 - 127.0.0.1 - GET /service/serviceList.js.pih?editUrl=service/service.ks/page_serviceEdit&action=edit&editDiv=serviceEdit&categoryTag=noUsed&listDiv=serviceList&_=1265253068302 HTTP/1.1 200

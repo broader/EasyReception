@@ -48,8 +48,11 @@ portfolioPanel,accountPanel = pagefn.PORTFOLIO.get('panelsId')
 # ********************************************************************************************
 # The page functions begining 
 # ********************************************************************************************
-
 def index(**args):
+	pass
+	return
+	
+def page_info(**args):
 	print H2('Test Portfolio')
 	return
 	
