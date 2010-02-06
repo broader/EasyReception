@@ -28,7 +28,8 @@ so = Session()
 
 TABS = [\
 {'text':'Overview','id':'panelTabsLink','url':'pages/overview.html'},
-{'text':'Download','id':'panelTabs2link', 'url':'pages/download.html'}]
+{'text':'Download','id':'panelTabs2link', 'url':'pages/download.html'},
+{'id':'addNewService', 'url':'/'.join((APPATH,'page_createService'))}]
 # End*****************************************************************************************
 
 
@@ -43,10 +44,14 @@ def index(**args):
 		props = {'id':tab.get('id')}
 		if index == 0:
 			props['class'] = 'selected'
-			
-		lis.append(LI(A(tab.get('text')),**props))
-	
 		
+		text = tab.get('text')
+		if text: 	
+			lis.append(LI(A(tab.get('text')),**props))
+		else:
+			# append the logo for add new service
+			lis.append(LI(A(IMG(src='/'.join((RELPATH,'images/icons/16x16','add_16.png')))),**props))
+	
 	tabsId = 'panelTabs'
 	print DIV(UL(Sum(lis),**{'id': tabsId,'class':'tab-menu'}),**{'class':'toolbarTabs'})
 	_indexJs(panelId,tabsId)
@@ -81,3 +86,7 @@ def page_info(**args):
 	print P('For editing servcie, please select a category of service by clicking the tabs on right operation panel first !')
 	return
 	
+def page_createService(**args):
+	print H2('Create new category of service.')
+	return
+	 
