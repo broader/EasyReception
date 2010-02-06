@@ -26,21 +26,45 @@ so = Session()
 # config data object
 #CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 
-TABS = [\
-{'text':'Overview','id':'panelTabsLink','url':'pages/overview.html'},
-{'text':'Download','id':'panelTabs2link', 'url':'pages/download.html'},
-{'id':'addNewService', 'url':'/'.join((APPATH,'page_createService'))}]
 # End*****************************************************************************************
 
 
 # ********************************************************************************************
 # The page functions begining 
 # ********************************************************************************************
+
+def _getCategory( ):
+	# get value from 'service' class in database
+	values = model.get_items('admin', 'service', ('category',))
+	if type(values) == type(''):
+		values = []
+	else:
+		values = [item[0] for item in values ]
+		values = [c for c in set(values)]
+		values.sort()
+	return values
+	
+def _getTabs(**args):
+	# get service catrgory
+	categories = _getCategory()
+	
+	# constructs the tabs list
+	tabs = []
+	for category in categories:
+		d = { 'text':category,\
+				'id':''.join((category,'Tab')),\
+				'url':'?'.join(('page_showService','category=%s'%category))}
+		tabs.append(d)
+	
+	tabs.append({'id':'addNewService', 'url':'/'.join((APPATH,'page_createService'))})
+	return tabs	
+	
 def index(**args):
 	panelId = args.get('panelid')
 	
 	lis = []
-	for index,tab in enumerate(TABS):
+	tabs = _getTabs()
+	for index,tab in enumerate(tabs):
 		props = {'id':tab.get('id')}
 		if index == 0:
 			props['class'] = 'selected'
@@ -66,7 +90,8 @@ def _indexJs(panelId,tabsId):
 	
 	
 	js = [content,]
-	for tab in TABS:
+	tabs = _getTabs()
+	for tab in tabs :
 		slice = \
 		"""
 		$('%s').addEvent('click', function(e){
@@ -78,6 +103,11 @@ def _indexJs(panelId,tabsId):
 		"""%tuple([tab.get(name) for name in ('id','url')])
 		js.append(slice)
 	
+	content = \
+	"""
+	$(tabsId).getElements('li')[0].fireEvent('click');
+	"""
+	js.append(content)
 	js = '\n'.join(js)
 	print pagefn.script(js,link=False)
 	return 
@@ -89,4 +119,8 @@ def page_info(**args):
 def page_createService(**args):
 	print H2('Create new category of service.')
 	return
-	 
+
+def page_showService(**args):
+	print args.get('category') or ''
+	return
+	

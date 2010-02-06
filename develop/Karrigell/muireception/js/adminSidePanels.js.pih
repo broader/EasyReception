@@ -91,8 +91,7 @@ function servicePanel(panelId){
 		tabsURL: url,
 		require: {
 			css: [MUI.themePath() + 'css/Tabs.css']
-		},
-		contentURL:'pages/overview.html'
+		}
 	});
 	
 };
