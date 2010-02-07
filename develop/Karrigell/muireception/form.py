@@ -50,7 +50,8 @@ def getField(field):
 			newclass = "required"
 			
 		field['class'] = newclass
-		label += SUP("*", title=_("This field is mandotroy."))
+		#label += SUP("*", title=_("This field is mandotroy."))
+		label += SUP("*")
 		 
 		if prompt:
 			label += TEXT(prompt)
@@ -76,7 +77,7 @@ def getField(field):
 	else:
 		# maybe this filed has old value
 		oldvalue = oldvalue or ""
-		if fieldType in ("input", "text", "password"):
+		if fieldType in ("input", "text", "password",'hidden'):
 			field["value"] = oldvalue
 			input = INPUT( **field)
 		elif fieldType == "textarea":

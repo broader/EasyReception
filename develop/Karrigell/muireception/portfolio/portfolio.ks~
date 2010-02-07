@@ -48,8 +48,11 @@ portfolioPanel,accountPanel = pagefn.PORTFOLIO.get('panelsId')
 # ********************************************************************************************
 # The page functions begining 
 # ********************************************************************************************
-
 def index(**args):
+	pass
+	return
+	
+def page_info(**args):
 	print H2('Test Portfolio')
 	return
 	
@@ -434,8 +437,6 @@ def page_editAccount(**args):
 	 	field.update({'required':True})
 	 	# add maybe old value
 	 	field.update({'oldvalue':values.get(name)})
-   
-	
    
 	# render the fields to the form
 	form = []

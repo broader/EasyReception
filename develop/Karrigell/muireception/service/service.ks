@@ -22,9 +22,27 @@ APP = pagefn.getApp(THIS.baseurl,1)
 
 # the session object for this page
 so = Session()
+USER = getattr( so, pagefn.SOINFO['user']).get('username')
 
 # config data object
 #CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
+
+PROPS =\ 
+[
+	{'name':'category','prompt':_('Category'),'validate':[]},
+	{'name':'name','prompt':_('Name'),'validate':[]},
+	{'name':'description','prompt':_('Description'),'validate':[]},
+	{'name':'price','prompt':_('Unit Price'),'validate':[]},
+	{'name':'amount','prompt':_('Amount'),'validate':[]}
+]
+
+SERVICECHECKFUNCTION = 'serviceCheck'
+
+DETAILPROPS = \
+[
+	{'name':'alias','prompt':_('Service name'),'validate':[]},
+	{'name':'parent','prompt':_('The serial number of the parent service'),'validate':[''.join(('~',SERVICECHECKFUNCTION))]}
+]
 
 # End*****************************************************************************************
 
@@ -115,12 +133,51 @@ def _indexJs(panelId,tabsId):
 def page_info(**args):
 	print P('For editing servcie, please select a category of service by clicking the tabs on right operation panel first !')
 	return
+
+def page_showService(**args):
+	print args.get('category') or ''	
+	return
 	
 def page_createService(**args):
 	print H2('Create new category of service.')
+	
+	# start to render edit form
+	props = PROPS
+	props.extend(DETAILPROPS)
+	for prop in PROPS:
+		name = prop['name']
+		prop['id'] = name
+		prop['type'] = 'text'
+		if name != 'parent':
+			prop['required'] = True
+		else:
+			prop['required'] = False			 	
+		
+		prop['oldvalue'] = ''
+		
+	props.append({'name':'action','oldvalue':'create','type':'hidden','validate':[]})
+	
+	# render the fields to the form	
+	form = []
+	# get the OL content from formRender.py module	
+	yform = formFn.yform(props)	
+	div = DIV( Sum(yform), **{'class':'subcolumns'})
+	
+	# add the <Legend> tag
+	info = ': '.join((_('Create New Service'), USER))
+	
+	legend = LEGEND(TEXT(info))    
+	form.append(FIELDSET(Sum((legend,div))))
+	
+	form = FORM( \
+				Sum(form),\ 
+				**{'action': '', 'id': '', 'method':'post','class':'yform'}\
+				)
+				
+	print DIV(form, **{'class':'subcolumns'})
 	return
 
-def page_showService(**args):
-	print args.get('category') or ''
-	return
+
+
+
 	

@@ -406,6 +406,7 @@ def page_editAccount(**args):
 	fields.pop(0)
 	[ fields[index].update({'validate':value}) \
 	  for index,value in zip((0,1),(['email',], ['length[6,-1]',]))]
+	  
 	fields.insert(1, \
 		{'prompt':_("Confirm Email :"), \
 		 'name':'cemail', 'type':'text',\
@@ -437,8 +438,6 @@ def page_editAccount(**args):
 	 	field.update({'required':True})
 	 	# add maybe old value
 	 	field.update({'oldvalue':values.get(name)})
-   
-	
    
 	# render the fields to the form
 	form = []

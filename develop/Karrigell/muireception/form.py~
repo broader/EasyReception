@@ -50,7 +50,8 @@ def getField(field):
 			newclass = "required"
 			
 		field['class'] = newclass
-		label += SUP("*", title=_("This field is mandotroy."))
+		#label += SUP("*", title=_("This field is mandotroy."))
+		label += SUP("*")
 		 
 		if prompt:
 			label += TEXT(prompt)
@@ -131,8 +132,26 @@ def getField(field):
 
 def filterProps(fields,values):
 	""" Filter the needed properties of fields for render_table_fields function."""
-	pass
-	return
+	postValues = []	
+	for field in fields :
+		temp = {}
+		[ temp.update({prop:field.get(prop)}) for prop in ('prompt','type')]
+		
+		if not temp['type'] :
+			temp['type'] = 'text'
+		
+		propName = field.get('name')
+		if temp['type'] in ('radio','select') :			
+			for option in field['options'] :
+				if option['value'] == str(values.get(propName)):
+					temp['value'] = option['label']
+					break
+		else:
+			temp['value'] = values.get(propName)
+			
+		postValues.append(temp)
+		
+	return postValues
 		
 def render_table_fields( fields, cols, labelStyle, valueStyle):
 	""" 
