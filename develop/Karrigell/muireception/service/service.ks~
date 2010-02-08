@@ -27,21 +27,16 @@ USER = getattr( so, pagefn.SOINFO['user']).get('username')
 # config data object
 #CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 
+SERVICECHECKFUNCTION = 'serviceCheck'
 PROPS =\ 
 [
 	{'name':'category','prompt':_('Category'),'validate':[]},
-	{'name':'name','prompt':_('Name'),'validate':[]},
-	{'name':'description','prompt':_('Description'),'validate':[]},
+	{'name':'subcategory','prompt':_('Subcategory'),'validate':[''.join(('~',SERVICECHECKFUNCTION))],'required':False},
+	{'name':'name','prompt':_('Service Name'),'validate':[]},
+	{'name':'description','prompt':_('Description'),'validate':[],'type':'textarea'},
 	{'name':'price','prompt':_('Unit Price'),'validate':[]},
-	{'name':'amount','prompt':_('Amount'),'validate':[]}
-]
-
-SERVICECHECKFUNCTION = 'serviceCheck'
-
-DETAILPROPS = \
-[
-	{'name':'alias','prompt':_('Service name')},
-	{'name':'parent','prompt':_('The serial number of the parent service'),'validate':[''.join(('~',SERVICECHECKFUNCTION))]}
+	{'name':'amount','prompt':_('Amount'),'validate':[]},
+	{'name':'detail','prompt':_('Supplement'),'validate':[],'required':False,'type':'textarea'},
 ]
 
 # End*****************************************************************************************
@@ -139,42 +134,44 @@ def page_showService(**args):
 	return
 	
 def page_createService(**args):
-	print H2('Create new category of service.')
+	#print H2('Create new category of service.')
 	
 	# start to render edit form
 	props = PROPS
-	props.extend(DETAILPROPS)
 	for prop in PROPS:
-		name = prop['name']
-		prop['id'] = name
-		prop['type'] = 'text'
-		if name != 'parent':
-			prop['required'] = True
-		else:
-			prop['required'] = False			 	
+		prop['id'] = prop['name']		
+		if not prop.get('type'):
+			prop['type'] = 'text'
+			
+		if not prop.has_key('required'):
+			prop['required'] = True		 	
 		
 		prop['oldvalue'] = ''
-		
-	props.append({'name':'action','oldvalue':'create','type':'hidden','validate':[]})
 	
 	# render the fields to the form	
 	form = []
 	# get the OL content from formRender.py module	
-	yform = formFn.yform(props)	
-	div = DIV( Sum(yform), **{'class':'subcolumns'})
+	yform = formFn.yform
 	
-	# add the <Legend> tag
-	info = ': '.join((_('Create New Service'), USER))
+	interval = int(len(prop)/2)
+	left = DIV(Sum(yform(props[ :interval ])), **{'class':'c50l' })	
+	right = DIV(Sum(yform(props[ interval: ])), **{'class':'c50r'})
+	div = DIV(Sum((left,right)))	
 	
-	legend = LEGEND(TEXT(info))    
+	# add the <Legend> tag	
+	legend = LEGEND(TEXT(_('Create New Service')))    
 	form.append(FIELDSET(Sum((legend,div))))
+	# append hidden field that points out the action type
+	form.append(INPUT(**{'name':'action','value':'create','type':'hidden'}))
 	
-	form = FORM( \
-				Sum(form),\ 
-				**{'action': '', 'id': '', 'method':'post','class':'yform'}\
-				)
+	form = \
+	FORM( \
+		Sum(form),\ 
+		**{'action': '', 'id': '', 'method':'post','class':'yform'}\
+	)
 				
-	print DIV(form, **{'class':'subcolumns'})
+	print DIV(form,style='width:50%;margin-left:5em;')
+	
 	return
 
 

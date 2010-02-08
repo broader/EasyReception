@@ -33,7 +33,7 @@ def _getValidClass(field, required):
 def getField(field):
 	""" Render YAML formats form field."""
 	
-	prompt,required,oldvalue = [ field.pop(prop) for prop in ( "prompt", "required", "oldvalue" )]
+	prompt,required,oldvalue = [ field.pop(prop) for prop in ( 'prompt', 'required', 'oldvalue' )]
 	
 	# for i18n need
 	prompt = _(prompt)
