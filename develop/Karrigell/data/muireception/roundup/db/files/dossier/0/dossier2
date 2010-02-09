@@ -1,11 +1,11 @@
 city,
 fax,
 firstname,
-gender,0
+gender,1
 address,
-aperson,0
+aperson,2
 phone,
-prefix,0
+prefix,1
 postcode,
 lastname,
 organization,

@@ -7,9 +7,6 @@
 # get meus stored in pagefn.py
 pagefn = Import('/'.join(('', 'pagefn.py')))
 
-# initialize some page variables
-#sideBar, mainColumn = pagefn.COLUMNS
-
 %>
 
 // the id of main panel in right main column
@@ -36,7 +33,6 @@ function userManagementPanel(panelId){
 	MUI.accordionPanels(panelId);
 	MUI.clearMainPanel();
 	
-	//var mainPanelId = '<%=pagefn.MAINPANEL %>';
 	var cid = 'userMangementColumn'; 
 	new MUI.Column({
 		container:mainPanelId, id: cid, placement: 'main', 

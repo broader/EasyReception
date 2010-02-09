@@ -1,12 +1,12 @@
 city,
 fax,
 firstname,
-gender,0
-address,测试日志？
-aperson,0
+gender,1
+address,
+aperson,1
 phone,
 prefix,0
 postcode,
 lastname,
-organization,曹魏后辈?
+organization,
 country,

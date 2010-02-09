@@ -35,7 +35,8 @@ MUI.extend({
 	// add a inner object to MUI for managing mootools.Assets importing action 
 	assetsManager: new AssetsManager(),
 	
-	// clear cookie of this application, the cookie name is defined in 'pagefn.py' file
+	// Clear cookie of this application, the cookie name is defined in 'pagefn.py' file.
+	// Close old session of this application.
 	appInit: function(){
 		// remove old cookie		
 		var name = '<%=pagefn.COOKIENAME %>';		
@@ -49,7 +50,7 @@ MUI.extend({
 	// a plugin to close single popup dialog window, such as login or register dialog 
 	closeModalDialog: function(){
 		// Remove form validation error informations that may be left.
-		MUI.removeErr();
+		//MUI.removeErr();
 		
 		// close modal dialog
 		var keys = MUI.Windows.instances.getKeys();

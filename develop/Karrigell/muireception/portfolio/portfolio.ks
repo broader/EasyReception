@@ -188,15 +188,15 @@ def page_editPortfolio(**args):
 	print DIV(form, **{'class':'subcolumns'})
 	
 	# import js slice  
-	print pagefn.script(_editPortfolioJs(),link=False)	
+	print pagefn.script(_editPortfolioJs(args.get('panelId')),link=False)	
 	return
 
-def _editPortfolioJs(**args):
-	paras = [ portfolioPanel, APP, PORTFOLIOACTIONBN, BASEINFO ]
+def _editPortfolioJs(panelId=None):
+	paras = [ panelId or portfolioPanel, APP, PORTFOLIOACTIONBN, BASEINFO ]
 	paras = tuple(paras)
 	js =\
 	"""
-	var portfolioPanelId='%s',appName='%s', 
+	var currentPanelId='%s',appName='%s', 
 	portfolioActionBn='%s', portfolioFormId='%s';
 	
 	// Add validation function to the form
@@ -218,8 +218,9 @@ def _editPortfolioJs(**args):
 						// close edit dialog
 						closeDialog();
 						
-						// refresh account show page
-						var panel = MUI.Panels.instances.get( portfolioPanelId ),
+						// refresh user list showing
+						var panel = MUI.Panels.instances.get( currentPanelId );
+						
 						props = panel.options;
 						MUI.updateContent({
 							'element': panel.panelEl,
@@ -250,7 +251,6 @@ def _editPortfolioJs(**args):
 	function closeDialog(){
 		// close register dialog, this function has been defined in init.js
    	MUI.closeModalDialog();
-   	
    	// remove imported Assets
    	MUI.assetsManager.remove(appName,'app');
 	};
@@ -458,30 +458,13 @@ def page_editAccount(**args):
 	return
 
 def _editAccountJs(**args):
-	paras = [ accountPanel, APP, ACCOUNTACTIONBN, ACCOUNTFIELDS ]
-	
-	# add some files' path for validation function
-	paras.extend(pagefn.FCLIBFILES)
-	
+	paras = [ accountPanel, APP, ACCOUNTACTIONBN, ACCOUNTFIELDS ]	
 	paras = tuple(paras)
 	
 	js =\
 	"""
 	var panelId='%s',appName='%s', 
-	buttonsContainer='%s', formId='%s',
-	hackCss='%s', fcI18nJs='%s', fcJs='%s', fcCss='%s';
-	
-	
-	// get the global Assets manager
-   var am = MUI.assetsManager;
-    
-   // Add validation function to the form
-   // import css file for validation
-   [ hackCss, fcCss].each(function(src){
-   	if(!$defined(am.imported[src])){
-    		am.import({'url':src,'app':appName,'type':'css'});
-    	}	
-	});
+	buttonsContainer='%s', formId='%s';	
 	
 	// Set a global variable 'formchk', 
 	// which will be used as an instance of the validation Class-'FormCheck'.
@@ -503,13 +486,13 @@ def _editAccountJs(**args):
 						
 						// refresh account show page
 						var panel = MUI.Panels.instances.get(panelId),
-						options = panel.options;
+						props = panel.options;
 						MUI.updateContent({
 							'element': panel.panelEl,
-							'content': options.content,
-							'method': options.method,
-							'data': options.data,
-							'url': options.contentURL,
+							'content': props.content,
+							'method': props.method,
+							'data': props.data,
+							'url': props.contentURL,
 							'onContentLoaded': null
 						});
 					};               
@@ -524,7 +507,8 @@ def _editAccountJs(**args):
 		}// the end for 'onload' define
 	};
     
-   am.import({'url':fcJs,'app':appName,'type':'js'},options);
+   MUI.formValidLib(appName,options);
+   
    
    function edit(event){
 		formchk.onSubmit(event);
@@ -534,7 +518,7 @@ def _editAccountJs(**args):
 		// close register dialog, this function has been defined in init.js
    	MUI.closeModalDialog();
    	
-   	am.remove(appName,'app');
+   	MUI.assetsManager.remove(appName,'app');
 	};
 	
 	function exit(event){
@@ -571,6 +555,7 @@ def page_editAccountAction(**args):
 	[props.update({key: args.get(key)}) for key in names ]	
 	
 	# excute user's edit action
+	user = USER
 	model.edit_item(user, 'user', user, props, actionType='edit', keyIsId=False)
 	
 	print '1'

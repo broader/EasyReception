@@ -224,7 +224,7 @@ MUI.extend({
 	// remove all the MUI.Columns in the main panel
 	clearMainPanel: function (){	
 		MUI.Columns.instances
-		.filter(function(column,key){		// filter the instances whose element has been removed
+		.filter(function(column,key){		// filter the instances whose element has been removed			
 			return $(column.options.id) != null;
 		})
 		.each(function(column){			
@@ -261,19 +261,20 @@ MUI.extend({
 	   var am = MUI.assetsManager;
 	   
 	   // import css file for validation
-	   [ urls[0], urls[1]].each(function(src){
+	   urls.slice(0,2).each(function(src){
 	   	if(!$defined(am.imported[src])){
 	    		am.import({'url':src,'app':appName,'type':'css'});
 	    	}	
 		});
 		
 		// i18n file of this lib
-	   if(!$defined(am.imported[fcI18nJs])){
-	   	am.import({'url':urls[1],'app':appName,'type':'js'});
+		url = urls[2];
+	   if(!$defined(am.imported[url])){
+	   	am.import({'url':url,'app':appName,'type':'js'});
 	   };
 	   
 	   // the really validation functions
-		am.import({'url':fcJs,'app':appName,'type':'js'},options);
+		am.import({'url':urls[3],'app':appName,'type':'js'},options);
 	}
 	
 });

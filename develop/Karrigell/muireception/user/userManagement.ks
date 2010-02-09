@@ -68,7 +68,7 @@ def index(**args):
 	return
 
 def _usersTridJs(**args):
-	paras = [APP,GRIDID]
+	paras = [pagefn.MAINPANEL, APP, GRIDID]
 	
 	# append the ids of the elements for filter function 
 	paras.extend([FILTERINPUTID,FILTERBN,FILTERCLEARBN])
@@ -80,9 +80,7 @@ def _usersTridJs(**args):
 	[ paras.append('/'.join((APPATH,name)))\ 
 	  for name in ('page_usersData','page_colsModel', 'page_userInfo')]
 	
-	#[ paras.append('/'.join(('portfolio/portfolio.ks',name)))\ 
-	#  for name in ('page_simpleDossier', 'page_editPortfolio')]
-	  
+	
 	# the url to edit portfolio
 	paras.append('portfolio/portfolio.ks/page_editPortfolio')
 	
@@ -91,7 +89,7 @@ def _usersTridJs(**args):
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName='%s', gridId='%s',
+	var maniPanelId='%s',appName='%s', gridId='%s',
 	filterInput='%s',filterBn='%s',filterClearBn='%s',
 	gridCss='%s',gridSupplement='%s',gridJs='%s',
 	dataUrl='%s',colsModelUrl='%s', userInfoUrl='%s',
@@ -126,6 +124,18 @@ def _usersTridJs(**args):
    	datagrid.loadData();
    });   
    
+   // get the id of current showing panel
+   function getPanelId(){
+   	panelId = 
+   	MUI.Panels.instances
+   	.filter(function(panel,key){
+   		column = MUI.Columns.instances.get(panel.options.column);
+   		return ((column != null) && (column.options.container.id == maniPanelId))
+   	})
+   	.getKeys()[0];
+   	return panelId
+   };
+   
    // edit the data of selected row
    function gridRowEdit(evt){
    	/* Parameters
@@ -135,7 +145,14 @@ def _usersTridJs(**args):
    	*/
    	// get the data of the selected row
    	row = evt.target.getDataByRow(evt.row);
-   	url = editUrl + '?'+'user='+row['username'];
+   	
+   	var urls = [];
+   	$H({'user':row['username'],'panelId':getPanelId()})
+   	.each(function(value,key){
+   		urls.push([key,value].join('='));
+   	});
+   	url = [editUrl,urls.join('&')].join('?');
+   	//url = editUrl + '?'+'user='+row['username'];
    	
    	// the dialog to edit portfolio
    	new MUI.Modal({

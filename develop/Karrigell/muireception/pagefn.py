@@ -15,7 +15,7 @@ ACCOUNTERR = _('This account has been used, please input other name.')
 PWDERR = _('The input password is wrong, please input the valid password!') 
 FCLIBFILES = \
 ['/'.join(( 'lib', 'formcheck', name )) \
-for name in ('css/hack.css', 'lang.js.pih', 'formcheck.js', 'theme/red/formcheck.css')]
+for name in ('css/hack.css', 'theme/red/formcheck.css', 'lang.js.pih', 'formcheck.js')]
 #--------------------------------------------------------------------------------------
 
 

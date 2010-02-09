@@ -19,8 +19,8 @@ formcheckLanguage = {
 	lengthmin: '<%=_("The length is incorrect, it must be at least %0")%>',
 	words_min : '<%=_("This field must concain at least %0 words, currently: %1 words")%>',
 	words_range : '<%=_("This field must contain %0-%1 words, currently: %2 words")%>',
-	words_max : '<%=_("This field must contain at max %0 words, currently: %1 words")%>',
-	checkbox: '<%=_("Please check the box")%>',
-	radios: '<%=_("Please select a radio")%>',
-	select: '<%=_("Please choose a value")%>'
+	words_max : '<%=_("This field must contain at max %0 words, currently: %1 words")%>'
+	//checkbox: '<%=_("Please check the box")%>',
+	//radios: '<%=_("Please select a radio")%>',
+	//select: '<%=_("Please choose a value")%>'
 }
