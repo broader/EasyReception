@@ -193,11 +193,34 @@ def page_editPortfolio(**args):
 
 def _editPortfolioJs(**args):
 	paras = [ portfolioPanel, APP, PORTFOLIOACTIONBN, BASEINFO ]
+	
+	# add some files' path for validation function
+	paras.extend(pagefn.FCLIBFILES)
+	
 	paras = tuple(paras)
 	js =\
 	"""
 	var portfolioPanelId='%s',appName='%s', 
-	portfolioActionBn='%s', portfolioFormId='%s';
+	portfolioActionBn='%s', portfolioFormId='%s',
+	hackCss='%s', fcI18nJs='%s', fcJs='%s', fcCss='%s';
+	
+	/*****************************************************
+	// get the global Assets manager
+   var am = MUI.assetsManager;
+    
+   
+   // import css file for validation
+   [ hackCss, fcCss].each(function(src){
+   	if(!$defined(am.imported[src])){
+    		am.import({'url':src,'app':appName,'type':'css'});
+    	}	
+	});
+	
+	// import javascript file for validation
+   if(!$defined(am.imported[fcI18nJs])){
+   	am.import({'url':fcI18nJs,'app':appName,'type':'js'});
+	};
+	**********************************************************/
 	
 	// Add validation function to the form
 	// Set a global variable 'formchk', 
@@ -240,7 +263,10 @@ def _editPortfolioJs(**args):
 			});// the end for 'formchk' define
 		}// the end for 'onload' define
 	};// the end for 'options' define
- 
+   
+   /*********************************************************
+   am.import({'url':fcJs,'app':appName,'type':'js'},options);
+   **********************************************************/
    MUI.formValidLib(appName,options);
    
    function editPortfolio(event){

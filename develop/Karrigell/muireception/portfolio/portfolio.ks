@@ -193,29 +193,13 @@ def page_editPortfolio(**args):
 
 def _editPortfolioJs(**args):
 	paras = [ portfolioPanel, APP, PORTFOLIOACTIONBN, BASEINFO ]
-	
-	# add some files' path for validation function
-	paras.extend(pagefn.FCLIBFILES)
-	
 	paras = tuple(paras)
 	js =\
 	"""
 	var portfolioPanelId='%s',appName='%s', 
-	portfolioActionBn='%s', portfolioFormId='%s',
-	hackCss='%s', fcI18nJs='%s', fcJs='%s', fcCss='%s';
+	portfolioActionBn='%s', portfolioFormId='%s';
 	
-	
-	// get the global Assets manager
-   var am = MUI.assetsManager;
-    
-   // Add validation function to the form
-   // import css file for validation
-   [ hackCss, fcCss].each(function(src){
-   	if(!$defined(am.imported[src])){
-    		am.import({'url':src,'app':appName,'type':'css'});
-    	}	
-	});
-	
+	// Add validation function to the form
 	// Set a global variable 'formchk', 
 	// which will be used as an instance of the validation Class-'FormCheck'.
 	var portfolioFormchk;
@@ -236,13 +220,13 @@ def _editPortfolioJs(**args):
 						
 						// refresh account show page
 						var panel = MUI.Panels.instances.get( portfolioPanelId ),
-						options = panel.options;
+						props = panel.options;
 						MUI.updateContent({
 							'element': panel.panelEl,
-							'content': options.content,
-							'method': options.method,
-							'data': options.data,
-							'url': options.contentURL,
+							'content': props.content,
+							'method': props.method,
+							'data': props.data,
+							'url': props.contentURL,
 							'onContentLoaded': null
 						});
 					};               
@@ -256,8 +240,8 @@ def _editPortfolioJs(**args):
 			});// the end for 'formchk' define
 		}// the end for 'onload' define
 	};// the end for 'options' define
-    
-   am.import({'url':fcJs,'app':appName,'type':'js'},options);
+ 
+   MUI.formValidLib(appName,options);
    
    function editPortfolio(event){
 		portfolioFormchk.onSubmit(event);
@@ -268,7 +252,7 @@ def _editPortfolioJs(**args):
    	MUI.closeModalDialog();
    	
    	// remove imported Assets
-   	am.remove(appName,'app');
+   	MUI.assetsManager.remove(appName,'app');
 	};
 	
 	function exitEditPortfolio(event){

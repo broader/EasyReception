@@ -104,7 +104,7 @@ USERSIDEBARPANELS = \
 		  'onCollapse':'sidePanelCollapse' },
 		
 		{ 'id':'05', 'text':_("Portfolio"), 'onExpand':'portfolioPanel',\
-		  'onCollapse':'sidePanelCollapse', 'contentURL':'portfolio/portfolio.ks/index' },
+		  'onCollapse':'sidePanelCollapse', 'contentURL':'portfolio/portfolio.ks/page_info' },
        
 	),
 	

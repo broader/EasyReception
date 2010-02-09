@@ -174,7 +174,9 @@ HALFDAY = {'AM' : _('AM'), 'PM': _('PM')}
 GENDER = (_('Male'),_('Female'))
 
 # form confirm buttons and its css sytle 
+BUTTONSTYLE = 'MooTrans'
 FORM_BNS = [_("OK"), _("Cancel")]
+
 BUTTON_CSS = {'float':'center',\
 				  'width':'7.5em',\
 				  'height':'2.6em',\

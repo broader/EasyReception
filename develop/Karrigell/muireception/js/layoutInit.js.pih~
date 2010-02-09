@@ -141,8 +141,7 @@ function layoutInit(){
 	var panelsDataUrl = '<%=layoutUrls[2] %>';
 	var data = new Request.JSON({
 		url: panelsDataUrl, 
-		onSuccess:function(json,html){	
-					
+		onSuccess:function(json,html){					
 			am.import(
 				{	'url':json['js'],	// load the functions for the events of sidePanels
 					'app':'<%=loginApp %>',
@@ -246,6 +245,37 @@ MUI.extend({
 				panel.toggleExpand();
 			};
 		});
+	},
+	
+	/*
+	Imports form validation lib and sets initial actions.	
+	*/
+	formValidLib: function(appName, options){
+		// get lib files
+		var urls = [];
+		<% for url in pagefn.FCLIBFILES : %>
+			urls.push('<%=url%>');
+		<% end %>
+		
+		urls.each(function(url){alert(url);});
+		
+		// get the global Assets manager
+	   var am = MUI.assetsManager;
+	   
+	   // import css file for validation
+	   [ urls[0], urls[1]].each(function(src){
+	   	if(!$defined(am.imported[src])){
+	    		am.import({'url':src,'app':appName,'type':'css'});
+	    	}	
+		});
+		
+		// i18n file of this lib
+	   if(!$defined(am.imported[fcI18nJs])){
+	   	am.import({'url':urls[1],'app':appName,'type':'js'});
+	   };
+	   
+	   // the really validation functions
+		am.import({'url':fcJs,'app':appName,'type':'js'},options);
 	}
 	
 });

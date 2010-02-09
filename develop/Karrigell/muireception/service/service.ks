@@ -39,6 +39,9 @@ PROPS =\
 	#{'name':'detail','prompt':_('Supplement'),'validate':[],'required':False,'type':'textarea'},
 ]
 
+# creation form id
+CREATIONFORMID = 'createForm'
+
 # End*****************************************************************************************
 
 
@@ -164,17 +167,33 @@ def page_createService(**args):
 	# append hidden field that points out the action type
 	form.append(INPUT(**{'name':'action','value':'create','type':'hidden'}))
 	
+	# add buttons to this form	
+	button = BUTTON( _('Create'), **{'class':pagefn.BUTTONSTYLE, 'type':'button'})
+	
+	div = DIV(button, **{'style':'position:absolute;margin-left:12em;'})    
+	form.append(div)
+	
 	form = \
-	FORM( \
-		Sum(form),\ 
-		**{'action': '', 'id': '', 'method':'post','class':'yform'}\
+	FORM( 
+		Sum(form), 
+		**{'action': '', 'id': CREATIONFORMID, 'method':'post','class':'yform'}
 	)
 				
 	print DIV(form,style='width:50%;margin-left:5em;')
 	
 	return
 
-
+def _createJs():
+	paras = [CREATIONFORMID,]
+	paras = tuple(paras)
+	js = \
+	"""
+	var formId='%s';
+	
+	$(formId).getElements('button')[0].
+	"""%paras
+	
+	return js
 
 
 	
