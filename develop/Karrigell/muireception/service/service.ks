@@ -28,10 +28,11 @@ USER = getattr( so, pagefn.SOINFO['user']).get('username')
 #CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 
 SERVICECHECKFUNCTION = 'serviceCheck'
+
 PROPS =\ 
 [
 	{'name':'category','prompt':_('Category'),'validate':[]},
-	{'name':'subcategory','prompt':_('Subcategory'),'validate':[''.join(('~',SERVICECHECKFUNCTION))],'required':False},
+	#{'name':'subcategory','prompt':_('Subcategory'),'validate':[''.join(('~',SERVICECHECKFUNCTION))],'required':False},
 	{'name':'name','prompt':_('Service Name'),'validate':[]},
 	{'name':'description','prompt':_('Description'),'validate':[],'type':'textarea'},
 	{'name':'price','prompt':_('Unit Price'),'validate':[]},
@@ -170,7 +171,7 @@ def page_createService(**args):
 	# add buttons to this form	
 	button = BUTTON( _('Create'), **{'class':pagefn.BUTTONSTYLE, 'type':'button'})
 	
-	div = DIV(button, **{'style':'position:absolute;margin-left:12em;'})    
+	div = DIV(button, **{'style':'position:absolute;margin-left:15em;'})    
 	form.append(div)
 	
 	form = \
@@ -180,6 +181,7 @@ def page_createService(**args):
 	)
 				
 	print DIV(form,style='width:50%;margin-left:5em;')
+	print pagefn.script(_createJs(),link=False)
 	
 	return
 
@@ -190,7 +192,16 @@ def _createJs():
 	"""
 	var formId='%s';
 	
-	$(formId).getElements('button')[0].
+	// add mouseover effect to buttons
+	new MooHover({container: formId,duration:800});
+	
+	function createService(event){
+		//portfolioFormchk.onSubmit(event);
+		alert('create action');
+	};
+	
+	$(formId).getElements('button')[0].addEvent('click',createService);
+	
 	"""%paras
 	
 	return js

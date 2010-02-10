@@ -147,21 +147,22 @@ def _usersTridJs(**args):
    	row = evt.target.getDataByRow(evt.row);
    	
    	var urls = [];
-   	$H({'user':row['username'],'panelId':getPanelId()})
+   	//$H({'user':row['username'],'panelId':getPanelId(),'panelReload':'0'})
+   	$H({'user':row['username'],'panelReload':'0'})
    	.each(function(value,key){
    		urls.push([key,value].join('='));
    	});
    	url = [editUrl,urls.join('&')].join('?');
    	//url = editUrl + '?'+'user='+row['username'];
-   	alert(url);
    	
    	// the dialog to edit portfolio
    	new MUI.Modal({
-      	width:600, height:380,
-      	contentURL: url,
+      	width:600, height:380, contentURL: url,
       	title: dialogTitle,
       	modalOverlayClose: false,
-      	onClose: function(e){datagrid.loadData();},
+      	onClose: function(e){
+      		datagrid.loadData();
+      	}
       });
    	
    };

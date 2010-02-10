@@ -1,9 +1,9 @@
 city,
 fax,
 firstname,
-gender,0
-address,荆襄九郡
-aperson,1
+gender,1
+address,
+aperson,2
 phone,
 prefix,0
 postcode,

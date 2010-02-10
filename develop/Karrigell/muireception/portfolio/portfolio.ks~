@@ -187,17 +187,22 @@ def page_editPortfolio(**args):
                )
 	print DIV(form, **{'class':'subcolumns'})
 	
-	# import js slice  
-	print pagefn.script(_editPortfolioJs(args.get('panelId')),link=False)	
+	# import js slice
+	#paras = [args.get(name) for name in ('panelId','panelReload')]  
+	#print pagefn.script(_editPortfolioJs(*paras),link=False)	
+	panelReload = args.get('panelReload') or '1'
+	print pagefn.script(_editPortfolioJs(panelReload),link=False)
 	return
 
-def _editPortfolioJs(panelId=None):
-	paras = [ panelId or portfolioPanel, APP, PORTFOLIOACTIONBN, BASEINFO ]
+#def _editPortfolioJs(panelId=None,panelReload='1'):
+def _editPortfolioJs(panelReload):
+	#paras = [ panelReload,panelId or portfolioPanel, APP, PORTFOLIOACTIONBN, BASEINFO ]
+	paras = [ panelReload, portfolioPanel, APP, PORTFOLIOACTIONBN, BASEINFO ]
 	paras = tuple(paras)
 	js =\
 	"""
-	var portfolioPanelId='%s',appName='%s', 
-	portfolioActionBn='%s', portfolioFormId='%s';
+	var panelReload='%s', currentPanelId='%s', 
+	appName='%s', portfolioActionBn='%s', portfolioFormId='%s';
 	
 	// Add validation function to the form
 	// Set a global variable 'formchk', 
@@ -219,17 +224,27 @@ def _editPortfolioJs(panelId=None):
 						closeDialog();
 						
 						// refresh user list showing
-						var panel = MUI.Panels.instances.get( portfolioPanelId );
+						//var panel = MUI.Panels.instances.get( currentPanelId );
+						//props = panel.options;
 						
-						props = panel.options;
-						MUI.updateContent({
-							'element': panel.panelEl,
-							'content': props.content,
-							'method': props.method,
-							'data': props.data,
-							'url': props.contentURL,
-							'onContentLoaded': null
-						});
+						// called by this page(portfolio.ks),then it is need to update the content of panel
+						
+						alert('portfolio.ks,L230,need reload tag is '+panelReload);
+						
+						if (panelReload == '1'){
+							panel = MUI.Panels.instances.get( currentPanelId );
+							props = panel.options;
+							
+							MUI.updateContent({
+								'element': panel.panelEl,
+								'content': props.content,
+								'method': props.method,
+								'data': props.data,
+								'url': props.contentURL,
+								'onContentLoaded': null
+							});
+						};
+						
 					};               
 				},            
 

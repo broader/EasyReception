@@ -124,18 +124,6 @@ def _usersTridJs(**args):
    	datagrid.loadData();
    });   
    
-   // get the id of current showing panel
-   function getPanelId(){
-   	panelId = 
-   	MUI.Panels.instances
-   	.filter(function(panel,key){
-   		column = MUI.Columns.instances.get(panel.options.column);
-   		return ((column != null) && (column.options.container.id == maniPanelId))
-   	})
-   	.getKeys()[0];
-   	return panelId
-   };
-   
    // edit the data of selected row
    function gridRowEdit(evt){
    	/* Parameters
@@ -147,7 +135,7 @@ def _usersTridJs(**args):
    	row = evt.target.getDataByRow(evt.row);
    	
    	var urls = [];
-   	$H({'user':row['username'],'panelId':getPanelId()})
+   	$H({'user':row['username'],'panelReload':'0'})
    	.each(function(value,key){
    		urls.push([key,value].join('='));
    	});
@@ -156,11 +144,12 @@ def _usersTridJs(**args):
    	
    	// the dialog to edit portfolio
    	new MUI.Modal({
-      	width:600, height:380,
-      	contentURL: url,
+      	width:600, height:380, contentURL: url,
       	title: dialogTitle,
       	modalOverlayClose: false,
-      	onClose: function(e){datagrid.loadData();},
+      	onClose: function(e){
+      		datagrid.loadData();
+      	}
       });
    	
    };

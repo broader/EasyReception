@@ -187,17 +187,19 @@ def page_editPortfolio(**args):
                )
 	print DIV(form, **{'class':'subcolumns'})
 	
-	# import js slice  
-	print pagefn.script(_editPortfolioJs(args.get('panelId')),link=False)	
+	# import js slice
+	panelReload = args.get('panelReload') or '1'
+	print pagefn.script(_editPortfolioJs(panelReload),link=False)
 	return
 
-def _editPortfolioJs(panelId=None):
-	paras = [ panelId or portfolioPanel, APP, PORTFOLIOACTIONBN, BASEINFO ]
+def _editPortfolioJs(panelReload):
+	#paras = [ panelReload,panelId or portfolioPanel, APP, PORTFOLIOACTIONBN, BASEINFO ]
+	paras = [ panelReload, portfolioPanel, APP, PORTFOLIOACTIONBN, BASEINFO ]
 	paras = tuple(paras)
 	js =\
 	"""
-	var currentPanelId='%s',appName='%s', 
-	portfolioActionBn='%s', portfolioFormId='%s';
+	var panelReload='%s', currentPanelId='%s', 
+	appName='%s', portfolioActionBn='%s', portfolioFormId='%s';
 	
 	// Add validation function to the form
 	// Set a global variable 'formchk', 
@@ -218,18 +220,21 @@ def _editPortfolioJs(panelId=None):
 						// close edit dialog
 						closeDialog();
 						
-						// refresh user list showing
-						var panel = MUI.Panels.instances.get( currentPanelId );
+						// Is it need to update the content of panel?
+						if (panelReload == '1'){
+							panel = MUI.Panels.instances.get( currentPanelId );
+							props = panel.options;
+							
+							MUI.updateContent({
+								'element': panel.panelEl,
+								'content': props.content,
+								'method': props.method,
+								'data': props.data,
+								'url': props.contentURL,
+								'onContentLoaded': null
+							});
+						};
 						
-						props = panel.options;
-						MUI.updateContent({
-							'element': panel.panelEl,
-							'content': props.content,
-							'method': props.method,
-							'data': props.data,
-							'url': props.contentURL,
-							'onContentLoaded': null
-						});
 					};               
 				},            
 
