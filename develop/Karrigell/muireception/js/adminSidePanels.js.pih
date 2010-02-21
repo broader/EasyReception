@@ -71,6 +71,7 @@ function agendaPanel(panelId){
 **	"Service Management" side panel expand function
 */
 function servicePanel(panelId){
+	MUI.removeErr();
 	MUI.accordionPanels(panelId);
 	MUI.clearMainPanel();
 	

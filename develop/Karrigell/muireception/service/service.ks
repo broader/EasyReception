@@ -27,21 +27,22 @@ USER = getattr( so, pagefn.SOINFO['user']).get('username')
 # config data object
 #CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 
-SERVICECHECKFUNCTION = 'serviceCheck'
+# valid functions for form fields
+CHKFNS = ('serviceCategoryChk','serviceNameChk')
 
 PROPS =\ 
 [
-	{'name':'category','prompt':_('Category'),'validate':[]},
-	#{'name':'subcategory','prompt':_('Subcategory'),'validate':[''.join(('~',SERVICECHECKFUNCTION))],'required':False},
-	{'name':'name','prompt':_('Service Name'),'validate':[]},
+	{'name':'category','prompt':_('Category'),'validate':[''.join(('~',CHKFNS[0])),],'required':True},
+	{'name':'subcategory','prompt':_('Subcategory'),'validate':[],'required':True},
+	{'name':'name','prompt':_('Service Name'),'validate':[''.join(('~',CHKFNS[1])),],'required':True},
 	{'name':'description','prompt':_('Description'),'validate':[],'type':'textarea'},
 	{'name':'price','prompt':_('Unit Price'),'validate':[]},
 	{'name':'amount','prompt':_('Amount'),'validate':[]},
-	#{'name':'detail','prompt':_('Supplement'),'validate':[],'required':False,'type':'textarea'},
+	{'name':'detail','prompt':_('Supplement'),'validate':[],'type':'textarea'},
 ]
 
 # creation form id
-CREATIONFORMID = 'createForm'
+CATEGORYCREATIONFORM = 'categoryCreationForm'
 
 # End*****************************************************************************************
 
@@ -70,10 +71,10 @@ def _getTabs(**args):
 	for category in categories:
 		d = { 'text':category,\
 				'id':''.join((category,'Tab')),\
-				'url':'?'.join(('page_showService','category=%s'%category))}
+				'url':'/'.join((APPATH, '?'.join(('page_showService', 'category=%s'%category))))}
 		tabs.append(d)
 	
-	tabs.append({'id':'addNewService', 'url':'/'.join((APPATH,'page_createService'))})
+	tabs.append({'id':'addNewService', 'url':'/'.join((APPATH,'page_createCategory'))})
 	return tabs	
 	
 def index(**args):
@@ -137,33 +138,28 @@ def page_showService(**args):
 	print args.get('category') or ''	
 	return
 	
-def page_createService(**args):
-	#print H2('Create new category of service.')
+def page_createCategory(**args):
+	names = ('category','description')
 	
 	# start to render edit form
-	props = PROPS
+	props = [item for item in PROPS if item['name'] in names]
 	for prop in PROPS:
 		prop['id'] = prop['name']		
 		if not prop.get('type'):
 			prop['type'] = 'text'
 			
 		if not prop.has_key('required'):
-			prop['required'] = True		 	
+			prop['required'] = False	 	
 		
 		prop['oldvalue'] = ''
 	
 	# render the fields to the form	
 	form = []
 	# get the OL content from formRender.py module	
-	yform = formFn.yform
-	
-	interval = int(len(prop)/2)
-	left = DIV(Sum(yform(props[ :interval ])), **{'class':'c50l' })	
-	right = DIV(Sum(yform(props[ interval: ])), **{'class':'c50r'})
-	div = DIV(Sum((left,right)))	
+	div = DIV(Sum(formFn.yform(props)))
 	
 	# add the <Legend> tag	
-	legend = LEGEND(TEXT(_('Create New Service')))    
+	legend = LEGEND(TEXT(_('Create New Category For Service')))    
 	form.append(FIELDSET(Sum((legend,div))))
 	# append hidden field that points out the action type
 	form.append(INPUT(**{'name':'action','value':'create','type':'hidden'}))
@@ -177,28 +173,81 @@ def page_createService(**args):
 	form = \
 	FORM( 
 		Sum(form), 
-		**{'action': '', 'id': CREATIONFORMID, 'method':'post','class':'yform'}
+		**{'action': '/'.join((APPATH,'page_serviceEditAction')), 'id': CATEGORYCREATIONFORM, 'method':'post','class':'yform'}
 	)
 				
 	print DIV(form,style='width:50%;margin-left:5em;')
-	print pagefn.script(_createJs(),link=False)
+	print pagefn.script(_createCategoryJs(),link=False)
 	
 	return
 
-def _createJs():
-	paras = [CREATIONFORMID,]
+def _createCategoryJs():
+	paras = [CATEGORYCREATIONFORM,CHKFNS[0],'/'.join((APPATH,'page_categoryValid')),_('The category input name has been used already!')]
 	paras = tuple(paras)
 	js = \
 	"""
-	var formId='%s';
+	var formId='%s',
+	categroyValidFn='%s',categoryValidAction='%s',categoryErr='%s';
 	
 	// add mouseover effect to buttons
 	new MooHover({container: formId,duration:800});
 	
-	function createService(event){
-		//portfolioFormchk.onSubmit(event);
-		alert('create action');
-	};
+	// Add validation function to the form
+	// Set a global variable 'serviceCategoryFormchk', 
+	// which will be used as an instance of the validation Class-'FormCheck'.
+	var serviceCategoryFormchk;
+    
+	// Load the form validation plugin script
+	var options = {
+		onload:function(){    		
+			serviceCategoryFormchk = new FormCheck( formId,{
+				submitByAjax: true,
+				onAjaxSuccess: function(response){
+					if(response == 1){
+						alert(response);
+					};               
+				},            
+
+				display:{
+					errorsLocation : 1,
+					keepFocusOnError : 0, 
+					scrollToFirst : false
+				}
+			});// the end for 'formchk' define
+		}// the end for 'onload' define
+	};// the end for 'options' define
+ 
+   MUI.formValidLib(appName,options);
+   
+   /*****************************************************************************
+    Check whether the category name has been used    
+    *****************************************************************************/    
+    // A Request.JSON class for send validation request to server side
+    var categoryRequest = new Request.JSON({async:false});
+    
+    var categroyValidTag = false;
+    window[categroyValidFn] = function(el){
+       el.errors.push(categoryErr)
+       // set some options for Request.JSON instance
+       categoryRequest.setOptions({
+          url: categoryValidAction,
+          onSuccess: function(res){
+            if(res.valid == 1){categroyValidTag=true};
+          }
+       });
+       
+       categoryRequest.get({'name':el.getProperty('value')});
+       if(categroyValidTag){
+          categroyValidTag=false;   // reset global variable 'accountValidTag' to be 'false'
+          return true
+       }             
+       return false;
+    }
+    
+   
+   function createService(event){
+		serviceCategoryFormchk.onSubmit(event);
+	};	
 	
 	$(formId).getElements('button')[0].addEvent('click',createService);
 	
@@ -206,5 +255,27 @@ def _createJs():
 	
 	return js
 
-
+def page_serviceEditAction(**args):
+	action = args.pop('action')
+	successTag = 0
+	if action == 'create':
+		sid = model.create_item(USER, 'service', args)
+		if sid:
+			successTag = 1
+	else:
+		pass
+		
+	print successTag
+	return
+	
+def page_categoryValid(**args):
+	name =args.get('name')
+	res ={'valid':1}
+	categories = _getCategory()
+	res['category'] = categories 
+	if name in categories:
+		res['valid'] = 0
+	print JSON.encode(res)	
+	return
+	
 	

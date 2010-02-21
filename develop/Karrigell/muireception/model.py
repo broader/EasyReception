@@ -371,12 +371,13 @@ def create_item(admin, klass, props, autoSerial=True):
 		      'context' : klass,\
 		      'all_props': all_props		      
 		    }
+	
 	# if class has 'serial' property and needed to be auto created,
 	# set form['autoSerial'] to True.	
 	if autoSerial :
 		form['autoSerial'] = True
-		
-        client.form = form
+			
+	client.form = form
 	action(client)
 	newId = None
 	needId = form.get('needId')

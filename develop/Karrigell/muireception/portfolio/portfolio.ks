@@ -202,7 +202,7 @@ def _editPortfolioJs(panelReload):
 	appName='%s', portfolioActionBn='%s', portfolioFormId='%s';
 	
 	// Add validation function to the form
-	// Set a global variable 'formchk', 
+	// Set a global variable 'portfolioFormchk', 
 	// which will be used as an instance of the validation Class-'FormCheck'.
 	var portfolioFormchk;
     

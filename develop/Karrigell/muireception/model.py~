@@ -130,6 +130,9 @@ def get_items_ByString(operator, klass, search, propnames=None, needId=False):
         return action(client)
 
 def getUserDossier(operator, user):
+	"""
+	Return the dossier data which is saved in a csv formatted file on server side.
+	"""
 	# get link id	
 	prop = 'info'
 	values = get_item( operator, 'user', user, (prop,))
@@ -372,8 +375,8 @@ def create_item(admin, klass, props, autoSerial=True):
 	# set form['autoSerial'] to True.	
 	if autoSerial :
 		form['autoSerial'] = True
-		
-        client.form = form
+			
+	client.form = form
 	action(client)
 	newId = None
 	needId = form.get('needId')

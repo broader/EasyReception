@@ -188,13 +188,10 @@ def page_editPortfolio(**args):
 	print DIV(form, **{'class':'subcolumns'})
 	
 	# import js slice
-	#paras = [args.get(name) for name in ('panelId','panelReload')]  
-	#print pagefn.script(_editPortfolioJs(*paras),link=False)	
 	panelReload = args.get('panelReload') or '1'
 	print pagefn.script(_editPortfolioJs(panelReload),link=False)
 	return
 
-#def _editPortfolioJs(panelId=None,panelReload='1'):
 def _editPortfolioJs(panelReload):
 	#paras = [ panelReload,panelId or portfolioPanel, APP, PORTFOLIOACTIONBN, BASEINFO ]
 	paras = [ panelReload, portfolioPanel, APP, PORTFOLIOACTIONBN, BASEINFO ]
@@ -223,14 +220,7 @@ def _editPortfolioJs(panelReload):
 						// close edit dialog
 						closeDialog();
 						
-						// refresh user list showing
-						//var panel = MUI.Panels.instances.get( currentPanelId );
-						//props = panel.options;
-						
-						// called by this page(portfolio.ks),then it is need to update the content of panel
-						
-						alert('portfolio.ks,L230,need reload tag is '+panelReload);
-						
+						// Is it need to update the content of panel?
 						if (panelReload == '1'){
 							panel = MUI.Panels.instances.get( currentPanelId );
 							props = panel.options;
