@@ -102,13 +102,13 @@ def get_items(operator, klass, props=None, link2key=False,ids=None):
 	
 	client.set_user(operator)		
 	form = { 	'action': 'getitems',\			
-                    	'context': klass,\
-                    	'ids' : ids,\    
-                    	'propnames': props,\
-                    	'link2key': link2key\                	
-                     }        	
-        client.form = form
-        return action(client)
+              	'context': klass,\
+              	'ids' : ids,\    
+              	'propnames': props,\
+              	'link2key': link2key\                	
+               }        	
+	client.form = form
+	return action(client)
 
 def get_items_ByString(operator, klass, search, propnames=None, needId=False):
 	""" Get items by specified string value of the class's String properties.
@@ -121,13 +121,13 @@ def get_items_ByString(operator, klass, search, propnames=None, needId=False):
 	
 	client.set_user(operator)		
 	form = { 	'action': 'gibs',\			
-                    	'context': klass,\
-                    	'filter' : search,\    
-                    	'needId' : needId,\
-                    	'propnames': propnames
-                     }        	
-        client.form = form
-        return action(client)
+              	'context': klass,\
+              	'filter' : search,\    
+              	'needId' : needId,\
+              	'propnames': propnames
+   }        	
+	client.form = form
+	return action(client)
 
 def getUserDossier(operator, user):
 	"""

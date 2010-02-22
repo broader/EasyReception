@@ -134,8 +134,28 @@ def page_info(**args):
 	print P('For editing servcie, please select a category of service by clicking the tabs on right operation panel first !')
 	return
 
+def _getServiceItems(category, props=None):
+	# get items from 'service' class in database
+	search = {'category' : category}
+	values = model.get_items_ByString(so.user, 'service', search, props)
+	return values
+	
+PROPS4TABLE =  ['serial', 'name','subcategory','description', 'detail', 'price', 'amount']
+TABLECONTAINER = 'servcieTable'
 def page_showService(**args):
-	print args.get('category') or ''	
+	category = args.get('category')
+	# render the style of service table
+	tableId = '-'.join((category,TABLECONTAINER))
+	print DIV(TABLE(**{'id':tableId}))
+	# javascript slice to load data to table
+	
+	# 
+	#print args.get('category') or ''	
+	#
+	items = _getServiceItems(args.get('category'),PROPS4TABLE)	
+	return
+
+def _renderServiceTable(data):
 	return
 	
 def page_createCategory(**args):

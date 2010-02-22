@@ -1564,7 +1564,7 @@ class GetItemsByStringPropAction(GetItemAction):
                 values = [self.getitem(klass,id,props) for id in ids]            
             else:
                 values = [[id]+self.getitem(klass,id,props) for id in ids]            
-            print "GetItemsByStringPropAction,L1516,filtered values are ", values
+            #print "GetItemsByStringPropAction,L1516,filtered values are ", values
             return values
         else:            
             return ids  
