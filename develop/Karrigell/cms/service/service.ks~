@@ -118,10 +118,6 @@ def _getServiceItems(category, props=None):
 	return values
 
 def _sortree(values, treeInfo):
-	""" 
-	Parameters:
-		-'treeInfo',the index which holds the tree information in the list.
-	"""
 	tree = []
 	for row in values :		
 		if row in tree:			
