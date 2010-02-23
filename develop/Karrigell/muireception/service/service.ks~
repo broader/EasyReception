@@ -141,22 +141,41 @@ def _getServiceItems(category, props=None):
 	return values
 	
 PROPS4TABLE =  ['serial', 'name','subcategory','description', 'detail', 'price', 'amount']
-TABLECONTAINER = 'servcieTable'
+TABLECONTAINER = 'servcieTableDiv'
+
 def page_showService(**args):
 	category = args.get('category')
 	# render the style of service table
-	tableId = '-'.join((category,TABLECONTAINER))
-	print DIV(TABLE(**{'id':tableId}))
-	# javascript slice to load data to table
+	containerId = '-'.join((category,TABLECONTAINER))
+	print DIV(TABLE(**{'id':containerId}))
 	
-	# 
+	# javascript slice to load data to table
+	print pagefn.script(_showServiceJs(containerId),link=False)
+	
+ 
 	#print args.get('category') or ''	
 	#
 	items = _getServiceItems(args.get('category'),PROPS4TABLE)	
 	return
 
-def _renderServiceTable(data):
-	return
+def _showServiceJs(tableContainerId):
+	paras = [APP, tableContainerId,]
+	paras = tuple(paras)
+	js = \
+	"""
+	var appName='%s', container='%s';
+	
+	var treeTable;
+	
+	var options = {
+		onload:function(){    		
+			treeTable = new TreeTable( container,{});// the end for 'serviceCategoryFormchk' definition
+		}// the end for 'onload' definition
+	};// the end for 'options' definition
+	
+	MUI.treeTable(appName,options);
+	"""%paras
+	return js
 	
 def page_createCategory(**args):
 	names = ('category','description')
@@ -233,9 +252,9 @@ def _createCategoryJs():
 					keepFocusOnError : 0, 
 					scrollToFirst : false
 				}
-			});// the end for 'formchk' define
-		}// the end for 'onload' define
-	};// the end for 'options' define
+			});// the end for 'serviceCategoryFormchk' definition
+		}// the end for 'onload' definition
+	};// the end for 'options' definition
  
    MUI.formValidLib(appName,options);
    

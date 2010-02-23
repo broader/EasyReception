@@ -17,9 +17,6 @@ JSLIB = {}
 JSLIB['formValid'] = \
 {
 	'files': ['/'.join(( 'lib', 'formcheck', name )) for name in ('css/hack.css', 'theme/red/formcheck.css', 'lang.js.pih', 'formcheck.js')],
-	#'error-css':'fc-tbx',
-	#'accountErr':_('This account has been used, please input other name.'),
-	#'pwdErr':_('The input password is wrong, please input the valid password!')	
 }
 
 #FORMERRCLASS = 'fc-tbx'
@@ -30,7 +27,7 @@ JSLIB['formValid'] = \
 
 # treeTable lib
 JSLIB['treeTable'] = \
-{'files':['/'.join(('lib','treeTable',name)) for name in ('treeTable.js',)],
+{'files':['/'.join(('lib','tools',name)) for name in ('treeTable.js',)],
 }
 
 #--------------------------------------------------------------------------------------

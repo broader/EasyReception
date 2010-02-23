@@ -253,7 +253,7 @@ MUI.extend({
 	formValidLib: function(appName, options){
 		// get lib files
 		var urls = [];
-		<% for url in pagefn.FCLIBFILES : %>
+		<% for url in pagefn.JSLIB['formValid']['files'] : %>
 			urls.push('<%=url%>');
 		<% end %>
 		
@@ -275,6 +275,24 @@ MUI.extend({
 	   
 	   // the really validation functions
 		am.import({'url':urls[3],'app':appName,'type':'js'},options);
+	},
+	
+	/*
+	Imports treeTable lib and sets initial actions.	
+	*/
+	treeTable: function(appName,options){
+		// get lib files
+		var urls = [];
+		<% for url in pagefn.JSLIB['treeTable']['files'] : %>
+			urls.push('<%=url%>');
+		<% end %>
+		
+		// get the global Assets manager
+	   var am = MUI.assetsManager;
+	   
+	   // the really validation functions
+		am.import({'url':urls[3],'app':appName,'type':'js'},options);
+	   
 	}
 	
 });

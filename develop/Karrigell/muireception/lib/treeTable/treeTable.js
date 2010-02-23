@@ -13,7 +13,7 @@ var TreeTable = new Class({
 				  
 	getOptions: function(){
 		return {
-			alternaterows: true,	
+			heaer: null,	
 			showHeader:true,
 			sortHeader:false,
 			resizeColumns:true,
@@ -38,12 +38,10 @@ var TreeTable = new Class({
 		};
 	},
 	
-	initialize: function(container, options){	
-		alert('tree table initialization start');
-			
+	initialize: function(container, options){				
 		this.setOptions(this.getOptions(), options);
 		this.container = $(container);
-		this.table = null;
+		this.tableInstance = null;
 		
 		if (!this.container)
 			return;
@@ -64,15 +62,11 @@ var TreeTable = new Class({
 			headers: this.options['headers']			
 		};
 		
-		this.table = new HtmlTable({
-		    properties: {
-		        border: 1,
-		        cellspacing: 3
-		    },
-		    headers: ['fruits', 'colors']		    
-		});
+		this.tableInstance = new HtmlTable();
 		
-		this.table.inject(this.container);
+		this.setHeaders();
+		
+		this.tableInstance.inject(this.container);
 		rows = [
 			['apple', 'red'],
 		   ['lemon', 'yellow']
@@ -80,11 +74,17 @@ var TreeTable = new Class({
 		
 		rows.each(
 			function(row){
-				this.table.push(row);
+				this.tableInstance.push(row);
 			},
 			this
 		);		
 
+	},
+	
+	// set the css style for the header of tree table 
+	setHeaders: function(){
+		data = this.options['header'] || ['fruits', 'colors'];		
+		this.tableInstance.setHeaders(data);
 	}
 	
 });

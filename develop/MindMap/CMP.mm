@@ -64,7 +64,7 @@
 <node COLOR="#111111" CREATED="1248146018379" ID="Freemind_Link_1783822577" MODIFIED="1248146149372" TEXT="&#x7528;&#x6237;&#x672a;&#x767b;&#x5f55;&#x524d;&#xff0c;&#x4e0d;&#x663e;&#x793a;&#x83dc;&#x5355;&#xff1b;&#x7528;&#x6237;&#x767b;&#x5f55;&#x540e;&#xff0c;&#x5224;&#x65ad;&#x7528;&#x6237;&#x89d2;&#x8272;---&gt;&apos;Admin&apos;&#xff0c;&#x8bfb;&#x5165;&#x2018;admin_config.py&apos;&#x4e2d;&#x7684;menus---&gt;&#x5176;&#x4ed6;&#xff0c;&#x8bfb;&#x5165;&#x2018;config.py&apos;&#x4e2d;&#x7684;menus&#x6700;&#x540e;&#xff0c;&#x8bbe;&#x7f6e;&#x83dc;&#x5355;&#x7684;&#x70b9;&#x51fb;&#x54cd;&#x5e94;&#x51fd;&#x6570;&#x3002;"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1248059726360" FOLDED="true" ID="Freemind_Link_820217698" MODIFIED="1262052562926" TEXT="Roundup Client Cache">
+<node COLOR="#00b439" CREATED="1248059726360" FOLDED="true" ID="Freemind_Link_820217698" MODIFIED="1266916978688" TEXT="Roundup Client Cache">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="button_ok"/>
@@ -85,13 +85,13 @@
 <node COLOR="#00b439" CREATED="1263802943086" ID="ID_1034875767" MODIFIED="1263802946832" TEXT="model.py">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1263802948027" FOLDED="true" ID="ID_314215476" MODIFIED="1266894440381" TEXT="used functions">
+<node COLOR="#990000" CREATED="1263802948027" FOLDED="true" ID="ID_314215476" MODIFIED="1266916970912" TEXT="used functions">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1263802953879" ID="ID_883199259" MODIFIED="1263993469635" TEXT="get_item&#xa;edit_item&#xa;edit_user_info( )"/>
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" ID="Freemind_Link_1929446294" MODIFIED="1266894358789" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1266916956962" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -426,223 +426,6 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" ID="Freemind_Link_986904229" MODIFIED="1266891587934" POSITION="left" TEXT="Debug and Knowledge">
-<edge STYLE="sharp_bezier" WIDTH="8"/>
-<font NAME="SansSerif" SIZE="18"/>
-<icon BUILTIN="messagebox_warning"/>
-<node COLOR="#00b439" CREATED="1252499786714" FOLDED="true" ID="Freemind_Link_774228154" MODIFIED="1265166157506" TEXT="URL  &#x7f16;&#x7801;">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<icon BUILTIN="messagebox_warning"/>
-<node COLOR="#990000" CREATED="1252499804532" ID="Freemind_Link_911188927" MODIFIED="1252499862363" TEXT="&#x63d0;&#x4ea4;&#x5305;&#x542b;&#x7a7a;&#x683c;&#x7684;&#x5b57;&#x7b26;&#x4e32;&#x65f6;&#x5fc5;&#x987b;&#x7528;url&#x7f16;&#x7801;urllib.quote()">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-</node>
-<node COLOR="#00b439" CREATED="1252027856832" FOLDED="true" ID="Freemind_Link_1618511399" MODIFIED="1264132902518" TEXT="Javascript">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1250147399215" FOLDED="true" ID="Freemind_Link_404010672" MODIFIED="1257254491635" TEXT="JSON">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1250147412778" ID="Freemind_Link_1534617843" MODIFIED="1253415164734" TEXT="KS">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1250147426811" ID="Freemind_Link_162074145" MODIFIED="1252027867397" TEXT="&#x4f7f;&#x7528;ks&#x811a;&#x6b65;&#x4e2d;print&#x8bed;&#x53e5;&#x8fd4;&#x56de;json&#x683c;&#x5f0f;&#x6570;&#x636e;&#x65f6;&#xff0c;&#x91c7;&#x7528;&#x4ee5;&#x4e0b;&#x65b9;&#x5f0f;&#x624d;&#x80fd;&#x6b63;&#x5e38;&#x8fd4;&#x56de;utf8 &#x7f16;&#x7801;&#x6587;&#x672c; reload(sys) sys.setdefaultencoding(&apos;utf8&apos;) print JSON.encode(res)&#x6ce8;&#x610f;&#xff1a;&#x5982;&#x679c;&#x76f4;&#x63a5;import sys &#x800c;&#x6ca1;&#x6709;reload(sys)&#xff0c;python&#x89e3;&#x91ca;&#x5668;&#x4f1a;&#x62a5;&#x9519;&#x3002;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1252027871028" ID="Freemind_Link_480373011" MODIFIED="1257254487236" TEXT="js.pih">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1252027891333" ID="Freemind_Link_1250845998" MODIFIED="1253415164741" TEXT="&#x65b9;&#x4fbf;i18n">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1253864901492" FOLDED="true" ID="Freemind_Link_679377757" MODIFIED="1257254486323" TEXT="string.replace()">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1253864935653" ID="Freemind_Link_1818950425" MODIFIED="1253865042057" TEXT="javascript&#x4e2d;replace() &#x65b9;&#x6cd5;&#x5982;&#x679c;&#x76f4;&#x63a5;&#x7528;str.replace(&quot;apples&quot;,&quot;oranges&quot;) &#x53ea;&#x4f1a;&#x66ff;&#x6362;&#x7b2c;&#x4e00;&#x4e2a;&#x5339;&#x914d;&#x7684;&#x5b57;&#x7b26;&#x3002;&#x4f7f;&#x7528; /g &#x66ff;&#x6362;&#x6240;&#x6709;&#x5339;&#x914d;&#x7684;&#x5b57;&#x7b26;&#xff0c; /i &#x5ffd;&#x7565;&#x5927;&#x5c0f;&#x5199;"/>
-</node>
-<node COLOR="#990000" CREATED="1179127402994" ID="Freemind_Link_509194556" MODIFIED="1264043095443" TEXT="&#x901a;&#x75c5;">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
-<icon BUILTIN="idea"/>
-<node COLOR="#111111" CREATED="1179127485763" FOLDED="true" ID="Freemind_Link_1704996803" MODIFIED="1264043112326" TEXT="&#x63d0;&#x793a;&#x63d2;&#x4ef6;&#x51fd;&#x6570;&#x4e0d;&#x5b58;&#x5728;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1179127411997" ID="Freemind_Link_1213706284" MODIFIED="1179127528043" TEXT="js&#x6587;&#x4ef6;&#x8def;&#x5f84;&#x8bbe;&#x7f6e;&#x6709;&#x8bef;&#x4f7f;&#x7528;&#x7ad9;&#x70b9;rootpath&#xff0c;&#x5728;env&#x6587;&#x4ef6;&#x4e2d;&#x8bbe;&#x7f6e;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1257254497599" FOLDED="true" ID="ID_1317034118" MODIFIED="1264043113134" TEXT="&#x5168;&#x5c40;&#x53d8;&#x91cf;">
-<icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1257254522312" ID="ID_1903159480" MODIFIED="1257254635090" TEXT="&#x5728;&#x51fd;&#x6570;&#x4e2d;&#x8c03;&#x7528;&#x65f6;undefined&#xa;&#x51fd;&#x6570;&#x4e2d;&#x4e0d;&#x80fd;&#x6709;&#x4e0e;&#x5168;&#x5c40;&#x53d8;&#x91cf;&#x540c;&#x540d;&#x7684;&#x53d8;&#x91cf;&#xff0c;&#x5426;&#x5219;&#x5728;&#x51fd;&#x6570;&#x5185;&#x90e8;&#xff0c;&#x53ea;&#x8981;&#x5728;&#x6b64;&#x53d8;&#x91cf;&#x58f0;&#x660e;&#x4e4b;&#x524d;&#x8c03;&#x7528;&#x6b64;&#x53d8;&#x91cf;&#xff0c;&#x5373;&#x4f7f;&#x4e3a;&#x5168;&#x5c40;&#x53d8;&#x91cf;&#xff0c;&#x4e5f;&#x4f1a;&#x662f;undefined"/>
-<node COLOR="#111111" CREATED="1257254641263" ID="ID_1159819468" MODIFIED="1257254653858" TEXT="var &#x58f0;&#x660e;&#x7528;&#x4e8e;&#x5168;&#x5c40;&#x53d8;&#x91cf;"/>
-</node>
-<node COLOR="#111111" CREATED="1264043114747" FOLDED="true" ID="ID_1714832871" MODIFIED="1264043299433" TEXT="&lt;a hrref=&quot;#&quot;&gt;">
-<node COLOR="#111111" CREATED="1264043134921" ID="ID_61402967" MODIFIED="1264043282135" TEXT="1.href=&quot;javascript:void(0);&quot;&#xa;2.href=&quot;javascript:;&quot;&#xa;3.href=&quot;#all&quot;&#xa;4.href=&quot;####&quot;&#xa;&#xa;"/>
-<node COLOR="#111111" CREATED="1264043285288" ID="ID_1523819906" MODIFIED="1264043292727" TEXT="&#x5176;&#x5b83;&#x95ee;&#x9898;&#xff1a;&#xa;1&#x3001;&lt;a href=&quot;#&quot; onclick=&quot;alert()&quot;&gt;click me&lt;/a&gt;&#xa;2&#x3001;&lt;a href=&quot;javascript:void(0)&quot; onclick=&quot;alert()&quot;&gt;&lt;/a&gt;&#xa;&#xa;&#x7b2c;1&#x4e2a;&#xff0c;&#x5728;IE6&#xff08;IE8&#x6ca1;&#x6709;&#x54ea;&#x4e2a;&#x5730;&#x7403;&#x4e86;&#xff09;&#x4e0b;&#x70b9;&#x51fb;&#x94fe;&#x63a5;&#xff0c;&#x5f39;&#x51fa;&#x5bf9;&#x8bdd;&#x6846;&#x6ca1;&#x6709;&#x6309;&#x786e;&#x5b9a;&#x7684;&#x65f6;&#x5019;&#xff0c;&#x4f60;&#x5c31;&#x4f1a;&#x53d1;&#x73b0;IE&#x5de5;&#x5177;&#x680f;&#x4e0a;&#x9762;&#x7684;&#x90a3;&#x4e2a;&#x5c0f;&#x5730;&#x7403;&#x5728;&#x65cb;&#x8f6c;&#xff0c;&#x8bf4;&#x660e;IE&#x8fd8;&#x5728;&#x53d1;&#x9001;&#x4e00;&#x4e2a;&#x8bf7;&#x6c42;&#x3002;&#x3002;&#x3002;&#xa;&#xa;&#x7b2c;2&#x4e2a;&#xff0c;&#x5728;IE6&#x4e0b;&#xff0c;&#x53d1;&#x73b0;&#x5730;&#x7403;&#x662f;&#x9759;&#x6b62;&#x4e0d;&#x52a8;&#x7684;&#xff0c;&#x4ec5;&#x4ec5;&#x662f;&#x6267;&#x884c;&#x4e00;&#x4e2a;&#x672c;&#x5730;&#x7684;&#x52a8;&#x4f5c;&#x3002; &#xa;&#xa;"/>
-<node COLOR="#111111" CREATED="1264043198565" ID="ID_1409686944" MODIFIED="1264043205226" TEXT="&#x4f7f;&#x7528;&#x6837;&#x5f0f; cursor:pointer;&#xa;&#x5373;&#x4f7f;&#x662f;&#x4e00;&#x4e2a;div&#xa;&lt;div style=&quot;cursor:pointer;&quot;&gt;111&lt;/div&gt;&#xa;&#x4e5f;&#x662f;&#x53ef;&#x4ee5;&#x5b9e;&#x73b0;&#x9f20;&#x6807;&#x653e;&#x4e0a;&#x53bb;&#x53d8;&#x6210;&#x4e00;&#x53ea;&#x624b;&#xa;&#x8fdb;&#x9636;&#xa;&lt;style&gt;&#xa;.hover{font-width:blod;}&#xa;&lt;/style&gt;&#xa;&lt;div style=&quot;cursor:pointer;&quot; onmouseover=&quot;this.className=&apos;hover&apos;&quot; onmouseout=&quot;this.class=&apos;&apos;&quot;&gt;111&lt;/div&gt;&#xa;"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1260845370499" FOLDED="true" ID="ID_1337577665" MODIFIED="1264043301080" TEXT="&#x5bfc;&#x5165;&#x9519;&#x8bef;">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1260845378421" ID="ID_163739786" MODIFIED="1260845458885" TEXT="missing : before statement&#xa;&#x68c0;&#x67e5;&#x53d1;&#x73b0;&#xff0c;js&#x6587;&#x4ef6;&#x76f8;&#x5bf9;&#x8def;&#x5f84;&#x4e3a;/js/lib/...&#xff0c;&#x66f4;&#x6539;&#x4e3a;js/lib/...&#x5373;&#x6b63;&#x5e38;"/>
-</node>
-</node>
-<node COLOR="#00b439" CREATED="1254023346114" FOLDED="true" ID="Freemind_Link_186738146" MODIFIED="1265166155666" TEXT="Python">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1254023354342" FOLDED="true" ID="Freemind_Link_1111266812" MODIFIED="1265166154338" TEXT="timezone">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1254023363423" ID="Freemind_Link_1101343072" MODIFIED="1254023401189" TEXT="Error with time.strptime()Things to try:(1) Is it possible that your interactive session and your &quot;bash&quot; are using different locales? Put print time.strftime(some known struct_time) into your script and see if the day and month come out in a different language.(2) Put print repr(date) in your script to show unambiguously what you are getting from the latest.GetCreatedAt() call."/>
-</node>
-</node>
-<node COLOR="#00b439" CREATED="1254149527478" FOLDED="true" ID="Freemind_Link_17834818" MODIFIED="1262052551678" TEXT="Database">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1254149531747" ID="Freemind_Link_377999212" MODIFIED="1254149623676" TEXT="db.class.retire()">
-<font NAME="SansSerif" SIZE="14"/>
-<icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1254149556997" ID="Freemind_Link_1170431409" MODIFIED="1254149615836" TEXT="&#x64cd;&#x4f5c;&#x540e;&#x9700;&#x8981;&#x8c03;&#x7528;db.commit()&#x5426;&#x5219;db.class.retire()&#x4e0d;&#x4f1a;&#x751f;&#x6548;"/>
-</node>
-<node COLOR="#990000" CREATED="1255161883417" ID="Freemind_Link_640476272" MODIFIED="1262052517599" TEXT="Sqlite">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1255161901118" ID="Freemind_Link_1015808824" MODIFIED="1262052517600" TEXT="Change Records">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1255161915178" ID="Freemind_Link_106946224" MODIFIED="1255162026327" TEXT="SQLite Manager &#x66f4;&#x6539;&#x8bb0;&#x5f55;&#x65f6;&#xff0c;&#x6ce8;&#x610f;id&#x7684;&#x5355;&#x5f15;&#x53f7;&#x4e3a;&#x952e;&#x76d8;&#x5de6;&#x4e0a;&#x89d2;&#x7684;&#x5355;&#x5f15;&#x53f7;&#x4f8b;&#x5982;&#xff1a;UPDATE &quot;main&quot;.&quot;_service&quot; SET &quot;_category&quot;=&apos;Hotel&apos; WHERE `id`=1&#x5982;&#x7528;&#x666e;&#x901a;&#x7684;&#x5355;&#x5f15;&#x53f7;&#x4f1a;&#x62a5;&#x9519;&#x3002;"/>
-</node>
-</node>
-</node>
-<node COLOR="#00b439" CREATED="1167544327073" FOLDED="true" ID="Freemind_Link_1636742661" MODIFIED="1260450879419" TEXT="vi">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1167544336556" FOLDED="true" ID="Freemind_Link_859472744" MODIFIED="1254629503912" TEXT="Karrigell&#x7684;&#x6269;&#x5c55;&#x683c;&#x5f0f;&#x811a;&#x672c;&#x4e0e;&#x5bf9;&#x5e94;&#x7684;&#x8bed;&#x6cd5;&#x5173;&#x8054;&#x7f16;&#x8f91;$vim70/filetype.vim">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1167544648234" ID="Freemind_Link_1128902031" MODIFIED="1254629503912" TEXT="*.hip---&gt;&quot; Pythonau BufNewFile,BufRead *.py,*.pyw,*.hipsetf python">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1167544676745" ID="Freemind_Link_203367318" MODIFIED="1254629503913" TEXT="*.pih---&gt;&quot; HTML (.shtml and .stm for server side)au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.pih  call s:FThtml()">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1190344005435" FOLDED="true" ID="Freemind_Link_1329909705" MODIFIED="1260450877635" TEXT="UTF-8">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1190344012345" ID="Freemind_Link_325367671" MODIFIED="1254629503913" TEXT="&#x6700;&#x8fd1;&#x53c8;&#x7814;&#x7a76;&#x4e86;&#x4e0b;vim&#x7684;config&#x6587;&#x4ef6;(&#x5b89;&#x88c5;&#x76ee;&#x5f55;$vim\_vimrc):&quot;encoding&quot;&#x8fd9;&#x6837;&#x6240;&#x6709;&#x6587;&#x4ef6;&#x7684;&#x7f16;&#x8f91;encoding&#x90fd;&#x5c06;&#x662f;utf8, &#x800c;&#x4e14;&#x53ef;&#x4ee5;&#x81ea;&#x52a8;&#x8bc6;&#x522b;&#x5176;&#x4ed6;encoding&#x7684;&#x6587;&#x4ef6;&quot;&#x5982;&#x679c;&#x6587;&#x4ef6;&#x672c;&#x8eab;&#x662f;gbk&#x5c06;&#x88ab;&#x6253;&#x5f00;&#x6210;utf8&#x6587;&#x4ef6;&#x7f16;&#x8f91;, &#x4f46;&#x662f;&#x4fdd;&#x5b58;&#x8fd8;&#x662f;&#x4f1a;&#x7528;gbk, &#x5982;&#x679c;&#x8981;&#x4fee;&#x6539;&#x6210;utf8&#x7528;:set fenc=utf8&quot;&#x6700;&#x597d;&#x4f7f;&#x7528;&#x82f1;&#x6587;&#x83dc;&#x5355;, &#x4e2d;&#x6587;&#x53ef;&#x80fd;&#x4e71;&#x7801;, &#x65b9;&#x6cd5;&#x5c31;&#x662f;&#x5220;&#x9664; vim\vim71\lang\ &#x76ee;&#x5f55;&#x4e0b;&#x6709;&#x5173;&#x4e2d;&#x6587;&#x7684;&#x6587;&#x4ef6;&#x548c;&#x76ee;&#x5f55;set encoding=utf-8set fencs=utf-8,gbk,ucs-bom,gb18030,gb2312,cp936set ambiwidth=double&quot;status&quot;&#x4fee;&#x6539;&#x72b6;&#x6001;&#x680f;&#x4e3a;: Ln: &#x884c;, Col: &#x5217; | &#x8bed;&#x8a00; | &#x6587;&#x4ef6;&#x7f16;&#x7801;(&#x7f16;&#x8f91;&#x7f16;&#x7801;) | Tab: &#x5927;&#x5c0f; | &#x6587;&#x4ef6;&#x683c;&#x5f0f;set laststatus=2set statusline=%&lt;%{&apos;Ln:\ &apos;}%l,%{&apos;\ Col:\ &apos;}%c%V\ \|\ %Y\ \|\ %{&amp;fenc}\(%{&amp;enc}\)\ \|\ %{&apos;Tab:\ &apos;.&amp;sw}\ \|\ %{&amp;ff}%=%8P&quot;tabpage&quot;&#x7f51;&#x4e0a;&#x627e;&#x7684;, &#x8fd9;&#x4e2a;&#x662f;&#x9ed8;&#x8ba4;&#x7528;tab&#x6253;&#x5f00;&#x6587;&#x4ef6;, &#x4f46;&#x662f;&#x5728;vim&#x7528;help&#x6709;&#x70b9;bug.set showtabline=2set tabpagemax=20autocmd VimEnter * tab allautocmd BufAdd * exe &apos;tablast | tabe &quot;&apos; . expand( &quot;&lt;afile&quot;) .&apos;&quot;&apos;&quot;fontset guifont=Courier_New:h10:cANSI&#x7248;&#x672c;&#x662f;vim71, &#x4e3b;&#x8981;&#x7528;&#x4e8e;&#x7f16;&#x8f91;javascript&#x548c;python&#x6587;&#x4ef6;, &#x8fd9;&#x662f;&#x4e00;&#x4e9b;&#x6211;&#x5b89;&#x88c5;&#x7684;&#x63d2;&#x4ef6;:javascript indent http://www.vim.org/scripts/script.php?script_id=1936javascript syntax http://www.vim.org/scripts/script.php?script_id=1491python syntax http://www.vim.org/scripts/script.php?script_id=790html indent http://www.vim.org/scripts/script.php?script_id=1830tcomment http://www.vim.org/scripts/script.php?script_id=1173surround www.vim.org/scripts/script.php?script_id=1697 ">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1190344053674" ID="Freemind_Link_1345656479" MODIFIED="1254629503917" TEXT="&#x5728; zh_CN.UTF-8 &#x4e0b;&#x4e2d;&#x6587;&#x83dc;&#x5355;&#x6ca1;&#x95ee;&#x9898;&#x7684;&#x3002;&#x6211;&#x4e5f;&#x8d34;&#x4e00;&#x90e8;&#x5206;&#x5427;&#x6548;&#x679c;&#x89c1; http://paste.ubuntu.org.cn/i3302.png&quot; &#x81ea;&#x52a8;&#x8865;&#x5168;&#x547d;&#x4ee4;&#x65f6;&#x5019;&#x4f7f;&#x7528;&#x83dc;&#x5355;&#x5f0f;&#x5339;&#x914d;&#x5217;&#x8868;set wildmenu&quot; &#x5141;&#x8bb8;&#x9000;&#x683c;&#x952e;&#x5220;&#x9664;set backspace=2&quot; &#x542f;&#x7528;&#x9f20;&#x6807;set mouse=a&quot; &#x6587;&#x4ef6;&#x7c7b;&#x578b;filetype onfiletype plugin onfiletype indent on&quot; &#x8bbe;&#x7f6e;&#x7f16;&#x7801;&#x81ea;&#x52a8;&#x8bc6;&#x522b;, &#x4e2d;&#x6587;&#x5f15;&#x53f7;&#x663e;&#x793a;set fileencodings=utf-8,gbkset ambiwidth=double&quot; &#x79fb;&#x52a8;&#x957f;&#x884c;nnoremap &lt;Down&gt; gjnnoremap &lt;Up&gt; gk&quot; &#x9ad8;&#x4eae;syntax on&quot; &#x8bbe;&#x7f6e;&#x9ad8;&#x4eae;&#x641c;&#x7d22;set hlsearch&quot; &#x8f93;&#x5165;&#x5b57;&#x7b26;&#x4e32;&#x5c31;&#x663e;&#x793a;&#x5339;&#x914d;&#x70b9;set incsearch&quot; &#x8f93;&#x5165;&#x7684;&#x547d;&#x4ee4;&#x663e;&#x793a;&#x51fa;&#x6765;&#xff0c;&#x770b;&#x7684;&#x6e05;&#x695a;&#x4e9b;&#x3002;set showcmd&quot; &#x6253;&#x5f00;&#x5f53;&#x524d;&#x76ee;&#x5f55;&#x6587;&#x4ef6;&#x5217;&#x8868;map &lt;F3&gt; :e .&lt;CR&gt;&quot; Taglistlet Tlist_File_Fold_Auto_Close=1let Tlist_Show_Menu = 1&quot; let Tlist_Use_Right_Window = 1&quot; let Tlist_Auto_Open = 1&quot; let Tlist_Exit_OnlyWindow = 1&quot; let Tlist_Use_SingleClick = 1set updatetime=1000map &lt;F4&gt; :Tlist&lt;CR&gt;&quot; &#x6309; F8 &#x667a;&#x80fd;&#x8865;&#x5168;inoremap &lt;F8&gt; &lt;C-x&gt;&lt;C-o&gt;&quot; &#x8ba9; python &#x5c55;&#x5f00;Tab&#xff0c;&#x663e;&#x793a;&#x884c;&#x53f7;&#xff0c;&#x7f29;&#x8fdb;4, Tab&#x5bbd;&#x5ea6;4autocmd FileType python set et nu sw=4 ts=4&quot; vim &#x81ea;&#x52a8;&#x8865;&#x5168; Python &#x4ee3;&#x7801;&quot; &#x6765;&#x81ea;http://vim.sourceforge.net/scripts/script.php?script_id=850autocmd FileType python set complete+=k~/.vim/tools/pydiction&quot; &#x81ea;&#x52a8;&#x4f7f;&#x7528;&#x65b0;&#x6587;&#x4ef6;&#x6a21;&#x677f;autocmd BufNewFile *.py 0r ~/.vim/template/simple.py&quot; &#x6f02;&#x4eae;&#x7684;&#x72b6;&#x6001;&#x680f;set laststatus=2set statusline=set statusline+=%2*%-3.3n%0*\ &quot; buffer numberset statusline+=%f\ &quot; file nameset statusline+=%h%1*%m%r%w%0* &quot; flagset statusline+=[if v:version &gt;= 600set statusline+=%{strlen(&amp;ft)?&amp;ft:&apos;none&apos;}, &quot; filetypeset statusline+=%{&amp;encoding}, &quot; encodingendifset statusline+=%{&amp;fileformat}] &quot; file formatif filereadable(expand(&quot;$VIM/vimfiles/plugin/vimbuddy.vim&quot;))set statusline+=\ %{VimBuddy()} &quot; vim buddyendifset statusline+=%= &quot; right align&quot;set statusline+=%2*0x%-8B\ &quot; current charset statusline+=0x%-8B\ &quot; current charset statusline+=%-14.(%l,%c%V%)\ %&lt;%P &quot; offset ">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1190344084359" ID="Freemind_Link_986540136" MODIFIED="1254629503918" TEXT="http://groups.google.com/group/python-cn/browse_thread/thread/28ce954b1c7fafe8/bd53861f1f39c24e?hl=zh-CN#bd53861f1f39c24e">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1170422442801" ID="Freemind_Link_1307259309" MODIFIED="1260243649159" TEXT="&#x5728;/$vim/_vimrc&#x4e2d;&#x589e;&#x52a0;&#x4ee5;&#x4e0b;&#x8bed;&#x53e5;&#xff1a;set fileencodings=utf-8,gb2312,gbk,chinese,ucs-bom,taiwan,latin1au BufWrite *.* set fileencoding=utf-8 &#x4f46;&#x589e;&#x52a0;&#x201c;au...&#x201d;&#x8fd9;&#x4e00;&#x884c;&#x540e;&#xff0c;vim&#x65e0;&#x6cd5;&#x4fdd;&#x5b58;&#x6587;&#x4ef6;&#x3002;">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-<node COLOR="#990000" CREATED="1170422691478" ID="Freemind_Link_1688695498" MODIFIED="1260243652194" TEXT="&#x518d;&#x6b21;&#x6253;&#x5f00;&#x6587;&#x4ef6;&#x65f6;&#x4e2d;&#x6587;&#x53d8;&#x6210;&#x4e71;&#x7801;&#x4f7f;&#x7528;word&#x6253;&#x5f00;&#x6587;&#x6863;&#xff08;&#x56e0;&#x6587;&#x4ef6;&#x540e;&#x7f00;&#x4e3a;&#x201c;pih&#x201d;&#xff09;&#xff0c;&#x63d0;&#x793a;&#x9009;&#x62e9;&#x6587;&#x6863;&#x7f16;&#x7801;&#xff0c;&#x9009;&#x62e9;&#x4e3a;utf-8&#x540e;&#x7f16;&#x8f91;&#x5e76;&#x4fdd;&#x5b58;&#x3002;&#x518d;&#x7528;vim &#x6253;&#x5f00;&#x540e;&#x4e2d;&#x6587;&#x6b63;&#x5e38;&#x663e;&#x793a;&#xff0c;&#x4e0d;&#x77e5;&#x662f;&#x4f55;&#x539f;&#x56e0;&#xff1f;">
-<font NAME="SansSerif" SIZE="14"/>
-<icon BUILTIN="help"/>
-</node>
-</node>
-<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1266894458198" TEXT="karrigell">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1250824602428" FOLDED="true" ID="Freemind_Link_1774893402" MODIFIED="1265166091674" TEXT="_()---i18n">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1250824620013" ID="Freemind_Link_452775334" MODIFIED="1260243699317" TEXT="_(&quot;...&quot;)&#x63d0;&#x793a;str not callable &#x9519;&#x8bef;&#xff0c;&#x68c0;&#x67e5;&#x53d1;&#x73b0;URL&#x4e2d;&#x5e26;&#x6709;&quot;&quot;&#x53c2;&#x6570;&#xff0c;&#x5373;&#x7a7a;&#x7684;&#x8868;&#x5355;&#x53d8;&#x91cf;&#xff0c;&#x5bfc;&#x81f4;Karrigell&#x4e2d;&#x7684;_&#x51fd;&#x6570;&#x53d1;&#x751f;&#x89e3;&#x6790;&#x9519;&#x8bef;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1170422421911" FOLDED="true" ID="Freemind_Link_61090711" MODIFIED="1265166095426" TEXT="&#x6587;&#x4ef6;&#x7f16;&#x7801;&#x8bbe;&#x5b9a;">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1174877413413" ID="Freemind_Link_42008706" MODIFIED="1260243705160" TEXT="karrigell.ini&#x4fee;&#x6539;&#xff1a;outputEncoding = utf-8">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1253975213187" FOLDED="true" ID="Freemind_Link_155505941" MODIFIED="1265166094554" TEXT="Virtual Host Config">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1253975226636" ID="Freemind_Link_1785529272" MODIFIED="1261467684143" TEXT="&#x4e3b;&#x673a;hosts&#x6587;&#x4ef6;&#xff0c;Linux&#x4e0b;&#x4e3a;/etc/hosts&#xa;127.0.0.1 localhost&#xa;127.0.0.1 cms&#xa;&#xa;Karrigell&#x5b89;&#x88c5;&#x76ee;&#x5f55;&#x4e0b;hosts&#x6587;&#x4ef6;&#xff0c;&#x6dfb;&#x52a0;&#xff1a;&#xa;cms /home/broader/develop/R@K/CMS/Karrigell/data/cms/conf.py&#xa;&#xa;&#x91cd;&#x65b0;&#x542f;&#x52a8;Karrigell">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1260451613749" FOLDED="true" ID="ID_1531639743" MODIFIED="1265166096962" TEXT="Indent Error">
-<font NAME="SansSerif" SIZE="14"/>
-<icon BUILTIN="messagebox_warning"/>
-<icon BUILTIN="yes"/>
-<node COLOR="#111111" CREATED="1260451624226" ID="ID_1815202875" MODIFIED="1260451673625" TEXT="&apos;Token Error: EOF in multi-line statement&apos;">
-<node COLOR="#111111" CREATED="1260451690651" ID="ID_1486718180" MODIFIED="1260451819616" TEXT="{,  [ ,  &apos;&apos;&apos; ,  &quot;&quot;&quot; &#x7f3a;&#x5c11;&#x5bf9;&#x5e94;&#x7684;&#x7ed3;&#x675f;&#x7b26;&#x53f7;&#xff0c;&#xa;&#x6216;&#x662f;&#x6587;&#x4ef6;&#x6700;&#x540e;&#x4e00;&#x884c; &#x4ee5; &apos;\&apos; &#x7ed3;&#x675f;&#xa;"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1263825181828" FOLDED="true" ID="ID_854025776" MODIFIED="1264156431647" TEXT="Session">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
-<icon BUILTIN="messagebox_warning"/>
-<icon BUILTIN="yes"/>
-<node COLOR="#111111" CREATED="1263825186476" FOLDED="true" ID="ID_260522020" MODIFIED="1264133489013" TEXT="&#x8bfb;&#x53d6;&#x4e0d;&#x540c;app&#x4e0b;&#x7684;&#x9875;&#x9762;&#x65f6;&#xff0c;cookie&#x6ca1;&#x6709;&#x968f;&#x9875;&#x9762;&#x4e00;&#x540c;&#x53d1;&#x9001;&#x5230;&#x670d;&#x52a1;&#x5668;&#x7aef;&#xff0c;&#xa;&#x5bfc;&#x81f4;&#x8bfb;&#x53d6;session object &#x6df7;&#x4e71;&#xff1f;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1264133373135" FOLDED="true" ID="ID_1287632556" MODIFIED="1264133381423" TEXT="&#x63cf;&#x8ff0;">
-<node COLOR="#111111" CREATED="1263894272543" ID="ID_1370004916" MODIFIED="1263954661024" TEXT="&#x95ee;&#x9898;&#x539f;&#x56e0;&#xff1a;&#xa;cookie&#x53d1;&#x9001;&#x7684;&#x8def;&#x5f84;&#x95ee;&#x9898;&#xff0c;&#xa;&#x5f53;&#x521b;&#x5efa;session object&#x65f6;&#xff0c;&#x670d;&#x52a1;&#x5668;&#x7aef;&#xff08;self.SET_COOKIE&#xff09;&#x6ca1;&#x6709;&#x8bbe;&#x7f6e;&apos;path&apos;&#x53c2;&#x6570;&#xff0c;&#x5bfc;&#x81f4;&#x7f3a;&#x7701;&#x4e3a;Request&#x9875;&#x9762;&#x7684;&#x8def;&#x5f84;&#x3002;&#xa;&#x4f8b;&#x5982;&#xff1a;&#xa;layout.ks&#x4e2d;&#x8bbe;&#x7f6e;session object&#x540e;&#xff0c;cookie&#x8def;&#x5f84;&#x88ab;&#x8bbe;&#x7f6e;&#x4e3a;/layout/&#xff1b;&#xa;&#x8fd9;&#x6837;&#x8bbf;&#x95ee;portfolio&#x8def;&#x5f84;&#x4e0b;&#x7684;&#x9875;&#x9762;&#x65f6;&#xff0c;&#x7531;&#x4e8e;&#x8def;&#x5f84;&#x4e0d;&#x7b26;&#x5408;&#x6761;&#x4ef6;&#xff0c;cookie&#x4e0d;&#x4f1a;&#x88ab;&#x8bbe;&#x7f6e;&#x5728;&#x8be5;&#x9875;&#x9762;&#x7684;header&#x4e2d;&#x53d1;&#x51fa;&#xff0c;&#x5bfc;&#x81f4;&#x670d;&#x52a1;&#x5668;&#x7aef;&#x6ca1;&#x6709;&#x6536;&#x5230;cookie&#x548c;&#x5176;&#x4e2d;&#x7684;sessionId&#xff0c;&#x4e8e;&#x662f;&#x53c8;&#x521b;&#x5efa;&#x65b0;&#x7684;session&#x3002;">
-<icon BUILTIN="messagebox_warning"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1263954754718" FOLDED="true" ID="ID_941457021" MODIFIED="1263954765157" TEXT="&#x89e3;&#x51b3;&#x529e;&#x6cd5;">
-<node COLOR="#111111" CREATED="1263894154322" ID="ID_24661739" MODIFIED="1263954740723" TEXT="&#x591a;&#x6b21;&#x5237;&#x65b0;&#x9875;&#x9762;&#xff0c;&#x4e5f;&#x4f1a;&#x5bfc;&#x81f4;session object &#x8bfb;&#x5199;&#x9519;&#x8bef;&#xff1f;&#xa;&#x4fee;&#x6b63;&#xff1a;&#xa;layout.ks---&gt;&#xa;# the session object for this page&#xa;so = Session()&#xa;sname = pagefn.COOKIENAME&#xa;# SET_COOKIE is a instance of Cookie.SimpleCookie,&#xa;# When a new key is set for a SimpleCookie object, a Morsel instance is created.&#xa;SET_COOKIE[sname]=getattr(REQUEST_HANDLER, sname)&#xa;# set cookie path&#xa;SET_COOKIE[sname][&apos;path&apos;] = &apos;/&apos;&#xa;"/>
-<node COLOR="#111111" CREATED="1263954675969" ID="ID_492948300" MODIFIED="1263954726762" TEXT="&#x4e3a;&#x589e;&#x5f3a;&#x5b89;&#x5168;&#x6027;&#xff0c;&#x6dfb;&#x52a0;MUI.removeCookie() function&#x7528;&#x4e8e;&#x6e05;&#x9664;sessionId;&#xa;-&gt;init.js.pih-&gt;preLoginInit()&#x4e2d;&#x8c03;&#x7528;MUI.removeCookie,&#x5373;&#x6bcf;&#x6b21;&#x767b;&#x5f55;&#x524d;&#x6e05;&#x9664;sessionId&#xa;-&gt;layoutInit.js.pih&#x4e2d;-&gt;MUI.logout()&#x4e2d;&#x8c03;&#x7528;MUI.removeCookie,&#x5373;&#x6bcf;&#x6b21;&#x9000;&#x51fa;&#x767b;&#x5f55;&#x540e;&#x6e05;&#x9664;sessionId"/>
-</node>
-<node COLOR="#111111" CREATED="1263895524886" FOLDED="true" ID="ID_1440716339" MODIFIED="1264132992849" TEXT="prefer reading">
-<node COLOR="#111111" CREATED="1263895538997" ID="ID_21860316" MODIFIED="1263895540864" TEXT="http://www.jayconrod.com/cgi/view_post.py?17"/>
-<node COLOR="#111111" CREATED="1263895549571" ID="ID_1683813128" MODIFIED="1263895550415" TEXT="http://webpython.codepoint.net/cgi_morsel"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1264133292399" ID="ID_374577331" MODIFIED="1264156421527" TEXT="&#x540c;&#x4e00;ks&#x6587;&#x4ef6;&#x4e2d;&#xff0c;&#x7edf;&#x4e00;&#x8bbe;&#x7f6e;Session&#x548c;SET_COOKIE&#xff0c;&#x5bfc;&#x81f4;sessionId&#x88ab;&#x591a;&#x6b21;&#x8bbe;&#x7f6e;">
-<icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1264133384414" FOLDED="true" ID="ID_422791638" MODIFIED="1264156413877" TEXT="&#x63cf;&#x8ff0;">
-<node COLOR="#111111" CREATED="1264132999282" ID="ID_1837167565" MODIFIED="1264133278650" TEXT="Karrigell&#x7684;ks&#x6587;&#x4ef6;&#x673a;&#x5236;&#x4e3a;&#xff1a;&#xa;&#x6bcf;&#x4e2a;&#x51fd;&#x6570;&#x8fd4;&#x56de;&#x4e00;&#x4e2a;&#x9875;&#x9762;&#xff0c;&#x8fd9;&#x6837;&#x5982;&#x679c;session&#x7684;&#x521d;&#x59cb;&#x5316;&#x4e3a;&#x5168;&#x5c40;&#x53d8;&#x91cf;&#xff08;&#x4f8b;&#x5982;:&#x5728;ks&#x6587;&#x4ef6;&#x5934;&#x521d;&#x59cb;&#x5316;so=Session()&#xff0c;&#x540c;&#x65f6;&#x8bbe;&#x7f6e;SET_COOKIE&#xff09;,&#xa;&#x4f1a;&#x5bfc;&#x81f4;&#x6bcf;&#x6b21;&#x8bbf;&#x95ee;ks&#x6587;&#x4ef6;&#x4e2d;&#x7684;&#x4e00;&#x4e2a;&#x51fd;&#x6570;&#xff0c;&#x90fd;&#x4f1a;&#x91cd;&#x65b0;&#x8bbe;&#x7f6e;&#x8fd4;&#x56de;&#x7684;SET_COOKIE&#x4fe1;&#x606f;&#x5bfc;&#x81f4;&#x91cd;&#x65b0;&#x8bbe;&#x7f6e;sessionId&#xff0c;&#x6700;&#x7ec8;&#x4e0d;&#x540c;&#x9875;&#x9762;&#x65e0;&#x6cd5;&#x8bbf;&#x95ee;&#x540c;&#x4e00;&#x4e2a;Session Object."/>
-</node>
-<node COLOR="#111111" CREATED="1264133391212" FOLDED="true" ID="ID_776035324" MODIFIED="1264156414965" TEXT="&#x89e3;&#x51b3;">
-<node COLOR="#111111" CREATED="1264133401935" ID="ID_1209524773" MODIFIED="1264156003165" TEXT="init.js.pih&#xa;---&gt;MUI.appInit()&#xa;------&gt;&#x8c03;&#x7528;layout.ks/page_closeSession(),&#x6e05;&#x9664;Server &#x7aef;RequestHandler&#x4e2d;&#x4fdd;&#x7559;&#x7684;Session Object&#xa;&#xa;---&gt;&#x9875;&#x9762;&#x521d;&#x59cb;&#x5316;&#x65f6;&#x8c03;&#x7528;MUI.appInit&#xa;&#xa;&#x540c;&#x65f6;&#x4e3a;&#x65b9;&#x4fbf;&#x8bbe;&#x7f6e;Cookie &#xff0c;&#x589e;&#x52a0;pagefn.setCookie()&#x51fd;&#x6570;&#xa;&#x5728;ks&#x6587;&#x4ef6;&#x7684;&#x5177;&#x4f53;&#x9875;&#x9762;&#x51fd;&#x6570;&#x4e2d;&#x8bbe;&#x7f6e;SET_COOKIE&#x65f6;&#xff0c;&#x8c03;&#x7528;pagefn.setCookie()&#x51fd;&#x6570;&#x5b8c;&#x6210;&#x6b64;&#x529f;&#x80fd;&#x3002;"/>
-</node>
-<node COLOR="#111111" CREATED="1264156024454" FOLDED="true" ID="ID_204315342" MODIFIED="1264156427299" TEXT="HTTP.py-&gt;HTTP.Session()&#x5206;&#x6790;">
-<icon BUILTIN="help"/>
-<icon BUILTIN="idea"/>
-<node COLOR="#111111" CREATED="1264156078809" ID="ID_1550093625" MODIFIED="1264156381563" TEXT="//RequestHandler&#x4e2d;&#x4fdd;&#x5b58;&#x6709;Session Object ,&#x76f4;&#x63a5;&#x8c03;&#x7528;&#x6b64;Object&#x3002;&#x95ee;&#x9898;&#xff1a;&#x8fd9;&#x6837;&#x4f1a;&#x5bfc;&#x81f4;&#x65b0;&#x9875;&#x9762;&#x8c03;&#x7528;&#x65e7; Session&#xff1f;&#xa;if hasattr(self,&quot;sessionObj&quot;):&#x9;&#xa;    return self.sessionObj&#xa;&#xa;// Request header &#x4e2d;&#x5305;&#x542b;&#x6709;cookie&#x4fe1;&#x606f;&#xff0c;&#x6839;&#x636e;&#x6b64;&#x4fe1;&#x606f;&#x83b7;&#x5f97;&#x5185;&#x5b58;&#x4e2d;&#x7684;Session Object&#xa;elif self.COOKIE.has_key(&quot;sessionId&quot;):&#xa;     self.sessionId = self.COOKIE[&quot;sessionId&quot;].value&#xa;     self.sessionObj = k_sessions.get_session_object(self.config,self.sessionId,expires)&#xa;&#xa;// &#x521b;&#x5efa;&#x65b0;&#x7684;Session Object&#xa;else:&#xa;     self.sessionId,self.sessionObj = k_sessions.make_session_object(self.config,expires)&#xa;     self.SET_COOKIE[&quot;sessionId&quot;] = self.sessionId&#xa;&#xa;return self.sessionObj"/>
-</node>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1265166162729" ID="ID_1537892475" MODIFIED="1265166449091" TEXT="Unicode &amp; UTF8">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
-<icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1265166193364" ID="ID_669740718" MODIFIED="1265166645385" TEXT="&#x89e3;&#x51b3;&#x4ee5;&#x4e0b;&#x9519;&#x8bef;&#xff1a;&#xa;UnicodeDecodeError: &apos;utf8&apos; codec can&apos;t decode byte 0xbc in position 0: unexpected code byte&#xa;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xa;reload(sys)&#xa;sys.setdefaultencoding(&apos;utf8&apos;)&#x9; &#xa;&#xa;# &#x91c7;&#x7528;&#x5217;&#x8868;&#x9012;&#x5f52;&#x65b9;&#x5f0f;&#x6709;&#x65f6;&#x4f1a;&#x5f15;&#x53d1;&#x9519;&#x8bef;&#xff0c;&#x6b64;&#x65f6;&#x9700;&#x5bf9;&#x6bcf;&#x4e2a;&#x5b57;&#x7b26;&#x4e32;&#x8fdb;&#x884c;utf8&#x89e3;&#x7801;&#xa;#encoded = [[i.decode(&apos;utf8&apos;) for i in row] for row in rslice]&#xa;&#xa;for row in rslice:&#xa;  for i,s in enumerate(row) :&#xa;    row[i] = s.decode(&apos;utf8&apos;)"/>
-</node>
-</node>
-<node COLOR="#00b439" CREATED="1260243754255" FOLDED="true" ID="ID_1224555425" MODIFIED="1265093959351" TEXT="Ubuntu">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1260243759074" FOLDED="true" ID="ID_243453629" MODIFIED="1261579887493" TEXT="Web Server Port">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1260243777696" ID="ID_454009031" MODIFIED="1261579887494" TEXT="Firstly, normal users are not allowed to open listening sockets on port numbers below 1024.  Secondly, the cgi script must be executable by the server. This involves setting the executable flag, and also specifying on the first line of the script which interpreter should be used (e.g. python, perl etc).">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1260243810899" ID="ID_293390328" MODIFIED="1261579887494" TEXT="http://ubuntuforums.org/showthread.php?t=1200405">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1261579695948" ID="ID_427615365" MODIFIED="1261579887494" TEXT="&#x684c;&#x9762;">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1261579705853" FOLDED="true" ID="ID_497408482" MODIFIED="1265093953694" TEXT="&#x9762;&#x677f;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1261579713554" ID="ID_124189722" MODIFIED="1261579862299" TEXT="&#x6dfb;&#x52a0;&#x5e94;&#x7528;&#x7a0b;&#x5e8f;&#xff1a;&#xa;&#x53f3;&#x51fb;&#x9762;&#x677f;&#x7684;&#x7a7a;&#x767d;&#x90e8;&#x5206;&#xff0c;&#x663e;&#x793a;&#x9762;&#x677f;&#xff08;&#x4e0a;&#x4e0b;&#x6587;&#xff09;&#x83dc;&#x5355;&#x3002;&#xa;&#x9009;&#x62e9;&quot;&#x6dfb;&#x52a0;&#x5230;&#x9762;&#x677f;&#xff08;Add to panel&#xff09;&quot;&#xa;&#xff0d;&#x300b;&#x201c;&#x81ea;&#x5b9a;&#x4e49;&#x5e94;&#x7528;&#x7a0b;&#x5e8f;&#x8d77;&#x52a8;&#x5668;&#x201d;&#xa;&#xff0d;&#x300b;&#x70b9;&#x51fb;&#x5e94;&#x7528;&#x7a0b;&#x5e8f;&#x56fe;&#x6807;&#x53ef;&#x4ee5;&#x66f4;&#x6539;&#x8be5;&#x56fe;&#x6807;"/>
-</node>
-</node>
-</node>
-</node>
 <node COLOR="#0033ff" CREATED="1245853638712" ID="_" MODIFIED="1265253554725" POSITION="right" TEXT="Used Web Widgets">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -782,105 +565,6 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1183969360528" ID="Freemind_Link_1717488379" MODIFIED="1264306011060" POSITION="right" TEXT="javascript">
-<edge STYLE="sharp_bezier" WIDTH="8"/>
-<font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1260329913465" FOLDED="true" ID="ID_484061448" MODIFIED="1265253612731" TEXT="jQuery">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1184310635073" FOLDED="true" ID="Freemind_Link_1714947870" MODIFIED="1260329922434" TEXT="jQuery&#x51fd;&#x6570;&#x5305;&#x517c;&#x5bb9;">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1184310670674" ID="Freemind_Link_678535376" MODIFIED="1260329922434" TEXT="jQuery.validate">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1184310686427" ID="Freemind_Link_1525956605" MODIFIED="1184311589095" TEXT="Karrigell&#x73af;&#x5883;&#x4e0b;&#xff0c;&#x4f7f;&#x7528;Include&#xff08;&#xff09;&#x51fd;&#x6570;&#x5d4c;&#x5957;&#x591a;&#x5c42;&#x9875;&#x9762;&#x7ec4;&#x4ef6;&#x65f6;&#xff0c;&#x6b64;&#x51fd;&#x6570;&#x5305;&#x63d2;&#x4ef6;&#x5fc5;&#x987b;&#x5728;&#x7236;&#x5c42;&#x9875;&#x9762;&#x4e0b;&#x9884;&#x5148;&#x8c03;&#x7528;&#x3002;&#x4f8b;&#x5982;&#xff1a;&#x5728;content.pih&#x901a;&#x8fc7;Include&#xff08;&#xff09;&#x8c03;&#x7528;validate.pih&#x9875;&#x9762;&#xff08;&#x5305;&#x542b;jquery.validate.js&#xff09;&#xff0c;&#x5fc5;&#x987b;&#x5728;content.pih&#x4e2d;&#x9884;&#x5148;&#x8c03;&#x7528;...&lt;script src=&quot;/CongressPortal/home/js/jquery.metadata.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;&lt;script src=&quot;/CongressPortal/home/js/jquery.newvalidate.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;...&#x5426;&#x5219;&#xff0c;&#x5728;validate.pih&#x4e2d;&#x8bbe;&#x7f6e;...&lt;script src=&quot;/CongressPortal/home/js/jquery.metadata.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;&lt;script src=&quot;/CongressPortal/home/js/jquery.newvalidate.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;...&#x4f1a;&#x51fa;&#x73b0;&#x5982;&#x4e0b;&#x9519;&#x8bef;&#x63d0;&#x793a;&#xff1a;jQuery.validator has no propertiesundefine">
-<icon BUILTIN="help"/>
-</node>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1183969366997" FOLDED="true" ID="Freemind_Link_1874887345" MODIFIED="1260329924195" TEXT="&#x51fd;&#x6570;&#x8c03;&#x7528;&#x683c;&#x5f0f;">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1183969378604" ID="Freemind_Link_941280098" MODIFIED="1260329924195" TEXT="http://www.ibm.com/developerworks/cn/web/wa-javascript.htmlalert (&#x201c;Hello, World!&quot;);&#x7b49;&#x540c;&#x4e8e;(alert) (&#x201c;Hello, World!&quot;);&#x8fd9;&#x89e3;&#x91ca;&#x4e86;&#x4e3a;&#x4f55;&#x53ef;&#x4ee5;&#x91c7;&#x53d6;&#x4ee5;&#x4e0b;&#x683c;&#x5f0f;&#xff1a;(function($){})(jQuery);&#x201c;jQuery&#x201d;&#x4f5c;&#x4e3a;&#x53c2;&#x6570;&#x88ab;&#x4f20;&#x9012;&#x7ed9;&#x201c;$&#x201d;&#xff0c;&#x5728;&#x8be5;&#x51fd;&#x6570;&#x5185;&#x90e8;&#x201c;$&#x201d;&#x7b49;&#x540c;&#x4e8e;&#x201c;jQuery&#x201d;&#x3002;&#x8fd9;&#x6837;&#x907f;&#x514d;&#x4e86;&#x53ef;&#x80fd;&#x7684;&#x547d;&#x540d;&#x51b2;&#x7a81;&#x3002;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-</node>
-<node COLOR="#00b439" CREATED="1260329928560" FOLDED="true" ID="ID_1432963465" MODIFIED="1265253550213" TEXT="Mootools">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261625402522" ID="ID_1117421280" MODIFIED="1265094791742" TEXT="Knowledge Or Experience">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1260684210949" FOLDED="true" ID="ID_149622745" MODIFIED="1265094795727" TEXT="Class">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1260329937821" ID="ID_850938943" MODIFIED="1263264407865" TEXT="addEvent">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1260753630399" ID="ID_1668631451" MODIFIED="1260753645351" TEXT="mootools &#x5b98;&#x65b9;&#x8bf4;&#x660e;">
-<node COLOR="#111111" CREATED="1260753647397" ID="ID_1315568376" MODIFIED="1260753649199" TEXT="http://mootools.net/docs/core/Class/Class.Extras#Options:setOptions"/>
-</node>
-<node COLOR="#111111" CREATED="1260329947159" ID="ID_1478269529" MODIFIED="1260753653750" TEXT="Test = new Class({&#xa;    implement:[Events,...]&#xa;    options:{&#xa;        &apos;onClick&apos;: function(){},&#xa;        ...&#xa;    }&#xa;})&#xa;&#xa;instance = new Test();&#xa;&#x5f53;instance&#x7684;&#x65b9;&#x6cd5; fireEvent(&apos;close&apos;)&#x4e8b;&#x4ef6;&#x65f6;&#xff0c;&#x4f1a;&#x81ea;&#x52a8;&#x8c03;&#x7528;&apos;onClick&apos;&#x5bf9;&#x5e94;&#x7684;&#x51fd;&#x6570;"/>
-</node>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1261625377953" ID="ID_1827272195" MODIFIED="1265201540826" TEXT="Plugins">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1261625384035" ID="ID_1027010126" MODIFIED="1261625390033" TEXT="Chart">
-<node COLOR="#111111" CREATED="1261625391132" ID="ID_147615027" MODIFIED="1261625392863" TEXT="http://highcharts.com/"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1264307483351" ID="ID_379783643" MODIFIED="1265201535008" TEXT="Lib">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1264307492932" ID="ID_809217467" MODIFIED="1264307506442" TEXT="Meteora">
-<node COLOR="#111111" CREATED="1264307507472" ID="ID_1818217045" MODIFIED="1264307509331" TEXT="http://meteora.astrata.com.mx/pages/documentation"/>
-</node>
-<node COLOR="#111111" CREATED="1264306041749" ID="ID_1958103031" MODIFIED="1264306045436" TEXT="jxlib">
-<node COLOR="#111111" CREATED="1264306046678" ID="ID_675277577" MODIFIED="1264306048353" TEXT="http://jxlib.org/"/>
-</node>
-<node COLOR="#111111" CREATED="1261468491247" ID="ID_325077924" MODIFIED="1265094815623" TEXT="MochaUI">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="12"/>
-<icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1261468496862" FOLDED="true" ID="ID_340189399" MODIFIED="1265094809079" TEXT="Layout.js">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1263284614698" FOLDED="true" ID="ID_376439298" MODIFIED="1265094807462" TEXT="MUI.Desktop">
-<node COLOR="#111111" CREATED="1261468527787" ID="ID_1974077677" MODIFIED="1261468675424" TEXT="MUI.Desktop = {&#x9;&#xa;&#x9;options: {&#xa;&#x9;&#x9;// Naming options:&#xa;&#x9;&#x9;// If you change the IDs of the MochaUI Desktop containers in your HTML, you need to change them here as well.&#xa;&#x9;&#x9;...,&#x9;&#x9;&#xa;&#x9;&#x9;//desktopFooter:       &apos;desktopFooter&apos;,&#xa;&#x9;&#x9;desktopFooter:       &apos;desktopFooterWrapper&apos;&#xa;&#x9;},&#x9;&#xa;&#x6b64;&#x5904;&apos;desktop&apos;&#x88ab;&#x91cd;&#x590d;&#x5b9a;&#x4e49;&#xff0c;&#x7ecf;firebug&#x6d4b;&#x8bd5;&#xff0c;&#x6700;&#x540e;&#x4e00;&#x4e2a;&#x5b9a;&#x4e49;&apos;desktopFooterWrapper&apos;&#x6709;&#x6548;&#xff0c;&#x6545;&#x5c06;&#x53e6;&#x4e00;&#x4e2a;&#x91cd;&#x590d;&#x5b9a;&#x4e49;&#x6ce8;&#x91ca;&#x5f03;&#x7528;&#x3002;"/>
-</node>
-<node COLOR="#111111" CREATED="1263284633143" ID="ID_506785355" MODIFIED="1263365179166" TEXT="MUI.Panel">
-<node COLOR="#111111" CREATED="1263365366222" FOLDED="true" ID="ID_65409135" MODIFIED="1263368555236" TEXT="collapseToggleInit()">
-<node COLOR="#111111" CREATED="1263365384998" ID="ID_168823966" MODIFIED="1263365416457" TEXT="----&gt;L835,&#xa;&#x539f;&#x4ee3;&#x7801;&#x4e3a;&#xff1a;this.collapseToggleEl.addEvent(&apos;click&apos;, function(event){&#xa;&#x6b64;&#x65b9;&#x6cd5;&#x4e2d;&#x6240;&#x6709;&#x4ee3;&#x7801;copy&#x81f3;&#x65b0;&#x589e;&#x6dfb;&#x65b9;&#x6cd5;MUI.Panel.toggleExpand()&#x4e2d;&#xa;}.bind(this));&#xa;&#xa;&#x66f4;&#x6539;&#x4e3a;&#xff1a; this.collapseToggleEl.addEvent(&apos;click&apos;, function(event){this.toggleExpand();}.bind(this));&#xa;&#x4e3a;&#x6b64;&#xff0c;&#xa;MUI.Panel &#x589e;&#x6dfb;&#x65b0;&#x65b9;&#x6cd5;-&gt;toggleExpand&#xff1a;function&#xff08;&#xff09;{...}"/>
-</node>
-<node COLOR="#111111" CREATED="1263365429915" FOLDED="true" ID="ID_1004655328" MODIFIED="1263453779909" TEXT="toggleExpand() (&#x65b0;&#x589e;&#x52a0;)">
-<icon BUILTIN="yes"/>
-<node COLOR="#111111" CREATED="1263365530630" ID="ID_1152025245" MODIFIED="1263453749403" TEXT="&quot;&quot;&quot;&#xa;&#x6b64;&#x6539;&#x52a8;&#x4e3a;&#x65b9;&#x4fbf;&#x5916;&#x90e8;&#x8c03;&#x7528;&#x5207;&#x6362;Panel&#x5b9e;&#x4f8b;&#x7684;Expand &#x72b6;&#x6001;&#x3002;&#xa;&quot;&quot;&quot;&#xa;&#x539f;&#x4ee3;&#x7801;&#x6539;&#x52a8;&#xa;&#xa;// Collapse Panel&#xa;if (this.isCollapsed == false) {&#xa;---&gt;L868, options-&gt;this.options&#xa;//var currentColumn = MUI.Columns.instances.get($(options.column).id);&#xa;var currentColumn = MUI.Columns.instances.get($(this.options.column).id);&#xa;...&#xa;---&gt;L886, options-&gt;this.options&#xa;//MUI.panelHeight(options.column, panel, &apos;collapsing&apos;);&#xa;MUI.panelHeight(this.options.column, panel, &apos;collapsing&apos;);&#xa;...&#xa;}&#xa;&#xa;---&gt;L874, options -&gt; this.options&#xa;if (expandedSiblings.length == 0 &amp;&amp; currentColumn.options.placement != &apos;main&apos;){&#xa;  //var currentColumn = MUI.Columns.instances.get($(options.column).id);&#xa;  var currentColumn = MUI.Columns.instances.get($(this.options.column).id);&#xa;  ...&#xa;}"/>
-</node>
-</node>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1265094822278" ID="ID_68100126" MODIFIED="1265201562052" TEXT="Omnigrid">
-<icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1265094835103" FOLDED="true" ID="ID_1925202062" MODIFIED="1265207871149" TEXT="omnigrid.js">
-<node COLOR="#111111" CREATED="1265094841143" FOLDED="true" ID="ID_292964798" MODIFIED="1265207861308" TEXT="loadData">
-<node COLOR="#111111" CREATED="1265094863586" ID="ID_1893340089" MODIFIED="1265095005886" TEXT="&#x4e3a;&#x589e;&#x52a0;&#x5411;&#x670d;&#x52a1;&#x5668;&#x4f20;&#x9012;&#x7684;&#x53c2;&#x6570;&#xff0c;&#xa;1 &#x6dfb;&#x52a0;&#x6b64;&#x65b9;&#x6cd5;&#x7684;&#x4f20;&#x5165;&#x53c2;&#x6570;options(&#x4e00;&#x4e2a;JSON object)&#xa;loadData: function (url)---&gt;loadData: function (url, options)&#xa;&#xa;2 &#x6dfb;&#x52a0;&#x4ee3;&#x7801;&#xff08;L323&#xff09;&#xa;// add others options data &#xa;if($type(options) != false)&#xa;  for (key in options){data[key]=options[key]};"/>
-</node>
-<node COLOR="#111111" CREATED="1265202336037" ID="ID_1791843591" MODIFIED="1265207862074" TEXT="accordion &#x52a8;&#x6001;&#x5bfc;&#x5165;&#x5185;&#x5bb9;">
-<node COLOR="#111111" CREATED="1265201580159" FOLDED="true" ID="ID_1915350818" MODIFIED="1265207863844" TEXT="renderData">
-<icon BUILTIN="full-1"/>
-<node COLOR="#111111" CREATED="1265201938784" ID="ID_1717815800" MODIFIED="1265202209267" TEXT="&#x4e3a;&#x907f;&#x514d;&#x5728;&#x521d;&#x59cb;&#x5316;grid&#x65f6;&#x5c31;&#x5bfc;&#x5165;Accordion&#x6570;&#x636e;&#xff0c;&#xa;if (this.options.accordion)&#xa;{&#xa;&#xa;var li2 = new Element(&apos;li&apos;);&#xa;li2.addClass(&apos;section&apos;);&#xa;li2.addClass(&apos;section-&apos;+r);&#xa; // inace se Div-ovi wrapaju, a u IE nastaje cudan 1px border ispod LI el.&#xa;li2.setStyle(&apos;width&apos;, this.sumWidth+2*this.visibleColumns);&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#xa;this.ulBody.appendChild(li2);&#xa;&#xa;/****************&#x6ce8;&#x91ca;&#x4ee5;&#x4e0b;&#x5185;&#x5bb9;**********************&#xa;if (this.options.accordionRenderer)&#x9;&#xa;  this.options.accordionRenderer({parent:li2, row:r, grid:this});&#xa;***************************************************/&#xa;&#xa;}"/>
-</node>
-<node COLOR="#111111" CREATED="1265202353676" FOLDED="true" ID="ID_1671902291" MODIFIED="1265207864948" TEXT="onRowClick">
-<icon BUILTIN="full-2"/>
-<node COLOR="#111111" CREATED="1265202394045" ID="ID_1661583897" MODIFIED="1265202543987" TEXT="if (this.options.accordion)&#xa;{&#xa;...&#xa;  if (this.options.accordionRenderer)&#xa;  {&#xa;    /*******&#x65b0;&#x589e;&#x52a0;&#x8c03;&#x7528;accordionRenderer function &#x529f;&#x80fd;**************************&#xa;    this.options.accordionRenderer({parent: section, row: li.retrieve(&apos;row&apos;), grid:this});&#xa;    *****************************************************************************/&#xa;    this.toggle( section );&#xa;  }&#xa;...&#xa;}"/>
-</node>
-</node>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1262008710082" FOLDED="true" ID="ID_1744885849" MODIFIED="1265201563356" TEXT="formcheck">
-<icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1262008745103" ID="ID_1531222631" MODIFIED="1262008811440" TEXT="Class FormCheck&#xa;--&gt;function removeErrors()&#x9;//&#x7528;&#x4e8e;&#x81ea;&#x52a8;&#x6e05;&#x9664;&#x5df2;&#x663e;&#x793a;&#x7684;&#x6821;&#x9a8c;&#x9519;&#x8bef;&#x4fe1;&#x606f;"/>
-</node>
-</node>
-</node>
-</node>
 <node COLOR="#0033ff" CREATED="1179296386248" FOLDED="true" ID="Freemind_Link_564995791" MODIFIED="1261581375690" POSITION="left" TEXT="CSS">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -1013,7 +697,353 @@
 <font NAME="SansSerif" SIZE="16"/>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1254629537711" FOLDED="true" ID="Freemind_Link_673015721" MODIFIED="1265094784399" POSITION="right" TEXT="Install">
+<node COLOR="#0033ff" CREATED="1262786726152" ID="ID_476877394" MODIFIED="1266917249253" POSITION="right" TEXT="Source">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1266917069312" ID="ID_30201427" MODIFIED="1266917075360" TEXT="Management">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1262786735562" FOLDED="true" ID="ID_495182632" MODIFIED="1266917078142" TEXT="GitHub">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1262786764185" FOLDED="true" ID="ID_875290458" MODIFIED="1266917078142" TEXT="&#x4f7f;&#x7528;&#x8bf4;&#x660e;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1262786741353" ID="ID_1161409631" MODIFIED="1262786771419" TEXT="&#x521b;&#x5efa;&#x76ee;&#x5f55;&#x6307;&#x5bfc;&#xff1a;&#xa;http://hi.baidu.com/jspring/blog/item/59f7dfcdce190a560fb345c1.html&#xa;&#xa;&#x4e0a;&#x4f20;&#x540c;&#x6b65;&#x6587;&#x4ef6;&#xff1a;&#xa;#git add &apos;your file or directory name&apos;&#xa;git commit -m &apos;you commit message&apos;&#xa;git push origin master&#xa;&#xa;&#x5220;&#x9664;&#x6587;&#x4ef6;&#xff1a;&#xa;git rm ./develop/Karrigell/muireception/register/tmp/*.jpeg&#xa;git commit -m &apos;you message&apos;&#xa;git push origin master&#xa;">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1266917080151" ID="ID_370832872" MODIFIED="1266917082896" TEXT="Change">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1183969360528" FOLDED="true" ID="Freemind_Link_1717488379" MODIFIED="1266917237016" TEXT="javascript">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1260329913465" ID="ID_484061448" MODIFIED="1266917101003" TEXT="jQuery">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1184310635073" FOLDED="true" ID="Freemind_Link_1714947870" MODIFIED="1266917111615" TEXT="jQuery&#x51fd;&#x6570;&#x5305;&#x517c;&#x5bb9;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1184310670674" FOLDED="true" ID="Freemind_Link_678535376" MODIFIED="1266917110743" TEXT="jQuery.validate">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1184310686427" ID="Freemind_Link_1525956605" MODIFIED="1184311589095" TEXT="Karrigell&#x73af;&#x5883;&#x4e0b;&#xff0c;&#x4f7f;&#x7528;Include&#xff08;&#xff09;&#x51fd;&#x6570;&#x5d4c;&#x5957;&#x591a;&#x5c42;&#x9875;&#x9762;&#x7ec4;&#x4ef6;&#x65f6;&#xff0c;&#x6b64;&#x51fd;&#x6570;&#x5305;&#x63d2;&#x4ef6;&#x5fc5;&#x987b;&#x5728;&#x7236;&#x5c42;&#x9875;&#x9762;&#x4e0b;&#x9884;&#x5148;&#x8c03;&#x7528;&#x3002;&#x4f8b;&#x5982;&#xff1a;&#x5728;content.pih&#x901a;&#x8fc7;Include&#xff08;&#xff09;&#x8c03;&#x7528;validate.pih&#x9875;&#x9762;&#xff08;&#x5305;&#x542b;jquery.validate.js&#xff09;&#xff0c;&#x5fc5;&#x987b;&#x5728;content.pih&#x4e2d;&#x9884;&#x5148;&#x8c03;&#x7528;...&lt;script src=&quot;/CongressPortal/home/js/jquery.metadata.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;&lt;script src=&quot;/CongressPortal/home/js/jquery.newvalidate.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;...&#x5426;&#x5219;&#xff0c;&#x5728;validate.pih&#x4e2d;&#x8bbe;&#x7f6e;...&lt;script src=&quot;/CongressPortal/home/js/jquery.metadata.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;&lt;script src=&quot;/CongressPortal/home/js/jquery.newvalidate.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;...&#x4f1a;&#x51fa;&#x73b0;&#x5982;&#x4e0b;&#x9519;&#x8bef;&#x63d0;&#x793a;&#xff1a;jQuery.validator has no propertiesundefine">
+<icon BUILTIN="help"/>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1183969366997" FOLDED="true" ID="Freemind_Link_1874887345" MODIFIED="1266917121335" TEXT="&#x51fd;&#x6570;&#x8c03;&#x7528;&#x683c;&#x5f0f;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1183969378604" ID="Freemind_Link_941280098" MODIFIED="1260329924195" TEXT="http://www.ibm.com/developerworks/cn/web/wa-javascript.htmlalert (&#x201c;Hello, World!&quot;);&#x7b49;&#x540c;&#x4e8e;(alert) (&#x201c;Hello, World!&quot;);&#x8fd9;&#x89e3;&#x91ca;&#x4e86;&#x4e3a;&#x4f55;&#x53ef;&#x4ee5;&#x91c7;&#x53d6;&#x4ee5;&#x4e0b;&#x683c;&#x5f0f;&#xff1a;(function($){})(jQuery);&#x201c;jQuery&#x201d;&#x4f5c;&#x4e3a;&#x53c2;&#x6570;&#x88ab;&#x4f20;&#x9012;&#x7ed9;&#x201c;$&#x201d;&#xff0c;&#x5728;&#x8be5;&#x51fd;&#x6570;&#x5185;&#x90e8;&#x201c;$&#x201d;&#x7b49;&#x540c;&#x4e8e;&#x201c;jQuery&#x201d;&#x3002;&#x8fd9;&#x6837;&#x907f;&#x514d;&#x4e86;&#x53ef;&#x80fd;&#x7684;&#x547d;&#x540d;&#x51b2;&#x7a81;&#x3002;">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1260329928560" ID="ID_1432963465" MODIFIED="1266917122336" TEXT="Mootools">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1261625402522" FOLDED="true" ID="ID_1117421280" MODIFIED="1266917219760" TEXT="Knowledge Or Experience">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1260684210949" ID="ID_149622745" MODIFIED="1266917035870" TEXT="Class">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1260329937821" ID="ID_850938943" MODIFIED="1263264407865" TEXT="addEvent">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1260753630399" ID="ID_1668631451" MODIFIED="1260753645351" TEXT="mootools &#x5b98;&#x65b9;&#x8bf4;&#x660e;">
+<node COLOR="#111111" CREATED="1260753647397" ID="ID_1315568376" MODIFIED="1260753649199" TEXT="http://mootools.net/docs/core/Class/Class.Extras#Options:setOptions"/>
+</node>
+<node COLOR="#111111" CREATED="1260329947159" ID="ID_1478269529" MODIFIED="1260753653750" TEXT="Test = new Class({&#xa;    implement:[Events,...]&#xa;    options:{&#xa;        &apos;onClick&apos;: function(){},&#xa;        ...&#xa;    }&#xa;})&#xa;&#xa;instance = new Test();&#xa;&#x5f53;instance&#x7684;&#x65b9;&#x6cd5; fireEvent(&apos;close&apos;)&#x4e8b;&#x4ef6;&#x65f6;&#xff0c;&#x4f1a;&#x81ea;&#x52a8;&#x8c03;&#x7528;&apos;onClick&apos;&#x5bf9;&#x5e94;&#x7684;&#x51fd;&#x6570;"/>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1261625377953" FOLDED="true" ID="ID_1827272195" MODIFIED="1266917217896" TEXT="Plugins">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1261625384035" ID="ID_1027010126" MODIFIED="1261625390033" TEXT="Chart">
+<node COLOR="#111111" CREATED="1261625391132" ID="ID_147615027" MODIFIED="1261625392863" TEXT="http://highcharts.com/"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1264307483351" FOLDED="true" ID="ID_379783643" MODIFIED="1266917215088" TEXT="Lib">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1264307492932" ID="ID_809217467" MODIFIED="1264307506442" TEXT="Meteora">
+<node COLOR="#111111" CREATED="1264307507472" ID="ID_1818217045" MODIFIED="1264307509331" TEXT="http://meteora.astrata.com.mx/pages/documentation"/>
+</node>
+<node COLOR="#111111" CREATED="1264306041749" ID="ID_1958103031" MODIFIED="1264306045436" TEXT="jxlib">
+<node COLOR="#111111" CREATED="1264306046678" ID="ID_675277577" MODIFIED="1264306048353" TEXT="http://jxlib.org/"/>
+</node>
+<node COLOR="#111111" CREATED="1261468491247" FOLDED="true" ID="ID_325077924" MODIFIED="1266917212255" TEXT="MochaUI">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#111111" CREATED="1261468496862" FOLDED="true" ID="ID_340189399" MODIFIED="1266917211200" TEXT="Layout.js">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1263284614698" FOLDED="true" ID="ID_376439298" MODIFIED="1266917142183" TEXT="MUI.Desktop">
+<node COLOR="#111111" CREATED="1261468527787" ID="ID_1974077677" MODIFIED="1261468675424" TEXT="MUI.Desktop = {&#x9;&#xa;&#x9;options: {&#xa;&#x9;&#x9;// Naming options:&#xa;&#x9;&#x9;// If you change the IDs of the MochaUI Desktop containers in your HTML, you need to change them here as well.&#xa;&#x9;&#x9;...,&#x9;&#x9;&#xa;&#x9;&#x9;//desktopFooter:       &apos;desktopFooter&apos;,&#xa;&#x9;&#x9;desktopFooter:       &apos;desktopFooterWrapper&apos;&#xa;&#x9;},&#x9;&#xa;&#x6b64;&#x5904;&apos;desktop&apos;&#x88ab;&#x91cd;&#x590d;&#x5b9a;&#x4e49;&#xff0c;&#x7ecf;firebug&#x6d4b;&#x8bd5;&#xff0c;&#x6700;&#x540e;&#x4e00;&#x4e2a;&#x5b9a;&#x4e49;&apos;desktopFooterWrapper&apos;&#x6709;&#x6548;&#xff0c;&#x6545;&#x5c06;&#x53e6;&#x4e00;&#x4e2a;&#x91cd;&#x590d;&#x5b9a;&#x4e49;&#x6ce8;&#x91ca;&#x5f03;&#x7528;&#x3002;"/>
+</node>
+<node COLOR="#111111" CREATED="1263284633143" ID="ID_506785355" MODIFIED="1263365179166" TEXT="MUI.Panel">
+<node COLOR="#111111" CREATED="1263365366222" FOLDED="true" ID="ID_65409135" MODIFIED="1266917144663" TEXT="collapseToggleInit()">
+<node COLOR="#111111" CREATED="1263365384998" ID="ID_168823966" MODIFIED="1263365416457" TEXT="----&gt;L835,&#xa;&#x539f;&#x4ee3;&#x7801;&#x4e3a;&#xff1a;this.collapseToggleEl.addEvent(&apos;click&apos;, function(event){&#xa;&#x6b64;&#x65b9;&#x6cd5;&#x4e2d;&#x6240;&#x6709;&#x4ee3;&#x7801;copy&#x81f3;&#x65b0;&#x589e;&#x6dfb;&#x65b9;&#x6cd5;MUI.Panel.toggleExpand()&#x4e2d;&#xa;}.bind(this));&#xa;&#xa;&#x66f4;&#x6539;&#x4e3a;&#xff1a; this.collapseToggleEl.addEvent(&apos;click&apos;, function(event){this.toggleExpand();}.bind(this));&#xa;&#x4e3a;&#x6b64;&#xff0c;&#xa;MUI.Panel &#x589e;&#x6dfb;&#x65b0;&#x65b9;&#x6cd5;-&gt;toggleExpand&#xff1a;function&#xff08;&#xff09;{...}"/>
+</node>
+<node COLOR="#111111" CREATED="1263365429915" FOLDED="true" ID="ID_1004655328" MODIFIED="1266917139104" TEXT="toggleExpand() (&#x65b0;&#x589e;&#x52a0;)">
+<icon BUILTIN="yes"/>
+<node COLOR="#111111" CREATED="1263365530630" ID="ID_1152025245" MODIFIED="1263453749403" TEXT="&quot;&quot;&quot;&#xa;&#x6b64;&#x6539;&#x52a8;&#x4e3a;&#x65b9;&#x4fbf;&#x5916;&#x90e8;&#x8c03;&#x7528;&#x5207;&#x6362;Panel&#x5b9e;&#x4f8b;&#x7684;Expand &#x72b6;&#x6001;&#x3002;&#xa;&quot;&quot;&quot;&#xa;&#x539f;&#x4ee3;&#x7801;&#x6539;&#x52a8;&#xa;&#xa;// Collapse Panel&#xa;if (this.isCollapsed == false) {&#xa;---&gt;L868, options-&gt;this.options&#xa;//var currentColumn = MUI.Columns.instances.get($(options.column).id);&#xa;var currentColumn = MUI.Columns.instances.get($(this.options.column).id);&#xa;...&#xa;---&gt;L886, options-&gt;this.options&#xa;//MUI.panelHeight(options.column, panel, &apos;collapsing&apos;);&#xa;MUI.panelHeight(this.options.column, panel, &apos;collapsing&apos;);&#xa;...&#xa;}&#xa;&#xa;---&gt;L874, options -&gt; this.options&#xa;if (expandedSiblings.length == 0 &amp;&amp; currentColumn.options.placement != &apos;main&apos;){&#xa;  //var currentColumn = MUI.Columns.instances.get($(options.column).id);&#xa;  var currentColumn = MUI.Columns.instances.get($(this.options.column).id);&#xa;  ...&#xa;}"/>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1265094822278" FOLDED="true" ID="ID_68100126" MODIFIED="1266917212743" TEXT="Omnigrid">
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#111111" CREATED="1265094835103" FOLDED="true" ID="ID_1925202062" MODIFIED="1266917209440" TEXT="omnigrid.js">
+<node COLOR="#111111" CREATED="1265094841143" FOLDED="true" ID="ID_292964798" MODIFIED="1266917201431" TEXT="loadData">
+<node COLOR="#111111" CREATED="1265094863586" ID="ID_1893340089" MODIFIED="1265095005886" TEXT="&#x4e3a;&#x589e;&#x52a0;&#x5411;&#x670d;&#x52a1;&#x5668;&#x4f20;&#x9012;&#x7684;&#x53c2;&#x6570;&#xff0c;&#xa;1 &#x6dfb;&#x52a0;&#x6b64;&#x65b9;&#x6cd5;&#x7684;&#x4f20;&#x5165;&#x53c2;&#x6570;options(&#x4e00;&#x4e2a;JSON object)&#xa;loadData: function (url)---&gt;loadData: function (url, options)&#xa;&#xa;2 &#x6dfb;&#x52a0;&#x4ee3;&#x7801;&#xff08;L323&#xff09;&#xa;// add others options data &#xa;if($type(options) != false)&#xa;  for (key in options){data[key]=options[key]};"/>
+</node>
+<node COLOR="#111111" CREATED="1265202336037" FOLDED="true" ID="ID_1791843591" MODIFIED="1266917188287" TEXT="accordion &#x52a8;&#x6001;&#x5bfc;&#x5165;&#x5185;&#x5bb9;">
+<node COLOR="#111111" CREATED="1265201580159" FOLDED="true" ID="ID_1915350818" MODIFIED="1266917186159" TEXT="renderData">
+<icon BUILTIN="full-1"/>
+<node COLOR="#111111" CREATED="1265201938784" ID="ID_1717815800" MODIFIED="1265202209267" TEXT="&#x4e3a;&#x907f;&#x514d;&#x5728;&#x521d;&#x59cb;&#x5316;grid&#x65f6;&#x5c31;&#x5bfc;&#x5165;Accordion&#x6570;&#x636e;&#xff0c;&#xa;if (this.options.accordion)&#xa;{&#xa;&#xa;var li2 = new Element(&apos;li&apos;);&#xa;li2.addClass(&apos;section&apos;);&#xa;li2.addClass(&apos;section-&apos;+r);&#xa; // inace se Div-ovi wrapaju, a u IE nastaje cudan 1px border ispod LI el.&#xa;li2.setStyle(&apos;width&apos;, this.sumWidth+2*this.visibleColumns);&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#xa;this.ulBody.appendChild(li2);&#xa;&#xa;/****************&#x6ce8;&#x91ca;&#x4ee5;&#x4e0b;&#x5185;&#x5bb9;**********************&#xa;if (this.options.accordionRenderer)&#x9;&#xa;  this.options.accordionRenderer({parent:li2, row:r, grid:this});&#xa;***************************************************/&#xa;&#xa;}"/>
+</node>
+<node COLOR="#111111" CREATED="1265202353676" FOLDED="true" ID="ID_1671902291" MODIFIED="1266917177375" TEXT="onRowClick">
+<icon BUILTIN="full-2"/>
+<node COLOR="#111111" CREATED="1265202394045" ID="ID_1661583897" MODIFIED="1265202543987" TEXT="if (this.options.accordion)&#xa;{&#xa;...&#xa;  if (this.options.accordionRenderer)&#xa;  {&#xa;    /*******&#x65b0;&#x589e;&#x52a0;&#x8c03;&#x7528;accordionRenderer function &#x529f;&#x80fd;**************************&#xa;    this.options.accordionRenderer({parent: section, row: li.retrieve(&apos;row&apos;), grid:this});&#xa;    *****************************************************************************/&#xa;    this.toggle( section );&#xa;  }&#xa;...&#xa;}"/>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1262008710082" FOLDED="true" ID="ID_1744885849" MODIFIED="1266917213271" TEXT="formcheck">
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#111111" CREATED="1262008745103" ID="ID_1531222631" MODIFIED="1262008811440" TEXT="Class FormCheck&#xa;--&gt;function removeErrors()&#x9;//&#x7528;&#x4e8e;&#x81ea;&#x52a8;&#x6e05;&#x9664;&#x5df2;&#x663e;&#x793a;&#x7684;&#x6821;&#x9a8c;&#x9519;&#x8bef;&#x4fe1;&#x606f;"/>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1266917223325" ID="ID_320623265" MODIFIED="1266917234952" TEXT="Karrigell">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1266917274150" FOLDED="true" ID="ID_1171070791" MODIFIED="1266917536502" TEXT="k_sessions.py">
+<icon BUILTIN="messagebox_warning"/>
+<icon BUILTIN="button_cancel"/>
+<node COLOR="#111111" CREATED="1266917310958" ID="ID_88625123" MODIFIED="1266917515335" TEXT="&#x95ee;&#x9898;&#xff1a;session&#x6570;&#x91cf;&#x8d85;&#x8fc7;&#x8bbe;&#x5b9a;&#x503c;&#x65f6;&#xff0c;&#x5220;&#x9664;&#x65e7;session&#x65f6;&#x62a5;KeyError&#x9519;&#x8bef;&#xff0c;&#x5bfc;&#x81f4;&#x670d;&#x52a1;&#x5668;&#x5d29;&#x6e83;&#x3002;&#xa;&#xa;class LimitedDict(dict):&#xa;---&gt;__setitem__()&#xa;------&gt;L35&#xa;*********************old**********************************&#xa;first = self.keys.pop(0)&#xa;del self[first]&#xa;--------------------------------------------------&#xa;&#xa;*********************new**********************************&#xa;try:&#xa;  first = self.keys.pop(0)&#xa;  del self[first]&#xa;except:&#xa;  print &apos;The session key %s is not existed !&apos;%first&#xa;---------------------------------------------------"/>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1266917267634" POSITION="right" TEXT="Debug and Knowledge">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#00b439" CREATED="1252499786714" FOLDED="true" ID="Freemind_Link_774228154" MODIFIED="1265166157506" TEXT="URL  &#x7f16;&#x7801;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#990000" CREATED="1252499804532" ID="Freemind_Link_911188927" MODIFIED="1252499862363" TEXT="&#x63d0;&#x4ea4;&#x5305;&#x542b;&#x7a7a;&#x683c;&#x7684;&#x5b57;&#x7b26;&#x4e32;&#x65f6;&#x5fc5;&#x987b;&#x7528;url&#x7f16;&#x7801;urllib.quote()">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1252027856832" FOLDED="true" ID="Freemind_Link_1618511399" MODIFIED="1264132902518" TEXT="Javascript">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1250147399215" FOLDED="true" ID="Freemind_Link_404010672" MODIFIED="1257254491635" TEXT="JSON">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1250147412778" ID="Freemind_Link_1534617843" MODIFIED="1253415164734" TEXT="KS">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1250147426811" ID="Freemind_Link_162074145" MODIFIED="1252027867397" TEXT="&#x4f7f;&#x7528;ks&#x811a;&#x6b65;&#x4e2d;print&#x8bed;&#x53e5;&#x8fd4;&#x56de;json&#x683c;&#x5f0f;&#x6570;&#x636e;&#x65f6;&#xff0c;&#x91c7;&#x7528;&#x4ee5;&#x4e0b;&#x65b9;&#x5f0f;&#x624d;&#x80fd;&#x6b63;&#x5e38;&#x8fd4;&#x56de;utf8 &#x7f16;&#x7801;&#x6587;&#x672c; reload(sys) sys.setdefaultencoding(&apos;utf8&apos;) print JSON.encode(res)&#x6ce8;&#x610f;&#xff1a;&#x5982;&#x679c;&#x76f4;&#x63a5;import sys &#x800c;&#x6ca1;&#x6709;reload(sys)&#xff0c;python&#x89e3;&#x91ca;&#x5668;&#x4f1a;&#x62a5;&#x9519;&#x3002;">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1252027871028" ID="Freemind_Link_480373011" MODIFIED="1257254487236" TEXT="js.pih">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1252027891333" ID="Freemind_Link_1250845998" MODIFIED="1253415164741" TEXT="&#x65b9;&#x4fbf;i18n">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1253864901492" FOLDED="true" ID="Freemind_Link_679377757" MODIFIED="1257254486323" TEXT="string.replace()">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1253864935653" ID="Freemind_Link_1818950425" MODIFIED="1253865042057" TEXT="javascript&#x4e2d;replace() &#x65b9;&#x6cd5;&#x5982;&#x679c;&#x76f4;&#x63a5;&#x7528;str.replace(&quot;apples&quot;,&quot;oranges&quot;) &#x53ea;&#x4f1a;&#x66ff;&#x6362;&#x7b2c;&#x4e00;&#x4e2a;&#x5339;&#x914d;&#x7684;&#x5b57;&#x7b26;&#x3002;&#x4f7f;&#x7528; /g &#x66ff;&#x6362;&#x6240;&#x6709;&#x5339;&#x914d;&#x7684;&#x5b57;&#x7b26;&#xff0c; /i &#x5ffd;&#x7565;&#x5927;&#x5c0f;&#x5199;"/>
+</node>
+<node COLOR="#990000" CREATED="1179127402994" ID="Freemind_Link_509194556" MODIFIED="1264043095443" TEXT="&#x901a;&#x75c5;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="idea"/>
+<node COLOR="#111111" CREATED="1179127485763" FOLDED="true" ID="Freemind_Link_1704996803" MODIFIED="1264043112326" TEXT="&#x63d0;&#x793a;&#x63d2;&#x4ef6;&#x51fd;&#x6570;&#x4e0d;&#x5b58;&#x5728;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1179127411997" ID="Freemind_Link_1213706284" MODIFIED="1179127528043" TEXT="js&#x6587;&#x4ef6;&#x8def;&#x5f84;&#x8bbe;&#x7f6e;&#x6709;&#x8bef;&#x4f7f;&#x7528;&#x7ad9;&#x70b9;rootpath&#xff0c;&#x5728;env&#x6587;&#x4ef6;&#x4e2d;&#x8bbe;&#x7f6e;">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1257254497599" FOLDED="true" ID="ID_1317034118" MODIFIED="1264043113134" TEXT="&#x5168;&#x5c40;&#x53d8;&#x91cf;">
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#111111" CREATED="1257254522312" ID="ID_1903159480" MODIFIED="1257254635090" TEXT="&#x5728;&#x51fd;&#x6570;&#x4e2d;&#x8c03;&#x7528;&#x65f6;undefined&#xa;&#x51fd;&#x6570;&#x4e2d;&#x4e0d;&#x80fd;&#x6709;&#x4e0e;&#x5168;&#x5c40;&#x53d8;&#x91cf;&#x540c;&#x540d;&#x7684;&#x53d8;&#x91cf;&#xff0c;&#x5426;&#x5219;&#x5728;&#x51fd;&#x6570;&#x5185;&#x90e8;&#xff0c;&#x53ea;&#x8981;&#x5728;&#x6b64;&#x53d8;&#x91cf;&#x58f0;&#x660e;&#x4e4b;&#x524d;&#x8c03;&#x7528;&#x6b64;&#x53d8;&#x91cf;&#xff0c;&#x5373;&#x4f7f;&#x4e3a;&#x5168;&#x5c40;&#x53d8;&#x91cf;&#xff0c;&#x4e5f;&#x4f1a;&#x662f;undefined"/>
+<node COLOR="#111111" CREATED="1257254641263" ID="ID_1159819468" MODIFIED="1257254653858" TEXT="var &#x58f0;&#x660e;&#x7528;&#x4e8e;&#x5168;&#x5c40;&#x53d8;&#x91cf;"/>
+</node>
+<node COLOR="#111111" CREATED="1264043114747" FOLDED="true" ID="ID_1714832871" MODIFIED="1264043299433" TEXT="&lt;a hrref=&quot;#&quot;&gt;">
+<node COLOR="#111111" CREATED="1264043134921" ID="ID_61402967" MODIFIED="1264043282135" TEXT="1.href=&quot;javascript:void(0);&quot;&#xa;2.href=&quot;javascript:;&quot;&#xa;3.href=&quot;#all&quot;&#xa;4.href=&quot;####&quot;&#xa;&#xa;"/>
+<node COLOR="#111111" CREATED="1264043285288" ID="ID_1523819906" MODIFIED="1264043292727" TEXT="&#x5176;&#x5b83;&#x95ee;&#x9898;&#xff1a;&#xa;1&#x3001;&lt;a href=&quot;#&quot; onclick=&quot;alert()&quot;&gt;click me&lt;/a&gt;&#xa;2&#x3001;&lt;a href=&quot;javascript:void(0)&quot; onclick=&quot;alert()&quot;&gt;&lt;/a&gt;&#xa;&#xa;&#x7b2c;1&#x4e2a;&#xff0c;&#x5728;IE6&#xff08;IE8&#x6ca1;&#x6709;&#x54ea;&#x4e2a;&#x5730;&#x7403;&#x4e86;&#xff09;&#x4e0b;&#x70b9;&#x51fb;&#x94fe;&#x63a5;&#xff0c;&#x5f39;&#x51fa;&#x5bf9;&#x8bdd;&#x6846;&#x6ca1;&#x6709;&#x6309;&#x786e;&#x5b9a;&#x7684;&#x65f6;&#x5019;&#xff0c;&#x4f60;&#x5c31;&#x4f1a;&#x53d1;&#x73b0;IE&#x5de5;&#x5177;&#x680f;&#x4e0a;&#x9762;&#x7684;&#x90a3;&#x4e2a;&#x5c0f;&#x5730;&#x7403;&#x5728;&#x65cb;&#x8f6c;&#xff0c;&#x8bf4;&#x660e;IE&#x8fd8;&#x5728;&#x53d1;&#x9001;&#x4e00;&#x4e2a;&#x8bf7;&#x6c42;&#x3002;&#x3002;&#x3002;&#xa;&#xa;&#x7b2c;2&#x4e2a;&#xff0c;&#x5728;IE6&#x4e0b;&#xff0c;&#x53d1;&#x73b0;&#x5730;&#x7403;&#x662f;&#x9759;&#x6b62;&#x4e0d;&#x52a8;&#x7684;&#xff0c;&#x4ec5;&#x4ec5;&#x662f;&#x6267;&#x884c;&#x4e00;&#x4e2a;&#x672c;&#x5730;&#x7684;&#x52a8;&#x4f5c;&#x3002; &#xa;&#xa;"/>
+<node COLOR="#111111" CREATED="1264043198565" ID="ID_1409686944" MODIFIED="1264043205226" TEXT="&#x4f7f;&#x7528;&#x6837;&#x5f0f; cursor:pointer;&#xa;&#x5373;&#x4f7f;&#x662f;&#x4e00;&#x4e2a;div&#xa;&lt;div style=&quot;cursor:pointer;&quot;&gt;111&lt;/div&gt;&#xa;&#x4e5f;&#x662f;&#x53ef;&#x4ee5;&#x5b9e;&#x73b0;&#x9f20;&#x6807;&#x653e;&#x4e0a;&#x53bb;&#x53d8;&#x6210;&#x4e00;&#x53ea;&#x624b;&#xa;&#x8fdb;&#x9636;&#xa;&lt;style&gt;&#xa;.hover{font-width:blod;}&#xa;&lt;/style&gt;&#xa;&lt;div style=&quot;cursor:pointer;&quot; onmouseover=&quot;this.className=&apos;hover&apos;&quot; onmouseout=&quot;this.class=&apos;&apos;&quot;&gt;111&lt;/div&gt;&#xa;"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1260845370499" FOLDED="true" ID="ID_1337577665" MODIFIED="1264043301080" TEXT="&#x5bfc;&#x5165;&#x9519;&#x8bef;">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1260845378421" ID="ID_163739786" MODIFIED="1260845458885" TEXT="missing : before statement&#xa;&#x68c0;&#x67e5;&#x53d1;&#x73b0;&#xff0c;js&#x6587;&#x4ef6;&#x76f8;&#x5bf9;&#x8def;&#x5f84;&#x4e3a;/js/lib/...&#xff0c;&#x66f4;&#x6539;&#x4e3a;js/lib/...&#x5373;&#x6b63;&#x5e38;"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1254023346114" FOLDED="true" ID="Freemind_Link_186738146" MODIFIED="1266916992472" TEXT="Python">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1254023354342" ID="Freemind_Link_1111266812" MODIFIED="1266916990640" TEXT="timezone">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1254023363423" ID="Freemind_Link_1101343072" MODIFIED="1254023401189" TEXT="Error with time.strptime()Things to try:(1) Is it possible that your interactive session and your &quot;bash&quot; are using different locales? Put print time.strftime(some known struct_time) into your script and see if the day and month come out in a different language.(2) Put print repr(date) in your script to show unambiguously what you are getting from the latest.GetCreatedAt() call."/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1254149527478" FOLDED="true" ID="Freemind_Link_17834818" MODIFIED="1266916998552" TEXT="Database">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1254149531747" ID="Freemind_Link_377999212" MODIFIED="1254149623676" TEXT="db.class.retire()">
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#111111" CREATED="1254149556997" ID="Freemind_Link_1170431409" MODIFIED="1254149615836" TEXT="&#x64cd;&#x4f5c;&#x540e;&#x9700;&#x8981;&#x8c03;&#x7528;db.commit()&#x5426;&#x5219;db.class.retire()&#x4e0d;&#x4f1a;&#x751f;&#x6548;"/>
+</node>
+<node COLOR="#990000" CREATED="1255161883417" ID="Freemind_Link_640476272" MODIFIED="1262052517599" TEXT="Sqlite">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1255161901118" ID="Freemind_Link_1015808824" MODIFIED="1262052517600" TEXT="Change Records">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255161915178" ID="Freemind_Link_106946224" MODIFIED="1255162026327" TEXT="SQLite Manager &#x66f4;&#x6539;&#x8bb0;&#x5f55;&#x65f6;&#xff0c;&#x6ce8;&#x610f;id&#x7684;&#x5355;&#x5f15;&#x53f7;&#x4e3a;&#x952e;&#x76d8;&#x5de6;&#x4e0a;&#x89d2;&#x7684;&#x5355;&#x5f15;&#x53f7;&#x4f8b;&#x5982;&#xff1a;UPDATE &quot;main&quot;.&quot;_service&quot; SET &quot;_category&quot;=&apos;Hotel&apos; WHERE `id`=1&#x5982;&#x7528;&#x666e;&#x901a;&#x7684;&#x5355;&#x5f15;&#x53f7;&#x4f1a;&#x62a5;&#x9519;&#x3002;"/>
+</node>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1167544327073" FOLDED="true" ID="Freemind_Link_1636742661" MODIFIED="1260450879419" TEXT="vi">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1167544336556" FOLDED="true" ID="Freemind_Link_859472744" MODIFIED="1254629503912" TEXT="Karrigell&#x7684;&#x6269;&#x5c55;&#x683c;&#x5f0f;&#x811a;&#x672c;&#x4e0e;&#x5bf9;&#x5e94;&#x7684;&#x8bed;&#x6cd5;&#x5173;&#x8054;&#x7f16;&#x8f91;$vim70/filetype.vim">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1167544648234" ID="Freemind_Link_1128902031" MODIFIED="1254629503912" TEXT="*.hip---&gt;&quot; Pythonau BufNewFile,BufRead *.py,*.pyw,*.hipsetf python">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1167544676745" ID="Freemind_Link_203367318" MODIFIED="1254629503913" TEXT="*.pih---&gt;&quot; HTML (.shtml and .stm for server side)au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.pih  call s:FThtml()">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1190344005435" FOLDED="true" ID="Freemind_Link_1329909705" MODIFIED="1260450877635" TEXT="UTF-8">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1190344012345" ID="Freemind_Link_325367671" MODIFIED="1254629503913" TEXT="&#x6700;&#x8fd1;&#x53c8;&#x7814;&#x7a76;&#x4e86;&#x4e0b;vim&#x7684;config&#x6587;&#x4ef6;(&#x5b89;&#x88c5;&#x76ee;&#x5f55;$vim\_vimrc):&quot;encoding&quot;&#x8fd9;&#x6837;&#x6240;&#x6709;&#x6587;&#x4ef6;&#x7684;&#x7f16;&#x8f91;encoding&#x90fd;&#x5c06;&#x662f;utf8, &#x800c;&#x4e14;&#x53ef;&#x4ee5;&#x81ea;&#x52a8;&#x8bc6;&#x522b;&#x5176;&#x4ed6;encoding&#x7684;&#x6587;&#x4ef6;&quot;&#x5982;&#x679c;&#x6587;&#x4ef6;&#x672c;&#x8eab;&#x662f;gbk&#x5c06;&#x88ab;&#x6253;&#x5f00;&#x6210;utf8&#x6587;&#x4ef6;&#x7f16;&#x8f91;, &#x4f46;&#x662f;&#x4fdd;&#x5b58;&#x8fd8;&#x662f;&#x4f1a;&#x7528;gbk, &#x5982;&#x679c;&#x8981;&#x4fee;&#x6539;&#x6210;utf8&#x7528;:set fenc=utf8&quot;&#x6700;&#x597d;&#x4f7f;&#x7528;&#x82f1;&#x6587;&#x83dc;&#x5355;, &#x4e2d;&#x6587;&#x53ef;&#x80fd;&#x4e71;&#x7801;, &#x65b9;&#x6cd5;&#x5c31;&#x662f;&#x5220;&#x9664; vim\vim71\lang\ &#x76ee;&#x5f55;&#x4e0b;&#x6709;&#x5173;&#x4e2d;&#x6587;&#x7684;&#x6587;&#x4ef6;&#x548c;&#x76ee;&#x5f55;set encoding=utf-8set fencs=utf-8,gbk,ucs-bom,gb18030,gb2312,cp936set ambiwidth=double&quot;status&quot;&#x4fee;&#x6539;&#x72b6;&#x6001;&#x680f;&#x4e3a;: Ln: &#x884c;, Col: &#x5217; | &#x8bed;&#x8a00; | &#x6587;&#x4ef6;&#x7f16;&#x7801;(&#x7f16;&#x8f91;&#x7f16;&#x7801;) | Tab: &#x5927;&#x5c0f; | &#x6587;&#x4ef6;&#x683c;&#x5f0f;set laststatus=2set statusline=%&lt;%{&apos;Ln:\ &apos;}%l,%{&apos;\ Col:\ &apos;}%c%V\ \|\ %Y\ \|\ %{&amp;fenc}\(%{&amp;enc}\)\ \|\ %{&apos;Tab:\ &apos;.&amp;sw}\ \|\ %{&amp;ff}%=%8P&quot;tabpage&quot;&#x7f51;&#x4e0a;&#x627e;&#x7684;, &#x8fd9;&#x4e2a;&#x662f;&#x9ed8;&#x8ba4;&#x7528;tab&#x6253;&#x5f00;&#x6587;&#x4ef6;, &#x4f46;&#x662f;&#x5728;vim&#x7528;help&#x6709;&#x70b9;bug.set showtabline=2set tabpagemax=20autocmd VimEnter * tab allautocmd BufAdd * exe &apos;tablast | tabe &quot;&apos; . expand( &quot;&lt;afile&quot;) .&apos;&quot;&apos;&quot;fontset guifont=Courier_New:h10:cANSI&#x7248;&#x672c;&#x662f;vim71, &#x4e3b;&#x8981;&#x7528;&#x4e8e;&#x7f16;&#x8f91;javascript&#x548c;python&#x6587;&#x4ef6;, &#x8fd9;&#x662f;&#x4e00;&#x4e9b;&#x6211;&#x5b89;&#x88c5;&#x7684;&#x63d2;&#x4ef6;:javascript indent http://www.vim.org/scripts/script.php?script_id=1936javascript syntax http://www.vim.org/scripts/script.php?script_id=1491python syntax http://www.vim.org/scripts/script.php?script_id=790html indent http://www.vim.org/scripts/script.php?script_id=1830tcomment http://www.vim.org/scripts/script.php?script_id=1173surround www.vim.org/scripts/script.php?script_id=1697 ">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1190344053674" ID="Freemind_Link_1345656479" MODIFIED="1254629503917" TEXT="&#x5728; zh_CN.UTF-8 &#x4e0b;&#x4e2d;&#x6587;&#x83dc;&#x5355;&#x6ca1;&#x95ee;&#x9898;&#x7684;&#x3002;&#x6211;&#x4e5f;&#x8d34;&#x4e00;&#x90e8;&#x5206;&#x5427;&#x6548;&#x679c;&#x89c1; http://paste.ubuntu.org.cn/i3302.png&quot; &#x81ea;&#x52a8;&#x8865;&#x5168;&#x547d;&#x4ee4;&#x65f6;&#x5019;&#x4f7f;&#x7528;&#x83dc;&#x5355;&#x5f0f;&#x5339;&#x914d;&#x5217;&#x8868;set wildmenu&quot; &#x5141;&#x8bb8;&#x9000;&#x683c;&#x952e;&#x5220;&#x9664;set backspace=2&quot; &#x542f;&#x7528;&#x9f20;&#x6807;set mouse=a&quot; &#x6587;&#x4ef6;&#x7c7b;&#x578b;filetype onfiletype plugin onfiletype indent on&quot; &#x8bbe;&#x7f6e;&#x7f16;&#x7801;&#x81ea;&#x52a8;&#x8bc6;&#x522b;, &#x4e2d;&#x6587;&#x5f15;&#x53f7;&#x663e;&#x793a;set fileencodings=utf-8,gbkset ambiwidth=double&quot; &#x79fb;&#x52a8;&#x957f;&#x884c;nnoremap &lt;Down&gt; gjnnoremap &lt;Up&gt; gk&quot; &#x9ad8;&#x4eae;syntax on&quot; &#x8bbe;&#x7f6e;&#x9ad8;&#x4eae;&#x641c;&#x7d22;set hlsearch&quot; &#x8f93;&#x5165;&#x5b57;&#x7b26;&#x4e32;&#x5c31;&#x663e;&#x793a;&#x5339;&#x914d;&#x70b9;set incsearch&quot; &#x8f93;&#x5165;&#x7684;&#x547d;&#x4ee4;&#x663e;&#x793a;&#x51fa;&#x6765;&#xff0c;&#x770b;&#x7684;&#x6e05;&#x695a;&#x4e9b;&#x3002;set showcmd&quot; &#x6253;&#x5f00;&#x5f53;&#x524d;&#x76ee;&#x5f55;&#x6587;&#x4ef6;&#x5217;&#x8868;map &lt;F3&gt; :e .&lt;CR&gt;&quot; Taglistlet Tlist_File_Fold_Auto_Close=1let Tlist_Show_Menu = 1&quot; let Tlist_Use_Right_Window = 1&quot; let Tlist_Auto_Open = 1&quot; let Tlist_Exit_OnlyWindow = 1&quot; let Tlist_Use_SingleClick = 1set updatetime=1000map &lt;F4&gt; :Tlist&lt;CR&gt;&quot; &#x6309; F8 &#x667a;&#x80fd;&#x8865;&#x5168;inoremap &lt;F8&gt; &lt;C-x&gt;&lt;C-o&gt;&quot; &#x8ba9; python &#x5c55;&#x5f00;Tab&#xff0c;&#x663e;&#x793a;&#x884c;&#x53f7;&#xff0c;&#x7f29;&#x8fdb;4, Tab&#x5bbd;&#x5ea6;4autocmd FileType python set et nu sw=4 ts=4&quot; vim &#x81ea;&#x52a8;&#x8865;&#x5168; Python &#x4ee3;&#x7801;&quot; &#x6765;&#x81ea;http://vim.sourceforge.net/scripts/script.php?script_id=850autocmd FileType python set complete+=k~/.vim/tools/pydiction&quot; &#x81ea;&#x52a8;&#x4f7f;&#x7528;&#x65b0;&#x6587;&#x4ef6;&#x6a21;&#x677f;autocmd BufNewFile *.py 0r ~/.vim/template/simple.py&quot; &#x6f02;&#x4eae;&#x7684;&#x72b6;&#x6001;&#x680f;set laststatus=2set statusline=set statusline+=%2*%-3.3n%0*\ &quot; buffer numberset statusline+=%f\ &quot; file nameset statusline+=%h%1*%m%r%w%0* &quot; flagset statusline+=[if v:version &gt;= 600set statusline+=%{strlen(&amp;ft)?&amp;ft:&apos;none&apos;}, &quot; filetypeset statusline+=%{&amp;encoding}, &quot; encodingendifset statusline+=%{&amp;fileformat}] &quot; file formatif filereadable(expand(&quot;$VIM/vimfiles/plugin/vimbuddy.vim&quot;))set statusline+=\ %{VimBuddy()} &quot; vim buddyendifset statusline+=%= &quot; right align&quot;set statusline+=%2*0x%-8B\ &quot; current charset statusline+=0x%-8B\ &quot; current charset statusline+=%-14.(%l,%c%V%)\ %&lt;%P &quot; offset ">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1190344084359" ID="Freemind_Link_986540136" MODIFIED="1254629503918" TEXT="http://groups.google.com/group/python-cn/browse_thread/thread/28ce954b1c7fafe8/bd53861f1f39c24e?hl=zh-CN#bd53861f1f39c24e">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1170422442801" ID="Freemind_Link_1307259309" MODIFIED="1260243649159" TEXT="&#x5728;/$vim/_vimrc&#x4e2d;&#x589e;&#x52a0;&#x4ee5;&#x4e0b;&#x8bed;&#x53e5;&#xff1a;set fileencodings=utf-8,gb2312,gbk,chinese,ucs-bom,taiwan,latin1au BufWrite *.* set fileencoding=utf-8 &#x4f46;&#x589e;&#x52a0;&#x201c;au...&#x201d;&#x8fd9;&#x4e00;&#x884c;&#x540e;&#xff0c;vim&#x65e0;&#x6cd5;&#x4fdd;&#x5b58;&#x6587;&#x4ef6;&#x3002;">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1170422691478" ID="Freemind_Link_1688695498" MODIFIED="1260243652194" TEXT="&#x518d;&#x6b21;&#x6253;&#x5f00;&#x6587;&#x4ef6;&#x65f6;&#x4e2d;&#x6587;&#x53d8;&#x6210;&#x4e71;&#x7801;&#x4f7f;&#x7528;word&#x6253;&#x5f00;&#x6587;&#x6863;&#xff08;&#x56e0;&#x6587;&#x4ef6;&#x540e;&#x7f00;&#x4e3a;&#x201c;pih&#x201d;&#xff09;&#xff0c;&#x63d0;&#x793a;&#x9009;&#x62e9;&#x6587;&#x6863;&#x7f16;&#x7801;&#xff0c;&#x9009;&#x62e9;&#x4e3a;utf-8&#x540e;&#x7f16;&#x8f91;&#x5e76;&#x4fdd;&#x5b58;&#x3002;&#x518d;&#x7528;vim &#x6253;&#x5f00;&#x540e;&#x4e2d;&#x6587;&#x6b63;&#x5e38;&#x663e;&#x793a;&#xff0c;&#x4e0d;&#x77e5;&#x662f;&#x4f55;&#x539f;&#x56e0;&#xff1f;">
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="help"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1266917049176" TEXT="karrigell">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1250824602428" FOLDED="true" ID="Freemind_Link_1774893402" MODIFIED="1265166091674" TEXT="_()---i18n">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1250824620013" ID="Freemind_Link_452775334" MODIFIED="1260243699317" TEXT="_(&quot;...&quot;)&#x63d0;&#x793a;str not callable &#x9519;&#x8bef;&#xff0c;&#x68c0;&#x67e5;&#x53d1;&#x73b0;URL&#x4e2d;&#x5e26;&#x6709;&quot;&quot;&#x53c2;&#x6570;&#xff0c;&#x5373;&#x7a7a;&#x7684;&#x8868;&#x5355;&#x53d8;&#x91cf;&#xff0c;&#x5bfc;&#x81f4;Karrigell&#x4e2d;&#x7684;_&#x51fd;&#x6570;&#x53d1;&#x751f;&#x89e3;&#x6790;&#x9519;&#x8bef;">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1170422421911" FOLDED="true" ID="Freemind_Link_61090711" MODIFIED="1265166095426" TEXT="&#x6587;&#x4ef6;&#x7f16;&#x7801;&#x8bbe;&#x5b9a;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1174877413413" ID="Freemind_Link_42008706" MODIFIED="1260243705160" TEXT="karrigell.ini&#x4fee;&#x6539;&#xff1a;outputEncoding = utf-8">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1253975213187" FOLDED="true" ID="Freemind_Link_155505941" MODIFIED="1265166094554" TEXT="Virtual Host Config">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1253975226636" ID="Freemind_Link_1785529272" MODIFIED="1261467684143" TEXT="&#x4e3b;&#x673a;hosts&#x6587;&#x4ef6;&#xff0c;Linux&#x4e0b;&#x4e3a;/etc/hosts&#xa;127.0.0.1 localhost&#xa;127.0.0.1 cms&#xa;&#xa;Karrigell&#x5b89;&#x88c5;&#x76ee;&#x5f55;&#x4e0b;hosts&#x6587;&#x4ef6;&#xff0c;&#x6dfb;&#x52a0;&#xff1a;&#xa;cms /home/broader/develop/R@K/CMS/Karrigell/data/cms/conf.py&#xa;&#xa;&#x91cd;&#x65b0;&#x542f;&#x52a8;Karrigell">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1260451613749" FOLDED="true" ID="ID_1531639743" MODIFIED="1265166096962" TEXT="Indent Error">
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="messagebox_warning"/>
+<icon BUILTIN="yes"/>
+<node COLOR="#111111" CREATED="1260451624226" ID="ID_1815202875" MODIFIED="1260451673625" TEXT="&apos;Token Error: EOF in multi-line statement&apos;">
+<node COLOR="#111111" CREATED="1260451690651" ID="ID_1486718180" MODIFIED="1260451819616" TEXT="{,  [ ,  &apos;&apos;&apos; ,  &quot;&quot;&quot; &#x7f3a;&#x5c11;&#x5bf9;&#x5e94;&#x7684;&#x7ed3;&#x675f;&#x7b26;&#x53f7;&#xff0c;&#xa;&#x6216;&#x662f;&#x6587;&#x4ef6;&#x6700;&#x540e;&#x4e00;&#x884c; &#x4ee5; &apos;\&apos; &#x7ed3;&#x675f;&#xa;"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1263825181828" FOLDED="true" ID="ID_854025776" MODIFIED="1266917006456" TEXT="Session">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="messagebox_warning"/>
+<icon BUILTIN="yes"/>
+<node COLOR="#111111" CREATED="1263825186476" FOLDED="true" ID="ID_260522020" MODIFIED="1264133489013" TEXT="&#x8bfb;&#x53d6;&#x4e0d;&#x540c;app&#x4e0b;&#x7684;&#x9875;&#x9762;&#x65f6;&#xff0c;cookie&#x6ca1;&#x6709;&#x968f;&#x9875;&#x9762;&#x4e00;&#x540c;&#x53d1;&#x9001;&#x5230;&#x670d;&#x52a1;&#x5668;&#x7aef;&#xff0c;&#xa;&#x5bfc;&#x81f4;&#x8bfb;&#x53d6;session object &#x6df7;&#x4e71;&#xff1f;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1264133373135" FOLDED="true" ID="ID_1287632556" MODIFIED="1264133381423" TEXT="&#x63cf;&#x8ff0;">
+<node COLOR="#111111" CREATED="1263894272543" ID="ID_1370004916" MODIFIED="1263954661024" TEXT="&#x95ee;&#x9898;&#x539f;&#x56e0;&#xff1a;&#xa;cookie&#x53d1;&#x9001;&#x7684;&#x8def;&#x5f84;&#x95ee;&#x9898;&#xff0c;&#xa;&#x5f53;&#x521b;&#x5efa;session object&#x65f6;&#xff0c;&#x670d;&#x52a1;&#x5668;&#x7aef;&#xff08;self.SET_COOKIE&#xff09;&#x6ca1;&#x6709;&#x8bbe;&#x7f6e;&apos;path&apos;&#x53c2;&#x6570;&#xff0c;&#x5bfc;&#x81f4;&#x7f3a;&#x7701;&#x4e3a;Request&#x9875;&#x9762;&#x7684;&#x8def;&#x5f84;&#x3002;&#xa;&#x4f8b;&#x5982;&#xff1a;&#xa;layout.ks&#x4e2d;&#x8bbe;&#x7f6e;session object&#x540e;&#xff0c;cookie&#x8def;&#x5f84;&#x88ab;&#x8bbe;&#x7f6e;&#x4e3a;/layout/&#xff1b;&#xa;&#x8fd9;&#x6837;&#x8bbf;&#x95ee;portfolio&#x8def;&#x5f84;&#x4e0b;&#x7684;&#x9875;&#x9762;&#x65f6;&#xff0c;&#x7531;&#x4e8e;&#x8def;&#x5f84;&#x4e0d;&#x7b26;&#x5408;&#x6761;&#x4ef6;&#xff0c;cookie&#x4e0d;&#x4f1a;&#x88ab;&#x8bbe;&#x7f6e;&#x5728;&#x8be5;&#x9875;&#x9762;&#x7684;header&#x4e2d;&#x53d1;&#x51fa;&#xff0c;&#x5bfc;&#x81f4;&#x670d;&#x52a1;&#x5668;&#x7aef;&#x6ca1;&#x6709;&#x6536;&#x5230;cookie&#x548c;&#x5176;&#x4e2d;&#x7684;sessionId&#xff0c;&#x4e8e;&#x662f;&#x53c8;&#x521b;&#x5efa;&#x65b0;&#x7684;session&#x3002;">
+<icon BUILTIN="messagebox_warning"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1263954754718" FOLDED="true" ID="ID_941457021" MODIFIED="1263954765157" TEXT="&#x89e3;&#x51b3;&#x529e;&#x6cd5;">
+<node COLOR="#111111" CREATED="1263894154322" ID="ID_24661739" MODIFIED="1263954740723" TEXT="&#x591a;&#x6b21;&#x5237;&#x65b0;&#x9875;&#x9762;&#xff0c;&#x4e5f;&#x4f1a;&#x5bfc;&#x81f4;session object &#x8bfb;&#x5199;&#x9519;&#x8bef;&#xff1f;&#xa;&#x4fee;&#x6b63;&#xff1a;&#xa;layout.ks---&gt;&#xa;# the session object for this page&#xa;so = Session()&#xa;sname = pagefn.COOKIENAME&#xa;# SET_COOKIE is a instance of Cookie.SimpleCookie,&#xa;# When a new key is set for a SimpleCookie object, a Morsel instance is created.&#xa;SET_COOKIE[sname]=getattr(REQUEST_HANDLER, sname)&#xa;# set cookie path&#xa;SET_COOKIE[sname][&apos;path&apos;] = &apos;/&apos;&#xa;"/>
+<node COLOR="#111111" CREATED="1263954675969" ID="ID_492948300" MODIFIED="1263954726762" TEXT="&#x4e3a;&#x589e;&#x5f3a;&#x5b89;&#x5168;&#x6027;&#xff0c;&#x6dfb;&#x52a0;MUI.removeCookie() function&#x7528;&#x4e8e;&#x6e05;&#x9664;sessionId;&#xa;-&gt;init.js.pih-&gt;preLoginInit()&#x4e2d;&#x8c03;&#x7528;MUI.removeCookie,&#x5373;&#x6bcf;&#x6b21;&#x767b;&#x5f55;&#x524d;&#x6e05;&#x9664;sessionId&#xa;-&gt;layoutInit.js.pih&#x4e2d;-&gt;MUI.logout()&#x4e2d;&#x8c03;&#x7528;MUI.removeCookie,&#x5373;&#x6bcf;&#x6b21;&#x9000;&#x51fa;&#x767b;&#x5f55;&#x540e;&#x6e05;&#x9664;sessionId"/>
+</node>
+<node COLOR="#111111" CREATED="1263895524886" FOLDED="true" ID="ID_1440716339" MODIFIED="1264132992849" TEXT="prefer reading">
+<node COLOR="#111111" CREATED="1263895538997" ID="ID_21860316" MODIFIED="1263895540864" TEXT="http://www.jayconrod.com/cgi/view_post.py?17"/>
+<node COLOR="#111111" CREATED="1263895549571" ID="ID_1683813128" MODIFIED="1263895550415" TEXT="http://webpython.codepoint.net/cgi_morsel"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1264133292399" ID="ID_374577331" MODIFIED="1264156421527" TEXT="&#x540c;&#x4e00;ks&#x6587;&#x4ef6;&#x4e2d;&#xff0c;&#x7edf;&#x4e00;&#x8bbe;&#x7f6e;Session&#x548c;SET_COOKIE&#xff0c;&#x5bfc;&#x81f4;sessionId&#x88ab;&#x591a;&#x6b21;&#x8bbe;&#x7f6e;">
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#111111" CREATED="1264133384414" FOLDED="true" ID="ID_422791638" MODIFIED="1264156413877" TEXT="&#x63cf;&#x8ff0;">
+<node COLOR="#111111" CREATED="1264132999282" ID="ID_1837167565" MODIFIED="1264133278650" TEXT="Karrigell&#x7684;ks&#x6587;&#x4ef6;&#x673a;&#x5236;&#x4e3a;&#xff1a;&#xa;&#x6bcf;&#x4e2a;&#x51fd;&#x6570;&#x8fd4;&#x56de;&#x4e00;&#x4e2a;&#x9875;&#x9762;&#xff0c;&#x8fd9;&#x6837;&#x5982;&#x679c;session&#x7684;&#x521d;&#x59cb;&#x5316;&#x4e3a;&#x5168;&#x5c40;&#x53d8;&#x91cf;&#xff08;&#x4f8b;&#x5982;:&#x5728;ks&#x6587;&#x4ef6;&#x5934;&#x521d;&#x59cb;&#x5316;so=Session()&#xff0c;&#x540c;&#x65f6;&#x8bbe;&#x7f6e;SET_COOKIE&#xff09;,&#xa;&#x4f1a;&#x5bfc;&#x81f4;&#x6bcf;&#x6b21;&#x8bbf;&#x95ee;ks&#x6587;&#x4ef6;&#x4e2d;&#x7684;&#x4e00;&#x4e2a;&#x51fd;&#x6570;&#xff0c;&#x90fd;&#x4f1a;&#x91cd;&#x65b0;&#x8bbe;&#x7f6e;&#x8fd4;&#x56de;&#x7684;SET_COOKIE&#x4fe1;&#x606f;&#x5bfc;&#x81f4;&#x91cd;&#x65b0;&#x8bbe;&#x7f6e;sessionId&#xff0c;&#x6700;&#x7ec8;&#x4e0d;&#x540c;&#x9875;&#x9762;&#x65e0;&#x6cd5;&#x8bbf;&#x95ee;&#x540c;&#x4e00;&#x4e2a;Session Object."/>
+</node>
+<node COLOR="#111111" CREATED="1264133391212" FOLDED="true" ID="ID_776035324" MODIFIED="1264156414965" TEXT="&#x89e3;&#x51b3;">
+<node COLOR="#111111" CREATED="1264133401935" ID="ID_1209524773" MODIFIED="1264156003165" TEXT="init.js.pih&#xa;---&gt;MUI.appInit()&#xa;------&gt;&#x8c03;&#x7528;layout.ks/page_closeSession(),&#x6e05;&#x9664;Server &#x7aef;RequestHandler&#x4e2d;&#x4fdd;&#x7559;&#x7684;Session Object&#xa;&#xa;---&gt;&#x9875;&#x9762;&#x521d;&#x59cb;&#x5316;&#x65f6;&#x8c03;&#x7528;MUI.appInit&#xa;&#xa;&#x540c;&#x65f6;&#x4e3a;&#x65b9;&#x4fbf;&#x8bbe;&#x7f6e;Cookie &#xff0c;&#x589e;&#x52a0;pagefn.setCookie()&#x51fd;&#x6570;&#xa;&#x5728;ks&#x6587;&#x4ef6;&#x7684;&#x5177;&#x4f53;&#x9875;&#x9762;&#x51fd;&#x6570;&#x4e2d;&#x8bbe;&#x7f6e;SET_COOKIE&#x65f6;&#xff0c;&#x8c03;&#x7528;pagefn.setCookie()&#x51fd;&#x6570;&#x5b8c;&#x6210;&#x6b64;&#x529f;&#x80fd;&#x3002;"/>
+</node>
+<node COLOR="#111111" CREATED="1264156024454" FOLDED="true" ID="ID_204315342" MODIFIED="1264156427299" TEXT="HTTP.py-&gt;HTTP.Session()&#x5206;&#x6790;">
+<icon BUILTIN="help"/>
+<icon BUILTIN="idea"/>
+<node COLOR="#111111" CREATED="1264156078809" ID="ID_1550093625" MODIFIED="1264156381563" TEXT="//RequestHandler&#x4e2d;&#x4fdd;&#x5b58;&#x6709;Session Object ,&#x76f4;&#x63a5;&#x8c03;&#x7528;&#x6b64;Object&#x3002;&#x95ee;&#x9898;&#xff1a;&#x8fd9;&#x6837;&#x4f1a;&#x5bfc;&#x81f4;&#x65b0;&#x9875;&#x9762;&#x8c03;&#x7528;&#x65e7; Session&#xff1f;&#xa;if hasattr(self,&quot;sessionObj&quot;):&#x9;&#xa;    return self.sessionObj&#xa;&#xa;// Request header &#x4e2d;&#x5305;&#x542b;&#x6709;cookie&#x4fe1;&#x606f;&#xff0c;&#x6839;&#x636e;&#x6b64;&#x4fe1;&#x606f;&#x83b7;&#x5f97;&#x5185;&#x5b58;&#x4e2d;&#x7684;Session Object&#xa;elif self.COOKIE.has_key(&quot;sessionId&quot;):&#xa;     self.sessionId = self.COOKIE[&quot;sessionId&quot;].value&#xa;     self.sessionObj = k_sessions.get_session_object(self.config,self.sessionId,expires)&#xa;&#xa;// &#x521b;&#x5efa;&#x65b0;&#x7684;Session Object&#xa;else:&#xa;     self.sessionId,self.sessionObj = k_sessions.make_session_object(self.config,expires)&#xa;     self.SET_COOKIE[&quot;sessionId&quot;] = self.sessionId&#xa;&#xa;return self.sessionObj"/>
+</node>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1265166162729" ID="ID_1537892475" MODIFIED="1265166449091" TEXT="Unicode &amp; UTF8">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#111111" CREATED="1265166193364" ID="ID_669740718" MODIFIED="1265166645385" TEXT="&#x89e3;&#x51b3;&#x4ee5;&#x4e0b;&#x9519;&#x8bef;&#xff1a;&#xa;UnicodeDecodeError: &apos;utf8&apos; codec can&apos;t decode byte 0xbc in position 0: unexpected code byte&#xa;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xa;reload(sys)&#xa;sys.setdefaultencoding(&apos;utf8&apos;)&#x9; &#xa;&#xa;# &#x91c7;&#x7528;&#x5217;&#x8868;&#x9012;&#x5f52;&#x65b9;&#x5f0f;&#x6709;&#x65f6;&#x4f1a;&#x5f15;&#x53d1;&#x9519;&#x8bef;&#xff0c;&#x6b64;&#x65f6;&#x9700;&#x5bf9;&#x6bcf;&#x4e2a;&#x5b57;&#x7b26;&#x4e32;&#x8fdb;&#x884c;utf8&#x89e3;&#x7801;&#xa;#encoded = [[i.decode(&apos;utf8&apos;) for i in row] for row in rslice]&#xa;&#xa;for row in rslice:&#xa;  for i,s in enumerate(row) :&#xa;    row[i] = s.decode(&apos;utf8&apos;)"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1260243754255" ID="ID_1224555425" MODIFIED="1266917010602" TEXT="Ubuntu">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1260243759074" FOLDED="true" ID="ID_243453629" MODIFIED="1266917011984" TEXT="Web Server Port">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1260243777696" ID="ID_454009031" MODIFIED="1261579887494" TEXT="Firstly, normal users are not allowed to open listening sockets on port numbers below 1024.  Secondly, the cgi script must be executable by the server. This involves setting the executable flag, and also specifying on the first line of the script which interpreter should be used (e.g. python, perl etc).">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1260243810899" ID="ID_293390328" MODIFIED="1261579887494" TEXT="http://ubuntuforums.org/showthread.php?t=1200405">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1261579695948" ID="ID_427615365" MODIFIED="1261579887494" TEXT="&#x684c;&#x9762;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1261579705853" FOLDED="true" ID="ID_497408482" MODIFIED="1265093953694" TEXT="&#x9762;&#x677f;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1261579713554" ID="ID_124189722" MODIFIED="1261579862299" TEXT="&#x6dfb;&#x52a0;&#x5e94;&#x7528;&#x7a0b;&#x5e8f;&#xff1a;&#xa;&#x53f3;&#x51fb;&#x9762;&#x677f;&#x7684;&#x7a7a;&#x767d;&#x90e8;&#x5206;&#xff0c;&#x663e;&#x793a;&#x9762;&#x677f;&#xff08;&#x4e0a;&#x4e0b;&#x6587;&#xff09;&#x83dc;&#x5355;&#x3002;&#xa;&#x9009;&#x62e9;&quot;&#x6dfb;&#x52a0;&#x5230;&#x9762;&#x677f;&#xff08;Add to panel&#xff09;&quot;&#xa;&#xff0d;&#x300b;&#x201c;&#x81ea;&#x5b9a;&#x4e49;&#x5e94;&#x7528;&#x7a0b;&#x5e8f;&#x8d77;&#x52a8;&#x5668;&#x201d;&#xa;&#xff0d;&#x300b;&#x70b9;&#x51fb;&#x5e94;&#x7528;&#x7a0b;&#x5e8f;&#x56fe;&#x6807;&#x53ef;&#x4ee5;&#x66f4;&#x6539;&#x8be5;&#x56fe;&#x6807;"/>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1254629537711" FOLDED="true" ID="Freemind_Link_673015721" MODIFIED="1266917027904" POSITION="right" TEXT="Install">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1254629542874" ID="Freemind_Link_523276706" MODIFIED="1265093972098" TEXT="Including Packages">
@@ -1029,7 +1059,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1257233375982" FOLDED="true" ID="ID_821506493" MODIFIED="1265093979574" POSITION="right" TEXT="Client/Corporators">
+<node COLOR="#0033ff" CREATED="1257233375982" FOLDED="true" ID="ID_821506493" MODIFIED="1266917026319" POSITION="right" TEXT="Client/Corporators">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="idea"/>
@@ -1056,20 +1086,6 @@
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1182766110778" ID="Freemind_Link_285511318" MODIFIED="1260450897395" TEXT="http://bbs.xml.org.cn/dispbbs.asp?boardID=22&amp;ID=47595">
 <font NAME="SansSerif" SIZE="14"/>
-</node>
-</node>
-</node>
-<node COLOR="#0033ff" CREATED="1262786726152" FOLDED="true" ID="ID_476877394" MODIFIED="1262786773791" POSITION="left" TEXT="Source management">
-<edge STYLE="sharp_bezier" WIDTH="8"/>
-<font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1262786735562" FOLDED="true" ID="ID_495182632" MODIFIED="1262786773279" TEXT="GitHub">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1262786764185" FOLDED="true" ID="ID_875290458" MODIFIED="1262786772791" TEXT="&#x4f7f;&#x7528;&#x8bf4;&#x660e;">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1262786741353" ID="ID_1161409631" MODIFIED="1262786771419" TEXT="&#x521b;&#x5efa;&#x76ee;&#x5f55;&#x6307;&#x5bfc;&#xff1a;&#xa;http://hi.baidu.com/jspring/blog/item/59f7dfcdce190a560fb345c1.html&#xa;&#xa;&#x4e0a;&#x4f20;&#x540c;&#x6b65;&#x6587;&#x4ef6;&#xff1a;&#xa;#git add &apos;your file or directory name&apos;&#xa;git commit -m &apos;you commit message&apos;&#xa;git push origin master&#xa;&#xa;&#x5220;&#x9664;&#x6587;&#x4ef6;&#xff1a;&#xa;git rm ./develop/Karrigell/muireception/register/tmp/*.jpeg&#xa;git commit -m &apos;you message&apos;&#xa;git push origin master&#xa;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
 </node>
 </node>
 </node>

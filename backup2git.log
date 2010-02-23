@@ -25697,3 +25697,104 @@ sent 41384 bytes  received 31 bytes  82830.00 bytes/sec
 total size is 171348  speedup is 4.14
 2010-02-23 11:09:09,783 INFO End backup loacl karrigell diretory to local git.
 2010-02-23 11:09:09,783 INFO Begin to backup local github to remote github host.
+2010-02-23 11:09:10,366 INFO Command: 
+git add .
+running result is :
+2010-02-23 11:09:12,483 INFO Command: 
+git commit -m 'Update time:2010-02-23T11:09:09.783226'
+running result is :[master c8a01ff] Update time:2010-02-23T11:09:09.783226
+ 28 files changed, 301 insertions(+), 184 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010022308.log
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/dossier/0/dossier43
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/dossier/0/dossier44
+ create mode 100644 develop/Karrigell/muireception/register/tmp/5f0a332a9b.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/756ccef94f.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/796737c298.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/7e1d617d9f.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/84658f69ba.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/924a03941c.jpeg
+ create mode 100644 develop/Karrigell/muireception/register/tmp/9cf48ec36a.jpeg
+2010-02-23 11:09:20,956 INFO Command: 
+git push origin master
+running result is :Counting objects: 81, done.
+Delta compression using up to 2 threads.
+Compressing objects:   2% (1/43)   Compressing objects:   4% (2/43)   Compressing objects:   6% (3/43)   Compressing objects:   9% (4/43)   Compressing objects:  11% (5/43)   Compressing objects:  13% (6/43)   Compressing objects:  16% (7/43)   Compressing objects:  18% (8/43)   Compressing objects:  20% (9/43)   Compressing objects:  23% (10/43)   Compressing objects:  25% (11/43)   Compressing objects:  27% (12/43)   Compressing objects:  30% (13/43)   Compressing objects:  32% (14/43)   Compressing objects:  34% (15/43)   Compressing objects:  37% (16/43)   Compressing objects:  39% (17/43)   Compressing objects:  41% (18/43)   Compressing objects:  44% (19/43)   Compressing objects:  46% (20/43)   Compressing objects:  48% (21/43)   Compressing objects:  51% (22/43)   Compressing objects:  53% (23/43)   Compressing objects:  55% (24/43)   Compressing objects:  58% (25/43)   Compressing objects:  60% (26/43)   Compressing objects:  62% (27/43)   Compressing objects:  65% (28/43)   Compressing objects:  67% (29/43)   Compressing objects:  69% (30/43)   Compressing objects:  72% (31/43)   Compressing objects:  74% (32/43)   Compressing objects:  76% (33/43)   Compressing objects:  79% (34/43)   Compressing objects:  81% (35/43)   Compressing objects:  83% (36/43)   Compressing objects:  86% (37/43)   Compressing objects:  88% (38/43)   Compressing objects:  90% (39/43)   Compressing objects:  93% (40/43)   Compressing objects:  95% (41/43)   Compressing objects:  97% (42/43)   Compressing objects: 100% (43/43)   Compressing objects: 100% (43/43), done.
+Writing objects:   2% (1/46)   Writing objects:   4% (2/46)   Writing objects:   6% (3/46)   Writing objects:   8% (4/46)   Writing objects:  10% (5/46)   Writing objects:  13% (6/46)   Writing objects:  15% (7/46)   Writing objects:  17% (8/46)   Writing objects:  19% (9/46)   Writing objects:  21% (10/46)   Writing objects:  23% (11/46)   Writing objects:  26% (12/46)   Writing objects:  28% (13/46)   Writing objects:  30% (14/46)   Writing objects:  32% (15/46)   Writing objects:  34% (16/46)   Writing objects:  36% (17/46)   Writing objects:  39% (18/46)   Writing objects:  41% (19/46)   Writing objects:  43% (20/46)   Writing objects:  45% (21/46)   Writing objects:  47% (22/46)   Writing objects:  50% (23/46)   Writing objects:  52% (24/46)   Writing objects:  54% (25/46)   Writing objects:  58% (27/46)   Writing objects:  63% (29/46)   Writing objects:  65% (30/46)   Writing objects:  67% (31/46)   Writing objects:  69% (32/46)   Writing objects:  71% (33/46)   Writing objects:  73% (34/46)   Writing objects:  76% (35/46)   Writing objects:  78% (36/46)   Writing objects:  80% (37/46)   Writing objects:  82% (38/46)   Writing objects:  84% (39/46)   Writing objects:  86% (40/46)   Writing objects:  89% (41/46)   Writing objects:  91% (42/46)   Writing objects:  93% (43/46)   Writing objects:  95% (44/46)   Writing objects:  97% (45/46)   Writing objects: 100% (46/46)   Writing objects: 100% (46/46), 21.24 KiB, done.
+Total 46 (delta 27), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   6b0e8ed..c8a01ff  master -> master
+2010-02-23 11:09:20,957 INFO End backup local github to remote github host.
+2010-02-23 17:37:31,854 INFO Delete nousing captcha images
+2010-02-23 17:37:31,878 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-02-23 17:37:31,878 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-02-23 17:37:37,982 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010022306.log
+        4370 100%    0.00kB/s    0:00:00          4370 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1008/3577)
+data/cms/logs_2010022314.log
+        2373 100%    2.26MB/s    0:00:00          2373 100%    2.26MB/s    0:00:00 (xfer#2, to-check=1006/3577)
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%   47.34kB/s    0:00:06        362496 100%  484.27kB/s    0:00:00 (xfer#3, to-check=1043/3899)
+data/muireception/roundup/db/files/dossier/0/
+data/muireception/roundup/db/files/dossier/0/dossier45
+         121 100%    0.16kB/s    0:00:00           121 100%    0.16kB/s    0:00:00 (xfer#4, to-check=1010/3912)
+data/muireception/sessions/
+deleting data/muireception/sessions/cd3xYFkJP67FVGQz
+deleting data/muireception/sessions/PL2jYZpM4alGkgMl
+deleting data/muireception/sessions/Gk0QzkJJjIil6X6A
+deleting data/muireception/sessions/6j2lfgrGAnUGVtxr
+deleting data/muireception/sessions/4HiQENgQgZu44uYI
+karrigell/core/
+karrigell/core/k_sessions.py
+        5684 100%    5.25kB/s    0:00:00          5684 100%    5.25kB/s    0:00:01 (xfer#5, to-check=1022/4809)
+karrigell/core/k_sessions.pyc
+        6021 100%    5.55kB/s    0:00:00          6021 100%    5.55kB/s    0:00:01 (xfer#6, to-check=1021/4809)
+karrigell/core/k_sessions.py~
+        5690 100%    5.24kB/s    0:00:00          5690 100%    5.24kB/s    0:00:01 (xfer#7, to-check=1020/4809)
+muireception/
+deleting muireception/tools/visitor.py
+deleting muireception/tools/unittest_tree.py
+deleting muireception/tools/tree.py~
+deleting muireception/tools/tree.py
+deleting muireception/tools/
+muireception/pagefn.py
+        7946 100%    0.00kB/s    0:00:00          7946 100%    0.00kB/s    0:00:00 (xfer#8, to-check=1019/5245)
+muireception/pagefn.py~
+        7942 100%    7.57MB/s    0:00:00          7942 100%    7.57MB/s    0:00:00 (xfer#9, to-check=1018/5245)
+muireception/js/layoutInit.js.pih
+        7544 100%   73.67kB/s    0:00:00          7544 100%   73.67kB/s    0:00:00 (xfer#10, to-check=1009/5431)
+muireception/js/layoutInit.js.pih~
+        7544 100%   72.23kB/s    0:00:00          7544 100%   72.23kB/s    0:00:00 (xfer#11, to-check=1008/5431)
+muireception/lib/
+muireception/lib/tools/
+deleting muireception/lib/tools/treeTable.js
+muireception/lib/tools/treeTable.js~
+        2210 100%    5.55kB/s    0:00:00          2210 100%    5.55kB/s    0:00:00 (xfer#12, to-check=1003/5960)
+muireception/lib/treeTable/
+muireception/lib/treeTable/treeTable.js
+        2272 100%    5.69kB/s    0:00:00          2272 100%    5.69kB/s    0:00:00 (xfer#13, to-check=1002/5960)
+muireception/lib/treeTable/treeTable.js~
+        2280 100%    5.71kB/s    0:00:00          2280 100%    5.71kB/s    0:00:00 (xfer#14, to-check=1001/5960)
+muireception/service/service.ks
+        9137 100%   13.14kB/s    0:00:00          9137 100%   13.14kB/s    0:00:00 (xfer#15, to-check=668/6300)
+muireception/service/service.ks~
+        9144 100%   13.13kB/s    0:00:00          9144 100%   13.13kB/s    0:00:00 (xfer#16, to-check=667/6300)
+
+sent 187539 bytes  received 1487 bytes  29080.92 bytes/sec
+total size is 45772677  speedup is 242.15
+2010-02-23 17:37:38,072 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768  18%    0.00kB/s    0:00:00        172952 100%    8.36MB/s    0:00:00 (xfer#1, to-check=0/2)
+
+sent 41981 bytes  received 31 bytes  28008.00 bytes/sec
+total size is 172952  speedup is 4.12
+2010-02-23 17:37:38,073 INFO End backup loacl karrigell diretory to local git.
+2010-02-23 17:37:38,073 INFO Begin to backup local github to remote github host.
