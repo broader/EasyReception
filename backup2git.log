@@ -25596,3 +25596,104 @@ sent 66 bytes  received 12 bytes  156.00 bytes/sec
 total size is 170616  speedup is 2187.38
 2010-02-22 21:42:25,778 INFO End backup loacl karrigell diretory to local git.
 2010-02-22 21:42:25,779 INFO Begin to backup local github to remote github host.
+2010-02-22 21:42:26,349 INFO Command: 
+git add .
+running result is :
+2010-02-22 21:42:28,554 INFO Command: 
+git commit -m 'Update time:2010-02-22T21:42:25.779342'
+running result is :[master 6b0e8ed] Update time:2010-02-22T21:42:25.779342
+ 10 files changed, 374 insertions(+), 32 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010022213.log
+ create mode 100644 develop/Karrigell/data/cms/logs_2010022216.log
+ create mode 100644 develop/Karrigell/muireception/lib/tools/treeTable.js
+ create mode 100644 develop/Karrigell/muireception/lib/tools/treeTable.js~
+2010-02-22 21:42:39,642 INFO Command: 
+git push origin master
+running result is :Counting objects: 43, done.
+Delta compression using up to 2 threads.
+Compressing objects:   4% (1/24)   Compressing objects:   8% (2/24)   Compressing objects:  12% (3/24)   Compressing objects:  16% (4/24)   Compressing objects:  20% (5/24)   Compressing objects:  25% (6/24)   Compressing objects:  29% (7/24)   Compressing objects:  33% (8/24)   Compressing objects:  37% (9/24)   Compressing objects:  41% (10/24)   Compressing objects:  45% (11/24)   Compressing objects:  50% (12/24)   Compressing objects:  54% (13/24)   Compressing objects:  58% (14/24)   Compressing objects:  62% (15/24)   Compressing objects:  66% (16/24)   Compressing objects:  70% (17/24)   Compressing objects:  75% (18/24)   Compressing objects:  79% (19/24)   Compressing objects:  83% (20/24)   Compressing objects:  87% (21/24)   Compressing objects:  91% (22/24)   Compressing objects:  95% (23/24)   Compressing objects: 100% (24/24)   Compressing objects: 100% (24/24), done.
+Writing objects:   4% (1/24)   Writing objects:   8% (2/24)   Writing objects:  12% (3/24)   Writing objects:  16% (4/24)   Writing objects:  20% (5/24)   Writing objects:  25% (6/24)   Writing objects:  29% (7/24)   Writing objects:  37% (9/24)   Writing objects:  41% (10/24)   Writing objects:  45% (11/24)   Writing objects:  50% (12/24)   Writing objects:  54% (13/24)   Writing objects:  58% (14/24)   Writing objects:  62% (15/24)   Writing objects:  66% (16/24)   Writing objects:  70% (17/24)   Writing objects:  79% (19/24)   Writing objects:  87% (21/24)   Writing objects:  91% (22/24)   Writing objects: 100% (24/24)   Writing objects: 100% (24/24), 4.54 KiB, done.
+Total 24 (delta 17), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   5096683..6b0e8ed  master -> master
+2010-02-22 21:42:39,643 INFO End backup local github to remote github host.
+2010-02-23 11:09:05,551 INFO Delete nousing captcha images
+2010-02-23 11:09:05,576 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-02-23 11:09:05,577 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-02-23 11:09:09,721 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010022308.log
+        2373 100%    0.00kB/s    0:00:00          2373 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1005/3574)
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%   73.90kB/s    0:00:04        362496 100%  745.26kB/s    0:00:00 (xfer#2, to-check=1046/3900)
+data/muireception/roundup/db/files/dossier/0/
+data/muireception/roundup/db/files/dossier/0/dossier43
+         121 100%    0.24kB/s    0:00:00           121 100%    0.24kB/s    0:00:00 (xfer#3, to-check=1015/3913)
+data/muireception/roundup/db/files/dossier/0/dossier44
+         121 100%    0.24kB/s    0:00:00           121 100%    0.24kB/s    0:00:00 (xfer#4, to-check=1014/3913)
+karrigell/package/roundup/ajax/
+karrigell/package/roundup/ajax/ajaxActions.pyc
+       32768  37%   43.60kB/s    0:00:01         86960 100%  113.23kB/s    0:00:00 (xfer#5, to-check=1013/4919)
+muireception/layout.ks
+       10511 100%    9.00kB/s    0:00:00         10511 100%    9.00kB/s    0:00:01 (xfer#6, to-check=1024/5245)
+muireception/layout.ks~
+       10458 100%    8.96kB/s    0:00:00         10458 100%    8.96kB/s    0:00:01 (xfer#7, to-check=1023/5245)
+muireception/pagefn.py
+        7946 100%    6.80kB/s    0:00:00          7946 100%    6.80kB/s    0:00:01 (xfer#8, to-check=1018/5245)
+muireception/pagefn.py~
+        8123 100%    6.95kB/s    0:00:00          8123 100%    6.95kB/s    0:00:01 (xfer#9, to-check=1017/5245)
+muireception/js/init.js.pih
+        4727 100%    3.82kB/s    0:00:00          4727 100%    3.82kB/s    0:00:01 (xfer#10, to-check=1015/5435)
+muireception/js/init.js.pih~
+        4778 100%    3.86kB/s    0:00:00          4778 100%    3.86kB/s    0:00:01 (xfer#11, to-check=1014/5435)
+muireception/js/layoutInit.js.pih
+        7128 100%    5.75kB/s    0:00:00          7128 100%    5.75kB/s    0:00:01 (xfer#12, to-check=1011/5435)
+muireception/js/layoutInit.js.pih~
+        7111 100%    5.74kB/s    0:00:00          7111 100%    5.74kB/s    0:00:01 (xfer#13, to-check=1010/5435)
+muireception/register/
+muireception/register/accountForm.ks
+       12426 100%    0.00kB/s    0:00:00         12426 100%    0.00kB/s    0:00:00 (xfer#14, to-check=859/6304)
+muireception/register/accountForm.ks~
+       12681 100%   12.09MB/s    0:00:00         12681 100%   12.09MB/s    0:00:00 (xfer#15, to-check=858/6304)
+muireception/register/register.ks
+        1511 100%    1.44MB/s    0:00:00          1511 100%    1.44MB/s    0:00:00 (xfer#16, to-check=855/6304)
+muireception/register/register.ks~
+        1919 100%    1.83MB/s    0:00:00          1919 100%    1.83MB/s    0:00:00 (xfer#17, to-check=854/6304)
+muireception/register/tmp/
+muireception/register/tmp/5f0a332a9b.jpeg
+        1682 100%    1.60MB/s    0:00:00          1682 100%    1.60MB/s    0:00:00 (xfer#18, to-check=836/6304)
+muireception/register/tmp/756ccef94f.jpeg
+        1755 100%    1.67MB/s    0:00:00          1755 100%    1.67MB/s    0:00:00 (xfer#19, to-check=832/6304)
+muireception/register/tmp/796737c298.jpeg
+        1680 100%    1.60MB/s    0:00:00          1680 100%    1.60MB/s    0:00:00 (xfer#20, to-check=831/6304)
+muireception/register/tmp/7e1d617d9f.jpeg
+        1719 100%    1.64MB/s    0:00:00          1719 100%    1.64MB/s    0:00:00 (xfer#21, to-check=830/6304)
+muireception/register/tmp/84658f69ba.jpeg
+        2004 100%  978.52kB/s    0:00:00          2004 100%  978.52kB/s    0:00:00 (xfer#22, to-check=829/6304)
+muireception/register/tmp/924a03941c.jpeg
+        1534 100%  749.02kB/s    0:00:00          1534 100%  749.02kB/s    0:00:00 (xfer#23, to-check=827/6304)
+muireception/register/tmp/9cf48ec36a.jpeg
+        1791 100%  874.51kB/s    0:00:00          1791 100%  874.51kB/s    0:00:00 (xfer#24, to-check=825/6304)
+muireception/service/service.ks
+        8663 100%    4.13MB/s    0:00:00          8663 100%    2.75MB/s    0:00:00 (xfer#25, to-check=672/6304)
+muireception/service/service.ks~
+        8648 100%    2.75MB/s    0:00:00          8648 100%    2.75MB/s    0:00:00 (xfer#26, to-check=671/6304)
+
+sent 239039 bytes  received 1666 bytes  53490.00 bytes/sec
+total size is 45789871  speedup is 190.23
+2010-02-23 11:09:09,782 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768  19%    0.00kB/s    0:00:00        171348 100%   12.01MB/s    0:00:00 (xfer#1, to-check=0/2)
+
+sent 41384 bytes  received 31 bytes  82830.00 bytes/sec
+total size is 171348  speedup is 4.14
+2010-02-23 11:09:09,783 INFO End backup loacl karrigell diretory to local git.
+2010-02-23 11:09:09,783 INFO Begin to backup local github to remote github host.

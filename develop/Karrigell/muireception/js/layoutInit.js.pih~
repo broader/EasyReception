@@ -224,8 +224,7 @@ MUI.extend({
 	// remove all the MUI.Columns in the main panel
 	clearMainPanel: function (){	
 		MUI.Columns.instances
-		.filter(function(column,key){		// filter the instances whose element has been removed
-			alert('clearMainPanel,layoutInit.js.pih,column id is '+column.options.id+ ',column is '+$(column.options.id));
+		.filter(function(column,key){		// filter the instances whose element has been removed			
 			return $(column.options.id) != null;
 		})
 		.each(function(column){			

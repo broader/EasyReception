@@ -105,13 +105,13 @@ def _formJs():
 	paras = [ LOGINFORM, DEMOSELECT, FORMBUTTONS]
 	
 	# add some files' path for validation function
-	names = ('css/hack.css', 'theme/red/formcheck.css', 'lang.js.pih', 'formcheck.js')
-	paras.extend([ '/'.join(( 'lib', 'formcheck', name )) for name in names])
+	#names = ('css/hack.css', 'theme/red/formcheck.css', 'lang.js.pih', 'formcheck.js')
+	#paras.extend([ '/'.join(( 'lib', 'formcheck', name )) for name in names])
 	#paras.append('loginDialog')
 	paras.append(APP)
 	
 	# append the error prompts for fields' validation 
-	paras.extend([pagefn.ACCOUNTERR, pagefn.PWDERR])
+	paras.extend([ _('The input account is not existed !'), _('The input password is wrong, please input the valid password!')])
 	
 	# append the action urls for fields' validation 
 	paras.append( '/'.join((APPATH, 'page_accountValid')))
@@ -119,10 +119,7 @@ def _formJs():
 	paras = tuple(paras)
 	script = \
 	"""
-	var loginForm='%s', select='%s',	bnsContainer='%s';
-		
-	// variables for formcheck js lib 
-	var hackCss='%s', fcCss='%s',fcI18nJs='%s', fcJs='%s';
+	var loginForm='%s', select='%s',	bnsContainer='%s';	
 	var appName='%s', accountErr='%s', pwdErr='%s', 
 	checkUrl='%s';
 	
@@ -130,25 +127,15 @@ def _formJs():
 	var am = MUI.assetsManager;
     
 	// Add validation function to the form
-	// import css file for validation
-	[ hackCss, fcCss].each(function(src){
-		if(!$defined(am.imported[src])){
-			am.import({'url':src,'app':appName,'type':'css'});
-		}	
-	});
-		
-	// import js file for validation
-	am.import({'url':fcI18nJs,'app':appName,'type':'js'});
-	
-	// Set a global variable 'formchk', 
+	// Set a global variable 'loginFormchk', 
  	// which will be used as an instance of the validation Class-'FormCheck'.
- 	var formchk;
+ 	var loginFormchk;
  
 	// Load the form validation plugin script
 	var options = {
 		onload:function(){  
 			
-			formchk = new FormCheck( loginForm,{
+			loginFormchk = new FormCheck( loginForm,{
 				submit: false,
 				
 				onValidateSuccess: function(){					
@@ -167,10 +154,10 @@ def _formJs():
 					keepFocusOnError : 0, 
 					scrollToFirst : false
 				}
-			});// the end for 'formchk' define
+			});// the end for 'loginFormchk' define
 		}// the end for 'onload' define
 	};    
-	am.import({'url':fcJs,'app':appName,'type':'js'},options);		
+	MUI.formValidLib(appName,options);
 		
 		
 	/*** Check whether the input account is existed.************************************/    
@@ -248,7 +235,7 @@ def _formJs():
 		
 		// submit button
 		buttons[0].addEvent('click',function(e){
-			formchk.onSubmit(e);			
+			loginFormchk.onSubmit(e);			
 		});
 		
 		// cancel button
@@ -257,7 +244,6 @@ def _formJs():
 			MUI.closeModalDialog();
 		});
 		
-		// add validations to form fields
 	});
 	"""%paras
 	return script
@@ -287,9 +273,7 @@ def page_accountValid(**args):
 			res['valid'] = 1		
 			# valid user name and password, save them to session object	
 			data = {fields[0]:account[0],'roles':data[-1]}			
-			#setattr( so, pagefn.SOINFO['user'], account[0])
-			#setattr( so, pagefn.SOINFO['user'], {fields[0]:account[0]})
-			#so = Session()
+			
 			setattr( so, pagefn.SOINFO['user'], data)
 			res['user'] = data
 			pagefn.setCookie(SET_COOKIE,REQUEST_HANDLER)
@@ -299,7 +283,16 @@ def page_accountValid(**args):
 		if model.userCheck( args.get('name') ) :
 			res['valid'] = 1		
 
-	print JSON.encode(res)
+	try:	
+		import sys
+		sys.setdefaultencoding('utf8')
+	except:
+		pass		
+	
+	for k,v in res.items():
+		res[k]= str(v).decode('utf8')
+
+	print JSON.encode(res,encoding='utf8')
 	return
 
 def page_welcomeInfo(**args):
@@ -307,7 +300,7 @@ def page_welcomeInfo(**args):
 	Return the welcome information, 
 	which will be shown on the top right of the screen.
 	"""
-	#so = Session()
+	
 	try:
 		username = getattr(so, pagefn.SOINFO['user']).get('username') or ''
 	except:

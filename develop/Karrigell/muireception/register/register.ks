@@ -22,22 +22,6 @@ modules = {'pagefn' : 'pagefn.py', }
 # get the relative url slice as the application name
 #APP = pagefn.getApp(THIS.baseurl,1)
 
-# the javascript lib name for tabs widget
-#REGJSLIB = 'ertabs'
-
-# the id of the 'DIV' component which holds the tabs widget in the page
-#REGTABS = 'ertabs'
-
-# the name of the instance of the tabs class
-#TABSINSTANCE = 'tabsContainer'
-
-# The id for the 'Account' form
-#ACCOUNTFORM = 'AccountForm'
-# the id for the SPAN component in the account form page which holds buttons 
-#ACCOUNTFORMBNS = 'accountBns'
-
-
-
 # End*****************************************************************************************
 
 # ********************************************************************************************

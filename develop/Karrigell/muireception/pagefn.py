@@ -7,17 +7,30 @@ SOINFO = {'user':'userinfo',}
 # a function to return the applicaiton name
 getApp = lambda p,i : p.split('/')[i]
 
-##
-# Some global variables for /lib/formcheck/js/formcheck.js lib
-#--------------------------------------------------------------------------------------
-FORMERRCLASS = 'fc-tbx'
-ACCOUNTERR = _('This account has been used, please input other name.')
-PWDERR = _('The input password is wrong, please input the valid password!') 
-FCLIBFILES = \
-['/'.join(( 'lib', 'formcheck', name )) \
-for name in ('css/hack.css', 'theme/red/formcheck.css', 'lang.js.pih', 'formcheck.js')]
-#--------------------------------------------------------------------------------------
 
+##
+# Some global javascript liberies #####################################################
+#--------------------------------------------------------------------------------------
+JSLIB = {}
+
+# form validation lib
+JSLIB['formValid'] = \
+{
+	'files': ['/'.join(( 'lib', 'formcheck', name )) for name in ('css/hack.css', 'theme/red/formcheck.css', 'lang.js.pih', 'formcheck.js')],
+}
+
+#FORMERRCLASS = 'fc-tbx'
+#FCLIBFILES = \
+#['/'.join(( 'lib', 'formcheck', name )) \
+#for name in ('css/hack.css', 'theme/red/formcheck.css', 'lang.js.pih', 'formcheck.js')]
+
+
+# treeTable lib
+JSLIB['treeTable'] = \
+{'files':['/'.join(('lib','treeTable',name)) for name in ('treeTable.js',)],
+}
+
+#--------------------------------------------------------------------------------------
 
 ##
 # Datagrid Plugin Files

@@ -104,7 +104,6 @@ var loginFns = {
 		
 		var dlgId = '<%=pagefn.REGISTERDIALOG %>'; 
 		var tabsId = '<%=pagefn.REGISTERTABSID %>';
-		var formErrClass = '.<%=pagefn.FORMERRCLASS %>';
 		
 		// using python inside html to set the tabs' url to a javascript array
 		var tabUrls = []; 

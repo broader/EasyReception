@@ -50,7 +50,7 @@ MUI.extend({
 	// a plugin to close single popup dialog window, such as login or register dialog 
 	closeModalDialog: function(){
 		// Remove form validation error informations that may be left.
-		//MUI.removeErr();
+		MUI.removeErr();
 		
 		// close modal dialog
 		var keys = MUI.Windows.instances.getKeys();

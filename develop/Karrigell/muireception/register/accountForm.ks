@@ -128,18 +128,11 @@ def index(**args):
 	 print DIV(form, **{'class':'subcolumns'})
     
     # javascript functions for this page 
-	 #accountErr = _('This account has been used, please input other name.')  
-	 accountErr = pagefn.ACCOUNTERR  
+	 accountErr = _('This account has been used, please input other name.')    
 	 cpatchaErr = _('Pleas input right info on the below image. If the image is difficult to identify, click it to change another image!')
 	 paras = [ APP, accountErr, CAPTCHACLASS,CAPTCHAKEY, cpatchaErr]
-	 paras.extend([ '/'.join((APPATH, name))for name in ( 'page_captchaValid', 'page_switchImg', 'page_accountValid' )])
-    
+	 paras.extend([ '/'.join((APPATH, name))for name in ( 'page_captchaValid', 'page_switchImg', 'page_accountValid' )])    
 	 paras.extend([ ACCOUNTFORMBNS, ACCOUNTFIELDS ])
-    
-    # add some files' path for validation function
-	 #names = ('css/hack.css', 'lang.js.pih', 'formcheck.js', 'theme/red/formcheck.css')
-	 #paras.extend([ '/'.join(( 'lib', 'formcheck', name )) for name in names])
-	 paras.extend(pagefn.FCLIBFILES)
 	 
 	 js = \
     """
@@ -148,32 +141,19 @@ def index(**args):
     var captchaValid='%s', captchaSwitch='%s';
     var accountValid='%s';
     var buttonsContainer='%s', formId='%s';
-    var hackCss='%s', fcI18nJs='%s', fcJs='%s', fcCss='%s';
+    
     
     // get the global Assets manager
     var am = MUI.assetsManager;
     
-    // Add validation function to the form
-    // import css file for validation
-    [ hackCss, fcCss].each(function(src){
-    	if(!$defined(am.imported[src])){
-    		am.import({'url':src,'app':appName,'type':'css'});
-    	}	
-    });
-    
-    // import javascript file for validation
-    if(!$defined(am.imported[fcI18nJs])){
-    	am.import({'url':fcI18nJs,'app':appName,'type':'js'});
-    }
-    
-    // Set a global variable 'formchk', 
+    // Set a global variable 'registerFormchk', 
     // which will be used as an instance of the validation Class-'FormCheck'.
-    var formchk;
+    var registerFormchk;
     
     // Load the form validation plugin script
     var options = {
     	onload:function(){    		
-    		formchk = new FormCheck( formId,{
+    		registerFormchk = new FormCheck( formId,{
          	submitByAjax: true,
             onAjaxSuccess: function(response){
             	if(response != 1){alert('Account creating failed!');}
@@ -187,11 +167,11 @@ def index(**args):
                keepFocusOnError : 0, 
                scrollToFirst : false
             }
-			});// the end for 'formchk' define
+			});// the end for 'registerFormchk' define
     	}// the end for 'onload' define
     };
     
-    am.import({'url':fcJs,'app':appName,'type':'js'},options);
+    MUI.formValidLib(appName,options);
         
     
     /*****************************************************************************
@@ -263,8 +243,8 @@ def index(**args):
     *****************************************************************************/
     function closeBox(){
        // revove the displayed invalid info
-       if($type(formchk) != false){
-          formchk.removeErrors();
+       if($type(registerFormchk) != false){
+          registerFormchk.removeErrors();
        };
        
        // Get the popup dialog object by its name 
@@ -289,7 +269,7 @@ def index(**args):
        $(buttonsContainer)
        .getElements('button')[0]
        .addEvent('click',function(event){
-         formchk.onSubmit(event);
+         registerFormchk.onSubmit(event);
        });
        
     };

@@ -137,7 +137,7 @@ def page_info(**args):
 def _getServiceItems(category, props=None):
 	# get items from 'service' class in database
 	search = {'category' : category}
-	values = model.get_items_ByString(so.user, 'service', search, props)
+	values = model.get_items_ByString(USER, 'service', search, props)
 	return values
 	
 PROPS4TABLE =  ['serial', 'name','subcategory','description', 'detail', 'price', 'amount']
@@ -233,7 +233,7 @@ def _createCategoryJs():
 					keepFocusOnError : 0, 
 					scrollToFirst : false
 				}
-			});// the end for 'formchk' define
+			});// the end for 'serviceCategoryFormchk' define
 		}// the end for 'onload' define
 	};// the end for 'options' define
  

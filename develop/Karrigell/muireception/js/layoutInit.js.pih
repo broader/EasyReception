@@ -253,7 +253,7 @@ MUI.extend({
 	formValidLib: function(appName, options){
 		// get lib files
 		var urls = [];
-		<% for url in pagefn.FCLIBFILES : %>
+		<% for url in pagefn.JSLIB['formValid']['files'] : %>
 			urls.push('<%=url%>');
 		<% end %>
 		

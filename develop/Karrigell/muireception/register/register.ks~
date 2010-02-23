@@ -20,7 +20,7 @@ modules = {'pagefn' : 'pagefn.py', }
 # ********************************************************************************************
 
 # get the relative url slice as the application name
-APP = pagefn.getApp(THIS.baseurl,1)
+#APP = pagefn.getApp(THIS.baseurl,1)
 
 # the javascript lib name for tabs widget
 #REGJSLIB = 'ertabs'
