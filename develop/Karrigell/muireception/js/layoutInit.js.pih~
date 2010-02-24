@@ -291,7 +291,7 @@ MUI.extend({
 	   var am = MUI.assetsManager;
 	   
 	   // the really validation functions
-		am.import({'url':urls[3],'app':appName,'type':'js'},options);
+		am.import({'url':urls[0],'app':appName,'type':'js'},options);
 	   
 	}
 	

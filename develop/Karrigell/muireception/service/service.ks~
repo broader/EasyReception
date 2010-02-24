@@ -147,7 +147,7 @@ def page_showService(**args):
 	category = args.get('category')
 	# render the style of service table
 	containerId = '-'.join((category,TABLECONTAINER))
-	print DIV(TABLE(**{'id':containerId}))
+	print DIV(**{'id':containerId})
 	
 	# javascript slice to load data to table
 	print pagefn.script(_showServiceJs(containerId),link=False)
@@ -169,7 +169,11 @@ def _showServiceJs(tableContainerId):
 	
 	var options = {
 		onload:function(){    		
-			treeTable = new TreeTable( container,{});// the end for 'serviceCategoryFormchk' definition
+			treeTable = new TreeTable( 
+				container,
+				{header:['h1',h2','h3']}
+			);// the end for 'treeTable' definition
+			
 		}// the end for 'onload' definition
 	};// the end for 'options' definition
 	

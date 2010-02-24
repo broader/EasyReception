@@ -169,7 +169,11 @@ def _showServiceJs(tableContainerId):
 	
 	var options = {
 		onload:function(){    		
-			treeTable = new TreeTable( container,{});// the end for 'serviceCategoryFormchk' definition
+			treeTable = new TreeTable( 
+				container,
+				{header:['h1','h2','h3']}
+			);// the end for 'treeTable' definition
+			
 		}// the end for 'onload' definition
 	};// the end for 'options' definition
 	

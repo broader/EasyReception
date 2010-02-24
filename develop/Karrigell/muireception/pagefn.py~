@@ -27,7 +27,7 @@ JSLIB['formValid'] = \
 
 # treeTable lib
 JSLIB['treeTable'] = \
-{'files':['/'.join(('lib','tools',name)) for name in ('treeTable.js',)],
+{'files':['/'.join(('lib','treeTable',name)) for name in ('treeTable.js',)],
 }
 
 #--------------------------------------------------------------------------------------

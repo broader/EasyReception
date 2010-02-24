@@ -13,7 +13,8 @@ var TreeTable = new Class({
 				  
 	getOptions: function(){
 		return {
-			alternaterows: true,	
+			header: null,	
+			cssStyle: 'treeTable',
 			showHeader:true,
 			sortHeader:false,
 			resizeColumns:true,
@@ -64,6 +65,9 @@ var TreeTable = new Class({
 		
 		this.tableInstance = new HtmlTable();
 		
+		// set table css style 
+		this.tableInstance.toElement().addClass(this.options['cssStyle']);
+		
 		this.setHeaders();
 		
 		this.tableInstance.inject(this.container);
@@ -83,8 +87,10 @@ var TreeTable = new Class({
 	
 	// set the css style for the header of tree table 
 	setHeaders: function(){
-		data = this.options['header'] || ['fruits', 'colors'];		
-		this.tableInstance.setHeaders(data);
+		data = this.options['headertest'];
+		alert(data);
+		if(data)
+			this.tableInstance.setHeaders(data);
 	}
 	
 });
