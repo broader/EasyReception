@@ -41,8 +41,17 @@ PROPS =\
 	{'name':'detail','prompt':_('Supplement'),'validate':[],'type':'textarea'},
 ]
 
-# creation form id
+# the id for category creation form 
 CATEGORYCREATIONFORM = 'categoryCreationForm'
+
+# the properties info that will be shown in columns's title in the services' list
+COLUMNMODEL = [
+	{'dataIndex':'category','label':_('Category'),'dataType':'string'},
+	{'dataIndex':'name','label':_('Name'),'dataType':'string'},
+	{'dataIndex':'descritpion','label':_('Description'),'dataType':'string'},
+	{'dataIndex':'price','label':_('Unit Price'),'dataType':'string'},
+	{'dataIndex':'amount','label':_('Total Amount'),'dataType':'number'}
+]
 
 # End*****************************************************************************************
 
@@ -180,6 +189,18 @@ def _showServiceJs(tableContainerId):
 	MUI.treeTable(appName,options);
 	"""%paras
 	return js
+
+def page_colsModel(**args):
+	""" 
+	Return the columns' model of the trid on the client side, 
+	which will be used to show services list.
+	Format:
+		[{'label':...,'dataIndex':...,'dataType':...},...]
+	"""
+	colsModel = COLUMNMODEL
+		
+	print JSON.encode({'data':colsModel})
+	return
 	
 def page_createCategory(**args):
 	names = ('category','description')

@@ -85,7 +85,7 @@ var omniGrid = new Class({
 		// **************************** Setup header ************************
 		// ******************************************************************
 		this.container.getElements('.th').each(function(el,i){
-			//alert(el.dataType);
+			
 			var dataType = el.retrieve('dataType');
 			if(dataType){
 

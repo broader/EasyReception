@@ -13,8 +13,9 @@ var TreeTable = new Class({
 				  
 	getOptions: function(){
 		return {
-			header: null,	
+			columnsModle: null,	
 			cssStyle: 'treeTable',
+			dataUrl: null,
 			showHeader:true,
 			sortHeader:false,
 			resizeColumns:true,
@@ -43,11 +44,13 @@ var TreeTable = new Class({
 		this.setOptions(this.getOptions(), options);
 		this.container = $(container);
 		this.tableInstance = null;
+		this.colsModel = this.options['columnsModel'];
 		
 		if (!this.container)
 			return;
 			
 		this.draw();
+		this.loadData();
 		
 		//this.reset();
 		
@@ -57,12 +60,7 @@ var TreeTable = new Class({
 	// ************************************************************************
 	// ************************* Main draw function ***************************
 	// ************************************************************************
-	draw: function(){
-		options = {
-			properties: this.options['properties'],
-			headers: this.options['headers']			
-		};
-		
+	draw: function(){		
 		this.tableInstance = new HtmlTable();
 		
 		// set table css style 
@@ -71,6 +69,47 @@ var TreeTable = new Class({
 		this.setHeaders();
 		
 		this.tableInstance.inject(this.container);
+
+	},
+	
+	// set the css style for the header of tree table 
+	setHeaders: function(){
+				
+		if(!this.colsModel)
+			return
+		
+		var data = [];
+		this.colsModel.each(function(column){
+			var col = {'content':column['label']};
+			if(column['label'])
+				col['property'] = column['property'];
+				
+			data.push(col);
+		});
+		this.tableInstance.setHeaders(data);
+	},
+	
+	// load rows' data to table body 
+	loadData: function(){
+		url = this.options['dataUrl'];
+		if(!url)
+			return;
+			
+		var request = new Request.JSON({url:url});
+
+		request.addEvent("complete", this.onLoadData.bind(this) ) ;
+
+		request.send();
+	},
+	
+	// load data successfully event handler
+	onLoadData: function(data){
+		this.setData(data);
+	},
+	
+	// render data to each row 
+	setData: function(rows){
+		/*
 		rows = [
 			['apple', 'red'],
 		   ['lemon', 'yellow']
@@ -81,16 +120,16 @@ var TreeTable = new Class({
 				this.tableInstance.push(row);
 			},
 			this
-		);		
-
-	},
-	
-	// set the css style for the header of tree table 
-	setHeaders: function(){
-		data = this.options['headertest'];
-		alert(data);
-		if(data)
-			this.tableInstance.setHeaders(data);
+		);	
+		*/	
+		
+		rows.each(
+			function(row){
+				this.tableInstance.push(row);
+			},
+			this
+		);
+				
 	}
 	
 });

@@ -271,7 +271,8 @@ var omniGrid = new Class({
 					section.setStyle('display', 'block');
 			}
 			
-			if (this.options.accordionRenderer){				
+			if (this.options.accordionRenderer){			
+				// new added by B.Z, for dynamicly loading accordion content	
 				this.options.accordionRenderer({parent: section, row: li.retrieve('row'), grid:this});				
 				this.toggle(section);
 			}
