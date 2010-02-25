@@ -47,10 +47,11 @@ CATEGORYCREATIONFORM = 'categoryCreationForm'
 # the properties info that will be shown in columns's title in the services' list
 COLUMNMODEL = [
 	{'dataIndex':'category','label':_('Category'),'dataType':'string'},
-	{'dataIndex':'name','label':_('Name'),'dataType':'string'},
+	{'dataIndex':'name','label':_('Service Name'),'dataType':'string'},
 	{'dataIndex':'descritpion','label':_('Description'),'dataType':'string'},
-	{'dataIndex':'price','label':_('Unit Price'),'dataType':'float'},
-	{'dataIndex':'amount','label':_('Total Amount'),'dataType':'digit'}
+	{'dataIndex':'price','label':_('Unit Price'),'dataType':'string'},
+	{'dataIndex':'amount','label':_('Total Amount'),'dataType':'number'},
+	{'dataIndex':'','label':_('Actions'),'dataType':'button'},
 ]
 
 # End*****************************************************************************************
@@ -151,36 +152,40 @@ def _getServiceItems(category, props=None):
 	
 PROPS4TABLE =  ['serial', 'name','subcategory','description', 'detail', 'price', 'amount']
 TABLECONTAINER = 'servcieTableDiv'
+CONTAINERID = lambda category : '-'.join((category,TABLECONTAINER))
+ADDSERVICEBUTTON = 'addService'
+ADDSERVICEBUTTONID = lambda category : '-'.join((category,ADDSERVICEBUTTON))
 
 def page_showService(**args):
+	"""
+	Render the services' list.
+	"""
 	category = args.get('category')
-	# render the style of service table
-	containerId = '-'.join((category,TABLECONTAINER))
-	print DIV(**{'id':containerId})
 	
+	print DIV(**{'id':CONTAINERID(category)})
 	# javascript slice to load data to table
-	print pagefn.script(_showServiceJs(containerId),link=False)
+	print pagefn.script(_showServiceJs(category),link=False)
 	
  
-	#print args.get('category') or ''	
-	#
-	items = _getServiceItems(args.get('category'),PROPS4TABLE)	
+	#items = _getServiceItems(args.get('category'),PROPS4TABLE)	
 	return
 
-def _showServiceJs(tableContainerId):
-	paras = [APP, tableContainerId,]
+def _showServiceJs(category):
+	paras = [APP, CONTAINERID(category)]
+	paras.extend(['/'.join((APPATH,name)) for name in ('page_colsModel','page_serviceItems')])
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName='%s', container='%s';
+	var appName='%s', container='%s',
+	colsModel='%s',rowsUrl='%s';
 	
 	var treeTable;
 	
 	var options = {
 		onload:function(){    		
 			treeTable = new TreeTable( 
-				container,
-				{header:['h1','h2','h3']}
+				container,				
+				{colsModelUrl:colsModel,dataUrl:rowsUrl}
 			);// the end for 'treeTable' definition
 			
 		}// the end for 'onload' definition
@@ -197,9 +202,15 @@ def page_colsModel(**args):
 	Format:
 		[{'label':...,'dataIndex':...,'dataType':...},...]
 	"""
-	colsModel = COLUMNMODEL
-		
-	print JSON.encode({'data':colsModel})
+	colsModel = COLUMNMODEL		
+	print JSON.encode(colsModel)	
+	return
+	
+def page_serviceItems(**args):
+	"""
+	"""
+	rows = [['apple', 'red'],['lemon', 'yellow']]
+	print JSON.encode(rows,encoding='utf8')
 	return
 	
 def page_createCategory(**args):

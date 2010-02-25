@@ -5,15 +5,17 @@
 // Licence: Creative Commons Attribution 3.0 Unported License, http://creativecommons.org/licenses/by/3.0/
 //			If you copy, distribute or transmit the source code please retain the above copyright notice, author name and project URL. 
 // Required: Mootools 1.2 or newer 
-// Version: treeTable 0.1 
 // ****************************************************************************
 
 var TreeTable = new Class({
+	version: '0.1',
+	
 	Implements: [Events,Options],
 				  
 	getOptions: function(){
 		return {
 			columnsModle: null,	
+			colsModelUrl: null,
 			cssStyle: 'treeTable',
 			dataUrl: null,
 			showHeader:true,
@@ -68,20 +70,30 @@ var TreeTable = new Class({
 		
 		this.setHeaders();
 		
-		this.tableInstance.inject(this.container);
+		this.tableInstance.inject(this.container,'top');
 
 	},
 	
 	// set the css style for the header of tree table 
 	setHeaders: function(){
-				
-		if(!this.colsModel)
-			return
+		colsUrl = this.options['colsModelUrl']; 
+		if(colsUrl){			
+			var request = new Request.JSON({
+				url: colsUrl,
+				async: false,
+				onSuccess: function(cols){this.colsModel = cols;}.bind(this)
+			});			
+			request.get();		
+		};
 		
+		if(!this.colsModel)
+			return;
+			
 		var data = [];
 		this.colsModel.each(function(column){
 			var col = {'content':column['label']};
-			if(column['label'])
+			
+			if(column['property'])
 				col['property'] = column['property'];
 				
 			data.push(col);
@@ -92,20 +104,15 @@ var TreeTable = new Class({
 	
 	// load rows' data to table body 
 	loadData: function(){
-		url = this.options['dataUrl'];
-		if(!url)
+		rowUrl = this.options['dataUrl'];
+		if(!rowUrl)
 			return;
 			
-		var request = new Request.JSON({url:url});
-
-		request.addEvent("complete", this.onLoadData.bind(this) ) ;
-
-		request.send();
-	},
-	
-	// load data successfully event handler
-	onLoadData: function(data){
-		this.setData(data);
+		var request = new Request.JSON({
+			url: rowUrl,
+			onSuccess: function(data){this.setData(data);}.bind(this) 			
+		});
+		request.get();
 	},
 	
 	// render data to each row 
