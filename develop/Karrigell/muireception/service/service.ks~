@@ -1,7 +1,7 @@
 """
 Service module 
 """
-
+import copy
 from HTMLTags import *
 
 # 'THIS.script_url' is a global variable in Karrigell system
@@ -163,9 +163,9 @@ def page_showService(**args):
 	category = args.get('category')
 	
 	print DIV(**{'id':CONTAINERID(category)})
-	# javascript slice to load data to table
-	print pagefn.script(_showServiceJs(category),link=False)
 	
+	# javascript slice to load data to table
+	print pagefn.script(_showServiceJs(category),link=False)	
  
 	#items = _getServiceItems(args.get('category'),PROPS4TABLE)	
 	return
@@ -173,11 +173,13 @@ def page_showService(**args):
 def _showServiceJs(category):
 	paras = [APP, CONTAINERID(category)]
 	paras.extend(['/'.join((APPATH,name)) for name in ('page_colsModel','page_serviceItems')])
+	paras.extend([_('Add'),])
 	paras = tuple(paras)
 	js = \
 	"""
 	var appName='%s', container='%s',
-	colsModel='%s',rowsUrl='%s';
+	colsModel='%s',rowsUrl='%s',
+	addBnLabel='%s';
 	
 	var treeTable;
 	
@@ -192,6 +194,25 @@ def _showServiceJs(category):
 	};// the end for 'options' definition
 	
 	MUI.treeTable(appName,options);
+	
+	// inert action buttons to each row in the table
+	treeTable.tableInstance.element
+	.getElements('tr').slice(0)
+	.each(function(row){		
+		td = row.getLast();
+		
+		[{'label':addBnLabel,'imgUrl':'images/icons/16x16/add_16.png'},]
+		.each(function(data){
+			img = new Element('img',{
+				'src': data['imgUrl'],
+			   'html': data['label'],
+			});
+			
+			td.grab(img);
+		});
+		
+		
+	});
 	"""%paras
 	return js
 
@@ -202,8 +223,10 @@ def page_colsModel(**args):
 	Format:
 		[{'label':...,'dataIndex':...,'dataType':...},...]
 	"""
-	colsModel = COLUMNMODEL		
-	print JSON.encode(colsModel)	
+	colsModel = copy.deepcopy(COLUMNMODEL)
+	for item in colsModel:
+		[item.update({k:v.decode('utf8')}) for k,v in item.items()]		
+	print JSON.encode(colsModel,encoding='utf8')	
 	return
 	
 def page_serviceItems(**args):

@@ -14,7 +14,7 @@ var TreeTable = new Class({
 				  
 	getOptions: function(){
 		return {
-			columnsModle: null,	
+			columnsModel: null,	
 			colsModelUrl: null,
 			cssStyle: 'treeTable',
 			dataUrl: null,
@@ -66,13 +66,14 @@ var TreeTable = new Class({
 		this.tableInstance = new HtmlTable();
 		
 		// set table css style 
-		this.tableInstance.toElement().addClass(this.options['cssStyle']);
+		this.tableInstance.element.addClass(this.options['cssStyle']);
 		
 		this.setHeaders();
 		
 		this.tableInstance.inject(this.container,'top');
 
 	},
+	
 	
 	// set the css style for the header of tree table 
 	setHeaders: function(){
@@ -108,8 +109,9 @@ var TreeTable = new Class({
 		if(!rowUrl)
 			return;
 			
-		var request = new Request.JSON({
+		var request = new Request.JSON({			
 			url: rowUrl,
+			async: false,
 			onSuccess: function(data){this.setData(data);}.bind(this) 			
 		});
 		request.get();
@@ -132,12 +134,16 @@ var TreeTable = new Class({
 		*/	
 		
 		rows.each(
-			function(row){
+			function(row){				
+				interval = this.colsModel.length - row.length;				
+				for (i=0;i<interval;i++){
+					row.push('');
+				};
 				this.tableInstance.push(row);
 			},
 			this
 		);
-				
+							
 	}
 	
 });
