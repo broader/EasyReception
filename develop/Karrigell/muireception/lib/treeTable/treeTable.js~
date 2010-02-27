@@ -12,46 +12,49 @@ var TreeTable = new Class({
 	
 	Implements: [Events,Options],
 				  
-	getOptions: function(){
-		return {
-			columnsModel: null,	
-			colsModelUrl: null,
-			cssStyle: 'treeTable',
-			dataUrl: null,
-			showHeader:true,
-			sortHeader:false,
-			resizeColumns:true,
-			selectable:true,
-			serverSort:true,
-			sortOn: null,
-			sortBy: 'ASC',
-			filterHide: true,
-			filterHideCls: 'hide',
-			filterSelectedCls: 'filter',
-			multipleSelection:true,
-			// accordion
-			accordion:false,
-			accordionRenderer:null,
-			autoSectionToggle:true, // if true just one section can be open/visible
-			// pagination
-			url:null,
-			pagination:false,
-			page:1,
-			perPageOptions: [10, 20, 50, 100, 200],
-			perPage:10
-		};
+	options: {
+		columnsModel: null,	
+		colsModelUrl: null,
+		cssStyle: 'treeTable',
+		dataUrl: null,
+		
+		// Events
+		renderOver: null, 
+		
+		showHeader:true,
+		sortHeader:false,
+		resizeColumns:true,
+		selectable:true,
+		serverSort:true,
+		sortOn: null,
+		sortBy: 'ASC',
+		filterHide: true,
+		filterHideCls: 'hide',
+		filterSelectedCls: 'filter',
+		multipleSelection:true,
+		// accordion
+		accordion:false,
+		accordionRenderer:null,
+		autoSectionToggle:true, // if true just one section can be open/visible
+		// pagination
+		url:null,
+		pagination:false,
+		page:1,
+		perPageOptions: [10, 20, 50, 100, 200],
+		perPage:10
 	},
 	
-	initialize: function(container, options){				
-		this.setOptions(this.getOptions(), options);
+	initialize: function(container, options){					
+		this.setOptions(options);
 		this.container = $(container);
 		this.tableInstance = null;
-		this.colsModel = this.options['columnsModel'];
+		this.colsModel = this.options.columnsModel;
 		
 		if (!this.container)
 			return;
 			
 		this.draw();
+		
 		this.loadData();
 		
 		//this.reset();
@@ -140,7 +143,14 @@ var TreeTable = new Class({
 					row.push('');
 				};
 				this.tableInstance.push(row);
-			}.bind(this);
+			},
+			this
+		);
+		
+		renderEnd = this.options.renderOver;		
+		if(renderEnd){
+			this.fireEvent('onRenderOver',renderEnd(this));
+		};
 							
 	}
 	

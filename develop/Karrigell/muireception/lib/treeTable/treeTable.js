@@ -12,46 +12,49 @@ var TreeTable = new Class({
 	
 	Implements: [Events,Options],
 				  
-	getOptions: function(){
-		return {
-			columnsModel: null,	
-			colsModelUrl: null,
-			cssStyle: 'treeTable',
-			dataUrl: null,
-			showHeader:true,
-			sortHeader:false,
-			resizeColumns:true,
-			selectable:true,
-			serverSort:true,
-			sortOn: null,
-			sortBy: 'ASC',
-			filterHide: true,
-			filterHideCls: 'hide',
-			filterSelectedCls: 'filter',
-			multipleSelection:true,
-			// accordion
-			accordion:false,
-			accordionRenderer:null,
-			autoSectionToggle:true, // if true just one section can be open/visible
-			// pagination
-			url:null,
-			pagination:false,
-			page:1,
-			perPageOptions: [10, 20, 50, 100, 200],
-			perPage:10
-		};
+	options: {
+		columnsModel: null,	
+		colsModelUrl: null,
+		cssStyle: 'treeTable',
+		dataUrl: null,
+		
+		// Events
+		renderOver: null, 
+		
+		showHeader:true,
+		sortHeader:false,
+		resizeColumns:true,
+		selectable:true,
+		serverSort:true,
+		sortOn: null,
+		sortBy: 'ASC',
+		filterHide: true,
+		filterHideCls: 'hide',
+		filterSelectedCls: 'filter',
+		multipleSelection:true,
+		// accordion
+		accordion:false,
+		accordionRenderer:null,
+		autoSectionToggle:true, // if true just one section can be open/visible
+		// pagination
+		url:null,
+		pagination:false,
+		page:1,
+		perPageOptions: [10, 20, 50, 100, 200],
+		perPage:10
 	},
 	
-	initialize: function(container, options){				
-		this.setOptions(this.getOptions(), options);
+	initialize: function(container, options){					
+		this.setOptions(options);
 		this.container = $(container);
 		this.tableInstance = null;
-		this.colsModel = this.options['columnsModel'];
+		this.colsModel = this.options.columnsModel;
 		
 		if (!this.container)
 			return;
 			
 		this.draw();
+		
 		this.loadData();
 		
 		//this.reset();
@@ -66,7 +69,7 @@ var TreeTable = new Class({
 		this.tableInstance = new HtmlTable();
 		
 		// set table css style 
-		this.tableInstance.element.addClass(this.options['cssStyle']);
+		this.tableInstance.element.addClass(this.options.cssStyle);
 		
 		this.setHeaders();
 		
@@ -77,7 +80,7 @@ var TreeTable = new Class({
 	
 	// set the css style for the header of tree table 
 	setHeaders: function(){
-		colsUrl = this.options['colsModelUrl']; 
+		colsUrl = this.options.colsModelUrl; 
 		if(colsUrl){			
 			var request = new Request.JSON({
 				url: colsUrl,
@@ -92,10 +95,10 @@ var TreeTable = new Class({
 			
 		var data = [];
 		this.colsModel.each(function(column){
-			var col = {'content':column['label']};
+			var col = {'content':column.label};
 			
 			if(column['property'])
-				col['property'] = column['property'];
+				col['property'] = column.property;
 				
 			data.push(col);
 		});
@@ -105,7 +108,7 @@ var TreeTable = new Class({
 	
 	// load rows' data to table body 
 	loadData: function(){
-		rowUrl = this.options['dataUrl'];
+		rowUrl = this.options.dataUrl;
 		if(!rowUrl)
 			return;
 			
@@ -143,6 +146,11 @@ var TreeTable = new Class({
 			},
 			this
 		);
+		
+		renderEnd = this.options.renderOver;		
+		if(renderEnd){
+			this.fireEvent('onRenderOver',renderEnd(this));
+		};
 							
 	}
 	

@@ -162,7 +162,10 @@ def page_showService(**args):
 	"""
 	category = args.get('category')
 	
+	
 	print DIV(**{'id':CONTAINERID(category)})
+	
+	print BUTTON(_('Create New Subategory'),**{'id':ADDSERVICEBUTTONID(category)})
 	
 	# javascript slice to load data to table
 	print pagefn.script(_showServiceJs(category),link=False)	
@@ -183,36 +186,42 @@ def _showServiceJs(category):
 	
 	var treeTable;
 	
+	// inert action buttons to each row in the table
+	function addButton(ti){
+		
+		ti.tableInstance.element
+		.getElements('tr').slice(1)
+		.each(function(row){		
+			td = row.getLast();
+			
+			[{'label':addBnLabel,'imgUrl':'images/icons/16x16/add_16.png'},]
+			.each(function(data){
+				img = new Element('img',{
+					'src': data['imgUrl'],
+				   'html': data['label'],
+				});
+				
+				td.grab(img);
+			});
+		});
+	};
+	
 	var options = {
 		onload:function(){    		
 			treeTable = new TreeTable( 
 				container,				
-				{colsModelUrl:colsModel,dataUrl:rowsUrl}
+				{
+					colsModelUrl:colsModel,
+					dataUrl: rowsUrl,
+					renderOver: addButton
+				}
 			);// the end for 'treeTable' definition
 			
 		}// the end for 'onload' definition
 	};// the end for 'options' definition
 	
 	MUI.treeTable(appName,options);
-	
-	// inert action buttons to each row in the table
-	treeTable.tableInstance.element
-	.getElements('tr').slice(0)
-	.each(function(row){		
-		td = row.getLast();
-		
-		[{'label':addBnLabel,'imgUrl':'images/icons/16x16/add_16.png'},]
-		.each(function(data){
-			img = new Element('img',{
-				'src': data['imgUrl'],
-			   'html': data['label'],
-			});
-			
-			td.grab(img);
-		});
-		
-		
-	});
+
 	"""%paras
 	return js
 
