@@ -17,7 +17,7 @@ var TreeTable = new Class({
 		colsModelUrl: null,
 		cssStyle: 'treeTable',
 		dataUrl: null,
-		
+		data: null,
 		// Events
 		renderOver: null, 
 		
@@ -115,13 +115,23 @@ var TreeTable = new Class({
 		var request = new Request.JSON({			
 			url: rowUrl,
 			async: false,
-			onSuccess: function(data){this.setData(data);}.bind(this) 			
+			//onSuccess: function(data){this.setData(data);}.bind(this) 			
+			onSuccess: function(data){
+				this.options.data= data;
+				this.setData();
+				
+			}.bind(this)
 		});
 		request.get();
 	},
 	
+	// return the object which holds the data rendered in the table body 
+	getData: function(){
+		return this.options.data;
+	},
+	
 	// render data to each row 
-	setData: function(rows){
+	setData: function(){
 		/*
 		rows = [
 			['apple', 'red'],
@@ -135,6 +145,9 @@ var TreeTable = new Class({
 			this
 		);	
 		*/	
+		var rows = this.options.data; 
+		if(!rows)
+			return;
 		
 		rows.each(
 			function(row){				
@@ -152,7 +165,13 @@ var TreeTable = new Class({
 			this.fireEvent('onRenderOver',renderEnd(this));
 		};
 							
+	},
+	
+	// return all the tr elements in tbody 
+	getTrs: function(){
+		return this.tableInstance.element.getElements('tr').slice(1);
 	}
+	
 	
 });
 

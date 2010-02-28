@@ -46,9 +46,8 @@ CATEGORYCREATIONFORM = 'categoryCreationForm'
 
 # the properties info that will be shown in columns's title in the services' list
 COLUMNMODEL = [
-	{'dataIndex':'category','label':_('Category'),'dataType':'string'},
 	{'dataIndex':'name','label':_('Service Name'),'dataType':'string'},
-	{'dataIndex':'descritpion','label':_('Description'),'dataType':'string'},
+	{'dataIndex':'description','label':_('Description'),'dataType':'string'},
 	{'dataIndex':'price','label':_('Unit Price'),'dataType':'string'},
 	{'dataIndex':'amount','label':_('Total Amount'),'dataType':'number'},
 	{'dataIndex':'','label':_('Actions'),'dataType':'button'},
@@ -143,12 +142,6 @@ def _indexJs(panelId,tabsId):
 def page_info(**args):
 	print P('For editing servcie, please select a category of service by clicking the tabs on right operation panel first !')
 	return
-
-def _getServiceItems(category, props=None):
-	# get items from 'service' class in database
-	search = {'category' : category}
-	values = model.get_items_ByString(USER, 'service', search, props)
-	return values
 	
 PROPS4TABLE =  ['serial', 'name','subcategory','description', 'detail', 'price', 'amount']
 TABLECONTAINER = 'servcieTableDiv'
@@ -165,7 +158,7 @@ def page_showService(**args):
 	
 	print DIV(**{'id':CONTAINERID(category)})
 	
-	print BUTTON(_('Create New Subategory'),**{'id':ADDSERVICEBUTTONID(category)})
+	#print BUTTON(_('Create New Subategory Service'),**{'id':ADDSERVICEBUTTONID(category)})
 	
 	# javascript slice to load data to table
 	print pagefn.script(_showServiceJs(category),link=False)	
@@ -173,27 +166,27 @@ def page_showService(**args):
 	#items = _getServiceItems(args.get('category'),PROPS4TABLE)	
 	return
 
+CATEGORYTAG = 'category'
 def _showServiceJs(category):
-	paras = [APP, CONTAINERID(category)]
+	paras = [APP, CATEGORYTAG, category, CONTAINERID(category)]
 	paras.extend(['/'.join((APPATH,name)) for name in ('page_colsModel','page_serviceItems')])
-	paras.extend([_('Add'),])
+	paras.extend([_('Add'),_('Create New Subategory Service')])
+	paras.extend(_('Create a new category for service:'), '/'.join((APPATH,'page_createCategory')))
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName='%s', container='%s',
-	colsModel='%s',rowsUrl='%s',
-	addBnLabel='%s';
+	var appName='%s', categoryInfo=['%s','%s'],
+	container='%s', colsModel='%s',rowsUrl='%s',
+	addBnLabel='%s',addCategoryBnLabel='%s'
+	categoryModal={'title':'%s','url':'%s'};
 	
 	var treeTable;
 	
 	// inert action buttons to each row in the table
 	function addButton(ti){
-		
-		ti.tableInstance.element
-		.getElements('tr').slice(1)
-		.each(function(row){		
+		// Parameter 'ti'- the TreeTable instance
+		ti.getTrs().each(function(row){
 			td = row.getLast();
-			
 			[{'label':addBnLabel,'imgUrl':'images/icons/16x16/add_16.png'},]
 			.each(function(data){
 				img = new Element('img',{
@@ -212,7 +205,7 @@ def _showServiceJs(category):
 				container,				
 				{
 					colsModelUrl:colsModel,
-					dataUrl: rowsUrl,
+					dataUrl: [rowsUrl, categoryInfo.join('=')].join('?'),
 					renderOver: addButton
 				}
 			);// the end for 'treeTable' definition
@@ -221,6 +214,25 @@ def _showServiceJs(category):
 	};// the end for 'options' definition
 	
 	MUI.treeTable(appName,options);
+	
+	if(treeTable.getTrs().length == 0){
+		$(container).grab(Element('button',{
+			'html':addCategoryBnLabel,
+			'events':{
+				'click': function(){
+					// the dialog to create a new subcategory of service
+			   	new MUI.Modal({
+			      	width:600, height:380, contentURL: categoryModal.url,
+			      	title: categoryModal.title,
+			      	modalOverlayClose: false,
+			      	onClose: function(e){
+			      		
+			      	}
+			      });
+				}
+			}
+		}));
+	};
 
 	"""%paras
 	return js
@@ -237,11 +249,23 @@ def page_colsModel(**args):
 		[item.update({k:v.decode('utf8')}) for k,v in item.items()]		
 	print JSON.encode(colsModel,encoding='utf8')	
 	return
+
+def _getServiceItems(category, props=None):
+	# get items from 'service' class in database
+	search = {'category' : category}
+	values = model.get_items_ByString(USER, 'service', search, props)
+	
+	return values
 	
 def page_serviceItems(**args):
 	"""
 	"""
-	rows = [['apple', 'red'],['lemon', 'yellow']]
+	category = args.get(CATEGORYTAG)
+	props = [item.get('dataIndex') for item in COLUMNMODEL[:-1]]
+	props.extend(['serial', 'category', 'subcategory'])	
+	nameIndex = props.index('name')
+	rows = filter( lambda item: item[nameIndex], _getServiceItems(category, props) )
+	#rows = [['apple', 'red'],['lemon', 'yellow']]	
 	print JSON.encode(rows,encoding='utf8')
 	return
 	

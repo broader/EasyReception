@@ -17,7 +17,7 @@ var TreeTable = new Class({
 		colsModelUrl: null,
 		cssStyle: 'treeTable',
 		dataUrl: null,
-		
+		data: null,
 		// Events
 		renderOver: null, 
 		
@@ -69,7 +69,7 @@ var TreeTable = new Class({
 		this.tableInstance = new HtmlTable();
 		
 		// set table css style 
-		this.tableInstance.element.addClass(this.options['cssStyle']);
+		this.tableInstance.element.addClass(this.options.cssStyle);
 		
 		this.setHeaders();
 		
@@ -80,7 +80,7 @@ var TreeTable = new Class({
 	
 	// set the css style for the header of tree table 
 	setHeaders: function(){
-		colsUrl = this.options['colsModelUrl']; 
+		colsUrl = this.options.colsModelUrl; 
 		if(colsUrl){			
 			var request = new Request.JSON({
 				url: colsUrl,
@@ -95,10 +95,10 @@ var TreeTable = new Class({
 			
 		var data = [];
 		this.colsModel.each(function(column){
-			var col = {'content':column['label']};
+			var col = {'content':column.label};
 			
 			if(column['property'])
-				col['property'] = column['property'];
+				col['property'] = column.property;
 				
 			data.push(col);
 		});
@@ -108,20 +108,30 @@ var TreeTable = new Class({
 	
 	// load rows' data to table body 
 	loadData: function(){
-		rowUrl = this.options['dataUrl'];
+		rowUrl = this.options.dataUrl;
 		if(!rowUrl)
 			return;
 			
 		var request = new Request.JSON({			
 			url: rowUrl,
 			async: false,
-			onSuccess: function(data){this.setData(data);}.bind(this) 			
+			//onSuccess: function(data){this.setData(data);}.bind(this) 			
+			onSuccess: function(data){
+				this.options.data= data;
+				this.setData();
+				
+			}.bind(this)
 		});
 		request.get();
 	},
 	
+	// return the object which holds the data rendered in the table body 
+	getData: function(){
+		return this.options.data;
+	},
+	
 	// render data to each row 
-	setData: function(rows){
+	setData: function(){
 		/*
 		rows = [
 			['apple', 'red'],
@@ -135,6 +145,9 @@ var TreeTable = new Class({
 			this
 		);	
 		*/	
+		var rows = this.options.data; 
+		if(!rows)
+			return;
 		
 		rows.each(
 			function(row){				
@@ -152,7 +165,13 @@ var TreeTable = new Class({
 			this.fireEvent('onRenderOver',renderEnd(this));
 		};
 							
+	},
+	
+	// return all the tr elements in tbody 
+	getTrs: function(){
+		
 	}
+	
 	
 });
 
