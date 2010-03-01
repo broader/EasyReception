@@ -48,7 +48,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1248059627021" ID="Freemind_Link_1258736316" MODIFIED="1266894443320" POSITION="right" TEXT="Refactor">
+<node COLOR="#0033ff" CREATED="1248059627021" FOLDED="true" ID="Freemind_Link_1258736316" MODIFIED="1267413509476" POSITION="right" TEXT="Refactor">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="idea"/>
@@ -438,7 +438,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1245853638712" ID="_" MODIFIED="1265253554725" POSITION="right" TEXT="Used Web Widgets">
+<node COLOR="#0033ff" CREATED="1245853638712" FOLDED="true" ID="_" MODIFIED="1267413510724" POSITION="right" TEXT="Used Web Widgets">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1258549795684" FOLDED="true" ID="ID_1371740104" MODIFIED="1265253605180" TEXT="jquery lib">
@@ -577,7 +577,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1179296386248" FOLDED="true" ID="Freemind_Link_564995791" MODIFIED="1261581375690" POSITION="left" TEXT="CSS">
+<node COLOR="#0033ff" CREATED="1179296386248" FOLDED="true" ID="Freemind_Link_564995791" MODIFIED="1267413507669" POSITION="left" TEXT="CSS">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1179296391195" FOLDED="true" ID="Freemind_Link_1116687902" MODIFIED="1261581295215" TEXT="&#x8bed;&#x6cd5;">
@@ -653,7 +653,7 @@
 <node COLOR="#111111" CREATED="1260321970030" ID="ID_359030483" MODIFIED="1260322069533" TEXT="clientHeight&#xa;&#x5927;&#x5bb6;&#x5bf9; clientHeight &#x90fd;&#x6ca1;&#x6709;&#x4ec0;&#x4e48;&#x5f02;&#x8bae;&#xff0c;&#x90fd;&#x8ba4;&#x4e3a;&#x662f;&#x5185;&#x5bb9;&#x53ef;&#x89c6;&#x533a;&#x57df;&#x7684;&#x9ad8;&#x5ea6;&#xff0c;&#x4e5f;&#x5c31;&#x662f;&#x8bf4;&#x9875;&#x9762;&#x6d4f;&#x89c8;&#x5668;&#x4e2d;&#x53ef;&#x4ee5;&#x770b;&#x5230;&#x5185;&#x5bb9;&#x7684;&#x8fd9;&#x4e2a;&#x533a;&#x57df;&#x7684;&#x9ad8;&#x5ea6;&#xff0c;&#x4e00;&#x822c;&#x662f;&#x6700;&#x540e;&#x4e00;&#x4e2a;&#x5de5;&#x5177;&#x6761;&#x4ee5;&#x4e0b;&#x5230;&#x72b6;&#x6001;&#x680f;&#x4ee5;&#x4e0a;&#x7684;&#x8fd9;&#x4e2a;&#x533a;&#x57df;&#xff0c;&#x4e0e;&#x9875;&#x9762;&#x5185;&#x5bb9;&#x65e0;&#x5173;&#x3002;&#xa;&#xa;offsetHeight&#xa;IE&#x3001;Opera &#x8ba4;&#x4e3a; offsetHeight = clientHeight + &#x6eda;&#x52a8;&#x6761; + &#x8fb9;&#x6846;&#x3002;&#xa;NS&#x3001;FF &#x8ba4;&#x4e3a; offsetHeight &#x662f;&#x7f51;&#x9875;&#x5185;&#x5bb9;&#x5b9e;&#x9645;&#x9ad8;&#x5ea6;&#xff0c;&#x53ef;&#x4ee5;&#x5c0f;&#x4e8e; clientHeight&#x3002;&#xa;&#xa;scrollHeight&#xa;IE&#x3001;Opera &#x8ba4;&#x4e3a; scrollHeight &#x662f;&#x7f51;&#x9875;&#x5185;&#x5bb9;&#x5b9e;&#x9645;&#x9ad8;&#x5ea6;&#xff0c;&#x53ef;&#x4ee5;&#x5c0f;&#x4e8e; clientHeight&#x3002;&#xa;NS&#x3001;FF &#x8ba4;&#x4e3a; scrollHeight &#x662f;&#x7f51;&#x9875;&#x5185;&#x5bb9;&#x9ad8;&#x5ea6;&#xff0c;&#x4e0d;&#x8fc7;&#x6700;&#x5c0f;&#x503c;&#x662f; clientHeight&#x3002;&#xa;&#xa;&#x7b80;&#x5355;&#x5730;&#x8bf4;&#xff0c;clientHeight &#x5c31;&#x662f;&#x900f;&#x8fc7;&#x6d4f;&#x89c8;&#x5668;&#x770b;&#x5185;&#x5bb9;&#x7684;&#x8fd9;&#x4e2a;&#x533a;&#x57df;&#x9ad8;&#x5ea6;&#x3002;&#xa;NS&#x3001;FF &#x8ba4;&#x4e3a; offsetHeight &#x548c; scrollHeight &#x90fd;&#x662f;&#x7f51;&#x9875;&#x5185;&#x5bb9;&#x9ad8;&#x5ea6;&#xff0c;&#x53ea;&#x4e0d;&#x8fc7;&#x5f53;&#x7f51;&#x9875;&#x5185;&#x5bb9;&#x9ad8;&#x5ea6;&#x5c0f;&#x4e8e;&#x7b49;&#x4e8e; clientHeight &#x65f6;&#xff0c;scrollHeight &#x7684;&#x503c;&#x662f; clientHeight&#xff0c;&#x800c; offsetHeight &#x53ef;&#x4ee5;&#x5c0f;&#x4e8e; clientHeight&#x3002;&#xa;&#xa;IE&#x3001;Opera &#x8ba4;&#x4e3a; offsetHeight &#x662f;&#x53ef;&#x89c6;&#x533a;&#x57df; clientHeight &#x6eda;&#x52a8;&#x6761;&#x52a0;&#x8fb9;&#x6846;&#x3002;scrollHeight &#x5219;&#x662f;&#x7f51;&#x9875;&#x5185;&#x5bb9;&#x5b9e;&#x9645;&#x9ad8;&#x5ea6;&#x3002;&#xa;&#x540c;&#x7406;&#xff0c;clientWidth&#x3001;offsetWidth &#x548c; scrollWidth &#x7684;&#x89e3;&#x91ca;&#x4e0e;&#x4e0a;&#x9762;&#x76f8;&#x540c;&#xff0c;&#x53ea;&#x662f;&#x628a;&#x9ad8;&#x5ea6;&#x6362;&#x6210;&#x5bbd;&#x5ea6;&#x5373;&#x53ef;&#x3002;"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1181101772143" FOLDED="true" ID="Freemind_Link_782174009" MODIFIED="1261581292920" TEXT="&#x5e03;&#x5c40;&#x8bbe;&#x8ba1;">
+<node COLOR="#00b439" CREATED="1181101772143" ID="Freemind_Link_782174009" MODIFIED="1267407346759" TEXT="&#x5e03;&#x5c40;&#x8bbe;&#x8ba1;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1181101777431" ID="Freemind_Link_1509382470" MODIFIED="1254629032304" TEXT="http://www.oswd.org/">
@@ -667,7 +667,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1261581282134" FOLDED="true" ID="ID_1883344057" MODIFIED="1261581292366" TEXT="&#x8d44;&#x6e90;">
+<node COLOR="#00b439" CREATED="1261581282134" ID="ID_1883344057" MODIFIED="1267407348282" TEXT="&#x8d44;&#x6e90;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1261581274293" ID="ID_1593770530" MODIFIED="1261581277496" TEXT="http://blog.bingo929.com/category/resources">
@@ -1108,15 +1108,15 @@
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="help"/>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1265250763146" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1267413502159" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1173066298350" ID="Freemind_Link_1468412211" MODIFIED="1265250764814" TEXT="UI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261723589326" FOLDED="true" ID="ID_80373969" MODIFIED="1267089766234" TEXT="Preference">
+<node COLOR="#990000" CREATED="1261723589326" ID="ID_80373969" MODIFIED="1267406998478" TEXT="Preference">
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1176041576720" FOLDED="true" ID="Freemind_Link_940755797" MODIFIED="1265252593572" TEXT="Application">
+<node COLOR="#111111" CREATED="1176041576720" FOLDED="true" ID="Freemind_Link_940755797" MODIFIED="1267407008677" TEXT="Application">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1176041657346" FOLDED="true" ID="Freemind_Link_784635142" MODIFIED="1261723631041" TEXT="&#x8bb0;&#x4e8b;&#x8d34;">
@@ -1134,7 +1134,7 @@
 <node COLOR="#111111" CREATED="1176089437502" ID="Freemind_Link_1212889448" MODIFIED="1176089461146" TEXT="http://www.pixeline.be/experiments/jqUploader/index.html&#x6709;&#x8fdb;&#x5ea6;&#x6761;&#x663e;&#x793a;"/>
 <node COLOR="#111111" CREATED="1176089470960" ID="Freemind_Link_1535529853" MODIFIED="1176089480764" TEXT="http://www.fyneworks.com/jquery/multiple-file-upload/&#x591a;&#x6587;&#x4ef6;&#x4e0a;&#x4f20;"/>
 </node>
-<node COLOR="#111111" CREATED="1176041142656" FOLDED="true" ID="Freemind_Link_1106266635" MODIFIED="1261723578311" TEXT="DatePicker">
+<node COLOR="#111111" CREATED="1176041142656" ID="Freemind_Link_1106266635" MODIFIED="1267407005189" TEXT="DatePicker">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1176041154232" ID="Freemind_Link_642203385" MODIFIED="1176817330405" TEXT="http://kelvinluck.com/assets/jquery/datePicker/">
 <font NAME="SansSerif" SIZE="12"/>
@@ -1498,8 +1498,17 @@
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="12"/>
 </node>
+<node COLOR="#111111" CREATED="1267407013565" ID="ID_323990287" MODIFIED="1267407017670" TEXT="Print">
+<node COLOR="#111111" CREATED="1267407018698" ID="ID_1419360115" MODIFIED="1267407019989" TEXT="http://code.google.com/p/hartija/"/>
 </node>
-<node COLOR="#990000" CREATED="1261723645352" FOLDED="true" ID="ID_454191510" MODIFIED="1267145044689" TEXT="Examples">
+<node COLOR="#111111" CREATED="1267407076275" ID="ID_1367333314" MODIFIED="1267407084280" TEXT="Buttons">
+<node COLOR="#111111" CREATED="1267407086035" ID="ID_1549900647" MODIFIED="1267407087485" TEXT="http://code.google.com/p/sexybuttons/"/>
+</node>
+<node COLOR="#111111" CREATED="1267407332247" ID="ID_443424941" MODIFIED="1267407334611" TEXT="Icons">
+<node COLOR="#111111" CREATED="1267407335622" ID="ID_438190924" MODIFIED="1267407337820" TEXT="http://code.google.com/p/twotiny/"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1261723645352" FOLDED="true" ID="ID_454191510" MODIFIED="1267406997070" TEXT="Examples">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1261116666825" ID="ID_1018641055" MODIFIED="1265254755689" TEXT="desktop">
 <edge STYLE="bezier" WIDTH="thin"/>
@@ -1611,7 +1620,7 @@
 <node COLOR="#111111" CREATED="1263175553706" ID="ID_403260123" MODIFIED="1263175555174" TEXT="http://www.opendesigns.org/preview/?design=1699"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1263009691239" FOLDED="true" ID="ID_1853015666" MODIFIED="1267089866586" TEXT="Framework">
+<node COLOR="#990000" CREATED="1263009691239" FOLDED="true" ID="ID_1853015666" MODIFIED="1267406995604" TEXT="Framework">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1263009697067" ID="ID_1781009959" MODIFIED="1263009698398" TEXT="http://www.lucid-desktop.org/"/>
 <node COLOR="#111111" CREATED="1261116138051" ID="ID_886881172" MODIFIED="1261723671558" TEXT="http://960.gs/">

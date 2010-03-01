@@ -83,7 +83,7 @@ def _getTabs(**args):
 				'url':'/'.join((APPATH, '?'.join(('page_showService', 'category=%s'%category))))}
 		tabs.append(d)
 	
-	tabs.append({'id':'addNewService', 'url':'/'.join((APPATH,'page_createCategory'))})
+	tabs.append({'id':'addNewService', 'url':'/'.join((APPATH,'page_createCategoryInfo'))})
 	return tabs	
 	
 def index(**args):
@@ -170,8 +170,8 @@ CATEGORYTAG = 'category'
 def _showServiceJs(category):
 	paras = [APP, CATEGORYTAG, category, CONTAINERID(category)]
 	paras.extend(['/'.join((APPATH,name)) for name in ('page_colsModel','page_serviceItems')])
-	paras.extend([_('Add'),_('Create New Subategory Service')])
-	paras.extend(_('Create a new category for service:'), '/'.join((APPATH,'page_createCategory')))
+	paras.extend([_('Add'),_('Create New Subategory')])
+	paras.extend([_('Create a new subcategory for service'), '/'.join((APPATH,'page_createCategory'))])
 	paras = tuple(paras)
 	js = \
 	"""
@@ -182,10 +182,33 @@ def _showServiceJs(category):
 	
 	var treeTable;
 	
-	// inert action buttons to each row in the table
+	// insert action buttons to each row in the table
 	function addButton(ti){
 		// Parameter 'ti'- the TreeTable instance
-		ti.getTrs().each(function(row){
+		
+		// add the action button for empty table
+		var rows = ti.getTrs();
+		if(rows.length == 0 ){
+			ti.container.grab(Element('button',{
+				'html':addCategoryBnLabel,
+				'events':{
+					'click': function(){
+						// the dialog to create a new subcategory of service
+				   	new MUI.Modal({
+				      	width:600, height:380, contentURL: categoryModal.url,
+				      	title: categoryModal.title,
+				      	modalOverlayClose: false,
+				      	onClose: function(e){
+				      		
+				      	}
+				      });
+					}
+				}
+			}));
+		};
+		
+		// add action buttons to each row 
+		rows.each(function(row){
 			td = row.getLast();
 			[{'label':addBnLabel,'imgUrl':'images/icons/16x16/add_16.png'},]
 			.each(function(data){
@@ -199,6 +222,7 @@ def _showServiceJs(category):
 		});
 	};
 	
+	// options for TreeTable class initialization
 	var options = {
 		onload:function(){    		
 			treeTable = new TreeTable( 
@@ -213,26 +237,8 @@ def _showServiceJs(category):
 		}// the end for 'onload' definition
 	};// the end for 'options' definition
 	
+	// initialize TreeTable class
 	MUI.treeTable(appName,options);
-	
-	if(treeTable.getTrs().length == 0){
-		$(container).grab(Element('button',{
-			'html':addCategoryBnLabel,
-			'events':{
-				'click': function(){
-					// the dialog to create a new subcategory of service
-			   	new MUI.Modal({
-			      	width:600, height:380, contentURL: categoryModal.url,
-			      	title: categoryModal.title,
-			      	modalOverlayClose: false,
-			      	onClose: function(e){
-			      		
-			      	}
-			      });
-				}
-			}
-		}));
-	};
 
 	"""%paras
 	return js
@@ -268,7 +274,55 @@ def page_serviceItems(**args):
 	#rows = [['apple', 'red'],['lemon', 'yellow']]	
 	print JSON.encode(rows,encoding='utf8')
 	return
+
+def page_createCategoryInfo(**args):
+	"""
+	"""
+	info = _("Here you can create a new category of service.It's need to define the name and decritpiton of the new category.")
+	containerId = 'createNewCategory'
+	print DIV(**{'class':'note','style':'width:40%;','id':containerId})
 	
+	paras = [info, containerId,_('Create A New Category For Service')]
+	paras.extend([_('Create a new category for service'),'/'.join((APPATH,'page_createCategory'))])	
+	script = \
+	"""
+	var info="%s", containerId='%s', bnLabel='%s', 
+	modalInfo={'title':'%s', 'url':'%s'};
+	
+	$(containerId).grab(new Element(
+		'h6',
+		{'html':info}
+	));
+	
+	$(containerId).grab(new Element('br'));
+	
+	$(containerId).grab(new Element(
+		'button',
+		{
+			'html': bnLabel,
+			'events':{
+				'click': function(e){
+					new Event(e).stop();
+					
+					// the dialog to create a new subcategory of service
+			   	new MUI.Modal({
+			      	width:600, height:380, contentURL: modalInfo.url,
+			      	title: modalInfo.title,
+			      	modalOverlayClose: false,
+			      	onClose: function(e){
+			      		
+			      	}
+			      });
+				}
+			}
+		}
+	));
+	
+	"""%tuple(paras)
+	print pagefn.script(script,link=False)
+	
+	return
+		
 def page_createCategory(**args):
 	names = ('category','description')
 	
@@ -290,8 +344,10 @@ def page_createCategory(**args):
 	div = DIV(Sum(formFn.yform(props)))
 	
 	# add the <Legend> tag	
-	legend = LEGEND(TEXT(_('Create New Category For Service')))    
-	form.append(FIELDSET(Sum((legend,div))))
+	#legend = LEGEND(TEXT(_('Create New Category For Service')))    
+	#form.append(FIELDSET(Sum((legend,div))))
+	form.append(FIELDSET(div))
+	
 	# append hidden field that points out the action type
 	form.append(INPUT(**{'name':'action','value':'create','type':'hidden'}))
 	
@@ -307,7 +363,7 @@ def page_createCategory(**args):
 		**{'action': '/'.join((APPATH,'page_serviceEditAction')), 'id': CATEGORYCREATIONFORM, 'method':'post','class':'yform'}
 	)
 				
-	print DIV(form,style='width:50%;margin-left:5em;')
+	print DIV(form,style='')
 	print pagefn.script(_createCategoryJs(),link=False)
 	
 	return
