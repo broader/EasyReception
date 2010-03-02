@@ -290,8 +290,15 @@ MUI.extend({
 		// get the global Assets manager
 	   var am = MUI.assetsManager;
 	   
+	   // import css file for validation
+	   urls.slice(0,1).each(function(src){
+	   	if(!$defined(am.imported[src])){
+	    		am.import({'url':src,'app':appName,'type':'css'});
+	    	}	
+		});
+	   
 	   // the really validation functions
-		am.import({'url':urls[0],'app':appName,'type':'js'},options);
+		am.import({'url':urls[1],'app':appName,'type':'js'},options);
 	   
 	}
 	

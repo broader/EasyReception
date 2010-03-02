@@ -234,6 +234,18 @@ MUI.extend({
 		});
 	},
 	
+	// refresh the main MUI.Panel
+	refreshMainPanel: function(){
+		MUI.Panels.instances
+		.filter(function(panel,key){
+			return panel.options.id == '<%=pagefn.MAINPANEL %>';
+		})
+		.each(function(panel){
+			panel.newPanel();
+		});
+		
+	},
+	
 	// collapse all other panels, only left user selected panel
 	accordionPanels: function(currentId){
 		var column = '<%=sideBar %>';

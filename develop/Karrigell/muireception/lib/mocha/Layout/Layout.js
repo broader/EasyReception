@@ -758,6 +758,7 @@ MUI.Panel = new Class({
 			this.newPanel();
 		}
 	},
+	
 	newPanel: function(){
 		
 		options = this.options;

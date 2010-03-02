@@ -348,9 +348,12 @@ def page_createCategory(**args):
 	form.append(INPUT(**{'name':'action','value':'create','type':'hidden'}))
 	
 	# add buttons to this form	
-	button = BUTTON( _('Create'), **{'class':pagefn.BUTTONSTYLE, 'type':'button'})
+	buttons = [ \
+		BUTTON( _('Create'), **{'class':pagefn.BUTTONSTYLE, 'type':'button'}),\
+		BUTTON( _('Cancel'), **{'class':pagefn.BUTTONSTYLE, 'type':'button'})\
+	]
 	
-	div = DIV(button, **{'style':'position:absolute;margin-left:15em;'})    
+	div = DIV(Sum(buttons), **{'style':'position:absolute;margin-left:15em;'})    
 	form.append(div)
 	
 	form = \
@@ -403,36 +406,39 @@ def _createCategoryJs():
    MUI.formValidLib(appName,options);
    
    /*****************************************************************************
-    Check whether the category name has been used    
-    *****************************************************************************/    
-    // A Request.JSON class for send validation request to server side
-    var categoryRequest = new Request.JSON({async:false});
+   Check whether the category name has been used    
+   *****************************************************************************/    
+   // A Request.JSON class for send validation request to server side
+   var categoryRequest = new Request.JSON({async:false});
     
-    var categroyValidTag = false;
-    window[categroyValidFn] = function(el){
-       el.errors.push(categoryErr)
-       // set some options for Request.JSON instance
-       categoryRequest.setOptions({
-          url: categoryValidAction,
-          onSuccess: function(res){
-            if(res.valid == 1){categroyValidTag=true};
-          }
-       });
+   var categroyValidTag = false;
+   window[categroyValidFn] = function(el){
+      el.errors.push(categoryErr)
+      // set some options for Request.JSON instance
+      categoryRequest.setOptions({
+         url: categoryValidAction,
+         onSuccess: function(res){
+           if(res.valid == 1){categroyValidTag=true};
+         }
+      });
        
-       categoryRequest.get({'name':el.getProperty('value')});
-       if(categroyValidTag){
-          categroyValidTag=false;   // reset global variable 'accountValidTag' to be 'false'
-          return true
-       }             
-       return false;
-    }
-    
-   
-   function createService(event){
-		serviceCategoryFormchk.onSubmit(event);
-	};	
+      categoryRequest.get({'name':el.getProperty('value')});
+      if(categroyValidTag){
+         categroyValidTag=false;   // reset global variable 'accountValidTag' to be 'false'
+         return true
+      }             
+      return false;
+   };    
 	
-	$(formId).getElements('button')[0].addEvent('click',createService);
+	var buttons = $(formId).getElements('button')
+	buttons[0].addEvent('click', function(e){
+		serviceCategoryFormchk.onSubmit(e);
+	});
+	
+	buttons[1].addEvent('click', function(e){
+		new Event(e).stop();
+		MUI.closeModalDialog();
+	});
 	
 	"""%paras
 	

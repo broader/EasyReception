@@ -484,9 +484,7 @@ MUI.Column = new Class({
 		
 		// Collapse
 		if (this.isCollapsed == false){
-			this.oldWidth = column.getStyle('width').toInt();
-			
-			alert('columnToggle(),L489,column to toggle id is '+ this.columnEl.id);			
+			this.oldWidth = column.getStyle('width').toInt();	
 			
 			this.resize.detach();
 			this.handleEl.removeEvents('dblclick');
