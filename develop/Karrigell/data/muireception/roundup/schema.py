@@ -107,12 +107,13 @@ issue = IssueClass(db, "issue",
 service = Class(db, "service",
 			serial=String(),
 			name=String(),
+			category=String(),	# such as 'hotel', 'travel'...
 			subcategory=Link('service'),
 			price=Number(), 		# the price of each service
 			description=String(),	# description for the service
 			detail=String(),		# footnote
 			amount=Number(),		# the amount of this service item			
-			category=String()) 	# such as 'hotel', 'travel'...
+			nodetype=Number())	# is a leaf or a branch node 	
 #service.setkey("serial")
 
 # the record of each reservation

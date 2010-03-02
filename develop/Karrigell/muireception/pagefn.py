@@ -153,8 +153,8 @@ ADMINSIDEBARPANELS = \
 }
 
 
-# the main panel's id
-MAINPANEL = 'mainPanel'
+# the MUI.Panel's ids
+PANELSID = {'main':'mainPanel',}
 
 #--------------------------------------------------------------------------------------
 

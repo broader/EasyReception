@@ -16,6 +16,9 @@ logoutUrl = layoutUrls[-1]
 sideBar, mainColumn = pagefn.COLUMNS
 %>
 
+// the id of main panel in right main column
+var mainPanelId = '<%=pagefn.PANELSID['main'] %>';
+
 // get the global Assets manager
 var am = MUI.assetsManager;
 
@@ -130,7 +133,7 @@ function addColumns(){
 	
 	// add the main MUI.Panel to the main MUI.Column
 	new MUI.Panel({
-		id: '<%=pagefn.MAINPANEL %>', header:false, column: '<%=mainColumn %>'
+		id: mainPanelId, header:false, column: '<%=mainColumn %>'
 	});
 };
 
@@ -228,10 +231,29 @@ MUI.extend({
 			return $(column.options.id) != null;
 		})
 		.each(function(column){			
-			if(column.options.container.id == '<%=pagefn.MAINPANEL %>'){
+			if(column.options.container.id == mainPanelId){
 				MUI.closeColumn($(column.options.id));
 			}
 		});
+	},
+	
+	// refresh the main MUI.Panel
+	refreshMainPanel: function(){
+		MUI.Panels.instances
+		.filter(function(panel,key){
+			if( key == mainPanelId )
+				return false;
+			
+			columnId = panel.options.column;
+			if( MUI.Columns.instances.get(columnId).options.container.id == mainPanelId)
+				return true;
+			else
+				return false;			
+		})
+		.each(function(panel){
+			panel.newPanel();
+		});
+		
 	},
 	
 	// collapse all other panels, only left user selected panel

@@ -107,8 +107,8 @@ def get_items(operator, klass, props=None, link2key=False,ids=None):
               	'propnames': props,\
               	'link2key': link2key\                	
                }        	
-  client.form = form
-  return action(client)
+	client.form = form
+	return action(client)
 
 def get_items_ByString(operator, klass, search, propnames=None, needId=False):
 	""" Get items by specified string value of the class's String properties.

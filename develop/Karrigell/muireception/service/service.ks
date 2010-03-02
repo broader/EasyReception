@@ -155,15 +155,11 @@ def page_showService(**args):
 	"""
 	category = args.get('category')
 	
-	
 	print DIV(**{'id':CONTAINERID(category)})
-	
-	#print BUTTON(_('Create New Subategory Service'),**{'id':ADDSERVICEBUTTONID(category)})
 	
 	# javascript slice to load data to table
 	print pagefn.script(_showServiceJs(category),link=False)	
- 
-	#items = _getServiceItems(args.get('category'),PROPS4TABLE)	
+ 	
 	return
 
 CATEGORYTAG = 'category'
@@ -194,12 +190,13 @@ def _showServiceJs(category):
 				'events':{
 					'click': function(){
 						// the dialog to create a new subcategory of service
+						url = [categoryModal.url, categoryInfo.join('=')].join('?');
 				   	new MUI.Modal({
-				      	width:600, height:380, contentURL: categoryModal.url,
+				      	width:600, height:380, contentURL: url,
 				      	title: categoryModal.title,
 				      	modalOverlayClose: false,
 				      	onClose: function(e){
-				      		
+				      		MUI.refreshMainPanel();
 				      	}
 				      });
 					}
@@ -268,10 +265,19 @@ def page_serviceItems(**args):
 	"""
 	category = args.get(CATEGORYTAG)
 	props = [item.get('dataIndex') for item in COLUMNMODEL[:-1]]
-	props.extend(['serial', 'category', 'subcategory'])	
-	nameIndex = props.index('name')
+	props.extend(['serial', 'category', 'subcategory','nodetype'])
+		
+	# filter the root category items	
+	nameIndex = props.index('name')	
 	rows = filter( lambda item: item[nameIndex], _getServiceItems(category, props) )
-	#rows = [['apple', 'red'],['lemon', 'yellow']]	
+	
+	for row in rows:		
+		for index,value in enumerate(row):
+			if value:
+				row[index] = value.decode('utf8')
+			else:
+				row[index] = ''.decode('utf8')
+		
 	print JSON.encode(rows,encoding='utf8')
 	return
 
@@ -310,7 +316,7 @@ def page_createCategoryInfo(**args):
 			      	title: modalInfo.title,
 			      	modalOverlayClose: false,
 			      	onClose: function(e){
-			      		
+			      		MUI.refreshMainPanel();
 			      	}
 			      });
 				}
@@ -324,7 +330,11 @@ def page_createCategoryInfo(**args):
 	return
 		
 def page_createCategory(**args):
-	names = ('category','description')
+	ctag = CATEGORYTAG
+	category = args.get(ctag)	
+	names = ['category','description']
+	if category:
+		names.insert(1,'name')
 	
 	# start to render edit form
 	props = [item for item in PROPS if item['name'] in names]
@@ -336,7 +346,13 @@ def page_createCategory(**args):
 		if not prop.has_key('required'):
 			prop['required'] = False	 	
 		
-		prop['oldvalue'] = ''
+		if prop['name'] == ctag and category:
+			prop['oldvalue'] = category
+			prop['readonly'] = ''
+			prop['validate'] = []
+			prop['required'] = False
+		else:
+			prop['oldvalue'] = ''
 	
 	# render the fields to the form	
 	form = []
@@ -368,12 +384,17 @@ def page_createCategory(**args):
 	return
 
 def _createCategoryJs():
-	paras = [CATEGORYCREATIONFORM,CHKFNS[0],'/'.join((APPATH,'page_categoryValid')),_('The category input name has been used already!')]
+	paras = [CATEGORYCREATIONFORM,]
+	paras.extend(CHKFNS)
+	paras.extend(['/'.join((APPATH, name)) for name in ('page_categoryValid','page_serviceNameValid')])
+	paras.extend([_('The input name for category has been used already!'),_('The input service name has been used already!')])
 	paras = tuple(paras)
 	js = \
 	"""
 	var formId='%s',
-	categroyValidFn='%s',categoryValidAction='%s',categoryErr='%s';
+	categroyValidFn='%s', serviceNameValidFn='%s',
+	categoryValidAction='%s', serviceNameValidAction='%s',
+	categoryErr='%s', serviceNameErr='%s';
 	
 	// add mouseover effect to buttons
 	new MooHover({container: formId,duration:800});
@@ -391,6 +412,7 @@ def _createCategoryJs():
 				onAjaxSuccess: function(response){
 					if(response == 1){
 						alert(response);
+						MUI.refreshMainPanel();
 					};               
 				},            
 
@@ -424,11 +446,47 @@ def _createCategoryJs():
        
       categoryRequest.get({'name':el.getProperty('value')});
       if(categroyValidTag){
-         categroyValidTag=false;   // reset global variable 'accountValidTag' to be 'false'
+         categroyValidTag=false;   // reset global variable 'categroyValidTag' to be 'false'
          return true
       }             
       return false;
    };    
+	
+	/******************************************************************************
+	Check whether the service name has been used
+	******************************************************************************/
+	var serviceNameRequest = new Request.JSON({async:false});
+	var nameValidTag = false;
+	
+	window[serviceNameValidFn] = function(el){
+		el.errors.push(serviceNameErr)
+      // set some options for Request.JSON instance
+      serviceNameRequest.setOptions({
+         url: serviceNameValidAction,
+         onSuccess: function(res){
+           if(res.valid == 1){nameValidTag=true};
+         }
+      });
+      
+      
+      serviceNameRequest.get({
+      	'name':el.getProperty('value'),
+      	'category': function(element){
+      		value = element.getParent('div').getParent('div')
+      		.getElement('input[id=category]')
+      		.getProperty('value');
+      		
+      		return value
+      	}(el)
+      });
+      
+      if(nameValidTag){
+         nameValidTag=false;   // reset global variable 'nameValidTag' to be 'false'
+         return true
+      }             
+      return false;
+	};
+	
 	
 	var buttons = $(formId).getElements('button')
 	buttons[0].addEvent('click', function(e){
@@ -464,6 +522,20 @@ def page_categoryValid(**args):
 	res['category'] = categories 
 	if name in categories:
 		res['valid'] = 0
+	print JSON.encode(res)	
+	return
+
+def page_serviceNameValid(**args):
+	inputName,category = [ args.get(prop) for prop in ('name','category')]
+	names = _getServiceItems(category, props=('name',))
+	if names :
+		names = [ item[0] for item in names ]
+	else:
+		names = []
+		 
+	if inputName in names:
+		res['valid'] = 0
+	res = {'valid':1}
 	print JSON.encode(res)	
 	return
 	

@@ -68,7 +68,7 @@ def index(**args):
 	return
 
 def _usersTridJs(**args):
-	paras = [pagefn.MAINPANEL, APP, GRIDID]
+	paras = [pagefn.PANELSID['main'], APP, GRIDID]
 	
 	# append the ids of the elements for filter function 
 	paras.extend([FILTERINPUTID,FILTERBN,FILTERCLEARBN])

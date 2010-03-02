@@ -10,7 +10,7 @@ pagefn = Import('/'.join(('', 'pagefn.py')))
 %>
 
 // the id of main panel in right main column
-var mainPanelId = '<%=pagefn.MAINPANEL %>';
+var mainPanelId = '<%=pagefn.PANELSID.main %>';
 
 /*
 ** The public function for side panels collapsing
@@ -71,6 +71,7 @@ function agendaPanel(panelId){
 **	"Service Management" side panel expand function
 */
 function servicePanel(panelId){
+	MUI.removeErr();
 	MUI.accordionPanels(panelId);
 	MUI.clearMainPanel();
 	

@@ -68,7 +68,7 @@ def index(**args):
 	return
 
 def _usersTridJs(**args):
-	paras = [pagefn.MAINPANEL, APP, GRIDID]
+	paras = [page.PANELSID['main'], APP, GRIDID]
 	
 	# append the ids of the elements for filter function 
 	paras.extend([FILTERINPUTID,FILTERBN,FILTERCLEARBN])
@@ -124,18 +124,6 @@ def _usersTridJs(**args):
    	datagrid.loadData();
    });   
    
-   // get the id of current showing panel
-   function getPanelId(){
-   	panelId = 
-   	MUI.Panels.instances
-   	.filter(function(panel,key){
-   		column = MUI.Columns.instances.get(panel.options.column);
-   		return ((column != null) && (column.options.container.id == maniPanelId))
-   	})
-   	.getKeys()[0];
-   	return panelId
-   };
-   
    // edit the data of selected row
    function gridRowEdit(evt){
    	/* Parameters
@@ -147,7 +135,6 @@ def _usersTridJs(**args):
    	row = evt.target.getDataByRow(evt.row);
    	
    	var urls = [];
-   	//$H({'user':row['username'],'panelId':getPanelId(),'panelReload':'0'})
    	$H({'user':row['username'],'panelReload':'0'})
    	.each(function(value,key){
    		urls.push([key,value].join('='));
