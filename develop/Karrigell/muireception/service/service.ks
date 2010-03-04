@@ -9,7 +9,9 @@ APPATH = THIS.script_url[1:]
 RELPATH = (lambda p : p.split('/')[0])(THIS.baseurl)
 
 model = Import( '/'.join((RELPATH, 'model.py')), REQUEST_HANDLER=REQUEST_HANDLER )
-modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'formFn':'form.py'}
+
+modules = {'pagefn': 'pagefn.py', 'JSON': 'demjson.py', 'formFn':'form.py', 'tree':'lib/tree/logilab/tree.py'}
+#modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'formFn':'form.py'}
 [locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items() ]
 
 
@@ -113,8 +115,7 @@ def _indexJs(panelId,tabsId):
 	"""
 	var panelId='%s',tabsId='%s';
 	MochaUI.initializeTabs(tabsId);
-	"""%(panelId,tabsId)
-	
+	"""%(panelId,tabsId)	
 	
 	js = [content,]
 	tabs = _getTabs()
@@ -178,34 +179,37 @@ def _showServiceJs(category):
 	
 	var treeTable;
 	
-	// insert action buttons to each row in the table
+	// The function to insert action buttons to each row in the table,
+	// and insert a subcategory creation button out of the table.
 	function addButton(ti){
 		// Parameter 'ti'- the TreeTable instance
 		
-		// add the action button for empty table
-		var rows = ti.getTrs();
-		if(rows.length == 0 ){
-			ti.container.grab(Element('button',{
-				'html':addCategoryBnLabel,
-				'events':{
-					'click': function(){
-						// the dialog to create a new subcategory of service
-						url = [categoryModal.url, categoryInfo.join('=')].join('?');
-				   	new MUI.Modal({
-				      	width:600, height:380, contentURL: url,
-				      	title: categoryModal.title,
-				      	modalOverlayClose: false,
-				      	onClose: function(e){
-				      		MUI.refreshMainPanel();
-				      	}
-				      });
-					}
+		// add the action button out of the table
+		
+		//if(rows.length == 0 ){
+		
+		ti.container.grab(Element('button',{
+			'html':addCategoryBnLabel,
+			'events':{
+				'click': function(){
+					// the dialog to create a new subcategory of service
+					url = [categoryModal.url, categoryInfo.join('=')].join('?');
+			   	new MUI.Modal({
+			      	width:600, height:380, contentURL: url,
+			      	title: categoryModal.title,
+			      	modalOverlayClose: false,
+			      	onClose: function(e){
+			      		MUI.refreshMainPanel();
+			      	}
+			      });
 				}
-			}));
-		};
+			}
+		}));
+		//};
 		
 		// add action buttons to each row 
-		rows.each(function(row){
+		ti.getTrs()
+		.each(function(row){
 			td = row.getLast();
 			[{'label':addBnLabel,'imgUrl':'images/icons/16x16/add_16.png'},]
 			.each(function(data){
@@ -256,9 +260,7 @@ def page_colsModel(**args):
 def _getServiceItems(category, props=None):
 	# get items from 'service' class in database
 	search = {'category' : category}
-	values = model.get_items_ByString(USER, 'service', search, props)
-	
-	return values
+	return model.get_items_ByString(USER, 'service', search, props)
 	
 def page_serviceItems(**args):
 	"""

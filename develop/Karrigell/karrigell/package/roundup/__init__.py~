@@ -69,5 +69,8 @@ much prettier cake :)
 __docformat__ = 'restructuredtext'
 
 __version__ = '1.4.8'
+ajax = 'really fun? ready?yes. or no or yes, thanks very much, difficult'
+son = 'test'
+im = 'right easy or difficult, too, k_config?'
 
 # vim: set filetype=python ts=4 sw=4 et si
