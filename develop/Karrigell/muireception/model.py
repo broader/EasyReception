@@ -113,7 +113,9 @@ def get_items(operator, klass, props=None, link2key=False,ids=None):
 def get_items_ByString(operator, klass, search, propnames=None, needId=False):
 	""" Get items by specified string value of the class's String properties.
 	Parameters:
-	  	search - a dictionary holding the values of multiful 'String' properties
+	  	search - a dictionary holding the values of multiful 'String' properties;
+	  	propnames - the properties' names;
+	  	needId - if True, the 'id' property will be added to the '0' index of the result list;
 	"""
 	client = get_client()
 	if not client:

@@ -23,5 +23,27 @@
 .treeTable tbody tr:hover th[scope="row"],
 .treeTable tbody tr:hover tbody th.sub { background:#f0e8e8; }
 
+/* the background color for mouse hover  */
 /*.treeTable tbody tr:hover td { background:#fff8f8; }*/
 .treeTable tbody tr:hover td { background:#a8b8ed; }
+
+
+/*******************************
+	collapsable style
+********************************/
+
+.treeTable tr td .expander {
+  background-position: left center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  padding: 0;
+  zoom: 1; /* IE7 Hack */
+}
+
+.treeTable tr.collapsed td .expander {
+  background-image: url(images/toggle-expand-dark.png);
+}
+
+.treeTable tr.expanded td .expander {
+  background-image: url(images/toggle-collapse-dark.png);
+}

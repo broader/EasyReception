@@ -15,40 +15,32 @@ var TreeTable = new Class({
 	options: {
 		columnsModel: null,	
 		colsModelUrl: null,
+		treeColumn: null,
 		cssStyle: 'treeTable',
 		dataUrl: null,
 		data: null,
+		
+		// the properties need to show tree 
+		parentPrefix: "parent-",
+		depthPrefix: "depth-",
+		depthPointer: 'expander',
+		indent: 19,
+		initialExpandedDepth: 1,
+		initialState: "collapsed",
+		expandedTag: "expanded",
+		collapsedTag: "collapsed",
+		
 		// Events
 		renderOver: null, 
 		
-		showHeader:true,
-		sortHeader:false,
-		resizeColumns:true,
-		selectable:true,
-		serverSort:true,
-		sortOn: null,
-		sortBy: 'ASC',
-		filterHide: true,
-		filterHideCls: 'hide',
-		filterSelectedCls: 'filter',
-		multipleSelection:true,
-		// accordion
-		accordion:false,
-		accordionRenderer:null,
-		autoSectionToggle:true, // if true just one section can be open/visible
-		// pagination
-		url:null,
-		pagination:false,
-		page:1,
-		perPageOptions: [10, 20, 50, 100, 200],
-		perPage:10
 	},
 	
 	initialize: function(container, options){					
-		this.setOptions(options);
+		this.setOptions(options);		
 		this.container = $(container);
 		this.tableInstance = null;
 		this.colsModel = this.options.columnsModel;
+		this.hideColumns = [];
 		
 		if (!this.container)
 			return;
@@ -77,6 +69,15 @@ var TreeTable = new Class({
 
 	},
 	
+	// get the index for the columns need to be hidden
+	getHideColumns: function(){
+		return this.colsModel.filter(function(column,index){
+			return column.hide == '1'
+		},this)
+		.map(function(column,index){
+			return index
+		},this)
+	},
 	
 	// set the css style for the header of tree table 
 	setHeaders: function(){
@@ -92,16 +93,21 @@ var TreeTable = new Class({
 		
 		if(!this.colsModel)
 			return;
+		else
+			this.hideColumns = this.getHideColumns();
 			
 		var data = [];
-		this.colsModel.each(function(column){
-			var col = {'content':column.label};
+		this.colsModel.each(function(column,index){
+			var col = {'content':column.label,'properties':{}};
 			
-			if(column['property'])
-				col['property'] = column.property;
+			if(column.property)
+				col.properties = column.property;
+			
+			if(this.hideColumns.contains(index))
+				col.properties['style'] = 'dipaly:none;';
 				
 			data.push(col);
-		});
+		},this);
 		
 		this.tableInstance.setHeaders(data);
 	},
@@ -149,16 +155,7 @@ var TreeTable = new Class({
 		if(!rows)
 			return;
 		
-		rows.each(
-			function(row){				
-				interval = this.colsModel.length - row.length;				
-				for (i=0;i<interval;i++){
-					row.push('');
-				};
-				this.tableInstance.push(row);
-			},
-			this
-		);
+		rows.each(this.setRowData,this);
 		
 		renderEnd = this.options.renderOver;		
 		if(renderEnd){
@@ -167,6 +164,56 @@ var TreeTable = new Class({
 							
 	},
 	
+	// render data to each row
+	setRowData: function(row){
+		var data=row.data, depth=row.depth, rowId=row.id,
+		parent=row.parent,								
+		// empty column will be set to ''				
+		interval = this.colsModel.length - data.length;				
+		for (i=0;i<interval;i++){
+			data.push('');
+		};				
+		
+		// if hideColumn has value, hide td elements in these columns
+		this.hideColumns.each(function(i){
+			data[i] = {
+				'content':data[i],
+				'properties':{
+					style: 'display:none;'
+				}
+			};
+		});
+		 
+		var trRow = this.tableInstance.push(data);
+		
+		// add css class for tr element 
+		var tr = trRow.tr;		
+		tr.setProperties({'id': rowId});
+		tr.addClass([this.options.parentPrefix,parent].join(''));
+		tr.addClass([this.options.depthPrefix,depth].join(''));
+		
+		if(depth <= this.options.initialExpandedDepth)
+			tr.addClass(this.options.expandedTag);
+		else
+			tr.addClass(this.options.collapsedTag);
+		
+		// set the td that holds collapsing status tag for tree 
+		var treeColumn = this.options.treeColumn;		
+		if($defined(treeColumn)){					
+			// compute the left offset
+			var offset= parseInt(this.options.indent)*(parseInt(depth)-1);
+			var treeTag = new Element('span',{
+				'class': this.options.depthPointer,
+				'style': ['margin-left:',offset,'px',';'].join('')+'padding-right: 19px',
+				'events': {
+					'click': function(e){alert('tree tag clicked!');}
+				}
+			});			 
+			//data[treeColumn] = {content: container.get('html')};
+			treeTag.inject(trRow.tds[treeColumn],'top');
+		};
+	},	
+	 
 	// return all the tr elements in tbody 
 	getTrs: function(){
 		return this.tableInstance.element.getElements('tr').slice(1);

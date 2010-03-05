@@ -107,22 +107,22 @@ issue = IssueClass(db, "issue",
 service = Class(db, "service",
 			serial=String(),
 			name=String(),
-			category=String(),	# such as 'hotel', 'travel'...
+			category=String(),				# such as 'hotel', 'travel'...
 			subcategory=Link('service'),
-			price=Number(), 		# the price of each service
-			description=String(),	# description for the service
-			detail=String(),		# footnote
-			amount=Number(),		# the amount of this service item			
-			nodetype=Number())	# is a leaf or a branch node 	
+			price=Number(), 					# the price of each service
+			description=String(),			# description for the service
+			detail=String(),					# footnote
+			amount=Number(),					# the amount of this service item			
+			nodetype=Number())				# is a leaf or a branch node 	
 #service.setkey("serial")
 
 # the record of each reservation
 reserve = Class(db, "reserve",
 			serial=String(),
-			booker=Link("user"),	# who is booking
-			amount=Number(),	# the amount of the booked service 
+			booker=Link("user"),		# who is booking
+			amount=Number(),			# the amount of the booked service 
 			target=Link("service"),	# which service to be booked
-			memo=String())	# maybe some description of this booking
+			memo=String())				# maybe some description of this booking
 #reserve.setkey("serial")
 
 # the dossier for user, saved in a csv formatted file

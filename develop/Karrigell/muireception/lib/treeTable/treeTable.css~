@@ -22,4 +22,6 @@
 
 .treeTable tbody tr:hover th[scope="row"],
 .treeTable tbody tr:hover tbody th.sub { background:#f0e8e8; }
-.treeTable tbody tr:hover td { background:#fff8f8; }
+
+/*.treeTable tbody tr:hover td { background:#fff8f8; }*/
+.treeTable tbody tr:hover td { background:#a8b8ed; }

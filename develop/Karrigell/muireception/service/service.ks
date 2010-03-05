@@ -1,7 +1,9 @@
 """
 Service module 
 """
-import copy
+import copy,tools
+from tools import treeHandler
+
 from HTMLTags import *
 
 # 'THIS.script_url' is a global variable in Karrigell system
@@ -10,7 +12,7 @@ RELPATH = (lambda p : p.split('/')[0])(THIS.baseurl)
 
 model = Import( '/'.join((RELPATH, 'model.py')), REQUEST_HANDLER=REQUEST_HANDLER )
 
-modules = {'pagefn': 'pagefn.py', 'JSON': 'demjson.py', 'formFn':'form.py', 'tree':'lib/tree/logilab/tree.py'}
+modules = {'pagefn': 'pagefn.py', 'JSON': 'demjson.py', 'formFn':'form.py'}
 #modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'formFn':'form.py'}
 [locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items() ]
 
@@ -52,6 +54,9 @@ COLUMNMODEL = [
 	{'dataIndex':'description','label':_('Description'),'dataType':'string'},
 	{'dataIndex':'price','label':_('Unit Price'),'dataType':'string'},
 	{'dataIndex':'amount','label':_('Total Amount'),'dataType':'number'},
+	#{'dataIndex':'serial','label':_('Serial'),'dataType':'string','property':"{'style':'dispaly:none;'}"},
+	
+	{'dataIndex':'serial','label':_('Serial'),'dataType':'string','hide':'1'},
 	{'dataIndex':'','label':_('Actions'),'dataType':'button'},
 ]
 
@@ -230,6 +235,7 @@ def _showServiceJs(category):
 				container,				
 				{
 					colsModelUrl:colsModel,
+					treeColumn: 0,					
 					dataUrl: [rowsUrl, categoryInfo.join('=')].join('?'),
 					renderOver: addButton
 				}
@@ -257,28 +263,57 @@ def page_colsModel(**args):
 	print JSON.encode(colsModel,encoding='utf8')	
 	return
 
+def _transform(node,parentIndex):	
+	data = {'data': node.data[:len(COLUMNMODEL[:-1])],'depth':node.depth(),'parent':''}
+	#print SPAN(str(data))
+	parent = node.parent
+	if parent and parent.data:
+		 data['parent'] = parent.data[parentIndex]
+	 
+	return data
+	
+#TREEINFO = {'prop4id':'serial','prop4parent':(lambda i: model.serial2id(i[])) }
 def _getServiceItems(category, props=None):
 	# get items from 'service' class in database
 	search = {'category' : category}
-	return model.get_items_ByString(USER, 'service', search, props)
+	items = model.get_items_ByString(USER, 'service', search, props)
+	
+	# constructs a tree 
+	idFn = lambda i: i[props.index('id')]
+	pidFn = lambda i: i[props.index('subcategory')]
+	tree = treeHandler.TreeHandler(items, idFn, pidFn)
+	
+	# handle each row of data, transform them to client's required format
+	# sorted[1:] - pop out the first root node which has no data
+	parentIndex = props.index('serial')	
+	sorted = [ _transform(node, parentIndex) for node in tree.flatten()]
+	
+	#return sorted
+	return sorted[1:]
 	
 def page_serviceItems(**args):
 	"""
 	"""
 	category = args.get(CATEGORYTAG)
 	props = [item.get('dataIndex') for item in COLUMNMODEL[:-1]]
-	props.extend(['serial', 'category', 'subcategory','nodetype'])
+	props.extend(['category', 'subcategory','id'])
 		
 	# filter the root category items	
 	nameIndex = props.index('name')	
-	rows = filter( lambda item: item[nameIndex], _getServiceItems(category, props) )
+	rows = filter( lambda item: item['data'][nameIndex], _getServiceItems(category, props))
 	
-	for row in rows:		
-		for index,value in enumerate(row):
+	#rows = _getServiceItems(category, props)
+	#print rows
+	
+	for index,item in enumerate(rows):
+		data = item['data']
+		for i,value in enumerate(data):
 			if value:
-				row[index] = value.decode('utf8')
+				data[i] = value.decode('utf8')
 			else:
-				row[index] = ''.decode('utf8')
+				data[i] = ''.decode('utf8') 
+		
+		item['data'] = data
 		
 	print JSON.encode(rows,encoding='utf8')
 	return
@@ -335,6 +370,8 @@ def page_createCategory(**args):
 	ctag = CATEGORYTAG
 	category = args.get(ctag)	
 	names = ['category','description']
+	
+	# for new subgategory,'name' propperty is needed
 	if category:
 		names.insert(1,'name')
 	
