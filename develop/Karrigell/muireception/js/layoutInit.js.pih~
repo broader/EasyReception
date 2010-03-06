@@ -243,9 +243,7 @@ MUI.extend({
 		.filter(function(panel,key){
 			if( key == mainPanelId )
 				return false;
-			
-			columnId = panel.options.column;
-			if( MUI.Columns.instances.get(columnId).options.container.id == mainPanelId)
+			else if( MUI.Columns.instances.get(panel.options.column).options.container.id == mainPanelId)
 				return true;
 			else
 				return false;			
@@ -318,6 +316,8 @@ MUI.extend({
 	    		am.import({'url':src,'app':appName,'type':'css'});
 	    	}	
 		});
+	   
+	   alert('layoutInit.js.pih,L320,MUI.treeTable,urls are '+urls);
 	   
 	   // the really validation functions
 		am.import({'url':urls[1],'app':appName,'type':'js'},options);

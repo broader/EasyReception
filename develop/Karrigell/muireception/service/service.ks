@@ -57,7 +57,7 @@ COLUMNMODEL = [
 	#{'dataIndex':'serial','label':_('Serial'),'dataType':'string','property':"{'style':'dispaly:none;'}"},
 	
 	{'dataIndex':'serial','label':_('Serial'),'dataType':'string','hide':'1'},
-	{'dataIndex':'','label':_('Actions'),'dataType':'button'},
+	{'dataIndex':'action','label':_('Actions'),'dataType':'button'},
 ]
 
 # End*****************************************************************************************
@@ -164,9 +164,9 @@ def page_showService(**args):
 	print DIV(**{'id':CONTAINERID(category)})
 	
 	# javascript slice to load data to table
-	print pagefn.script(_showServiceJs(category),link=False)	
+	print pagefn.script( _showServiceJs(category),link=False)	
  	
-	return
+	return 
 
 CATEGORYTAG = 'category'
 def _showServiceJs(category):
@@ -216,14 +216,32 @@ def _showServiceJs(category):
 		ti.getTrs()
 		.each(function(row){
 			td = row.getLast();
-			[{'label':addBnLabel,'imgUrl':'images/icons/16x16/add_16.png'},]
-			.each(function(data){
+			[
+				{
+					'label':addBnLabel,
+					'imgUrl':'images/icons/16x16/add_16.png',
+					'click': function(e){
+						new Event(e).stop();						
+						rowEl = e.target.getParents('tr')[0];
+						queryObject = this.getRowDataWithProps(rowEl);
+						//alert($type(queryObject));
+						//$(queryObject).each(function(v,k){alert(v+k);});
+						for(i in queryObject){alert(i+queryObject[i])};
+						//query = queryObject.toQueryString(); 
+						//alert(query);
+						
+					}.bind(ti)
+				},
+			].each(function(action){
 				img = new Element('img',{
-					'src': data['imgUrl'],
-				   'html': data['label'],
+					'src': action['imgUrl'],
+				   'html': action['label'],
+				   'events':{
+				   	'click': action['click']
+				   }
 				});
 				
-				td.grab(img);
+				td.empty().grab(img);
 			});
 		});
 	};

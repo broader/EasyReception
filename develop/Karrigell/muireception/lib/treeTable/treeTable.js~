@@ -35,7 +35,8 @@ var TreeTable = new Class({
 		
 	},
 	
-	initialize: function(container, options){					
+	initialize: function(container, options){		
+					
 		this.setOptions(options);		
 		this.container = $(container);
 		this.tableInstance = null;
@@ -54,9 +55,9 @@ var TreeTable = new Class({
 		//this.loadData();
 	},
 	
-	// ************************************************************************
-	// ************************* Main draw function ***************************
-	// ************************************************************************
+	/*
+	Main draw function 
+	*/
 	draw: function(){		
 		this.tableInstance = new HtmlTable();
 		
@@ -74,8 +75,8 @@ var TreeTable = new Class({
 		return this.colsModel.filter(function(column,index){
 			return column.hide == '1'
 		},this)
-		.map(function(column,index){
-			return index
+		.map(function(column){
+			return this.colsModel.indexOf(column);
 		},this)
 	},
 	
@@ -95,16 +96,16 @@ var TreeTable = new Class({
 			return;
 		else
 			this.hideColumns = this.getHideColumns();
-			
+		
 		var data = [];
 		this.colsModel.each(function(column,index){
-			var col = {'content':column.label,'property':{}};
+			var col = {'content':column.label,'properties':{}};
 			
 			if(column.property)
-				col.property = column.property;
+				col.properties = column.property;
 			
 			if(this.hideColumns.contains(index))
-				col.property['style'] = 'dipaly:none;';
+				col.properties['style'] = 'display:none;';
 				
 			data.push(col);
 		},this);
@@ -174,15 +175,24 @@ var TreeTable = new Class({
 			data.push('');
 		};				
 		
-		// if hideColumn has value, hide td elements in these columns
-		this.hideColumns.each(function(i){
-			data[i] = {
-				'content':data[i],
-				'properties':{
-					style: 'display:none;'
-				}
+		// each item in the columns of each row will be transformed to a 'span' Element 
+		data = data.map(function(item,index){
+			span = new Element('span',{
+				html: item
+			});
+			
+			// hide td elements has been set to hidden this.colsModel 
+			if(this.hideColumns.contains(index)){
+				span = {
+					content: span,
+					properties:{
+						style: 'display:none;'
+					}
+				};
 			};
-		});
+				
+			return span
+		},this);
 		 
 		var trRow = this.tableInstance.push(data);
 		
@@ -206,13 +216,61 @@ var TreeTable = new Class({
 				'class': this.options.depthPointer,
 				'style': ['margin-left:',offset,'px',';'].join('')+'padding-right: 19px',
 				'events': {
-					'click': function(e){alert('tree tag clicked!');}
+					'click': function(e){alert('tree collaped action tag clicked!');}
 				}
 			});			 
 			//data[treeColumn] = {content: container.get('html')};
 			treeTag.inject(trRow.tds[treeColumn],'top');
 		};
+		
 	},	
+	
+	/*
+	Return the propnames for columns' headers
+	*/
+	getHeaderProps: function(){
+		return this.colsModel.map(
+			function(column){
+				return column.dataIndex; 
+			}
+		);
+	},
+	
+	/*
+	Return each data item in eahc column of one row
+	*/
+	getRowData: function(rowEl){		
+		return rowEl.getElements('td').map(function(td){			
+			values = td.getElements('span').filter(function(span){
+				return !span.hasClass(this.options.depthPointer);
+			}.bind(this));
+			
+			if(values){
+				for(i in values){
+					alert(i);
+				};
+				
+				values = values.map(function(i){i.get('text');}).join('');
+			}
+			else{	values = ''; }
+				
+		},this);
+	},
+	
+	/* 
+	Return a row of data with their column property name 
+	Parameters:
+		rowEl - HtmlTableRow Element 
+	*/
+	getRowDataWithProps: function(rowEl){
+		// get the names of columns' properties
+		props = this.getHeaderProps();
+		props.each(function(i){alert(i);});
+		// get each data item in eahc column of this row
+		values = this.getRowData(rowEl);
+		values.each(function(i){alert(i);});
+		return values.associate(props);
+	},
 	 
 	// return all the tr elements in tbody 
 	getTrs: function(){
