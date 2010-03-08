@@ -57,6 +57,8 @@ COLUMNMODEL = [
 	#{'dataIndex':'serial','label':_('Serial'),'dataType':'string','property':"{'style':'dispaly:none;'}"},
 	
 	{'dataIndex':'serial','label':_('Serial'),'dataType':'string','hide':'1'},
+	{'dataIndex':'category','label':'','dataType':'string','hide':'1'},
+	{'dataIndex':'subcategory','label':'','dataType':'string','hide':'1'},
 	{'dataIndex':'action','label':_('Actions'),'dataType':'button'},
 ]
 
@@ -108,7 +110,7 @@ def index(**args):
 			lis.append(LI(A(tab.get('text')),**props))
 		else:
 			# append the logo for add new service
-			lis.append(LI(A(IMG(src='/'.join((RELPATH,'images/icons/16x16','add_16.png')))),**props))
+			lis.append(LI(A(IMG(src='/'.join((RELPATH,'images/additional','add.png')))),**props))
 	
 	tabsId = 'panelTabs'
 	print DIV(UL(Sum(lis),**{'id': tabsId,'class':'tab-menu'}),**{'class':'toolbarTabs'})
@@ -172,20 +174,34 @@ CATEGORYTAG = 'category'
 EDITACTIONTAG = ['add','edit','delete']
 def _showServiceJs(category):
 	paras = [APP, CATEGORYTAG, category, CONTAINERID(category)]
-	paras.extend(['/'.join((APPATH,name)) for name in ('page_colsModel','page_serviceItems')])
-	paras.extend([_('Add'),_('Create New Subategory')])
-	paras.extend([_('Create a new subcategory for service'), '/'.join((APPATH,'page_editService'))])
+	paras.extend(['/'.join((APPATH,name)) for name in ('page_colsModel','page_serviceItems', 'page_editService')])
+	paras.append(_('Create New Subategory'))
+	paras.extend([_('Create a new subcategory for service'), _('Edit Service Information')])
+	
+	paras.extend([_('Add'),_('Edit'),_('delete')])
+	paras.extend([ 'images/additional/add.png', 'images/additional/edit.png', 'images/additional/delete.png'])
 	paras.extend(EDITACTIONTAG)
+	
 	paras = tuple(paras)
 	js = \
 	"""
 	var appName='%s', categoryInfo=['%s','%s'],
-	container='%s', colsModel='%s',rowsUrl='%s',
-	addBnLabel='%s',addCategoryBnLabel='%s'
-	categoryModal={'title':'%s','url':'%s'};
-	actionTags = ['%s', '%s', '%s']
+	container='%s', colsModel='%s',rowsUrl='%s', actionUrl='%s',
+	addCategoryBnLabel='%s',
+	modalTitles = {'category':'%s', 'service':'%s'},
+	
+	actionLabels = ['%s', '%s', '%s'],
+	actionImgUrls = ['%s', '%s', '%s'],
+	actionTags = ['%s', '%s', '%s'];
 	
 	var treeTable;
+	
+	var modalOptions = {
+		width:600, height:380, modalOverlayClose: false,
+   	onClose: function(e){
+   		MUI.refreshMainPanel();
+   	}
+	};
 	
 	// The function to insert action buttons to each row in the table,
 	// and insert a subcategory creation button out of the table.
@@ -199,17 +215,12 @@ def _showServiceJs(category):
 		ti.container.grab(Element('button',{
 			'html':addCategoryBnLabel,
 			'events':{
-				'click': function(){
-					// the dialog to create a new subcategory of service
-					url = [categoryModal.url, categoryInfo.join('=')].join('?');
-			   	new MUI.Modal({
-			      	width:600, height:380, contentURL: url,
-			      	title: categoryModal.title,
-			      	modalOverlayClose: false,
-			      	onClose: function(e){
-			      		MUI.refreshMainPanel();
-			      	}
-			      });
+				'click': function(e){
+					// the dialog to create a new subcategory of service 
+					modalOptions.contentURL = [actionUrl, categoryInfo.join('=')].join('?');
+					modalOptions.title = modalTitles.category;
+					new MUI.Modal(modalOptions);
+			      
 				}
 			}
 		}));
@@ -220,33 +231,42 @@ def _showServiceJs(category):
 		.each(function(row){
 			td = row.getLast();
 			
-			[
-				{
-					'label':addBnLabel,
-					'imgUrl':'images/icons/16x16/add_16.png',
-					'click': function(e){
-						new Event(e).stop();		
-						// get row Element				
-						rowEl = e.target.getParents('tr')[0];
-						// get property name and its data in the td element of each row,
-						// then transform them to a query string
-						queryString = this.getRowDataWithProps(rowEl).toQueryString();
-						alert(queryString); 
-						
-						
-					}.bind(ti)
-				},
-			].each(function(action){
+			var sources = [ actionLabels, actionImgUrls, actionTags ];
+			[0,1,2].each(function(index){
+				var attrs = sources.map(function(src){
+					return src[index];
+				});
+				
 				img = new Element('img',{
-					'src': action['imgUrl'],
-				   'html': action['label'],
+					'html': attrs[0],					
+					'src': attrs[1], 
 				   'events':{
-				   	'click': action['click']
+				   	'click': function(e){
+				   		new Event(e).stop();		
+							// get row Element				
+							rowEl = e.target.getParents('tr')[0];
+							// get property name and its data in the td element of each row,
+							// then transform them to a query string
+							queryString = this.getRowDataWithProps(rowEl);
+							queryString.action = attrs[2];
+							queryString = queryString.toQueryString();
+							
+							// set the arguments for MUI.Modal
+							modalOptions.contentURL = [actionUrl,queryString].join('?');
+							modalOptions.title = modalTitles.service;
+							modalOptions.height = 330;
+							new MUI.Modal(modalOptions);
+							 
+				   	}.bind(ti)
 				   }
 				});
 				
-				td.empty().grab(img);
+				if(index == 0)
+					td.empty();
+				td.grab(img);
+				
 			});
+			
 		});
 	};
 	
@@ -302,16 +322,17 @@ def _getServiceItems(category, props=None, sort4tree=False):
 		return items
 		
 	# constructs a tree 
+	# the function to the node's id 
 	idFn = lambda i: i[props.index('id')]
+	# the function to the id of the parent of a node
 	pidFn = lambda i: i[props.index('subcategory')]
+	# tree construntion Class
 	tree = treeHandler.TreeHandler(items, idFn, pidFn)
 	
 	# handle each row of data, transform them to client's required format
 	# sorted[1:] - pop out the first root node which has no data
 	parentIndex = props.index('serial')	
 	sorted = [ _transform(node, parentIndex) for node in tree.flatten()]
-	
-	#return sorted
 	return sorted[1:]
 	
 def page_serviceItems(**args):
@@ -390,8 +411,11 @@ def page_createCategoryInfo(**args):
 
 def _editServiceFormAdapter(**args):
 	ctag = CATEGORYTAG
-	category = args.get(ctag)	
-	names = ['category','description']
+	serial, category = [ args.get(name) for name in ('serial', ctag )]
+	if serial:
+		names = [ item.get('name') for item in PROPS ]
+	else:	
+		names = ['category','description']
 	
 	# for new subgategory,'name' propperty is needed
 	if category:
@@ -422,20 +446,31 @@ def page_editService(**args):
 	
 	# render the fields to the form	
 	form = []
-	# get the OL content from formRender.py module	
-	div = DIV(Sum(formFn.yform(props)))
-	form.append(FIELDSET(div))
-	
+	# get the OL content from formRender.py module
+	if len(props) < 4:	
+		div = DIV(Sum(formFn.yform(props)))
+		form.append(FIELDSET(div))
+		bnStyle = 'position:absolute;margin-left:15em;'
+	else:
+		interval = int(len(props)/2)+1	
+		style = 'border-right:1px solid #DDDDDD;'		
+		#left = DIV(Sum(formFn.yform(props[:interval])), **{'class':'c50l', 'style':style})
+		left = DIV(Sum(formFn.yform(props[:interval])), **{'class':'c50l'})
+		right = DIV(Sum(formFn.yform(props[interval:])), **{'class':'c50r'})
+		divs = DIV(Sum((left, right)), **{'class':'subcolumns'})
+		form.append(divs)	
+		bnStyle = 'position:absolute;margin-left:12em;'
+		
 	# append hidden field that points out the action type
-	form.append(INPUT(**{'name':'action','value':'create','type':'hidden'}))
+	form.append(INPUT(**{'name':'action','value':args.get('action') or '','type':'hidden'}))
 	
 	# add buttons to this form	
 	buttons = [ \
-		BUTTON( _('Create'), **{'class':pagefn.BUTTONSTYLE, 'type':'button'}),\
+		BUTTON( _('Confirm'), **{'class':pagefn.BUTTONSTYLE, 'type':'button'}),\
 		BUTTON( _('Cancel'), **{'class':pagefn.BUTTONSTYLE, 'type':'button'})\
 	]
 	
-	div = DIV(Sum(buttons), **{'style':'position:absolute;margin-left:15em;'})    
+	div = DIV(Sum(buttons), **{'style':bnStyle})    
 	form.append(div)
 	
 	form = \
@@ -572,12 +607,20 @@ def _editServiceJs():
 def page_serviceEditAction(**args):
 	action = args.pop('action')
 	successTag = 0
-	if action == 'create':
+	actions = EDITACTIONTAG
+	if not action:
+		actionType = 0
+	else:
+		actionType = actions.index(action)
+		 
+	if actionType == 0:	# 'add' action
 		sid = model.create_item(USER, 'service', args)
 		if sid:
 			successTag = 1
-	else:
-		pass
+	elif actionType == 1:
+		pass	
+	elif actionType == 2:
+		pass	
 		
 	print successTag
 	return
