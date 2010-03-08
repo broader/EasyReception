@@ -111,7 +111,9 @@ var TreeTable = new Class({
 		
 		var data = [];
 		this.colsModel.each(function(column,index){
-			var col = {'content':column.label,'properties':{}};
+			//alert(column.label);
+			column.label = column.label || '/';
+			var col = {'content':column['label'],'properties':{}};
 			
 			if(column.property)
 				col.properties = column.property;
@@ -182,10 +184,13 @@ var TreeTable = new Class({
 		var data=row.data, depth=row.depth, rowId=row.id,
 		parent=row.parent,								
 		// empty column will be set to ''				
-		interval = this.colsModel.length - data.length;				
-		for (i=0;i<interval;i++){
-			data.push('');
-		};				
+		interval = this.colsModel.length - data.length;
+		if(interval > 0 ){				
+			for (i=0;i<interval;i++){
+				data.push('');
+			};
+		};
+						
 		
 		// each item in the columns of each row will be transformed to a 'span' Element 
 		data = data.map(function(item,index){	
@@ -194,7 +199,7 @@ var TreeTable = new Class({
 			el = {
 				content: new Element('span',{html: item}),
 				properties: {
-					align: (index==this.treeColumn)?'center':'left'
+					align: (index==this.treeColumn)?'left':'center'
 				}
 			};
 			

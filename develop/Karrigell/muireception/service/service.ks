@@ -34,6 +34,7 @@ USER = getattr( so, pagefn.SOINFO['user']).get('username')
 # valid functions for form fields
 CHKFNS = ('serviceCategoryChk','serviceNameChk')
 
+# the properties to be edit in form
 PROPS =\ 
 [
 	{'name':'category','prompt':_('Category'),'validate':[''.join(('~',CHKFNS[0])),],'required':True},
@@ -48,17 +49,16 @@ PROPS =\
 # the id for category creation form 
 SERVICEEDITFORM = 'serviceEditForm'
 
-# the properties info that will be shown in columns's title in the services' list
+# the properties info that will be shown in columns's title in the tree table to show services' list
 COLUMNMODEL = [
 	{'dataIndex':'name','label':_('Service Name'),'dataType':'string', 'treeColumn':'1'},
 	{'dataIndex':'description','label':_('Description'),'dataType':'string'},
 	{'dataIndex':'price','label':_('Unit Price'),'dataType':'string'},
 	{'dataIndex':'amount','label':_('Total Amount'),'dataType':'number'},
-	#{'dataIndex':'serial','label':_('Serial'),'dataType':'string','property':"{'style':'dispaly:none;'}"},
-	
 	{'dataIndex':'serial','label':_('Serial'),'dataType':'string','hide':'1'},
-	{'dataIndex':'category','label':'','dataType':'string','hide':'1'},
-	{'dataIndex':'subcategory','label':'','dataType':'string','hide':'1'},
+	{'dataIndex':'category','label':_('Category'),'dataType':'string','hide':'1'},
+	{'dataIndex':'subcategory','label':_('Subcategory'),'dataType':'string','hide':'1'},
+	{'dataIndex':'id','label':_('ServiceId'),'dataType':'string','hide':'1'},
 	{'dataIndex':'action','label':_('Actions'),'dataType':'button'},
 ]
 
@@ -411,11 +411,14 @@ def page_createCategoryInfo(**args):
 
 def _editServiceFormAdapter(**args):
 	ctag = CATEGORYTAG
-	serial, category = [ args.get(name) for name in ('serial', ctag )]
+	serial, category, action = [ args.get(name) for name in ('serial', ctag, 'action' )]
 	if serial:
 		names = [ item.get('name') for item in PROPS ]
 	else:	
-		names = ['category','description']
+		if category: # create new subcategory action
+			names = ['name','description']
+		else:	# create new category action
+			names = ['category','description']
 	
 	# for new subgategory,'name' propperty is needed
 	if category:
@@ -424,20 +427,25 @@ def _editServiceFormAdapter(**args):
 	# start to render edit form
 	props = [item for item in PROPS if item['name'] in names]
 	for prop in PROPS:
-		prop['id'] = prop['name']		
+		name = prop['name']
+		prop['id'] = name	
+		prop['oldvalue'] = None
+		if action:
+			index = EDITACTIONTAG.index(action)			
+			if index == 1: # 'edit' action
+				prop['oldvalue'] = args.get(name) or ''			
+				
 		if not prop.get('type'):
 			prop['type'] = 'text'
 			
 		if not prop.has_key('required'):
 			prop['required'] = False	 	
 		
-		if prop['name'] == ctag and category:
-			prop['oldvalue'] = category
-			prop['readonly'] = ''
+		if (name == ctag and category) or name == 'subcategory':			
+			#prop['readonly'] = ''
+			prop['type'] = 'hidden'
 			prop['validate'] = []
 			prop['required'] = False
-		else:
-			prop['oldvalue'] = ''
 	
 	return props
 	
@@ -617,9 +625,9 @@ def page_serviceEditAction(**args):
 		sid = model.create_item(USER, 'service', args)
 		if sid:
 			successTag = 1
-	elif actionType == 1:
+	elif actionType == 1:	# 'edit' action
 		pass	
-	elif actionType == 2:
+	elif actionType == 2:	# 'delete' action
 		pass	
 		
 	print successTag

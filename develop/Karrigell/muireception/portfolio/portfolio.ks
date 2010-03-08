@@ -159,7 +159,7 @@ def page_editPortfolio(**args):
 	divs = DIV(Sum((left, center, right)), **{'class':'subcolumns'})	
 	
    # add the <Legend> tag
-	legend = LEGEND(TEXT(_('Base Information')))    
+	legend = LEGEND(Sum([ TEXT(user), TEXT(_('- Base Information ')) ]))    
 	form.append(FIELDSET(Sum((legend,divs))))
 	
 	if user != USER :
