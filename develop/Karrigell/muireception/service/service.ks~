@@ -46,18 +46,18 @@ PROPS =\
 ]
 
 # the id for category creation form 
-CATEGORYCREATIONFORM = 'categoryCreationForm'
+SERVICEEDITFORM = 'serviceEditForm'
 
 # the properties info that will be shown in columns's title in the services' list
 COLUMNMODEL = [
-	{'dataIndex':'name','label':_('Service Name'),'dataType':'string'},
+	{'dataIndex':'name','label':_('Service Name'),'dataType':'string', 'treeColumn':'1'},
 	{'dataIndex':'description','label':_('Description'),'dataType':'string'},
 	{'dataIndex':'price','label':_('Unit Price'),'dataType':'string'},
 	{'dataIndex':'amount','label':_('Total Amount'),'dataType':'number'},
 	#{'dataIndex':'serial','label':_('Serial'),'dataType':'string','property':"{'style':'dispaly:none;'}"},
 	
 	{'dataIndex':'serial','label':_('Serial'),'dataType':'string','hide':'1'},
-	{'dataIndex':'','label':_('Actions'),'dataType':'button'},
+	{'dataIndex':'action','label':_('Actions'),'dataType':'button'},
 ]
 
 # End*****************************************************************************************
@@ -169,11 +169,13 @@ def page_showService(**args):
 	return 
 
 CATEGORYTAG = 'category'
+EDITACTIONTAG = ['add','edit','delete']
 def _showServiceJs(category):
 	paras = [APP, CATEGORYTAG, category, CONTAINERID(category)]
 	paras.extend(['/'.join((APPATH,name)) for name in ('page_colsModel','page_serviceItems')])
 	paras.extend([_('Add'),_('Create New Subategory')])
-	paras.extend([_('Create a new subcategory for service'), '/'.join((APPATH,'page_createCategory'))])
+	paras.extend([_('Create a new subcategory for service'), '/'.join((APPATH,'page_editService'))])
+	paras.extend(EDITACTIONTAG)
 	paras = tuple(paras)
 	js = \
 	"""
@@ -181,6 +183,7 @@ def _showServiceJs(category):
 	container='%s', colsModel='%s',rowsUrl='%s',
 	addBnLabel='%s',addCategoryBnLabel='%s'
 	categoryModal={'title':'%s','url':'%s'};
+	actionTags = ['%s', '%s', '%s']
 	
 	var treeTable;
 	
@@ -216,19 +219,20 @@ def _showServiceJs(category):
 		ti.getTrs()
 		.each(function(row){
 			td = row.getLast();
+			
 			[
 				{
 					'label':addBnLabel,
 					'imgUrl':'images/icons/16x16/add_16.png',
 					'click': function(e){
-						new Event(e).stop();						
+						new Event(e).stop();		
+						// get row Element				
 						rowEl = e.target.getParents('tr')[0];
-						queryObject = this.getRowDataWithProps(rowEl);
-						//alert($type(queryObject));
-						//$(queryObject).each(function(v,k){alert(v+k);});
-						for(i in queryObject){alert(i+queryObject[i])};
-						//query = queryObject.toQueryString(); 
-						//alert(query);
+						// get property name and its data in the td element of each row,
+						// then transform them to a query string
+						queryString = this.getRowDataWithProps(rowEl).toQueryString();
+						alert(queryString); 
+						
 						
 					}.bind(ti)
 				},
@@ -290,12 +294,13 @@ def _transform(node,parentIndex):
 	 
 	return data
 	
-#TREEINFO = {'prop4id':'serial','prop4parent':(lambda i: model.serial2id(i[])) }
-def _getServiceItems(category, props=None):
+def _getServiceItems(category, props=None, sort4tree=False):
 	# get items from 'service' class in database
 	search = {'category' : category}
 	items = model.get_items_ByString(USER, 'service', search, props)
-	
+	if not sort4tree:
+		return items
+		
 	# constructs a tree 
 	idFn = lambda i: i[props.index('id')]
 	pidFn = lambda i: i[props.index('subcategory')]
@@ -318,7 +323,7 @@ def page_serviceItems(**args):
 		
 	# filter the root category items	
 	nameIndex = props.index('name')	
-	rows = filter( lambda item: item['data'][nameIndex], _getServiceItems(category, props))
+	rows = filter( lambda item: item['data'][nameIndex], _getServiceItems(category, props, True))
 	
 	#rows = _getServiceItems(category, props)
 	#print rows
@@ -344,7 +349,7 @@ def page_createCategoryInfo(**args):
 	print DIV(**{'class':'note','style':'width:40%;','id':containerId})
 	
 	paras = [info, containerId,_('Create A New Category For Service')]
-	paras.extend([_('Create a new category for service'),'/'.join((APPATH,'page_createCategory'))])	
+	paras.extend([_('Create a new category for service'),'/'.join((APPATH,'page_editService'))])	
 	script = \
 	"""
 	var info="%s", containerId='%s', bnLabel='%s', 
@@ -380,11 +385,10 @@ def page_createCategoryInfo(**args):
 	));
 	
 	"""%tuple(paras)
-	print pagefn.script(script,link=False)
-	
+	print pagefn.script(script,link=False)	
 	return
-		
-def page_createCategory(**args):
+
+def _editServiceFormAdapter(**args):
 	ctag = CATEGORYTAG
 	category = args.get(ctag)	
 	names = ['category','description']
@@ -411,6 +415,11 @@ def page_createCategory(**args):
 		else:
 			prop['oldvalue'] = ''
 	
+	return props
+	
+def page_editService(**args):
+	props = _editServiceFormAdapter(**args)
+	
 	# render the fields to the form	
 	form = []
 	# get the OL content from formRender.py module	
@@ -432,16 +441,16 @@ def page_createCategory(**args):
 	form = \
 	FORM( 
 		Sum(form), 
-		**{'action': '/'.join((APPATH,'page_serviceEditAction')), 'id': CATEGORYCREATIONFORM, 'method':'post','class':'yform'}
+		**{'action': '/'.join((APPATH,'page_serviceEditAction')), 'id': SERVICEEDITFORM, 'method':'post','class':'yform'}
 	)
 				
 	print DIV(form,style='')
-	print pagefn.script(_createCategoryJs(),link=False)
+	print pagefn.script(_editServiceJs(),link=False)
 	
 	return
 
-def _createCategoryJs():
-	paras = [CATEGORYCREATIONFORM,]
+def _editServiceJs():
+	paras = [SERVICEEDITFORM,]
 	paras.extend(CHKFNS)
 	paras.extend(['/'.join((APPATH, name)) for name in ('page_categoryValid','page_serviceNameValid')])
 	paras.extend([_('The input name for category has been used already!'),_('The input service name has been used already!')])
@@ -571,7 +580,8 @@ def page_serviceEditAction(**args):
 		
 	print successTag
 	return
-	
+
+# valid whether the input categroy name has been used 
 def page_categoryValid(**args):
 	name =args.get('name')
 	res ={'valid':1}
@@ -582,6 +592,7 @@ def page_categoryValid(**args):
 	print JSON.encode(res)	
 	return
 
+# valid whether the input service name has been used
 def page_serviceNameValid(**args):
 	inputName,category = [ args.get(prop) for prop in ('name','category')]
 	names = _getServiceItems(category, props=('name',))

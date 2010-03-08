@@ -15,7 +15,7 @@ var TreeTable = new Class({
 	options: {
 		columnsModel: null,	
 		colsModelUrl: null,
-		treeColumn: null,
+		treeColumn: 0,
 		cssStyle: 'treeTable',
 		dataUrl: null,
 		data: null,
@@ -41,6 +41,7 @@ var TreeTable = new Class({
 		this.container = $(container);
 		this.tableInstance = null;
 		this.colsModel = this.options.columnsModel;
+		this.treeColumn = this.options.treeColumn;
 		this.hideColumns = [];
 		
 		if (!this.container)
@@ -80,6 +81,16 @@ var TreeTable = new Class({
 		},this)
 	},
 	
+	// get the index for the column that show tree collapsed status tag 
+	setTreeColumn: function(){
+		columns = this.colsModel.filter(function(column,index){
+			return column.treeColumn == '1'
+		},this);
+		
+		if (columns.length > 0)
+			this.treeColumn = this.colsModel.indexOf(columns[0]);	// the number of tree column should be only one 
+	},
+	
 	// set the css style for the header of tree table 
 	setHeaders: function(){
 		colsUrl = this.options.colsModelUrl; 
@@ -96,6 +107,7 @@ var TreeTable = new Class({
 			return;
 		else
 			this.hideColumns = this.getHideColumns();
+			this.setTreeColumn();
 		
 		var data = [];
 		this.colsModel.each(function(column,index){
@@ -176,22 +188,21 @@ var TreeTable = new Class({
 		};				
 		
 		// each item in the columns of each row will be transformed to a 'span' Element 
-		data = data.map(function(item,index){
-			span = new Element('span',{
-				html: item
-			});
-			
-			// hide td elements has been set to hidden this.colsModel 
-			if(this.hideColumns.contains(index)){
-				span = {
-					content: span,
-					properties:{
-						style: 'display:none;'
-					}
-				};
+		data = data.map(function(item,index){	
+			// constructed the elemnt contained by td element first		
+			 
+			el = {
+				content: new Element('span',{html: item}),
+				properties: {
+					align: (index==this.treeColumn)?'left':'center'
+				}
 			};
-				
-			return span
+			
+			// hide td element has been set to hidden in this.colsModel 
+			if(this.hideColumns.contains(index)){				
+				el.properties.style = 'display:none;';
+			};
+			return el;
 		},this);
 		 
 		var trRow = this.tableInstance.push(data);
@@ -208,7 +219,7 @@ var TreeTable = new Class({
 			tr.addClass(this.options.collapsedTag);
 		
 		// set the td that holds collapsing status tag for tree 
-		var treeColumn = this.options.treeColumn;		
+		var treeColumn = this.treeColumn;		
 		if($defined(treeColumn)){					
 			// compute the left offset
 			var offset= parseInt(this.options.indent)*(parseInt(depth)-1);
@@ -219,7 +230,7 @@ var TreeTable = new Class({
 					'click': function(e){alert('tree collaped action tag clicked!');}
 				}
 			});			 
-			//data[treeColumn] = {content: container.get('html')};
+			
 			treeTag.inject(trRow.tds[treeColumn],'top');
 		};
 		
@@ -241,14 +252,18 @@ var TreeTable = new Class({
 	*/
 	getRowData: function(rowEl){		
 		return rowEl.getElements('td').map(function(td){			
-			values = td.getElements('span').filter(function(span){
+			spans = td.getElements('span').filter(function(span){
 				return !span.hasClass(this.options.depthPointer);
 			}.bind(this));
 			
-			if(values){				
-				values = values.map(function(i){i.get('text');}).join('');
+			if(spans){				
+				values = spans.map(function(i){
+					return i.get('text');
+				}).join('');
 			}
 			else{	values = ''; }
+			
+			return values;
 				
 		},this);
 	},
@@ -261,11 +276,11 @@ var TreeTable = new Class({
 	getRowDataWithProps: function(rowEl){
 		// get the names of columns' properties
 		props = this.getHeaderProps();
-		props.each(function(i){alert(i);});
+		
 		// get each data item in eahc column of this row
 		values = this.getRowData(rowEl);
-		values.each(function(i){alert(i);});
-		return values.associate(props);
+		
+		return $H(values.associate(props));
 	},
 	 
 	// return all the tr elements in tbody 
