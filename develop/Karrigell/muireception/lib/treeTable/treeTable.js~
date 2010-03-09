@@ -23,7 +23,7 @@ var TreeTable = new Class({
 		
 		// settings for buttons in each row
 		bnTag: 'button',
-		bnFunctions: {}, 
+		bnFunctions: $H(), 
 		
 		// the properties need to show tree 
 		parentPrefix: "parent-",
@@ -216,7 +216,8 @@ var TreeTable = new Class({
 				toInsert = new Element('img',{src: colModel.imgUrl});				  
 				
 				// maybe it has a callback function for click event
-				if( this.options.bnFunctions.getKeys().contains[colModel.dataIndex]){ 
+				
+				if( this.options.bnFunctions.getKeys().contains(colModel.dataIndex)){ 
 					fn = this.options.bnFunctions[colModel.dataIndex];
 					toInsert.addEvent('click', fn.bind(this));
 					

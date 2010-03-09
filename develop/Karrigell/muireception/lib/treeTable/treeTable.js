@@ -215,8 +215,8 @@ var TreeTable = new Class({
 				// For button, insert a <IMG> Element
 				toInsert = new Element('img',{src: colModel.imgUrl});				  
 				
-				// maybe it has a callback function for click event
-				if( this.options.bnFunctions.getKeys().contains[colModel.dataIndex]){ 
+				// maybe it has a callback function for click event				
+				if( this.options.bnFunctions.getKeys().contains(colModel.dataIndex)){ 
 					fn = this.options.bnFunctions[colModel.dataIndex];
 					toInsert.addEvent('click', fn.bind(this));
 					

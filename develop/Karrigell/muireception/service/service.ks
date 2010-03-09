@@ -46,6 +46,8 @@ PROPS =\
 	{'name':'detail','prompt':_('Supplement'),'validate':[],'type':'textarea'},
 ]
 
+GETPROPSLABEL = lambda name : [item.get('prompt') for item in PROPS if item.get('name')== name ][0]
+
 # the id for category creation form 
 SERVICEEDITFORM = 'serviceEditForm'
 
@@ -173,7 +175,9 @@ def page_showService(**args):
 	return 
 
 CATEGORYTAG = 'category'
-EDITACTIONTAG = ['add','edit','delete']
+#ACTIONAMES = ['add','edit','delete']
+ACTIONAMES = [ item.get('dataIndex') for item in COLUMNMODEL[-3:] ]
+ACTIONPROP = 'action'
 def _showServiceJs(category):
 	paras = [APP, CATEGORYTAG, category, CONTAINERID(category)]
 	paras.extend(['/'.join((APPATH,name)) for name in ('page_colsModel','page_serviceItems', 'page_editService')])
@@ -182,8 +186,9 @@ def _showServiceJs(category):
 	
 	#paras.extend([_('Add'),_('Edit'),_('delete')])
 	#paras.extend([ 'images/additional/add.png', 'images/additional/edit.png', 'images/additional/delete.png'])
-	#paras.extend(EDITACTIONTAG)
+	#paras.extend(ACTIONAMES)
 	paras.extend( [ item.get('dataIndex') for item in COLUMNMODEL[-3:] ] )
+	paras.append(ACTIONPROP)
 	
 	paras = tuple(paras)
 	js = \
@@ -192,7 +197,8 @@ def _showServiceJs(category):
 	container='%s', colsModel='%s',rowsUrl='%s', actionUrl='%s',
 	addCategoryBnLabel='%s',
 	modalTitles = {'category':'%s', 'service':'%s'},
-	bnFnNames = ['%s','%s','%s'];
+	bnFnNames = ['%s','%s','%s'],
+	actionProp = '%s';
 	
 	var treeTable;
 	
@@ -226,7 +232,23 @@ def _showServiceJs(category):
 	
 	// the callback function for action button in each row
 	function editService(e){
-		alert('edit action');
+		tr = e.target.getParents('tr')[0];
+		// get data of this row
+		query = this.getRowDataWithProps(tr);
+		
+		// get action type
+		td = e.target.getParents('td')[0];
+		colIndex = tr.getChildren('td').indexOf(td);	
+		query[actionProp] = this.getHeaderProps()[colIndex];
+		
+		// set the really action url
+		url = [actionUrl, query.toQueryString()].join('?');
+		
+		// the modal to edit a service item  
+		modalOptions.contentURL = url;
+		modalOptions.title = modalTitles.service;
+		new MUI.Modal(modalOptions);
+		
 	};
 	
 	var bnFns = $H([editService, editService, editService].associate(bnFnNames));
@@ -240,8 +262,8 @@ def _showServiceJs(category):
 					colsModelUrl:colsModel,
 					treeColumn: 0,					
 					dataUrl: [rowsUrl, categoryInfo.join('=')].join('?'),
-					bnFunctions: bnFns
-					//renderOver: addButton
+					bnFunctions: bnFns,
+					renderOver: addButton
 				}
 			);// the end for 'treeTable' definition
 			
@@ -373,48 +395,64 @@ def page_createCategoryInfo(**args):
 	print pagefn.script(script,link=False)	
 	return
 
-def _editServiceFormAdapter(**args):
-	ctag = CATEGORYTAG
-	serial, category, action = [ args.get(name) for name in ('serial', ctag, 'action' )]
-	if serial:
-		names = [ item.get('name') for item in PROPS ]
-	else:	
-		if category: # create new subcategory action
-			names = ['name','description']
-		else:	# create new category action
-			names = ['category','description']
-	
-	# for new subgategory,'name' propperty is needed
-	if category:
-		names.insert(1,'name')
-	
+def _formFieldsConstructor(values,setOldValue):	
 	# start to render edit form
-	props = [item for item in PROPS if item['name'] in names]
-	for prop in PROPS:
+	needProps = values.keys()
+	props = [item for item in PROPS if item['name'] in needProps]
+	for prop in props:
 		name = prop['name']
 		prop['id'] = name	
-		prop['oldvalue'] = None
-		if action:
-			index = EDITACTIONTAG.index(action)			
-			if index == 1: # 'edit' action
-				prop['oldvalue'] = args.get(name) or ''			
+		prop['oldvalue'] = ''
+		if setOldValue:
+			prop['oldvalue'] = values.get(name) or ''			
 				
 		if not prop.get('type'):
 			prop['type'] = 'text'
 			
 		if not prop.has_key('required'):
 			prop['required'] = False	 	
-		
-		if (name == ctag and category) or name == 'subcategory':			
-			#prop['readonly'] = ''
-			prop['type'] = 'hidden'
-			prop['validate'] = []
-			prop['required'] = False
 	
 	return props
 	
 def page_editService(**args):
-	props = _editServiceFormAdapter(**args)
+	props = copy.deepcopy(args)	
+	actionType = None
+	action,category = [ args.get(name) for name in (ACTIONPROP,'category') ]
+	info,hideInput = [],[]
+	
+	# judge the action type
+	# has action value?
+	# -> has action
+	# ---> action value shows its type
+	#
+	# -> no action
+	# ---> has category?
+	# ------> no category, it's category creating action
+	# ------> has category, it's subcategory creating action
+	
+	if not action :
+		if category:
+			props.pop('category')
+			[props.update({name:None,}) for name in ('name','description')]			
+			info = [ {'value':args.get(prop),'label':GETPROPSLABEL(prop)} for prop in ('category',)]
+			hideInput = info			
+			props = _formFieldsConstructor(props,False)
+		else:
+			[ props.update({name:None,}) for name in ('category','description')]
+			props = _formFieldsConstructor(props,False) 
+	else:
+		index = ACTIONAMES.index(action) 
+		if index == 0:
+			names = [item.get('name') for item in PROPS if item.get('name') not in ('category','subcategory')] 
+			[props.pop(name) for name in props.keys() if name not in names ]
+			props = _formFieldsConstructor(props,True)
+		elif index == 1 :
+			pass
+		elif index == 2 :
+			pass
+	
+	
+	#props = _formFieldsConstructor(**args)
 	
 	# render the fields to the form	
 	form = []
@@ -579,7 +617,7 @@ def _editServiceJs():
 def page_serviceEditAction(**args):
 	action = args.pop('action')
 	successTag = 0
-	actions = EDITACTIONTAG
+	actions = ACTIONAMES
 	if not action:
 		actionType = 0
 	else:

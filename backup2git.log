@@ -31285,3 +31285,52 @@ sent 43302 bytes  received 31 bytes  86666.00 bytes/sec
 total size is 178633  speedup is 4.12
 2010-03-09 11:42:32,009 INFO End backup loacl karrigell diretory to local git.
 2010-03-09 11:42:32,009 INFO Begin to backup local github to remote github host.
+2010-03-09 11:42:32,781 INFO Command: 
+git add .
+running result is :
+2010-03-09 11:42:35,153 INFO Command: 
+git commit -m 'Update time:2010-03-09T11:42:32.010112'
+running result is :[master 2c65a53] Update time:2010-03-09T11:42:32.010112
+ 7 files changed, 214 insertions(+), 82 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010030909.log
+2010-03-09 11:42:43,982 INFO Command: 
+git push origin master
+running result is :Counting objects: 32, done.
+Delta compression using up to 2 threads.
+Compressing objects:   5% (1/17)   Compressing objects:  11% (2/17)   Compressing objects:  17% (3/17)   Compressing objects:  23% (4/17)   Compressing objects:  29% (5/17)   Compressing objects:  35% (6/17)   Compressing objects:  41% (7/17)   Compressing objects:  47% (8/17)   Compressing objects:  52% (9/17)   Compressing objects:  58% (10/17)   Compressing objects:  64% (11/17)   Compressing objects:  70% (12/17)   Compressing objects:  76% (13/17)   Compressing objects:  82% (14/17)   Compressing objects:  88% (15/17)   Compressing objects:  94% (16/17)   Compressing objects: 100% (17/17)   Compressing objects: 100% (17/17), done.
+Writing objects:   5% (1/18)   Writing objects:  11% (2/18)   Writing objects:  16% (3/18)   Writing objects:  22% (4/18)   Writing objects:  27% (5/18)   Writing objects:  33% (6/18)   Writing objects:  38% (7/18)   Writing objects:  44% (8/18)   Writing objects:  50% (9/18)   Writing objects:  55% (10/18)   Writing objects:  61% (11/18)   Writing objects:  72% (13/18)   Writing objects:  77% (14/18)   Writing objects:  88% (16/18)   Writing objects:  94% (17/18)   Writing objects: 100% (18/18)   Writing objects: 100% (18/18), 11.61 KiB, done.
+Total 18 (delta 11), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   a962d39..2c65a53  master -> master
+2010-03-09 11:42:43,983 INFO End backup local github to remote github host.
+2010-03-09 16:59:08,398 INFO Delete nousing captcha images
+2010-03-09 16:59:08,427 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-03-09 16:59:08,427 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-03-09 16:59:14,787 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010030906.log
+       10672 100%    0.00kB/s    0:00:00         10672 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1007/3608)
+muireception/lib/treeTable/treeTable.js
+        8020 100%    0.00kB/s    0:00:00          8020 100%    0.00kB/s    0:00:00 (xfer#2, to-check=1002/7506)
+muireception/lib/treeTable/treeTable.js~
+        8021 100%    7.65MB/s    0:00:00          8021 100%    7.65MB/s    0:00:00 (xfer#3, to-check=1001/7506)
+muireception/service/service.ks
+       20094 100%   82.80kB/s    0:00:00         20094 100%   82.80kB/s    0:00:00 (xfer#4, to-check=668/7851)
+muireception/service/service.ks~
+       20094 100%   82.10kB/s    0:00:00         20094 100%   82.10kB/s    0:00:00 (xfer#5, to-check=667/7851)
+
+sent 184535 bytes  received 1260 bytes  28583.85 bytes/sec
+total size is 47843812  speedup is 257.51
+2010-03-09 16:59:14,860 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 66 bytes  received 12 bytes  156.00 bytes/sec
+total size is 178633  speedup is 2290.17
+2010-03-09 16:59:14,883 INFO End backup loacl karrigell diretory to local git.
+2010-03-09 16:59:14,884 INFO Begin to backup local github to remote github host.
