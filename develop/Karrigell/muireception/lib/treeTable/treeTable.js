@@ -3,7 +3,7 @@
 // Email: broader.zhong@yahoo.com.cn
 // Company: 
 // Licence: Creative Commons Attribution 3.0 Unported License, http://creativecommons.org/licenses/by/3.0/
-//			If you copy, distribute or transmit the source code please retain the above copyright notice, author name and project URL. 
+//	If you copy, distribute or transmit the source code please retain the above copyright notice, author name and project URL. 
 // Required: Mootools 1.2 or newer 
 // ****************************************************************************
 
@@ -26,8 +26,9 @@ var TreeTable = new Class({
 		bnFunctions: $H(), 
 		
 		// the properties need to show tree 
-		parentPrefix: "parent-",
-		depthPrefix: "depth-",
+		idPrefix: "",
+		//parentPrefix: "parent-",
+		//depthPrefix: "depth-",
 		depthPointer: 'expander',
 		indent: 19,
 		initialExpandedDepth: 1,
@@ -158,21 +159,8 @@ var TreeTable = new Class({
 	
 	// render data to each row 
 	setData: function(){
-		/*
-		rows = [
-			['apple', 'red'],
-		   ['lemon', 'yellow']
-		];
-		
-		rows.each(
-			function(row){
-				this.tableInstance.push(row);
-			},
-			this
-		);	
-		*/	
 		var rows = this.options.data; 
-		if(!rows)
+		if( rows.length == 0 )
 			return;
 		
 		rows.each(this.setRowData,this);
@@ -186,8 +174,12 @@ var TreeTable = new Class({
 	
 	// render data to each row
 	setRowData: function(row){
-		var data=row.data, depth=row.depth, rowId=row.id,
-		parent=row.parent,								
+		row = $H(row);
+		var data=row.data,
+		//parent=row.parent,
+		depth=row.depth,  
+		rowId=[this.options.idPrefix,row.id].join('');
+										
 		// empty column will be set to ''				
 		interval = this.colsModel.length - data.length;
 		if(interval > 0 ){				
@@ -229,15 +221,6 @@ var TreeTable = new Class({
 				el.content = new Element('span',{html: item});				
 			};
 			
-			/*
-			el = {
-				content: new Element('span',{html: item}),
-				properties: {
-					align: (index==this.treeColumn)?'left':'center'
-				}
-			};
-			*/
-			
 			// hide td element has been set to hidden in this.colsModel 
 			if(this.hideColumns.contains(index)){				
 				el.properties.style = 'display:none;';
@@ -245,13 +228,17 @@ var TreeTable = new Class({
 			return el;
 		},this);
 		 
-		var trRow = this.tableInstance.push(data);
+		var trRow = this.tableInstance.push(data);	
+		 
+		var tr = trRow.tr;
 		
-		// add css class for tr element 
-		var tr = trRow.tr;		
+		// stored row data to tr Element 
+		row.each(function(value,key){tr.store(key,value);});
+		
+		// add css class for tr element
 		tr.setProperties({'id': rowId});
-		tr.addClass([this.options.parentPrefix,parent].join(''));
-		tr.addClass([this.options.depthPrefix,depth].join(''));
+		//tr.addClass([this.options.parentPrefix,parent].join(''));
+		//tr.addClass([this.options.depthPrefix,depth].join(''));
 		
 		if(depth <= this.options.initialExpandedDepth)
 			tr.addClass(this.options.expandedTag);
@@ -288,7 +275,7 @@ var TreeTable = new Class({
 	},
 	
 	/*
-	Return each data item in eahc column of one row
+	Return each data item in each column of one row
 	*/
 	getRowData: function(rowEl){		
 		return rowEl.getElements('td').map(function(td){			
@@ -322,6 +309,19 @@ var TreeTable = new Class({
 		
 		return $H(values.associate(props));
 	},
+	
+	/*
+	Get the value in a column of a row which is specified by its id.
+	*/
+	getCellValueByRowId: function(rowId,prop){
+		// get column index
+		index = this.getHeaderProps().indexOf(prop);
+		if(index == -1)
+			return 
+		
+		return $(rowId).retrieve('data')[index] 
+		
+	},	
 	 
 	// return all the tr elements in tbody 
 	getTrs: function(){

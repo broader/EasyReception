@@ -39,6 +39,7 @@ PROPS =\
 [
 	{'name':'category','prompt':_('Category'),'validate':[''.join(('~',CHKFNS[0])),],'required':True},
 	{'name':'subcategory','prompt':_('Subcategory'),'validate':[],'required':True},
+	{'name':'serial','prompt':_('Service Serial'),'validate':[]},
 	{'name':'name','prompt':_('Service Name'),'validate':[''.join(('~',CHKFNS[1])),],'required':True},
 	{'name':'description','prompt':_('Description'),'validate':[],'type':'textarea'},
 	{'name':'price','prompt':_('Unit Price'),'validate':[]},
@@ -57,6 +58,7 @@ COLUMNMODEL = [
 	{'dataIndex':'description','label':_('Description'),'dataType':'string'},
 	{'dataIndex':'price','label':_('Unit Price'),'dataType':'string'},
 	{'dataIndex':'amount','label':_('Total Amount'),'dataType':'number'},
+	{'dataIndex':'detail','label':_('Memo'),'dataType':'string'},
 	{'dataIndex':'serial','label':_('Serial'),'dataType':'string','hide':'1'},
 	{'dataIndex':'category','label':_('Category'),'dataType':'string','hide':'1'},
 	{'dataIndex':'subcategory','label':_('Subcategory'),'dataType':'string','hide':'1'},
@@ -184,9 +186,6 @@ def _showServiceJs(category):
 	paras.append(_('Create New Subategory'))
 	paras.extend([_('Create a new subcategory for service'), _('Edit Service Information')])
 	
-	#paras.extend([_('Add'),_('Edit'),_('delete')])
-	#paras.extend([ 'images/additional/add.png', 'images/additional/edit.png', 'images/additional/delete.png'])
-	#paras.extend(ACTIONAMES)
 	paras.extend( [ item.get('dataIndex') for item in COLUMNMODEL[-3:] ] )
 	paras.append(ACTIONPROP)
 	
@@ -233,8 +232,19 @@ def _showServiceJs(category):
 	// the callback function for action button in each row
 	function editService(e){
 		tr = e.target.getParents('tr')[0];
+		
 		// get data of this row
 		query = this.getRowDataWithProps(tr);
+		
+		// add parent name to query object
+		parentId = tr.retrieve('parent');
+		//alert('node parent is '+this.getCellValueByRowId(tr.getProperty('id'),'name'));
+		
+		parentName = '';
+		if(parentId)
+			parentName = this.getCellValueByRowId(parentId,'name');
+			
+		query.parentName = parentName;
 		
 		// get action type
 		td = e.target.getParents('td')[0];
@@ -262,6 +272,7 @@ def _showServiceJs(category):
 					colsModelUrl:colsModel,
 					treeColumn: 0,					
 					dataUrl: [rowsUrl, categoryInfo.join('=')].join('?'),
+					idPrefix: 'service-',
 					bnFunctions: bnFns,
 					renderOver: addButton
 				}
@@ -290,8 +301,8 @@ def page_colsModel(**args):
 	return
 
 def _transform(node,parentIndex):	
-	data = {'data': node.data[:len(COLUMNMODEL[:-1])],'depth':node.depth(),'parent':''}
-	#print SPAN(str(data))
+	data = {'data': node.data[:len(COLUMNMODEL[:-1])],'depth':node.depth(),'parent':'', 'id':node.id}
+	
 	parent = node.parent
 	if parent and parent.data:
 		 data['parent'] = parent.data[parentIndex]
@@ -395,7 +406,7 @@ def page_createCategoryInfo(**args):
 	print pagefn.script(script,link=False)	
 	return
 
-def _formFieldsConstructor(values,setOldValue):	
+def _formFieldsConstructor(values,setOldValue=False):	
 	# start to render edit form
 	needProps = values.keys()
 	props = [item for item in PROPS if item['name'] in needProps]
@@ -434,21 +445,28 @@ def page_editService(**args):
 		if category:
 			props.pop('category')
 			[props.update({name:None,}) for name in ('name','description')]			
-			info = [ {'value':args.get(prop),'label':GETPROPSLABEL(prop)} for prop in ('category',)]
+			info = [ {'label':GETPROPSLABEL(prop), 'value':args.get(prop)} for prop in ('category',)]
 			hideInput = info			
-			props = _formFieldsConstructor(props,False)
+			props = _formFieldsConstructor(props)
 		else:
 			[ props.update({name:None,}) for name in ('category','description')]
 			props = _formFieldsConstructor(props,False) 
+		
+		hideInput.append({'label':ACTIONPROP,'value':ACTIONAMES[0]})
 	else:
+		hideInput.append({'label':ACTIONPROP,'value':action})
+		names = [item.get('name') for item in PROPS if item.get('name') not in ('category','subcategory','serial')]
 		index = ACTIONAMES.index(action) 
-		if index == 0:
-			names = [item.get('name') for item in PROPS if item.get('name') not in ('category','subcategory')] 
-			[props.pop(name) for name in props.keys() if name not in names ]
-			props = _formFieldsConstructor(props,True)
-		elif index == 1 :
+		if index == 0:	# add action			 
+			[props.pop(name) for name in props.keys() if name not in names ]			
+			props = _formFieldsConstructor(props)
+			d = {'label':GETPROPSLABEL('category'),'value':args.get('category')}
+			[ item.append(d) for item in (info,hideInput)]
+			info.append({'label':GETPROPSLABEL('subcategory'),'value':args.get('name')})
+			hideInput.append({'label':GETPROPSLABEL('subcategory'),'value':args.get('id')})			
+		elif index == 1 :	# edit action
 			pass
-		elif index == 2 :
+		elif index == 2 :	# delete action
 			pass
 	
 	
