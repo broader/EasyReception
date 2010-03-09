@@ -13,12 +13,17 @@ var TreeTable = new Class({
 	Implements: [Events,Options],
 				  
 	options: {
+		// table layout 
 		columnsModel: null,	
 		colsModelUrl: null,
 		treeColumn: 0,
 		cssStyle: 'treeTable',
 		dataUrl: null,
 		data: null,
+		
+		// settings for buttons in each row
+		bnTag: 'button',
+		bnFunctions: {}, 
 		
 		// the properties need to show tree 
 		parentPrefix: "parent-",
@@ -195,13 +200,43 @@ var TreeTable = new Class({
 		// each item in the columns of each row will be transformed to a 'span' Element 
 		data = data.map(function(item,index){	
 			// constructed the elemnt contained by td element first		
-			 
+			
+			// get current column model 
+			var colModel = this.colsModel[index]  
+			// judge whether it's a buttn type 
+			isButton = (colModel.dataType == this.options.bnTag) ; 
+			
+			// set the elemnet to be inserted to the TD Element 
+			el = {properties:{
+				align: (index==this.treeColumn || !isButton )?'left':'center'
+			}};
+			
+			if ( isButton ){				
+				// For button, insert a <IMG> Element
+				toInsert = new Element('img',{src: colModel.imgUrl});				  
+				
+				// maybe it has a callback function for click event
+				if( this.options.bnFunctions.getKeys().contains[colModel.dataIndex]){ 
+					fn = this.options.bnFunctions[colModel.dataIndex];
+					toInsert.addEvent('click', fn.bind(this));
+					
+				};
+				
+				el.content = toInsert;
+			}
+			else{
+				// for none button type, insert a <SPAN> Element 
+				el.content = new Element('span',{html: item});				
+			};
+			
+			/*
 			el = {
 				content: new Element('span',{html: item}),
 				properties: {
 					align: (index==this.treeColumn)?'left':'center'
 				}
 			};
+			*/
 			
 			// hide td element has been set to hidden in this.colsModel 
 			if(this.hideColumns.contains(index)){				

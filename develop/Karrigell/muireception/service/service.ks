@@ -59,7 +59,9 @@ COLUMNMODEL = [
 	{'dataIndex':'category','label':_('Category'),'dataType':'string','hide':'1'},
 	{'dataIndex':'subcategory','label':_('Subcategory'),'dataType':'string','hide':'1'},
 	{'dataIndex':'id','label':_('ServiceId'),'dataType':'string','hide':'1'},
-	{'dataIndex':'action','label':_('Actions'),'dataType':'button'},
+	{'dataIndex':'addAction','label':_('Add'),'dataType':'button','imgUrl':'images/additional/add.png'},
+	{'dataIndex':'editAction','label':_('Edit'),'dataType':'button','imgUrl':'images/additional/edit.png'},
+	{'dataIndex':'delAction','label':_('Delete'),'dataType':'button','imgUrl':'images/additional/delete.png'},
 ]
 
 # End*****************************************************************************************
@@ -178,9 +180,10 @@ def _showServiceJs(category):
 	paras.append(_('Create New Subategory'))
 	paras.extend([_('Create a new subcategory for service'), _('Edit Service Information')])
 	
-	paras.extend([_('Add'),_('Edit'),_('delete')])
-	paras.extend([ 'images/additional/add.png', 'images/additional/edit.png', 'images/additional/delete.png'])
-	paras.extend(EDITACTIONTAG)
+	#paras.extend([_('Add'),_('Edit'),_('delete')])
+	#paras.extend([ 'images/additional/add.png', 'images/additional/edit.png', 'images/additional/delete.png'])
+	#paras.extend(EDITACTIONTAG)
+	paras.extend( [ item.get('dataIndex') for item in COLUMNMODEL[-3:] ] )
 	
 	paras = tuple(paras)
 	js = \
@@ -189,10 +192,7 @@ def _showServiceJs(category):
 	container='%s', colsModel='%s',rowsUrl='%s', actionUrl='%s',
 	addCategoryBnLabel='%s',
 	modalTitles = {'category':'%s', 'service':'%s'},
-	
-	actionLabels = ['%s', '%s', '%s'],
-	actionImgUrls = ['%s', '%s', '%s'],
-	actionTags = ['%s', '%s', '%s'];
+	bnFnNames = ['%s','%s','%s'];
 	
 	var treeTable;
 	
@@ -209,9 +209,6 @@ def _showServiceJs(category):
 		// Parameter 'ti'- the TreeTable instance
 		
 		// add the action button out of the table
-		
-		//if(rows.length == 0 ){
-		
 		ti.container.grab(Element('button',{
 			'html':addCategoryBnLabel,
 			'events':{
@@ -224,51 +221,15 @@ def _showServiceJs(category):
 				}
 			}
 		}));
-		//};
 		
-		// add action buttons to each row 
-		ti.getTrs()
-		.each(function(row){
-			td = row.getLast();
-			
-			var sources = [ actionLabels, actionImgUrls, actionTags ];
-			[0,1,2].each(function(index){
-				var attrs = sources.map(function(src){
-					return src[index];
-				});
-				
-				img = new Element('img',{
-					'html': attrs[0],					
-					'src': attrs[1], 
-				   'events':{
-				   	'click': function(e){
-				   		new Event(e).stop();		
-							// get row Element				
-							rowEl = e.target.getParents('tr')[0];
-							// get property name and its data in the td element of each row,
-							// then transform them to a query string
-							queryString = this.getRowDataWithProps(rowEl);
-							queryString.action = attrs[2];
-							queryString = queryString.toQueryString();
-							
-							// set the arguments for MUI.Modal
-							modalOptions.contentURL = [actionUrl,queryString].join('?');
-							modalOptions.title = modalTitles.service;
-							modalOptions.height = 330;
-							new MUI.Modal(modalOptions);
-							 
-				   	}.bind(ti)
-				   }
-				});
-				
-				if(index == 0)
-					td.empty();
-				td.grab(img);
-				
-			});
-			
-		});
 	};
+	
+	// the callback function for action button in each row
+	function editService(e){
+		alert('edit action');
+	};
+	
+	var bnFns = $H([editService, editService, editService].associate(bnFnNames));
 	
 	// options for TreeTable class initialization
 	var options = {
@@ -279,7 +240,8 @@ def _showServiceJs(category):
 					colsModelUrl:colsModel,
 					treeColumn: 0,					
 					dataUrl: [rowsUrl, categoryInfo.join('=')].join('?'),
-					renderOver: addButton
+					bnFunctions: bnFns
+					//renderOver: addButton
 				}
 			);// the end for 'treeTable' definition
 			
@@ -339,8 +301,10 @@ def page_serviceItems(**args):
 	"""
 	"""
 	category = args.get(CATEGORYTAG)
-	props = [item.get('dataIndex') for item in COLUMNMODEL[:-1]]
-	props.extend(['category', 'subcategory','id'])
+	
+	# filter the last three column that are  action clolumns 
+	props = [item.get('dataIndex') for item in COLUMNMODEL[:-3]]
+	#props.extend(['category', 'subcategory','id'])
 		
 	# filter the root category items	
 	nameIndex = props.index('name')	
