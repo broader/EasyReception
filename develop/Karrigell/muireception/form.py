@@ -153,7 +153,7 @@ def filterProps(fields,values):
 		
 	return postValues
 		
-def render_table_fields( fields, cols, labelStyle, valueStyle):
+def render_table_fields( fields, cols=1, labelStyle={}, valueStyle={}):
 	""" 
 	Render the table rows which is mainly used for showing fields.
 	Parameters:
@@ -182,7 +182,10 @@ def render_table_fields( fields, cols, labelStyle, valueStyle):
 		for i in range(fieldsNumber):
 			try:				
 				field = fields.pop(0)
-				name, value, type = [ field.get(prop) for prop in ('prompt', 'value', 'type') ]							 
+				name, value, type = [ field.get(prop) for prop in ('prompt', 'value', 'type') ]	
+				if not type:
+					type = 'text'
+											 
 				attrdiv = DIV(name, style=labelStyle.get('label') or '')
 				if type !='textarea':
 					valuelabel = LABEL(value,style=valueStyle.get('label') or '')

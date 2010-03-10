@@ -153,8 +153,8 @@ ADMINSIDEBARPANELS = \
 }
 
 
-# the main panel's id
-MAINPANEL = 'mainPanel'
+# the MUI.Panel's ids
+PANELSID = {'main':'mainPanel',}
 
 #--------------------------------------------------------------------------------------
 
@@ -258,3 +258,17 @@ def setCookie(setCookie,requestHandler):
 	# set cookie path
 	setCookie[sname]['path'] = '/'
 	return
+	
+def sexyButton(txt,bnAttrs={},bnType='',size='sexymedium',skin='sexysimple'):
+	""" Return a <button> html element which is styled by 'sexybutton' plugin.
+	Parameters:
+		txt- the text on the button
+		bnAttrs- the attributs for <button> element
+		bnType-
+	"""
+	bnClass = ['sexybutton', size, skin]
+	bnClass = ' '.join(bnClass)
+	bnAttrs['class'] = bnClass
+	return BUTTON(SPAN(txt,**{'class':bnType}),**bnAttrs)
+	
+	

@@ -429,6 +429,8 @@ def page_editService(**args):
 	props = copy.deepcopy(args)	
 	actionType = None
 	action,category = [ args.get(name) for name in (ACTIONPROP,'category') ]
+	
+	# store the files to be shown and hidden
 	info,hideInput = [],[]
 	
 	# judge the action type
@@ -445,38 +447,47 @@ def page_editService(**args):
 		if category:
 			props.pop('category')
 			[props.update({name:None,}) for name in ('name','description')]			
-			info = [ {'label':GETPROPSLABEL(prop), 'value':args.get(prop)} for prop in ('category',)]
-			hideInput = info			
+			info.append( {'prompt':GETPROPSLABEL('category'), 'value':args.get('category')} )
+			hideInput.append( {'name':'category', 'value':args.get('category')} )			
 			props = _formFieldsConstructor(props)
 		else:
 			[ props.update({name:None,}) for name in ('category','description')]
 			props = _formFieldsConstructor(props,False) 
 		
-		hideInput.append({'label':ACTIONPROP,'value':ACTIONAMES[0]})
+		hideInput.append({'name':ACTIONPROP,'value':ACTIONAMES[0]})
 	else:
-		hideInput.append({'label':ACTIONPROP,'value':action})
+		hideInput.append({'name':ACTIONPROP,'value':action})
 		names = [item.get('name') for item in PROPS if item.get('name') not in ('category','subcategory','serial')]
 		index = ACTIONAMES.index(action) 
 		if index == 0:	# add action			 
 			[props.pop(name) for name in props.keys() if name not in names ]			
 			props = _formFieldsConstructor(props)
-			d = {'label':GETPROPSLABEL('category'),'value':args.get('category')}
-			[ item.append(d) for item in (info,hideInput)]
-			info.append({'label':GETPROPSLABEL('subcategory'),'value':args.get('name')})
-			hideInput.append({'label':'subcategory', 'value':args.get('id')})			
+			
+			info.append( {'prompt':GETPROPSLABEL('category'),'value':args.get('category')} )
+			hideInput.append( {'name':'category','value':args.get('category')})
+			info.append({'prompt':GETPROPSLABEL('subcategory'),'value':args.get('name')})
+			hideInput.append({'name':'subcategory', 'value':args.get('id')})			
 		elif index == 1 :	# edit action
 			[props.pop(name) for name in props.keys() if name not in names ]			
-			props = _formFieldsConstructor(props)
-			d = {'label':GETPROPSLABEL('category'),'value':args.get('category')}			
-			[ item.append(d) for item in (info,hideInput)]
-			info.append({'label':GETPROPSLABEL('subcategory'),'value':args.get(PARENTNAMEPROP)})
-			info.append({'label':GETPROPSLABEL('serial'),'value':args.get('serial')})
-			hideInput.append({'label':'id', 'value':args.get('id')})
+			props = _formFieldsConstructor(props,True)
+			
+			info.append( {'prompt':GETPROPSLABEL('category'),'value':args.get('category')} )
+			#hideInput.append( {'name':'category','value':args.get('category')})
+			info.append({'prompt':GETPROPSLABEL('subcategory'),'value':args.get(PARENTNAMEPROP)})
+			info.append({'prompt':GETPROPSLABEL('serial'),'value':args.get('serial')})
+			hideInput.append({'name':'id', 'value':args.get('id')})
 		elif index == 2 :	# delete action
 			pass
 	
-	
-	#props = _formFieldsConstructor(**args)
+	# show the fields in 'info' list before html Form Element
+	if info:
+		[ item.update({'prompt':''.join((item.get('prompt') or '',':'))}) for item in info ]
+		labelStyle = {'label':'font-weight:bold;font-size:1.2em;color:dackblue;', \
+						  'td':'text-align:right;'}
+						  
+		valueStyle = {'label':'color:#ff6600;font-size:1.2em;', 'td':'text-align:left;width:6em;'}
+						  
+		print TABLE(formFn.render_table_fields(info, 2, labelStyle, valueStyle), style='border:none;')
 	
 	# render the fields to the form	
 	form = []
@@ -487,8 +498,7 @@ def page_editService(**args):
 		bnStyle = 'position:absolute;margin-left:15em;'
 	else:
 		interval = int(len(props)/2)+1	
-		style = 'border-right:1px solid #DDDDDD;'		
-		#left = DIV(Sum(formFn.yform(props[:interval])), **{'class':'c50l', 'style':style})
+		style = 'border-right:1px solid #DDDDDD;'	
 		left = DIV(Sum(formFn.yform(props[:interval])), **{'class':'c50l'})
 		right = DIV(Sum(formFn.yform(props[interval:])), **{'class':'c50r'})
 		divs = DIV(Sum((left, right)), **{'class':'subcolumns'})
@@ -496,7 +506,9 @@ def page_editService(**args):
 		bnStyle = 'position:absolute;margin-left:12em;'
 		
 	# append hidden field that points out the action type
-	form.append(INPUT(**{'name':'action','value':args.get('action') or '','type':'hidden'}))
+	#hideInput.append({'name':'action','value':args.get('action') or ''})
+	[item.update({'type':'hidden'}) for item in hideInput]
+	[ form.append(INPUT(**item)) for item in hideInput ]
 	
 	# add buttons to this form	
 	buttons = [ \

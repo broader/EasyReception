@@ -225,7 +225,7 @@ MUI.extend({
 	},
 	
 	// set the id for the main MUI.Panel
-	mainPanelId: '<%=pagefn.PANELSID['main'] %>',
+	mainPanelId: mainPanelId,
 	
 	// remove all the MUI.Columns in the main panel
 	clearMainPanel: function (){	

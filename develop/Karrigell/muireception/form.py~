@@ -33,7 +33,7 @@ def _getValidClass(field, required):
 def getField(field):
 	""" Render YAML formats form field."""
 	
-	prompt,required,oldvalue = [ field.pop(prop) for prop in ( 'prompt', "required", "oldvalue" )]
+	prompt,required,oldvalue = [ field.pop(prop) for prop in ( 'prompt', 'required', 'oldvalue' )]
 	
 	# for i18n need
 	prompt = _(prompt)
@@ -182,7 +182,10 @@ def render_table_fields( fields, cols, labelStyle, valueStyle):
 		for i in range(fieldsNumber):
 			try:				
 				field = fields.pop(0)
-				name, value, type = [ field.get(prop) for prop in ('prompt', 'value', 'type') ]							 
+				name, value, type = [ field.get(prop) for prop in ('prompt', 'value', 'type') ]	
+				if not type:
+					type = 'text'
+											 
 				attrdiv = DIV(name, style=labelStyle.get('label') or '')
 				if type !='textarea':
 					valuelabel = LABEL(value,style=valueStyle.get('label') or '')

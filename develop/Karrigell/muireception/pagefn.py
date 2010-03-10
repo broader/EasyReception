@@ -258,3 +258,19 @@ def setCookie(setCookie,requestHandler):
 	# set cookie path
 	setCookie[sname]['path'] = '/'
 	return
+	
+def sexyButton(txt,bnAttrs={},bnType='',size='sexymedium',skin='sexysimple'):
+	""" Return a <button> html element which is styled by 'sexybutton' plugin.
+	Parameters:
+		txt- the text on the button
+		bnAttrs- the attributs for <button> element
+		bnType- the predefined type in the sexybutton plugin, such as 'ok'
+		size- it should be one of 'sexysmall','sexymedium','sexylarge'
+		skin- the background color for the button, the sexybutton plugin has designed many, just select one  
+	"""
+	bnClass = ['sexybutton', size, skin]
+	bnClass = ' '.join(bnClass)
+	bnAttrs['class'] = bnClass
+	return BUTTON(SPAN(txt,**{'class':bnType}),**bnAttrs)
+	
+	

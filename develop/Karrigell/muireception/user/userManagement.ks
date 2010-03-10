@@ -63,7 +63,7 @@ def index(**args):
 	bn = A(_('Filter'),**{'id':FILTERBN, 'href':'javascript:;'})
 	rbn = A(_('Clear Filter'),**{'id':FILTERCLEARBN, 'href':'javascript:;'})
 	
-	print H2(title),HR(style='padding:0 0 0.1em'),SPAN(Sum((input,bn,TEXT('|'),rbn))),DIV(**{'id':GRIDID})
+	print H2(title),HR(style='padding:0 0 0.1em'),SPAN(Sum((input,bn,TEXT(' | '),rbn))),DIV(**{'id':GRIDID})
 	print pagefn.script(_usersTridJs(), link=False)
 	return
 
@@ -131,6 +131,7 @@ def _usersTridJs(**args):
    	evt.indices:the multi selected rows' indexes
    	evt.row: the index of the row in the grid
    	*/
+   	
    	// get the data of the selected row
    	row = evt.target.getDataByRow(evt.row);
    	

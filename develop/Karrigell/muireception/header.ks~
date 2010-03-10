@@ -4,14 +4,7 @@ from HTMLTags import *
 #model = Import('/'.join((relPath(THIS.baseurl), 'model.py')), REQUEST_HANDLER=REQUEST_HANDLER)
 
 modules = {'pagefn' : 'pagefn.py'}
-[locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items()]
-
-so = Session()
-sname = pagefn.COOKIENAME
-SET_COOKIE[sname]=getattr(REQUEST_HANDLER, sname)
-# set cookie path
-SET_COOKIE[sname]['path'] = '/'
-	
+[locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items()]	
 	
 TITLE = \
 '''

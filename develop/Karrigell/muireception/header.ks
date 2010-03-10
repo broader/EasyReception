@@ -47,6 +47,8 @@ def index(**args):
 	print pagefn.css('/'.join(('css', 'supplement.css')))
 	# moohover css
 	print pagefn.css('/'.join(('lib', 'moohover','css','moohover.css')))	
+	# sexyButton css
+	print pagefn.css('/'.join(('images', 'SexyButtons', 'sexybuttons.css')))
 	
 	# IE hack for canvas tag
 	jSlice = \

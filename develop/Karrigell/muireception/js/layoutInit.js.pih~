@@ -160,8 +160,6 @@ function layoutInit(){
 							text=item['text'], url=item['contentURL'], 
 							expandfn=item['onExpand'], collapse=item['onCollapse'];
 							
-							alert('layoutInit.js.pih,layoutInit(),expandfn is '+expandfn);
-							
 							// add panels for left column
 							var panel = new MUI.Panel({
 								id:pid, title:text, contentURL:url, 
@@ -227,7 +225,7 @@ MUI.extend({
 	},
 	
 	// set the id for the main MUI.Panel
-	mainPanelId: '<%=pagefn.PANELSID['main'] %>',
+	mainPanelId: mainPanelId,
 	
 	// remove all the MUI.Columns in the main panel
 	clearMainPanel: function (){	
