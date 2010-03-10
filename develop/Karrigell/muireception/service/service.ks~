@@ -228,6 +228,12 @@ def _showServiceJs(category):
 			}
 		}));
 		
+		alert('china');
+		ti.container.grab(MUI.styledButton({
+			'txt': 'Test',
+			'imgType': 'ok',
+		}));
+		
 	};
 	
 	// the callback function for action button in each row
@@ -481,7 +487,7 @@ def page_editService(**args):
 	
 	# show the fields in 'info' list before html Form Element
 	if info:
-		[ item.update({'prompt':':'.join((item.get('prompt') or '',':'))}) for item in info ]
+		[ item.update({'prompt':''.join((item.get('prompt') or '',':'))}) for item in info ]
 		labelStyle = {'label':'font-weight:bold;font-size:1.2em;color:dackblue;', \
 						  'td':'text-align:right;'}
 						  

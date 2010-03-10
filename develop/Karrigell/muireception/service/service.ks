@@ -228,6 +228,11 @@ def _showServiceJs(category):
 			}
 		}));
 		
+		ti.container.grab(MUI.styledButton({
+			'txt': 'Test',
+			'imgType': 'ok',
+		}));
+		
 	};
 	
 	// the callback function for action button in each row

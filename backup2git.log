@@ -31511,3 +31511,49 @@ sent 66 bytes  received 12 bytes  156.00 bytes/sec
 total size is 179984  speedup is 2307.49
 2010-03-10 17:07:51,608 INFO End backup loacl karrigell diretory to local git.
 2010-03-10 17:07:51,608 INFO Begin to backup local github to remote github host.
+2010-03-10 17:07:52,304 INFO Command: 
+git add .
+running result is :
+2010-03-10 17:07:54,685 INFO Command: 
+git commit -m 'Update time:2010-03-10T17:07:51.609047'
+running result is :[master a25dbd3] Update time:2010-03-10T17:07:51.609047
+ 14 files changed, 244 insertions(+), 62 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010031007.log
+2010-03-10 17:08:03,275 INFO Command: 
+git push origin master
+running result is :Counting objects: 42, done.
+Delta compression using up to 2 threads.
+Compressing objects:   4% (1/22)   Compressing objects:   9% (2/22)   Compressing objects:  13% (3/22)   Compressing objects:  18% (4/22)   Compressing objects:  22% (5/22)   Compressing objects:  27% (6/22)   Compressing objects:  31% (7/22)   Compressing objects:  36% (8/22)   Compressing objects:  40% (9/22)   Compressing objects:  45% (10/22)   Compressing objects:  50% (11/22)   Compressing objects:  54% (12/22)   Compressing objects:  59% (13/22)   Compressing objects:  63% (14/22)   Compressing objects:  68% (15/22)   Compressing objects:  72% (16/22)   Compressing objects:  77% (17/22)   Compressing objects:  81% (18/22)   Compressing objects:  86% (19/22)   Compressing objects:  90% (20/22)   Compressing objects:  95% (21/22)   Compressing objects: 100% (22/22)   Compressing objects: 100% (22/22), done.
+Writing objects:   4% (1/22)   Writing objects:   9% (2/22)   Writing objects:  13% (3/22)   Writing objects:  18% (4/22)   Writing objects:  22% (5/22)   Writing objects:  27% (6/22)   Writing objects:  31% (7/22)   Writing objects:  36% (8/22)   Writing objects:  40% (9/22)   Writing objects:  50% (11/22)   Writing objects:  54% (12/22)   Writing objects:  59% (13/22)   Writing objects:  63% (14/22)   Writing objects:  72% (16/22)   Writing objects:  77% (17/22)   Writing objects:  81% (18/22)   Writing objects:  86% (19/22)   Writing objects:  90% (20/22)   Writing objects:  95% (21/22)   Writing objects: 100% (22/22)   Writing objects: 100% (22/22), 5.18 KiB, done.
+Total 22 (delta 17), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   752c010..a25dbd3  master -> master
+2010-03-10 17:08:03,275 INFO End backup local github to remote github host.
+2010-03-10 22:49:19,032 INFO Delete nousing captcha images
+2010-03-10 22:49:19,055 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-03-10 22:49:19,056 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-03-10 22:49:25,606 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+muireception/js/init.js.pih
+        6130 100%    0.00kB/s    0:00:00          6130 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1014/6971)
+muireception/js/init.js.pih~
+        6058 100%    5.78MB/s    0:00:00          6058 100%    5.78MB/s    0:00:00 (xfer#2, to-check=1013/6971)
+muireception/service/service.ks
+       21970 100%   39.37kB/s    0:00:00         21970 100%   39.37kB/s    0:00:00 (xfer#3, to-check=668/7854)
+muireception/service/service.ks~
+       21988 100%   35.67kB/s    0:00:00         21988 100%   35.67kB/s    0:00:00 (xfer#4, to-check=667/7854)
+
+sent 183201 bytes  received 1236 bytes  28374.92 bytes/sec
+total size is 47862711  speedup is 259.51
+2010-03-10 22:49:25,704 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 66 bytes  received 12 bytes  156.00 bytes/sec
+total size is 179984  speedup is 2307.49
+2010-03-10 22:49:25,704 INFO End backup loacl karrigell diretory to local git.
+2010-03-10 22:49:25,704 INFO Begin to backup local github to remote github host.

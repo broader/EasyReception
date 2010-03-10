@@ -30,7 +30,9 @@ registerAppName = pagefn.getApp(iniTabUrl,0)
 %>
 
 
-// Add some assistant tools to MUI
+/****************************************************************************************
+Add some assistant tools to MUI
+*****************************************************************************************/
 MUI.extend({
 	// add a inner object to MUI for managing mootools.Assets importing action 
 	assetsManager: new AssetsManager(),
@@ -69,6 +71,42 @@ MUI.extend({
 				window[i].removeErrors();
 			}					
 		};		
+	},
+	
+	/*
+	Return a styled <button> Element that provided by SexyButton plugin<http://code.google.com/p/sexybuttons/>.
+	Parameters:
+	options- a json object holds the setting options,
+				which has keys 'txt','bnAttrs','bnType','bnSize','bnSkin'.
+				'txt',the text on the button;
+				'bnAttrs', optional, the attributes of the button;
+				'imgType', the predefined type determined what image to be shown on the button, such as 'ok'
+				'bnSize', optional,it should be one of 'sexysmall','sexymedium','sexylarge'
+				'bnSkin', optionsal,the background color for the button 
+				 
+	*/
+	styledButton: function(options){
+		var bnClass = ['sexybutton',];		
+		$H({'bnSize':'sexymedium', 'bnSkin':'sexysimple'}).each(function(value,prop){
+			bnClass.push( options[prop]||value);
+		});
+		
+		var bnAttrs = {'class': bnClass.join(' ')}
+		if(options.bnAttrs){
+			$H(options.bnAttrs).each(function(value,key){
+				bnAttrs[key] = value;
+			});
+		};
+		
+		var button = new Element('button', bnAttrs);
+		
+		var span = new Element('span',{
+			html: options.txt || '',
+			'class': options.imgType
+		});
+		
+		button.grab(new Element('sapn').grab(span));
+		return button; 
 	}
 	
 });
@@ -104,7 +142,6 @@ var loginFns = {
 		
 		var dlgId = '<%=pagefn.REGISTERDIALOG %>'; 
 		var tabsId = '<%=pagefn.REGISTERTABSID %>';
-		var formErrClass = '.<%=pagefn.FORMERRCLASS %>';
 		
 		// using python inside html to set the tabs' url to a javascript array
 		var tabUrls = []; 
