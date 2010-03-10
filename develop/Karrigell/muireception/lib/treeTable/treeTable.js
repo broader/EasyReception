@@ -36,7 +36,8 @@ var TreeTable = new Class({
 		expandedTag: "expanded",
 		collapsedTag: "collapsed",
 		
-		// Events
+		// setting for Events
+		fireRenderOver: true,
 		renderOver: null, 
 		
 	},
@@ -45,13 +46,15 @@ var TreeTable = new Class({
 					
 		this.setOptions(options);		
 		this.container = $(container);
-		this.tableInstance = null;
-		this.colsModel = this.options.columnsModel;
-		this.treeColumn = this.options.treeColumn;
-		this.hideColumns = [];
-		
 		if (!this.container)
 			return;
+		
+		this.colsModel = this.options.columnsModel;
+		this.treeColumn = this.options.treeColumn;
+		this.fireRenderOver = this.options.fireRenderOver; 
+		
+		this.htmlTable = null;		
+		this.hideColumns = [];		
 			
 		this.draw();
 		
@@ -63,17 +66,17 @@ var TreeTable = new Class({
 	},
 	
 	/*
-	Main draw function 
+	Draw the layout of the table, such as table headers. 
 	*/
 	draw: function(){		
-		this.tableInstance = new HtmlTable();
+		this.htmlTable = new HtmlTable();
 		
 		// set table css style 
-		this.tableInstance.element.addClass(this.options.cssStyle);
+		this.htmlTable.element.addClass(this.options.cssStyle);
 		
 		this.setHeaders();
 		
-		this.tableInstance.inject(this.container,'top');
+		this.htmlTable.inject(this.container,'top');
 
 	},
 	
@@ -130,9 +133,16 @@ var TreeTable = new Class({
 			data.push(col);
 		},this);
 		
-		this.tableInstance.setHeaders(data);
+		this.htmlTable.setHeaders(data);
 	},
 	
+	// refresh the content in the table body
+	refreshTbody: function(){
+		this.htmlTable.element.getElement('tbody').empty(); 
+		this.fireRenderOver = false;
+		this.loadData();
+	},
+	 
 	// load rows' data to table body 
 	loadData: function(){
 		rowUrl = this.options.dataUrl;
@@ -166,7 +176,7 @@ var TreeTable = new Class({
 		rows.each(this.setRowData,this);
 		
 		renderEnd = this.options.renderOver;		
-		if(renderEnd){
+		if( this.fireRenderOver && renderEnd ){
 			this.fireEvent('onRenderOver',renderEnd(this));
 		};
 							
@@ -228,7 +238,7 @@ var TreeTable = new Class({
 			return el;
 		},this);
 		 
-		var trRow = this.tableInstance.push(data);	
+		var trRow = this.htmlTable.push(data);	
 		 
 		var tr = trRow.tr;
 		
@@ -325,7 +335,7 @@ var TreeTable = new Class({
 	 
 	// return all the tr elements in tbody 
 	getTrs: function(){
-		return this.tableInstance.element.getElements('tr').slice(1);
+		return this.htmlTable.element.getElements('tr').slice(1);
 	}
 	
 	

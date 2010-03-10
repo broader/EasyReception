@@ -1,7 +1,7 @@
 /*
 ** FUNCTIONS FOR SIDE PANELS EXPAND, THESE SIDEPANELS BELONGS TO NORMAL USER ROLE.
 */
-alert('userSidePanels.js.pih is loading');
+
 <% 
 # PYTHON CODE SLICE
 # get meus stored in pagefn.py
@@ -13,6 +13,8 @@ sideBar, mainColumn = pagefn.COLUMNS
 portfolio = pagefn.PORTFOLIO
 %>
 
+//var mainPanelId = '<%=pagefn.PANELSID['main'] %>';
+var mainPanelId = MUI.mainPanelId;
 
 /*
 ** The public function for side panels collapsing
@@ -65,9 +67,7 @@ function portfolioPanel(panelId){
 	
 	MUI.accordionPanels(panelId);
 	
-	MUI.clearMainPanel();
-	
-	var mainPanelId = '<%=pagefn.MAINPANEL %>'; 
+	MUI.clearMainPanel(); 
 	
 	new MUI.Column({
 		container:mainPanelId, id: 'portfolioColumn', placement: 'main', 

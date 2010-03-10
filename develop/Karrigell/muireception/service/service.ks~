@@ -179,7 +179,7 @@ def page_showService(**args):
 CATEGORYTAG = 'category'
 #ACTIONAMES = ['add','edit','delete']
 ACTIONAMES = [ item.get('dataIndex') for item in COLUMNMODEL[-3:] ]
-ACTIONPROP = 'action'
+ACTIONPROP,PARENTNAMEPROP = ('action','parentName')
 def _showServiceJs(category):
 	paras = [APP, CATEGORYTAG, category, CONTAINERID(category)]
 	paras.extend(['/'.join((APPATH,name)) for name in ('page_colsModel','page_serviceItems', 'page_editService')])
@@ -187,7 +187,7 @@ def _showServiceJs(category):
 	paras.extend([_('Create a new subcategory for service'), _('Edit Service Information')])
 	
 	paras.extend( [ item.get('dataIndex') for item in COLUMNMODEL[-3:] ] )
-	paras.append(ACTIONPROP)
+	paras.extend([ACTIONPROP, PARENTNAMEPROP])
 	
 	paras = tuple(paras)
 	js = \
@@ -197,14 +197,15 @@ def _showServiceJs(category):
 	addCategoryBnLabel='%s',
 	modalTitles = {'category':'%s', 'service':'%s'},
 	bnFnNames = ['%s','%s','%s'],
-	actionProp = '%s';
+	actionProp = '%s', parentName='%s';
 	
 	var treeTable;
 	
 	var modalOptions = {
 		width:600, height:380, modalOverlayClose: false,
    	onClose: function(e){
-   		MUI.refreshMainPanel();
+   		// refresh table's body
+   		treeTable.refreshTbody();
    	}
 	};
 	
@@ -238,13 +239,12 @@ def _showServiceJs(category):
 		
 		// add parent name to query object
 		parentId = tr.retrieve('parent');
-		//alert('node parent is '+this.getCellValueByRowId(tr.getProperty('id'),'name'));
-		alert('node parent is '+parent);
-		parentName = '';
+		
+		parentNameValue = '';
 		if(parentId)
-			parentName = this.getCellValueByRowId(parentId,'name');
+			parentNameValue = this.getCellValueByRowId(parentId,'name');
 			
-		query.parentName = parentName;
+		query[parentName] = parentNameValue;
 		
 		// get action type
 		td = e.target.getParents('td')[0];
@@ -463,8 +463,15 @@ def page_editService(**args):
 			d = {'label':GETPROPSLABEL('category'),'value':args.get('category')}
 			[ item.append(d) for item in (info,hideInput)]
 			info.append({'label':GETPROPSLABEL('subcategory'),'value':args.get('name')})
-			hideInput.append({'label':GETPROPSLABEL('subcategory'),'value':args.get('id')})			
+			hideInput.append({'label':'subcategory', 'value':args.get('id')})			
 		elif index == 1 :	# edit action
+			[props.pop(name) for name in props.keys() if name not in names ]			
+			props = _formFieldsConstructor(props)
+			d = {'label':GETPROPSLABEL('category'),'value':args.get('category')}			
+			[ item.append(d) for item in (info,hideInput)]
+			info.append({'label':GETPROPSLABEL('subcategory'),'value':args.get(PARENTNAMEPROP)})
+			info.append({'label':GETPROPSLABEL('serial'),'value':args.get('serial')})
+			hideInput.append({'label':'id', 'value':args.get('id')})
 			pass
 		elif index == 2 :	# delete action
 			pass

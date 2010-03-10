@@ -10,7 +10,8 @@ pagefn = Import('/'.join(('', 'pagefn.py')))
 %>
 
 // the id of main panel in right main column
-var mainPanelId = '<%=pagefn.PANELSID.main %>';
+//var mainPanelId = '<%=pagefn.PANELSID['main'] %>';
+var mainPanelId = MUI.mainPanelId;
 
 /*
 ** The public function for side panels collapsing

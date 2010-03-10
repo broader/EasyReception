@@ -13,6 +13,7 @@ sideBar, mainColumn = pagefn.COLUMNS
 portfolio = pagefn.PORTFOLIO
 %>
 
+var mainPanelId = MUI.mainPanelId;
 
 /*
 ** The public function for side panels collapsing
@@ -65,9 +66,7 @@ function portfolioPanel(panelId){
 	
 	MUI.accordionPanels(panelId);
 	
-	MUI.clearMainPanel();
-	
-	var mainPanelId = '<%=pagefn.MAINPANEL %>'; 
+	MUI.clearMainPanel(); 
 	
 	new MUI.Column({
 		container:mainPanelId, id: 'portfolioColumn', placement: 'main', 

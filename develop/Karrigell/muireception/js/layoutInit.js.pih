@@ -215,7 +215,7 @@ MUI.extend({
 		});
 		
 		// remove all the imported mootools.Assets
-		am.remove('<%=loginApp %>', 'app');
+		MUI.assetsManager.remove('<%=loginApp %>', 'app');
 		
 		// close session object on server side
 		new Request.HTML().get('<%=logoutUrl %>');
@@ -223,6 +223,9 @@ MUI.extend({
 		// application initialization, including closing old session and removing old cookie
 		MUI.appInit();
 	},
+	
+	// set the id for the main MUI.Panel
+	mainPanelId: '<%=pagefn.PANELSID['main'] %>',
 	
 	// remove all the MUI.Columns in the main panel
 	clearMainPanel: function (){	
@@ -318,8 +321,7 @@ MUI.extend({
 		});
 	   
 	   // the really validation functions
-		am.import({'url':urls[1],'app':appName,'type':'js'},options);
-	   
+		am.import({'url':urls[1],'app':appName,'type':'js'},options);	   
 	}
 	
 });
