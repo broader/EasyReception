@@ -20,6 +20,7 @@ var TreeTable = new Class({
 		cssStyle: 'treeTable',
 		dataUrl: null,
 		data: null,
+		selectedClass: 'selected',	// the css class for selected <tr> element 
 		
 		// settings for buttons in each row
 		bnTag: 'button',
@@ -252,7 +253,7 @@ var TreeTable = new Class({
 		
 		// add properties to tr element
 		tr.setProperties({'id': rowId});
-		tr.addEvent('dblclick',this.onRowDoubleClick);		
+		tr.addEvent('dblclick',this.onRowDoubleClick.bind(this));		
 		
 		
 		if(depth <= this.options.initialExpandedDepth)
@@ -347,14 +348,25 @@ var TreeTable = new Class({
 	When a row has been double clicked, toggle its status between 'selected' and 'unselected'.
 	*/
 	onRowDoubleClick: function(event){
-		alert(event.target); 
+		// get <TR> element 
+		trs = event.target.getParents('tr');
+		tr = null;
+		if(trs.length > 0){tr=trs[0];};
+		
 		// selected status toggled 
+		this.selectedToggle(tr);
 	},
 	
 	/*
+	*/
+	selectedToggle: function(tr){
+		tr.toggleClass(this.options.selectedClass);
+	},		
+
+	/*
 	When the tree pointer in the row has been clicked, toggle its collapsed status.
 	*/
-	onCollapsedToggle: function(tr){
+	collapsedToggle: function(tr){
 		// tree node collapsed status toggle 
 		
 		// change all  the selected status of the children of the node to be unselected 
@@ -363,7 +375,10 @@ var TreeTable = new Class({
 	/*
 	Return all the selected rows.
 	*/
-	getSelected: function(){
+	getSelectedRows: function(){
+		return this.getTrs().filter(function(tr){
+			return tr.hasClass(this.options.selectedClass); 
+		},this);		
 	}
 	
 	

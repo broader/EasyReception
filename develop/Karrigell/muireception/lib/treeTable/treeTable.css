@@ -24,9 +24,13 @@
 .treeTable tbody tr:hover tbody th.sub { background:#f0e8e8; }
 
 /* the background color for mouse hover  */
-/*.treeTable tbody tr:hover td { background:#fff8f8; }*/
-.treeTable tbody tr:hover td { background:#a8b8ed; }
+.treeTable tbody tr:hover td { background:gainsboro; }
 
+
+/*******************************
+	selected row style
+********************************/
+.treeTable tbody tr.selected { background:#a8b8ed; }
 
 /*******************************
 	collapsable style

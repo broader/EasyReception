@@ -63,9 +63,9 @@ COLUMNMODEL = [
 	{'dataIndex':'category','label':_('Category'),'dataType':'string','hide':'1'},
 	{'dataIndex':'subcategory','label':_('Subcategory'),'dataType':'string','hide':'1'},
 	{'dataIndex':'id','label':_('ServiceId'),'dataType':'string','hide':'1'},
-	{'dataIndex':'addAction','label':_('Add'),'dataType':'button','imgUrl':'images/additional/add.png'},
-	{'dataIndex':'editAction','label':_('Edit'),'dataType':'button','imgUrl':'images/additional/edit.png'},
-	{'dataIndex':'delAction','label':_('Delete'),'dataType':'button','imgUrl':'images/additional/delete.png'},
+	#{'dataIndex':'addAction','label':_('Add'),'dataType':'button','imgUrl':'images/additional/add.png'},
+	#{'dataIndex':'editAction','label':_('Edit'),'dataType':'button','imgUrl':'images/additional/edit.png'},
+	#{'dataIndex':'delAction','label':_('Delete'),'dataType':'button','imgUrl':'images/additional/delete.png'},
 ]
 
 # End*****************************************************************************************
@@ -177,8 +177,15 @@ def page_showService(**args):
 	return 
 
 CATEGORYTAG = 'category'
-#ACTIONAMES = ['add','edit','delete']
-ACTIONAMES = [ item.get('dataIndex') for item in COLUMNMODEL[-3:] ]
+ACTIONS = [
+	{'type':'add','label':_('Add')},
+	{'type':'edit','label':_('Edit')},
+	{'type':'delete','label':_('Delete')}
+]
+
+ACTIONTYPES = [item.get('type') for item in ACTIONS]
+#ACTIONTYPES = [ item.get('dataIndex') for item in COLUMNMODEL[-3:] ]
+ACTIONLABELS = [item.get('label') for item in ACTIONS]
 ACTIONPROP,PARENTNAMEPROP = ('action','parentName')
 def _showServiceJs(category):
 	paras = [APP, CATEGORYTAG, category, CONTAINERID(category)]
@@ -187,6 +194,7 @@ def _showServiceJs(category):
 	paras.extend([_('Create a new subcategory for service'), _('Edit Service Information')])
 	
 	paras.extend( [ item.get('dataIndex') for item in COLUMNMODEL[-3:] ] )
+	[ paras.extend(l) for l in (ACTIONTYPES,ACTIONLABELS)]
 	paras.extend([ACTIONPROP, PARENTNAMEPROP])
 	
 	paras = tuple(paras)
@@ -197,6 +205,8 @@ def _showServiceJs(category):
 	addCategoryBnLabel='%s',
 	modalTitles = {'category':'%s', 'service':'%s'},
 	bnFnNames = ['%s','%s','%s'],
+	actionTypes = ['%s', '%s', '%s'],
+	actionLabels = ['%s', '%s', '%s'],
 	actionProp = '%s', parentName='%s';
 	
 	var treeTable;
@@ -230,26 +240,30 @@ def _showServiceJs(category):
 		}));
 		
 		// add 'add','edit','delete' buttons
-		[
-			{
-				'txt':'Add',
-				'imgType':'add',
-				'bnAttrs':{
-					'style':'margin-right:1em;',
-					'events': {
-						'click': function(e){alert('clicked');}
-					}
-				}
-			},
+		actionTypes.each(function(actionType,index){
+			options = {
+				txt: actionLabels[index],
+			   imgType: actionType,
+				bnAttrs: {'style':'margin-right:1em;'}	
+			};
 			
-			{'txt': 'Edit',	'imgType': 'edit','bnAttrs':{'style':'margin-right:1em;'}},
-			{'txt': 'Delete',	'imgType': 'delete'}
-		].each(function(item,index){
-			//alert(item);
-			this.container.adopt(MUI.styledButton(item));
+			button = MUI.styledButton(options);
+			button.addEvent('click',action2service.pass(index,this));
+			
+			this.container.adopt(button);
 		},ti);
-		
-		
+	};
+	
+	/*
+	The action to service item.
+	*/
+	function action2service(index){
+		//new Event(event).stop();
+		alert(this.getSelectedRows().length);
+		alert(index);
+		if(index==0){}
+		else if(index==1){}
+		else {}
 	};
 	
 	// the callback function for action button in each row
@@ -295,7 +309,7 @@ def _showServiceJs(category):
 					treeColumn: 0,					
 					dataUrl: [rowsUrl, categoryInfo.join('=')].join('?'),
 					idPrefix: 'service-',
-					bnFunctions: bnFns,
+					//bnFunctions: bnFns,
 					renderOver: addButton
 				}
 			);// the end for 'treeTable' definition
@@ -323,8 +337,8 @@ def page_colsModel(**args):
 	return
 
 def _transform(node,parentIndex):	
-	data = {'data': node.data[:len(COLUMNMODEL[:-1])],'depth':node.depth(),'parent':'', 'id':node.id}
-	
+	#data = {'data': node.data[:len(COLUMNMODEL[:-1])],'depth':node.depth(),'parent':'', 'id':node.id}
+	data = {'data': node.data,'depth':node.depth(),'parent':'', 'id':node.id}	
 	parent = node.parent
 	if parent and parent.data:
 		 data['parent'] = parent.data[parentIndex]
@@ -348,7 +362,7 @@ def _getServiceItems(category, props=None, sort4tree=False):
 	
 	# handle each row of data, transform them to client's required format
 	# sorted[1:] - pop out the first root node which has no data
-	parentIndex = props.index('serial')	
+	parentIndex = props.index('id')	
 	sorted = [ _transform(node, parentIndex) for node in tree.flatten()]
 	return sorted[1:]
 	
@@ -358,15 +372,12 @@ def page_serviceItems(**args):
 	category = args.get(CATEGORYTAG)
 	
 	# filter the last three column that are  action clolumns 
-	props = [item.get('dataIndex') for item in COLUMNMODEL[:-3]]
-	#props.extend(['category', 'subcategory','id'])
+	#props = [item.get('dataIndex') for item in COLUMNMODEL[:-3]]
+	props = [item.get('dataIndex') for item in COLUMNMODEL ]
 		
 	# filter the root category items	
 	nameIndex = props.index('name')	
 	rows = filter( lambda item: item['data'][nameIndex], _getServiceItems(category, props, True))
-	
-	#rows = _getServiceItems(category, props)
-	#print rows
 	
 	for index,item in enumerate(rows):
 		data = item['data']
@@ -476,11 +487,11 @@ def page_editService(**args):
 			[ props.update({name:None,}) for name in ('category','description')]
 			props = _formFieldsConstructor(props,False) 
 		
-		hideInput.append({'name':ACTIONPROP,'value':ACTIONAMES[0]})
+		hideInput.append({'name':ACTIONPROP,'value':ACTIONTYPES[0]})
 	else:
 		hideInput.append({'name':ACTIONPROP,'value':action})
 		names = [item.get('name') for item in PROPS if item.get('name') not in ('category','subcategory','serial')]
-		index = ACTIONAMES.index(action) 
+		index = ACTIONTYPES.index(action) 
 		if index == 0:	# add action			 
 			[props.pop(name) for name in props.keys() if name not in names ]			
 			props = _formFieldsConstructor(props)
@@ -675,7 +686,7 @@ def _editServiceJs():
 def page_serviceEditAction(**args):
 	action = args.pop('action')
 	successTag = 0
-	actions = ACTIONAMES
+	actions = ACTIONTYPES
 	if not action:
 		actionType = 0
 	else:
