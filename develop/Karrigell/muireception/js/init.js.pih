@@ -94,11 +94,12 @@ MUI.extend({
 		});
 		
 		// merge user defined attributes for button
-		var bnAttrs = {'class': bnClass.join(' ')}
-		if(options.bnAttrs){
-			$H(options.bnAttrs).each(function(value,key){
+		var bnAttrs = {'class': bnClass.join(' ')};
+		
+		if(options.bnAttrs){			
+			$H(options.bnAttrs).each(function(value,key){				
 				bnAttrs[key] = value;
-			});
+			});			
 		};
 		
 		var button = new Element('button', bnAttrs);		

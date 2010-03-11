@@ -215,6 +215,7 @@ def _showServiceJs(category):
 		// Parameter 'ti'- the TreeTable instance
 		
 		// add the action button out of the table
+		
 		ti.container.grab(Element('button',{
 			'html':addCategoryBnLabel,
 			'events':{
@@ -228,10 +229,46 @@ def _showServiceJs(category):
 			}
 		}));
 		
-		ti.container.grab(MUI.styledButton({
-			'txt': 'Test',
-			'imgType': 'ok',
-		}));
+		// add 'add','edit','delete' buttons
+		[
+			{
+				'txt':'Add',
+				'imgType':'add',
+				'bnAttrs':{
+					'style':'margin-right:1em;',
+					'events': {
+						'click': function(e){alert('clicked');}
+					}
+				}
+			},
+			
+			{
+				'txt':'Edit',
+				'imgType':'edit',
+				'bnAttrs':{
+					'style':'margin-right:1em;',
+					'events': {
+						'click': function(e){alert('clicked');}
+					}
+				}
+			},
+			
+			{
+				'txt':'Delete',
+				'imgType':'delete',
+				'bnAttrs':{
+					'style':'margin-right:1em;',
+					'events': {
+						'click': function(e){alert('clicked');}
+					}
+				}
+			}
+			
+		].each(function(item,index){
+			//alert(item);
+			this.container.adopt(MUI.styledButton(item));
+		},ti);
+		
 		
 	};
 	

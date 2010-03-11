@@ -86,26 +86,30 @@ MUI.extend({
 				 
 	*/
 	styledButton: function(options){
-		var bnClass = ['sexybutton',];		
+		var bnClass = ['sexybutton',];	
+		
+		// default settings	
 		$H({'bnSize':'sexymedium', 'bnSkin':'sexysimple'}).each(function(value,prop){
 			bnClass.push( options[prop]||value);
 		});
 		
-		var bnAttrs = {'class': bnClass.join(' ')}
-		if(options.bnAttrs){
+		// merge user defined attributes for button
+		var bnAttrs = {'class': bnClass.join(' ')};
+		
+		if(options.bnAttrs){			
 			$H(options.bnAttrs).each(function(value,key){
+				alert('init.js.pih.styledButton(),'+key+','+value);
 				bnAttrs[key] = value;
-			});
+			});			
 		};
 		
-		var button = new Element('button', bnAttrs);
-		
+		var button = new Element('button', bnAttrs);		
 		var span = new Element('span',{
 			html: options.txt || '',
 			'class': options.imgType
-		});
-		
+		});		
 		button.grab(new Element('sapn').grab(span));
+		
 		return button; 
 	}
 	

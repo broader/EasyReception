@@ -182,13 +182,18 @@ var TreeTable = new Class({
 							
 	},
 	
+	// generate the id for each <TR> element in the table body
+	genRowId: function(innerId){
+		return [this.options.idPrefix,innerId].join('');
+	}, 
+	 
 	// render data to each row
 	setRowData: function(row){
 		row = $H(row);
-		var data=row.data,
+		var data = row.data,
 		//parent=row.parent,
-		depth=row.depth,  
-		rowId=[this.options.idPrefix,row.id].join('');
+		depth = row.depth,  
+		rowId = this.genRowId(row.id);
 										
 		// empty column will be set to ''				
 		interval = this.colsModel.length - data.length;
@@ -245,10 +250,10 @@ var TreeTable = new Class({
 		// stored row data to tr Element 
 		row.each(function(value,key){tr.store(key,value);});
 		
-		// add css class for tr element
+		// add properties to tr element
 		tr.setProperties({'id': rowId});
-		//tr.addClass([this.options.parentPrefix,parent].join(''));
-		//tr.addClass([this.options.depthPrefix,depth].join(''));
+		tr.addEvent('dblclick',this.onRowDoubleClick);		
+		
 		
 		if(depth <= this.options.initialExpandedDepth)
 			tr.addClass(this.options.expandedTag);
@@ -336,6 +341,29 @@ var TreeTable = new Class({
 	// return all the tr elements in tbody 
 	getTrs: function(){
 		return this.htmlTable.element.getElements('tr').slice(1);
+	},
+	
+	/*
+	When a row has been double clicked, toggle its status between 'selected' and 'unselected'.
+	*/
+	onRowDoubleClick: function(event){
+		alert(event.target); 
+		// selected status toggled 
+	},
+	
+	/*
+	When the tree pointer in the row has been clicked, toggle its collapsed status.
+	*/
+	onCollapsedToggle: function(tr){
+		// tree node collapsed status toggle 
+		
+		// change all  the selected status of the children of the node to be unselected 
+	},
+	
+	/*
+	Return all the selected rows.
+	*/
+	getSelected: function(){
 	}
 	
 	
