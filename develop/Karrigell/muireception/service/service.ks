@@ -62,10 +62,7 @@ COLUMNMODEL = [
 	{'dataIndex':'serial','label':_('Serial'),'dataType':'string','hide':'1'},
 	{'dataIndex':'category','label':_('Category'),'dataType':'string','hide':'1'},
 	{'dataIndex':'subcategory','label':_('Subcategory'),'dataType':'string','hide':'1'},
-	{'dataIndex':'id','label':_('ServiceId'),'dataType':'string','hide':'1'},
-	#{'dataIndex':'addAction','label':_('Add'),'dataType':'button','imgUrl':'images/additional/add.png'},
-	#{'dataIndex':'editAction','label':_('Edit'),'dataType':'button','imgUrl':'images/additional/edit.png'},
-	#{'dataIndex':'delAction','label':_('Delete'),'dataType':'button','imgUrl':'images/additional/delete.png'},
+	{'dataIndex':'id','label':_('ServiceId'),'dataType':'string','hide':'1'}
 ]
 
 # End*****************************************************************************************
@@ -184,7 +181,6 @@ ACTIONS = [
 ]
 
 ACTIONTYPES = [item.get('type') for item in ACTIONS]
-#ACTIONTYPES = [ item.get('dataIndex') for item in COLUMNMODEL[-3:] ]
 ACTIONLABELS = [item.get('label') for item in ACTIONS]
 ACTIONPROP,PARENTNAMEPROP = ('action','parentName')
 def _showServiceJs(category):
@@ -193,7 +189,7 @@ def _showServiceJs(category):
 	paras.append(_('Create New Subategory'))
 	paras.extend([_('Create a new subcategory for service'), _('Edit Service Information')])
 	
-	paras.extend( [ item.get('dataIndex') for item in COLUMNMODEL[-3:] ] )
+	
 	[ paras.extend(l) for l in (ACTIONTYPES,ACTIONLABELS)]
 	paras.extend([ACTIONPROP, PARENTNAMEPROP])
 	
@@ -204,7 +200,6 @@ def _showServiceJs(category):
 	container='%s', colsModel='%s',rowsUrl='%s', actionUrl='%s',
 	addCategoryBnLabel='%s',
 	modalTitles = {'category':'%s', 'service':'%s'},
-	bnFnNames = ['%s','%s','%s'],
 	actionTypes = ['%s', '%s', '%s'],
 	actionLabels = ['%s', '%s', '%s'],
 	actionProp = '%s', parentName='%s';
@@ -223,21 +218,6 @@ def _showServiceJs(category):
 	// and insert a subcategory creation button out of the table.
 	function addButton(ti){
 		// Parameter 'ti'- the TreeTable instance
-		
-		// add the action button out of the table
-		
-		ti.container.grab(Element('button',{
-			'html':addCategoryBnLabel,
-			'events':{
-				'click': function(e){
-					// the dialog to create a new subcategory of service 
-					modalOptions.contentURL = [actionUrl, categoryInfo.join('=')].join('?');
-					modalOptions.title = modalTitles.category;
-					new MUI.Modal(modalOptions);
-			      
-				}
-			}
-		}));
 		
 		// add 'add','edit','delete' buttons
 		actionTypes.each(function(actionType,index){
@@ -258,45 +238,53 @@ def _showServiceJs(category):
 	The action to service item.
 	*/
 	function action2service(index){
-		alert(this.getSelectedRows().length);
-		alert(index);
-		if(index==0){}
-		else if(index==1){}
-		else {}
-	};
-	
-	// the callback function for action button in each row
-	function editService(e){
-		tr = e.target.getParents('tr')[0];
+		trs = this.getSelectedRows();
+		if(trs.length == 0 && [1,2].contains(index)){
+			alert('For this type of action, please select a row first !');
+			return
+		}
+		else if(trs.length > 1 && [0,1].contains(index)){
+			alert('For this type of action, please select no more than one row !');
+			return
+		};
 		
-		// get data of this row
-		query = this.getRowDataWithProps(tr);
+		query = '';
 		
-		// add parent name to query object
-		parentId = tr.retrieve('parent');
-		
-		parentNameValue = '';
-		if(parentId)
-			parentNameValue = this.getCellValueByRowId(parentId,'name');
+		if(trs.length == 0){
+			query = categoryInfo.join('='); 
+		}
+		else if(trs.length > 0 ){
+			tr = trs[0];
+			// get data of this row
+			query = this.getRowDataWithProps(tr);
 			
-		query[parentName] = parentNameValue;
+			// add parent name to query object
+			parentId = tr.retrieve('parent');
+			
+			parentNameValue = '';
+			if(parentId)
+				parentNameValue = this.getCellValueByRowId(parentId,'name');
+				
+			query[parentName] = parentNameValue;
+			query[actionProp] = actionTypes[index];
+			query = query.toQueryString();
+		}
 		
-		// get action type
-		td = e.target.getParents('td')[0];
-		colIndex = tr.getChildren('td').indexOf(td);	
-		query[actionProp] = this.getHeaderProps()[colIndex];
-		
-		// set the really action url
-		url = [actionUrl, query.toQueryString()].join('?');
-		
-		// the modal to edit a service item  
-		modalOptions.contentURL = url;
-		modalOptions.title = modalTitles.service;
-		new MUI.Modal(modalOptions);
-		
+		if([0,1].contains(index)){
+			// set the really action url
+			url = [actionUrl, query].join('?');
+			
+			// the modal to edit a service item  
+			modalOptions.contentURL = url;
+			
+			modalOptions.title = (trs.length!=0)? modalTitles.service : modalTitles.category ;
+			new MUI.Modal(modalOptions);
+		}
+		else {
+			query[actionProp] = actionTypes[index];
+			alert('delete action');
+		};
 	};
-	
-	var bnFns = $H([editService, editService, editService].associate(bnFnNames));
 	
 	// options for TreeTable class initialization
 	var options = {
@@ -308,7 +296,6 @@ def _showServiceJs(category):
 					treeColumn: 0,					
 					dataUrl: [rowsUrl, categoryInfo.join('=')].join('?'),
 					idPrefix: 'service-',
-					//bnFunctions: bnFns,
 					renderOver: addButton
 				}
 			);// the end for 'treeTable' definition
