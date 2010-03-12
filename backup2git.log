@@ -31705,3 +31705,55 @@ sent 66 bytes  received 12 bytes  156.00 bytes/sec
 total size is 180417  speedup is 2313.04
 2010-03-11 21:17:33,304 INFO End backup loacl karrigell diretory to local git.
 2010-03-11 21:17:33,304 INFO Begin to backup local github to remote github host.
+2010-03-11 21:17:34,012 INFO Command: 
+git add .
+running result is :
+2010-03-11 21:17:39,440 INFO Command: 
+git commit -m 'Update time:2010-03-11T21:17:33.304606'
+running result is :[master 0eb8f6a] Update time:2010-03-11T21:17:33.304606
+ 4 files changed, 161 insertions(+), 111 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010031120.log
+2010-03-11 21:17:48,379 INFO Command: 
+git push origin master
+running result is :Counting objects: 22, done.
+Delta compression using up to 2 threads.
+Compressing objects:   8% (1/12)   Compressing objects:  16% (2/12)   Compressing objects:  25% (3/12)   Compressing objects:  33% (4/12)   Compressing objects:  41% (5/12)   Compressing objects:  50% (6/12)   Compressing objects:  58% (7/12)   Compressing objects:  66% (8/12)   Compressing objects:  75% (9/12)   Compressing objects:  83% (10/12)   Compressing objects:  91% (11/12)   Compressing objects: 100% (12/12)   Compressing objects: 100% (12/12), done.
+Writing objects:   8% (1/12)   Writing objects:  16% (2/12)   Writing objects:  25% (3/12)   Writing objects:  33% (4/12)   Writing objects:  41% (5/12)   Writing objects:  50% (6/12)   Writing objects:  58% (7/12)   Writing objects:  66% (8/12)   Writing objects:  75% (9/12)   Writing objects:  83% (10/12)   Writing objects: 100% (12/12)   Writing objects: 100% (12/12), 2.29 KiB, done.
+Total 12 (delta 8), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   3d683aa..0eb8f6a  master -> master
+2010-03-11 21:17:48,379 INFO End backup local github to remote github host.
+2010-03-12 11:30:46,026 INFO Delete nousing captcha images
+2010-03-12 11:30:46,047 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-03-12 11:30:46,048 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-03-12 11:30:51,077 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010031202.log
+        5729 100%    0.00kB/s    0:00:00          5729 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1006/3614)
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%   62.75kB/s    0:00:05        362496 100%  640.14kB/s    0:00:00 (xfer#2, to-check=1045/3938)
+muireception/lib/treeTable/treeTable.js
+        9558 100%    0.00kB/s    0:00:00          9558 100%    0.00kB/s    0:00:00 (xfer#3, to-check=1002/7512)
+muireception/lib/treeTable/treeTable.js~
+        9559 100%    9.12MB/s    0:00:00          9559 100%    9.12MB/s    0:00:00 (xfer#4, to-check=1001/7512)
+muireception/service/service.ks
+       22370 100%  130.03kB/s    0:00:00         22370 100%  130.03kB/s    0:00:00 (xfer#5, to-check=668/7857)
+muireception/service/service.ks~
+       22369 100%  128.50kB/s    0:00:00         22369 100%  128.50kB/s    0:00:00 (xfer#6, to-check=667/7857)
+
+sent 217440 bytes  received 1284 bytes  39768.00 bytes/sec
+total size is 47877031  speedup is 218.89
+2010-03-12 11:30:51,131 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 66 bytes  received 12 bytes  156.00 bytes/sec
+total size is 180417  speedup is 2313.04
+2010-03-12 11:30:51,131 INFO End backup loacl karrigell diretory to local git.
+2010-03-12 11:30:51,131 INFO Begin to backup local github to remote github host.

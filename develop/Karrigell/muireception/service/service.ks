@@ -216,7 +216,7 @@ def _showServiceJs(category):
 	
 	// The function to insert action buttons to each row in the table,
 	// and insert a subcategory creation button out of the table.
-	function addButton(ti){
+	function addButton(ti){		
 		// Parameter 'ti'- the TreeTable instance
 		
 		// add 'add','edit','delete' buttons
@@ -283,6 +283,8 @@ def _showServiceJs(category):
 		else {
 			query[actionProp] = actionTypes[index];
 			alert('delete action');
+			alert(this.htmlTable.element.getElement('tbody'));
+			this.htmlTable.element.getElement('tbody').empty();
 		};
 	};
 	
@@ -489,11 +491,14 @@ def page_editService(**args):
 		elif index == 1 :	# edit action
 			[props.pop(name) for name in props.keys() if name not in names ]			
 			props = _formFieldsConstructor(props,True)
+			# for 'edit' action, it's no need to check service 'name' property
+			filter(lambda i: i['name']=='name', props)[0]['validate'] = []
 			
 			info.append( {'prompt':GETPROPSLABEL('category'),'value':args.get('category')} )
-			#hideInput.append( {'name':'category','value':args.get('category')})
 			info.append({'prompt':GETPROPSLABEL('subcategory'),'value':args.get(PARENTNAMEPROP)})
 			info.append({'prompt':GETPROPSLABEL('serial'),'value':args.get('serial')})
+			#hideInput.append( {'name':'category','value':args.get('category')})
+			#hideInput.append({'name':'name', 'value':args.get('name')})
 			hideInput.append({'name':'id', 'value':args.get('id')})
 		elif index == 2 :	# delete action
 			pass
@@ -549,7 +554,7 @@ def page_editService(**args):
 	
 	return
 
-def _editServiceJs():
+def _editServiceJs():	
 	paras = [SERVICEEDITFORM,]
 	paras.extend(CHKFNS)
 	paras.extend(['/'.join((APPATH, name)) for name in ('page_categoryValid','page_serviceNameValid')])
@@ -577,8 +582,6 @@ def _editServiceJs():
 				submitByAjax: true,
 				onAjaxSuccess: function(response){
 					if(response == 1){
-						alert(response);
-						MUI.refreshMainPanel();
 						MUI.closeModalDialog();
 					};               
 				},            
@@ -635,14 +638,11 @@ def _editServiceJs():
          }
       });
       
-      
       serviceNameRequest.get({
       	'name':el.getProperty('value'),
       	'category': function(element){
-      		value = element.getParent('div').getParent('div')
-      		.getElement('input[id=category]')
+      		value = element.getParents('form')[0].getElement('input[name=category]')
       		.getProperty('value');
-      		
       		return value
       	}(el)
       });
@@ -683,7 +683,9 @@ def page_serviceEditAction(**args):
 		if sid:
 			successTag = 1
 	elif actionType == 1:	# 'edit' action
-		pass	
+		sid = args.pop('id')
+		model.edit_item(USER, 'service', sid, args, 'edit', True)	
+		successTag = 1
 	elif actionType == 2:	# 'delete' action
 		pass	
 		
@@ -704,6 +706,7 @@ def page_categoryValid(**args):
 # valid whether the input service name has been used
 def page_serviceNameValid(**args):
 	inputName,category = [ args.get(prop) for prop in ('name','category')]
+	
 	names = _getServiceItems(category, props=('name',))
 	if names :
 		names = [ item[0] for item in names ]
@@ -712,6 +715,7 @@ def page_serviceNameValid(**args):
 		 
 	if inputName in names:
 		res['valid'] = 0
+	
 	res = {'valid':1}
 	print JSON.encode(res)	
 	return

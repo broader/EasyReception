@@ -140,6 +140,7 @@ var TreeTable = new Class({
 	// refresh the content in the table body
 	refreshTbody: function(){
 		this.htmlTable.element.getElement('tbody').empty(); 
+		// for the action that refresh table's body, it's no need to fire the 'rendover' Event 
 		this.fireRenderOver = false;
 		this.loadData();
 	},
@@ -161,6 +162,11 @@ var TreeTable = new Class({
 			}.bind(this)
 		});
 		request.get();
+		
+		renderEnd = this.options.renderOver;		
+		if( this.fireRenderOver && renderEnd ){
+			this.fireEvent('onRenderOver',renderEnd(this));
+		};
 	},
 	
 	// return the object which holds the data rendered in the table body 
@@ -174,13 +180,7 @@ var TreeTable = new Class({
 		if( rows.length == 0 )
 			return;
 		
-		rows.each(this.setRowData,this);
-		
-		renderEnd = this.options.renderOver;		
-		if( this.fireRenderOver && renderEnd ){
-			this.fireEvent('onRenderOver',renderEnd(this));
-		};
-							
+		rows.each(this.setRowData,this);							
 	},
 	
 	// generate the id for each <TR> element in the table body

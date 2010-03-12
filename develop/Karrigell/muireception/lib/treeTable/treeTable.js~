@@ -140,6 +140,7 @@ var TreeTable = new Class({
 	// refresh the content in the table body
 	refreshTbody: function(){
 		this.htmlTable.element.getElement('tbody').empty(); 
+		// for the action that refresh table's body, it's no need to fire the 'rendover' Event 
 		this.fireRenderOver = false;
 		this.loadData();
 	},
@@ -378,7 +379,7 @@ var TreeTable = new Class({
 	getSelectedRows: function(){
 		return this.getTrs().filter(function(tr){
 			return tr.hasClass(this.options.selectedClass); 
-		});		
+		},this);		
 	}
 	
 	
