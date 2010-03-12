@@ -259,7 +259,9 @@ def _showServiceJs(category):
 			query = this.getRowDataWithProps(tr);
 			
 			// add parent name to query object
-			parentId = tr.retrieve('parent');
+			parentId = null, parentInnerId = tr.retrieve('parent');
+			if (parentInnerId)
+				parentId = this.genRowId(parentInnerId);
 			
 			parentNameValue = '';
 			if(parentId)

@@ -189,21 +189,20 @@ var TreeTable = new Class({
 	}, 
 	 
 	// render data to each row
-	setRowData: function(row){
+	setRowData: function(row){		
 		row = $H(row);
 		var data = row.data,
 		//parent=row.parent,
 		depth = row.depth,  
 		rowId = this.genRowId(row.id);
-										
+					
 		// empty column will be set to ''				
 		interval = this.colsModel.length - data.length;
 		if(interval > 0 ){				
 			for (i=0;i<interval;i++){
 				data.push('');
 			};
-		};
-						
+		};						
 		
 		// each item in the columns of each row will be transformed to a 'span' Element 
 		data = data.map(function(item,index){	
@@ -254,25 +253,27 @@ var TreeTable = new Class({
 		// add properties to tr element
 		tr.setProperties({'id': rowId});
 		tr.addEvent('dblclick',this.onRowDoubleClick.bind(this));		
+		tr.addClass(this.options.collapsedTag);
 		
-		
-		if(depth <= this.options.initialExpandedDepth)
-			tr.addClass(this.options.expandedTag);
-		else
-			tr.addClass(this.options.collapsedTag);
+		if(depth > this.options.initialExpandedDepth){
+			tr.setProperty('style','display:none;');
+		};		
 		
 		// set the td that holds collapsing status tag for tree 
 		var treeColumn = this.treeColumn;		
-		if($defined(treeColumn)){					
+		if($defined(treeColumn)){							
 			// compute the left offset
 			var offset= parseInt(this.options.indent)*(parseInt(depth)-1);
 			var treeTag = new Element('span',{
 				'class': this.options.depthPointer,
-				'style': ['margin-left:',offset,'px',';'].join('')+'padding-right: 19px',
-				'events': {
-					'click': function(e){alert('tree collaped action tag clicked!');}
-				}
-			});			 
+				'style': ['margin-left:',offset,'px',';'].join('')+'padding-right: 19px'
+			});
+			
+			treeTag.addEvent('click',function(e){
+				new Event(e).stop();				
+				this.collapsedToggle(e.target.getParents('tr')[0]);
+			}.bind(this));
+						 
 			
 			treeTag.inject(trRow.tds[treeColumn],'top');
 		};
@@ -366,10 +367,41 @@ var TreeTable = new Class({
 	/*
 	When the tree pointer in the row has been clicked, toggle its collapsed status.
 	*/
-	collapsedToggle: function(tr){
-		// tree node collapsed status toggle 
+	collapsedToggle: function(tr){				
+		// toggle the collapsed pointer tag		 
+		if( tr.getProperty('class').contains(this.options.expandedTag)){
+			tr.removeClass(this.options.expandedTag);			
+			tr.addClass(this.options.collapsedTag);
+		}
+		else{
+			tr.removeClass(this.options.collapsedTag);			
+			tr.addClass(this.options.expandedTag);
+		};
 		
-		// change all  the selected status of the children of the node to be unselected 
+		// tree node collapsed status toggle 
+		currentId = tr.getProperty('id');
+		tr.getAllNext('tr').each(function(row){
+			innerId = row.retrieve('parent');
+			parentId = innerId ? this.genRowId(innerId) : '';
+			
+			// the child of this node will be toggled displaying status 
+			if(parentId == currentId){	
+				this.rowCollapsedToggle(row);				
+			};
+			
+		},this);
+	 
+	},
+	
+	/*
+	*/
+	rowCollapsedToggle: function(tr){
+		// set the displaying status 
+		if (tr.getStyle('display')=='none'){
+			tr.setStyle('display','');
+		}
+		else{tr.setStyle('display','none');};
+		
 	},
 	
 	/*

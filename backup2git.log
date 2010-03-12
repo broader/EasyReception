@@ -31757,3 +31757,76 @@ sent 66 bytes  received 12 bytes  156.00 bytes/sec
 total size is 180417  speedup is 2313.04
 2010-03-12 11:30:51,131 INFO End backup loacl karrigell diretory to local git.
 2010-03-12 11:30:51,131 INFO Begin to backup local github to remote github host.
+2010-03-12 11:30:51,746 INFO Command: 
+git add .
+running result is :
+2010-03-12 11:30:54,116 INFO Command: 
+git commit -m 'Update time:2010-03-12T11:30:51.132014'
+running result is :[master 729648d] Update time:2010-03-12T11:30:51.132014
+ 7 files changed, 153 insertions(+), 32 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010031202.log
+2010-03-12 11:31:05,926 INFO Command: 
+git push origin master
+running result is :@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@       WARNING: POSSIBLE DNS SPOOFING DETECTED!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The RSA host key for github.com has changed,
+and the key for the corresponding IP address 202.106.199.35
+is unknown. This could either mean that
+DNS SPOOFING is happening or the IP address for the host
+and its host key have changed at the same time.
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that the RSA host key has just been changed.
+The fingerprint for the RSA key sent by the remote host is
+f0:53:b3:43:1f:dc:1f:8c:08:03:a4:40:ed:da:d0:34.
+Please contact your system administrator.
+Add correct host key in /home/broader/.ssh/known_hosts to get rid of this message.
+Offending key in /home/broader/.ssh/known_hosts:1
+RSA host key for github.com has changed and you have requested strict checking.
+Host key verification failed.
+fatal: The remote end hung up unexpectedly
+2010-03-12 11:31:05,927 INFO End backup local github to remote github host.
+2010-03-12 17:34:11,340 INFO Delete nousing captcha images
+2010-03-12 17:34:11,358 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-03-12 17:34:11,359 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-03-12 17:34:19,473 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010031214.log
+        2373 100%    0.00kB/s    0:00:00          2373 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1006/3615)
+data/muireception/roundup/schema.py
+        8729 100%    0.00kB/s    0:00:00          8729 100%    0.00kB/s    0:00:00 (xfer#2, to-check=1051/3939)
+data/muireception/roundup/schema.py~
+        8729 100%    8.32MB/s    0:00:00          8729 100%    8.32MB/s    0:00:00 (xfer#3, to-check=1050/3939)
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%    6.25MB/s    0:00:00        362496 100%    1.50MB/s    0:00:00 (xfer#4, to-check=1045/3939)
+muireception/lib/treeTable/treeTable.js
+       10366 100%    0.00kB/s    0:00:00         10366 100%    0.00kB/s    0:00:00 (xfer#5, to-check=1002/7513)
+muireception/lib/treeTable/treeTable.js~
+       10365 100%    9.88MB/s    0:00:00         10365 100%    4.94MB/s    0:00:00 (xfer#6, to-check=1001/7513)
+muireception/service/service.ks
+       22459 100%   76.96kB/s    0:00:00         22459 100%   76.96kB/s    0:00:00 (xfer#7, to-check=668/7858)
+muireception/service/service.ks~
+       22432 100%   75.80kB/s    0:00:00         22432 100%   75.80kB/s    0:00:00 (xfer#8, to-check=667/7858)
+
+sent 223042 bytes  received 1322 bytes  26395.76 bytes/sec
+total size is 47881061  speedup is 213.41
+2010-03-12 17:34:19,554 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768  18%    0.00kB/s    0:00:00        180403 100%    6.70MB/s    0:00:00 (xfer#1, to-check=0/2)
+
+sent 43732 bytes  received 31 bytes  87526.00 bytes/sec
+total size is 180403  speedup is 4.12
+2010-03-12 17:34:19,555 INFO End backup loacl karrigell diretory to local git.
+2010-03-12 17:34:19,555 INFO Begin to backup local github to remote github host.

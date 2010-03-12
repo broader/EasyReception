@@ -109,11 +109,10 @@ service = Class(db, "service",
 			name=String(),
 			category=String(),				# such as 'hotel', 'travel'...
 			subcategory=Link('service'),
-			price=Number(), 					# the price of each service
+			price=String(), 					# the price of each service
 			description=String(),			# description for the service
 			detail=String(),					# footnote
-			amount=Number(),					# the amount of this service item			
-			nodetype=Number())				# is a leaf or a branch node 	
+			amount=String())					# the amount of this service item			
 #service.setkey("serial")
 
 # the record of each reservation
