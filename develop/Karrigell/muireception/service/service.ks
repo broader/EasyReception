@@ -260,12 +260,14 @@ def _showServiceJs(category):
 			
 			// add parent name to query object
 			parentId = null, parentInnerId = tr.retrieve('parent');
-			if (parentInnerId)
+			if (parentInnerId){
 				parentId = this.genRowId(parentInnerId);
+			};
 			
 			parentNameValue = '';
-			if(parentId)
+			if(parentId){
 				parentNameValue = this.getCellValueByRowId(parentId,'name');
+			};
 				
 			query[parentName] = parentNameValue;
 			query[actionProp] = actionTypes[index];
@@ -286,7 +288,6 @@ def _showServiceJs(category):
 			query[actionProp] = actionTypes[index];
 			alert('delete action');
 			alert(this.htmlTable.element.getElement('tbody'));
-			this.htmlTable.element.getElement('tbody').empty();
 		};
 	};
 	
@@ -300,6 +301,7 @@ def _showServiceJs(category):
 					treeColumn: 0,					
 					dataUrl: [rowsUrl, categoryInfo.join('=')].join('?'),
 					idPrefix: 'service-',
+					initialExpandedDepth: 2,
 					renderOver: addButton
 				}
 			);// the end for 'treeTable' definition

@@ -268,6 +268,7 @@ var TreeTable = new Class({
 			var offset= parseInt(this.options.indent)*(parseInt(depth)-1);
 			
 			options = {'style': ['margin-left:',offset,'px',';'].join('')+'padding-right: 19px'};
+			
 			if(row.isLeaf.toInt()==0){
 				options.class = this.options.depthPointer; 
 				options.events = {'click':	function(e){
@@ -333,12 +334,13 @@ var TreeTable = new Class({
 	Get the value in a column of a row which is specified by its id.
 	*/
 	getCellValueByRowId: function(rowId,prop){
-		// get column index
-		index = this.getHeaderProps().indexOf(prop);
-		if(index == -1)
-			return 
-		
-		return $(rowId).retrieve('data')[index] 
+		value = '';
+		if($(rowId)){
+			// get column index
+			index = this.getHeaderProps().indexOf(prop);
+			value = $(rowId).retrieve('data')[index];			 
+		};
+		return  value
 		
 	},	
 	 

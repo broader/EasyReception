@@ -334,13 +334,13 @@ var TreeTable = new Class({
 	Get the value in a column of a row which is specified by its id.
 	*/
 	getCellValueByRowId: function(rowId,prop){
-		// get column index
-		index = this.getHeaderProps().indexOf(prop);
-		if(index == -1)
-			return 
-		
-		return $(rowId).retrieve('data')[index] 
-		
+		value = '';
+		if($(rowId)){
+			// get column index
+			index = this.getHeaderProps().indexOf(prop);
+			value = $(rowId).retrieve('data')[index];			 
+		};
+		return  value		
 	},	
 	 
 	// return all the tr elements in tbody 

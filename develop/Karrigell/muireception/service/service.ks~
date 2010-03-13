@@ -260,12 +260,14 @@ def _showServiceJs(category):
 			
 			// add parent name to query object
 			parentId = null, parentInnerId = tr.retrieve('parent');
-			if (parentInnerId)
+			if (parentInnerId){
 				parentId = this.genRowId(parentInnerId);
+			};
 			
 			parentNameValue = '';
-			if(parentId)
+			if(parentId){
 				parentNameValue = this.getCellValueByRowId(parentId,'name');
+			};
 				
 			query[parentName] = parentNameValue;
 			query[actionProp] = actionTypes[index];
@@ -300,6 +302,7 @@ def _showServiceJs(category):
 					treeColumn: 0,					
 					dataUrl: [rowsUrl, categoryInfo.join('=')].join('?'),
 					idPrefix: 'service-',
+					initialExpandedDepth: 2,
 					renderOver: addButton
 				}
 			);// the end for 'treeTable' definition
@@ -327,7 +330,7 @@ def page_colsModel(**args):
 	return
 
 def _transform(node,parentIndex):	
-	data = {'data': node.data,'depth':node.depth(),'parent':'', 'id':node.id,'isLeaf':''}	
+	data = {'data': node.data,'depth':node.depth(),'parent':'', 'id':node.id,'isLeaf':'0'}	
 	#parent = node.parent
 	#if node.parent and node.parent.data:
 		 #data['parent'] = parent.data[parentIndex]
