@@ -260,20 +260,23 @@ var TreeTable = new Class({
 		};		
 		
 		// set the td that holds collapsing status tag for tree 
-		var treeColumn = this.treeColumn;		
-		if($defined(treeColumn)){							
+		var treeColumn = this.treeColumn;	
+			
+		if($defined(treeColumn)){	
+							
 			// compute the left offset
 			var offset= parseInt(this.options.indent)*(parseInt(depth)-1);
-			var treeTag = new Element('span',{
-				'class': this.options.depthPointer,
-				'style': ['margin-left:',offset,'px',';'].join('')+'padding-right: 19px'
-			});
 			
-			treeTag.addEvent('click',function(e){
-				new Event(e).stop();				
-				this.collapsedToggle(e.target.getParents('tr')[0]);
-			}.bind(this));
-						 
+			options = {'style': ['margin-left:',offset,'px',';'].join('')+'padding-right: 19px'};
+			
+			if(row.isLeaf.toInt()==0){
+				options.class = this.options.depthPointer; 
+				options.events = {'click':	function(e){
+					new Event(e).stop();				
+					this.collapsedToggle(e.target.getParents('tr')[0]);
+				}.bind(this)};
+			};
+			var treeTag = new Element('span',options);		 
 			
 			treeTag.inject(trRow.tds[treeColumn],'top');
 		};

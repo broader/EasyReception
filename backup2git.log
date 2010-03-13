@@ -31830,3 +31830,56 @@ sent 43732 bytes  received 31 bytes  87526.00 bytes/sec
 total size is 180403  speedup is 4.12
 2010-03-12 17:34:19,555 INFO End backup loacl karrigell diretory to local git.
 2010-03-12 17:34:19,555 INFO Begin to backup local github to remote github host.
+2010-03-12 17:34:20,305 INFO Command: 
+git add .
+running result is :
+2010-03-12 17:34:23,073 INFO Command: 
+git commit -m 'Update time:2010-03-12T17:34:19.555661'
+running result is :[master a931112] Update time:2010-03-12T17:34:19.555661
+ 10 files changed, 219 insertions(+), 51 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010031214.log
+2010-03-12 17:34:31,942 INFO Command: 
+git push origin master
+running result is :Counting objects: 66, done.
+Delta compression using up to 2 threads.
+Compressing objects:   2% (1/43)   Compressing objects:   4% (2/43)   Compressing objects:   6% (3/43)   Compressing objects:   9% (4/43)   Compressing objects:  11% (5/43)   Compressing objects:  13% (6/43)   Compressing objects:  16% (7/43)   Compressing objects:  18% (8/43)   Compressing objects:  20% (9/43)   Compressing objects:  23% (10/43)   Compressing objects:  25% (11/43)   Compressing objects:  27% (12/43)   Compressing objects:  30% (13/43)   Compressing objects:  32% (14/43)   Compressing objects:  34% (15/43)   Compressing objects:  37% (16/43)   Compressing objects:  39% (17/43)   Compressing objects:  41% (18/43)   Compressing objects:  44% (19/43)   Compressing objects:  46% (20/43)   Compressing objects:  48% (21/43)   Compressing objects:  51% (22/43)   Compressing objects:  53% (23/43)   Compressing objects:  55% (24/43)   Compressing objects:  58% (25/43)   Compressing objects:  60% (26/43)   Compressing objects:  62% (27/43)   Compressing objects:  65% (28/43)   Compressing objects:  67% (29/43)   Compressing objects:  69% (30/43)   Compressing objects:  72% (31/43)   Compressing objects:  74% (32/43)   Compressing objects:  76% (33/43)   Compressing objects:  79% (34/43)   Compressing objects:  81% (35/43)   Compressing objects:  83% (36/43)   Compressing objects:  86% (37/43)   Compressing objects:  88% (38/43)   Compressing objects:  90% (39/43)   Compressing objects:  93% (40/43)   Compressing objects:  95% (41/43)   Compressing objects:  97% (42/43)   Compressing objects: 100% (43/43)   Compressing objects: 100% (43/43), done.
+Writing objects:   2% (1/44)   Writing objects:   4% (2/44)   Writing objects:   6% (3/44)   Writing objects:   9% (4/44)   Writing objects:  11% (5/44)   Writing objects:  13% (6/44)   Writing objects:  15% (7/44)   Writing objects:  18% (8/44)   Writing objects:  20% (9/44)   Writing objects:  22% (10/44)   Writing objects:  25% (11/44)   Writing objects:  27% (12/44)   Writing objects:  29% (13/44)   Writing objects:  31% (14/44)   Writing objects:  34% (15/44)   Writing objects:  36% (16/44)   Writing objects:  38% (17/44)   Writing objects:  40% (18/44)   Writing objects:  43% (19/44)   Writing objects:  47% (21/44)   Writing objects:  50% (22/44)   Writing objects:  54% (24/44)   Writing objects:  56% (25/44)   Writing objects:  59% (26/44)   Writing objects:  61% (27/44)   Writing objects:  63% (28/44)   Writing objects:  65% (29/44)   Writing objects:  68% (30/44)   Writing objects:  70% (31/44)   Writing objects:  72% (32/44)   Writing objects:  75% (33/44)   Writing objects:  77% (34/44)   Writing objects:  79% (35/44)   Writing objects:  81% (36/44)   Writing objects:  84% (37/44)   Writing objects:  86% (38/44)   Writing objects:  88% (39/44)   Writing objects:  90% (40/44)   Writing objects:  93% (41/44)   Writing objects:  95% (42/44)   Writing objects:  97% (43/44)   Writing objects: 100% (44/44)   Writing objects: 100% (44/44), 11.16 KiB, done.
+Total 44 (delta 31), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   0eb8f6a..a931112  master -> master
+2010-03-12 17:34:31,943 INFO End backup local github to remote github host.
+2010-03-13 13:20:38,364 INFO Delete nousing captcha images
+2010-03-13 13:20:38,386 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-03-13 13:20:38,386 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-03-13 13:20:42,721 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010031310.log
+        4746 100%    0.00kB/s    0:00:00          4746 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1007/3617)
+data/cms/logs_2010031311.log
+        4746 100%    4.53MB/s    0:00:00          4746 100%    4.53MB/s    0:00:00 (xfer#2, to-check=1006/3617)
+muireception/lib/treeTable/treeTable.js
+       10433 100%    0.00kB/s    0:00:00         10433 100%    0.00kB/s    0:00:00 (xfer#3, to-check=1002/7515)
+muireception/lib/treeTable/treeTable.js~
+       10429 100%    9.95MB/s    0:00:00         10429 100%    9.95MB/s    0:00:00 (xfer#4, to-check=1001/7515)
+muireception/service/service.ks
+       22482 100%  177.06kB/s    0:00:00         22482 100%  177.06kB/s    0:00:00 (xfer#5, to-check=668/7860)
+muireception/service/service.ks~
+       22481 100%  171.52kB/s    0:00:00         22481 100%  171.52kB/s    0:00:00 (xfer#6, to-check=667/7860)
+
+sent 187175 bytes  received 1279 bytes  41878.67 bytes/sec
+total size is 47890756  speedup is 254.12
+2010-03-13 13:20:42,817 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768  18%    0.00kB/s    0:00:00        181424 100%   12.89MB/s    0:00:00 (xfer#1, to-check=0/2)
+
+sent 44055 bytes  received 31 bytes  88172.00 bytes/sec
+total size is 181424  speedup is 4.12
+2010-03-13 13:20:42,818 INFO End backup loacl karrigell diretory to local git.
+2010-03-13 13:20:42,818 INFO Begin to backup local github to remote github host.

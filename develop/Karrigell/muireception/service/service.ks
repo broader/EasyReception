@@ -327,11 +327,15 @@ def page_colsModel(**args):
 	return
 
 def _transform(node,parentIndex):	
-	#data = {'data': node.data[:len(COLUMNMODEL[:-1])],'depth':node.depth(),'parent':'', 'id':node.id}
-	data = {'data': node.data,'depth':node.depth(),'parent':'', 'id':node.id}	
-	parent = node.parent
-	if parent and parent.data:
-		 data['parent'] = parent.data[parentIndex]
+	data = {'data': node.data,'depth':node.depth(),'parent':'', 'id':node.id,'isLeaf':'0'}	
+	#parent = node.parent
+	#if node.parent and node.parent.data:
+		 #data['parent'] = parent.data[parentIndex]
+	if node.parent:
+		data['parent'] = node.parent.id
+		
+	if node.is_leaf():
+		data['isLeaf'] = '1'
 	 
 	return data
 	
