@@ -250,7 +250,7 @@ def _showServiceJs(category):
 		
 		query = '';
 		
-		if(trs.length == 0){
+		if(trs.length == 0){	// create a new subcategory
 			query = categoryInfo.join('='); 
 		}
 		else if(trs.length > 0 ){
@@ -258,7 +258,7 @@ def _showServiceJs(category):
 			// get data of this row
 			query = this.getRowDataWithProps(tr);
 			
-			// add parent name to query object
+			// if node has parent, add its parent name to query object
 			parentId = null, parentInnerId = tr.retrieve('parent');
 			if (parentInnerId){
 				parentId = this.genRowId(parentInnerId);
@@ -271,6 +271,8 @@ def _showServiceJs(category):
 				
 			query[parentName] = parentNameValue;
 			query[actionProp] = actionTypes[index];
+			
+			// transform the query json object to a url query string
 			query = query.toQueryString();
 		}
 		
@@ -284,7 +286,7 @@ def _showServiceJs(category):
 			modalOptions.title = (trs.length!=0)? modalTitles.service : modalTitles.category ;
 			new MUI.Modal(modalOptions);
 		}
-		else {
+		else {	// 'delete' action
 			query[actionProp] = actionTypes[index];
 			alert('delete action');
 			alert(this.htmlTable.element.getElement('tbody'));
@@ -293,7 +295,7 @@ def _showServiceJs(category):
 	
 	// options for TreeTable class initialization
 	var options = {
-		onload:function(){    		
+		onload:function(){
 			treeTable = new TreeTable( 
 				container,				
 				{
@@ -330,9 +332,7 @@ def page_colsModel(**args):
 
 def _transform(node,parentIndex):	
 	data = {'data': node.data,'depth':node.depth(),'parent':'', 'id':node.id,'isLeaf':'0'}	
-	#parent = node.parent
-	#if node.parent and node.parent.data:
-		 #data['parent'] = parent.data[parentIndex]
+	
 	if node.parent:
 		data['parent'] = node.parent.id
 		
@@ -505,8 +505,7 @@ def page_editService(**args):
 			info.append( {'prompt':GETPROPSLABEL('category'),'value':args.get('category')} )
 			info.append({'prompt':GETPROPSLABEL('subcategory'),'value':args.get(PARENTNAMEPROP)})
 			info.append({'prompt':GETPROPSLABEL('serial'),'value':args.get('serial')})
-			#hideInput.append( {'name':'category','value':args.get('category')})
-			#hideInput.append({'name':'name', 'value':args.get('name')})
+			
 			hideInput.append({'name':'id', 'value':args.get('id')})
 		elif index == 2 :	# delete action
 			pass
@@ -538,7 +537,6 @@ def page_editService(**args):
 		bnStyle = 'position:absolute;margin-left:12em;'
 		
 	# append hidden field that points out the action type
-	#hideInput.append({'name':'action','value':args.get('action') or ''})
 	[item.update({'type':'hidden'}) for item in hideInput]
 	[ form.append(INPUT(**item)) for item in hideInput ]
 	

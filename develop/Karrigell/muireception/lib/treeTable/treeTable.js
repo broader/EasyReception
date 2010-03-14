@@ -54,16 +54,9 @@ var TreeTable = new Class({
 		this.treeColumn = this.options.treeColumn;
 		this.fireRenderOver = this.options.fireRenderOver; 
 		
-		this.htmlTable = null;		
-		this.hideColumns = [];		
-			
-		this.draw();
-		
+		this.htmlTable=null,	this.hideColumns=[];
+		this.draw();		
 		this.loadData();
-		
-		//this.reset();
-		
-		//this.loadData();
 	},
 	
 	/*
@@ -75,6 +68,7 @@ var TreeTable = new Class({
 		// set table css style 
 		this.htmlTable.element.addClass(this.options.cssStyle);
 		
+		// set the table headers 
 		this.setHeaders();
 		
 		this.htmlTable.inject(this.container,'top');
@@ -103,6 +97,7 @@ var TreeTable = new Class({
 	
 	// set the css style for the header of tree table 
 	setHeaders: function(){
+		// get capable columns model from remote url 
 		colsUrl = this.options.colsModelUrl; 
 		if(colsUrl){			
 			var request = new Request.JSON({
@@ -113,23 +108,26 @@ var TreeTable = new Class({
 			request.get();		
 		};
 		
-		if(!this.colsModel)
-			return;
-		else
-			this.hideColumns = this.getHideColumns();
-			this.setTreeColumn();
+		if(!this.colsModel){	return;}
 		
+		this.hideColumns = this.getHideColumns();
+		
+		// set the value of this.treeColumn 
+		this.setTreeColumn();
+		
+		// the data object for setting table headers  
 		var data = [];
-		this.colsModel.each(function(column,index){
-			//alert(column.label);
+		this.colsModel.each(function(column,index){			
 			column.label = column.label || '/';
 			var col = {'content':column['label'],'properties':{}};
 			
-			if(column.property)
+			if(column.property){
 				col.properties = column.property;
+			};
 			
-			if(this.hideColumns.contains(index))
+			if(this.hideColumns.contains(index)){
 				col.properties['style'] = 'display:none;';
+			};
 				
 			data.push(col);
 		},this);
@@ -139,9 +137,12 @@ var TreeTable = new Class({
 	
 	// refresh the content in the table body
 	refreshTbody: function(){
-		this.htmlTable.element.getElement('tbody').empty(); 
+		// clear table body first 
+		this.htmlTable.element.getElement('tbody').empty();
+		 
 		// for the action that refresh table's body, it's no need to fire the 'rendover' Event 
 		this.fireRenderOver = false;
+		
 		this.loadData();
 	},
 	 
@@ -166,6 +167,9 @@ var TreeTable = new Class({
 		renderEnd = this.options.renderOver;		
 		if( this.fireRenderOver && renderEnd ){
 			this.fireEvent('onRenderOver',renderEnd(this));
+			
+			// reset this.fireRenderOver to initial value 
+			this.fireRenderOver = this.options.fireRenderOver; 
 		};
 	},
 	
@@ -177,8 +181,7 @@ var TreeTable = new Class({
 	// render data to each row 
 	setData: function(){
 		var rows = this.options.data; 
-		if( rows.length == 0 )
-			return;
+		if( rows.length == 0 ){	return;};
 		
 		rows.each(this.setRowData,this);							
 	},
@@ -190,10 +193,7 @@ var TreeTable = new Class({
 	 
 	// render data to each row
 	setRowData: function(row){		
-		row = $H(row);
-		var data = row.data,
-		//parent=row.parent,
-		depth = row.depth,  
+		row = $H(row), data = row.data, depth = row.depth,  
 		rowId = this.genRowId(row.id);
 					
 		// empty column will be set to ''				
@@ -219,14 +219,13 @@ var TreeTable = new Class({
 			}};
 			
 			if ( isButton ){				
-				// For button, insert a <IMG> Element
+				// For button type, insert a <IMG> Element
 				toInsert = new Element('img',{src: colModel.imgUrl});				  
 				
 				// maybe it has a callback function for click event				
 				if( this.options.bnFunctions.getKeys().contains(colModel.dataIndex)){ 
 					fn = this.options.bnFunctions[colModel.dataIndex];
-					toInsert.addEvent('click', fn.bind(this));
-					
+					toInsert.addEvent('click', fn.bind(this));					
 				};
 				
 				el.content = toInsert;
@@ -248,34 +247,43 @@ var TreeTable = new Class({
 		var tr = trRow.tr;
 		
 		// stored row data to tr Element 
-		row.each(function(value,key){tr.store(key,value);});
+		row.each(function(value,key){
+			tr.store(key,value);
+		});
 		
 		// add properties to tr element
 		tr.setProperties({'id': rowId});
-		tr.addEvent('dblclick',this.onRowDoubleClick.bind(this));		
-		tr.addClass(this.options.collapsedTag);
+		tr.addEvent('dblclick',this.onRowDoubleClick.bind(this));			
 		
 		if(depth > this.options.initialExpandedDepth){
+			// add the tag for tree collapsed status 	
+			tr.addClass(this.options.collapsedTag);
+			
 			tr.setProperty('style','display:none;');
+		}
+		else{
+			// add the tag for tree collapsed status 	
+			tr.addClass(this.options.expandedTag);
 		};		
 		
 		// set the td that holds collapsing status tag for tree 
 		var treeColumn = this.treeColumn;	
 			
-		if($defined(treeColumn)){	
-							
+		if($defined(treeColumn)){							
 			// compute the left offset
 			var offset= parseInt(this.options.indent)*(parseInt(depth)-1);
 			
 			options = {'style': ['margin-left:',offset,'px',';'].join('')+'padding-right: 19px'};
 			
 			if(row.isLeaf.toInt()==0){
+				// add tree pointer  tag to this row 
 				options.class = this.options.depthPointer; 
 				options.events = {'click':	function(e){
 					new Event(e).stop();				
 					this.collapsedToggle(e.target.getParents('tr')[0]);
 				}.bind(this)};
 			};
+			
 			var treeTag = new Element('span',options);		 
 			
 			treeTag.inject(trRow.tds[treeColumn],'top');
@@ -371,8 +379,12 @@ var TreeTable = new Class({
 	When the tree pointer in the row has been clicked, toggle its collapsed status.
 	*/
 	collapsedToggle: function(tr){				
-		// toggle the collapsed pointer tag		 
-		if( tr.getProperty('class').contains(this.options.expandedTag)){
+		// toggle the collapsed pointer tag		
+		klass = tr.getProperty('class'); 	
+		if( !klass.contains(this.options.expandedTag) && !klass.contains(this.options.collapsedTag)){
+			tr.addClass(this.options.collapsedTag);
+		}
+		else if( klass.contains(this.options.expandedTag)){ 
 			tr.removeClass(this.options.expandedTag);			
 			tr.addClass(this.options.collapsedTag);
 		}
