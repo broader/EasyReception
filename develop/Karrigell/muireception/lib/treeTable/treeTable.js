@@ -190,8 +190,20 @@ var TreeTable = new Class({
 	genRowId: function(innerId){
 		return [this.options.idPrefix,innerId].join('');
 	}, 
+	
+	// get inner id from the id of tr Element
+	getInnerId: function(rowId){
+		if(this.options.idPrefix){
+			innerId = rowId.slice(this.options.idPrefix.length); 		
+		}
+		else{
+			innerId = rowId
+		};
+		
+		return innerId
+	}, 
 	 
-	// render data to each row
+	// the inner function to render data to each row
 	setRowData: function(row){		
 		row = $H(row), data = row.data, depth = row.depth,  
 		rowId = this.genRowId(row.id);

@@ -370,7 +370,7 @@ MUI.extend({
 				width: 220,
 				height: 40,
 				//y: 53,
-				y: 280,
+				y: 180,
 				x: 700,
 				padding:  { top: 10, right: 12, bottom: 10, left: 12 },
 				shadowBlur: 5	

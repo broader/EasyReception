@@ -185,7 +185,12 @@ ACTIONLABELS = [item.get('label') for item in ACTIONS]
 ACTIONPROP,PARENTNAMEPROP = ('action','parentName')
 def _showServiceJs(category):
 	paras = [APP, CATEGORYTAG, category, CONTAINERID(category)]
-	paras.extend(['/'.join((APPATH,name)) for name in ('page_colsModel','page_serviceItems', 'page_editService')])
+	paras.extend(\
+		['/'.join((APPATH,name)) for name in \
+		('page_colsModel','page_serviceItems', 'page_editService', 'page_serviceEditAction')\
+		]\
+	)
+	
 	paras.append(_('Create New Subategory'))
 	paras.extend([_('Create a new subcategory for service'), _('Edit Service Information')])
 	
@@ -197,7 +202,8 @@ def _showServiceJs(category):
 	js = \
 	"""
 	var appName='%s', categoryInfo=['%s','%s'],
-	container='%s', colsModel='%s',rowsUrl='%s', actionUrl='%s',
+	container='%s', colsModel='%s',
+	rowsUrl='%s', actionUrl='%s', deleteUrl='%s',
 	addCategoryBnLabel='%s',
 	modalTitles = {'category':'%s', 'service':'%s'},
 	actionTypes = ['%s', '%s', '%s'],
@@ -218,6 +224,8 @@ def _showServiceJs(category):
 	// and insert a subcategory creation button out of the table.
 	function addButton(ti){		
 		// Parameter 'ti'- the TreeTable instance
+		bnContainer = new Element('div',{style: "text-align:right;width:43em;"});
+		ti.container.grab(bnContainer);
 		
 		// add 'add','edit','delete' buttons
 		actionTypes.each(function(actionType,index){
@@ -230,7 +238,8 @@ def _showServiceJs(category):
 			button = MUI.styledButton(options);
 			button.addEvent('click',action2service.pass(index,this));
 			
-			this.container.adopt(button);
+			bnContainer.grab(button);
+			
 		},ti);
 	};
 	
@@ -243,7 +252,7 @@ def _showServiceJs(category):
 			alert('For this type of action, please select a row first !');
 			return
 		}
-		else if(trs.length > 1 && [0,1].contains(index)){
+		else if(trs.length > 1 && [0,1,2].contains(index)){
 			alert('For this type of action, please select no more than one row !');
 			return
 		};
@@ -287,12 +296,41 @@ def _showServiceJs(category):
 			new MUI.Modal(modalOptions);
 		}
 		else {	// 'delete' action
-			query[actionProp] = actionTypes[index];
-			alert('delete action');
-			alert(this.htmlTable.element.getElement('tbody'));
+			//query = $H({'actionProp':actionTypes[index],'id':this.getInnerId(trs[0].id)});
+			
+			//url = [actionUrl, query.toQueryString()].join('?');
+			//alert(this.htmlTable.element.getElement('tbody'));
+			MUI.confirmWindow('Delete service items:', delServiceItems.bind(this), {});
+			//MUI.confirmWindow('Delete service items:', delServiceItems.bind, {});
 		};
 	};
 	
+	/******************************************************************
+	Service item delelting action
+	******************************************************************/
+	function delServiceItems(isConfirm){
+		if(isConfirm.toInt()==1){return};
+		
+		jsonRequest = new Request.JSON({async:false});    
+	   // set some options for Request.JSON instance
+      jsonRequest.setOptions({
+      	url: deleteUrl,
+         onSuccess: function(res){
+         	MUI.notification(res);
+         }
+      });
+	   
+	   tr = this.getSelectedRows()[0];
+	   data = {'id':this.getInnerId(tr.id)};
+	   data[actionProp] = actionTypes[2];
+	   jsonRequest.get(data);
+		
+	};
+	
+	
+	/****************************************************************** 
+	Initialize tree table 
+	******************************************************************/
 	// options for TreeTable class initialization
 	var options = {
 		onload:function(){
@@ -693,7 +731,10 @@ def page_serviceEditAction(**args):
 		model.edit_item(USER, 'service', sid, args, 'edit', True)	
 		successTag = 1
 	elif actionType == 2:	# 'delete' action
-		pass	
+		sid = args.get('id')
+		# delete action
+		# result info
+		successTag = JSON.encode(_('Delete Service Item %s Action!'%sid),encoding='utf8')	
 		
 	print successTag
 	return

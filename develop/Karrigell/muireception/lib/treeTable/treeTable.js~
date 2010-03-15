@@ -190,8 +190,13 @@ var TreeTable = new Class({
 	genRowId: function(innerId){
 		return [this.options.idPrefix,innerId].join('');
 	}, 
+	
+	// get inner id from the id of tr Element
+	getInnerId: function(rowId){
+		return rowId.slice(this.options.idPrefix.length)
+	}, 
 	 
-	// render data to each row
+	// the inner function to render data to each row
 	setRowData: function(row){		
 		row = $H(row), data = row.data, depth = row.depth,  
 		rowId = this.genRowId(row.id);
@@ -253,9 +258,7 @@ var TreeTable = new Class({
 		
 		// add properties to tr element
 		tr.setProperties({'id': rowId});
-		tr.addEvent('dblclick',this.onRowDoubleClick.bind(this));	
-		
-		
+		tr.addEvent('dblclick',this.onRowDoubleClick.bind(this));			
 		
 		if(depth > this.options.initialExpandedDepth){
 			// add the tag for tree collapsed status 	

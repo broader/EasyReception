@@ -150,8 +150,8 @@ MUI.extend({
 			options = {
 				txt: labels[index],
 			   imgType: actionType,
-				bnAttrs: {'style':'margin-right:1em;'},
-				bnSkin: 'sexycadet'
+				bnAttrs: {'style':'margin-right:1em;'}
+				//bnSkin: 'sexycadet'
 			};			
 			button = MUI.styledButton(options);
 			button.addEvent('click', function(e){		
@@ -191,16 +191,8 @@ var loginFns = {
 	/* The 'click' callback function for the 'login' menu. */
 	'login': function(event){
 		new Event(event).stop();
-		//MochaUI.notification('Login Window');
 		
-		MUI.confirmWindow(
-			'test',
-			function(i){alert(i)},			
-			$H()
-		);
-		
-		/*		
-		new MUI.Modal({
+		modal = new MUI.Modal({
 			//id: dlgId,
 			title: '<%=_("Login Dialog") %>',			
 			contentURL: "<%=pagefn.LOGINFORM%>",
@@ -215,8 +207,9 @@ var loginFns = {
 				MUI.removeErr();
 			}			
 		});
-		*/
-		return false;
+		
+		return modal
+		
 	},
 	
 	'register': function(event){

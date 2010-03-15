@@ -176,7 +176,8 @@ MUI.extend({
 			//'data': options.data,
 			'onContentLoaded': null,
 			'require': {}			
-		});	
+		});
+			
 	}
 	
 });
@@ -190,16 +191,8 @@ var loginFns = {
 	/* The 'click' callback function for the 'login' menu. */
 	'login': function(event){
 		new Event(event).stop();
-		//MochaUI.notification('Login Window');
 		
-		MUI.confirmWindow(
-			'test',
-			function(i){alert(i)},			
-			$H()
-		);
-		
-		/*		
-		new MUI.Modal({
+		modal = new MUI.Modal({
 			//id: dlgId,
 			title: '<%=_("Login Dialog") %>',			
 			contentURL: "<%=pagefn.LOGINFORM%>",
@@ -214,8 +207,9 @@ var loginFns = {
 				MUI.removeErr();
 			}			
 		});
-		*/
-		return false;
+		
+		return modal
+		
 	},
 	
 	'register': function(event){
