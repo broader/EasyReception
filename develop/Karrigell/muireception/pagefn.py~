@@ -8,9 +8,9 @@ SOINFO = {'user':'userinfo',}
 getApp = lambda p,i : p.split('/')[i]
 
 
-##
+#######################################################################################
 # Some global javascript liberies #####################################################
-#--------------------------------------------------------------------------------------
+#######################################################################################
 JSLIB = {}
 
 # form validation lib
@@ -57,10 +57,18 @@ REGISTERTABS = \
 ]
 #--------------------------------------------------------------------------------------
 
-##
+
+
+#########################################################################################
 # Layout setup
+#########################################################################################
+
+# the texts for the buttons in confirm window
 #---------------------------------------------------------------------------------------
+CONFIMRBUTTONS = ( _('Confirm'), _('Cancel'))
+
 # login area on the top and right corner of the screen
+#---------------------------------------------------------------------------------------
 LOGINAPPNAME = 'loginApp' 
 LOGINFORM = '/'.join(('layout.ks', 'page_loginForm'))
 LOGINPANEL = 'topNav'
@@ -244,7 +252,10 @@ def script(src, link=True):
 		script =  SCRIPT(type='text/javascript', src=src)
 	return script
 
+
+##########################################################################################
 #-----New added functins -----------------------------------------------------------------
+##########################################################################################
 
 # some global variables stored in Session object of Karrigell
 COOKIENAME = "sessionId"
@@ -264,7 +275,9 @@ def sexyButton(txt,bnAttrs={},bnType='',size='sexymedium',skin='sexysimple'):
 	Parameters:
 		txt- the text on the button
 		bnAttrs- the attributs for <button> element
-		bnType-
+		bnType- the predefined type in the sexybutton plugin, such as 'ok'
+		size- it should be one of 'sexysmall','sexymedium','sexylarge'
+		skin- the background color for the button, the sexybutton plugin has designed many, just select one  
 	"""
 	bnClass = ['sexybutton', size, skin]
 	bnClass = ' '.join(bnClass)

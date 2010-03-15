@@ -54,11 +54,13 @@ MUI.extend({
 		// Remove form validation error informations that may be left.
 		MUI.removeErr();
 		
-		// close modal dialog
-		var keys = MUI.Windows.instances.getKeys();
-   	if (keys.length > 0){
-   		MUI.closeWindow($(keys[0]));
-   	}; 
+		// close modal dialog		
+   	MUI.Windows.instances.each(function(w){
+   		if(w.options.type=='modal'){
+   	 		w.close();
+   	 	};
+   	}); 
+   	
    	return true
 	},
 	
@@ -86,7 +88,7 @@ MUI.extend({
 				 
 	*/
 	styledButton: function(options){
-		var bnClass = ['sexybutton',];	
+		var bnClass = ['sexybutton','sexysimple'];	
 		
 		// default settings	
 		$H({'bnSize':'sexymedium', 'bnSkin':'sexysimple'}).each(function(value,prop){
@@ -110,6 +112,72 @@ MUI.extend({
 		button.grab(new Element('sapn').grab(span));
 		
 		return button; 
+	},
+	
+	/*
+	Pop up a window to require user to confirm a action. 
+	*/
+	confirmWindow: function(message,closeFn, options){
+		var defaultOptions = {
+			loadMethod:'html',
+			type: 'window',
+			//title: '',
+			maximizable: false,
+			//minimizable: false,
+			//resizable: false,				
+			width:320, height:160, y: 120, 
+			padding:  { top: 10, right: 12, bottom: 10, left: 12 },
+			shadowBlur: 8
+		};
+		
+		$H(options).each(function(value,key){
+			detaultOptions[key] = value;
+		});
+		
+		cmWindow = new MUI.Window(defaultOptions);
+		
+		messageEl = new Element('div',{
+			html:message,
+			'class':'note',
+			'style':'font-weight:bold;font-size:1.5em;'
+		});
+		
+		// add buttons to content
+		buttons = new Element('div',{style:'text-align:right;'});
+		labels = ['<%=pagefn.BUTTONLABELS['confirmWindow']['confirm']%>', '<%=pagefn.BUTTONLABELS['confirmWindow']['cancel']%>'];
+		['ok','cancel'].each(function(actionType,index){
+			// create buttons
+			options = {
+				txt: labels[index],
+			   imgType: actionType,
+				bnAttrs: {'style':'margin-right:1em;'},
+				bnSkin: 'sexycadet'
+			};			
+			button = MUI.styledButton(options);
+			button.addEvent('click', function(e){		
+				new Event(e).stop();						
+				// close confirm window
+				cmWindow.close();				
+				closeFn(index);
+			});
+			buttons.grab(button);
+			
+		});		
+		
+		container = new Element('div');
+		container.adopt(messageEl,buttons);			
+		
+		// add content to this confirm window
+		MUI.updateContent({
+			'element': cmWindow.windowEl,
+			'content': container,
+			'method': 'html',
+			//'url': options.contentURL,
+			//'data': options.data,
+			'onContentLoaded': null,
+			'require': {}			
+		});
+			
 	}
 	
 });
@@ -119,9 +187,19 @@ MUI.extend({
 var fNames = [ 'login', 'register' ];
 // a object holds two functions for prelogin 
 var loginFns = {
+
+	/* The 'click' callback function for the 'login' menu. */
 	'login': function(event){
 		new Event(event).stop();
 		//MochaUI.notification('Login Window');
+		
+		MUI.confirmWindow(
+			'test',
+			function(i){alert(i)},			
+			$H()
+		);
+		
+		/*		
 		new MUI.Modal({
 			//id: dlgId,
 			title: '<%=_("Login Dialog") %>',			
@@ -137,6 +215,7 @@ var loginFns = {
 				MUI.removeErr();
 			}			
 		});
+		*/
 		return false;
 	},
 	

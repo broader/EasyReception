@@ -650,6 +650,8 @@ MUI.Window = new Class({
 			var x = options.x - options.shadowBlur;
 		}
 		
+		alert('Windows.js,L653, options x is '+options.x+',window x offset is '+x+', options y is '+options.y+', y offset is '+y);
+		
 		this.windowEl.setStyles({
 			'top': y,
 			'left': x

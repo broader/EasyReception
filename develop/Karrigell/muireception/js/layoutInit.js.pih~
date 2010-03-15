@@ -184,7 +184,8 @@ function layoutInit(){
 // Add some assistant tools to MUI
 MUI.extend({
 
-	// login function
+	/* Prepare  the login menus
+	*/
 	login: function(){
 		var menuChain = new Chain();
 		menuChain.chain(

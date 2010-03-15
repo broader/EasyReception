@@ -111,7 +111,7 @@ def _formJs():
 	paras.append(APP)
 	
 	# append the error prompts for fields' validation 
-	paras.extend([ _('The input account is not existed !'), pagefn.PWDERR])
+	paras.extend([ _('The input account is not existed !'), _('The input password is wrong, please input the valid password!')])
 	
 	# append the action urls for fields' validation 
 	paras.append( '/'.join((APPATH, 'page_accountValid')))

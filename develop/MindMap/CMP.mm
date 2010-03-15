@@ -442,7 +442,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1245853638712" FOLDED="true" ID="_" MODIFIED="1267587709964" POSITION="right" TEXT="Used Web Widgets">
+<node COLOR="#0033ff" CREATED="1245853638712" ID="_" MODIFIED="1268620333384" POSITION="right" TEXT="Used Web Lib/Widgets">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1258549795684" FOLDED="true" ID="ID_1371740104" MODIFIED="1265253605180" TEXT="jquery lib">
@@ -528,7 +528,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1258549813016" ID="ID_1232595129" MODIFIED="1267516716254" TEXT="mootools">
+<node COLOR="#00b439" CREATED="1258549813016" FOLDED="true" ID="ID_1232595129" MODIFIED="1268619399297" TEXT="mootools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1258549821023" ID="ID_399916535" MODIFIED="1259806094940" TEXT="tabs">
@@ -568,7 +568,15 @@
 <node COLOR="#111111" CREATED="1258549952599" ID="ID_616227543" MODIFIED="1258549955034" TEXT="http://www.e-magine.ro/web-dev-and-design/36/moodalbox/"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1259898004321" FOLDED="true" ID="ID_372536092" MODIFIED="1265253610755" TEXT="others ">
+<node COLOR="#00b439" CREATED="1268620263252" ID="ID_1186941418" MODIFIED="1268620267132" TEXT="MochaUI">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1268620271613" ID="ID_1670060654" MODIFIED="1268620278853" TEXT="MUI.notification">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1268620291854" ID="ID_994545196" MODIFIED="1268620316134" TEXT="Core.js,L363"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1259898004321" ID="ID_372536092" MODIFIED="1268620260719" TEXT="others ">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1259898055768" ID="ID_641093649" MODIFIED="1259900220999" TEXT="round corner">
@@ -717,16 +725,16 @@
 <font NAME="SansSerif" SIZE="16"/>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1262786726152" FOLDED="true" ID="ID_476877394" MODIFIED="1267516713922" POSITION="right" TEXT="Source">
+<node COLOR="#0033ff" CREATED="1262786726152" FOLDED="true" ID="ID_476877394" MODIFIED="1268620236630" POSITION="right" TEXT="Source">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1266917069312" ID="ID_30201427" MODIFIED="1266917075360" TEXT="Management">
+<node COLOR="#00b439" CREATED="1266917069312" FOLDED="true" ID="ID_30201427" MODIFIED="1268619406974" TEXT="Management">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1262786735562" FOLDED="true" ID="ID_495182632" MODIFIED="1266917078142" TEXT="GitHub">
+<node COLOR="#990000" CREATED="1262786735562" ID="ID_495182632" MODIFIED="1268619404086" TEXT="GitHub">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1262786764185" FOLDED="true" ID="ID_875290458" MODIFIED="1266917078142" TEXT="&#x4f7f;&#x7528;&#x8bf4;&#x660e;">
+<node COLOR="#111111" CREATED="1262786764185" FOLDED="true" ID="ID_875290458" MODIFIED="1268619406141" TEXT="&#x4f7f;&#x7528;&#x8bf4;&#x660e;">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1262786741353" ID="ID_1161409631" MODIFIED="1262786771419" TEXT="&#x521b;&#x5efa;&#x76ee;&#x5f55;&#x6307;&#x5bfc;&#xff1a;&#xa;http://hi.baidu.com/jspring/blog/item/59f7dfcdce190a560fb345c1.html&#xa;&#xa;&#x4e0a;&#x4f20;&#x540c;&#x6b65;&#x6587;&#x4ef6;&#xff1a;&#xa;#git add &apos;your file or directory name&apos;&#xa;git commit -m &apos;you commit message&apos;&#xa;git push origin master&#xa;&#xa;&#x5220;&#x9664;&#x6587;&#x4ef6;&#xff1a;&#xa;git rm ./develop/Karrigell/muireception/register/tmp/*.jpeg&#xa;git commit -m &apos;you message&apos;&#xa;git push origin master&#xa;">
 <font NAME="SansSerif" SIZE="12"/>
@@ -846,7 +854,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1268449745515" POSITION="right" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" ID="Freemind_Link_986904229" MODIFIED="1268643097158" POSITION="right" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -858,7 +866,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1252027856832" ID="Freemind_Link_1618511399" MODIFIED="1268277736459" TEXT="Javascript">
+<node COLOR="#00b439" CREATED="1252027856832" FOLDED="true" ID="Freemind_Link_1618511399" MODIFIED="1268619383448" TEXT="Javascript">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1250147399215" FOLDED="true" ID="Freemind_Link_404010672" MODIFIED="1257254491635" TEXT="JSON">
@@ -895,7 +903,7 @@
 <node COLOR="#111111" CREATED="1257254522312" ID="ID_1903159480" MODIFIED="1257254635090" TEXT="&#x5728;&#x51fd;&#x6570;&#x4e2d;&#x8c03;&#x7528;&#x65f6;undefined&#xa;&#x51fd;&#x6570;&#x4e2d;&#x4e0d;&#x80fd;&#x6709;&#x4e0e;&#x5168;&#x5c40;&#x53d8;&#x91cf;&#x540c;&#x540d;&#x7684;&#x53d8;&#x91cf;&#xff0c;&#x5426;&#x5219;&#x5728;&#x51fd;&#x6570;&#x5185;&#x90e8;&#xff0c;&#x53ea;&#x8981;&#x5728;&#x6b64;&#x53d8;&#x91cf;&#x58f0;&#x660e;&#x4e4b;&#x524d;&#x8c03;&#x7528;&#x6b64;&#x53d8;&#x91cf;&#xff0c;&#x5373;&#x4f7f;&#x4e3a;&#x5168;&#x5c40;&#x53d8;&#x91cf;&#xff0c;&#x4e5f;&#x4f1a;&#x662f;undefined"/>
 <node COLOR="#111111" CREATED="1257254641263" ID="ID_1159819468" MODIFIED="1257254653858" TEXT="var &#x58f0;&#x660e;&#x7528;&#x4e8e;&#x5168;&#x5c40;&#x53d8;&#x91cf;"/>
 </node>
-<node COLOR="#111111" CREATED="1264043114747" FOLDED="true" ID="ID_1714832871" MODIFIED="1264043299433" TEXT="&lt;a hrref=&quot;#&quot;&gt;">
+<node COLOR="#111111" CREATED="1264043114747" FOLDED="true" ID="ID_1714832871" MODIFIED="1268619378358" TEXT="&lt;a hrref=&quot;#&quot;&gt;">
 <node COLOR="#111111" CREATED="1264043134921" ID="ID_61402967" MODIFIED="1264043282135" TEXT="1.href=&quot;javascript:void(0);&quot;&#xa;2.href=&quot;javascript:;&quot;&#xa;3.href=&quot;#all&quot;&#xa;4.href=&quot;####&quot;&#xa;&#xa;"/>
 <node COLOR="#111111" CREATED="1264043285288" ID="ID_1523819906" MODIFIED="1264043292727" TEXT="&#x5176;&#x5b83;&#x95ee;&#x9898;&#xff1a;&#xa;1&#x3001;&lt;a href=&quot;#&quot; onclick=&quot;alert()&quot;&gt;click me&lt;/a&gt;&#xa;2&#x3001;&lt;a href=&quot;javascript:void(0)&quot; onclick=&quot;alert()&quot;&gt;&lt;/a&gt;&#xa;&#xa;&#x7b2c;1&#x4e2a;&#xff0c;&#x5728;IE6&#xff08;IE8&#x6ca1;&#x6709;&#x54ea;&#x4e2a;&#x5730;&#x7403;&#x4e86;&#xff09;&#x4e0b;&#x70b9;&#x51fb;&#x94fe;&#x63a5;&#xff0c;&#x5f39;&#x51fa;&#x5bf9;&#x8bdd;&#x6846;&#x6ca1;&#x6709;&#x6309;&#x786e;&#x5b9a;&#x7684;&#x65f6;&#x5019;&#xff0c;&#x4f60;&#x5c31;&#x4f1a;&#x53d1;&#x73b0;IE&#x5de5;&#x5177;&#x680f;&#x4e0a;&#x9762;&#x7684;&#x90a3;&#x4e2a;&#x5c0f;&#x5730;&#x7403;&#x5728;&#x65cb;&#x8f6c;&#xff0c;&#x8bf4;&#x660e;IE&#x8fd8;&#x5728;&#x53d1;&#x9001;&#x4e00;&#x4e2a;&#x8bf7;&#x6c42;&#x3002;&#x3002;&#x3002;&#xa;&#xa;&#x7b2c;2&#x4e2a;&#xff0c;&#x5728;IE6&#x4e0b;&#xff0c;&#x53d1;&#x73b0;&#x5730;&#x7403;&#x662f;&#x9759;&#x6b62;&#x4e0d;&#x52a8;&#x7684;&#xff0c;&#x4ec5;&#x4ec5;&#x662f;&#x6267;&#x884c;&#x4e00;&#x4e2a;&#x672c;&#x5730;&#x7684;&#x52a8;&#x4f5c;&#x3002; &#xa;&#xa;"/>
 <node COLOR="#111111" CREATED="1264043198565" ID="ID_1409686944" MODIFIED="1264043205226" TEXT="&#x4f7f;&#x7528;&#x6837;&#x5f0f; cursor:pointer;&#xa;&#x5373;&#x4f7f;&#x662f;&#x4e00;&#x4e2a;div&#xa;&lt;div style=&quot;cursor:pointer;&quot;&gt;111&lt;/div&gt;&#xa;&#x4e5f;&#x662f;&#x53ef;&#x4ee5;&#x5b9e;&#x73b0;&#x9f20;&#x6807;&#x653e;&#x4e0a;&#x53bb;&#x53d8;&#x6210;&#x4e00;&#x53ea;&#x624b;&#xa;&#x8fdb;&#x9636;&#xa;&lt;style&gt;&#xa;.hover{font-width:blod;}&#xa;&lt;/style&gt;&#xa;&lt;div style=&quot;cursor:pointer;&quot; onmouseover=&quot;this.className=&apos;hover&apos;&quot; onmouseout=&quot;this.class=&apos;&apos;&quot;&gt;111&lt;/div&gt;&#xa;"/>
@@ -1122,7 +1130,7 @@
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="help"/>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1268449758926" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1268643095039" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1173066298350" ID="Freemind_Link_1468412211" MODIFIED="1268449762188" TEXT="UI">
@@ -1525,7 +1533,7 @@
 </node>
 <node COLOR="#990000" CREATED="1261723645352" ID="ID_454191510" MODIFIED="1267587678751" TEXT="Examples">
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1261116666825" ID="ID_1018641055" MODIFIED="1268450709284" TEXT="desktop">
+<node COLOR="#111111" CREATED="1261116666825" FOLDED="true" ID="ID_1018641055" MODIFIED="1268619363028" TEXT="desktop">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="12"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -1596,7 +1604,11 @@
 <node COLOR="#111111" CREATED="1264042376170" ID="ID_1251394535" MODIFIED="1268099811419" TEXT="Portfolio">
 <node COLOR="#111111" CREATED="1264042381949" ID="ID_1850665483" MODIFIED="1264042383975" TEXT="http://www.opendesigns.org/preview/?design=1716"/>
 </node>
-<node COLOR="#111111" CREATED="1265250785609" ID="ID_1688461628" MODIFIED="1268099781954" TEXT="File manager"/>
+<node COLOR="#111111" CREATED="1265250785609" ID="ID_1688461628" MODIFIED="1268099781954" TEXT="File manager">
+<node COLOR="#111111" CREATED="1268614243464" ID="ID_1024460139" MODIFIED="1268614247742" TEXT="Upload">
+<node COLOR="#111111" CREATED="1268614230088" ID="ID_625497354" MODIFIED="1268614260957" TEXT="http://www.swfupload.org"/>
+</node>
+</node>
 <node COLOR="#111111" CREATED="1265254478204" ID="ID_306805223" MODIFIED="1268450748212" TEXT="Widget">
 <icon BUILTIN="info"/>
 <node COLOR="#111111" CREATED="1268450723635" ID="ID_1647902761" MODIFIED="1268450727602" TEXT="Tutorial">

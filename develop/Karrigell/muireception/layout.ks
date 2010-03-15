@@ -145,6 +145,7 @@ def _formJs():
    				// remove all the imported Assets of login module
    				am.remove(appName,'app');
    				
+   				// everything is done, close the dialog
    				MUI.closeModalDialog();
    				return false
 				},
