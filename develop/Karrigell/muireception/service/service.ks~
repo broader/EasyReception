@@ -192,11 +192,16 @@ def _showServiceJs(category):
 	)
 	
 	paras.append(_('Create New Subategory'))
-	paras.extend([_('Create a new subcategory for service'), _('Edit Service Information')])
-	
+	paras.extend([_('Create a new subcategory for service'), _('Edit Service Information')])	
 	
 	[ paras.extend(l) for l in (ACTIONTYPES,ACTIONLABELS)]
 	paras.extend([ACTIONPROP, PARENTNAMEPROP])
+	
+	# 'edit' and 'delete' should select a row first
+	paras.append(_('For this type of action, please select a row first !'))
+	
+	# could not select more than one row
+	paras.append(_('Please select no more than one row !'))
 	
 	paras = tuple(paras)
 	js = \
@@ -208,7 +213,8 @@ def _showServiceJs(category):
 	modalTitles = {'category':'%s', 'service':'%s'},
 	actionTypes = ['%s', '%s', '%s'],
 	actionLabels = ['%s', '%s', '%s'],
-	actionProp = '%s', parentName='%s';
+	actionProp = '%s', parentName='%s',
+	noneRowErr = '%s', moreRowErr='%s';
 	
 	var treeTable;
 	
@@ -224,7 +230,7 @@ def _showServiceJs(category):
 	// and insert a subcategory creation button out of the table.
 	function addButton(ti){		
 		// Parameter 'ti'- the TreeTable instance
-		bnContainer = new Element('div',{style: "text-align:right;width:100em;"});
+		bnContainer = new Element('div',{style: 'text-align:right;width:38em;'});
 		ti.container.grab(bnContainer);
 		
 		// add 'add','edit','delete' buttons
@@ -248,12 +254,12 @@ def _showServiceJs(category):
 	*/
 	function action2service(index){
 		trs = this.getSelectedRows();
-		if(trs.length == 0 && [1,2].contains(index)){
-			alert('For this type of action, please select a row first !');
+		if(trs.length == 0 && [1,2].contains(index)){	// 'edit' or 'delete' action
+			MUI.alert(noneRowErr);
 			return
 		}
 		else if(trs.length > 1 && [0,1,2].contains(index)){
-			alert('For this type of action, please select no more than one row !');
+			MUI.alert(moreRowErr);
 			return
 		};
 		
@@ -296,12 +302,7 @@ def _showServiceJs(category):
 			new MUI.Modal(modalOptions);
 		}
 		else {	// 'delete' action
-			//query = $H({'actionProp':actionTypes[index],'id':this.getInnerId(trs[0].id)});
-			
-			//url = [actionUrl, query.toQueryString()].join('?');
-			//alert(this.htmlTable.element.getElement('tbody'));
-			MUI.confirmWindow('Delete service items:', delServiceItems.bind(this), {});
-			//MUI.confirmWindow('Delete service items:', delServiceItems.bind, {});
+			MUI.confirm('Delete service items:', delServiceItems.bind(this), {});
 		};
 	};
 	
@@ -321,7 +322,8 @@ def _showServiceJs(category):
       });
 	   
 	   tr = this.getSelectedRows()[0];
-	   data = {'id':this.getInnerId(tr.id)};
+	   
+	   data = {'id':this.getInnerId(tr.id),'category':this.getCellValueByRowId(tr.id,'category')};
 	   data[actionProp] = actionTypes[2];
 	   jsonRequest.get(data);
 		
@@ -368,7 +370,8 @@ def page_colsModel(**args):
 	print JSON.encode(colsModel,encoding='utf8')	
 	return
 
-def _transform(node,parentIndex):	
+"""
+def _transform(node):	
 	data = {'data': node.data,'depth':node.depth(),'parent':'', 'id':node.id,'isLeaf':'0'}	
 	
 	if node.parent:
@@ -378,28 +381,45 @@ def _transform(node,parentIndex):
 		data['isLeaf'] = '1'
 	 
 	return data
-	
-def _getServiceItems(category, props=None, sort4tree=False):
+"""
+
+def _getServiceItems(category,props=None):
 	# get items from 'service' class in database
 	search = {'category' : category}
 	items = model.get_items_ByString(USER, 'service', search, props)
-	if not sort4tree:
-		return items
-		
+	return items
+
+def _data2tree(items,idFn,pidFn):
 	# constructs a tree 
 	# the function to the node's id 
-	idFn = lambda i: i[props.index('id')]
+	#idFn = lambda i: i[props.index('id')]
 	# the function to the id of the parent of a node
-	pidFn = lambda i: i[props.index('subcategory')]
+	#pidFn = lambda i: i[props.index('subcategory')]
 	# tree construntion Class
 	tree = treeHandler.TreeHandler(items, idFn, pidFn)
+	return tree.flatten()
 	
+def _node2json(node):
+	data = {'data': node.data,'depth':node.depth(),'parent':'', 'id':node.id,'isLeaf':'0'}	
+	
+	if node.parent:
+		data['parent'] = node.parent.id
+		
+	if node.is_leaf():
+		data['isLeaf'] = '1'
+	 
+	return data
+
+def _treeFlattenData(category,props):
+	items = _getServiceItems(category,props)
+	idFn = lambda i: i[props.index('id')]
+	pidFn = lambda i: i[props.index('subcategory')]
+	nodes = _data2tree(items,idFn,pidFn)
 	# handle each row of data, transform them to client's required format
 	# sorted[1:] - pop out the first root node which has no data
-	parentIndex = props.index('id')	
-	sorted = [ _transform(node, parentIndex) for node in tree.flatten()]
+	sorted = [ _node2json(node) for node in nodes]
 	return sorted[1:]
-	
+
 def page_serviceItems(**args):
 	"""
 	"""
@@ -411,7 +431,9 @@ def page_serviceItems(**args):
 		
 	# filter the root category items	
 	nameIndex = props.index('name')	
-	rows = filter( lambda item: item['data'][nameIndex], _getServiceItems(category, props, True))
+	#rows = filter( lambda item: item['data'][nameIndex], _getServiceItems(category, props, True))
+	rows = filter( lambda item: item['data'][nameIndex], _treeFlattenData(category,props))
+	
 	
 	for index,item in enumerate(rows):
 		data = item['data']
@@ -545,8 +567,6 @@ def page_editService(**args):
 			info.append({'prompt':GETPROPSLABEL('serial'),'value':args.get('serial')})
 			
 			hideInput.append({'name':'id', 'value':args.get('id')})
-		elif index == 2 :	# delete action
-			pass
 	
 	# show the fields in 'info' list before html Form Element
 	if info:
@@ -713,6 +733,10 @@ def _editServiceJs():
 	
 	return js
 
+def _deletable(nodeid,category):
+	""" Judge wheher this node could be deleted by its node id. """
+	return True
+	
 def page_serviceEditAction(**args):
 	action = args.pop('action')
 	successTag = 0
@@ -731,11 +755,14 @@ def page_serviceEditAction(**args):
 		model.edit_item(USER, 'service', sid, args, 'edit', True)	
 		successTag = 1
 	elif actionType == 2:	# 'delete' action
-		sid = args.get('id')
-		# delete action
-		# result info
-		successTag = JSON.encode(_('Delete Service Item %s Action!'%sid),encoding='utf8')	
+		sid,category = [ args.get(prop) for prop in ('id','category')]
 		
+		if _deleteable(sid,category):
+			model.delete_item( USER, 'service', sid, isId=True)
+			successTag = JSON.encode(_('Delete Service Item %s Action!'%sid),encoding='utf8')
+		else:
+			successTag = JSON.encode(_('Delete Service Item %s Action Failed!'%sid),encoding='utf8')
+	
 	print successTag
 	return
 
@@ -754,7 +781,8 @@ def page_categoryValid(**args):
 def page_serviceNameValid(**args):
 	inputName,category = [ args.get(prop) for prop in ('name','category')]
 	
-	names = _getServiceItems(category, props=('name',))
+	res = {}
+	names = _getServiceItems(category,props=('name',))
 	if names :
 		names = [ item[0] for item in names ]
 	else:

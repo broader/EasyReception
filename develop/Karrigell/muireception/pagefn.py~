@@ -65,7 +65,9 @@ REGISTERTABS = \
 
 # the texts for the buttons in confirm window
 #---------------------------------------------------------------------------------------
-CONFIMRBUTTONS = ( _('Confirm'), _('Cancel'))
+BUTTONLABELS = {\
+	'confirmWindow': { 'confirm':_('Confirm'), 'cancel': _('Cancel')},\
+}
 
 # login area on the top and right corner of the screen
 #---------------------------------------------------------------------------------------

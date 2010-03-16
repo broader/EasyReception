@@ -67,6 +67,7 @@ REGISTERTABS = \
 #---------------------------------------------------------------------------------------
 BUTTONLABELS = {\
 	'confirmWindow': { 'confirm':_('Confirm'), 'cancel': _('Cancel')},\
+	'alertWindow': {'ok': _('OK')},\
 }
 
 # login area on the top and right corner of the screen

@@ -37,8 +37,10 @@ MUI.extend({
 	// add a inner object to MUI for managing mootools.Assets importing action 
 	assetsManager: new AssetsManager(),
 	
-	// Clear cookie of this application, the cookie name is defined in 'pagefn.py' file.
-	// Close old session of this application.
+	/**********************************************************************************
+	Clear cookie of this application, the cookie name is defined in 'pagefn.py' file.
+	Close old session of this application.
+	***********************************************************************************/
 	appInit: function(){
 		// remove old cookie		
 		var name = '<%=pagefn.COOKIENAME %>';		
@@ -75,7 +77,7 @@ MUI.extend({
 		};		
 	},
 	
-	/*
+	/*************************************************************************************************************
 	Return a styled <button> Element that provided by SexyButton plugin<http://code.google.com/p/sexybuttons/>.
 	Parameters:
 	options- a json object holds the setting options,
@@ -86,7 +88,7 @@ MUI.extend({
 				'bnSize', optional,it should be one of 'sexysmall','sexymedium','sexylarge'
 				'bnSkin', optionsal,the background color for the button 
 				 
-	*/
+	**************************************************************************************************************/
 	styledButton: function(options){
 		var bnClass = ['sexybutton','sexysimple'];	
 		
@@ -114,14 +116,10 @@ MUI.extend({
 		return button; 
 	},
 	
-	/*
-	Pop up a window to require user to confirm a action. 
-	*/
-	confirmWindow: function(message,closeFn, options){
-		var defaultOptions = {
-			loadMethod:'html',
-			type: 'window',
-			//title: '',
+	//	Pop up a window to require user to confirm a action. 
+	confirm: function(message,closeFn, options){
+		defaultOptions = {
+			loadMethod:'html', type: 'window', title: '',
 			maximizable: false,
 			//minimizable: false,
 			//resizable: false,				
@@ -137,7 +135,7 @@ MUI.extend({
 		cmWindow = new MUI.Window(defaultOptions);
 		
 		messageEl = new Element('div',{
-			html:message,
+			html: message,
 			'class':'note',
 			'style':'font-weight:bold;font-size:1.5em;'
 		});
@@ -150,8 +148,8 @@ MUI.extend({
 			options = {
 				txt: labels[index],
 			   imgType: actionType,
-				bnAttrs: {'style':'margin-right:1em;'},
-				bnSkin: 'sexycadet'
+				bnAttrs: {'style':'margin-right:1em;'}
+				//bnSkin: 'sexycadet'
 			};			
 			button = MUI.styledButton(options);
 			button.addEvent('click', function(e){		
@@ -174,6 +172,66 @@ MUI.extend({
 			'method': 'html',
 			//'url': options.contentURL,
 			//'data': options.data,
+			'onContentLoaded': null,
+			'require': {}			
+		});
+					
+	},
+	
+	// Create a customed window for show alert information.
+	alert: function(message, options){
+		defaultOptions = {
+			loadMethod:'html', type: 'modal', title:'',
+			maximizable: false, minimizable: false,
+			//resizable: false,				
+			width:320, height:140, y: 120, 
+			padding:  { top: 10, right: 12, bottom: 10, left: 12 },
+			shadowBlur: 8
+		};
+		
+		$H(options).each(function(value,key){
+			detaultOptions[key] = value;
+		});
+		
+		aWindow = new MUI.Window(defaultOptions);
+		
+		messageEl = new Element('div',{
+			html:message,
+			'class':'info',
+			'style':'font-weight:bold;font-size:1.5em;'
+		});
+		
+		hr = new Element('hr',{style:'padding:0.8px;'});
+		
+		// add buttons to content
+		buttons = new Element('div',{style:'text-align:right;'});
+		labels = ['<%=pagefn.BUTTONLABELS['alertWindow']['ok']%>', ];
+		['ok',].each(function(actionType,index){
+			// create buttons
+			options = {
+				txt: labels[index],
+			   imgType: actionType,
+				bnAttrs: {'style':'margin-right:1em;'}
+				//bnSkin: 'sexycadet'
+			};			
+			button = MUI.styledButton(options);
+			button.addEvent('click', function(e){		
+				new Event(e).stop();						
+				// close confirm window
+				aWindow.close();
+			});
+			buttons.grab(button);
+			
+		});		
+		
+		container = new Element('div');
+		container.adopt(messageEl, hr, buttons);			
+		
+		// add content to this window
+		MUI.updateContent({
+			'element': aWindow.windowEl,
+			'content': container,
+			'method': 'html',
 			'onContentLoaded': null,
 			'require': {}			
 		});

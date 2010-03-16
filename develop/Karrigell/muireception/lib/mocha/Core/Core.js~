@@ -368,9 +368,9 @@ MUI.extend({
 				addClass: 'notification',
 				content: message,
 				width: 220,
-				height: 40,
+				height: 80,
 				//y: 53,
-				y: 180,
+				y: 280,
 				x: 700,
 				padding:  { top: 10, right: 12, bottom: 10, left: 12 },
 				shadowBlur: 5	
