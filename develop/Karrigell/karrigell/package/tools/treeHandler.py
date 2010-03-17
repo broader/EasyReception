@@ -76,6 +76,7 @@ class TreeHandler:
 		"""
 		#print 'parent,parent node id is %s, child node id is %s, root node id is %s'%(parentId,child.id,self.rootNode.id)
 		if not parentId:
+			# if this node has not parent, it will be appented to the root node
 			parentNode = self.rootNode
 		else:
 			try:
@@ -89,11 +90,10 @@ class TreeHandler:
 			parentNode.append(child)
 		else:			
 			parentNode = self.make_node(parentId)		
-			parentNode.append(child)
-			grandpaId = self.pidFn(parentNode.data)
+			parentNode.append(child)			 
 			
 			# recursive constructing this branch in the tree
-			self.parent(grandpaId, parentNode)
+			self.parent( self.pidFn(parentNode.data), parentNode)
 			
 		return
 		

@@ -370,19 +370,6 @@ def page_colsModel(**args):
 	print JSON.encode(colsModel,encoding='utf8')	
 	return
 
-"""
-def _transform(node):	
-	data = {'data': node.data,'depth':node.depth(),'parent':'', 'id':node.id,'isLeaf':'0'}	
-	
-	if node.parent:
-		data['parent'] = node.parent.id
-		
-	if node.is_leaf():
-		data['isLeaf'] = '1'
-	 
-	return data
-"""
-
 def _getServiceItems(category,props=None):
 	# get items from 'service' class in database
 	search = {'category' : category}
@@ -411,10 +398,10 @@ def _node2json(node):
 	 
 	return data
 
-def _treeFlattenData(category,props):
+def _treeFlattenData(category,props, idFn, pidFn):
 	items = _getServiceItems(category,props)
-	idFn = lambda i: i[props.index('id')]
-	pidFn = lambda i: i[props.index('subcategory')]
+	#idFn = lambda i: i[props.index('id')]
+	#pidFn = lambda i: i[props.index('subcategory')]
 	nodes = _data2tree(items,idFn,pidFn)
 	# handle each row of data, transform them to client's required format
 	# sorted[1:] - pop out the first root node which has no data
@@ -433,8 +420,9 @@ def page_serviceItems(**args):
 	# filter the root category items	
 	nameIndex = props.index('name')	
 	#rows = filter( lambda item: item['data'][nameIndex], _getServiceItems(category, props, True))
-	rows = filter( lambda item: item['data'][nameIndex], _treeFlattenData(category,props))
-	
+	idFn = lambda i: i[props.index('id')]
+	pidFn = lambda i: i[props.index('subcategory')]
+	rows = filter( lambda item: item['data'][nameIndex], _treeFlattenData(category,props,idFn,pidFn))	
 	
 	for index,item in enumerate(rows):
 		data = item['data']
@@ -734,9 +722,28 @@ def _editServiceJs():
 	
 	return js
 
-def _deletable(nodeid,category):
+def _deletable(nodeId,category):
 	""" Judge wheher this node could be deleted by its node id. """
-	return True
+	res = {'permission':False,'info':nodeId}
+	props = ('id','subcategory')
+	items = _getServiceItems(category, props)
+	idFn = lambda i: i[props.index('id')]
+	pidFn = lambda i: i[props.index('subcategory')]
+	nodes = _data2tree(items,idFn,pidFn)
+	# get all the ids of nodes in this branch
+	nodeIds = [node.id for node in nodes]
+	
+	# get all the related services' ids that has been reserved
+	reservedIds = model.get_items( USER, 'reserve', props=('target',), link2key=False,ids=None)
+	res['reserved'] = reservedIds
+	res['ids'] = nodeIds
+	if type(reservedIds) == type('') :
+		reservedIds = [str(i) for i in range(10)]
+		
+	if not set(nodeIds).issubset(reservedIds):
+		res['permission'] = True 
+	
+	return res
 	
 def page_serviceEditAction(**args):
 	action = args.pop('action')
@@ -758,11 +765,13 @@ def page_serviceEditAction(**args):
 	elif actionType == 2:	# 'delete' action
 		sid,category = [ args.get(prop) for prop in ('id','category')]
 		
-		if _deleteable(sid,category):
-			model.delete_item( USER, 'service', sid, isId=True)
-			successTag = JSON.encode(_('Delete Service Item %s Action!'%sid),encoding='utf8')
-		else:
-			successTag = JSON.encode(_('Delete Service Item %s Action Failed!'%sid),encoding='utf8')
+		judge = _deletable(sid,category)
+		 
+		successTag = JSON.encode( judge, encoding='utf8')
+		if judge.get('permission'):
+			#model.delete_item( USER, 'service', sid, isId=True)
+			pass
+		
 	
 	print successTag
 	return

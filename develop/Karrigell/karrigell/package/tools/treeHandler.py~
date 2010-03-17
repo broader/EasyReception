@@ -89,11 +89,10 @@ class TreeHandler:
 			parentNode.append(child)
 		else:			
 			parentNode = self.make_node(parentId)		
-			parentNode.append(child)
-			grandpaId = self.pidFn(parentNode.data)
+			parentNode.append(child)			 
 			
 			# recursive constructing this branch in the tree
-			self.parent(grandpaId, parentNode)
+			self.parent( self.pidFn(parentNode.data), parentNode)
 			
 		return
 		

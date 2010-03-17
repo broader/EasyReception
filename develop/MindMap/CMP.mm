@@ -920,10 +920,10 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1254023346114" FOLDED="true" ID="Freemind_Link_186738146" MODIFIED="1266916992472" TEXT="Python">
+<node COLOR="#00b439" CREATED="1254023346114" ID="Freemind_Link_186738146" MODIFIED="1268797693109" TEXT="Python">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1254023354342" ID="Freemind_Link_1111266812" MODIFIED="1266916990640" TEXT="timezone">
+<node COLOR="#990000" CREATED="1254023354342" FOLDED="true" ID="Freemind_Link_1111266812" MODIFIED="1268797695310" TEXT="timezone">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1254023363423" ID="Freemind_Link_1101343072" MODIFIED="1254023401189" TEXT="Error with time.strptime()Things to try:(1) Is it possible that your interactive session and your &quot;bash&quot; are using different locales? Put print time.strftime(some known struct_time) into your script and see if the day and month come out in a different language.(2) Put print repr(date) in your script to show unambiguously what you are getting from the latest.GetCreatedAt() call."/>
 </node>
