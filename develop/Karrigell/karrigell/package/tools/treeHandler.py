@@ -27,8 +27,8 @@ class TreeHandler:
 			self.rootNode.data = []
 			
 		self.make_tree()
-		return
-	
+		return 
+		
 	def make_node(self,nodeId):
 		"""
 		Filters the row from self.nodesList by nodeId,

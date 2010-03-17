@@ -225,10 +225,16 @@ var TreeTable = new Class({
 			// judge whether it's a buttn type 
 			isButton = (colModel.dataType == this.options.bnTag) ; 
 			
-			// set the elemnet to be inserted to the TD Element 
-			el = {properties:{
-				align: (index==this.treeColumn || !isButton )?'left':'center'
-			}};
+			// set the element to be inserted to the TD Element 
+			el = {};
+			if(colModel.properties){
+				el.properties = colModel.properties ;
+			}
+			else{
+				el.properties = {
+					align: (index==this.treeColumn || !isButton )?'left':'center'
+				};
+			};
 			
 			if ( isButton ){				
 				// For button type, insert a <IMG> Element

@@ -28,3 +28,7 @@
 2010/03/17 09:52:58 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
 2010/03/17 09:52:59 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found
 2010/03/17 09:53:00 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found
+2010/03/17 09:00:04 - 127.0.0.1 - GET /navigation.ks/profile?path=service/accommodation/app.ks/index HTTP/1.1 200
+2010/03/17 09:00:05 - 127.0.0.1 - GET /images/icons/edit.png HTTP/1.1 304
+2010/03/17 09:00:05 - 127.0.0.1 - GET /images/icons/delete.png HTTP/1.1 304
+2010/03/17 09:00:05 - 127.0.0.1 - GET /lib/treeTable/jquery.treeTable.js?_=1268816405551 HTTP/1.1 200

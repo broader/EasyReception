@@ -54,10 +54,10 @@ SERVICEEDITFORM = 'serviceEditForm'
 
 # the properties info that will be shown in columns's title in the tree table to show services' list
 COLUMNMODEL = [
-	{'dataIndex':'name','label':_('Service Name'),'dataType':'string', 'treeColumn':'1'},
+	{'dataIndex':'name','label':_('Service Name'),'dataType':'string', 'treeColumn':'1', 'properties':{'style':'padding-right:10px;'}},
 	{'dataIndex':'description','label':_('Description'),'dataType':'string'},
-	{'dataIndex':'price','label':_('Unit Price'),'dataType':'string'},
-	{'dataIndex':'amount','label':_('Total Amount'),'dataType':'number'},
+	{'dataIndex':'price','label':_('Unit Price'),'dataType':'string', 'properties':{'align':'center'}},
+	{'dataIndex':'amount','label':_('Total Amount'),'dataType':'number', 'properties':{'align':'center'}},
 	{'dataIndex':'detail','label':_('Memo'),'dataType':'string'},
 	{'dataIndex':'serial','label':_('Serial'),'dataType':'string','hide':'1'},
 	{'dataIndex':'category','label':_('Category'),'dataType':'string','hide':'1'},
@@ -226,11 +226,10 @@ def _showServiceJs(category):
    	}
 	};
 	
-	// The function to insert action buttons to each row in the table,
-	// and insert a subcategory creation button out of the table.
+	// The function to add action buttons to each row in the table.
 	function addButton(ti){		
 		// Parameter 'ti'- the TreeTable instance
-		bnContainer = new Element('div',{style: 'text-align:right;width:38em;'});
+		bnContainer = new Element('div',{style: 'text-align:left;'});
 		ti.container.grab(bnContainer);
 		
 		// add 'add','edit','delete' buttons
@@ -318,7 +317,8 @@ def _showServiceJs(category):
       	url: deleteUrl,
          onSuccess: function(res){
          	MUI.notification(res);
-         }
+         	this.refreshTbody();
+         }.bind(this)
       });
 	   
 	   tr = this.getSelectedRows()[0];
@@ -357,6 +357,10 @@ def _showServiceJs(category):
 	"""%paras
 	return js
 
+def _decodeDict2Utf8(d):
+	[item.update({k:v.decode('utf8')}) for k,v in d.items()]
+	return d
+	
 def page_colsModel(**args):
 	""" 
 	Return the columns' model of the trid on the client side, 
@@ -366,7 +370,13 @@ def page_colsModel(**args):
 	"""
 	colsModel = copy.deepcopy(COLUMNMODEL)
 	for item in colsModel:
-		[item.update({k:v.decode('utf8')}) for k,v in item.items()]		
+		for k,v in item.items():
+			if type(v) == type(''):
+				item.update({k:v.decode('utf8')})
+			elif type(v) == type({}):
+				item.update({k:_decodeDict2Utf8(v)})
+				
+		#[item.update({k:v.decode('utf8')}) for k,v in item.items()]		
 	print JSON.encode(colsModel,encoding='utf8')	
 	return
 
@@ -384,8 +394,8 @@ def _data2tree(items,idFn,pidFn):
 	pidFn - the function to the id of the parent of a node
 	"""
 	# tree construntion Class
-	tree = treeHandler.TreeHandler(items, idFn, pidFn)
-	return tree.flatten()
+	return treeHandler.TreeHandler(items, idFn, pidFn)
+	#return tree.flatten()
 	
 def _node2json(node):
 	data = {'data': node.data,'depth':node.depth(),'parent':'', 'id':node.id,'isLeaf':'0'}	
@@ -402,7 +412,8 @@ def _treeFlattenData(category,props, idFn, pidFn):
 	items = _getServiceItems(category,props)
 	#idFn = lambda i: i[props.index('id')]
 	#pidFn = lambda i: i[props.index('subcategory')]
-	nodes = _data2tree(items,idFn,pidFn)
+	treeHandler = _data2tree(items,idFn,pidFn)
+	nodes = treeHandler.flatten()
 	# handle each row of data, transform them to client's required format
 	# sorted[1:] - pop out the first root node which has no data
 	sorted = [ _node2json(node) for node in nodes]
@@ -724,23 +735,38 @@ def _editServiceJs():
 
 def _deletable(nodeId,category):
 	""" Judge wheher this node could be deleted by its node id. """
-	res = {'permission':False,'info':nodeId}
+	
+	res = {'permission':True, 'info': _('Service item has been deleted!')}
+	
 	props = ('id','subcategory')
 	items = _getServiceItems(category, props)
 	idFn = lambda i: i[props.index('id')]
 	pidFn = lambda i: i[props.index('subcategory')]
-	nodes = _data2tree(items,idFn,pidFn)
+	treeHandler = _data2tree(items,idFn,pidFn)
+	
+	
 	# get all the ids of nodes in this branch
-	nodeIds = [node.id for node in nodes]
+	nodes = treeHandler.rootNode.get_node_by_id(nodeId).flatten()
+	nodeIds = [n.id for n in nodes]
+	res['toDelete'] = nodeIds
 	
 	# get all the related services' ids that has been reserved
 	reservedIds = model.get_items( USER, 'reserve', props=('target',), link2key=False,ids=None)
-	res['reserved'] = reservedIds
-	if type(reservedIds) == type('') :
-		reservedIds = [str(i) for i in range(10)]
+	
+	#if type(reservedIds) == type('') :
+	#	reservedIds = [str(i) for i in range(10)]
+		#res['reserved'] = reservedIds
+	
+	reservations = list(set(nodeIds).intersection(set(reservedIds))) 
+	if reservations:
+		res['permission'] = False
 		
-	if not set(nodeIds).issubset(reservedIds):
-		res['permission'] = True 
+		res['info'] = ' '.join(
+			[	_('There is reservations related with this service item, so it could not be deleted!'),
+				_('The ids of related reservations are '),
+				','.join(reservations)\
+			]
+		)
 	
 	return res
 	
@@ -765,12 +791,10 @@ def page_serviceEditAction(**args):
 		sid,category = [ args.get(prop) for prop in ('id','category')]
 		
 		judge = _deletable(sid,category)
-		 
-		successTag = JSON.encode( judge, encoding='utf8')
 		if judge.get('permission'):
-			#model.delete_item( USER, 'service', sid, isId=True)
-			pass
+			[ model.delete_item( USER, 'service', nid, isId=True) for nid in judge.get('toDelete')]
 		
+		successTag = JSON.encode( judge.get('info'), encoding='utf8')		
 	
 	print successTag
 	return
