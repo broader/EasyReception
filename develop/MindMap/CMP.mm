@@ -103,7 +103,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" ID="Freemind_Link_1929446294" MODIFIED="1268816511399" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" ID="Freemind_Link_1929446294" MODIFIED="1269057228274" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -158,7 +158,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1176858964077" ID="Freemind_Link_1801314834" MODIFIED="1268981662224" TEXT="Application">
+<node COLOR="#00b439" CREATED="1176858964077" FOLDED="true" ID="Freemind_Link_1801314834" MODIFIED="1269060410882" TEXT="Application">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="button_cancel"/>
@@ -254,7 +254,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="help"/>
 </node>
-<node COLOR="#990000" CREATED="1255507704078" ID="Freemind_Link_1853534374" MODIFIED="1268981557374" TEXT="Web UI Style">
+<node COLOR="#990000" CREATED="1255507704078" FOLDED="true" ID="Freemind_Link_1853534374" MODIFIED="1269060402630" TEXT="Web UI Style">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1255507767130" ID="Freemind_Link_1681947692" MODIFIED="1255507915771" TEXT="Logo &#x66ff;&#x6362;">
 <font NAME="SansSerif" SIZE="12"/>
@@ -302,12 +302,17 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1252293844859" FOLDED="true" ID="Freemind_Link_141958953" MODIFIED="1268981491317" TEXT="Agenda">
+<node COLOR="#990000" CREATED="1252293844859" ID="Freemind_Link_141958953" MODIFIED="1269057270150" TEXT="Agenda/Calendar">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1269057271672" ID="ID_1673936419" MODIFIED="1269057275092" TEXT="Examples">
+<node COLOR="#111111" CREATED="1269057275919" ID="ID_920014312" MODIFIED="1269057277794" TEXT="http://designingwebinterfaces.com/ajax-event-calendars"/>
+</node>
+<node COLOR="#111111" CREATED="1269057281659" ID="ID_1156236460" MODIFIED="1269057289663" TEXT="&#x9700;&#x6c42;">
 <node COLOR="#111111" CREATED="1253671984473" ID="Freemind_Link_1707510205" MODIFIED="1268981491318" TEXT="&#x4e0a;&#x4f20;&#x6587;&#x4ef6;&#x81f3;&#x65e5;&#x7a0b;&#x76f8;&#x5173;">
 <font NAME="SansSerif" SIZE="12"/>
 <icon BUILTIN="button_cancel"/>
+</node>
 </node>
 </node>
 <node COLOR="#990000" CREATED="1254923745254" ID="Freemind_Link_1174516085" MODIFIED="1268981524922" TEXT="Login">
@@ -360,7 +365,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="help"/>
 <icon BUILTIN="yes"/>
-<node COLOR="#111111" CREATED="1261378950005" ID="ID_182198775" MODIFIED="1268981709293" TEXT="tools">
+<node COLOR="#111111" CREATED="1261378950005" FOLDED="true" ID="ID_182198775" MODIFIED="1269060399958" TEXT="tools">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1268877109410" FOLDED="true" ID="ID_148530390" MODIFIED="1268986043480" TEXT="&#x5730;&#x56fe;&#x64cd;&#x4f5c;">
 <node COLOR="#111111" CREATED="1261378609375" ID="ID_658374767" MODIFIED="1268984079193" TEXT="http://www.openlayers.org/">
@@ -389,7 +394,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1265254690217" ID="ID_1048813043" MODIFIED="1265254692340" TEXT="http://joint.alpslab.jp/fisheye/"/>
 </node>
-<node COLOR="#111111" CREATED="1268877202628" ID="ID_1355124265" MODIFIED="1268981709296" TEXT="Google">
+<node COLOR="#111111" CREATED="1268877202628" FOLDED="true" ID="ID_1355124265" MODIFIED="1269060398678" TEXT="Google">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1268877205235" ID="ID_1925198755" MODIFIED="1268877206494" TEXT="http://dev.visualdrugs.net/mootools/gmapsoverlay/"/>
 <node COLOR="#111111" CREATED="1268981305866" ID="ID_385937138" MODIFIED="1268981307558" TEXT="http://www.codechina.org/doc/google/gmapapi/"/>
@@ -628,7 +633,7 @@
 <node COLOR="#111111" CREATED="1258549952599" ID="ID_616227543" MODIFIED="1258549955034" TEXT="http://www.e-magine.ro/web-dev-and-design/36/moodalbox/"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1268620263252" ID="ID_1186941418" MODIFIED="1268620267132" TEXT="MochaUI">
+<node COLOR="#00b439" CREATED="1268620263252" FOLDED="true" ID="ID_1186941418" MODIFIED="1269056936773" TEXT="MochaUI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1268620271613" ID="ID_1670060654" MODIFIED="1268620278853" TEXT="MUI.notification">
@@ -636,7 +641,7 @@
 <node COLOR="#111111" CREATED="1268620291854" ID="ID_994545196" MODIFIED="1268620316134" TEXT="Core.js,L363"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1259898004321" ID="ID_372536092" MODIFIED="1268620260719" TEXT="others ">
+<node COLOR="#00b439" CREATED="1259898004321" FOLDED="true" ID="ID_372536092" MODIFIED="1269056935894" TEXT="others ">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1259898055768" ID="ID_641093649" MODIFIED="1259900220999" TEXT="round corner">
@@ -1193,10 +1198,34 @@
 <node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1268901401442" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1265252373668" ID="ID_1883535158" MODIFIED="1269056832949" TEXT="Layout">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1269055913285" FOLDED="true" ID="ID_718060145" MODIFIED="1269060415183" TEXT="Examples">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1269055921201" ID="ID_250633558" MODIFIED="1269056457857" TEXT="http://www.phprojekt.com/demo/">
+<icon BUILTIN="messagebox_warning"/>
+<icon BUILTIN="full-1"/>
+</node>
+<node COLOR="#111111" CREATED="1261116670685" ID="ID_1673407314" MODIFIED="1261723671561" TEXT="http://pulseapp.com/tour">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1261625621655" ID="ID_727667845" MODIFIED="1269056688655" TEXT="http://0963.trymodx.com/manager/">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1261625625046" ID="ID_548360256" MODIFIED="1261625640971" TEXT="user:demo_user;password:demo_user"/>
+</node>
+<node COLOR="#111111" CREATED="1264389019854" ID="ID_42920771" MODIFIED="1264389044324" TEXT="http://osx.portraitofakite.com/">
+<icon BUILTIN="idea"/>
+</node>
+<node COLOR="#111111" CREATED="1264568812660" ID="ID_873655281" MODIFIED="1264568819895" TEXT="http://www.zkoss.org/zkdemo/userguide/">
+<icon BUILTIN="messagebox_warning"/>
+</node>
+</node>
+</node>
 <node COLOR="#00b439" CREATED="1173066298350" ID="Freemind_Link_1468412211" MODIFIED="1268449762188" TEXT="UI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261723589326" FOLDED="true" ID="ID_80373969" MODIFIED="1268981457424" TEXT="Preference">
+<node COLOR="#990000" CREATED="1261723589326" FOLDED="true" ID="ID_80373969" MODIFIED="1269056844023" TEXT="Preference">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1176041576720" FOLDED="true" ID="Freemind_Link_940755797" MODIFIED="1267509170882" TEXT="Application">
 <edge STYLE="bezier" WIDTH="thin"/>
@@ -1593,30 +1622,10 @@
 </node>
 <node COLOR="#990000" CREATED="1261723645352" ID="ID_454191510" MODIFIED="1267587678751" TEXT="Examples">
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1261116666825" FOLDED="true" ID="ID_1018641055" MODIFIED="1268981458378" TEXT="desktop">
+<node COLOR="#111111" CREATED="1261116666825" FOLDED="true" ID="ID_1018641055" MODIFIED="1269056862703" TEXT="Widgets">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="12"/>
 <icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1265252373668" FOLDED="true" ID="ID_1883535158" MODIFIED="1268099744276" TEXT="Layout">
-<node COLOR="#111111" CREATED="1261116670685" ID="ID_1673407314" MODIFIED="1261723671561" TEXT="http://pulseapp.com/tour">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1176943661851" ID="Freemind_Link_428992295" MODIFIED="1261723671561" TEXT="iframe &amp; ajax requesthttp://66.160.135.85/posts/news">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1261625621655" FOLDED="true" ID="ID_727667845" MODIFIED="1264389018537" TEXT="http://0963.trymodx.com/manager/">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1261625625046" ID="ID_548360256" MODIFIED="1261625640971" TEXT="user:demo_user;password:demo_user"/>
-</node>
-<node COLOR="#111111" CREATED="1264389019854" ID="ID_42920771" MODIFIED="1264389044324" TEXT="http://osx.portraitofakite.com/">
-<icon BUILTIN="idea"/>
-</node>
-<node COLOR="#111111" CREATED="1264568812660" ID="ID_873655281" MODIFIED="1264568819895" TEXT="http://www.zkoss.org/zkdemo/userguide/">
-<icon BUILTIN="messagebox_warning"/>
-</node>
-<node COLOR="#111111" CREATED="1268099503091" ID="ID_507979814" MODIFIED="1268099504404" TEXT="http://designingwebinterfaces.com/designing-web-interfaces-12-screen-patterns"/>
-</node>
 <node COLOR="#111111" CREATED="1268099746103" ID="ID_1075967642" MODIFIED="1268099748278" TEXT="Table">
 <node COLOR="#111111" CREATED="1268099749578" ID="ID_1068975592" MODIFIED="1268099751803" TEXT="http://designingwebinterfaces.com/posts"/>
 </node>
@@ -1766,7 +1775,7 @@
 <node COLOR="#111111" CREATED="1261723706816" ID="ID_1757088788" MODIFIED="1261723768592" TEXT="Karrigell_root_dir&#xa;--&gt;/lib,&#x4fdd;&#x5b58;&#x7b2c;&#x4e09;&#x65b9;javascript&#x5e93;&#x6587;&#x4ef6;"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1268185424069" ID="ID_628193831" MODIFIED="1268185426822" TEXT="Tools">
+<node COLOR="#00b439" CREATED="1268185424069" FOLDED="true" ID="ID_628193831" MODIFIED="1269060417477" TEXT="Tools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1268185427929" ID="ID_171358267" MODIFIED="1268185439700" TEXT="Browser Test">
@@ -1781,9 +1790,16 @@
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1268185604841" ID="ID_97227876" MODIFIED="1268185605590" TEXT="http://kuler.adobe.com/#themes/rating?time=30"/>
 </node>
-<node COLOR="#990000" CREATED="1268185720454" ID="ID_637722862" MODIFIED="1268185724072" TEXT="Layout">
+<node COLOR="#990000" CREATED="1268185720454" ID="ID_637722862" MODIFIED="1269056930644" TEXT="Layout Mocking">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1268185724802" ID="ID_1218559749" MODIFIED="1268185725870" TEXT="http://gomockingbird.com/mockingbird/"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1269055925188" FOLDED="true" ID="ID_541017206" MODIFIED="1269056873756" TEXT="Tutorials">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1268099503091" ID="ID_507979814" MODIFIED="1269056873756" TEXT="http://designingwebinterfaces.com/designing-web-interfaces-12-screen-patterns">
+<font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
 </node>

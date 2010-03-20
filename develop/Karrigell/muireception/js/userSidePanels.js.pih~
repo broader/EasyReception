@@ -10,10 +10,9 @@ pagefn = Import('/'.join(('', 'pagefn.py')))
 # initialize some page variables
 sideBar, mainColumn = pagefn.COLUMNS
 
-portfolio = pagefn.PORTFOLIO
+portfolio, hotel = [ getattr(pagefn, attr) for attr in ('PORTFOLIO', 'HOTEL')]
 %>
 
-//var mainPanelId = '<%=pagefn.PANELSID['main'] %>';
 var mainPanelId = MUI.mainPanelId;
 
 /*
@@ -35,7 +34,34 @@ function portalPanel(panelId){
 **	Accommodation side panel expand function
 */
 function hotelPanel(panelId){		
-	MUI.accordionPanels(panelId);
+	MUI.accordionPanels(panelId);	
+	MUI.clearMainPanel(); 
+		
+	new MUI.Column({
+		container:mainPanelId, id: 'hotelListColumn', placement: 'main', 
+		sortable: false, width: null, resizeLimit: [100,200] 
+	});
+	
+	new MUI.Column({
+		container:mainPanelId, id: 'hotelReserveColumn', placement: 'right',  
+		sortable: false, width: 500, resizeLimit: [400,500] 
+	});
+	
+	
+	new MUI.Panel({
+		id: '<%=hotel.get('panelsId')['left']['list']%>', column: 'hotelListColumn',
+		contentURL:'portfolio/portfolio.ks/page_showPortfolio'
+	});
+	
+	new MUI.Panel({
+		id: '<%=hotel.get('panelsId')['left']['info']%>', column: 'hotelListColumn',
+		contentURL:'portfolio/portfolio.ks/page_showPortfolio'
+	});
+	
+	new MUI.Panel({
+		id: '<%=hotel.get('panelsId')['right']%>', column: 'hotelReserveColumn',
+		contentURL:'portfolio/portfolio.ks/page_showAccount'
+	});
 };
 
 /*
