@@ -47,19 +47,31 @@ function hotelPanel(panelId){
 		sortable: false, width: 500, resizeLimit: [400,500] 
 	});
 	
-	
+	// the panel to show hotel list
 	new MUI.Panel({
-		id: '<%=hotel.get('panelsId')['left']['list']%>', column: 'hotelListColumn',
-		contentURL:'portfolio/portfolio.ks/page_showPortfolio'
+		id: "<%=hotel.get('main')['list']['panelId']%>", 
+		column: 'hotelListColumn', 
+		title: "<%=hotel.get('main')['list']['panelTitle']%>",
+		contentURL: "<%=hotel.get('main')['list']['contentUrl']%>",
+		onExpand: MUI.accordionPanels.pass(pid)
 	});
 	
-	new MUI.Panel({
-		id: '<%=hotel.get('panelsId')['left']['info']%>', column: 'hotelListColumn',
-		contentURL:'portfolio/portfolio.ks/page_showPortfolio'
+	// the panel to show selected hotel info
+	panel = new MUI.Panel({
+		id: "<%=hotel.get('main')['info']['panelId']%>", 
+		column: 'hotelListColumn', 
+		title: "<%=hotel.get('main')['info']['panelTitle']%>",
+		contentURL:'portfolio/portfolio.ks/page_showPortfolio',
+		onExpand: MUI.accordionPanels.pass(pid)
 	});
 	
+	// collapsed this panel
+	panel.toggleExpand();	
+	
 	new MUI.Panel({
-		id: '<%=hotel.get('panelsId')['right']%>', column: 'hotelReserveColumn',
+		id: "<%=hotel.get('right')['panelId']%>",
+		title: "<%=hotel.get('right')['panelTitle'] %>",
+		column: 'hotelReserveColumn',
 		contentURL:'portfolio/portfolio.ks/page_showAccount'
 	});
 };

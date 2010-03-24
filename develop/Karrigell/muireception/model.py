@@ -38,21 +38,25 @@ def create_client( ):
 			
 	return client
 	
-def get_client( ):	
-	handler = REQUEST_HANDLER	
 	
-	if hasattr(handler, 'ajaxclients'):
-		ajaxclients = getattr(handler, 'ajaxclients')
-		for client in ajaxclients:
-			if hasattr(client, 'db') and client.db_open == 0 :
-				[setattr(client,attr,None) for attr in ('form','user','userid')]				
-				return client
-		client = create_client()		
-	else:
-		client = create_client()
-		setattr(handler, 'ajaxclients', [] )
+def get_client( ):
+	
+	#handler = REQUEST_HANDLER
+	
+	#if hasattr(handler, 'ajaxclients'):
+	#	ajaxclients = getattr(handler, 'ajaxclients')
+	#	for client in ajaxclients:
+	#		if hasattr(client, 'db') and client.db_open == 0 :
+	#			[setattr(client,attr,None) for attr in ('form','user','userid')]				
+	#			return client
+	#	client = create_client()		
+	#else:
+	#	client = create_client()
+	#	setattr(handler, 'ajaxclients', [] )
 		
-	handler.ajaxclients.append(client)
+	#handler.ajaxclients.append(client)
+	
+	client = create_client()
 	return client
 
 

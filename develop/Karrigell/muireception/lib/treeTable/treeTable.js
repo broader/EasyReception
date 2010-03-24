@@ -273,11 +273,14 @@ var TreeTable = new Class({
 		tr.setProperties({'id': rowId});
 		tr.addEvent('dblclick',this.onRowDoubleClick.bind(this));			
 		
-		if(depth > this.options.initialExpandedDepth){
+		
+		if(depth.toInt() >= this.options.initialExpandedDepth){
 			// add the tag for tree collapsed status 	
 			tr.addClass(this.options.collapsedTag);
 			
-			tr.setProperty('style','display:none;');
+			if (depth.toInt() != this.options.initialExpandedDepth){
+				tr.setProperty('style','display:none;');
+			};
 		}
 		else{
 			// add the tag for tree collapsed status 	

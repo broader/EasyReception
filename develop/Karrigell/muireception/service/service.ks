@@ -1,5 +1,5 @@
 """
-Service module 
+Pages mainly for administration.
 """
 import copy,tools
 from tools import treeHandler
@@ -358,7 +358,7 @@ def _showServiceJs(category):
 	return js
 
 def _decodeDict2Utf8(d):
-	[item.update({k:v.decode('utf8')}) for k,v in d.items()]
+	[d.update({k:v.decode('utf8')}) for k,v in d.items()]
 	return d
 	
 def page_colsModel(**args):

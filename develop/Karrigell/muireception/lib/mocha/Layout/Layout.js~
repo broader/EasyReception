@@ -758,6 +758,7 @@ MUI.Panel = new Class({
 			this.newPanel();
 		}
 	},
+	
 	newPanel: function(){
 		
 		options = this.options;
@@ -908,9 +909,12 @@ MUI.Panel = new Class({
 			this.collapseToggleEl.addClass('panel-collapsed');
 			this.collapseToggleEl.setProperty('title','Collapse Panel');
 			this.fireEvent('onExpand');
-		}
+		};
+		
 	}
+	
 });
+
 MUI.Panel.implement(new Options, new Events);
 
 /*

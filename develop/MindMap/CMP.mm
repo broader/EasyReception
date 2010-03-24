@@ -103,7 +103,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" ID="Freemind_Link_1929446294" MODIFIED="1269057228274" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" ID="Freemind_Link_1929446294" MODIFIED="1269333701950" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -158,7 +158,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1176858964077" FOLDED="true" ID="Freemind_Link_1801314834" MODIFIED="1269060410882" TEXT="Application">
+<node COLOR="#00b439" CREATED="1176858964077" FOLDED="true" ID="Freemind_Link_1801314834" MODIFIED="1269337438428" TEXT="Application">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="button_cancel"/>
@@ -200,7 +200,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1255507685812" FOLDED="true" ID="Freemind_Link_987975584" MODIFIED="1268981277456" TEXT="Hotel">
+<node COLOR="#990000" CREATED="1255507685812" ID="Freemind_Link_987975584" MODIFIED="1269333705911" TEXT="Hotel">
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="yes"/>
 <node COLOR="#111111" CREATED="1255507725364" ID="Freemind_Link_721304315" MODIFIED="1268904048973" TEXT="&#x623f;&#x95f4;&#x7ba1;&#x7406;">
@@ -214,7 +214,7 @@
 <node COLOR="#111111" CREATED="1268904089833" ID="ID_1365986972" MODIFIED="1268904274247" TEXT="&#x4e3a;Service Item&#x914d;&#x7f6e;&#x5bf9;&#x5e94;&#x7684;&#x63cf;&#x8ff0;&#x5b57;&#x6bb5;;&#xa;&#x8bbe;&#x7f6e;&#x7a7a;&#x767d;&#x5b57;&#x6bb5;&#xff08;String Type&#xff09;&#xff0c;&#x518d;&#x6709;&#x5bf9;&#x5e94;&#x7684;&#x63cf;&#x8ff0;schema&#xff1f;"/>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1265254730444" FOLDED="true" ID="ID_1364006963" MODIFIED="1268981275112" TEXT="examples">
+<node COLOR="#111111" CREATED="1265254730444" ID="ID_1364006963" MODIFIED="1269333710373" TEXT="examples">
 <node COLOR="#111111" CREATED="1257233535836" ID="ID_8670999" MODIFIED="1257233538077" TEXT="http://www.londontown.com/hotelmapbeta/"/>
 <node COLOR="#111111" CREATED="1268880991878" ID="ID_1963770962" MODIFIED="1268880992643" TEXT="http://www.sitereviewboard.com/tags-re/reservation/index.html"/>
 <node COLOR="#111111" CREATED="1268817895089" ID="ID_836648356" MODIFIED="1268817896204" TEXT="http://www.hotel-oxford.ro/en/"/>
@@ -231,7 +231,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1255507695811" FOLDED="true" ID="Freemind_Link_1044950566" MODIFIED="1268904592135" TEXT="File Management">
+<node COLOR="#990000" CREATED="1255507695811" FOLDED="true" ID="Freemind_Link_1044950566" MODIFIED="1269333779807" TEXT="File Management">
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="yes"/>
 <node COLOR="#111111" CREATED="1265254770366" ID="ID_484167235" MODIFIED="1266806989264" TEXT="examples">
@@ -507,7 +507,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1245853638712" ID="_" MODIFIED="1268620333384" POSITION="right" TEXT="Used Web Lib/Widgets">
+<node COLOR="#0033ff" CREATED="1245853638712" FOLDED="true" ID="_" MODIFIED="1269240917400" POSITION="right" TEXT="Used Web Lib/Widgets">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1258549795684" FOLDED="true" ID="ID_1371740104" MODIFIED="1265253605180" TEXT="jquery lib">
@@ -790,7 +790,7 @@
 <font NAME="SansSerif" SIZE="16"/>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1262786726152" FOLDED="true" ID="ID_476877394" MODIFIED="1268620236630" POSITION="right" TEXT="Source">
+<node COLOR="#0033ff" CREATED="1262786726152" ID="ID_476877394" MODIFIED="1269333547605" POSITION="right" TEXT="Source">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1266917069312" FOLDED="true" ID="ID_30201427" MODIFIED="1268619406974" TEXT="Management">
@@ -919,7 +919,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1268811860757" POSITION="right" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" ID="Freemind_Link_986904229" MODIFIED="1269422831098" POSITION="right" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -1044,7 +1044,7 @@
 <icon BUILTIN="help"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1268277732248" TEXT="karrigell">
+<node COLOR="#00b439" CREATED="1174877401376" ID="Freemind_Link_503549801" MODIFIED="1269422835852" TEXT="karrigell">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1250824602428" FOLDED="true" ID="Freemind_Link_1774893402" MODIFIED="1265166091674" TEXT="_()---i18n">
@@ -1074,42 +1074,6 @@
 <icon BUILTIN="yes"/>
 <node COLOR="#111111" CREATED="1260451624226" ID="ID_1815202875" MODIFIED="1260451673625" TEXT="&apos;Token Error: EOF in multi-line statement&apos;">
 <node COLOR="#111111" CREATED="1260451690651" ID="ID_1486718180" MODIFIED="1260451819616" TEXT="{,  [ ,  &apos;&apos;&apos; ,  &quot;&quot;&quot; &#x7f3a;&#x5c11;&#x5bf9;&#x5e94;&#x7684;&#x7ed3;&#x675f;&#x7b26;&#x53f7;&#xff0c;&#xa;&#x6216;&#x662f;&#x6587;&#x4ef6;&#x6700;&#x540e;&#x4e00;&#x884c; &#x4ee5; &apos;\&apos; &#x7ed3;&#x675f;&#xa;"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1263825181828" FOLDED="true" ID="ID_854025776" MODIFIED="1266917006456" TEXT="Session">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
-<icon BUILTIN="messagebox_warning"/>
-<icon BUILTIN="yes"/>
-<node COLOR="#111111" CREATED="1263825186476" FOLDED="true" ID="ID_260522020" MODIFIED="1264133489013" TEXT="&#x8bfb;&#x53d6;&#x4e0d;&#x540c;app&#x4e0b;&#x7684;&#x9875;&#x9762;&#x65f6;&#xff0c;cookie&#x6ca1;&#x6709;&#x968f;&#x9875;&#x9762;&#x4e00;&#x540c;&#x53d1;&#x9001;&#x5230;&#x670d;&#x52a1;&#x5668;&#x7aef;&#xff0c;&#xa;&#x5bfc;&#x81f4;&#x8bfb;&#x53d6;session object &#x6df7;&#x4e71;&#xff1f;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1264133373135" FOLDED="true" ID="ID_1287632556" MODIFIED="1264133381423" TEXT="&#x63cf;&#x8ff0;">
-<node COLOR="#111111" CREATED="1263894272543" ID="ID_1370004916" MODIFIED="1263954661024" TEXT="&#x95ee;&#x9898;&#x539f;&#x56e0;&#xff1a;&#xa;cookie&#x53d1;&#x9001;&#x7684;&#x8def;&#x5f84;&#x95ee;&#x9898;&#xff0c;&#xa;&#x5f53;&#x521b;&#x5efa;session object&#x65f6;&#xff0c;&#x670d;&#x52a1;&#x5668;&#x7aef;&#xff08;self.SET_COOKIE&#xff09;&#x6ca1;&#x6709;&#x8bbe;&#x7f6e;&apos;path&apos;&#x53c2;&#x6570;&#xff0c;&#x5bfc;&#x81f4;&#x7f3a;&#x7701;&#x4e3a;Request&#x9875;&#x9762;&#x7684;&#x8def;&#x5f84;&#x3002;&#xa;&#x4f8b;&#x5982;&#xff1a;&#xa;layout.ks&#x4e2d;&#x8bbe;&#x7f6e;session object&#x540e;&#xff0c;cookie&#x8def;&#x5f84;&#x88ab;&#x8bbe;&#x7f6e;&#x4e3a;/layout/&#xff1b;&#xa;&#x8fd9;&#x6837;&#x8bbf;&#x95ee;portfolio&#x8def;&#x5f84;&#x4e0b;&#x7684;&#x9875;&#x9762;&#x65f6;&#xff0c;&#x7531;&#x4e8e;&#x8def;&#x5f84;&#x4e0d;&#x7b26;&#x5408;&#x6761;&#x4ef6;&#xff0c;cookie&#x4e0d;&#x4f1a;&#x88ab;&#x8bbe;&#x7f6e;&#x5728;&#x8be5;&#x9875;&#x9762;&#x7684;header&#x4e2d;&#x53d1;&#x51fa;&#xff0c;&#x5bfc;&#x81f4;&#x670d;&#x52a1;&#x5668;&#x7aef;&#x6ca1;&#x6709;&#x6536;&#x5230;cookie&#x548c;&#x5176;&#x4e2d;&#x7684;sessionId&#xff0c;&#x4e8e;&#x662f;&#x53c8;&#x521b;&#x5efa;&#x65b0;&#x7684;session&#x3002;">
-<icon BUILTIN="messagebox_warning"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1263954754718" FOLDED="true" ID="ID_941457021" MODIFIED="1263954765157" TEXT="&#x89e3;&#x51b3;&#x529e;&#x6cd5;">
-<node COLOR="#111111" CREATED="1263894154322" ID="ID_24661739" MODIFIED="1263954740723" TEXT="&#x591a;&#x6b21;&#x5237;&#x65b0;&#x9875;&#x9762;&#xff0c;&#x4e5f;&#x4f1a;&#x5bfc;&#x81f4;session object &#x8bfb;&#x5199;&#x9519;&#x8bef;&#xff1f;&#xa;&#x4fee;&#x6b63;&#xff1a;&#xa;layout.ks---&gt;&#xa;# the session object for this page&#xa;so = Session()&#xa;sname = pagefn.COOKIENAME&#xa;# SET_COOKIE is a instance of Cookie.SimpleCookie,&#xa;# When a new key is set for a SimpleCookie object, a Morsel instance is created.&#xa;SET_COOKIE[sname]=getattr(REQUEST_HANDLER, sname)&#xa;# set cookie path&#xa;SET_COOKIE[sname][&apos;path&apos;] = &apos;/&apos;&#xa;"/>
-<node COLOR="#111111" CREATED="1263954675969" ID="ID_492948300" MODIFIED="1263954726762" TEXT="&#x4e3a;&#x589e;&#x5f3a;&#x5b89;&#x5168;&#x6027;&#xff0c;&#x6dfb;&#x52a0;MUI.removeCookie() function&#x7528;&#x4e8e;&#x6e05;&#x9664;sessionId;&#xa;-&gt;init.js.pih-&gt;preLoginInit()&#x4e2d;&#x8c03;&#x7528;MUI.removeCookie,&#x5373;&#x6bcf;&#x6b21;&#x767b;&#x5f55;&#x524d;&#x6e05;&#x9664;sessionId&#xa;-&gt;layoutInit.js.pih&#x4e2d;-&gt;MUI.logout()&#x4e2d;&#x8c03;&#x7528;MUI.removeCookie,&#x5373;&#x6bcf;&#x6b21;&#x9000;&#x51fa;&#x767b;&#x5f55;&#x540e;&#x6e05;&#x9664;sessionId"/>
-</node>
-<node COLOR="#111111" CREATED="1263895524886" FOLDED="true" ID="ID_1440716339" MODIFIED="1264132992849" TEXT="prefer reading">
-<node COLOR="#111111" CREATED="1263895538997" ID="ID_21860316" MODIFIED="1263895540864" TEXT="http://www.jayconrod.com/cgi/view_post.py?17"/>
-<node COLOR="#111111" CREATED="1263895549571" ID="ID_1683813128" MODIFIED="1263895550415" TEXT="http://webpython.codepoint.net/cgi_morsel"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1264133292399" ID="ID_374577331" MODIFIED="1264156421527" TEXT="&#x540c;&#x4e00;ks&#x6587;&#x4ef6;&#x4e2d;&#xff0c;&#x7edf;&#x4e00;&#x8bbe;&#x7f6e;Session&#x548c;SET_COOKIE&#xff0c;&#x5bfc;&#x81f4;sessionId&#x88ab;&#x591a;&#x6b21;&#x8bbe;&#x7f6e;">
-<icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1264133384414" FOLDED="true" ID="ID_422791638" MODIFIED="1264156413877" TEXT="&#x63cf;&#x8ff0;">
-<node COLOR="#111111" CREATED="1264132999282" ID="ID_1837167565" MODIFIED="1264133278650" TEXT="Karrigell&#x7684;ks&#x6587;&#x4ef6;&#x673a;&#x5236;&#x4e3a;&#xff1a;&#xa;&#x6bcf;&#x4e2a;&#x51fd;&#x6570;&#x8fd4;&#x56de;&#x4e00;&#x4e2a;&#x9875;&#x9762;&#xff0c;&#x8fd9;&#x6837;&#x5982;&#x679c;session&#x7684;&#x521d;&#x59cb;&#x5316;&#x4e3a;&#x5168;&#x5c40;&#x53d8;&#x91cf;&#xff08;&#x4f8b;&#x5982;:&#x5728;ks&#x6587;&#x4ef6;&#x5934;&#x521d;&#x59cb;&#x5316;so=Session()&#xff0c;&#x540c;&#x65f6;&#x8bbe;&#x7f6e;SET_COOKIE&#xff09;,&#xa;&#x4f1a;&#x5bfc;&#x81f4;&#x6bcf;&#x6b21;&#x8bbf;&#x95ee;ks&#x6587;&#x4ef6;&#x4e2d;&#x7684;&#x4e00;&#x4e2a;&#x51fd;&#x6570;&#xff0c;&#x90fd;&#x4f1a;&#x91cd;&#x65b0;&#x8bbe;&#x7f6e;&#x8fd4;&#x56de;&#x7684;SET_COOKIE&#x4fe1;&#x606f;&#x5bfc;&#x81f4;&#x91cd;&#x65b0;&#x8bbe;&#x7f6e;sessionId&#xff0c;&#x6700;&#x7ec8;&#x4e0d;&#x540c;&#x9875;&#x9762;&#x65e0;&#x6cd5;&#x8bbf;&#x95ee;&#x540c;&#x4e00;&#x4e2a;Session Object."/>
-</node>
-<node COLOR="#111111" CREATED="1264133391212" FOLDED="true" ID="ID_776035324" MODIFIED="1264156414965" TEXT="&#x89e3;&#x51b3;">
-<node COLOR="#111111" CREATED="1264133401935" ID="ID_1209524773" MODIFIED="1264156003165" TEXT="init.js.pih&#xa;---&gt;MUI.appInit()&#xa;------&gt;&#x8c03;&#x7528;layout.ks/page_closeSession(),&#x6e05;&#x9664;Server &#x7aef;RequestHandler&#x4e2d;&#x4fdd;&#x7559;&#x7684;Session Object&#xa;&#xa;---&gt;&#x9875;&#x9762;&#x521d;&#x59cb;&#x5316;&#x65f6;&#x8c03;&#x7528;MUI.appInit&#xa;&#xa;&#x540c;&#x65f6;&#x4e3a;&#x65b9;&#x4fbf;&#x8bbe;&#x7f6e;Cookie &#xff0c;&#x589e;&#x52a0;pagefn.setCookie()&#x51fd;&#x6570;&#xa;&#x5728;ks&#x6587;&#x4ef6;&#x7684;&#x5177;&#x4f53;&#x9875;&#x9762;&#x51fd;&#x6570;&#x4e2d;&#x8bbe;&#x7f6e;SET_COOKIE&#x65f6;&#xff0c;&#x8c03;&#x7528;pagefn.setCookie()&#x51fd;&#x6570;&#x5b8c;&#x6210;&#x6b64;&#x529f;&#x80fd;&#x3002;"/>
-</node>
-<node COLOR="#111111" CREATED="1264156024454" FOLDED="true" ID="ID_204315342" MODIFIED="1264156427299" TEXT="HTTP.py-&gt;HTTP.Session()&#x5206;&#x6790;">
-<icon BUILTIN="help"/>
-<icon BUILTIN="idea"/>
-<node COLOR="#111111" CREATED="1264156078809" ID="ID_1550093625" MODIFIED="1264156381563" TEXT="//RequestHandler&#x4e2d;&#x4fdd;&#x5b58;&#x6709;Session Object ,&#x76f4;&#x63a5;&#x8c03;&#x7528;&#x6b64;Object&#x3002;&#x95ee;&#x9898;&#xff1a;&#x8fd9;&#x6837;&#x4f1a;&#x5bfc;&#x81f4;&#x65b0;&#x9875;&#x9762;&#x8c03;&#x7528;&#x65e7; Session&#xff1f;&#xa;if hasattr(self,&quot;sessionObj&quot;):&#x9;&#xa;    return self.sessionObj&#xa;&#xa;// Request header &#x4e2d;&#x5305;&#x542b;&#x6709;cookie&#x4fe1;&#x606f;&#xff0c;&#x6839;&#x636e;&#x6b64;&#x4fe1;&#x606f;&#x83b7;&#x5f97;&#x5185;&#x5b58;&#x4e2d;&#x7684;Session Object&#xa;elif self.COOKIE.has_key(&quot;sessionId&quot;):&#xa;     self.sessionId = self.COOKIE[&quot;sessionId&quot;].value&#xa;     self.sessionObj = k_sessions.get_session_object(self.config,self.sessionId,expires)&#xa;&#xa;// &#x521b;&#x5efa;&#x65b0;&#x7684;Session Object&#xa;else:&#xa;     self.sessionId,self.sessionObj = k_sessions.make_session_object(self.config,expires)&#xa;     self.SET_COOKIE[&quot;sessionId&quot;] = self.sessionId&#xa;&#xa;return self.sessionObj"/>
-</node>
 </node>
 </node>
 <node COLOR="#990000" CREATED="1265166162729" ID="ID_1537892475" MODIFIED="1265166449091" TEXT="Unicode &amp; UTF8">
@@ -1143,6 +1107,50 @@
 </node>
 </node>
 </node>
+<node COLOR="#00b439" CREATED="1263825181828" ID="ID_854025776" MODIFIED="1269423061377" TEXT="Session">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<icon BUILTIN="messagebox_warning"/>
+<icon BUILTIN="yes"/>
+<node COLOR="#990000" CREATED="1263825186476" ID="ID_260522020" MODIFIED="1269423605355" TEXT="&#x8bfb;&#x53d6;&#x4e0d;&#x540c;app&#x4e0b;&#x7684;&#x9875;&#x9762;&#x65f6;&#xff0c;cookie&#x6ca1;&#x6709;&#x968f;&#x9875;&#x9762;&#x4e00;&#x540c;&#x53d1;&#x9001;&#x5230;&#x670d;&#x52a1;&#x5668;&#x7aef;&#xff0c;&#xa;&#x5bfc;&#x81f4;&#x8bfb;&#x53d6;session object &#x6df7;&#x4e71;&#xff1f;">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1264133373135" FOLDED="true" ID="ID_1287632556" MODIFIED="1264133381423" TEXT="&#x63cf;&#x8ff0;">
+<node COLOR="#111111" CREATED="1263894272543" ID="ID_1370004916" MODIFIED="1263954661024" TEXT="&#x95ee;&#x9898;&#x539f;&#x56e0;&#xff1a;&#xa;cookie&#x53d1;&#x9001;&#x7684;&#x8def;&#x5f84;&#x95ee;&#x9898;&#xff0c;&#xa;&#x5f53;&#x521b;&#x5efa;session object&#x65f6;&#xff0c;&#x670d;&#x52a1;&#x5668;&#x7aef;&#xff08;self.SET_COOKIE&#xff09;&#x6ca1;&#x6709;&#x8bbe;&#x7f6e;&apos;path&apos;&#x53c2;&#x6570;&#xff0c;&#x5bfc;&#x81f4;&#x7f3a;&#x7701;&#x4e3a;Request&#x9875;&#x9762;&#x7684;&#x8def;&#x5f84;&#x3002;&#xa;&#x4f8b;&#x5982;&#xff1a;&#xa;layout.ks&#x4e2d;&#x8bbe;&#x7f6e;session object&#x540e;&#xff0c;cookie&#x8def;&#x5f84;&#x88ab;&#x8bbe;&#x7f6e;&#x4e3a;/layout/&#xff1b;&#xa;&#x8fd9;&#x6837;&#x8bbf;&#x95ee;portfolio&#x8def;&#x5f84;&#x4e0b;&#x7684;&#x9875;&#x9762;&#x65f6;&#xff0c;&#x7531;&#x4e8e;&#x8def;&#x5f84;&#x4e0d;&#x7b26;&#x5408;&#x6761;&#x4ef6;&#xff0c;cookie&#x4e0d;&#x4f1a;&#x88ab;&#x8bbe;&#x7f6e;&#x5728;&#x8be5;&#x9875;&#x9762;&#x7684;header&#x4e2d;&#x53d1;&#x51fa;&#xff0c;&#x5bfc;&#x81f4;&#x670d;&#x52a1;&#x5668;&#x7aef;&#x6ca1;&#x6709;&#x6536;&#x5230;cookie&#x548c;&#x5176;&#x4e2d;&#x7684;sessionId&#xff0c;&#x4e8e;&#x662f;&#x53c8;&#x521b;&#x5efa;&#x65b0;&#x7684;session&#x3002;">
+<icon BUILTIN="messagebox_warning"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1263954754718" FOLDED="true" ID="ID_941457021" MODIFIED="1269423617166" TEXT="&#x89e3;&#x51b3;&#x529e;&#x6cd5;">
+<node COLOR="#111111" CREATED="1263894154322" ID="ID_24661739" MODIFIED="1263954740723" TEXT="&#x591a;&#x6b21;&#x5237;&#x65b0;&#x9875;&#x9762;&#xff0c;&#x4e5f;&#x4f1a;&#x5bfc;&#x81f4;session object &#x8bfb;&#x5199;&#x9519;&#x8bef;&#xff1f;&#xa;&#x4fee;&#x6b63;&#xff1a;&#xa;layout.ks---&gt;&#xa;# the session object for this page&#xa;so = Session()&#xa;sname = pagefn.COOKIENAME&#xa;# SET_COOKIE is a instance of Cookie.SimpleCookie,&#xa;# When a new key is set for a SimpleCookie object, a Morsel instance is created.&#xa;SET_COOKIE[sname]=getattr(REQUEST_HANDLER, sname)&#xa;# set cookie path&#xa;SET_COOKIE[sname][&apos;path&apos;] = &apos;/&apos;&#xa;"/>
+<node COLOR="#111111" CREATED="1263954675969" ID="ID_492948300" MODIFIED="1263954726762" TEXT="&#x4e3a;&#x589e;&#x5f3a;&#x5b89;&#x5168;&#x6027;&#xff0c;&#x6dfb;&#x52a0;MUI.removeCookie() function&#x7528;&#x4e8e;&#x6e05;&#x9664;sessionId;&#xa;-&gt;init.js.pih-&gt;preLoginInit()&#x4e2d;&#x8c03;&#x7528;MUI.removeCookie,&#x5373;&#x6bcf;&#x6b21;&#x767b;&#x5f55;&#x524d;&#x6e05;&#x9664;sessionId&#xa;-&gt;layoutInit.js.pih&#x4e2d;-&gt;MUI.logout()&#x4e2d;&#x8c03;&#x7528;MUI.removeCookie,&#x5373;&#x6bcf;&#x6b21;&#x9000;&#x51fa;&#x767b;&#x5f55;&#x540e;&#x6e05;&#x9664;sessionId"/>
+</node>
+<node COLOR="#111111" CREATED="1263895524886" FOLDED="true" ID="ID_1440716339" MODIFIED="1264132992849" TEXT="prefer reading">
+<node COLOR="#111111" CREATED="1263895538997" ID="ID_21860316" MODIFIED="1263895540864" TEXT="http://www.jayconrod.com/cgi/view_post.py?17"/>
+<node COLOR="#111111" CREATED="1263895549571" ID="ID_1683813128" MODIFIED="1263895550415" TEXT="http://webpython.codepoint.net/cgi_morsel"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1264133292399" FOLDED="true" ID="ID_374577331" MODIFIED="1269423619447" TEXT="&#x540c;&#x4e00;ks&#x6587;&#x4ef6;&#x4e2d;&#xff0c;&#x7edf;&#x4e00;&#x8bbe;&#x7f6e;Session&#x548c;SET_COOKIE&#xff0c;&#x5bfc;&#x81f4;sessionId&#x88ab;&#x591a;&#x6b21;&#x8bbe;&#x7f6e;">
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#111111" CREATED="1264133384414" FOLDED="true" ID="ID_422791638" MODIFIED="1264156413877" TEXT="&#x63cf;&#x8ff0;">
+<node COLOR="#111111" CREATED="1264132999282" ID="ID_1837167565" MODIFIED="1264133278650" TEXT="Karrigell&#x7684;ks&#x6587;&#x4ef6;&#x673a;&#x5236;&#x4e3a;&#xff1a;&#xa;&#x6bcf;&#x4e2a;&#x51fd;&#x6570;&#x8fd4;&#x56de;&#x4e00;&#x4e2a;&#x9875;&#x9762;&#xff0c;&#x8fd9;&#x6837;&#x5982;&#x679c;session&#x7684;&#x521d;&#x59cb;&#x5316;&#x4e3a;&#x5168;&#x5c40;&#x53d8;&#x91cf;&#xff08;&#x4f8b;&#x5982;:&#x5728;ks&#x6587;&#x4ef6;&#x5934;&#x521d;&#x59cb;&#x5316;so=Session()&#xff0c;&#x540c;&#x65f6;&#x8bbe;&#x7f6e;SET_COOKIE&#xff09;,&#xa;&#x4f1a;&#x5bfc;&#x81f4;&#x6bcf;&#x6b21;&#x8bbf;&#x95ee;ks&#x6587;&#x4ef6;&#x4e2d;&#x7684;&#x4e00;&#x4e2a;&#x51fd;&#x6570;&#xff0c;&#x90fd;&#x4f1a;&#x91cd;&#x65b0;&#x8bbe;&#x7f6e;&#x8fd4;&#x56de;&#x7684;SET_COOKIE&#x4fe1;&#x606f;&#x5bfc;&#x81f4;&#x91cd;&#x65b0;&#x8bbe;&#x7f6e;sessionId&#xff0c;&#x6700;&#x7ec8;&#x4e0d;&#x540c;&#x9875;&#x9762;&#x65e0;&#x6cd5;&#x8bbf;&#x95ee;&#x540c;&#x4e00;&#x4e2a;Session Object."/>
+</node>
+<node COLOR="#111111" CREATED="1264133391212" ID="ID_776035324" MODIFIED="1269422851262" TEXT="&#x89e3;&#x51b3;">
+<node COLOR="#111111" CREATED="1264133401935" ID="ID_1209524773" MODIFIED="1264156003165" TEXT="init.js.pih&#xa;---&gt;MUI.appInit()&#xa;------&gt;&#x8c03;&#x7528;layout.ks/page_closeSession(),&#x6e05;&#x9664;Server &#x7aef;RequestHandler&#x4e2d;&#x4fdd;&#x7559;&#x7684;Session Object&#xa;&#xa;---&gt;&#x9875;&#x9762;&#x521d;&#x59cb;&#x5316;&#x65f6;&#x8c03;&#x7528;MUI.appInit&#xa;&#xa;&#x540c;&#x65f6;&#x4e3a;&#x65b9;&#x4fbf;&#x8bbe;&#x7f6e;Cookie &#xff0c;&#x589e;&#x52a0;pagefn.setCookie()&#x51fd;&#x6570;&#xa;&#x5728;ks&#x6587;&#x4ef6;&#x7684;&#x5177;&#x4f53;&#x9875;&#x9762;&#x51fd;&#x6570;&#x4e2d;&#x8bbe;&#x7f6e;SET_COOKIE&#x65f6;&#xff0c;&#x8c03;&#x7528;pagefn.setCookie()&#x51fd;&#x6570;&#x5b8c;&#x6210;&#x6b64;&#x529f;&#x80fd;&#x3002;"/>
+</node>
+<node COLOR="#111111" CREATED="1264156024454" ID="ID_204315342" MODIFIED="1269423599407" TEXT="HTTP.py-&gt;HTTP.Session()&#x5206;&#x6790;">
+<icon BUILTIN="help"/>
+<icon BUILTIN="idea"/>
+<node COLOR="#111111" CREATED="1264156078809" ID="ID_1550093625" MODIFIED="1264156381563" TEXT="//RequestHandler&#x4e2d;&#x4fdd;&#x5b58;&#x6709;Session Object ,&#x76f4;&#x63a5;&#x8c03;&#x7528;&#x6b64;Object&#x3002;&#x95ee;&#x9898;&#xff1a;&#x8fd9;&#x6837;&#x4f1a;&#x5bfc;&#x81f4;&#x65b0;&#x9875;&#x9762;&#x8c03;&#x7528;&#x65e7; Session&#xff1f;&#xa;if hasattr(self,&quot;sessionObj&quot;):&#x9;&#xa;    return self.sessionObj&#xa;&#xa;// Request header &#x4e2d;&#x5305;&#x542b;&#x6709;cookie&#x4fe1;&#x606f;&#xff0c;&#x6839;&#x636e;&#x6b64;&#x4fe1;&#x606f;&#x83b7;&#x5f97;&#x5185;&#x5b58;&#x4e2d;&#x7684;Session Object&#xa;elif self.COOKIE.has_key(&quot;sessionId&quot;):&#xa;     self.sessionId = self.COOKIE[&quot;sessionId&quot;].value&#xa;     self.sessionObj = k_sessions.get_session_object(self.config,self.sessionId,expires)&#xa;&#xa;// &#x521b;&#x5efa;&#x65b0;&#x7684;Session Object&#xa;else:&#xa;     self.sessionId,self.sessionObj = k_sessions.make_session_object(self.config,expires)&#xa;     self.SET_COOKIE[&quot;sessionId&quot;] = self.sessionId&#xa;&#xa;return self.sessionObj"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1269422868923" ID="ID_1354042928" MODIFIED="1269423592095" TEXT="&#x9057;&#x7559;&#x95ee;&#x9898;">
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="messagebox_warning"/>
+<icon BUILTIN="button_cancel"/>
+<icon BUILTIN="button_ok"/>
+<node COLOR="#111111" CREATED="1269422877447" ID="ID_1239812545" MODIFIED="1269423710766" TEXT="&#x73b0;&#x5728;roundup tracker &#x5728;RequestHandler&#x4e2d;&#x88ab;&#x7f13;&#x5b58;&#x5e76;&#x53cd;&#x590d;&#x4f7f;&#x7528;,&#xa;sesssion object = requestHandler.sessionId&#xa;&#x8fd9;&#x6837;&#x53ef;&#x80fd;&#x4f1a;&#x5bfc;&#x81f4;sessionId&#x7d0a;&#x4e71;?&#xa;&#x4f8b;&#x5982;&#xff1a;&#xa;demo&#x767b;&#x5f55;&#xff0c;&#x5374;&#x663e;&#x793a;admin&#x7684;&#x754c;&#x9762;&#xff1b;&#xa;&#x6b63;&#x5e38;&#x767b;&#x5f55;&#xff0c;&#x5374;&#x65e0;&#x6cd5;&#x8bfb;&#x53d6;role&#x7b49;session object &#x5c5e;&#x6027;&#xff1b;&#xa;&#xa;&#x73b0;&#x5728;&#x5df2;&#x5220;&#x9664;RequestHandler&#x4e2d;&#x7684;roundup tracker instance &#x7f13;&#x5b58;"/>
+</node>
+</node>
 </node>
 <node COLOR="#0033ff" CREATED="1254629537711" FOLDED="true" ID="Freemind_Link_673015721" MODIFIED="1266917027904" POSITION="right" TEXT="Install">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
@@ -1160,7 +1168,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1257233375982" FOLDED="true" ID="ID_821506493" MODIFIED="1266917026319" POSITION="right" TEXT="Client/Corporators">
+<node COLOR="#0033ff" CREATED="1257233375982" ID="ID_821506493" MODIFIED="1269333543090" POSITION="right" TEXT="Client/Corporators">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="idea"/>
@@ -1195,13 +1203,13 @@
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="help"/>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1268901401442" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1269337442777" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1265252373668" ID="ID_1883535158" MODIFIED="1269056832949" TEXT="Layout">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1269055913285" FOLDED="true" ID="ID_718060145" MODIFIED="1269060415183" TEXT="Examples">
+<node COLOR="#990000" CREATED="1269055913285" FOLDED="true" ID="ID_718060145" MODIFIED="1269337448814" TEXT="Examples">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1269055921201" ID="ID_250633558" MODIFIED="1269056457857" TEXT="http://www.phprojekt.com/demo/">
 <icon BUILTIN="messagebox_warning"/>
@@ -1222,10 +1230,10 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1173066298350" ID="Freemind_Link_1468412211" MODIFIED="1268449762188" TEXT="UI">
+<node COLOR="#00b439" CREATED="1173066298350" FOLDED="true" ID="Freemind_Link_1468412211" MODIFIED="1269422825423" TEXT="UI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261723589326" FOLDED="true" ID="ID_80373969" MODIFIED="1269056844023" TEXT="Preference">
+<node COLOR="#990000" CREATED="1261723589326" ID="ID_80373969" MODIFIED="1269337454122" TEXT="Preference">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1176041576720" FOLDED="true" ID="Freemind_Link_940755797" MODIFIED="1267509170882" TEXT="Application">
 <edge STYLE="bezier" WIDTH="thin"/>
@@ -1702,7 +1710,7 @@
 <node COLOR="#111111" CREATED="1261730778018" ID="ID_1595804630" MODIFIED="1261730779372" TEXT="http://www.webdesignerwall.com/tutorials/css-gradient-text-effect/"/>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1268099494096" TEXT="web site">
+<node COLOR="#111111" CREATED="1261017385572" ID="ID_1594767766" MODIFIED="1269337467029" TEXT="web site">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1261017390365" ID="ID_4950788" MODIFIED="1261723671557" TEXT="http://ramblingsoul.com/preview/rs14/index.html">
@@ -1738,9 +1746,13 @@
 <node COLOR="#111111" CREATED="1267587848480" ID="ID_652333271" MODIFIED="1267587850219" TEXT="http://www.opendesigns.org/preview/?design=1797"/>
 </node>
 </node>
+<node COLOR="#111111" CREATED="1269337498944" ID="ID_973660080" MODIFIED="1269337505482" TEXT="Simple">
+<node COLOR="#111111" CREATED="1269337506893" ID="ID_1203002521" MODIFIED="1269337508703" TEXT="http://www.opendesigns.org/preview/?design=1817"/>
+<node COLOR="#111111" CREATED="1269337532966" ID="ID_580995098" MODIFIED="1269337534792" TEXT="http://www.opendesigns.org/preview/?design=1830"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1263009691239" FOLDED="true" ID="ID_1853015666" MODIFIED="1268901412838" TEXT="Framework Tools">
+</node>
+<node COLOR="#990000" CREATED="1263009691239" FOLDED="true" ID="ID_1853015666" MODIFIED="1269221690903" TEXT="Framework Tools">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1263009697067" ID="ID_1781009959" MODIFIED="1263009698398" TEXT="http://www.lucid-desktop.org/"/>
 <node COLOR="#111111" CREATED="1261116138051" ID="ID_886881172" MODIFIED="1261723671558" TEXT="http://960.gs/">
@@ -1767,7 +1779,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1261723681347" ID="ID_1526994899" MODIFIED="1268901405293" TEXT="Site Package">
+<node COLOR="#00b439" CREATED="1261723681347" FOLDED="true" ID="ID_1526994899" MODIFIED="1269422827654" TEXT="Site Package">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1261723699899" ID="ID_1334746923" MODIFIED="1262920294585" TEXT="Rules">
@@ -1775,7 +1787,7 @@
 <node COLOR="#111111" CREATED="1261723706816" ID="ID_1757088788" MODIFIED="1261723768592" TEXT="Karrigell_root_dir&#xa;--&gt;/lib,&#x4fdd;&#x5b58;&#x7b2c;&#x4e09;&#x65b9;javascript&#x5e93;&#x6587;&#x4ef6;"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1268185424069" FOLDED="true" ID="ID_628193831" MODIFIED="1269060417477" TEXT="Tools">
+<node COLOR="#00b439" CREATED="1268185424069" FOLDED="true" ID="ID_628193831" MODIFIED="1269221725816" TEXT="Tools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1268185427929" ID="ID_171358267" MODIFIED="1268185439700" TEXT="Browser Test">
@@ -1799,6 +1811,13 @@
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1268099503091" ID="ID_507979814" MODIFIED="1269056873756" TEXT="http://designingwebinterfaces.com/designing-web-interfaces-12-screen-patterns">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1269221727192" ID="ID_1898107076" MODIFIED="1269221729967" TEXT="Blutprint">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1269221731233" ID="ID_897924523" MODIFIED="1269221732556" TEXT="http://www.evolus.vn/pencil/">
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>

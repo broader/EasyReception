@@ -185,7 +185,15 @@ PORTFOLIO = {'panelsId':('editPortfolioPanel','editAccountPanel'),}
 ##
 # Hotel Reservation Application module
 #--------------------------------------------------------------------------------------
-HOTEL = {'panelsId':{'left':('hotesList','hotelInfo'),'right':'hotelReserve'},}
+#HOTEL = {'panelsId':{'left':{'list':'hotesList','info':'hotelInfo'},'right':'hotelReserve'},}
+HOTEL = {\
+	'categoryInService':'Hotel',\
+	'main':{\
+		'list':{'panelId':'hotelsList','panelTitle':_('Hotels List'), 'contentUrl':'service/userHotelsView.ks/page_hotelsList'},\
+		'info':{'panelId':'hotelsInfo','panelTitle':_('Detail Information of The Hotel')}\
+	}, \
+	'right':{'panelId':'hotelReservation','panelTitle':_('Your reservations')}\
+}
 #---End--------------------------------------------------------------------------------
 
 ##
@@ -268,15 +276,15 @@ def script(src, link=True):
 
 # some global variables stored in Session object of Karrigell
 COOKIENAME = "sessionId"
-def setCookie(setCookie,requestHandler):
+def setCookie(cookie,requestHandler):
 	""" Set cookie info in the header of a html page. """	
 	sname = COOKIENAME
-	# setCookie is the Karrigell's global variable "SET_COOKIE",
+	# cookie is the Karrigell's global variable "SET_COOKIE",
 	# which is a instance of Cookie.SimpleCookie.
 	# When a new key is set for a SimpleCookie object, a Morsel instance is created.
-	setCookie[sname]=getattr(requestHandler, sname)
+	cookie[sname]=getattr(requestHandler, sname)
 	# set cookie path
-	setCookie[sname]['path'] = '/'
+	cookie[sname]['path'] = '/'
 	return
 	
 def sexyButton(txt,bnAttrs={},bnType='',size='sexymedium',skin='sexysimple'):
@@ -292,5 +300,5 @@ def sexyButton(txt,bnAttrs={},bnType='',size='sexymedium',skin='sexysimple'):
 	bnClass = ' '.join(bnClass)
 	bnAttrs['class'] = bnClass
 	return BUTTON(SPAN(txt,**{'class':bnType}),**bnAttrs)
-	
+
 	

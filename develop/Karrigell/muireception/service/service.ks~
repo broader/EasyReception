@@ -1,5 +1,5 @@
 """
-Service module 
+Pages mainly for administration.
 """
 import copy,tools
 from tools import treeHandler
@@ -54,7 +54,7 @@ SERVICEEDITFORM = 'serviceEditForm'
 
 # the properties info that will be shown in columns's title in the tree table to show services' list
 COLUMNMODEL = [
-	{'dataIndex':'name','label':_('Service Name'),'dataType':'string', 'treeColumn':'1', 'properties':{'style':'padding-right:10px;'}},
+	{'dataIndex':'name','label':_('Service Name'),'dataType':'string', 'treeColumn':'1', 'properties':{'style':'padding-right:5px;'}},
 	{'dataIndex':'description','label':_('Description'),'dataType':'string'},
 	{'dataIndex':'price','label':_('Unit Price'),'dataType':'string', 'properties':{'align':'center'}},
 	{'dataIndex':'amount','label':_('Total Amount'),'dataType':'number', 'properties':{'align':'center'}},

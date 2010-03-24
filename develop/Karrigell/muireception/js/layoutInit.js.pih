@@ -259,7 +259,10 @@ MUI.extend({
 	
 	// collapse all other panels, only left user selected panel
 	accordionPanels: function(currentId){
-		var column = '<%=sideBar %>';
+		// get the MUI.Column of this MUI.Panel
+		var column = MUI.Panels.instances.get(currentId).options.column;
+		//var column = '<%=sideBar %>';
+		
 		MUI.Panels.instances.each(function(panel){
 			if (panel.options.column != column){
 				return

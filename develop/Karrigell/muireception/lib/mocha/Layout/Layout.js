@@ -895,9 +895,7 @@ MUI.Panel = new Class({
 			this.collapseToggleEl.setProperty('title','Expand Panel');
 			this.fireEvent('onCollapse');				
 		}
-		
-		// Expand Panel
-		else {
+		else {	// Expand Panel
 			this.contentEl.setStyle('position', null); // This is so IE6 and IE7 will collapse the panel all the way				
 			panel.setStyle('height', this.oldHeight);
 			this.isCollapsed = false;				
@@ -909,9 +907,12 @@ MUI.Panel = new Class({
 			this.collapseToggleEl.addClass('panel-collapsed');
 			this.collapseToggleEl.setProperty('title','Collapse Panel');
 			this.fireEvent('onExpand');
-		}
+		};
+		
 	}
+	
 });
+
 MUI.Panel.implement(new Options, new Events);
 
 /*
