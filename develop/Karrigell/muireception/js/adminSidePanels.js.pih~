@@ -10,7 +10,6 @@ pagefn = Import('/'.join(('', 'pagefn.py')))
 %>
 
 // the id of main panel in right main column
-//var mainPanelId = '<%=pagefn.PANELSID['main'] %>';
 var mainPanelId = MUI.mainPanelId;
 
 /*
@@ -18,6 +17,15 @@ var mainPanelId = MUI.mainPanelId;
 */
 function sidePanelCollapse(panelId){	
 	//alert('panel collapsed');
+};
+
+/*
+** Before open a panel, do some initial works.
+*/
+function initPanel(panelId){
+	MUI.removeErr();
+	MUI.accordionPanels(panelId);
+	MUI.clearMainPanel();
 };
 
 /*
@@ -31,8 +39,7 @@ function portalPanel(panelId){
 **	"Users Management" side panel expand function
 */
 function userManagementPanel(panelId){
-	MUI.accordionPanels(panelId);
-	MUI.clearMainPanel();
+	initPanel(panelId);
 	
 	var cid = 'userMangementColumn'; 
 	new MUI.Column({
@@ -72,9 +79,31 @@ function agendaPanel(panelId){
 **	"Service Management" side panel expand function
 */
 function servicePanel(panelId){
-	MUI.removeErr();
-	MUI.accordionPanels(panelId);
-	MUI.clearMainPanel();
+	initPanel(panelId);
+	
+	var columnId = 'serviceManagementColumn'; 
+	new MUI.Column({
+		container:mainPanelId, id: columnId, placement: 'main', 
+		sortable: false, width: null, resizeLimit: [100,200] 
+	});
+	
+	contentPanelId = 'serviceManagementPanel';
+	url = ['service/service.ks/index', ['panelid',contentPanelId].join('=')].join('?'); 
+	new MUI.Panel({
+		id: contentPanelId, column: columnId,
+		tabsURL: url,
+		require: {
+			css: [MUI.themePath() + 'css/Tabs.css']
+		}
+	});
+	
+};
+
+/*
+**	System administration panel expand function
+*/
+function sysadminPanel(panelId){
+	initPanel(panelId);
 	
 	var columnId = 'serviceManagementColumn'; 
 	new MUI.Column({

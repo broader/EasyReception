@@ -157,6 +157,9 @@ ADMINSIDEBARPANELS = \
 		
 		{ 'id':'05', 'text':_("Service Management"), 'onExpand':'servicePanel',\
 		  'onCollapse':'sidePanelCollapse', 'contentURL':'service/service.ks/page_info' },
+		  
+		{ 'id':'06', 'text':_("System Config"), 'onExpand':'systemPanel',\
+		  'onCollapse':'sidePanelCollapse', 'contentURL':'service/service.ks/page_info' },
        
 	),
 	
@@ -282,7 +285,7 @@ def setCookie(cookie,requestHandler):
 	# cookie is the Karrigell's global variable "SET_COOKIE",
 	# which is a instance of Cookie.SimpleCookie.
 	# When a new key is set for a SimpleCookie object, a Morsel instance is created.
-	cookie[sname]=getattr(requestHandler, sname)
+	cookie[sname] = getattr(requestHandler, sname)
 	# set cookie path
 	cookie[sname]['path'] = '/'
 	return

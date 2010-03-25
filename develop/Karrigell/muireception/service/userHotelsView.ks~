@@ -75,8 +75,7 @@ COLUMNMODEL = [
 # ********************************************************************************************
 CONTAINERID = 'userHotelsList'
 def page_hotelsList(**args):
-	""" The page to show hotels list table.	"""
-	print 'Test'
+	""" The page to show hotels list table."""
 	
 	print DIV(**{'id':CONTAINERID})
 	
@@ -84,20 +83,72 @@ def page_hotelsList(**args):
 	print pagefn.script( _hotelsListJs(),link=False)	
  	
 	return 
-	
+
+ACTIONS = [
+	{'type':'house','label':_('Detail Information')},
+	{'type':'edit','label':_('Reserve')},
+]
+
 def _hotelsListJs():
 	paras = [APP, CONTAINERID,]
 	paras.extend(['/'.join((APPATH,name)) for name in ('page_colsModel','page_hotelItems')])
+	[ paras.extend( [ action.get(key) for key in ('type','label')]) for action in ACTIONS ] 
+	paras.appedn(_('Please select only one type of room!'))
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName='%s', container='%s', colsModelUrl='%s', rowDataUrl='%s';
-	
+	var appName='%s', container='%s', colsModelUrl='%s', rowDataUrl='%s',
+	bnAttributes = [{'type':'%s','label':'%s'},{'type':'%s','label':'%s'}],
+	errInfo = '%s';	
 	
 	var treeTable;
 	
+	/***********************************************************************
+	Add buttons on the bottom of the hotel list table
+	************************************************************************/
 	function addButton(ti){
-		alert(ti);
+		// Parameter 'ti'- the TreeTable instance
+		bnContainer = new Element('div',{style: 'text-align:left;'});
+		ti.container.grab(bnContainer);
+		
+		bnAttributes.each(function(attrs,index){
+			
+			options = {
+				txt: attrs['label'],
+			   imgType: attrs['type'],
+				bnAttrs: {'style':'margin-right:1em;'}	
+			};
+			
+			button = MUI.styledButton(options);
+			button.addEvent('click',actionAdapter.pass(index,this));
+			
+			bnContainer.grab(button);
+			
+		},ti);
+		
+	};
+	
+	function actionAdapter(index){
+		trs = this.getSelectedRows();
+		if(trs.length != 1){	// only one row should be selected
+			MUI.alert(errInfo);
+			return
+		};
+		
+		if(index==0){
+			hotelDetail(this);
+		}
+		else{
+			reservation(this);
+		};
+	};
+	
+	function reservation(ti){
+		alert('reserve action');
+	};
+	
+	function hotelDetail(ti){
+		alert('show hotel detail information action');
 	};
 	
 	/****************************************************************** 
@@ -114,7 +165,7 @@ def _hotelsListJs():
 					dataUrl: rowDataUrl,
 					idPrefix: 'hotel-',
 					initialExpandedDepth: 1,
-					renderOver: addButton.pass(this)
+					renderOver: addButton
 				}
 			);// the end for 'treeTable' definition
 			

@@ -20,6 +20,15 @@ function sidePanelCollapse(panelId){
 };
 
 /*
+** Before open a panel, do some initial works.
+*/
+function initPanel(panelId){
+	MUI.removeErr();
+	MUI.accordionPanels(panelId);
+	MUI.clearMainPanel();
+};
+
+/*
 **	Portal side panel expand function
 */
 function portalPanel(panelId){
@@ -30,8 +39,7 @@ function portalPanel(panelId){
 **	"Users Management" side panel expand function
 */
 function userManagementPanel(panelId){
-	MUI.accordionPanels(panelId);
-	MUI.clearMainPanel();
+	initPanel(panelId);
 	
 	var cid = 'userMangementColumn'; 
 	new MUI.Column({
@@ -71,9 +79,7 @@ function agendaPanel(panelId){
 **	"Service Management" side panel expand function
 */
 function servicePanel(panelId){
-	MUI.removeErr();
-	MUI.accordionPanels(panelId);
-	MUI.clearMainPanel();
+	initPanel(panelId);
 	
 	var columnId = 'serviceManagementColumn'; 
 	new MUI.Column({
@@ -82,6 +88,30 @@ function servicePanel(panelId){
 	});
 	
 	contentPanelId = 'serviceManagementPanel';
+	url = ['service/service.ks/index', ['panelid',contentPanelId].join('=')].join('?'); 
+	new MUI.Panel({
+		id: contentPanelId, column: columnId,
+		tabsURL: url,
+		require: {
+			css: [MUI.themePath() + 'css/Tabs.css']
+		}
+	});
+	
+};
+
+/*
+**	System administration panel expand function
+*/
+function sysadminPanel(panelId){
+	initPanel(panelId);
+	
+	var columnId = 'systemAdminColumn'; 
+	new MUI.Column({
+		container:mainPanelId, id: columnId, placement: 'main', 
+		sortable: false, width: null, resizeLimit: [100,200] 
+	});
+	
+	contentPanelId = 'systemAdminPanel';
 	url = ['service/service.ks/index', ['panelid',contentPanelId].join('=')].join('?'); 
 	new MUI.Panel({
 		id: contentPanelId, column: columnId,

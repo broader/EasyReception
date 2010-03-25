@@ -19,7 +19,8 @@ pri.setkey("name")
 stat = Class(db, "status",
                 name=String(),
                 order=Number(),
-                category=String())
+                category=String(),
+                description=String())
 stat.setkey("name")
 
 # Keywords
@@ -112,7 +113,8 @@ service = Class(db, "service",
 			price=String(), 					# the price of each service
 			description=String(),			# description for the service
 			detail=String(),					# footnote
-			amount=String())					# the amount of this service item			
+			amount=String(),
+			status=Link("status"))					# the amount of this service item			
 #service.setkey("serial")
 
 # the record of each reservation

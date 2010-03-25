@@ -360,7 +360,7 @@
 .sexybutton.sexysimple.sexyteal		{ background-color: #2daebf; }
 .sexybutton.sexysimple.sexymagenta	{ background-color: #a9014b; }
 .sexybutton.sexysimple.sexypurple	{ background-color: #9d01a9; }
-.sexybutton.sexysimple.sexycadet	{ background-color: cadetblue; }
+.sexybutton.sexysimple.sexycadet		{ background-color: cadetblue; }
 
 /* Simple button sizes */
 .sexybutton.sexysimple.sexysmall          { padding: 4px 7px 5px; font-size: 10px !important; }
