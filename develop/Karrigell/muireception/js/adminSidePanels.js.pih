@@ -112,7 +112,7 @@ function sysadminPanel(panelId){
 	});
 	
 	contentPanelId = 'systemAdminPanel';
-	url = ['service/service.ks/index', ['panelid',contentPanelId].join('=')].join('?'); 
+	url = ['sysadmin/sysadmin.ks/index', ['panelid',contentPanelId].join('=')].join('?'); 
 	new MUI.Panel({
 		id: contentPanelId, column: columnId,
 		tabsURL: url,

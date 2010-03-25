@@ -105,13 +105,13 @@ function servicePanel(panelId){
 function sysadminPanel(panelId){
 	initPanel(panelId);
 	
-	var columnId = 'serviceManagementColumn'; 
+	var columnId = 'systemAdminColumn'; 
 	new MUI.Column({
 		container:mainPanelId, id: columnId, placement: 'main', 
 		sortable: false, width: null, resizeLimit: [100,200] 
 	});
 	
-	contentPanelId = 'serviceManagementPanel';
+	contentPanelId = 'systemAdminPanel';
 	url = ['service/service.ks/index', ['panelid',contentPanelId].join('=')].join('?'); 
 	new MUI.Panel({
 		id: contentPanelId, column: columnId,
