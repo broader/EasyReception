@@ -420,6 +420,14 @@
 <node COLOR="#111111" CREATED="1268981626017" ID="ID_574622746" MODIFIED="1268981627428" TEXT="http://outofhanwell.com/ieleak/index.php?title=Main_Page"/>
 </node>
 </node>
+<node COLOR="#00b439" CREATED="1269585461005" ID="ID_843884871" MODIFIED="1269585471613" TEXT="Performance">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1269585546953" ID="ID_1085364566" MODIFIED="1269585549810" TEXT="Image">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1269585550829" ID="ID_1674813649" MODIFIED="1269585552112" TEXT="http://www.imagemagick.org/script/index.php"/>
+</node>
+</node>
 </node>
 <node COLOR="#0033ff" CREATED="1176858951119" FOLDED="true" ID="Freemind_Link_55211099" MODIFIED="1261467402072" POSITION="left" TEXT="Roundup &amp; Karrigell Server Config">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
@@ -790,7 +798,7 @@
 <font NAME="SansSerif" SIZE="16"/>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1262786726152" ID="ID_476877394" MODIFIED="1269333547605" POSITION="right" TEXT="Source">
+<node COLOR="#0033ff" CREATED="1262786726152" FOLDED="true" ID="ID_476877394" MODIFIED="1269585449194" POSITION="right" TEXT="Source">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1266917069312" FOLDED="true" ID="ID_30201427" MODIFIED="1268619406974" TEXT="Management">
@@ -919,7 +927,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" ID="Freemind_Link_986904229" MODIFIED="1269422831098" POSITION="right" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1269585450721" POSITION="right" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>

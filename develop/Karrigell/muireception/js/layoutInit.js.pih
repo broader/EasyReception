@@ -240,7 +240,7 @@ MUI.extend({
 		});
 	},
 	
-	// refresh the main MUI.Panel
+	// refresh the main MUI.Panel. Is it used ???
 	refreshMainPanel: function(){
 		MUI.Panels.instances
 		.filter(function(panel,key){
@@ -271,6 +271,48 @@ MUI.extend({
 				panel.toggleExpand();
 			};
 		});
+	},
+	
+	// judge file type by its name
+	fileType: function(url){
+		fileType = '';
+		if(url.contains('.css')){fileType='css';}
+		else if(url.contains('.js') || url.contains('.js.pih')){fileType='js';}
+		else{};
+		
+		return fileType
+	},
+	
+	/***************************************************************
+	A common function to handle import aciton for Mootools.Assets.
+	Here we assume that there is only one 'js' file.
+	****************************************************************/
+	import: function(appName,urls,options){
+		// get the global Assets manager
+	   var am = MUI.assetsManager;		
+		urls.each(function(src){
+			fileType = MUI.fileType(src);
+
+			alert('MUI.import, src is '+src+',is not imported?'+!$defined(am.imported[src]));
+			
+			if(fileType == 'css'){
+				if(!$defined(am.imported[src])){
+	    			am.import({'url':src,'app':appName,'type':'css'});	
+				}
+			}
+			else if(fileType == 'js'){
+				if(!$defined(am.imported[src])){
+					am.import({'url':src,'app':appName,'type':'js'},options);
+				}
+				else{
+					fn = options.onload;
+					alert('MUI.import,reimported js file,function is defined?'+$defined(fn));					
+					if($defined(fn)){	fn();}
+				};	   
+			}
+			
+		});	   
+		
 	},
 	
 	/*
@@ -313,18 +355,21 @@ MUI.extend({
 			urls.push('<%=url%>');
 		<% end %>
 		
-		// get the global Assets manager
-	   var am = MUI.assetsManager;
-	   
-	   // import css file for validation
-	   urls.slice(0,1).each(function(src){
-	   	if(!$defined(am.imported[src])){
-	    		am.import({'url':src,'app':appName,'type':'css'});
-	    	}	
-		});
-	   
-	   // the really validation functions
-		am.import({'url':urls[1],'app':appName,'type':'js'},options);	   
+		MUI.import(appName,urls, options);
+	},
+	
+	/*
+	Imports grid lib and sets initial actions.
+	*/
+	dataGrid: function(appName, options){
+		// get lib files
+		var urls = [];
+		<% for url in pagefn.JSLIB['dataGrid']['files'] : %>
+			urls.push('<%=url%>');
+		<% end %>
+		
+		MUI.import(appName,urls,options);
+		
 	}
 	
 });

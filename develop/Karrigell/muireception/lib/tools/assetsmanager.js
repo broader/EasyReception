@@ -19,7 +19,8 @@ var AssetsManager = new Class({
     	options: the options or properties for mootoools.Assets import function
     *********************************************************************/
     import: function(object, options){
-    	if(!$defined(options)){ options={};};    	
+    	if(!$defined(options)){ options={};}; 
+    	   	
     	var id = options['id'];    	
     	if(!$defined(id)){ 
     		options['id'] = id = object['url'];    		 

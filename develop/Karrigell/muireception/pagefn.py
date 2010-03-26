@@ -30,6 +30,11 @@ JSLIB['treeTable'] = \
 {'files':['/'.join(('lib','treeTable',name)) for name in ('treeTable.css','treeTable.js',)],
 }
 
+# dataGrid lib
+JSLIB['dataGrid'] = \
+{'files':['/'.join(('lib','grid',name)) for name in ('omnigrid.css','gridSupplement.css', 'omnigrid.js')],
+}
+
 #--------------------------------------------------------------------------------------
 
 ##

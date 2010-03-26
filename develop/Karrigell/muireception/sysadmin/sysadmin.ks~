@@ -211,6 +211,17 @@ def _classEditJs():
 	"""
 	"""%paras
 	return js
+
+def _getClassProps(klass):
+	operator = USER
+	props = model.get_class_props( operator, klass).keys()
+	
+	if klass == 'user':
+		props.remove('password')
+		
+	props.sort()
+	props.insert(0, 'id')
+	return props
 	
 def page_colsModel(**args):
 	""" 
@@ -218,23 +229,74 @@ def page_colsModel(**args):
 	Format:
 		[{'header':...,'dataIndex':...,'dataType':...},...]
 	"""
-	colsModel = []
-	fields = CONFIG.getData(ACCOUNTFIELDS)
-	fields.extend(CONFIG.getData(PORTFOLIOFIELDS))
-	showProps = [item.get('name') for item in USERCOLUMNS]		
-	for field in fields :
-		name = field['name']				
-		if not name in showProps :
-			continue		
-		options = {'header':field['prompt'],'dataIndex':name,'dataType':'string'}		
-		width = USERCOLUMNS[showProps.index(name)].get('width')
-		if width:
-			options['width'] = width	
-		
-		colsModel.append(options)
-	
-	colsModel.sort(key=lambda item: showProps.index(item.get('dataIndex')))
+	klass = args.get(CLASSPROP)
+	colsModel = [{'header': prop, 'dataIndex':prop,'dataType':'string'} for prop in _getClassProps(klass)] 
 		
 	print JSON.encode({'data':colsModel})
 	return
+	
+def page_classItems(**args):
+	klass = args.get(CLASSPROP)
+	
+	# paging arguments
+	showPage, pageNumber = [ int(args.get(name)) for name in ('page', 'perpage') ]
+	search = args.get('filter')
+	
+	# arguments for sort action
+	sortby,sorton = [ args.get(name) or '' for name in (GRIDSORTONTAG,GRIDSORTBYTAG)]
+	
+	
+	# returned data object
+	d = {'page':showPage,'data':[],'search':search}
+	
+	# column's property name
+	showProps = [item.get('name') for item in USERCOLUMNS]
+	total, data = model.get_userlist(USER, showProps, search)
+	
+	d['total'] = total
+	
+	if data:			
+		# sort data
+		if sortby :			
+			data.sort(key=lambda row:row[showProps.index(sortby)])	
+		
+		if sorton == 'DESC':
+			data.reverse()
+			
+		# get the data of the displayed page
+		start = (showPage-1)*pageNumber
+		end = start + pageNumber - 1
+		if end >= total:
+			end = total
+		# get data slice in the displayed page from the data 	
+		rslice = data[start : end]
+		
+		# if ascii chars mixins with non-ascii chars will result
+		# JSON.encode error, so decode all the data items to utf8.	
+		# set python default encoding to 'utf8'
+		reload(sys)
+		sys.setdefaultencoding('utf8')
+		
+		for row in rslice:
+			for i,s in enumerate(row) :
+				row[i] = s.decode('utf8')		
+		
+		# constructs each row to be a dict object that key is a property.
+		encoded = [dict([(prop,value) for prop,value in zip(showProps,row)]) for row in rslice]
+		
+		# some properties need to be transformated
+		transProps = [{'name':'gender','function':(lambda i: pagefn.GENDER[int(i)] )},]
+		names = [prop.get('name') for prop in transProps]
+		
+		for row in encoded :
+			for prop in transProps:
+				old = row[prop.get('name')]
+				new = prop.get('function')(old)
+				row[prop.get('name')] = new
+			
+		d['data'] = encoded
+	
+	print JSON.encode(d, encoding='utf8')	
+	return
+	
 	

@@ -197,23 +197,8 @@ def _usersTridJs(**args):
 		datagrid.addEvent('dblclick', gridRowEdit);
 	};
 	
-	var toImport =
-	[	{'type':'css','src':gridCss,'options':null},
-		{'type':'css','src':gridSupplement,'options':null},
-		{'type':'js','src':gridJs,'options': {'onload':renderGrid}}
-	] 
-	
-   toImport.each(function(props){
-   	src = props['src'], type=props['type'], options=props['options'];
-		if(!$defined(am.imported[src])){			
-			if (options != null){
-				am.import({'url':src,'app':appName,'type':type},options);
-			}
-			else{
-		 		am.import({'url':src,'app':appName,'type': type});
-		 	}
-		};	
-   });
+	MUI.dataGrid(appName, {'onload':renderGrid});
+   
 	"""%paras
 	
 	return js

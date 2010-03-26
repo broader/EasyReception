@@ -197,6 +197,8 @@ def _usersTridJs(**args):
 		datagrid.addEvent('dblclick', gridRowEdit);
 	};
 	
+	MUI.dataGrid(appName, {'onload':renderGrid});
+	/*
 	var toImport =
 	[	{'type':'css','src':gridCss,'options':null},
 		{'type':'css','src':gridSupplement,'options':null},
@@ -214,6 +216,8 @@ def _usersTridJs(**args):
 		 	}
 		};	
    });
+   */
+   
 	"""%paras
 	
 	return js

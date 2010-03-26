@@ -50,8 +50,7 @@ var AssetsManager = new Class({
     	case 'css':
     		new Asset.css(name, options);
     		break;
-    	case 'js':
-    		alert('assetsmanager.js,_importAsset,L54,url is ' + name+',options is '+options['onload']);
+    	case 'js':    		
     		new Asset.javascript(name, options);    			
     		break;
     	case 'image':

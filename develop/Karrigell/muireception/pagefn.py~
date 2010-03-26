@@ -30,6 +30,11 @@ JSLIB['treeTable'] = \
 {'files':['/'.join(('lib','treeTable',name)) for name in ('treeTable.css','treeTable.js',)],
 }
 
+# dataGrid lib
+JSLIB['dataGrid'] = \
+{'files':['/'.join(('lib','grid',name)) for name in ('omnigrid.css','gridSupplement.css',)],
+}
+
 #--------------------------------------------------------------------------------------
 
 ##
@@ -158,7 +163,7 @@ ADMINSIDEBARPANELS = \
 		{ 'id':'05', 'text':_("Service Management"), 'onExpand':'servicePanel',\
 		  'onCollapse':'sidePanelCollapse', 'contentURL':'service/service.ks/page_info' },
 		  
-		{ 'id':'06', 'text':_("System Config"), 'onExpand':'systemPanel',\
+		{ 'id':'06', 'text':_("System Config"), 'onExpand':'sysadminPanel',\
 		  'onCollapse':'sidePanelCollapse', 'contentURL':'service/service.ks/page_info' },
        
 	),
