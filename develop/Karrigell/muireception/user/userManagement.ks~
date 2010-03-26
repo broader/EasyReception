@@ -63,12 +63,12 @@ def index(**args):
 	bn = A(_('Filter'),**{'id':FILTERBN, 'href':'javascript:;'})
 	rbn = A(_('Clear Filter'),**{'id':FILTERCLEARBN, 'href':'javascript:;'})
 	
-	print H2(title),HR(style='padding:0 0 0.1em'),SPAN(Sum((input,bn,TEXT('| '),rbn))),DIV(**{'id':GRIDID})
+	print H2(title),HR(style='padding:0 0 0.1em'),SPAN(Sum((input,bn,TEXT(' | '),rbn))),DIV(**{'id':GRIDID})
 	print pagefn.script(_usersTridJs(), link=False)
 	return
 
 def _usersTridJs(**args):
-	paras = [pagefn.PANELSID['main'], APP, GRIDID]
+	paras = [APP, GRIDID]
 	
 	# append the ids of the elements for filter function 
 	paras.extend([FILTERINPUTID,FILTERBN,FILTERCLEARBN])
@@ -88,8 +88,8 @@ def _usersTridJs(**args):
 		
 	paras = tuple(paras)
 	js = \
-	"""
-	var maniPanelId='%s',appName='%s', gridId='%s',
+	"""	
+	var appName='%s', gridId='%s',
 	filterInput='%s',filterBn='%s',filterClearBn='%s',
 	gridCss='%s',gridSupplement='%s',gridJs='%s',
 	dataUrl='%s',colsModelUrl='%s', userInfoUrl='%s',
@@ -243,10 +243,6 @@ def page_colsModel(**args):
 		
 	print JSON.encode({'data':colsModel})
 	return
-
-def _getData(search=None):
-	
-	pass
 		
 def page_usersData(**args):
 	

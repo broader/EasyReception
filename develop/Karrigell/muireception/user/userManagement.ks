@@ -68,7 +68,7 @@ def index(**args):
 	return
 
 def _usersTridJs(**args):
-	paras = [pagefn.PANELSID['main'], APP, GRIDID]
+	paras = [APP, GRIDID]
 	
 	# append the ids of the elements for filter function 
 	paras.extend([FILTERINPUTID,FILTERBN,FILTERCLEARBN])
@@ -88,8 +88,8 @@ def _usersTridJs(**args):
 		
 	paras = tuple(paras)
 	js = \
-	"""
-	var maniPanelId='%s',appName='%s', gridId='%s',
+	"""	
+	var appName='%s', gridId='%s',
 	filterInput='%s',filterBn='%s',filterClearBn='%s',
 	gridCss='%s',gridSupplement='%s',gridJs='%s',
 	dataUrl='%s',colsModelUrl='%s', userInfoUrl='%s',
@@ -243,10 +243,6 @@ def page_colsModel(**args):
 		
 	print JSON.encode({'data':colsModel})
 	return
-
-def _getData(search=None):
-	
-	pass
 		
 def page_usersData(**args):
 	
