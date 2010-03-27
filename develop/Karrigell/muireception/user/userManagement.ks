@@ -64,17 +64,14 @@ def index(**args):
 	rbn = A(_('Clear Filter'),**{'id':FILTERCLEARBN, 'href':'javascript:;'})
 	
 	print H2(title),HR(style='padding:0 0 0.1em'),SPAN(Sum((input,bn,TEXT(' | '),rbn))),DIV(**{'id':GRIDID})
-	print pagefn.script(_usersTridJs(), link=False)
+	print pagefn.script(_usersGridJs(), link=False)
 	return
 
-def _usersTridJs(**args):
+def _usersGridJs(**args):
 	paras = [APP, GRIDID]
 	
 	# append the ids of the elements for filter function 
 	paras.extend([FILTERINPUTID,FILTERBN,FILTERCLEARBN])
-	
-	# files for grid plugin	
-	paras.extend(pagefn.GRIDFILES)
 	
 	# url links
 	[ paras.append('/'.join((APPATH,name)))\ 
@@ -90,8 +87,7 @@ def _usersTridJs(**args):
 	js = \
 	"""	
 	var appName='%s', gridId='%s',
-	filterInput='%s',filterBn='%s',filterClearBn='%s',
-	gridCss='%s',gridSupplement='%s',gridJs='%s',
+	filterInput='%s',filterBn='%s',filterClearBn='%s',	
 	dataUrl='%s',colsModelUrl='%s', userInfoUrl='%s',
 	editUrl='%s',
 	dialogTitle='%s';
@@ -106,12 +102,6 @@ def _usersTridJs(**args):
     		colsModel = json['data'];
     	}
 	}).get();
-	
-	// get the global Assets manager
-   var am = MUI.assetsManager;
-   
-   // clear existed imported Assets 
-   am.remove(appName,'app');
    
    // search action for grid
    $(filterBn).addEvent('click',function (e){

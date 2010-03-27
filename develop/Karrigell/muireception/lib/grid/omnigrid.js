@@ -25,12 +25,15 @@ var omniGrid = new Class({
 			filterHideCls: 'hide',
 			filterSelectedCls: 'filter',
 			multipleSelection:true,
+			
 			// accordion
 			accordion:false,
 			accordionRenderer:null,
 			autoSectionToggle:true, // if true just one section can be open/visible
+			
 			// pagination
 			url:null,
+			urlData: null, // the data send with url, add by B.Z 
 			pagination:false,
 			page:1,
 			perPageOptions: [10, 20, 50, 100, 200],
@@ -324,7 +327,13 @@ var omniGrid = new Class({
 		
 		// add others options data 
 		if($type(options) != false)
-			for (key in options){data[key]=options[key]};				
+			for (key in options){data[key]=options[key]};	
+		
+		// add user defined data with url, new added by B.Z 
+		urlData = this.options.urlData; 		
+		if(urlData != null){
+			for (key in urlData ){ data[key]=urlData[key]}; 
+		};			
 			
 		// ************* white overflow & loader ************
 		if ( this.container.getElement('.gBlock') )

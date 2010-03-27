@@ -277,9 +277,7 @@ MUI.extend({
 	fileType: function(url){
 		fileType = '';
 		if(url.contains('.css')){fileType='css';}
-		else if(url.contains('.js') || url.contains('.js.pih')){fileType='js';}
-		else{};
-		
+		else if(url.contains('.js') || url.contains('.js.pih')){fileType='js';}		
 		return fileType
 	},
 	
@@ -291,10 +289,7 @@ MUI.extend({
 		// get the global Assets manager
 	   var am = MUI.assetsManager;		
 		urls.each(function(src){
-			fileType = MUI.fileType(src);
-
-			alert('MUI.import, src is '+src+',is not imported?'+!$defined(am.imported[src]));
-			
+			fileType = MUI.fileType(src);			
 			if(fileType == 'css'){
 				if(!$defined(am.imported[src])){
 	    			am.import({'url':src,'app':appName,'type':'css'});	
@@ -305,8 +300,7 @@ MUI.extend({
 					am.import({'url':src,'app':appName,'type':'js'},options);
 				}
 				else{
-					fn = options.onload;
-					alert('MUI.import,reimported js file,function is defined?'+$defined(fn));					
+					fn = options.onload;										
 					if($defined(fn)){	fn();}
 				};	   
 			}
@@ -315,9 +309,9 @@ MUI.extend({
 		
 	},
 	
-	/*
+	/******************************************************************
 	Imports form validation lib and sets initial actions.	
-	*/
+	*******************************************************************/
 	formValidLib: function(appName, options){
 		// get lib files
 		var urls = [];
@@ -345,9 +339,9 @@ MUI.extend({
 		am.import({'url':urls[3],'app':appName,'type':'js'},options);
 	},
 	
-	/*
+	/*********************************************************************
 	Imports treeTable lib and sets initial actions.	
-	*/
+	**********************************************************************/
 	treeTable: function(appName,options){
 		// get lib files
 		var urls = [];
@@ -358,9 +352,9 @@ MUI.extend({
 		MUI.import(appName,urls, options);
 	},
 	
-	/*
+	/***********************************************************************
 	Imports grid lib and sets initial actions.
-	*/
+	************************************************************************/
 	dataGrid: function(appName, options){
 		// get lib files
 		var urls = [];

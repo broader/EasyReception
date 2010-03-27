@@ -73,9 +73,6 @@ def _usersTridJs(**args):
 	# append the ids of the elements for filter function 
 	paras.extend([FILTERINPUTID,FILTERBN,FILTERCLEARBN])
 	
-	# files for grid plugin	
-	paras.extend(pagefn.GRIDFILES)
-	
 	# url links
 	[ paras.append('/'.join((APPATH,name)))\ 
 	  for name in ('page_usersData','page_colsModel', 'page_userInfo')]
@@ -90,8 +87,7 @@ def _usersTridJs(**args):
 	js = \
 	"""	
 	var appName='%s', gridId='%s',
-	filterInput='%s',filterBn='%s',filterClearBn='%s',
-	gridCss='%s',gridSupplement='%s',gridJs='%s',
+	filterInput='%s',filterBn='%s',filterClearBn='%s',	
 	dataUrl='%s',colsModelUrl='%s', userInfoUrl='%s',
 	editUrl='%s',
 	dialogTitle='%s';
@@ -106,12 +102,6 @@ def _usersTridJs(**args):
     		colsModel = json['data'];
     	}
 	}).get();
-	
-	// get the global Assets manager
-   var am = MUI.assetsManager;
-   
-   // clear existed imported Assets 
-   am.remove(appName,'app');
    
    // search action for grid
    $(filterBn).addEvent('click',function (e){
@@ -198,25 +188,6 @@ def _usersTridJs(**args):
 	};
 	
 	MUI.dataGrid(appName, {'onload':renderGrid});
-	/*
-	var toImport =
-	[	{'type':'css','src':gridCss,'options':null},
-		{'type':'css','src':gridSupplement,'options':null},
-		{'type':'js','src':gridJs,'options': {'onload':renderGrid}}
-	] 
-	
-   toImport.each(function(props){
-   	src = props['src'], type=props['type'], options=props['options'];
-		if(!$defined(am.imported[src])){			
-			if (options != null){
-				am.import({'url':src,'app':appName,'type':type},options);
-			}
-			else{
-		 		am.import({'url':src,'app':appName,'type': type});
-		 	}
-		};	
-   });
-   */
    
 	"""%paras
 	

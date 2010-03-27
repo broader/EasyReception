@@ -1,7 +1,7 @@
 """
 Pages mainly for services view and edit action.
 """
-import copy,tools
+import sys, copy,tools
 from tools import treeHandler
 
 from HTMLTags import *
@@ -190,7 +190,7 @@ def page_classInfo(**args):
 	print Sum(block)
 	return
 
-GRIDID, FILTERINPUTID,FILTERBN,FILTERCLEARBN = ('classGrid', 'filterInput','filterbn','filtereset')
+GRIDID, FILTERINPUTID,FILTERBN,FILTERCLEARBN = ('classListGrid', 'filterInput','filterbn','filtereset')
 def page_classEdit(**args):
 	klass = args.get(CLASSPROP)
 	title = ' '.join((klass,_('Items')))
@@ -200,15 +200,127 @@ def page_classEdit(**args):
 	rbn = A(_('Clear Filter'),**{'id':FILTERCLEARBN, 'href':'javascript:;'})
 	
 	print SPAN(title,style=CLASSNAMESTYLE),HR(style='padding:0 0 0.1em'),SPAN(Sum((input,bn,TEXT(' | '),rbn))),DIV(**{'id':GRIDID})
-	#print pagefn.script(_usersTridJs(), link=False)
+	print pagefn.script(_classEditJs(klass), link=False)
 	
 	return
 	
-def _classEditJs():
-	paras = []
+def _classEditJs(klass):
+	paras = [CLASSPROP, klass, APP, GRIDID]
+	
+	# append the ids of the elements for filter function 
+	paras.extend([FILTERINPUTID,FILTERBN,FILTERCLEARBN])
+	
+	# url links
+	[ paras.append('/'.join((APPATH,name)))\ 
+	  for name in ('page_colsModel', 'page_classItems')]
+	
 	paras = tuple(paras)
 	js = \
 	"""
+	var klassprop='%s', klass='%s', appName='%s', gridId='%s',
+	filterInput='%s',filterBn='%s',filterClearBn='%s',	
+	colsModelUrl='%s', dataUrl='%s';
+	
+	var colsModel=null, datagrid=null;
+	
+	// load column model for the grid from server side 
+	var reqData = {};
+	reqData[klassprop] = klass;
+	var jsonRequest = new Request.JSON({
+		async: false,
+		url: colsModelUrl, 
+		onSuccess: function(json){
+    		colsModel = json['data'];
+    	}
+	}).get(reqData);
+   
+   // search action for grid
+   $(filterBn).addEvent('click',function (e){
+   	datagrid.loadData(dataUrl, {'filter':$(filterInput).value || ''});
+   });
+   
+   // refresh grid
+   $(filterClearBn).addEvent('click', function(e){
+   	$(filterInput).setProperty('value','');
+   	datagrid.loadData();
+   });   
+   
+   // edit the data of selected row
+   function gridRowEdit(evt){
+   	/* Parameters
+   	evt.target:the grid object
+   	evt.indices:the multi selected rows' indexes
+   	evt.row: the index of the row in the grid
+   	*/
+   	
+   	// get the data of the selected row
+   	row = evt.target.getDataByRow(evt.row);
+   	
+   	var urls = [];
+   	$H({'user':row['username'],'panelReload':'0'})
+   	.each(function(value,key){
+   		urls.push([key,value].join('='));
+   	});
+   	url = [editUrl,urls.join('&')].join('?');
+   	//url = editUrl + '?'+'user='+row['username'];
+   	
+   	// the dialog to edit portfolio
+   	new MUI.Modal({
+      	width:600, height:380, contentURL: url,
+      	title: dialogTitle,
+      	modalOverlayClose: false,
+      	onClose: function(e){
+      		datagrid.loadData();
+      	}
+      });
+   	
+   };
+   
+   // accordion function which show more data for each row
+   function gridRowAccordion(obj){
+   	/* Parameters
+   	obj :
+   	{ 
+   		parent: Li element which holds the content for accordion, 
+   		row: the index for the row in the grid, 
+   		grid: table grid instance
+   	}
+   	*/
+   	row = obj.grid.getDataByRow(obj.row);
+   	name = row['username'];
+   	url = userInfoUrl+'?username='+name;
+   	obj.parent.load(url);
+   };
+   
+   
+	function renderGrid(){	
+			
+		datagrid = new omniGrid( gridId, {
+			columnModel: colsModel,
+			url: dataUrl,
+			urlData: reqData,
+			//accordion: true,
+			//accordionRenderer: gridRowAccordion,
+			autoSectionToggle: true,
+			perPageOptions: [15,30,50,100,200],
+			perPage:10,
+			page:1,
+			pagination:true,
+			serverSort:true,
+			showHeader: true,
+			sortHeader: true,
+			alternaterows: true,
+			resizeColumns: true,
+			multipleSelection:true,
+			width:510,
+			height: 320
+		});
+		
+		datagrid.addEvent('dblclick', gridRowEdit);
+	};
+	
+	MUI.dataGrid(appName, {'onload':renderGrid});
+	
 	"""%paras
 	return js
 
@@ -234,7 +346,8 @@ def page_colsModel(**args):
 		
 	print JSON.encode({'data':colsModel})
 	return
-	
+
+GRIDSORTONTAG, GRIDSORTBYTAG = ('sorton', 'sortby')	
 def page_classItems(**args):
 	klass = args.get(CLASSPROP)
 	
@@ -250,51 +363,43 @@ def page_classItems(**args):
 	d = {'page':showPage,'data':[],'search':search}
 	
 	# column's property name
-	showProps = [item.get('name') for item in USERCOLUMNS]
-	total, data = model.get_userlist(USER, showProps, search)
+	showProps = _getClassProps(klass)
+	data = model.get_items( USER, klass, _getClassProps(klass))
+	if not data:
+		return
 	
-	d['total'] = total
+	d['total'] = total = len(data)	
+					
+	# sort data
+	if sortby :			
+		data.sort(key=lambda row:row[showProps.index(sortby)])	
 	
-	if data:			
-		# sort data
-		if sortby :			
-			data.sort(key=lambda row:row[showProps.index(sortby)])	
+	if sorton == 'DESC':
+		data.reverse()
 		
-		if sorton == 'DESC':
-			data.reverse()
-			
-		# get the data of the displayed page
-		start = (showPage-1)*pageNumber
-		end = start + pageNumber - 1
-		if end >= total:
-			end = total
-		# get data slice in the displayed page from the data 	
-		rslice = data[start : end]
-		
-		# if ascii chars mixins with non-ascii chars will result
-		# JSON.encode error, so decode all the data items to utf8.	
-		# set python default encoding to 'utf8'
-		reload(sys)
-		sys.setdefaultencoding('utf8')
-		
-		for row in rslice:
-			for i,s in enumerate(row) :
-				row[i] = s.decode('utf8')		
-		
-		# constructs each row to be a dict object that key is a property.
-		encoded = [dict([(prop,value) for prop,value in zip(showProps,row)]) for row in rslice]
-		
-		# some properties need to be transformated
-		transProps = [{'name':'gender','function':(lambda i: pagefn.GENDER[int(i)] )},]
-		names = [prop.get('name') for prop in transProps]
-		
-		for row in encoded :
-			for prop in transProps:
-				old = row[prop.get('name')]
-				new = prop.get('function')(old)
-				row[prop.get('name')] = new
-			
-		d['data'] = encoded
+	# get the data of the displayed page
+	start = (showPage-1)*pageNumber
+	end = start + pageNumber - 1
+	if end >= total:
+		end = total
+	# get data slice in the displayed page from the data 	
+	rslice = data[start : end]
+	
+	# if ascii chars mixins with non-ascii chars will result
+	# JSON.encode error, so decode all the data items to utf8.	
+	# set python default encoding to 'utf8'	
+	reload(sys)
+	sys.setdefaultencoding('utf8')
+	
+	for row in rslice:
+		for i,s in enumerate(row) :
+			row[i] = (s or '').decode('utf8')		
+	
+	# constructs each row to be a dict object that key is a property.
+	encoded = [dict([(prop,value) for prop,value in zip(showProps,row)]) for row in rslice]
+	
+	# some properties need to be transformated		
+	d['data'] = encoded
 	
 	print JSON.encode(d, encoding='utf8')	
 	return
