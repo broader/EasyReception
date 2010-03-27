@@ -170,8 +170,7 @@ def page_classInfo(**args):
 	klass = args.get(CLASSPROP)
 
 	# Class name
-	block = [DIV(A(klass) , style=CLASSNAMESTYLE),]
-			
+	block = [DIV(A(klass) , style=CLASSNAMESTYLE),]			
 	
 	# Properties for this Class
 	props = model.get_class_props(USER, klass, protected=1)
@@ -190,26 +189,18 @@ def page_classInfo(**args):
 	print Sum(block)
 	return
 
-GRIDID, FILTERINPUTID,FILTERBN,FILTERCLEARBN = ('classListGrid', 'filterInput','filterbn','filtereset')
+CONTAINER = 'classListGridContainer'
 def page_classEdit(**args):
 	klass = args.get(CLASSPROP)
-	title = ' '.join((klass,_('Items')))
-	
-	input = INPUT(**{'style':'margin:15px 5px 15px 0;','id':FILTERINPUTID,'value':''})
-	bn = A(_('Filter'),**{'id':FILTERBN, 'href':'javascript:;'})
-	rbn = A(_('Clear Filter'),**{'id':FILTERCLEARBN, 'href':'javascript:;'})
-	
-	print SPAN(title,style=CLASSNAMESTYLE),HR(style='padding:0 0 0.1em'),SPAN(Sum((input,bn,TEXT(' | '),rbn))),DIV(**{'id':GRIDID})
-	print pagefn.script(_classEditJs(klass), link=False)
-	
+	print DIV(**{'id':CONTAINER})
+	print pagefn.script(_classEditJs(klass), link=False)	
 	return
 	
 def _classEditJs(klass):
-	paras = [CLASSPROP, klass, APP, GRIDID]
-	
-	# append the ids of the elements for filter function 
-	paras.extend([FILTERINPUTID,FILTERBN,FILTERCLEARBN])
-	
+	paras = [CLASSPROP, klass, APP, CONTAINER]
+	paras.append(' '.join((klass,_('Items'))))
+	paras.append(CLASSNAMESTYLE)
+	paras.extend([_('Filter'),_('Clear Filter')])	
 	# url links
 	[ paras.append('/'.join((APPATH,name)))\ 
 	  for name in ('page_colsModel', 'page_classItems')]
@@ -217,8 +208,11 @@ def _classEditJs(klass):
 	paras = tuple(paras)
 	js = \
 	"""
-	var klassprop='%s', klass='%s', appName='%s', gridId='%s',
-	filterInput='%s',filterBn='%s',filterClearBn='%s',	
+	var klassprop='%s', klass='%s', appName='%s', 
+	container='%s',
+	title='%s', titleStyle='%s',
+	filterLabel="%s", clearFilterLabel="%s",
+	
 	colsModelUrl='%s', dataUrl='%s';
 	
 	var colsModel=null, datagrid=null;
@@ -234,16 +228,28 @@ def _classEditJs(klass):
     	}
 	}).get(reqData);
    
-   // search action for grid
-   $(filterBn).addEvent('click',function (e){
-   	datagrid.loadData(dataUrl, {'filter':$(filterInput).value || ''});
+	// add title and a underline
+	span = new Element('span',{html:title,style:titleStyle});	
+	hr = new Element('hr',{style:'padding:0 0 0.1em;'});
+	$(container).adopt(span,hr);
+	
+	 
+   // add filter input Element   
+   var filterInput = new Element('input',{style:'margin:15px 5px 15px 0;'});
+   var filterButton = new Element('a',{html:filterLabel,href:'javascript:;'});
+   filterButton.addEvent('click',function (e){
+   	datagrid.loadData(dataUrl, {'filter': filterInput.value || ''});
    });
    
-   // refresh grid
-   $(filterClearBn).addEvent('click', function(e){
-   	$(filterInput).setProperty('value','');
+   var filterClearButton = new Element('a',{html: clearFilterLabel,href:'javascript:;'});
+   filterClearButton.addEvent('click', function(e){
+   	filterInput.setProperty('value','');
    	datagrid.loadData();
-   });   
+   }); 
+   
+   span = new Element('span');
+   $(container).grab(span);
+   span.adopt(input,filterButton,filterClearButton);
    
    // edit the data of selected row
    function gridRowEdit(evt){
@@ -267,42 +273,25 @@ def _classEditJs(klass):
    	// the dialog to edit portfolio
    	new MUI.Modal({
       	width:600, height:380, contentURL: url,
-      	title: dialogTitle,
+      	title: 'Edit Class Item',
       	modalOverlayClose: false,
       	onClose: function(e){
       		datagrid.loadData();
       	}
       });
    	
-   };
+   };   
    
-   // accordion function which show more data for each row
-   function gridRowAccordion(obj){
-   	/* Parameters
-   	obj :
-   	{ 
-   		parent: Li element which holds the content for accordion, 
-   		row: the index for the row in the grid, 
-   		grid: table grid instance
-   	}
-   	*/
-   	row = obj.grid.getDataByRow(obj.row);
-   	name = row['username'];
-   	url = userInfoUrl+'?username='+name;
-   	obj.parent.load(url);
-   };
+   div = new Element('div');
+   $(container).grab(div);
    
-   
-	function renderGrid(){	
-			
-		datagrid = new omniGrid( gridId, {
+	function renderGrid(){
+		datagrid = new omniGrid( div, {
 			columnModel: colsModel,
 			url: dataUrl,
 			urlData: reqData,
-			//accordion: true,
-			//accordionRenderer: gridRowAccordion,
 			autoSectionToggle: true,
-			perPageOptions: [15,30,50,100,200],
+			perPageOptions: [15,30,50],
 			perPage:10,
 			page:1,
 			pagination:true,
@@ -316,10 +305,48 @@ def _classEditJs(klass):
 			height: 320
 		});
 		
-		datagrid.addEvent('dblclick', gridRowEdit);
+		//datagrid.addEvent('dblclick', gridRowEdit);
 	};
 	
 	MUI.dataGrid(appName, {'onload':renderGrid});
+	
+	// add action buttons
+	var bnContainer = new Element('div',{style: 'text-align:left;'});
+	$(container).grab(bnContainer);
+	
+	[
+		{'type':'add','label':'Add'},
+		{'type':'edit','label':'Edit'},
+		{'type':'delete','label':'Delete'}
+	].each(function(attrs,index){
+		options = {
+			txt: attrs['label'],
+		   imgType: attrs['type'],
+			bnAttrs: {'style':'margin-right:1em;'}	
+		};
+		button = MUI.styledButton(options);		
+		button.addEvent('click',actionAdapter.pass(index,this));
+		bnContainer.grab(button);
+	},datagrid);
+	
+	function actionAdapter(index){
+		trs = this.selected;
+		if(trs.length != 1){	// only one row should be selected
+			MUI.alert('Please select one row!');
+			return
+		};
+		
+		switch(index){
+			case 0:
+				alert('add action');
+				break;
+			case 1:
+				alert('edit action');
+				break;
+			case 2:
+				alert('delete action');
+		};
+	};
 	
 	"""%paras
 	return js
