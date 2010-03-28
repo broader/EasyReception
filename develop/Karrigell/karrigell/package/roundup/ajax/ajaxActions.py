@@ -1421,10 +1421,11 @@ class FilterByTextAction(Action):
     permissionType = ''
     
     def handle(self):
-        ''' Get the item's values by the specified text, 
-           search the specified text value in 'Sring' properties and a specified linked files' content,
-           matched items will selected and returned.                       
-           returned value is a list, whose sequence is as the argument properties' list sequence.           
+        ''' 
+        Get the item's values by the specified text, 
+        search the specified text value in 'Sring' properties and a specified linked files' content,
+        matched items will selected and returned.                       
+        Returned value is a list, whose sequence is as the argument properties' list sequence.           
         '''        
         cl = self.form['context']
         klass = self.db.getclass(cl)
@@ -1472,7 +1473,7 @@ class FilterByFunctionAction(GetItemAction):
                'propnames' - the properties whose values should be returned
                'filterFn' - a function to filter the item of the class 
                'filterArgs' - the properties' names that should be passed to 'filterFn' as arguments.
-                                        Note, 'filterArgs' colud be different with 'propnames'.
+                              Note, 'filterArgs' colud be different with 'propnames'.
            returned value is a list, whose sequence is as the argument properties' list sequence.           
         '''        
         cl = self.form['context']
@@ -1482,8 +1483,8 @@ class FilterByFunctionAction(GetItemAction):
         filterArgs = self.form.get('filterArgs')
         #print "FilterByFunctionAction, L1467, props are %s, filterArgs are %s"%(props, filterArgs)
         result = filter( None, \
-                                      [ self.judge(klass, nodeid, props, filterFn, filterArgs) for nodeid in klass.list() ]\
-                                    )
+                    [ self.judge(klass, nodeid, props, filterFn, filterArgs) for nodeid in klass.list() ]\
+                 )
         return result
     
     def judge(self, klass, nodeid, props, filterFn, filterArgs):

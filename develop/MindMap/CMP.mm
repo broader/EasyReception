@@ -103,7 +103,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" ID="Freemind_Link_1929446294" MODIFIED="1269333701950" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1269742777929" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -1206,12 +1206,285 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1263825176522" ID="ID_850866582" MODIFIED="1264132961931" POSITION="left" TEXT="Questions">
+<node COLOR="#0033ff" CREATED="1263825176522" FOLDED="true" ID="ID_850866582" MODIFIED="1269748997999" POSITION="left" TEXT="Market">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
-<icon BUILTIN="help"/>
+<icon BUILTIN="idea"/>
+<node COLOR="#00b439" CREATED="1269742996345" FOLDED="true" ID="ID_791375543" MODIFIED="1269743018214" TEXT="Analize">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1255658622924" FOLDED="true" ID="Freemind_Link_851463610" MODIFIED="1269743010878" STYLE="bubble" TEXT="&#x5b66;&#x4e60;&#x76ee;&#x6807;&#xff0f;&#x7ade;&#x4e89;&#x5bf9;&#x624b;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1255660580429" ID="Freemind_Link_1440036973" MODIFIED="1269743010878" TEXT="&#x56fd;&#x5916;&#x7c7b;&#x4f3c;&#x670d;&#x52a1;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255658848395" ID="Freemind_Link_1297476605" LINK="http://www.copernicus.org/index.html" MODIFIED="1269742819173" TEXT="&#x6b27;&#x6d32;&#x54e5;&#x767d;&#x5c3c;&#x516c;&#x53f8;">
+<font NAME="SansSerif" SIZE="12"/>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1269337442777" POSITION="right" TEXT="Design">
+<node COLOR="#111111" CREATED="1255679549601" ID="Freemind_Link_1116675313" LINK="http://www.web2summit.com/web2009/public/content/hotel" MODIFIED="1269742819173" TEXT="&#x4e00;&#x4e2a;&#x9152;&#x5e97;&#x9884;&#x8ba2;&#x7cfb;&#x7edf;">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1255658908955" ID="Freemind_Link_981173093" MODIFIED="1269743010878" TEXT="&#x56fd;&#x5185;&#x5176;&#x5b83;&#x4f1a;&#x52a1;&#xff0f;&#x516c;&#x5173;&#x516c;&#x53f8;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255679595269" ID="Freemind_Link_652408136" LINK="http://www.csmac.org.cn/cn/index.asp" MODIFIED="1269742819174" TEXT="2009&#x5e74;&#x53ec;&#x5f00;&#x7684;&#x4e00;&#x4e2a;&#x533b;&#x7597;&#x65b9;&#x9762;&#x7684;&#x4f1a;&#x8bae;">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1255658595265" FOLDED="true" ID="ID_871654640" MODIFIED="1269743010882" STYLE="fork" TEXT="&#x76ee;&#x6807;&#x5ba2;&#x6237;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<cloud/>
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1255658936022" ID="Freemind_Link_1623944096" MODIFIED="1269743010882" TEXT="&#x4f1a;&#x8bae;&#x89c4;&#x6a21;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255659109172" FOLDED="true" ID="Freemind_Link_934439944" MODIFIED="1269742836884" TEXT="&#x4eba;&#x6570;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255659055651" ID="Freemind_Link_85627127" MODIFIED="1255659113612" TEXT="&#x6ce8;&#x518c;&#x7528;&#x6237;500&#x4eba;&#x4ee5;&#x4e0a;">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1255659453697" ID="Freemind_Link_336458764" MODIFIED="1269743010883" TEXT="&#x4f1a;&#x8bae;&#x7c7b;&#x522b;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255659405781" FOLDED="true" ID="Freemind_Link_1483330657" MODIFIED="1269742836886" TEXT="&#x56fd;&#x9645;&#x4f1a;&#x8bae;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255659581520" ID="Freemind_Link_1985201020" MODIFIED="1255659600200" TEXT="&#x9700;&#x8981;&#x591a;&#x56fd;&#x8bed;&#x8a00;&#x652f;&#x6301;"/>
+</node>
+<node COLOR="#111111" CREATED="1255659477500" FOLDED="true" ID="Freemind_Link_1895586534" MODIFIED="1269742836887" TEXT="&#x5b66;&#x672f;&#x4f1a;&#x8bae;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255659613546" ID="Freemind_Link_381554193" MODIFIED="1255659644011" TEXT="&#x9700;&#x8981;&#x7ba1;&#x7406;&#x4f1a;&#x8bae;&#x53c2;&#x4e0e;&#x8005;&#x63d0;&#x4ea4;&#x6587;&#x6863;"/>
+</node>
+<node COLOR="#111111" CREATED="1255659484902" FOLDED="true" ID="Freemind_Link_745658436" MODIFIED="1269742836888" TEXT="&#x57f9;&#x8bad;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255659651303" ID="Freemind_Link_1052258583" MODIFIED="1255659749783" TEXT="&#x9700;&#x8981;&#x623f;&#x95f4;&#x7ba1;&#x7406;"/>
+<node COLOR="#111111" CREATED="1255659705228" ID="Freemind_Link_162697177" MODIFIED="1255659714914" TEXT="&#x9700;&#x8981;&#x4ea4;&#x901a;&#x7ba1;&#x7406;"/>
+<node COLOR="#111111" CREATED="1255659715741" ID="Freemind_Link_63074700" MODIFIED="1255659744876" TEXT="&#x9700;&#x8981;&#x652f;&#x4ed8;&#x7ba1;&#x7406;"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1255658947573" ID="Freemind_Link_1200592388" MODIFIED="1269743010884" TEXT="&#x6ce8;&#x91cd;&#x4f1a;&#x8bae;&#x670d;&#x52a1;&#x8d28;&#x91cf;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255659866565" FOLDED="true" ID="Freemind_Link_914554564" MODIFIED="1269742836904" TEXT="&#x4e8b;&#x52a1;&#x7ba1;&#x7406;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255659784581" ID="Freemind_Link_1256365268" MODIFIED="1255660022666" TEXT="&#x53c2;&#x4e0e;&#x8005;&#x4e0e;&#x4f1a;&#x52a1;&#x4eba;&#x5458;&#x6709;&#x53ef;&#x80fd;&#x4f1a;&#x5c31;&#x67d0;&#x4e9b;&#x4e8b;&#x52a1;&#x53cd;&#x590d;&#x6c9f;&#x901a;&#xff0c;&#x8fd9;&#x4e9b;&#x4e8b;&#x52a1;&#x53ef;&#x80fd;&#x6d89;&#x53ca;&#x591a;&#x4e2a;&#x4f1a;&#x52a1;&#x670d;&#x52a1;&#x5c97;&#x4f4d;&#x6216;&#x90e8;&#x95e8;&#xff0c;&#x4e8b;&#x52a1;&#x7684;&#x89e3;&#x51b3;&#x8fc7;&#x7a0b;&#x9700;&#x8981;&#x7535;&#x5b50;&#x5316;&#x5e76;&#x65f6;&#x523b;&#x76d1;&#x63a7;&#x3002;">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1255658970524" ID="Freemind_Link_220626390" MODIFIED="1269743010885" TEXT="&#x6ce8;&#x91cd;&#x4f1a;&#x8bae;&#x6570;&#x636e;&#x4fdd;&#x5b58;&#x3001;&#x5206;&#x6790;&#x3001;&#x5171;&#x4eab;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255660031800" ID="Freemind_Link_1789836328" MODIFIED="1269742836905" TEXT="&#x6f14;&#x793a;&#x6587;&#x6863;&#x7ba1;&#x7406;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255660168885" ID="Freemind_Link_702988751" MODIFIED="1255660215402" TEXT="&#x7edf;&#x4e00;&#x7ba1;&#x7406;&#x6587;&#x6863;&#x7684;&#x63d0;&#x4ea4;&#x3001;&#x4e0b;&#x8f7d;&#x3001;&#x4fee;&#x6539;&#x3002;"/>
+</node>
+<node COLOR="#111111" CREATED="1255660051347" ID="Freemind_Link_41643596" MODIFIED="1269742836905" TEXT="&#x4e8b;&#x52a1;&#x5904;&#x7406;&#x6863;&#x6848;&#x5206;&#x6790;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255660220371" ID="Freemind_Link_1761883184" MODIFIED="1255660314136" TEXT="&#x5bf9;&#x4e8b;&#x52a1;&#x7c7b;&#x522b;&#x3001;&#x4e8b;&#x52a1;&#x5904;&#x7406;&#x6d41;&#x7a0b;&#x7b49;&#x8fdb;&#x884c;&#x7edf;&#x8ba1;&#x5206;&#x6790;&#xff0c;&#x5bfb;&#x627e;&#x53ef;&#x4ee5;&#x4f18;&#x5316;&#x6539;&#x8fdb;&#x3001;&#x63d0;&#x9ad8;&#x5de5;&#x4f5c;&#x6548;&#x7387;&#x4e4b;&#x5904;&#x3002;"/>
+</node>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1255660623462" FOLDED="true" ID="Freemind_Link_1350807019" MODIFIED="1269743016174" TEXT="&#x7ade;&#x4e89;&#x4f18;&#x52bf;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1255679093477" ID="Freemind_Link_681222466" MODIFIED="1269743010889" TEXT="&#x56fd;&#x9645;&#x5316;&#x652f;&#x6301;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1255679101872" ID="Freemind_Link_487736032" MODIFIED="1269743010889" TEXT="&#x5185;&#x90e8;&#x670d;&#x52a1;&#x5b50;&#x7cfb;&#x7edf;&#x652f;&#x6301;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1255679150360" ID="Freemind_Link_1216756329" MODIFIED="1269743010889" TEXT="&#x5927;&#x578b;&#x4f1a;&#x8bae;&#x7ecf;&#x9a8c;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255679662616" FOLDED="true" ID="Freemind_Link_439964939" MODIFIED="1269742949758" TEXT="&#x672c;&#x7cfb;&#x7edf;&#x57fa;&#x4e8e;&#x5b9e;&#x9645;&#x4f1a;&#x8bae;&#x5e94;&#x7528;&#x5f00;&#x53d1;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255679691620" ID="Freemind_Link_261239164" MODIFIED="1255679950622" TEXT="&#x4f1a;&#x8bae;&#x4eba;&#x6570;&#xff1a;4000&#xff5e;5000&#x4eba;&#x4f1a;&#x8bae;&#x5b98;&#x65b9;&#x8bed;&#x8a00;&#xff1a;&#x82f1;&#x8bed;&#x4f1a;&#x8bae;&#x6301;&#x7eed;&#x65f6;&#x95f4;&#xff1a;7&#x5929;&#x4f1a;&#x573a;&#x5206;&#x5e03;&#xff1a;&#x4e00;&#x4e2a;&#x5927;&#x5b66;&#x6821;&#x56ed;&#x548c;&#x4e00;&#x4e2a;&#x4e94;&#x661f;&#x7ea7;&#x82b1;&#x56ed;&#x5bbe;&#x9986;&#x4f1a;&#x8bae;&#x76f8;&#x5173;&#x9152;&#x5e97;&#xff1a;10&#x5bb6;&#x56db;&#x661f;&#x548c;&#x4e94;&#x661f;&#x7ea7;&#x996d;&#x5e97;&#x4f1a;&#x8bae;IT&#x670d;&#x52a1;&#xff1a;200&#x4e2a;&#x4fe1;&#x606f;&#x8282;&#x70b9;&#x56ed;&#x533a;&#x7f51;&#xff08;&#x542b;50&#x4e2a;&#x65e0;&#x7ebf;&#x4fe1;&#x606f;&#x70b9;&#xff09;&#x3001;200&#x53f0;PC&#x3001;100&#x53f0;&#x7b14;&#x8bb0;&#x672c;&#x7535;&#x8111;&#x548c;&#x5176;&#x4ed6;OA&#x8bbe;&#x5907;&#x82e5;&#x5e72;&#xff08;&#x590d;&#x5370;&#x673a;&#x3001;&#x6253;&#x5370;&#x673a;&#x3001;&#x6295;&#x5f71;&#x4eea;&#x7b49;&#x7b49;&#xff09;"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1255679166205" ID="Freemind_Link_1429981541" MODIFIED="1269743010890" TEXT="&#x591a;&#x5a92;&#x4f53;&#x6570;&#x636e;&#x5904;&#x7406;&#x65b9;&#x6848;(&#x8ba1;&#x5212;&#x52a0;&#x5165;)">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255679972961" ID="Freemind_Link_1997986850" MODIFIED="1269742856452" TEXT="&#x89c6;&#x9891;&#x6570;&#x636e;&#x91c7;&#x7f16;&#x64ad;&#x5b50;&#x7cfb;&#x7edf;">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1255658615854" FOLDED="true" ID="Freemind_Link_530202278" MODIFIED="1269743010902" TEXT="&#x7cfb;&#x7edf;&#x4ecb;&#x7ecd;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<cloud/>
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1255664391376" ID="Freemind_Link_1459353075" MODIFIED="1269743010902" TEXT="&#x6ce8;&#x518c;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255664340515" ID="Freemind_Link_999262717" MODIFIED="1269742880708" TEXT="&#x53ef;&#x5206;&#x6b65;&#x9aa4;&#x3001;&#x5206;&#x5b57;&#x6bb5;&#x8ba4;&#x8bc1; ">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255660723311" ID="Freemind_Link_1352933395" MODIFIED="1255677218930">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <img src="images/registration_120.png" />
+  </body>
+</html></richcontent>
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1255660739146" ID="Freemind_Link_1271720510" MODIFIED="1269743010903" TEXT="&#x9152;&#x5e97;&#x7ba1;&#x7406;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255664619316" FOLDED="true" ID="Freemind_Link_1478902093" MODIFIED="1269742880709" TEXT="&#x623f;&#x95f4;&#x9884;&#x8ba2;&#x3001;&#x623f;&#x95f4;&#x66f4;&#x6539;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255677898813" ID="Freemind_Link_411156366" MODIFIED="1255677915335">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <img src="images/Hotel_120.png" />
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1255660747194" ID="Freemind_Link_436534619" MODIFIED="1269743010903" TEXT="&#x65c5;&#x6e38;&#x7ba1;&#x7406;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255677245583" FOLDED="true" ID="Freemind_Link_1926994988" MODIFIED="1269742880710" TEXT="&#x65c5;&#x6e38;&#x9879;&#x76ee;&#x9884;&#x8ba2;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255677595950" ID="Freemind_Link_333158486" MODIFIED="1255677609114">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <img src="images/Travel_120.png" />
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1255660754184" ID="Freemind_Link_860007324" MODIFIED="1269743010904" TEXT="&#x7528;&#x6237;&#x4e2a;&#x4eba;&#x4fe1;&#x606f;&#x6c47;&#x603b;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255677938237" FOLDED="true" ID="Freemind_Link_1673897350" MODIFIED="1269742880711" TEXT="&#x6240;&#x6709;&#x5173;&#x4e8e;&#x7528;&#x6237;&#x4e2a;&#x4eba;&#x7684;&#x4f1a;&#x52a1;&#x4fe1;&#x606f;&#x6c47;&#x603b;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255678270700" ID="Freemind_Link_908866233" MODIFIED="1255678283297">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <img src="images/Portal_120.png" />
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1255660902637" ID="Freemind_Link_1488832501" MODIFIED="1269743010904" TEXT="&#x7528;&#x6237;&#x4e8b;&#x52a1;&#x8ffd;&#x8e2a;&#xff0f;&#x5904;&#x7406;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255678294536" FOLDED="true" ID="Freemind_Link_272291265" MODIFIED="1269742880711" TEXT="&#x7528;&#x6237;&#x901a;&#x8fc7;&#x7cfb;&#x7edf;&#x5185;&#x90e8;&#x670d;&#x52a1;&#x652f;&#x6301;&#x5b50;&#x7cfb;&#x7edf;&#x4e0e;&#x4f1a;&#x52a1;&#x4eba;&#x5458;&#x6c9f;&#x901a;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255678334213" ID="Freemind_Link_1673014160" MODIFIED="1255678567323">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <img src="images/Issue_120.png" />
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1255660877677" ID="Freemind_Link_658720543" MODIFIED="1269743010905" TEXT="&#x591a;&#x56fd;&#x8bed;&#x8a00;&#x652f;&#x6301;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255678764141" FOLDED="true" ID="Freemind_Link_284992926" MODIFIED="1269742880712" TEXT="&#x6839;&#x636e;&#x7528;&#x6237;&#x4f7f;&#x7528;&#x6d4f;&#x89c8;&#x5668;&#x7684;&#x8bed;&#x8a00;&#x8bbe;&#x7f6e;&#x663e;&#x793a;&#x4e0d;&#x540c;&#x56fd;&#x5bb6;&#x8bed;&#x8a00;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255678804318" ID="Freemind_Link_1780656025" MODIFIED="1255679049636">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <img src="images/i18n_120.png" />
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1255679280726" FOLDED="true" ID="Freemind_Link_414265823" MODIFIED="1269742880712" TEXT="&#x5728;&#x7ebf;&#x7ffb;&#x8bd1;&#x5b50;&#x7cfb;&#x7edf;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255679297198" ID="Freemind_Link_1532757756" MODIFIED="1255679510260">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <img src="images/Translation_120.png" />
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1255660926414" FOLDED="true" ID="Freemind_Link_1244591406" MODIFIED="1269743010906" TEXT="&#x5c1a;&#x5f85;&#x5b8c;&#x5584;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="12"/>
+<icon BUILTIN="idea"/>
+<node COLOR="#111111" CREATED="1255660947129" ID="Freemind_Link_345158586" MODIFIED="1269742880713" TEXT="&#x9152;&#x5e97;&#x7ba1;&#x7406;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255660954004" ID="Freemind_Link_1875718156" MODIFIED="1255660958495" TEXT="&#x623f;&#x95f4;&#x7ba1;&#x7406;">
+<node COLOR="#111111" CREATED="1255661151988" ID="Freemind_Link_570002678" MODIFIED="1255661158486" TEXT="&#x5206;&#x914d;&#x623f;&#x95f4;"/>
+<node COLOR="#111111" CREATED="1255661164389" ID="Freemind_Link_1372001545" MODIFIED="1255661168883" TEXT="&#x623f;&#x95f4;&#x6389;&#x6362;"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1255660997310" ID="Freemind_Link_1667489145" MODIFIED="1269742880714" TEXT="&#x4f1a;&#x8bae;&#x6587;&#x6863;&#x7ba1;&#x7406;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255661244933" ID="Freemind_Link_1300586051" MODIFIED="1255661259098" TEXT="&#x6587;&#x6863;&#x4e0a;&#x4f20;&#x3001;&#x4e0b;&#x8f7d;&#x3001;&#x5206;&#x53d1;"/>
+</node>
+<node COLOR="#111111" CREATED="1255661014643" ID="Freemind_Link_1930219151" MODIFIED="1269742880714" TEXT="&#x8d22;&#x52a1;&#x7ba1;&#x7406;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255661020946" ID="Freemind_Link_1623512855" MODIFIED="1255661037225" TEXT="&#x6ce8;&#x518c;&#x6536;&#x8d39;"/>
+<node COLOR="#111111" CREATED="1255661039020" ID="Freemind_Link_1472198885" MODIFIED="1255661063809" TEXT="&#x6536;&#x76ca;&#x5206;&#x6790;&#x4e0e;&#x52a8;&#x6001;&#x89c4;&#x5212;"/>
+</node>
+<node COLOR="#111111" CREATED="1255661078861" ID="Freemind_Link_1747796" MODIFIED="1269742880714" TEXT="&#x7edf;&#x8ba1;&#x5206;&#x6790;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1255661084260" ID="Freemind_Link_348455166" MODIFIED="1255661137119" TEXT="&#x4e8b;&#x52a1;&#x5904;&#x7406;&#x6863;&#x6848;&#x5206;&#x6790;"/>
+</node>
+<node COLOR="#111111" CREATED="1255661270755" ID="Freemind_Link_28563539" MODIFIED="1269742880715" TEXT="&#x77ed;&#x4fe1;&#x670d;&#x52a1;">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1255661281916" ID="Freemind_Link_1275948843" MODIFIED="1269742880715" TEXT="&#x90ae;&#x4ef6;&#x63a5;&#x53e3;">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1269743019792" ID="ID_1097979044" MODIFIED="1269743024859" TEXT="Web Site">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1269743095678" ID="ID_1392311746" MODIFIED="1269743098301" TEXT="Effects">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1269743037081" ID="ID_679272757" MODIFIED="1269743100657" TEXT="Sponsor Flip Wall">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1269743052257" ID="ID_1316795126" MODIFIED="1269743053069" TEXT="http://demo.tutorialzine.com/2010/03/sponsor-wall-flip-jquery-css/demo.php"/>
+</node>
+<node COLOR="#111111" CREATED="1269743150483" ID="ID_1653755903" MODIFIED="1269743166991" TEXT="Dynimical &amp; Accordion Grid">
+<node COLOR="#111111" CREATED="1269743167986" ID="ID_1093145751" MODIFIED="1269743169053" TEXT="http://css-tricks.com/examples/InfoGrid/"/>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1269742779591" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1265252373668" ID="ID_1883535158" MODIFIED="1269056832949" TEXT="Layout">

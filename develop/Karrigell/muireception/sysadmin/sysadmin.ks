@@ -236,10 +236,13 @@ def _classEditJs(klass):
 	 
    // add filter input Element   
    var filterInput = new Element('input',{style:'margin:15px 5px 15px 0;'});
+   
    var filterButton = new Element('a',{html:filterLabel,href:'javascript:;'});
+   
    filterButton.addEvent('click',function (e){
    	datagrid.loadData(dataUrl, {'filter': filterInput.value || ''});
    });
+   
    
    var filterClearButton = new Element('a',{html: clearFilterLabel,href:'javascript:;'});
    filterClearButton.addEvent('click', function(e){
@@ -249,7 +252,10 @@ def _classEditJs(klass):
    
    span = new Element('span');
    $(container).grab(span);
-   span.adopt(input,filterButton,filterClearButton);
+   interval = new Element('span',{html:' | '});
+   span.adopt(filterInput, filterButton, interval, filterClearButton);
+   
+   
    
    // edit the data of selected row
    function gridRowEdit(evt){
@@ -382,7 +388,11 @@ def page_classItems(**args):
 	
 	# column's property name
 	showProps = _getClassProps(klass)
-	data = model.get_items( USER, klass, _getClassProps(klass))
+	if search:
+		data = model.fuzzyQuery( USER, klass, search, showProps, require=None)
+	else:
+		data = model.get_items( USER, klass, _getClassProps(klass))
+		
 	if not data:
 		return
 	

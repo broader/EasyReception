@@ -165,32 +165,42 @@ def filterByFunction(operator, klass, props, fn, fnArgs):
    #              Note, 'filterArgs' colud be different with 'propnames'.                                       
 	
 	client.set_user(operator)		
-	form = { 	'action': 'filterfunction',\			
-                    	'context': klass,\
-                    	'propnames' : props,\
-                    	'filterFn' : fn,\                    	
-                    	'filterArgs': fnArgs\
-                     }        	
-        client.form = form
-        return action(client) 
+	form = {	\
+		'action': 'filterfunction',\			
+		'context': klass,\
+		'propnames' : props,\
+		'filterFn' : fn,\
+		'filterArgs': fnArgs\
+	}
+		        	
+	client.form = form
+	return action(client) 
 	
-def fuzzySearch(operator, klass, conditions, props=None, require=None):
-	""" Filter Class's items by 'conditions' which is a dictionary holding the 
-	  required values, and return the properties' values specified by 'props'.
+#def fuzzyQuery(operator, klass, conditions, props=None, require=None):
+def fuzzyQuery(operator, klass, search, props=None, require=None):
+	""" 
+	Filter Class's items by 'conditions' which is a dictionary holding the 
+   required values, and return the properties' values specified by 'props'.
 	"""
 	client = get_client()
 	if not client:
 		return None
 	
-	client.set_user(operator)		
-	form = { 	'action': 'filtertext',\			
-                    	'context': klass,\
-                    	'search' : conditions,\
-                    	'require' : require,\                    	
-                    	'propnames': props\
-                     }        	
-        client.form = form
-        return action(client) 
+	client.set_user(operator)	
+	# Parameters:
+	# 'search' - a text value that to be queried
+	# 'require' - a dictionary holds property names and needed values  	
+	form = {\
+		'action': 'filtertext',\			
+		'context': klass,\
+		#'search' : conditions,\
+		'search' : search,\
+		'require' : require,\
+		'propnames': props\
+	}
+
+	client.form = form
+	return action(client) 
 
 def filterByLink(operator, klass, linkclass, linkvalue,propnames,linkprop=None):
 	""" Get the items' values by specified link property's value.
@@ -200,26 +210,31 @@ def filterByLink(operator, klass, linkclass, linkvalue,propnames,linkprop=None):
 		return None
 	
 	client.set_user(operator)		
-	form = { 	'action': 'filterbylink',\			
-                    	'context': klass,\                
-                    	'propnames': propnames,\
-                    	'linkclass' : linkclass,\
-                    	'linkvalue' : linkvalue
-                     }        	
-        if linkprop:
-        	form['linkprop'] = linkprop
-        client.form = form
-        return action(client)
+	form = {\
+		'action': 'filterbylink',\			
+		'context': klass,\                
+		'propnames': propnames,\
+		'linkclass' : linkclass,\
+		'linkvalue' : linkvalue\
+	}      
+		  	
+	if linkprop:
+		form['linkprop'] = linkprop
+	
+	client.form = form
+	return action(client)
 	
 def get_file(admin, klass, id):
 	""" Get the content of a FileClass in database.
 	"""
 	client = get_client()
-	form = { 'action': 'getfile',\
-		      'context': klass,\
-		      'id': id,\
-		      'user': admin\		
-		     }
+	form = {\
+		'action': 'getfile',\
+		'context': klass,\
+		'id': id,\
+		'user': admin\
+	}
+	
 	client.form = form
 	res = client.main()
 	return action(client)
