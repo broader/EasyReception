@@ -121,7 +121,7 @@ def _showClassJs(klass,panel):
 	paras = tuple(paras)
 	js = \
 	"""
-	var user='%s',klass='%s', containerId='%s', klassprop='%s'
+	var user='%s',klass='%s', containerId='%s', klassProp='%s'
 	infoUrl='%s', editUrl='%s';
 	
 	// create MUI.Columns
@@ -140,7 +140,7 @@ def _showClassJs(klass,panel):
 	
 	// get content urls
 	query = $H();
-	query[klassprop] = klass;
+	query[klassProp] = klass;
 	query = query.toQueryString();
 	
 	// create MUI.Panels
@@ -208,7 +208,7 @@ def _classEditJs(klass):
 	paras = tuple(paras)
 	js = \
 	"""
-	var klassprop='%s', klass='%s', appName='%s', 
+	var klassProp='%s', klass='%s', appName='%s', 
 	container='%s',
 	title='%s', titleStyle='%s',
 	filterLabel="%s", clearFilterLabel="%s",
@@ -219,7 +219,7 @@ def _classEditJs(klass):
 	
 	// load column model for the grid from server side 
 	var reqData = {};
-	reqData[klassprop] = klass;
+	reqData[klassProp] = klass;
 	var jsonRequest = new Request.JSON({
 		async: false,
 		url: colsModelUrl, 
@@ -253,9 +253,7 @@ def _classEditJs(klass):
    span = new Element('span');
    $(container).grab(span);
    interval = new Element('span',{html:' | '});
-   span.adopt(filterInput, filterButton, interval, filterClearButton);
-   
-   
+   span.adopt(filterInput, filterButton, interval, filterClearButton);   
    
    // edit the data of selected row
    function gridRowEdit(evt){
@@ -325,7 +323,7 @@ def _classEditJs(klass):
 	
 	function actionAdapter(index){
 		var trs = datagrid.selected;
-		if(trs.length != 1){	// only one row should be selected
+		if( index != 0 && trs.length != 1 ){	// only one row should be selected
 			MUI.alert('Please select one row!');
 			return
 		};
@@ -337,19 +335,25 @@ def _classEditJs(klass):
 	   		datagrid.loadData();
 	   	}
 		};
+		
+		var query = $H();
+		query[klassProp]= klass;
 		switch(index){
 			case 0:	// add action
-				alert('add action');
+				url = [editUrl, query.toQueryString()].join('?');
+				// the modal to edit a service item  
+				modalOptions.contentURL = url;
 				
+				modalOptions.title = 'Add Class Item' ;
+				new MUI.Modal(modalOptions);
 				break;
 			case 1:	// edit action	
-				alert('id is '+datagrid.getRowCellByProp(trs[0],'id'));
-				
 				// set the really action url
-				//url = [actionUrl, query].join('?');
+				query.extend(datagrid.getDataByRow(trs[0]));
+				url = [editUrl, query.toQueryString()].join('?');
 				
 				// the modal to edit a service item  
-				modalOptions.contentURL = editUrl;
+				modalOptions.contentURL = url;
 				
 				modalOptions.title = 'test' ;
 				new MUI.Modal(modalOptions);
@@ -362,7 +366,7 @@ def _classEditJs(klass):
 	"""%paras
 	return js
 
-def _getClassProps(klass):
+def _getClassProps(klass, needId=True):
 	operator = USER
 	props = model.get_class_props( operator, klass).keys()
 	
@@ -370,7 +374,9 @@ def _getClassProps(klass):
 		props.remove('password')
 		
 	props.sort()
-	props.insert(0, 'id')
+	if needId:
+		props.insert(0, 'id')
+		
 	return props
 	
 def page_colsModel(**args):
@@ -460,8 +466,110 @@ def page_classItems(**args):
 	print JSON.encode(d, encoding='utf8')	
 	return
 
-def page_classEdit(**args):
-	print H2('Edit Class Item')
-	return
+def _formFieldsConstructor(values,setOldValue=False):	
+	"""
+	Constructs the form fields.
+	Each form field should has the below propertites.
+	'id' - the id for this form fieldElement;
+	'name' - field name;
+	'prompt' -  the text to decribe the filed which usually is at the left of the form field;
+	'oldvalue' - for edit action, old value is needed;
+	'type' - the form field type, that usually are 'input','text'
+	'required' - is this filed could not be empty?
+	'validate' - form field validate function names, should be a list 
+	"""
+	if type(values) == type([]):
+		keys = values
+	else:
+		keys = values.keys()
+		keys.sort()
+		
+	newprops = []
+	for key in keys:	
+		prop = {}
+		prop['id'] = prop['name'] = prop['prompt'] = key	
+		prop['oldvalue'] = ''
+		if setOldValue:
+			prop['oldvalue'] = values.get(key) or ''			
+				
+		prop['type'] = 'text'
+		prop['required'] = False
+		prop['validate'] = []
+		newprops.append(prop)	 	
 	
+	return newprops
+	
+ACTIONPROP,ACTIONTYPES = 'action',('create','edit')
+def page_classEdit(**args):
+	print H2('Edit Class %s Item'%args.get(CLASSPROP))
+	klass = args.pop(CLASSPROP)
+	# store the files to be shown and hidden
+	info,hideInput = [],[]
+	
+	props = copy.deepcopy(args)
+	if props.has_key('id'):
+		# edit action
+		actionType = ACTIONTYPES[1]
+		nid = props.pop('id')
+		info.append( {'prompt':_('Item ID:'), 'value':nid})
+		
+		[hideInput.append({'name':name,'value':value}) \
+		for name,value in ((CLASSPROP,klass),('id',nid),(ACTIONPROP,ACTIONTYPES[1]))]
+		
+		props = _formFieldsConstructor(props,True)
+	else:
+		# create action
+		hideInput.append({'name':ACTIONPROP,'value':ACTIONTYPES[0]})
+		props = _getClassProps(klass, needId=False)
+		props = _formFieldsConstructor(props)
+	
+	# show the fields in 'info' list before html Form Element
+	if info:
+		[ item.update({'prompt':''.join((item.get('prompt') or '',':'))}) for item in info ]
+		labelStyle = {'label':'font-weight:bold;font-size:1.2em;color:dackblue;', \
+						  'td':'text-align:right;'}
+						  
+		valueStyle = {'label':'color:#ff6600;font-size:1.2em;', 'td':'text-align:left;width:6em;'}
+						  
+		print TABLE(formFn.render_table_fields(info, 2, labelStyle, valueStyle), style='border:none;')
+	
+	# render the fields to the form	
+	form = []
+	# get the OL content from formRender.py module
+	if len(props) < 4:	
+		div = DIV(Sum(formFn.yform(props)))
+		form.append(FIELDSET(div))
+		bnStyle = 'position:absolute;margin-left:15em;'
+	else:
+		interval = int(len(props)/2)+1	
+		style = 'border-right:1px solid #DDDDDD;'	
+		left = DIV(Sum(formFn.yform(props[:interval])), **{'class':'c50l'})
+		right = DIV(Sum(formFn.yform(props[interval:])), **{'class':'c50r'})
+		divs = DIV(Sum((left, right)), **{'class':'subcolumns'})
+		form.append(divs)	
+		bnStyle = 'position:absolute;margin-left:12em;'
+		
+	# append hidden field that points out the action type
+	[item.update({'type':'hidden'}) for item in hideInput]
+	[ form.append(INPUT(**item)) for item in hideInput ]
+	
+	# add buttons to this form	
+	buttons = [ \
+		BUTTON( _('Confirm'), **{'class':pagefn.BUTTONSTYLE, 'type':'button'}),\
+		BUTTON( _('Cancel'), **{'class':pagefn.BUTTONSTYLE, 'type':'button'})\
+	]
+	
+	div = DIV(Sum(buttons), **{'style':bnStyle})    
+	form.append(div)
+	
+	form = \
+	FORM( 
+		Sum(form), 
+		**{'action': '/'.join((APPATH,'page_serviceEditAction')), 'id': 'classItemEditForm', 'method':'post','class':'yform'}
+	)
+				
+	print DIV(form,style='')
+	
+	return
+
 	
