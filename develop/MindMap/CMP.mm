@@ -103,12 +103,12 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1269742777929" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1269831214277" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="button_cancel"/>
-<node COLOR="#00b439" CREATED="1251723337068" ID="Freemind_Link_1911060026" MODIFIED="1268981562868" TEXT="Admin">
+<node COLOR="#00b439" CREATED="1251723337068" FOLDED="true" ID="Freemind_Link_1911060026" MODIFIED="1269821144296" TEXT="Admin">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1252293820448" FOLDED="true" ID="Freemind_Link_710266881" MODIFIED="1268981605711" TEXT="Functions">
@@ -132,7 +132,7 @@
 <node COLOR="#111111" CREATED="1252293960797" ID="Freemind_Link_1077532928" MODIFIED="1252296686611" TEXT="&#x91c7;&#x7528;&#x684c;&#x9762;&#x7528;&#x6237;&#x98ce;&#x683c;&#x7684;&#x754c;&#x9762;&#xff1f;"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1251723352369" ID="Freemind_Link_1621143709" MODIFIED="1268981548553" TEXT="User">
+<node COLOR="#00b439" CREATED="1251723352369" FOLDED="true" ID="Freemind_Link_1621143709" MODIFIED="1269821145256" TEXT="User">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1252293882135" FOLDED="true" ID="Freemind_Link_771989817" MODIFIED="1268816626167" TEXT="Functions">
@@ -158,7 +158,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1176858964077" FOLDED="true" ID="Freemind_Link_1801314834" MODIFIED="1269337438428" TEXT="Application">
+<node COLOR="#00b439" CREATED="1176858964077" ID="Freemind_Link_1801314834" MODIFIED="1269821365859" TEXT="Application">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="button_cancel"/>
@@ -200,7 +200,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1255507685812" ID="Freemind_Link_987975584" MODIFIED="1269333705911" TEXT="Hotel">
+<node COLOR="#990000" CREATED="1255507685812" FOLDED="true" ID="Freemind_Link_987975584" MODIFIED="1269821220890" TEXT="Hotel">
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="yes"/>
 <node COLOR="#111111" CREATED="1255507725364" ID="Freemind_Link_721304315" MODIFIED="1268904048973" TEXT="&#x623f;&#x95f4;&#x7ba1;&#x7406;">
@@ -329,9 +329,15 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1253088310853" FOLDED="true" ID="Freemind_Link_1588183683" MODIFIED="1268985412368" TEXT="Registration">
+<node COLOR="#990000" CREATED="1253088310853" ID="Freemind_Link_1588183683" MODIFIED="1269821159009" TEXT="Registration">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1269821169358" ID="ID_401784031" MODIFIED="1269821184996" TEXT="Tools">
+<icon BUILTIN="button_cancel"/>
+<node COLOR="#111111" CREATED="1269821173986" ID="ID_1412429840" MODIFIED="1269821176531" TEXT="http://stopam.com/"/>
+</node>
+<node COLOR="#111111" CREATED="1269821195367" FOLDED="true" ID="ID_1731795679" MODIFIED="1269821213999" TEXT="Functions">
+<icon BUILTIN="button_cancel"/>
 <node COLOR="#111111" CREATED="1253088329848" ID="Freemind_Link_188299767" MODIFIED="1268981540113" TEXT="jquery.ui&#x76f8;&#x5173;js&#x3001;css&#x6587;&#x4ef6;&#x5bfc;&#x5165;&#x7684;&#x7edf;&#x4e00;&#xff1f;">
 <font NAME="SansSerif" SIZE="12"/>
 <icon BUILTIN="button_ok"/>
@@ -360,7 +366,8 @@
 <node COLOR="#111111" CREATED="1256784103946" ID="ID_158367240" MODIFIED="1256784115082" TEXT="content.css Line72"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1257233438846" ID="ID_1216660804" MODIFIED="1268984072244" TEXT="Web Map">
+</node>
+<node COLOR="#990000" CREATED="1257233438846" FOLDED="true" ID="ID_1216660804" MODIFIED="1269821368440" TEXT="Web Map">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="help"/>
@@ -515,7 +522,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1245853638712" FOLDED="true" ID="_" MODIFIED="1269240917400" POSITION="right" TEXT="Used Web Lib/Widgets">
+<node COLOR="#0033ff" CREATED="1245853638712" ID="_" MODIFIED="1269831216832" POSITION="right" TEXT="Used Web Lib/Widgets">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1258549795684" FOLDED="true" ID="ID_1371740104" MODIFIED="1265253605180" TEXT="jquery lib">
@@ -601,10 +608,10 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1258549813016" FOLDED="true" ID="ID_1232595129" MODIFIED="1268619399297" TEXT="mootools">
+<node COLOR="#00b439" CREATED="1258549813016" ID="ID_1232595129" MODIFIED="1269831219314" TEXT="mootools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1258549821023" ID="ID_399916535" MODIFIED="1259806094940" TEXT="tabs">
+<node COLOR="#990000" CREATED="1258549821023" FOLDED="true" ID="ID_399916535" MODIFIED="1269831222953" TEXT="tabs">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1258777426210" ID="ID_1596070275" MODIFIED="1258777429995" TEXT="site">
 <node COLOR="#111111" CREATED="1258549833953" ID="ID_71928389" MODIFIED="1258549835916" TEXT="http://www.shaunfreeman.co.uk/#page-/content/article/page-MorphTabs"/>
@@ -617,7 +624,7 @@
 <node COLOR="#111111" CREATED="1258777545977" ID="ID_1235747866" MODIFIED="1258777629755" TEXT="Tabs.detach()&#xa;Line 245, &#x589e;&#x52a0;&#x4e86;this&#x7ed1;&#x5b9a;&#xff0c;&#x5982;&#x679c;&#x6ca1;&#x6709;&#xff0c;&#x6b64;&#x65b9;&#x6cd5;&#x65e0;&#x6cd5;&#x6b63;&#x5e38;&#x8fd0;&#x884c;&#x3002;"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1258549873754" ID="ID_341332789" MODIFIED="1267516717558" TEXT="formCheck">
+<node COLOR="#990000" CREATED="1258549873754" FOLDED="true" ID="ID_341332789" MODIFIED="1269831224074" TEXT="formCheck">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1259824766209" ID="ID_1092667720" MODIFIED="1259824770925" TEXT="site">
 <node COLOR="#111111" CREATED="1258549883768" ID="ID_379894263" MODIFIED="1258549885307" TEXT="http://mootools.floor.ch/en/demos/formcheck/"/>
@@ -636,12 +643,12 @@
 <node COLOR="#111111" CREATED="1259826690943" ID="ID_1100742116" MODIFIED="1259826692691" TEXT="onAjaxSuccess"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1258549889570" FOLDED="true" ID="ID_377818865" MODIFIED="1265253568827" TEXT="dialog">
+<node COLOR="#990000" CREATED="1258549889570" FOLDED="true" ID="ID_377818865" MODIFIED="1269831228744" TEXT="dialog">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1258549952599" ID="ID_616227543" MODIFIED="1258549955034" TEXT="http://www.e-magine.ro/web-dev-and-design/36/moodalbox/"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1268620263252" FOLDED="true" ID="ID_1186941418" MODIFIED="1269056936773" TEXT="MochaUI">
+<node COLOR="#00b439" CREATED="1268620263252" FOLDED="true" ID="ID_1186941418" MODIFIED="1269831230753" TEXT="MochaUI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1268620271613" ID="ID_1670060654" MODIFIED="1268620278853" TEXT="MUI.notification">
@@ -649,7 +656,7 @@
 <node COLOR="#111111" CREATED="1268620291854" ID="ID_994545196" MODIFIED="1268620316134" TEXT="Core.js,L363"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1259898004321" FOLDED="true" ID="ID_372536092" MODIFIED="1269056935894" TEXT="others ">
+<node COLOR="#00b439" CREATED="1259898004321" FOLDED="true" ID="ID_372536092" MODIFIED="1269831233729" TEXT="others ">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1259898055768" ID="ID_641093649" MODIFIED="1259900220999" TEXT="round corner">
@@ -798,7 +805,7 @@
 <font NAME="SansSerif" SIZE="16"/>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1262786726152" FOLDED="true" ID="ID_476877394" MODIFIED="1269585449194" POSITION="right" TEXT="Source">
+<node COLOR="#0033ff" CREATED="1262786726152" ID="ID_476877394" MODIFIED="1269831253812" POSITION="right" TEXT="Source">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1266917069312" FOLDED="true" ID="ID_30201427" MODIFIED="1268619406974" TEXT="Management">
@@ -818,7 +825,7 @@
 <node COLOR="#00b439" CREATED="1266917080151" ID="ID_370832872" MODIFIED="1266917082896" TEXT="Change">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1183969360528" FOLDED="true" ID="Freemind_Link_1717488379" MODIFIED="1266917237016" TEXT="javascript">
+<node COLOR="#990000" CREATED="1183969360528" ID="Freemind_Link_1717488379" MODIFIED="1269831257033" TEXT="javascript">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1260329913465" ID="ID_484061448" MODIFIED="1266917101003" TEXT="jQuery">
@@ -858,13 +865,13 @@
 </node>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1261625377953" FOLDED="true" ID="ID_1827272195" MODIFIED="1266917217896" TEXT="Plugins">
+<node COLOR="#111111" CREATED="1261625377953" ID="ID_1827272195" MODIFIED="1269831259986" TEXT="Plugins">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1261625384035" ID="ID_1027010126" MODIFIED="1261625390033" TEXT="Chart">
 <node COLOR="#111111" CREATED="1261625391132" ID="ID_147615027" MODIFIED="1261625392863" TEXT="http://highcharts.com/"/>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1264307483351" FOLDED="true" ID="ID_379783643" MODIFIED="1266917215088" TEXT="Lib">
+<node COLOR="#111111" CREATED="1264307483351" ID="ID_379783643" MODIFIED="1269831263374" TEXT="Lib">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1264307492932" ID="ID_809217467" MODIFIED="1264307506442" TEXT="Meteora">
 <node COLOR="#111111" CREATED="1264307507472" ID="ID_1818217045" MODIFIED="1264307509331" TEXT="http://meteora.astrata.com.mx/pages/documentation"/>
@@ -892,18 +899,18 @@
 </node>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1265094822278" FOLDED="true" ID="ID_68100126" MODIFIED="1266917212743" TEXT="Omnigrid">
+<node COLOR="#111111" CREATED="1265094822278" ID="ID_68100126" MODIFIED="1269831266993" TEXT="Omnigrid">
 <icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1265094835103" FOLDED="true" ID="ID_1925202062" MODIFIED="1266917209440" TEXT="omnigrid.js">
-<node COLOR="#111111" CREATED="1265094841143" FOLDED="true" ID="ID_292964798" MODIFIED="1266917201431" TEXT="loadData">
-<node COLOR="#111111" CREATED="1265094863586" ID="ID_1893340089" MODIFIED="1265095005886" TEXT="&#x4e3a;&#x589e;&#x52a0;&#x5411;&#x670d;&#x52a1;&#x5668;&#x4f20;&#x9012;&#x7684;&#x53c2;&#x6570;&#xff0c;&#xa;1 &#x6dfb;&#x52a0;&#x6b64;&#x65b9;&#x6cd5;&#x7684;&#x4f20;&#x5165;&#x53c2;&#x6570;options(&#x4e00;&#x4e2a;JSON object)&#xa;loadData: function (url)---&gt;loadData: function (url, options)&#xa;&#xa;2 &#x6dfb;&#x52a0;&#x4ee3;&#x7801;&#xff08;L323&#xff09;&#xa;// add others options data &#xa;if($type(options) != false)&#xa;  for (key in options){data[key]=options[key]};"/>
+<node COLOR="#111111" CREATED="1265094835103" ID="ID_1925202062" MODIFIED="1269831268251" TEXT="omnigrid.js">
+<node COLOR="#111111" CREATED="1265094841143" FOLDED="true" ID="ID_292964798" MODIFIED="1269831478737" TEXT="loadData">
+<node COLOR="#111111" CREATED="1265094863586" ID="ID_1893340089" MODIFIED="1269831476968" TEXT="&#x4e3a;&#x589e;&#x52a0;&#x5411;&#x670d;&#x52a1;&#x5668;&#x4f20;&#x9012;&#x7684;&#x53c2;&#x6570;&#xff0c;&#xa;1 &#x6dfb;&#x52a0;&#x6b64;&#x65b9;&#x6cd5;&#x7684;&#x4f20;&#x5165;&#x53c2;&#x6570;options(&#x4e00;&#x4e2a;JSON object)&#xa;loadData: function (url)---&gt;loadData: function (url, options)&#xa;&#xa;2 &#x6dfb;&#x52a0;&#x4ee3;&#x7801;&#xff08;L329&#xff09;&#xa;// add others options data &#xa;if($type(options) != false)&#xa;  for (key in options){data[key]=options[key]};&#xa;&#xa;// add user defined data with url, new added by B.Z &#xa;urlData = this.options.urlData; &#x9;&#x9;&#xa;if(urlData != null){&#xa;  for (key in urlData ){ data[key]=urlData[key]}; &#xa;};&#x9;"/>
 </node>
-<node COLOR="#111111" CREATED="1265202336037" FOLDED="true" ID="ID_1791843591" MODIFIED="1266917188287" TEXT="accordion &#x52a8;&#x6001;&#x5bfc;&#x5165;&#x5185;&#x5bb9;">
-<node COLOR="#111111" CREATED="1265201580159" FOLDED="true" ID="ID_1915350818" MODIFIED="1266917186159" TEXT="renderData">
+<node COLOR="#111111" CREATED="1265202336037" ID="ID_1791843591" MODIFIED="1269831480170" TEXT="accordion &#x52a8;&#x6001;&#x5bfc;&#x5165;&#x5185;&#x5bb9;">
+<node COLOR="#111111" CREATED="1265201580159" FOLDED="true" ID="ID_1915350818" MODIFIED="1269831503425" TEXT="renderData">
 <icon BUILTIN="full-1"/>
 <node COLOR="#111111" CREATED="1265201938784" ID="ID_1717815800" MODIFIED="1265202209267" TEXT="&#x4e3a;&#x907f;&#x514d;&#x5728;&#x521d;&#x59cb;&#x5316;grid&#x65f6;&#x5c31;&#x5bfc;&#x5165;Accordion&#x6570;&#x636e;&#xff0c;&#xa;if (this.options.accordion)&#xa;{&#xa;&#xa;var li2 = new Element(&apos;li&apos;);&#xa;li2.addClass(&apos;section&apos;);&#xa;li2.addClass(&apos;section-&apos;+r);&#xa; // inace se Div-ovi wrapaju, a u IE nastaje cudan 1px border ispod LI el.&#xa;li2.setStyle(&apos;width&apos;, this.sumWidth+2*this.visibleColumns);&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#xa;this.ulBody.appendChild(li2);&#xa;&#xa;/****************&#x6ce8;&#x91ca;&#x4ee5;&#x4e0b;&#x5185;&#x5bb9;**********************&#xa;if (this.options.accordionRenderer)&#x9;&#xa;  this.options.accordionRenderer({parent:li2, row:r, grid:this});&#xa;***************************************************/&#xa;&#xa;}"/>
 </node>
-<node COLOR="#111111" CREATED="1265202353676" FOLDED="true" ID="ID_1671902291" MODIFIED="1266917177375" TEXT="onRowClick">
+<node COLOR="#111111" CREATED="1265202353676" FOLDED="true" ID="ID_1671902291" MODIFIED="1269831504553" TEXT="onRowClick">
 <icon BUILTIN="full-2"/>
 <node COLOR="#111111" CREATED="1265202394045" ID="ID_1661583897" MODIFIED="1265202543987" TEXT="if (this.options.accordion)&#xa;{&#xa;...&#xa;  if (this.options.accordionRenderer)&#xa;  {&#xa;    /*******&#x65b0;&#x589e;&#x52a0;&#x8c03;&#x7528;accordionRenderer function &#x529f;&#x80fd;**************************&#xa;    this.options.accordionRenderer({parent: section, row: li.retrieve(&apos;row&apos;), grid:this});&#xa;    *****************************************************************************/&#xa;    this.toggle( section );&#xa;  }&#xa;...&#xa;}"/>
 </node>
@@ -927,7 +934,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1269585450721" POSITION="right" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1269831255698" POSITION="right" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -939,7 +946,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1252027856832" FOLDED="true" ID="Freemind_Link_1618511399" MODIFIED="1268619383448" TEXT="Javascript">
+<node COLOR="#00b439" CREATED="1252027856832" FOLDED="true" ID="Freemind_Link_1618511399" MODIFIED="1269831249154" TEXT="Javascript">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1250147399215" FOLDED="true" ID="Freemind_Link_404010672" MODIFIED="1257254491635" TEXT="JSON">
@@ -1052,7 +1059,7 @@
 <icon BUILTIN="help"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1174877401376" ID="Freemind_Link_503549801" MODIFIED="1269422835852" TEXT="karrigell">
+<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1269831250529" TEXT="karrigell">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1250824602428" FOLDED="true" ID="Freemind_Link_1774893402" MODIFIED="1265166091674" TEXT="_()---i18n">
@@ -1115,7 +1122,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1263825181828" ID="ID_854025776" MODIFIED="1269423061377" TEXT="Session">
+<node COLOR="#00b439" CREATED="1263825181828" FOLDED="true" ID="ID_854025776" MODIFIED="1269831251729" TEXT="Session">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="messagebox_warning"/>

@@ -325,7 +325,7 @@ var omniGrid = new Class({
 			data.sortby = this.options.sortBy;
 		}
 		
-		// add others options data 
+		// add others options data, add by B.Z 
 		if($type(options) != false)
 			for (key in options){data[key]=options[key]};	
 		
@@ -408,6 +408,24 @@ var omniGrid = new Class({
 	getDataByRow: function(row){
 		if (row >=0 && row<this.options.data.length)
 			return this.options.data[row];
+	},
+	
+	// API, return a column index in a row. Added by B.Z
+	getColumnIndex: function(prop){
+		props = this.options.columnModel.map(function(cm){
+			return cm.dataIndex
+		});
+		return props.indexOf(prop)
+	},
+	
+	// API, return a cell value by its column 'dataIndex'. Added by B.Z 
+	getCellByProp: function(row,prop){
+		alert('omnigrid.getCellByProp,L423,row index is '+row);
+		rowData = this.getDataByRow.bind(this).pass(row);
+		rowData.each(function(v,index){alert('value is '+v+',index is '+index);});
+		alert('omnigrid.getCellByProp,L426,row data is '+rowData+',column index is '+this.getColumnIndex(prop));
+		
+		return rowData[this.getColumnIndex.bind(this)(prop)]
 	},
 	
 	// API

@@ -32932,3 +32932,56 @@ sent 50260 bytes  received 31 bytes  100582.00 bytes/sec
 total size is 210276  speedup is 4.18
 2010-03-28 12:03:39,011 INFO End backup loacl karrigell diretory to local git.
 2010-03-28 12:03:39,011 INFO Begin to backup local github to remote github host.
+2010-03-28 12:03:39,845 INFO Command: 
+git add .
+running result is :
+2010-03-28 12:03:43,337 INFO Command: 
+git commit -m 'Update time:2010-03-28T12:03:39.011563'
+running result is :[master 5cf49f9] Update time:2010-03-28T12:03:39.011563
+ 7 files changed, 481 insertions(+), 113 deletions(-)
+2010-03-28 12:03:52,678 INFO Command: 
+git push origin master
+running result is :Counting objects: 31, done.
+Delta compression using up to 2 threads.
+Compressing objects:   6% (1/15)   Compressing objects:  13% (2/15)   Compressing objects:  20% (3/15)   Compressing objects:  26% (4/15)   Compressing objects:  33% (5/15)   Compressing objects:  40% (6/15)   Compressing objects:  46% (7/15)   Compressing objects:  53% (8/15)   Compressing objects:  60% (9/15)   Compressing objects:  66% (10/15)   Compressing objects:  73% (11/15)   Compressing objects:  80% (12/15)   Compressing objects:  86% (13/15)   Compressing objects:  93% (14/15)   Compressing objects: 100% (15/15)   Compressing objects: 100% (15/15), done.
+Writing objects:   6% (1/16)   Writing objects:  12% (2/16)   Writing objects:  18% (3/16)   Writing objects:  25% (4/16)   Writing objects:  31% (5/16)   Writing objects:  37% (6/16)   Writing objects:  43% (7/16)   Writing objects:  50% (8/16)   Writing objects:  56% (9/16)   Writing objects:  62% (10/16)   Writing objects:  68% (11/16)   Writing objects:  75% (12/16)   Writing objects:  81% (13/16)   Writing objects:  87% (14/16)   Writing objects:  93% (15/16)   Writing objects: 100% (16/16)   Writing objects: 100% (16/16), 6.68 KiB, done.
+Total 16 (delta 11), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   8e692de..5cf49f9  master -> master
+2010-03-28 12:03:52,678 INFO End backup local github to remote github host.
+2010-03-29 11:41:41,540 INFO Delete nousing captcha images
+2010-03-29 11:41:41,560 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-03-29 11:41:41,561 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-03-29 11:41:46,129 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%    0.00kB/s    0:00:00        362496 100%    8.06MB/s    0:00:00 (xfer#1, to-check=1045/3976)
+karrigell/package/roundup/ajax/
+karrigell/package/roundup/ajax/ajaxActions.pyc
+       32768  37%   94.12kB/s    0:00:00         86950 100%  245.41kB/s    0:00:00 (xfer#2, to-check=1898/5880)
+muireception/lib/grid/omnigrid.js
+       32768  90%    0.00kB/s    0:00:00         36056 100%    3.14MB/s    0:00:00 (xfer#3, to-check=1020/7416)
+muireception/lib/grid/omnigrid.js~
+       32768  90%    6.25MB/s    0:00:00         36056 100%    5.73MB/s    0:00:00 (xfer#4, to-check=1019/7416)
+muireception/sysadmin/sysadmin.ks
+       12326 100%   69.58kB/s    0:00:00         12326 100%   69.58kB/s    0:00:00 (xfer#5, to-check=668/7900)
+muireception/sysadmin/sysadmin.ks~
+       12320 100%   68.75kB/s    0:00:00         12320 100%   68.75kB/s    0:00:00 (xfer#6, to-check=667/7900)
+
+sent 253811 bytes  received 1284 bytes  46380.91 bytes/sec
+total size is 47596170  speedup is 186.58
+2010-03-29 11:41:46,253 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768  15%    0.00kB/s    0:00:00        210858 100%    7.72MB/s    0:00:00 (xfer#1, to-check=0/2)
+
+sent 50405 bytes  received 31 bytes  100872.00 bytes/sec
+total size is 210858  speedup is 4.18
+2010-03-29 11:41:46,253 INFO End backup loacl karrigell diretory to local git.
+2010-03-29 11:41:46,253 INFO Begin to backup local github to remote github host.

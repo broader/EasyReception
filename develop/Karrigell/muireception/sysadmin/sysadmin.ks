@@ -117,7 +117,7 @@ def page_showClass(**args):
 CLASSPROP = 'klass'
 def _showClassJs(klass,panel):
 	paras = [USER,klass,panel,CLASSPROP]
-	paras.extend(['/'.join((APPATH,page)) for page in ('page_classInfo','page_classEdit')])
+	paras.extend(['/'.join((APPATH,page)) for page in ('page_classInfo','page_classList')])
 	paras = tuple(paras)
 	js = \
 	"""
@@ -190,7 +190,7 @@ def page_classInfo(**args):
 	return
 
 CONTAINER = 'classListGridContainer'
-def page_classEdit(**args):
+def page_classList(**args):
 	klass = args.get(CLASSPROP)
 	print DIV(**{'id':CONTAINER})
 	print pagefn.script(_classEditJs(klass), link=False)	
@@ -203,7 +203,7 @@ def _classEditJs(klass):
 	paras.extend([_('Filter'),_('Clear Filter')])	
 	# url links
 	[ paras.append('/'.join((APPATH,name)))\ 
-	  for name in ('page_colsModel', 'page_classItems')]
+	  for name in ('page_colsModel', 'page_classItems', 'page_classEdit')]
 	
 	paras = tuple(paras)
 	js = \
@@ -213,7 +213,7 @@ def _classEditJs(klass):
 	title='%s', titleStyle='%s',
 	filterLabel="%s", clearFilterLabel="%s",
 	
-	colsModelUrl='%s', dataUrl='%s';
+	colsModelUrl='%s', dataUrl='%s', editUrl='%s';
 	
 	var colsModel=null, datagrid=null;
 	
@@ -281,9 +281,7 @@ def _classEditJs(klass):
       	width:600, height:380, contentURL: url,
       	title: 'Edit Class Item',
       	modalOverlayClose: false,
-      	onClose: function(e){
-      		datagrid.loadData();
-      	}
+      	onClose: function(e){ datagrid.loadData();}
       });
    	
    };   
@@ -295,21 +293,20 @@ def _classEditJs(klass):
 		datagrid = new omniGrid( div, {
 			columnModel: colsModel, url: dataUrl, urlData: reqData,
 			autoSectionToggle: true,
-			perPageOptions: [15,30,50],
+			perPageOptions: [10,20,30],
 			perPage:10,	page:1, pagination:true, serverSort:true,
 			showHeader: true,	sortHeader: true,	alternaterows: true,
 			resizeColumns: true,	multipleSelection:true,
-			width:510, height: 320
+			width:700, height: 320
 		});
-		
-		//datagrid.addEvent('dblclick', gridRowEdit);
+
 	};
 	
 	MUI.dataGrid(appName, {'onload':renderGrid});
 	
-	// add action buttons
-	var bnContainer = new Element('div',{style: 'text-align:left;'});
-	$(container).grab(bnContainer);
+	// add action buttons	
+	var bnContainer = new Element('div',{style: 'text-align:left;padding-top:5px;'});
+	$(container).adopt(bnContainer);
 	
 	[
 		{'type':'add','label':'Add'},
@@ -322,23 +319,43 @@ def _classEditJs(klass):
 			bnAttrs: {'style':'margin-right:1em;'}	
 		};
 		button = MUI.styledButton(options);		
-		button.addEvent('click',actionAdapter.pass(index,this));
+		button.addEvent('click',actionAdapter.bind(this).pass(index));
 		bnContainer.grab(button);
 	},datagrid);
 	
 	function actionAdapter(index){
-		trs = this.selected;
+		var trs = this.selected;
 		if(trs.length != 1){	// only one row should be selected
 			MUI.alert('Please select one row!');
 			return
 		};
 		
+		var modalOptions = {
+			width:600, height:380, modalOverlayClose: false,
+	   	onClose: function(e){
+	   		// refresh table's body
+	   		datagrid.loadData();
+	   	}
+		};
 		switch(index){
 			case 0:
 				alert('add action');
+				
 				break;
 			case 1:
-				alert('edit action');
+				
+				alert('column index is '+datagrid.getColumnIndex('id'));
+				
+				alert(datagrid.getCellByProp(trs[0],'id'));
+				
+				// set the really action url
+				//url = [actionUrl, query].join('?');
+				
+				// the modal to edit a service item  
+				modalOptions.contentURL = editUrl;
+				
+				modalOptions.title = 'test' ;
+				new MUI.Modal(modalOptions);
 				break;
 			case 2:
 				alert('delete action');
@@ -370,7 +387,7 @@ def page_colsModel(**args):
 		
 	print JSON.encode({'data':colsModel})
 	return
-
+	
 GRIDSORTONTAG, GRIDSORTBYTAG = ('sorton', 'sortby')	
 def page_classItems(**args):
 	klass = args.get(CLASSPROP)
@@ -399,15 +416,25 @@ def page_classItems(**args):
 	d['total'] = total = len(data)	
 					
 	# sort data
-	if sortby :			
-		data.sort(key=lambda row:row[showProps.index(sortby)])	
+	if sortby :	
+		
+		# a temporary handle function for list key
+		def _cmpKey(row):
+			i = row[showProps.index(sortby)]
+			try:
+				i = int(i)
+			except:
+				pass
+			return i
+		
+		data.sort(key=_cmpKey)
 	
 	if sorton == 'DESC':
 		data.reverse()
 		
 	# get the data of the displayed page
 	start = (showPage-1)*pageNumber
-	end = start + pageNumber - 1
+	end = start + pageNumber
 	if end >= total:
 		end = total
 	# get data slice in the displayed page from the data 	
@@ -430,6 +457,10 @@ def page_classItems(**args):
 	d['data'] = encoded
 	
 	print JSON.encode(d, encoding='utf8')	
+	return
+
+def page_classEdit(**args):
+	print H2('Edit Class Item')
 	return
 	
 	
