@@ -319,12 +319,12 @@ def _classEditJs(klass):
 			bnAttrs: {'style':'margin-right:1em;'}	
 		};
 		button = MUI.styledButton(options);		
-		button.addEvent('click',actionAdapter.pass(index,this));
+		button.addEvent('click',actionAdapter.pass(index));
 		bnContainer.grab(button);
 	},datagrid);
 	
 	function actionAdapter(index){
-		var trs = this.selected;
+		var trs = datagrid.selected;
 		if(trs.length != 1){	// only one row should be selected
 			MUI.alert('Please select one row!');
 			return
@@ -338,15 +338,12 @@ def _classEditJs(klass):
 	   	}
 		};
 		switch(index){
-			case 0:
+			case 0:	// add action
 				alert('add action');
 				
 				break;
-			case 1:
-				
-				alert('column index is '+datagrid.getColumnIndex('id'));
-				
-				alert(datagrid.getCellByProp(trs[0],'id'));
+			case 1:	// edit action	
+				alert('id is '+datagrid.getRowCellByProp(trs[0],'id'));
 				
 				// set the really action url
 				//url = [actionUrl, query].join('?');
@@ -357,7 +354,7 @@ def _classEditJs(klass):
 				modalOptions.title = 'test' ;
 				new MUI.Modal(modalOptions);
 				break;
-			case 2:
+			case 2:	// delete action
 				alert('delete action');
 		};
 	};
@@ -401,7 +398,7 @@ def page_classItems(**args):
 	
 	
 	# returned data object
-	d = {'page':showPage,'data':[],'search':search}
+	d = {'page':showPage,'data':[],'search':search, 'total':0}
 	
 	# column's property name
 	showProps = _getClassProps(klass)
@@ -409,25 +406,28 @@ def page_classItems(**args):
 		data = model.fuzzyQuery( USER, klass, search, showProps, require=None)
 	else:
 		data = model.get_items( USER, klass, _getClassProps(klass))
-		
-	if not data:
+	
+	if not data or (type(data) != type([])):
+		print JSON.encode(d, encoding='utf8')	
 		return
 	
 	d['total'] = total = len(data)	
 					
-	# sort data
-	if sortby :	
-		
-		# a temporary handle function for list key
-		def _cmpKey(row):
+	# a temporary handle function for list key
+	def _cmpKey(row):
+		if sortby:
 			i = row[showProps.index(sortby)]
-			try:
-				i = int(i)
-			except:
-				pass
-			return i
-		
-		data.sort(key=_cmpKey)
+		else:
+			i = row[0]
+			
+		try:
+			i = int(i)
+		except:
+			pass
+		return i
+	
+	# sort data
+	data.sort(key=_cmpKey)	
 	
 	if sorton == 'DESC':
 		data.reverse()
@@ -444,12 +444,12 @@ def page_classItems(**args):
 	# JSON.encode error, so decode all the data items to utf8.	
 	# set python default encoding to 'utf8'	
 	reload(sys)
-	sys.setdefaultencoding('utf8')
+	sys.setdefaultencoding('utf8')	
 	
 	for row in rslice:
 		for i,s in enumerate(row) :
-			row[i] = (s or '').decode('utf8')		
-	
+			row[i] = str((s or '')).decode('utf8')			
+		
 	# constructs each row to be a dict object that key is a property.
 	encoded = [dict([(prop,value) for prop,value in zip(showProps,row)]) for row in rslice]
 	

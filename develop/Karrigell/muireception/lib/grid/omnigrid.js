@@ -406,26 +406,16 @@ var omniGrid = new Class({
 	
 	// API
 	getDataByRow: function(row){
-		if (row >=0 && row<this.options.data.length)
-			return this.options.data[row];
-	},
-	
-	// API, return a column index in a row. Added by B.Z
-	getColumnIndex: function(prop){
-		props = this.options.columnModel.map(function(cm){
-			return cm.dataIndex
-		});
-		return props.indexOf(prop)
+		if (row >=0 && row<this.options.data.length){
+			return this.options.data[row]
+		};
+		
+		return null
 	},
 	
 	// API, return a cell value by its column 'dataIndex'. Added by B.Z 
-	getCellByProp: function(row,prop){
-		alert('omnigrid.getCellByProp,L423,row index is '+row);
-		rowData = this.getDataByRow.bind(this).pass(row);
-		rowData.each(function(v,index){alert('value is '+v+',index is '+index);});
-		alert('omnigrid.getCellByProp,L426,row data is '+rowData+',column index is '+this.getColumnIndex(prop));
-		
-		return rowData[this.getColumnIndex.bind(this)(prop)]
+	getRowCellByProp: function(row,prop){
+		return this.getDataByRow(row)[prop]
 	},
 	
 	// API

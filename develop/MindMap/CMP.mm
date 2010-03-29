@@ -902,10 +902,10 @@
 <node COLOR="#111111" CREATED="1265094822278" ID="ID_68100126" MODIFIED="1269831266993" TEXT="Omnigrid">
 <icon BUILTIN="messagebox_warning"/>
 <node COLOR="#111111" CREATED="1265094835103" ID="ID_1925202062" MODIFIED="1269831268251" TEXT="omnigrid.js">
-<node COLOR="#111111" CREATED="1265094841143" FOLDED="true" ID="ID_292964798" MODIFIED="1269831478737" TEXT="loadData">
+<node COLOR="#111111" CREATED="1265094841143" FOLDED="true" ID="ID_292964798" MODIFIED="1269847961061" TEXT="loadData">
 <node COLOR="#111111" CREATED="1265094863586" ID="ID_1893340089" MODIFIED="1269831476968" TEXT="&#x4e3a;&#x589e;&#x52a0;&#x5411;&#x670d;&#x52a1;&#x5668;&#x4f20;&#x9012;&#x7684;&#x53c2;&#x6570;&#xff0c;&#xa;1 &#x6dfb;&#x52a0;&#x6b64;&#x65b9;&#x6cd5;&#x7684;&#x4f20;&#x5165;&#x53c2;&#x6570;options(&#x4e00;&#x4e2a;JSON object)&#xa;loadData: function (url)---&gt;loadData: function (url, options)&#xa;&#xa;2 &#x6dfb;&#x52a0;&#x4ee3;&#x7801;&#xff08;L329&#xff09;&#xa;// add others options data &#xa;if($type(options) != false)&#xa;  for (key in options){data[key]=options[key]};&#xa;&#xa;// add user defined data with url, new added by B.Z &#xa;urlData = this.options.urlData; &#x9;&#x9;&#xa;if(urlData != null){&#xa;  for (key in urlData ){ data[key]=urlData[key]}; &#xa;};&#x9;"/>
 </node>
-<node COLOR="#111111" CREATED="1265202336037" ID="ID_1791843591" MODIFIED="1269831480170" TEXT="accordion &#x52a8;&#x6001;&#x5bfc;&#x5165;&#x5185;&#x5bb9;">
+<node COLOR="#111111" CREATED="1265202336037" FOLDED="true" ID="ID_1791843591" MODIFIED="1269847958960" TEXT="accordion &#x52a8;&#x6001;&#x5bfc;&#x5165;&#x5185;&#x5bb9;">
 <node COLOR="#111111" CREATED="1265201580159" FOLDED="true" ID="ID_1915350818" MODIFIED="1269831503425" TEXT="renderData">
 <icon BUILTIN="full-1"/>
 <node COLOR="#111111" CREATED="1265201938784" ID="ID_1717815800" MODIFIED="1265202209267" TEXT="&#x4e3a;&#x907f;&#x514d;&#x5728;&#x521d;&#x59cb;&#x5316;grid&#x65f6;&#x5c31;&#x5bfc;&#x5165;Accordion&#x6570;&#x636e;&#xff0c;&#xa;if (this.options.accordion)&#xa;{&#xa;&#xa;var li2 = new Element(&apos;li&apos;);&#xa;li2.addClass(&apos;section&apos;);&#xa;li2.addClass(&apos;section-&apos;+r);&#xa; // inace se Div-ovi wrapaju, a u IE nastaje cudan 1px border ispod LI el.&#xa;li2.setStyle(&apos;width&apos;, this.sumWidth+2*this.visibleColumns);&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#xa;this.ulBody.appendChild(li2);&#xa;&#xa;/****************&#x6ce8;&#x91ca;&#x4ee5;&#x4e0b;&#x5185;&#x5bb9;**********************&#xa;if (this.options.accordionRenderer)&#x9;&#xa;  this.options.accordionRenderer({parent:li2, row:r, grid:this});&#xa;***************************************************/&#xa;&#xa;}"/>
@@ -914,6 +914,9 @@
 <icon BUILTIN="full-2"/>
 <node COLOR="#111111" CREATED="1265202394045" ID="ID_1661583897" MODIFIED="1265202543987" TEXT="if (this.options.accordion)&#xa;{&#xa;...&#xa;  if (this.options.accordionRenderer)&#xa;  {&#xa;    /*******&#x65b0;&#x589e;&#x52a0;&#x8c03;&#x7528;accordionRenderer function &#x529f;&#x80fd;**************************&#xa;    this.options.accordionRenderer({parent: section, row: li.retrieve(&apos;row&apos;), grid:this});&#xa;    *****************************************************************************/&#xa;    this.toggle( section );&#xa;  }&#xa;...&#xa;}"/>
 </node>
+</node>
+<node COLOR="#111111" CREATED="1269847963006" ID="ID_910097346" MODIFIED="1269847964080" TEXT="getRowCellByProp">
+<node COLOR="#111111" CREATED="1269847998914" ID="ID_365746900" MODIFIED="1269848053564" TEXT="&#x65b0;&#x589e;&#x52a0;&#xa;&#x6839;&#x636e;row index&#x548c;column property&#x8fd4;&#x56de;row cell&#x4e2d;&#x7684;value"/>
 </node>
 </node>
 </node>
