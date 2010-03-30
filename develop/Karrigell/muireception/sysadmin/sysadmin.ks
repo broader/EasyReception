@@ -28,15 +28,36 @@ APP = pagefn.getApp(THIS.baseurl,1)
 so = Session()
 USER = getattr( so, pagefn.SOINFO['user']).get('username')
 
-# the classes that could be edited by web page
-WEB_EDIT_CLASS = ['role', 'keyword','priority', 'status', 'user', 'webaction', 'service', 'reserve' ]
-
-
 # End*****************************************************************************************
 
 # ********************************************************************************************
 # The page functions begining 
 # ********************************************************************************************
+
+def _formEditProps4classStatus():
+	# get all classes' names in roundup.db
+	
+	# get all user defined names in roundup.status items
+	
+	# constructs property for the field in html form element
+	
+ 
+	return
+	
+# the classes that could be edited by web page
+FORMPROPS4CLASS = [\
+	{'name': 'role', 'propsFn': _formEditProps4classStatus},
+	{'name': 'keyword',},
+	{'name': 'priority',},
+	{'name': 'status',},
+	{'name': 'user',},
+	{'name': 'webaction',},
+	{'name': 'service',},
+	{'name': 'reserve',} 
+]
+
+#WEB_EDIT_CLASS = ['role', 'keyword','priority', 'status', 'user', 'webaction', 'service', 'reserve' ]
+WEB_EDIT_CLASS = [item.get('name') for item in FORMPROPS4CLASS]
 
 def _getTabs(panelId):
 	# get service catrgory
@@ -466,7 +487,7 @@ def page_classItems(**args):
 	print JSON.encode(d, encoding='utf8')	
 	return
 
-def _formFieldsConstructor(values,setOldValue=False):	
+def _formFieldsConstructor(klass, values, setOldValue=False):	
 	"""
 	Constructs the form fields.
 	Each form field should has the below propertites.
@@ -498,7 +519,11 @@ def _formFieldsConstructor(values,setOldValue=False):
 		newprops.append(prop)	 	
 	
 	return newprops
-	
+
+def _category4status():
+	pass
+	return
+		
 ACTIONPROP,ACTIONTYPES = 'action',('create','edit')
 def page_classEdit(**args):
 	print H2('Edit Class %s Item'%args.get(CLASSPROP))
@@ -516,12 +541,12 @@ def page_classEdit(**args):
 		[hideInput.append({'name':name,'value':value}) \
 		for name,value in ((CLASSPROP,klass),('id',nid),(ACTIONPROP,ACTIONTYPES[1]))]
 		
-		props = _formFieldsConstructor(props,True)
+		props = _formFieldsConstructor(klass,props,True)
 	else:
 		# create action
 		hideInput.append({'name':ACTIONPROP,'value':ACTIONTYPES[0]})
 		props = _getClassProps(klass, needId=False)
-		props = _formFieldsConstructor(props)
+		props = _formFieldsConstructor(klass,props)
 	
 	# show the fields in 'info' list before html Form Element
 	if info:
