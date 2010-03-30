@@ -35,28 +35,28 @@ USER = getattr( so, pagefn.SOINFO['user']).get('username')
 # ********************************************************************************************
 
 def _formEditProps4classStatus():
+	props = {}
 	# get all classes' names in roundup.db
-	
-	# get all user defined names in roundup.status items
-	
+	klasses = model.get_classes(USER)	
+	klasses.sort()	
 	# constructs property for the field in html form element
+	klasses = [{'value':item,'label':item} for item in klasses]	
+	props['category'] = {'name':'category','type':'select','options':klasses,'class':''} 
 	
- 
-	return
+	return props
 	
 # the classes that could be edited by web page
 FORMPROPS4CLASS = [\
-	{'name': 'role', 'propsFn': _formEditProps4classStatus},
-	{'name': 'keyword',},
-	{'name': 'priority',},
-	{'name': 'status',},
-	{'name': 'user',},
-	{'name': 'webaction',},
-	{'name': 'service',},
-	{'name': 'reserve',} 
+	{'name': 'role',},\
+	{'name': 'keyword',},\
+	{'name': 'priority',},\
+	{'name': 'status','propsFn': _formEditProps4classStatus},\
+	{'name': 'user',},\
+	{'name': 'webaction',},\
+	{'name': 'service',},\
+	{'name': 'reserve',}\
 ]
 
-#WEB_EDIT_CLASS = ['role', 'keyword','priority', 'status', 'user', 'webaction', 'service', 'reserve' ]
 WEB_EDIT_CLASS = [item.get('name') for item in FORMPROPS4CLASS]
 
 def _getTabs(panelId):
@@ -487,7 +487,7 @@ def page_classItems(**args):
 	print JSON.encode(d, encoding='utf8')	
 	return
 
-def _formFieldsConstructor(values,setOldValue=False):	
+def _formFieldsConstructor(klass, values, setOldValue=False):	
 	"""
 	Constructs the form fields.
 	Each form field should has the below propertites.
@@ -499,30 +499,36 @@ def _formFieldsConstructor(values,setOldValue=False):
 	'required' - is this filed could not be empty?
 	'validate' - form field validate function names, should be a list 
 	"""
+	fn = FORMPROPS4CLASS[WEB_EDIT_CLASS.index(klass)].get('propsFn')
+	if fn:
+		defaultProps = fn()
+	else:
+		defaultProps = {}
+		
 	if type(values) == type([]):
 		keys = values
 	else:
 		keys = values.keys()
-		keys.sort()
-		
+	
+	keys.sort()		
 	newprops = []
 	for key in keys:	
-		prop = {}
-		prop['id'] = prop['name'] = prop['prompt'] = key	
-		prop['oldvalue'] = ''
+		prop = defaultProps.get(key) or {}
+			
+		prop['id'] = prop['name'] = prop['prompt'] = key
+		
+		for attr,value in {'type':'text','required':False,'validate':[]}.items():
+			if not prop.get(attr):
+				prop[attr] = value
+					
 		if setOldValue:
-			prop['oldvalue'] = values.get(key) or ''			
-				
-		prop['type'] = 'text'
-		prop['required'] = False
-		prop['validate'] = []
+			prop['oldvalue'] = values.get(key) or ''	
+		else:
+			prop['oldvalue'] = ''		
+		
 		newprops.append(prop)	 	
 	
 	return newprops
-
-def _category4status():
-	pass
-	return
 		
 ACTIONPROP,ACTIONTYPES = 'action',('create','edit')
 def page_classEdit(**args):
@@ -536,7 +542,7 @@ def page_classEdit(**args):
 		# edit action
 		actionType = ACTIONTYPES[1]
 		nid = props.pop('id')
-		info.append( {'prompt':_('Item ID:'), 'value':nid})
+		info.append( {'prompt':_('Item ID'), 'value':nid})
 		
 		[hideInput.append({'name':name,'value':value}) \
 		for name,value in ((CLASSPROP,klass),('id',nid),(ACTIONPROP,ACTIONTYPES[1]))]

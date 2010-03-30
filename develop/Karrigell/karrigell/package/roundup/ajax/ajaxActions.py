@@ -1242,12 +1242,13 @@ class GetItemsAction(GetItemAction):
                 ids = [klass.lookup(key) for key in self.form['keyvalues'].split(',') ]
             else:
                 ids = klass.getnodeids(retired=0) 
+        
         #ids.sort()                
         if ids == [] :
             #print _("Warning,there is no item of class '%s'.")%cl
             #raise exceptions.NotFound, _("Warning,there is no item of class '%s'.")%cl
             self.client.ok_message.append( _("Warning,there is no item of class '%s'.")%cl)
-            return
+            return []
         
         # get the specified properties        
         props = self.client.form.get('propnames')
@@ -1255,16 +1256,17 @@ class GetItemsAction(GetItemAction):
         # Default,get all the properties of this class
         if not props :
             props = klass.getprops(protected=0).keys()
-            #fetchall = True                       
-        #return self.getitems(klass,ids,props)
+            #fetchall = True        
+                           
         l2k = self.form.get('link2key')
         if l2k == None :
             l2k = True
+        
         try:
             value = map(lambda id: self.getitem(klass,id,props,link2key=l2k),ids)        
         except:
             print sys.exc_info()
-            value = None
+            value = []
         #print 'ajaxActions.GetItemsAction,L1262,return value is ',value
         return value
     

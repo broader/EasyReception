@@ -45,12 +45,11 @@ def getField(field):
 		# this field must be input by the user
 		old = field.get('class')
 		if old :
-			newclass = ' '.join((old,'required'))
+			newClass = ' '.join((old,'required'))
 		else:
-			newclass = "required"
+			newClass = "required"
 			
-		field['class'] = newclass
-		#label += SUP("*", title=_("This field is mandotroy."))
+		field['class'] = newClass
 		label += SUP("*")
 		 
 		if prompt:

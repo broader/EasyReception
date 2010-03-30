@@ -67,6 +67,12 @@ def login(usr=None, pwd=None):
 	client.form = form
 	return action(client)     	
 
+def get_classes(operator):
+	""" Return a list of the names of all existing classes. """
+	client = get_client()
+	client.set_user(operator)
+	return client.db.get_classes()
+	
 def get_item(operator, klass, key, props=None, keyIsId=False):
 	""" Get the propvalues of a item of a class stored in database.
 	   Return a dictionary holding the properties and their values.

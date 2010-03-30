@@ -50,7 +50,6 @@ def getField(field):
 			newclass = "required"
 			
 		field['class'] = newclass
-		#label += SUP("*", title=_("This field is mandotroy."))
 		label += SUP("*")
 		 
 		if prompt:
@@ -153,7 +152,7 @@ def filterProps(fields,values):
 		
 	return postValues
 		
-def render_table_fields( fields, cols, labelStyle, valueStyle):
+def render_table_fields( fields, cols=1, labelStyle={}, valueStyle={}):
 	""" 
 	Render the table rows which is mainly used for showing fields.
 	Parameters:
