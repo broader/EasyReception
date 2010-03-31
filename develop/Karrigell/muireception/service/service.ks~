@@ -1,5 +1,5 @@
 """
-Pages mainly for administration.
+Pages mainly for services view and edit action.
 """
 import copy,tools
 from tools import treeHandler

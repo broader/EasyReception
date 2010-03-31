@@ -285,7 +285,7 @@ var FormCheck = new Class({
 	*/
 	initialize : function(form, options) {
 		
-		if (this.form = $(form)) {
+		if (this.form = $(form)) {			
 			this.form.isValid = true;
 			this.regex = ['length'];
 			this.setOptions(options);

@@ -214,13 +214,14 @@ CONTAINER = 'classListGridContainer'
 def page_classList(**args):
 	klass = args.get(CLASSPROP)
 	print DIV(**{'id':CONTAINER})
-	print pagefn.script(_classEditJs(klass), link=False)	
+	print pagefn.script(_classListJs(klass), link=False)	
 	return
 	
-def _classEditJs(klass):
+def _classListJs(klass):
 	paras = [CLASSPROP, klass, APP, CONTAINER]
 	paras.append(' '.join((klass,_('Items'))))
 	paras.append(CLASSNAMESTYLE)
+	paras.extend([''.join((prefix, klass)) for prefix in (_('Create new item of '), _('Edit the item of '))])
 	paras.extend([_('Filter'),_('Clear Filter')])	
 	# url links
 	[ paras.append('/'.join((APPATH,name)))\ 
@@ -232,6 +233,7 @@ def _classEditJs(klass):
 	var klassProp='%s', klass='%s', appName='%s', 
 	container='%s',
 	title='%s', titleStyle='%s',
+	createTitle='%s', ediTitle='%s',
 	filterLabel="%s", clearFilterLabel="%s",
 	
 	colsModelUrl='%s', dataUrl='%s', editUrl='%s';
@@ -274,36 +276,7 @@ def _classEditJs(klass):
    span = new Element('span');
    $(container).grab(span);
    interval = new Element('span',{html:' | '});
-   span.adopt(filterInput, filterButton, interval, filterClearButton);   
-   
-   // edit the data of selected row
-   function gridRowEdit(evt){
-   	/* Parameters
-   	evt.target:the grid object
-   	evt.indices:the multi selected rows' indexes
-   	evt.row: the index of the row in the grid
-   	*/
-   	
-   	// get the data of the selected row
-   	row = evt.target.getDataByRow(evt.row);
-   	
-   	var urls = [];
-   	$H({'user':row['username'],'panelReload':'0'})
-   	.each(function(value,key){
-   		urls.push([key,value].join('='));
-   	});
-   	url = [editUrl,urls.join('&')].join('?');
-   	//url = editUrl + '?'+'user='+row['username'];
-   	
-   	// the dialog to edit portfolio
-   	new MUI.Modal({
-      	width:600, height:380, contentURL: url,
-      	title: 'Edit Class Item',
-      	modalOverlayClose: false,
-      	onClose: function(e){ datagrid.loadData();}
-      });
-   	
-   };   
+   span.adopt(filterInput, filterButton, interval, filterClearButton);
    
    div = new Element('div');
    $(container).grab(div);
@@ -365,7 +338,7 @@ def _classEditJs(klass):
 				// the modal to edit a service item  
 				modalOptions.contentURL = url;
 				
-				modalOptions.title = 'Add Class Item' ;
+				modalOptions.title = createTitle;
 				new MUI.Modal(modalOptions);
 				break;
 			case 1:	// edit action	
@@ -376,7 +349,7 @@ def _classEditJs(klass):
 				// the modal to edit a service item  
 				modalOptions.contentURL = url;
 				
-				modalOptions.title = 'test' ;
+				modalOptions.title = ediTitle;
 				new MUI.Modal(modalOptions);
 				break;
 			case 2:	// delete action
@@ -532,7 +505,6 @@ def _formFieldsConstructor(klass, values, setOldValue=False):
 		
 ACTIONPROP,ACTIONTYPES = 'action',('create','edit')
 def page_classEdit(**args):
-	print H2('Edit Class %s Item'%args.get(CLASSPROP))
 	klass = args.pop(CLASSPROP)
 	# store the files to be shown and hidden
 	info,hideInput = [],[]
@@ -585,22 +557,96 @@ def page_classEdit(**args):
 	[ form.append(INPUT(**item)) for item in hideInput ]
 	
 	# add buttons to this form	
-	buttons = [ \
-		BUTTON( _('Confirm'), **{'class':pagefn.BUTTONSTYLE, 'type':'button'}),\
-		BUTTON( _('Cancel'), **{'class':pagefn.BUTTONSTYLE, 'type':'button'})\
-	]
+	#buttons = [ \
+	#	BUTTON( _('Confirm'), **{'class':pagefn.BUTTONSTYLE, 'type':'button'}),\
+	#	BUTTON( _('Cancel'), **{'class':pagefn.BUTTONSTYLE, 'type':'button'})\
+	#]
 	
-	div = DIV(Sum(buttons), **{'style':bnStyle})    
-	form.append(div)
+	#div = DIV(Sum(buttons), **{'style':bnStyle})    
+	#form.append(div)
 	
+	formId = 'classItemEditForm'
 	form = \
 	FORM( 
 		Sum(form), 
-		**{'action': '/'.join((APPATH,'page_serviceEditAction')), 'id': 'classItemEditForm', 'method':'post','class':'yform'}
+		**{'action': '/'.join((APPATH,'page_classEditAction')), 'id': formId, 'method':'post','class':'yform'}
 	)
 				
 	print DIV(form,style='')
 	
+	print pagefn.script( _classEditJs(formId,bnStyle),link=False)
+	
 	return
 
+def _classEditJs(formId, bnStyle):
+	paras = [APP, formId, bnStyle]
+	paras.extend( [ pagefn.BUTTONLABELS.get('confirmWindow').get(key) for key in ('confirm','cancel')] )
+	paras = tuple(paras)
+	js = \
+	"""
+	var appName='%s', container='%s', bnStyle='%s',
+	confirmBnLabel='%s',cancelBnLabel='%s';
+	
+	var classItemEditFormChk;
+	// Load the form validation plugin script
+	var options = {
+		onload:function(){ 
+			classItemEditFormChk = new FormCheck( container,{
+				submitByAjax: true,
+				onAjaxSuccess: function(response){
+					if(response == 1){
+						MUI.closeModalDialog();
+					};               
+				},            
+
+				display:{
+					errorsLocation : 1,
+					keepFocusOnError : 0, 
+					scrollToFirst : false
+				}
+			});// the end for 'classItemEditFormChk' definition
+			
+		}// the end for 'onload' definition
+	};// the end for 'options' definition
+ 
+   MUI.formValidLib(appName,options);
+	
+	// add action buttons	
+	var bnContainer = new Element('div',{style: bnStyle});
+	$(container).adopt(bnContainer);
+	
+	[
+		{'type':'accept','label': confirmBnLabel},
+		{'type':'cancel','label': cancelBnLabel}
+	].each(function(attrs,index){
+		options = {
+			txt: attrs['label'],
+		   imgType: attrs['type'],
+			bnAttrs: {'style':'margin-right:1em;'}	
+		};
+		button = MUI.styledButton(options);		
+		button.addEvent('click',actionAdapter);
+		bnContainer.grab(button);
+	});
+	
+	function actionAdapter(e){
+		var button = e.target;
+		var label = button.get('text');
+		
+		if(label == confirmBnLabel){
+			classItemEditFormChk.onSubmit(e);
+		}
+		else{
+			new Event(e).stop();
+			MUI.closeModalDialog();
+		}; 
+	};
+	
+	"""%paras
+	return js
+	
+def page_classEditAction(**args):
+	successTag = 1
+	print successTag
+	
 	

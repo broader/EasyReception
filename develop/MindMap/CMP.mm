@@ -1,6 +1,6 @@
 <map version="0.9.0">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node COLOR="#000000" CREATED="1245853581417" ID="Freemind_Link_1611273437" MODIFIED="1261017091368" TEXT="                     CMP&#xa;(Congress Management Portal)">
+<node COLOR="#000000" CREATED="1245853581417" ID="Freemind_Link_1611273437" MODIFIED="1270008683490" TEXT="                     CMP&#xa;(Congress Management Portal)">
 <font NAME="SansSerif" SIZE="20"/>
 <hook NAME="accessories/plugins/AutomaticLayout.properties"/>
 <node COLOR="#0033ff" CREATED="1247629244030" FOLDED="true" ID="Freemind_Link_1151184350" MODIFIED="1262052493778" POSITION="left" TEXT="Roundup">
@@ -103,7 +103,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" ID="Freemind_Link_1929446294" MODIFIED="1269932635165" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1270007300703" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -181,7 +181,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1177129576048" FOLDED="true" ID="Freemind_Link_255180915" MODIFIED="1268980209919" TEXT="&#x7ad9;&#x70b9;&#x8bbf;&#x95ee;&#x7edf;&#x8ba1;">
+<node COLOR="#990000" CREATED="1177129576048" ID="Freemind_Link_255180915" MODIFIED="1270006181633" TEXT="&#x7ad9;&#x70b9;&#x8bbf;&#x95ee;&#x7edf;&#x8ba1;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1177129585271" ID="Freemind_Link_1863538536" MODIFIED="1255507915739" TEXT="Google Analytics">
@@ -609,7 +609,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1258549813016" FOLDED="true" ID="ID_1232595129" MODIFIED="1269869085299" TEXT="mootools">
+<node COLOR="#00b439" CREATED="1258549813016" FOLDED="true" ID="ID_1232595129" MODIFIED="1270024316843" TEXT="mootools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1258549821023" FOLDED="true" ID="ID_399916535" MODIFIED="1269831222953" TEXT="tabs">
@@ -625,7 +625,7 @@
 <node COLOR="#111111" CREATED="1258777545977" ID="ID_1235747866" MODIFIED="1258777629755" TEXT="Tabs.detach()&#xa;Line 245, &#x589e;&#x52a0;&#x4e86;this&#x7ed1;&#x5b9a;&#xff0c;&#x5982;&#x679c;&#x6ca1;&#x6709;&#xff0c;&#x6b64;&#x65b9;&#x6cd5;&#x65e0;&#x6cd5;&#x6b63;&#x5e38;&#x8fd0;&#x884c;&#x3002;"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1258549873754" FOLDED="true" ID="ID_341332789" MODIFIED="1269831224074" TEXT="formCheck">
+<node COLOR="#990000" CREATED="1258549873754" FOLDED="true" ID="ID_341332789" MODIFIED="1270024313884" TEXT="formCheck">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1259824766209" ID="ID_1092667720" MODIFIED="1259824770925" TEXT="site">
 <node COLOR="#111111" CREATED="1258549883768" ID="ID_379894263" MODIFIED="1258549885307" TEXT="http://mootools.floor.ch/en/demos/formcheck/"/>
@@ -938,7 +938,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1269831255698" POSITION="right" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" ID="Freemind_Link_986904229" MODIFIED="1270019862099" POSITION="right" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -950,7 +950,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1252027856832" FOLDED="true" ID="Freemind_Link_1618511399" MODIFIED="1269831249154" TEXT="Javascript">
+<node COLOR="#00b439" CREATED="1252027856832" ID="Freemind_Link_1618511399" MODIFIED="1270019865449" TEXT="Javascript">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1250147399215" FOLDED="true" ID="Freemind_Link_404010672" MODIFIED="1257254491635" TEXT="JSON">
@@ -999,8 +999,13 @@
 </node>
 <node COLOR="#990000" CREATED="1268277743403" ID="ID_1486552047" MODIFIED="1268277746939" TEXT="Events">
 <font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1270024326909" ID="ID_1970728734" MODIFIED="1270024329996" TEXT="Event">
 <node COLOR="#111111" CREATED="1268277747846" ID="ID_1853067041" MODIFIED="1268277755867" TEXT="events type list">
 <node COLOR="#111111" CREATED="1268277756687" ID="ID_1185370571" MODIFIED="1268277757930" TEXT="http://cssrainbow.cn/tutorials/mootools/875.html"/>
+</node>
+<node COLOR="#111111" CREATED="1270024343675" FOLDED="true" ID="ID_351115245" MODIFIED="1270024513546" TEXT="properties">
+<node COLOR="#111111" CREATED="1270024352160" ID="ID_746370528" MODIFIED="1270024510867" TEXT="javascript Event&#x65b9;&#x6cd5;&#x548c;&#x5c5e;&#x6027;&#x8bb2;&#x89e3;&#xa;&#xa;Event&#x5c5e;&#x6027;&#x548c;&#x65b9;&#x6cd5;&#xff1a;&#xa;&#xa;type&#xff1a;&#x4e8b;&#x4ef6;&#x7684;&#x7c7b;&#x578b;&#xff0c;&#x5982;onlick&#x4e2d;&#x7684;click&#xff1b;&#xa;&#xa;srcElement/target&#xff1a;&#x4e8b;&#x4ef6;&#x6e90;&#xff0c;&#x5c31;&#x662f;&#x53d1;&#x751f;&#x4e8b;&#x4ef6;&#x7684;&#x5143;&#x7d20;&#xff1b;&#xa;&#xa;button&#xff1a;&#x58f0;&#x660e;&#x88ab;&#x6309;&#x4e0b;&#x7684;&#x9f20;&#x6807;&#x952e;&#xff0c;&#x6574;&#x6570;&#xff0c;1&#x4ee3;&#x8868;&#x5de6;&#x952e;&#xff0c;2&#x4ee3;&#x8868;&#x53f3;&#x952e;&#xff0c;4&#x4ee3;&#x8868;&#x4e2d;&#x952e;&#xff0c;&#x5982;&#x679c;&#x6309;&#x4e0b;&#x591a;&#x4e2a;&#x952e;&#xff0c;&#x9152;&#x628a;&#x8fd9;&#x4e9b;&#x503c;&#x52a0;&#x8d77;&#x6765;&#xff0c;&#x6240;&#x4ee5;3&#x5c31;&#x4ee3;&#x8868;&#x5de6;&#x53f3;&#x952e;&#x540c;&#x65f6;&#x6309;&#x4e0b;&#xff1b;&#xff08;firefox&#x4e2d; 0&#x4ee3;&#x8868;&#x5de6;&#x952e;&#xff0c;1&#x4ee3;&#x8868;&#x4e2d;&#x95f4;&#x952e;&#xff0c;2&#x4ee3;&#x8868;&#x53f3;&#x952e;&#xff09;&#xa;clientX/clientY&#xff1a;&#x4e8b;&#x4ef6;&#x53d1;&#x751f;&#x7684;&#x65f6;&#x5019;&#xff0c;&#x9f20;&#x6807;&#x76f8;&#x5bf9;&#x4e8e;&#x6d4f;&#x89c8;&#x5668;&#x7a97;&#x53e3;&#x53ef;&#x89c6;&#x6587;&#x6863;&#x533a;&#x57df;&#x7684;&#x5de6;&#x4e0a;&#x89d2;&#x7684;&#x4f4d;&#x7f6e;&#xff1b;(&#x5728;DOM&#x6807;&#x51c6;&#x4e2d;&#xff0c;&#x8fd9;&#x4e24;&#x4e2a;&#x5c5e;&#x6027;&#x503c;&#x90fd;&#x4e0d;&#x8003;&#x8651;&#x6587;&#x6863;&#x7684;&#x6eda;&#x52a8;&#x60c5;&#x51b5;&#xff0c;&#x4e5f;&#x5c31;&#x662f;&#x8bf4;&#xff0c;&#x65e0;&#x8bba;&#x6587;&#x6863;&#x6eda;&#x52a8;&#x5230;&#x54ea;&#x91cc;&#xff0c;&#x53ea;&#x8981;&#x4e8b;&#x4ef6;&#x53d1;&#x751f;&#x5728;&#x7a97;&#x53e3;&#x5de6;&#x4e0a;&#x89d2;&#xff0c;clientX&#x548c;clientY&#x90fd;&#x662f; 0&#xff0c;&#x6240;&#x4ee5;&#x5728;IE&#x4e2d;&#xff0c;&#x8981;&#x60f3;&#x5f97;&#x5230;&#x4e8b;&#x4ef6;&#x53d1;&#x751f;&#x7684;&#x5750;&#x6807;&#x76f8;&#x5bf9;&#x4e8e;&#x6587;&#x6863;&#x5f00;&#x5934;&#x7684;&#x4f4d;&#x7f6e;&#xff0c;&#x8981;&#x52a0;&#x4e0a;document.body.scrollLeft&#x548c; document.body.scrollTop)&#xa;&#xa;offsetX,offsetY/layerX,layerY&#xff1a;&#x4e8b;&#x4ef6;&#x53d1;&#x751f;&#x7684;&#x65f6;&#x5019;&#xff0c;&#x9f20;&#x6807;&#x76f8;&#x5bf9;&#x4e8e;&#x6e90;&#x5143;&#x7d20;&#x5de6;&#x4e0a;&#x89d2;&#x7684;&#x4f4d;&#x7f6e;&#xff1b;&#xa;&#xa;x,y/pageX,pageY&#xff1a;&#x68c0;&#x7d22;&#x76f8;&#x5bf9;&#x4e8e;&#x7236;&#x8981;&#x7d20;&#x9f20;&#x6807;&#x6c34;&#x5e73;&#x5750;&#x6807;&#x7684;&#x6574;&#x6570;&#xff1b;&#xa;&#xa;altKey,ctrlKey,shiftKey&#x7b49;&#xff1a;&#x8fd4;&#x56de;&#x4e00;&#x4e2a;&#x5e03;&#x5c14;&#x503c;&#xff1b;&#xa;&#xa;keyCode&#xff1a;&#x8fd4;&#x56de;keydown&#x4f55;keyup&#x4e8b;&#x4ef6;&#x53d1;&#x751f;&#x7684;&#x65f6;&#x5019;&#x6309;&#x952e;&#x7684;&#x4ee3;&#x7801;&#xff0c;&#x4ee5;&#x53ca;keypress &#x4e8b;&#x4ef6;&#x7684;Unicode&#x5b57;&#x7b26;&#xff1b;(firefox2&#x4e0d;&#x652f;&#x6301; event.keycode&#xff0c;&#x53ef;&#x4ee5;&#x7528; event.which&#x66ff;&#x4ee3; )&#xa;&#xa;fromElement,toElement&#xff1a;&#x524d;&#x8005;&#x662f;&#x6307;&#x4ee3;mouseover&#x4e8b;&#x4ef6;&#x4e2d;&#x9f20;&#x6807;&#x79fb;&#x52a8;&#x8fc7;&#x7684;&#x6587;&#x6863;&#x5143;&#x7d20;&#xff0c;&#x540e;&#x8005;&#x6307;&#x4ee3;mouseout&#x4e8b;&#x4ef6;&#x4e2d;&#x9f20;&#x6807;&#x79fb;&#x52a8;&#x5230;&#x7684;&#x6587;&#x6863;&#x5143;&#x7d20;&#xff1b;&#xa;&#xa;cancelBubble&#xff1a;&#x4e00;&#x4e2a;&#x5e03;&#x5c14;&#x5c5e;&#x6027;&#xff0c;&#x628a;&#x5b83;&#x8bbe;&#x7f6e;&#x4e3a;true&#x7684;&#x65f6;&#x5019;&#xff0c;&#x5c06;&#x505c;&#x6b62;&#x4e8b;&#x4ef6;&#x8fdb;&#x4e00;&#x6b65;&#x8d77;&#x6ce1;&#x5230;&#x5305;&#x5bb9;&#x5c42;&#x6b21;&#x7684;&#x5143;&#x7d20;&#xff1b;(e.cancelBubble = true; &#x76f8;&#x5f53;&#x4e8e; e.stopPropagation();)&#xa;&#xa;returnValue&#xff1a;&#x4e00;&#x4e2a;&#x5e03;&#x5c14;&#x5c5e;&#x6027;&#xff0c;&#x8bbe;&#x7f6e;&#x4e3a;false&#x7684;&#x65f6;&#x5019;&#x53ef;&#x4ee5;&#x7ec4;&#x7ec7;&#x6d4f;&#x89c8;&#x5668;&#x6267;&#x884c;&#x9ed8;&#x8ba4;&#x7684;&#x4e8b;&#x4ef6;&#x52a8;&#x4f5c;&#xff1b;(e.returnValue = false; &#x76f8;&#x5f53;&#x4e8e; e.preventDefault();)&#xa;&#xa;attachEvent(),detachEvent()/addEventListener(),removeEventListener&#xff1a;&#x4e3a;&#x5236;&#x5b9a;DOM&#x5bf9;&#x8c61;&#x4e8b;&#x4ef6;&#x7c7b;&#x578b;&#x6ce8;&#x518c;&#x591a;&#x4e2a;&#x4e8b;&#x4ef6;&#x5904;&#x7406;&#x51fd;&#x6570;&#x7684;&#x65b9;&#x6cd5;&#xff0c;&#x5b83;&#x4eec;&#x6709;&#x4e24;&#x4e2a;&#x53c2;&#x6570;&#xff0c;&#x7b2c;&#x4e00;&#x4e2a;&#x662f;&#x4e8b;&#x4ef6;&#x7c7b;&#x578b;&#xff0c;&#x7b2c;&#x4e8c;&#x4e2a;&#x662f;&#x4e8b;&#x4ef6;&#x5904;&#x7406;&#x51fd;&#x6570;&#x3002;&#x5728;attachEvent()&#x4e8b;&#x4ef6;&#x6267;&#x884c;&#x7684;&#x65f6;&#x5019;&#xff0c;this&#x5173;&#x952e;&#x5b57;&#x6307;&#x5411;&#x7684;&#x662f;window&#x5bf9;&#x8c61;&#xff0c;&#x800c;&#x4e0d;&#x662f;&#x53d1;&#x751f;&#x4e8b;&#x4ef6;&#x7684;&#x90a3;&#x4e2a;&#x5143;&#x7d20;&#xff1b;&#xa;&#xa;screenX&#x3001;screenY&#xff1a;&#x9f20;&#x6807;&#x6307;&#x9488;&#x76f8;&#x5bf9;&#x4e8e;&#x663e;&#x793a;&#x5668;&#x5de6;&#x4e0a;&#x89d2;&#x7684;&#x4f4d;&#x7f6e;&#xff0c;&#x5982;&#x679c;&#x4f60;&#x60f3;&#x6253;&#x5f00;&#x65b0;&#x7684;&#x7a97;&#x53e3;&#xff0c;&#x8fd9;&#x4e24;&#x4e2a;&#x5c5e;&#x6027;&#x5f88;&#x91cd;&#x8981;&#xff1b;&#xa;&#x4e00;&#x4e9b;&#x8bf4;&#x660e;&#xff1a;&#xa;&#xa;event&#x4ee3;&#x8868;&#x4e8b;&#x4ef6;&#x7684;&#x72b6;&#x6001;&#xff0c;&#x4f8b;&#x5982;&#x89e6;&#x53d1;event&#x5bf9;&#x8c61;&#x7684;&#x5143;&#x7d20;&#x3001;&#x9f20;&#x6807;&#x7684;&#x4f4d;&#x7f6e;&#x53ca;&#x72b6;&#x6001;&#x3001;&#x6309;&#x4e0b;&#x7684;&#x952e;&#x7b49;&#x7b49;&#xff1b;&#xa;&#xa;event&#x5bf9;&#x8c61;&#x53ea;&#x5728;&#x4e8b;&#x4ef6;&#x53d1;&#x751f;&#x7684;&#x8fc7;&#x7a0b;&#x4e2d;&#x624d;&#x6709;&#x6548;&#x3002;&#xa;&#xa;firefox&#x91cc;&#x7684;event&#x8ddf;IE&#x91cc;&#x7684;&#x4e0d;&#x540c;&#xff0c;IE&#x91cc;&#x7684;&#x662f;&#x5168;&#x5c40;&#x53d8;&#x91cf;&#xff0c;&#x968f;&#x65f6;&#x53ef;&#x7528;&#xff1b;firefox&#x91cc;&#x7684;&#x8981;&#x7528;&#x53c2;&#x6570;&#x5f15;&#x5bfc;&#x624d;&#x80fd;&#x7528;&#xff0c;&#x662f;&#x8fd0;&#x884c;&#x65f6;&#x7684;&#x4e34;&#x65f6;&#x53d8;&#x91cf;&#x3002;&#xa;&#x5728;IE/Opera&#x4e2d;&#x662f;window.event&#xff0c;&#x5728;Firefox&#x4e2d;&#x662f;event&#xff1b;&#x800c;&#x4e8b;&#x4ef6;&#x7684;&#x5bf9;&#x8c61;&#xff0c;&#x5728;IE&#x4e2d;&#x662f;window.event.srcElement&#xff0c;&#x5728;Firefox&#x4e2d;&#x662f;event.target&#xff0c;Opera&#x4e2d;&#x4e24;&#x8005;&#x90fd;&#x53ef;&#x7528;&#x3002;&#xa;&#x4e0b;&#x9762;&#x4e24;&#x53e5;&#x6548;&#x679c;&#x76f8;&#x540c;&#xa;var evt = (evt) ? evt : ((window.event) ? window.event : null);&#xa;var evt = evt || window.event; // firefox&#x4e0b;window.event&#x4e3a;null, IE&#x4e0b;event&#x4e3a;null&#xa;&#xa;IE&#x4e2d;&#x4e8b;&#x4ef6;&#x7684;&#x8d77;&#x6ce1;&#xa;IE &#x4e2d;&#x4e8b;&#x4ef6;&#x53ef;&#x4ee5;&#x6cbf;&#x7740;&#x5305;&#x5bb9;&#x5c42;&#x6b21;&#x4e00;&#x70b9;&#x70b9;&#x8d77;&#x6ce1;&#x5230;&#x4e0a;&#x5c42;&#xff0c;&#x4e5f;&#x5c31;&#x662f;&#x8bf4;&#xff0c;&#x4e0b;&#x5c42;&#x7684;DOM&#x8282;&#x70b9;&#x5b9a;&#x4e49;&#x7684;&#x4e8b;&#x4ef6;&#x5904;&#x7406;&#x51fd;&#x6570;&#xff0c;&#x5230;&#x4e86;&#x4e0a;&#x5c42;&#x7684;&#x8282;&#x70b9;&#x5982;&#x679c;&#x8fd8;&#x6709;&#x548c;&#x4e0b;&#x5c42;&#x76f8;&#x540c;&#x4e8b;&#x4ef6;&#x7c7b;&#x578b;&#x7684;&#x4e8b;&#x4ef6;&#x5904;&#x7406;&#x51fd;&#x6570;&#xff0c;&#x90a3;&#x4e48;&#x4e0a;&#x5c42;&#x7684;&#x4e8b;&#x4ef6;&#x5904;&#x7406;&#x51fd;&#x6570;&#x4e5f;&#x4f1a;&#x6267;&#x884c;&#x3002;&#x4f8b;&#x5982;&#xff0c; div &#x6807;&#x7b7e;&#x5305;&#x542b;&#x4e86; a &#xff0c;&#x5982;&#x679c;&#x8fd9;&#x4e24;&#x4e2a;&#x6807;&#x7b7e;&#x90fd;&#x6709;onclick&#x4e8b;&#x4ef6;&#x7684;&#x5904;&#x7406;&#x51fd;&#x6570;&#xff0c;&#x90a3;&#x4e48;&#x6267;&#x884c;&#x7684;&#x60c5;&#x51b5;&#x5c31;&#x662f;&#x5148;&#x6267;&#x884c;&#x6807;&#x7b7e; a &#x7684;onclick&#x4e8b;&#x4ef6;&#x5904;&#x7406;&#x51fd;&#x6570;&#xff0c;&#x518d;&#x6267;&#x884c; div &#x7684;&#x4e8b;&#x4ef6;&#x5904;&#x7406;&#x51fd;&#x6570;&#x3002;&#x5982;&#x679c;&#x5e0c;&#x671b;&#x7684;&#x4e8b;&#x4ef6;&#x5904;&#x7406;&#x51fd;&#x6570;&#x6267;&#x884c;&#x5b8c;&#x6bd5;&#x4e4b;&#x540e;&#xff0c;&#x4e0d;&#x5e0c;&#x671b;&#x6267;&#x884c;&#x4e0a;&#x5c42;&#x7684; div &#x7684;onclick&#x7684;&#x4e8b;&#x4ef6;&#x5904;&#x7406;&#x51fd;&#x6570;&#x4e86;&#xff0c;&#x90a3;&#x4e48;&#x5c31;&#x628a;cancelBubble&#x8bbe;&#x7f6e;&#x4e3a;true&#x5373;&#x53ef;&#x3002;&#xa;"/>
+</node>
 </node>
 </node>
 </node>
@@ -1217,11 +1222,11 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1263825176522" ID="ID_850866582" MODIFIED="1269864369809" POSITION="left" TEXT="Market">
+<node COLOR="#0033ff" CREATED="1263825176522" ID="ID_850866582" MODIFIED="1270006229222" POSITION="left" TEXT="Market">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="idea"/>
-<node COLOR="#00b439" CREATED="1269742996345" FOLDED="true" ID="ID_791375543" MODIFIED="1269743018214" TEXT="Analize">
+<node COLOR="#00b439" CREATED="1269742996345" FOLDED="true" ID="ID_791375543" MODIFIED="1270007304699" TEXT="Analize">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1255658622924" FOLDED="true" ID="Freemind_Link_851463610" MODIFIED="1269743010878" STYLE="bubble" TEXT="&#x5b66;&#x4e60;&#x76ee;&#x6807;&#xff0f;&#x7ade;&#x4e89;&#x5bf9;&#x624b;">
@@ -1480,7 +1485,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1269743019792" ID="ID_1097979044" MODIFIED="1269930265676" TEXT="Web Site">
+<node COLOR="#00b439" CREATED="1269743019792" FOLDED="true" ID="ID_1097979044" MODIFIED="1270007306227" TEXT="Web Site">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1269743095678" ID="ID_1392311746" MODIFIED="1269743098301" TEXT="Effects">
@@ -1504,7 +1509,7 @@
 <node COLOR="#111111" CREATED="1269931687683" ID="ID_1849597547" MODIFIED="1269931690004" TEXT="http://mootools.net/forge/p/exitpoll"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1269864372242" ID="ID_1798636214" MODIFIED="1269864383406" TEXT="Copyright">
+<node COLOR="#00b439" CREATED="1269864372242" FOLDED="true" ID="ID_1798636214" MODIFIED="1270007307714" TEXT="Copyright">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1269864384393" ID="ID_1015303274" MODIFIED="1269864407726" TEXT="Liscense">
@@ -1515,6 +1520,47 @@
 </node>
 </node>
 </node>
+</node>
+<node COLOR="#0033ff" CREATED="1270004570562" FOLDED="true" ID="ID_201492433" MODIFIED="1270004847675" POSITION="left" TEXT="Sponsor Management">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#00b439" CREATED="1270004758136" ID="ID_1487426203" MODIFIED="1270004794164" TEXT="Grab Eye Functions">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#990000" CREATED="1270004730800" ID="ID_969613325" MODIFIED="1270004787394" TEXT="Logo Flip Board">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1270004809904" ID="ID_1753822325" MODIFIED="1270004819529" TEXT="Client Analize">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1270004609104" ID="ID_244322065" MODIFIED="1270004821927" TEXT="&#x94fe;&#x63a5;&#x8ffd;&#x8e2a;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1270004624039" ID="ID_578318243" MODIFIED="1270004823714" TEXT="&#x5173;&#x6ce8;&#x4eba;&#x5458;&#x5206;&#x6790;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1270004644333" ID="ID_510206718" MODIFIED="1270004834105" TEXT="Market Tools">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1270004661963" ID="ID_1558851606" MODIFIED="1270004668353" TEXT="&#x90ae;&#x4ef6;">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1270004669894" ID="ID_1555329139" MODIFIED="1270004673823" TEXT="&#x77ed;&#x4fe1;">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1270004864375" ID="ID_1985278336" MODIFIED="1270004897167" POSITION="left" TEXT="Client Assist Cycle">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<icon BUILTIN="messagebox_warning"/>
 </node>
 <node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1269742779591" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
