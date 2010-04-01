@@ -33,6 +33,11 @@ USER = getattr( so, pagefn.SOINFO['user']).get('username')
 # ********************************************************************************************
 # The page functions begining 
 # ********************************************************************************************
+STATUSEDITJSFNS = ['statusJunaValid',]
+
+def page_classItemEditValidFns(**args):
+   	pass
+	return
 
 def _formEditProps4classStatus():
 	props = {}
@@ -43,8 +48,8 @@ def _formEditProps4classStatus():
 	klasses = [{'value':item,'label':item} for item in klasses]	
 	props['category'] = {'type':'select','options':klasses,'class':''}	
 	props['description'] = {'type':'textarea',}
-	#props['name'] = {'required':True,'validate':['junaValid',]}	
-	props['name'] = {'required':True,}
+	props['name'] = {'required':True,'validate':['statusJunaValid',]}	
+	#props['name'] = {'required':True,}
 	props['order'] = {'required':True,'validate':['number',]}
 	return props
 	
@@ -591,43 +596,43 @@ def _classEditJs(formId, bnStyle):
 	var classItemEditFormChk;
 	// Load the form validation plugin script
 	var options = {
-		onload:function(){ 
-			classItemEditFormChk = new FormCheck( container,{
-				submitByAjax: true,
-				onAjaxSuccess: function(response){
-					if(response == 1){
-						MUI.closeModalDialog();
-					};               
-				},            
-
-				display:{
-					errorsLocation : 1,
-					keepFocusOnError : 0, 
-					scrollToFirst : false
-				}
-			});// the end for 'classItemEditFormChk' definition
+	    onload:function(){ 
+		classItemEditFormChk = new FormCheck( container,{
+		    submitByAjax: true,
+		    onAjaxSuccess: function(response){
+			if(response == 1){
+			    MUI.closeModalDialog();
+			};               
+		    },            
+		    
+ 		    display:{
+			errorsLocation : 1,
+			keepFocusOnError : 0, 
+			scrollToFirst : false
+		    }
+		});// the end for 'classItemEditFormChk' definition
 			
-		}// the end for 'onload' definition
+	    }// the end for 'onload' definition
 	};// the end for 'options' definition
  
-   MUI.formValidLib(appName,options);
+   	MUI.formValidLib(appName,options);
 	
 	// add action buttons	
 	var bnContainer = new Element('div',{style: bnStyle});
 	$(container).adopt(bnContainer);
 	
 	[
-		{'type':'accept','label': confirmBnLabel},
-		{'type':'cancel','label': cancelBnLabel}
+	    {'type':'accept','label': confirmBnLabel},
+	    {'type':'cancel','label': cancelBnLabel}
 	].each(function(attrs,index){
-		options = {
-			txt: attrs['label'],
-		   imgType: attrs['type'],
-			bnAttrs: {'style':'margin-right:1em;'}	
-		};
-		button = MUI.styledButton(options);		
-		button.addEvent('click',actionAdapter);
-		bnContainer.grab(button);
+	    options = {
+		txt: attrs['label'],
+		imgType: attrs['type'],
+		bnAttrs: {'style':'margin-right:1em;'}	
+	    };
+	    button = MUI.styledButton(options);		
+	    button.addEvent('click',actionAdapter);
+	    bnContainer.grab(button);
 	});
 	
 	function actionAdapter(e){

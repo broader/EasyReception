@@ -220,7 +220,7 @@ def _showServiceJs(category):
 	
 	var modalOptions = {
 		width:600, height:380, modalOverlayClose: false,
-   	onClose: function(e){
+   		onClose: function(e){
    		// refresh table's body
    		treeTable.refreshTbody();
    	}
@@ -470,25 +470,25 @@ def page_createCategoryInfo(**args):
 	$(containerId).grab(new Element('br'));
 	
 	$(containerId).grab(new Element(
-		'button',
-		{
-			'html': bnLabel,
-			'events':{
-				'click': function(e){
-					new Event(e).stop();
+	    'button',
+	    {
+	        'html': bnLabel,
+		'events':{
+		    'click': function(e){
+			new Event(e).stop();
 					
-					// the dialog to create a new subcategory of service
-			   	new MUI.Modal({
-			      	width:600, height:380, contentURL: modalInfo.url,
-			      	title: modalInfo.title,
-			      	modalOverlayClose: false,
-			      	onClose: function(e){
-			      		MUI.refreshMainPanel();
-			      	}
-			      });
-				}
-			}
+			// the dialog to create a new subcategory of service
+			new MUI.Modal({
+			    width:600, height:380, contentURL: modalInfo.url,
+			    title: modalInfo.title,
+			    modalOverlayClose: false,
+			    onClose: function(e){
+			    	MUI.refreshMainPanel();
+			    }
+			});
+		    }
 		}
+	    }
 	));
 	
 	"""%tuple(paras)
@@ -641,22 +641,22 @@ def _editServiceJs():
     
 	// Load the form validation plugin script
 	var options = {
-		onload:function(){    		
-			serviceCategoryFormchk = new FormCheck( formId,{
-				submitByAjax: true,
-				onAjaxSuccess: function(response){
-					if(response == 1){
-						MUI.closeModalDialog();
-					};               
-				},            
-
-				display:{
-					errorsLocation : 1,
-					keepFocusOnError : 0, 
-					scrollToFirst : false
-				}
-			});// the end for 'serviceCategoryFormchk' definition
-		}// the end for 'onload' definition
+	    onload:function(){    		
+		serviceCategoryFormchk = new FormCheck( formId,{
+		    submitByAjax: true,
+		    onAjaxSuccess: function(response){
+			if(response == 1){
+		            MUI.closeModalDialog();
+			};               
+		    },            
+		    
+  		    display:{
+			errorsLocation : 1,
+			keepFocusOnError : 0, 
+			scrollToFirst : false
+		    }
+		});// the end for 'serviceCategoryFormchk' definition
+	    }// the end for 'onload' definition
 	};// the end for 'options' definition
  
    MUI.formValidLib(appName,options);
