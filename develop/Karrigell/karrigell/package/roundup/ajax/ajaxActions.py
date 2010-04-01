@@ -17,6 +17,7 @@ from roundup import hyperdb, token, date, password
 from roundup.i18n import _
 from roundup.mailgw import uidFromAddress
 import roundup.exceptions as exceptions
+
 from ajaxExceptions import *
 
 __all__ = ['Action', 'RetireAction', 'SearchAction',
@@ -517,7 +518,7 @@ class EditCommon(Action):
                     try:
                         #print 'ajaxActions.Actions._editnode(),L513,classname is %s,properties are %s'%(cn,props)
                         newid = self._createnode(cn, props)
-                        #print 'ajaxActions.Actions._editnode(),L515, new node id is ',newid
+                        print 'ajaxActions.Actions._editnode(),L520, new node id is ',newid
                     except:
                         print 'ajaxActions.Actions._editnode(),L517,error is ',sys.exc_info()
                         newid = None
@@ -536,7 +537,7 @@ class EditCommon(Action):
                         klass = self.db.getclass(cn)
                         klass.set(newid, **{'serial': serial})
                         
-                    #print 'ajaxActions.Actions._editnode(),L534,classname is %s, newid is %s'%(cn,newid)
+                    print 'ajaxActions.Actions._editnode(),L539,classname is %s, newid is %s'%(cn,newid)
                     if self.form.has_key('needId') :
                         self.form['needId'].update({cn:newid})
                     if self.form.has_key('needCreation'):
@@ -579,7 +580,7 @@ class EditCommon(Action):
                 print 'ajaxActions.EditCommon._editnodes(),L574',sys.exc_info()
         
         info = '\r\n'.join(m)
-        #print'ajaxActions.Actions._editnode(),L577,return info is ',info
+        print'ajaxActions.Actions._editnode(),L582,return info is ',info
         return info
 
     def _changenode(self, cn, nodeid, props):
@@ -705,7 +706,7 @@ class EditItemAction(EditCommon):
         try:
             message = self._editnodes(props, links)            
         except (ValueError, KeyError, IndexError,
-                roundup.exceptions.Reject), message:
+                exceptions.Reject), message:
             self.client.error_message.append('Edit Error: %s' % str(message))
             return
 
@@ -743,9 +744,10 @@ class NewItemAction(EditCommon):
         try:
             # when it hits the None element, it'll set self.nodeid
             messages = self._editnodes(props, links)
-        except (ValueError, KeyError, IndexError,
-                roundup.exceptions.Reject), message:
+        #except (ValueError, KeyError, IndexError, exceptions.Reject), message:
+        except (ValueError, KeyError, IndexError, exceptions.Reject), message:
             # these errors might just be indicative of user dumbness
+            print 'ajaxActions.NewItemAction(),L749,create node error is ',message
             self.client.error_message.append(_('Error: %s') % str(message))
             return
 
@@ -886,7 +888,7 @@ class RegisterAction(EditCommon):
                 messages = self._editnodes(props, links)
                 #print 'ajaxAction.RegisterAction,L826, result is ',messages
             except (ValueError, KeyError, IndexError,
-                    roundup.exceptions.Reject), message:
+                    exceptions.Reject), message:
                 # these errors might just be indicative of user dumbness
                 print 'ajaxAction.RegisterAction,L831',sys.exc_info()
                 self.client.error_message.append(_('Error: %s') % str(message))

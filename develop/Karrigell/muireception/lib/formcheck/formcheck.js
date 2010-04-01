@@ -1069,7 +1069,7 @@ var FormCheck = new Class({
 	   remove all the errors displayed, offen being used before a popup dialog
 	   will be closed.
 	   
-	Add by ZG, 2009.11.18
+	Add by B.Z, 2009.11.18
 	*/
 	removeErrors: function() {
 	   if(this.validations.length == 0){return true};

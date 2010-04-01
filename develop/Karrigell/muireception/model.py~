@@ -71,7 +71,7 @@ def get_classes(operator):
 	""" Return a list of the names of all existing classes. """
 	client = get_client()
 	client.set_user(operator)
-	return client.db.get_classes()
+	return client.db.getclasses()
 	
 def get_item(operator, klass, key, props=None, keyIsId=False):
 	""" Get the propvalues of a item of a class stored in database.
@@ -182,7 +182,6 @@ def filterByFunction(operator, klass, props, fn, fnArgs):
 	client.form = form
 	return action(client) 
 	
-#def fuzzyQuery(operator, klass, conditions, props=None, require=None):
 def fuzzyQuery(operator, klass, search, props=None, require=None):
 	""" 
 	Filter Class's items by 'conditions' which is a dictionary holding the 

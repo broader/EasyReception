@@ -56,18 +56,22 @@ import sys, os, time, re, errno, weakref, copy, logging
 
 # roundup modules
 from roundup import hyperdb, date, password, roundupdb, security, support
+
 from roundup.hyperdb import String, Password, Date, Interval, Link, \
     Multilink, DatabaseError, Boolean, Number, Node
+    
 from roundup.backends import locking
 from roundup.support import reversed
 from roundup.i18n import _
 
 # support
 from blobfiles import FileStorage
+
 try:
     from indexer_xapian import Indexer
 except ImportError:
     from indexer_rdbms import Indexer
+    
 from sessions_rdbms import Sessions, OneTimeKeys
 from roundup.date import Range
 
@@ -1654,7 +1658,7 @@ class Class(hyperdb.Class):
         multilink_changes = {}
 
         for propname, value in propvalues.items():
-            #print 'rdbms_common.Class.set_inner,L1650, propname is %s, value is %s'%(propname, value)
+            print 'rdbms_common.Class.set_inner,L1661, propname is %s, value is %s'%(propname, value)
             
             # check to make sure we're not duplicating an existing key
             if propname == self.key and node[propname] != value:
@@ -1668,6 +1672,7 @@ class Class(hyperdb.Class):
             # this will raise the KeyError if the property isn't valid
             # ... we don't use getprops() here because we only care about
             # the writeable properties.
+            print 'rdbms_common.Class.set_inner,L1674, propname is %s, value is %s'%(propname, value)
             try:
                 prop = self.properties[propname]
             except KeyError:
@@ -1677,7 +1682,7 @@ class Class(hyperdb.Class):
             # if the value's the same as the existing value, no sense in
             # doing anything
             current = node.get(propname, None)
-            #print "rdbms_common.Class.set_inner,L1680, current vlaue is %s, input value is %s"%(current, value)
+            print "rdbms_common.Class.set_inner,L1685, current vlaue is %s, input value is %s"%(current, value)
             
             if value == current:
                 del propvalues[propname]

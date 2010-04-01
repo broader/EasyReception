@@ -182,7 +182,6 @@ def filterByFunction(operator, klass, props, fn, fnArgs):
 	client.form = form
 	return action(client) 
 	
-#def fuzzyQuery(operator, klass, conditions, props=None, require=None):
 def fuzzyQuery(operator, klass, search, props=None, require=None):
 	""" 
 	Filter Class's items by 'conditions' which is a dictionary holding the 
@@ -199,7 +198,6 @@ def fuzzyQuery(operator, klass, search, props=None, require=None):
 	form = {\
 		'action': 'filtertext',\			
 		'context': klass,\
-		#'search' : conditions,\
 		'search' : search,\
 		'require' : require,\
 		'propnames': props\

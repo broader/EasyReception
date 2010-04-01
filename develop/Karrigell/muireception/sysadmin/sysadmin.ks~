@@ -41,8 +41,12 @@ def _formEditProps4classStatus():
 	klasses.sort()	
 	# constructs property for the field in html form element
 	klasses = [{'value':item,'label':item} for item in klasses]	
-	props['category'] = {'name':'category','type':'select','options':klasses,'class':''} 
-	
+	props['category'] = {'type':'select','options':klasses,'class':''}	
+	props['description'] = {'type':'textarea',}
+	#props['order'] = {'validate':['digit',]}
+	props['name'] = {'required':True,'validate':['number',]}
+	#props['order'] = {'required':True,'validate':['number',]}
+	props['order'] = {'validate':['number',]}
 	return props
 	
 # the classes that could be edited by web page
@@ -517,12 +521,15 @@ def page_classEdit(**args):
 		info.append( {'prompt':_('Item ID'), 'value':nid})
 		
 		[hideInput.append({'name':name,'value':value}) \
-		for name,value in ((CLASSPROP,klass),('id',nid),(ACTIONPROP,ACTIONTYPES[1]))]
+		for name,value in {CLASSPROP:klass, 'id':nid, ACTIONPROP:ACTIONTYPES[1]}.items()]
 		
 		props = _formFieldsConstructor(klass,props,True)
 	else:
 		# create action
-		hideInput.append({'name':ACTIONPROP,'value':ACTIONTYPES[0]})
+		[hideInput.append({'name':name,'value':value}) \
+		for name,value in {CLASSPROP:klass, ACTIONPROP:ACTIONTYPES[0]}.items()]
+		
+		#hideInput.append({'name':ACTIONPROP,'value':ACTIONTYPES[0]})
 		props = _getClassProps(klass, needId=False)
 		props = _formFieldsConstructor(klass,props)
 	
@@ -646,7 +653,20 @@ def _classEditJs(formId, bnStyle):
 	return js
 	
 def page_classEditAction(**args):
-	successTag = 1
+	successTag = 0
+	action,klass = [ args.pop(name) for name in (ACTIONPROP,CLASSPROP)] 
+	if ACTIONTYPES.index(action) == 0:
+		# 'create' action
+		nid = model.create_item(USER, klass, args, autoSerial=False)
+		if nid:
+			successTag = 1
+			
+	elif ACTIONTYPES.index(action) == 1:
+		# 'edit' action
+		nid = args.pop('id')
+		model.edit_item(USER, klass, nid, args, 'edit', keyIsId=True)
+		successTag = 1
+			
 	print successTag
 	
 	
