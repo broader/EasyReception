@@ -48,8 +48,9 @@ function hotelPanel(panelId){
 	});
 	
 	// the panel to show hotel list
+	pid = "<%=hotel.get('main')['list']['panelId']%>";
 	new MUI.Panel({
-		id: "<%=hotel.get('main')['list']['panelId']%>", 
+		id: pid,
 		column: 'hotelListColumn', 
 		title: "<%=hotel.get('main')['list']['panelTitle']%>",
 		contentURL: "<%=hotel.get('main')['list']['contentUrl']%>",
@@ -57,8 +58,9 @@ function hotelPanel(panelId){
 	});
 	
 	// the panel to show selected hotel info
+	pid = "<%=hotel.get('main')['info']['panelId']%>";
 	panel = new MUI.Panel({
-		id: "<%=hotel.get('main')['info']['panelId']%>", 
+		id: pid,
 		column: 'hotelListColumn', 
 		title: "<%=hotel.get('main')['info']['panelTitle']%>",
 		contentURL:'portfolio/portfolio.ks/page_showPortfolio',
@@ -103,9 +105,11 @@ function issuePanel(panelId){
 */
 function portfolioPanel(panelId){	
 	
-	MUI.accordionPanels(panelId);
+	//MUI.accordionPanels(panelId);
 	
-	MUI.clearMainPanel(); 
+	//MUI.clearMainPanel();
+	MUI.initPanel(panelId);
+	 
 	
 	new MUI.Column({
 		container:mainPanelId, id: 'portfolioColumn', placement: 'main', 

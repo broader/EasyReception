@@ -18,7 +18,7 @@ pri.setkey("name")
 # Statuses
 stat = Class(db, "status",
                 name=String(),
-                order=Number(),
+                order=String(),
                 category=String(),
                 description=String())
 stat.setkey("name")

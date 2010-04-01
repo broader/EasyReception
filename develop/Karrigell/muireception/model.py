@@ -479,7 +479,7 @@ def get_class_props(admin,name,protected=0):
 	db = client.db
 	klass = db.getclass(name)
 	props = klass.getprops(protected)
-	return props
+	return {'props':props,'key':klass.getkey()}
 
 def editcsv(admin, klass, content):
 	client = get_client()

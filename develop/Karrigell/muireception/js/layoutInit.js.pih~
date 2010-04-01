@@ -273,6 +273,10 @@ MUI.extend({
 		});
 	},
 	
+	// initialzie actions before expand a MUI.Panel in the left side bar
+	initPanel: function(panelId){
+	},
+	
 	// judge file type by its name
 	fileType: function(url){
 		fileType = '';
@@ -300,8 +304,7 @@ MUI.extend({
 					am.import({'url':src,'app':appName,'type':'js'},options);
 				}
 				else{
-					fn = options.onload;
-					alert('MUI.import,reimported js file,function is defined?'+$defined(fn));					
+					fn = options.onload;										
 					if($defined(fn)){	fn();}
 				};	   
 			}

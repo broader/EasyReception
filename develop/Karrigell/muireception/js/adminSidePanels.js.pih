@@ -39,7 +39,8 @@ function portalPanel(panelId){
 **	"Users Management" side panel expand function
 */
 function userManagementPanel(panelId){
-	initPanel(panelId);
+	//initPanel(panelId);
+	MUI.initPanel(panelId);
 	
 	var cid = 'userMangementColumn'; 
 	new MUI.Column({
@@ -79,7 +80,8 @@ function agendaPanel(panelId){
 **	"Service Management" side panel expand function
 */
 function servicePanel(panelId){
-	initPanel(panelId);
+	//initPanel(panelId);
+	MUI.initPanel(panelId);
 	
 	var columnId = 'serviceManagementColumn'; 
 	new MUI.Column({
@@ -103,7 +105,8 @@ function servicePanel(panelId){
 **	System administration panel expand function
 */
 function sysadminPanel(panelId){
-	initPanel(panelId);
+	//initPanel(panelId);
+	MUI.initPanel(panelId);
 	
 	var columnId = 'systemAdminColumn'; 
 	new MUI.Column({

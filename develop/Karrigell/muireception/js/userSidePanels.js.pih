@@ -34,8 +34,9 @@ function portalPanel(panelId){
 **	Accommodation side panel expand function
 */
 function hotelPanel(panelId){		
-	MUI.accordionPanels(panelId);	
-	MUI.clearMainPanel(); 
+	//MUI.accordionPanels(panelId);	
+	//MUI.clearMainPanel();
+	MUI.initPanel(panelId); 
 		
 	new MUI.Column({
 		container:mainPanelId, id: 'hotelListColumn', placement: 'main', 
@@ -105,9 +106,11 @@ function issuePanel(panelId){
 */
 function portfolioPanel(panelId){	
 	
-	MUI.accordionPanels(panelId);
+	//MUI.accordionPanels(panelId);
 	
-	MUI.clearMainPanel(); 
+	//MUI.clearMainPanel();
+	MUI.initPanel(panelId);
+	 
 	
 	new MUI.Column({
 		container:mainPanelId, id: 'portfolioColumn', placement: 'main', 

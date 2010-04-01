@@ -198,7 +198,6 @@ def fuzzyQuery(operator, klass, search, props=None, require=None):
 	form = {\
 		'action': 'filtertext',\			
 		'context': klass,\
-		#'search' : conditions,\
 		'search' : search,\
 		'require' : require,\
 		'propnames': props\

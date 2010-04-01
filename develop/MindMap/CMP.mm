@@ -609,10 +609,10 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1258549813016" FOLDED="true" ID="ID_1232595129" MODIFIED="1270024316843" TEXT="mootools">
+<node COLOR="#00b439" CREATED="1258549813016" FOLDED="true" ID="ID_1232595129" MODIFIED="1270102985104" TEXT="mootools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1258549821023" FOLDED="true" ID="ID_399916535" MODIFIED="1269831222953" TEXT="tabs">
+<node COLOR="#990000" CREATED="1258549821023" FOLDED="true" ID="ID_399916535" MODIFIED="1270102982270" TEXT="tabs">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1258777426210" ID="ID_1596070275" MODIFIED="1258777429995" TEXT="site">
 <node COLOR="#111111" CREATED="1258549833953" ID="ID_71928389" MODIFIED="1258549835916" TEXT="http://www.shaunfreeman.co.uk/#page-/content/article/page-MorphTabs"/>
@@ -625,16 +625,24 @@
 <node COLOR="#111111" CREATED="1258777545977" ID="ID_1235747866" MODIFIED="1258777629755" TEXT="Tabs.detach()&#xa;Line 245, &#x589e;&#x52a0;&#x4e86;this&#x7ed1;&#x5b9a;&#xff0c;&#x5982;&#x679c;&#x6ca1;&#x6709;&#xff0c;&#x6b64;&#x65b9;&#x6cd5;&#x65e0;&#x6cd5;&#x6b63;&#x5e38;&#x8fd0;&#x884c;&#x3002;"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1258549873754" FOLDED="true" ID="ID_341332789" MODIFIED="1270024313884" TEXT="formCheck">
+<node COLOR="#990000" CREATED="1258549873754" ID="ID_341332789" MODIFIED="1270102969351" TEXT="formCheck">
 <font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="button_cancel"/>
 <node COLOR="#111111" CREATED="1259824766209" ID="ID_1092667720" MODIFIED="1259824770925" TEXT="site">
 <node COLOR="#111111" CREATED="1258549883768" ID="ID_379894263" MODIFIED="1258549885307" TEXT="http://mootools.floor.ch/en/demos/formcheck/"/>
 </node>
-<node COLOR="#111111" CREATED="1259824786257" FOLDED="true" ID="ID_1617584575" MODIFIED="1259825594480" TEXT="questions">
+<node COLOR="#111111" CREATED="1259824786257" ID="ID_1617584575" MODIFIED="1270102850733" TEXT="questions">
 <icon BUILTIN="help"/>
+<node COLOR="#111111" CREATED="1270102857820" ID="ID_1724309587" MODIFIED="1270102873964" TEXT="&#x591a;&#x6b21;&#x9a8c;&#x8bc1;">
+<icon BUILTIN="button_ok"/>
 <node COLOR="#111111" CREATED="1259824809146" ID="ID_1388104239" MODIFIED="1259825288323" TEXT="additional validation&#xa;&#x4e3a;captcha&#x6dfb;&#x52a0;&#x670d;&#x52a1;&#x5668;&#x7aef;&#x6821;&#x9a8c;&#x65f6;&#xff0c;&#x8be5;&#x5b57;&#x6bb5;&#x4f1a;&#x51fa;&#x73b0;&#x591a;&#x6b21;&#x53d1;&#x9001;ajax&#x8bf7;&#x6c42;&#x9a8c;&#x8bc1;&#x7684;&#x73b0;&#x8c61;&#xff0c;&#x68c0;&#x67e5;&#x4ee3;&#x7801;&#x540e;&#x53d1;&#x73b0;&#x6709;&#x4ee5;&#x4e0b;&#x539f;&#x56e0;&#xff1a;&#xa;1&#xff0c;Request.JSON&#x5bf9;&#x8c61;&#x6ca1;&#x6709;&#x9500;&#x6bc1;&#xff0c;&#x5bfc;&#x81f4;&#x540c;&#x540d;&#x7684;&#x5bf9;&#x8c61;&#x5728;&#x6bcf;&#x6b21;&#x8c03;&#x7528;&#x65f6;&#x90fd;&#x4f1a;&#x5c06;&#x4ee5;&#x524d;&#x7d2f;&#x79ef;&#x4e0b;&#x6765;&#x7684;&#x591a;&#x4e2a;Request.JSON&#x540c;&#x65f6;&#x8c03;&#x7528;&#xff0c;&#x89e3;&#x51b3;&#x529e;&#x6cd5;&#xff1a;&#x5c06;&#x8be5;&#x5bf9;&#x8c61;&#x53d8;&#x4e3a;&#x5168;&#x5c40;&#x5bf9;&#x8c61;&#xff0c;&#x5404;&#x4e2a;&#x51fd;&#x6570;&#x4e2d;&#x90fd;&#x662f;&#x8c03;&#x7528;&#x6b64;&#x5bf9;&#x8c61;&#x5b9e;&#x4f8b;&#x3002;&#xa;&#xa;2,&#x540c;&#x6837;&#x539f;&#x56e0;&#xff0c;FormCheck&#x5bf9;&#x8c61;&#x8bbe;&#x7f6e;&#x4e3a;&#x5168;&#x5c40;&#x53d8;&#x91cf;"/>
 </node>
-<node COLOR="#111111" CREATED="1259825599346" ID="ID_949263222" MODIFIED="1259825604495" TEXT="options">
+<node COLOR="#111111" CREATED="1270102875996" ID="ID_237606131" MODIFIED="1270102959344" TEXT="&#x9a8c;&#x8bc1;&#x65b9;&#x6cd5;&#x5fc5;&#x987b;&#x4e0e; &#x201c;required&#x201c;&#x642d;&#x914d;">
+<icon BUILTIN="button_cancel"/>
+<node COLOR="#111111" CREATED="1270102915783" ID="ID_1686710788" MODIFIED="1270102954799" TEXT="&#x7528;&#x6237;&#x81ea;&#x5b9a;&#x4e49;&#x9a8c;&#x8bc1;&#x65b9;&#x6cd5;&#x5fc5;&#x987b;&#x4e0e;&#x201c;required&#x201d;&#x642d;&#x914d;&#x4f7f;&#x7528;&#x624d;&#x80fd;&#x751f;&#x6548;&#x3002;&#xa;"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1259825599346" FOLDED="true" ID="ID_949263222" MODIFIED="1270102849620" TEXT="options">
 <node COLOR="#111111" CREATED="1259825605530" ID="ID_4904713" MODIFIED="1259825609373" TEXT="display">
 <node COLOR="#111111" CREATED="1259825622452" ID="ID_350338374" MODIFIED="1259826373833" TEXT="errorsLocation : 1,&#x9;//1 : tips, 2 : before, 3 : after, by default it is 1.&#xa;keepFocusOnError : 0, &#x9;//&#x5982;&#x8bbe;&#x4e3a;1&#xff0c;&#x4f1a;&#x6301;&#x7eed;&#x9a8c;&#x8bc1;&#x9519;&#x8bef;&#x5b57;&#x6bb5;&#xff0c;&#x751a;&#x81f3;&#x65e0;&#x6cd5;&#x5207;&#x6362;&#x5230;&#x5176;&#x5b83;&#x7f51;&#x9875;&#xa;scrollToFirst : false&#x9;//&#x5982;&#x8bbe;&#x4e3a;true&#xff0c;&#x4f1a;&#x6eda;&#x52a8;&#x5230;&#x7b2c;&#x4e00;&#x4e2a;&#x9a8c;&#x8bc1;&#x9519;&#x8bef;&#x7684;&#x5b57;&#x6bb5;&#x5904;"/>
 </node>
@@ -644,7 +652,7 @@
 <node COLOR="#111111" CREATED="1259826690943" ID="ID_1100742116" MODIFIED="1259826692691" TEXT="onAjaxSuccess"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1258549889570" FOLDED="true" ID="ID_377818865" MODIFIED="1269831228744" TEXT="dialog">
+<node COLOR="#990000" CREATED="1258549889570" ID="ID_377818865" MODIFIED="1270102970859" TEXT="dialog">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1258549952599" ID="ID_616227543" MODIFIED="1258549955034" TEXT="http://www.e-magine.ro/web-dev-and-design/36/moodalbox/"/>
 </node>
@@ -938,7 +946,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" ID="Freemind_Link_986904229" MODIFIED="1270019862099" POSITION="right" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1270102834055" POSITION="right" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>

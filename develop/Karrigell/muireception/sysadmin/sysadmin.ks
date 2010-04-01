@@ -43,11 +43,9 @@ def _formEditProps4classStatus():
 	klasses = [{'value':item,'label':item} for item in klasses]	
 	props['category'] = {'type':'select','options':klasses,'class':''}	
 	props['description'] = {'type':'textarea',}
-	#props['order'] = {'validate':['digit',]}
-	#props['name'] = {'required':True}
-	props['name'] = {'validate':['number',]}
-	#props['order'] = {'required':True,'validate':['number',]}
-	props['order'] = {'validate':['number',]}
+	#props['name'] = {'required':True,'validate':['junaValid',]}	
+	props['name'] = {'required':True,}
+	props['order'] = {'required':True,'validate':['number',]}
 	return props
 	
 # the classes that could be edited by web page
@@ -134,7 +132,6 @@ def _indexJs(panelId,tabsId):
 CONTAINER_PREFIX = 'klass'
 def page_showClass(**args):
 	klass,panel = [args.get(name) for name in (CLASSPROP,'panel')]
-	#print H3(klass)
 	container = '-'.join((CONTAINER_PREFIX,klass))
 	print DIV(**{'id': container})
 	print pagefn.script(_showClassJs(klass,panel),link=False)
@@ -199,17 +196,22 @@ def page_classInfo(**args):
 	block = [DIV(A(klass) , style=CLASSNAMESTYLE),]			
 	
 	# Properties for this Class
-	props = model.get_class_props(USER, klass, protected=1)
+	propsInfo = model.get_class_props(USER, klass, protected=1)
+	props,keyProp = [propsInfo.pop(name) for name in ('props','key')]
 	propnames = props.keys()
 	propnames.sort()
 	
 	d = {'style':'font-weight:bold;font-size:1.3em;color:#86B50D'}
 	table = []
-	for propname in propnames:			
-		prop = TD(propname,**d)			
-		des = TD(repr(props[propname]).strip('<>'))
-		tr = TR(Sum((prop, des)))
-		table.append(tr)			
+	for propname in propnames:
+	    if propname == keyProp:
+		prop = TD(''.join((propname,'(Key Property)')),**d)
+	    else:
+		prop = TD(propname,**d)
+						
+	    des = TD(repr(props[propname]).strip('<>'))
+	    tr = TR(Sum((prop, des)))
+	    table.append(tr)			
 	
 	block.append(TABLE(TBODY(Sum(table))))
 	print Sum(block)
@@ -217,7 +219,7 @@ def page_classInfo(**args):
 
 CONTAINER = 'classListGridContainer'
 def page_classList(**args):
-	klass = args.get(CLASSPROP)
+    	klass = args.get(CLASSPROP)
 	print DIV(**{'id':CONTAINER})
 	print pagefn.script(_classListJs(klass), link=False)	
 	return
@@ -367,7 +369,7 @@ def _classListJs(klass):
 
 def _getClassProps(klass, needId=True):
 	operator = USER
-	props = model.get_class_props( operator, klass).keys()
+	props = model.get_class_props( operator, klass)['props'].keys()
 	
 	if klass == 'user':
 		props.remove('password')
@@ -563,15 +565,6 @@ def page_classEdit(**args):
 	# append hidden field that points out the action type
 	[item.update({'type':'hidden'}) for item in hideInput]
 	[ form.append(INPUT(**item)) for item in hideInput ]
-	
-	# add buttons to this form	
-	#buttons = [ \
-	#	BUTTON( _('Confirm'), **{'class':pagefn.BUTTONSTYLE, 'type':'button'}),\
-	#	BUTTON( _('Cancel'), **{'class':pagefn.BUTTONSTYLE, 'type':'button'})\
-	#]
-	
-	#div = DIV(Sum(buttons), **{'style':bnStyle})    
-	#form.append(div)
 	
 	formId = 'classItemEditForm'
 	form = \

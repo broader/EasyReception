@@ -39,7 +39,8 @@ function portalPanel(panelId){
 **	"Users Management" side panel expand function
 */
 function userManagementPanel(panelId){
-	initPanel(panelId);
+	//initPanel(panelId);
+	MUI.initPanel(panelId);
 	
 	var cid = 'userMangementColumn'; 
 	new MUI.Column({
@@ -79,7 +80,8 @@ function agendaPanel(panelId){
 **	"Service Management" side panel expand function
 */
 function servicePanel(panelId){
-	initPanel(panelId);
+	//initPanel(panelId);
+	MUI.initPanel(panelId);
 	
 	var columnId = 'serviceManagementColumn'; 
 	new MUI.Column({
@@ -112,7 +114,7 @@ function sysadminPanel(panelId){
 	});
 	
 	contentPanelId = 'systemAdminPanel';
-	url = ['service/service.ks/index', ['panelid',contentPanelId].join('=')].join('?'); 
+	url = ['sysadmin/sysadmin.ks/index', ['panelid',contentPanelId].join('=')].join('?'); 
 	new MUI.Panel({
 		id: contentPanelId, column: columnId,
 		tabsURL: url,
