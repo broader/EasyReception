@@ -39,6 +39,19 @@ def page_classItemEditValidFns(**args):
    	pass
 	return
 
+def _validJs4statusItemEdit():
+	paras = []
+	paras.extend(STATUSEDITJSFNS )
+	paras = tuple(paras)
+	js = \
+	"""
+	var junaNameValidFn='%s';
+	window[junaNameValid] = function(el){
+	  alert(el);
+	};
+	"""%paras
+	return js
+
 def _formEditProps4classStatus():
 	props = {}
 	# get all classes' names in roundup.db
@@ -48,7 +61,11 @@ def _formEditProps4classStatus():
 	klasses = [{'value':item,'label':item} for item in klasses]	
 	props['category'] = {'type':'select','options':klasses,'class':''}	
 	props['description'] = {'type':'textarea',}
-	props['name'] = {'required':True,'validate':['statusJunaValid',]}	
+	props['name'] = {\
+	    'required':True,\
+	    'validate':['statusJunaValid',]
+	}
+	
 	#props['name'] = {'required':True,}
 	props['order'] = {'required':True,'validate':['number',]}
 	return props
@@ -58,7 +75,13 @@ FORMPROPS4CLASS = [\
 	{'name': 'role',},\
 	{'name': 'keyword',},\
 	{'name': 'priority',},\
-	{'name': 'status','propsFn': _formEditProps4classStatus},\
+
+	{\
+	  'name': 'status',
+	  'propsFn': _formEditProps4classStatus,
+	  'validateFn': _validJs4statusItemEdit
+	},\
+
 	{'name': 'user',},\
 	{'name': 'webaction',},\
 	{'name': 'service',},\
@@ -581,6 +604,12 @@ def page_classEdit(**args):
 	print DIV(form,style='')
 	
 	print pagefn.script( _classEditJs(formId,bnStyle),link=False)
+	
+	validFn = FORMPROPS4CLASS[WEB_EDIT_CLASS.index(klass)].get('validateFn')
+	#print H2(validFn)
+
+	if validFn:
+	    print pagefn.script(validFn(), link=False)
 	
 	return
 
