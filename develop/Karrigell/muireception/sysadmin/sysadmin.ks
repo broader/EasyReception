@@ -1,5 +1,5 @@
 """
-Pages mainly for services view and edit action.
+Pages mainly for  edit the items of shcema classes.
 """
 import sys, copy,tools
 from tools import treeHandler
@@ -13,7 +13,6 @@ RELPATH = (lambda p : p.split('/')[0])(THIS.baseurl)
 model = Import( '/'.join((RELPATH, 'model.py')), REQUEST_HANDLER=REQUEST_HANDLER )
 
 modules = {'pagefn': 'pagefn.py', 'JSON': 'demjson.py', 'formFn':'form.py'}
-#modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'formFn':'form.py'}
 [locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items() ]
 
 
@@ -35,20 +34,49 @@ USER = getattr( so, pagefn.SOINFO['user']).get('username')
 # ********************************************************************************************
 STATUSEDITJSFNS = ['statusJunaValid',]
 
-def page_classItemEditValidFns(**args):
-   	pass
-	return
+def page_statusJunaValid(**args):
+	name = args.pop('name') 
+	items = model.get_items(USER, 'status', ('name',))
+	items = [ i[0] for i in items ]
+	res = ( name in items) and {'valid':0} or {'valid':1}
+	print JSON.encode(res)
+	return 
 
-def _validJs4statusItemEdit():
-	paras = []
+def _validJs4statusItemEdit(action):
+	junaErr = _('Input value has been used as the value of a key propty of a item.')
+	paras = [ junaErr, '/'.join((APPATH,'page_statusJunaValid'))]
+	
 	paras.extend(STATUSEDITJSFNS )
 	paras = tuple(paras)
 	js = \
 	"""
-	var junaNameValidFn='%s';
-	window[junaNameValid] = function(el){
-	  alert(el);
+	var junaErr='%s',actionUrl='%s', junaNameValidFn='%s';
+
+        // A Request.JSON class for send validation request to server side
+	var junaValidRequest = new Request.JSON({async:false});
+	var junaValidTag = false;
+
+	// check whether the input 'name' has been used in the items of 'status' Class
+	window[junaNameValidFn] = function(el){
+	   el.errors.push(junaErr);
+	   
+	   // set some options for Request.JSON instance
+	   junaValidRequest.setOptions({
+	      url: actionUrl,
+	      onSuccess: function(res){
+		 if(res.valid == 1){junaValidTag=true};
+	      }
+	   });
+	   junaValidRequest.get({'name':el.getProperty('value')});
+
+	   if(junaValidTag){
+	      junaValidTag = false;
+	      return true
+	   }
+	   
+	   return false
 	};
+
 	"""%paras
 	return js
 
@@ -63,7 +91,7 @@ def _formEditProps4classStatus():
 	props['description'] = {'type':'textarea',}
 	props['name'] = {\
 	    'required':True,\
-	    'validate':['statusJunaValid',]
+	    'validate':[''.join(('~',STATUSEDITJSFNS[0])),]
 	}
 	
 	#props['name'] = {'required':True,}
@@ -557,6 +585,7 @@ def page_classEdit(**args):
 		props = _formFieldsConstructor(klass,props,True)
 	else:
 		# create action
+		actionType = ACTIONTYPES[0]
 		[hideInput.append({'name':name,'value':value}) \
 		for name,value in {CLASSPROP:klass, ACTIONPROP:ACTIONTYPES[0]}.items()]
 		
@@ -603,14 +632,12 @@ def page_classEdit(**args):
 				
 	print DIV(form,style='')
 	
-	print pagefn.script( _classEditJs(formId,bnStyle),link=False)
-	
+	js = _classEditJs(formId,bnStyle)
 	validFn = FORMPROPS4CLASS[WEB_EDIT_CLASS.index(klass)].get('validateFn')
-	#print H2(validFn)
-
 	if validFn:
-	    print pagefn.script(validFn(), link=False)
+	    js = '\r\n'.join((js,validFn(actionType)))
 	
+	print pagefn.script(js, link=False)
 	return
 
 def _classEditJs(formId, bnStyle):
