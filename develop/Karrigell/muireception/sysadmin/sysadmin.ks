@@ -35,16 +35,33 @@ USER = getattr( so, pagefn.SOINFO['user']).get('username')
 STATUSEDITJSFNS = ['statusJunaValid',]
 
 def page_statusJunaValid(**args):
-	name = args.pop('name') 
-	items = model.get_items(USER, 'status', ('name',))
-	items = [ i[0] for i in items ]
-	res = ( name in items) and {'valid':0} or {'valid':1}
-	print JSON.encode(res)
+	nid, name = [args.pop(prop) for prop in ('id','name')]
+	items = model.get_items(USER, 'status', ('name','id'))
+	existedNames = [ i[0] for i in items ]
+	valid = 0
+	if nid:
+	   for i in iter(items):
+	      if int(i[1]) == int(nid) :
+		 oldName = i[0]
+		 break
+		
+	   if name == oldName and oldName in existedNames:
+	      valid = 1
+	   elif not name in existedNames:
+	      valid = 1
+	else:
+	   if not name in existedNames:
+	      valid = 1
+
+	print JSON.encode( {'valid': valid})
 	return 
 
-def _validJs4statusItemEdit(action):
+def _validJs4statusItemEdit(**args):
+        nid = args.get('id') 
+	url = '/'.join((APPATH,'page_statusJunaValid'))
+	url = nid and '?'.join((url, '='.join(('id',nid)))) or url
 	junaErr = _('Input value has been used as the value of a key propty of a item.')
-	paras = [ junaErr, '/'.join((APPATH,'page_statusJunaValid'))]
+	paras = [ junaErr, url ]  
 	
 	paras.extend(STATUSEDITJSFNS )
 	paras = tuple(paras)
@@ -635,7 +652,7 @@ def page_classEdit(**args):
 	js = _classEditJs(formId,bnStyle)
 	validFn = FORMPROPS4CLASS[WEB_EDIT_CLASS.index(klass)].get('validateFn')
 	if validFn:
-	    js = '\r\n'.join((js,validFn(actionType)))
+	   js = '\r\n'.join((js, validFn(**{'id': args.get('id') or ''})))
 	
 	print pagefn.script(js, link=False)
 	return
@@ -712,6 +729,7 @@ def page_classEditAction(**args):
 	action,klass = [ args.pop(name) for name in (ACTIONPROP,CLASSPROP)] 
 	if ACTIONTYPES.index(action) == 0:
 		# 'create' action
+		[args.pop(key) for key in args.keys() if not args.get(key)]
 		nid = model.create_item(USER, klass, args, autoSerial=False)
 		if nid:
 			successTag = 1

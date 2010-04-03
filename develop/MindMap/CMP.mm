@@ -1017,7 +1017,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1254023346114" ID="Freemind_Link_186738146" MODIFIED="1268797693109" TEXT="Python">
+<node COLOR="#00b439" CREATED="1254023346114" FOLDED="true" ID="Freemind_Link_186738146" MODIFIED="1270272343838" TEXT="Python">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1254023354342" FOLDED="true" ID="Freemind_Link_1111266812" MODIFIED="1268797695310" TEXT="timezone">
@@ -1025,7 +1025,16 @@
 <node COLOR="#111111" CREATED="1254023363423" ID="Freemind_Link_1101343072" MODIFIED="1254023401189" TEXT="Error with time.strptime()Things to try:(1) Is it possible that your interactive session and your &quot;bash&quot; are using different locales? Put print time.strftime(some known struct_time) into your script and see if the day and month come out in a different language.(2) Put print repr(date) in your script to show unambiguously what you are getting from the latest.GetCreatedAt() call."/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1254149527478" ID="Freemind_Link_17834818" MODIFIED="1270130756787" TEXT="Database">
+<node COLOR="#00b439" CREATED="1270272352642" ID="ID_197103914" MODIFIED="1270272355300" TEXT="Roundup">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1270272356643" ID="ID_1920960786" MODIFIED="1270272648512" TEXT="Key value &#x6821;&#x9a8c;">
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#111111" CREATED="1270272374006" ID="ID_1440362744" MODIFIED="1270272624879" TEXT="Create Action&#xa;---&gt;&#x68c0;&#x67e5;&#x662f;&#x5426;&#x4e0e; existed key values &#x503c;&#x91cd;&#x590d;&#x5373;&#x53ef;&#xa;&#xa;Edit Action&#xa;---&gt;1, &#x901a;&#x8fc7; node id &#x83b7;&#x5f97; old key value;&#xa;---&gt;2, &#x5982;&#x679c; &#xa;------&gt;input value == old key value---&gt; valid input&#xa;------&gt;&#x6216;&#x8005; input value &#x6ca1;&#x6709;&#x4e0e; existed key values &#x91cd;&#x590d; ---&gt; valid input"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1254149527478" FOLDED="true" ID="Freemind_Link_17834818" MODIFIED="1270272342387" TEXT="Database">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1254149531747" ID="Freemind_Link_377999212" MODIFIED="1254149623676" TEXT="db.class.retire()">
@@ -1042,7 +1051,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1167544327073" ID="Freemind_Link_1636742661" MODIFIED="1270109427031" TEXT="vi">
+<node COLOR="#00b439" CREATED="1167544327073" FOLDED="true" ID="Freemind_Link_1636742661" MODIFIED="1270272344929" TEXT="vi">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1270127748720" FOLDED="true" ID="ID_897263369" MODIFIED="1270127780408" TEXT="Config">
