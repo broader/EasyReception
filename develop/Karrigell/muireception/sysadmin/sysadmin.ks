@@ -35,9 +35,14 @@ USER = getattr( so, pagefn.SOINFO['user']).get('username')
 STATUSEDITJSFNS = ['statusJunaValid',]
 
 def page_statusJunaValid(**args):
-	nid, name = [args.pop(prop) for prop in ('id','name')]
-	items = model.get_items(USER, 'status', ('name','id'))
-	existedNames = [ i[0] for i in items ]
+	nid, name,category = [args.get(prop) for prop in ('id','name','category')]
+
+	# get the items filtered by 'category' value
+	items = model.get_items_ByString(USER, 'status', {'category':category},('name','id'))
+	items = filter(None,items)
+	if items:
+	   existedNames = [ i[0] for i in items ]
+
 	valid = 0
 	if nid:
 	   for i in iter(items):
@@ -61,13 +66,13 @@ def _validJs4statusItemEdit(**args):
 	url = '/'.join((APPATH,'page_statusJunaValid'))
 	url = nid and '?'.join((url, '='.join(('id',nid)))) or url
 	junaErr = _('Input value has been used as the value of a key propty of a item.')
-	paras = [ junaErr, url ]  
+	paras = [ junaErr, url, 'category' ]  
 	
 	paras.extend(STATUSEDITJSFNS )
 	paras = tuple(paras)
 	js = \
 	"""
-	var junaErr='%s',actionUrl='%s', junaNameValidFn='%s';
+	var junaErr='%s',actionUrl='%s', categoryInput='%s', junaNameValidFn='%s';
 
         // A Request.JSON class for send validation request to server side
 	var junaValidRequest = new Request.JSON({async:false});
@@ -84,7 +89,12 @@ def _validJs4statusItemEdit(**args):
 		 if(res.valid == 1){junaValidTag=true};
 	      }
 	   });
-	   junaValidRequest.get({'name':el.getProperty('value')});
+	   
+	   // get the Form Element
+	   var category = el.getParent('form').getElement(['[name=',categoryInput,']'].join(''));
+	   var data = {'name':el.getProperty('value')};
+	   data[categoryInput] = category.getProperty('value');
+	   junaValidRequest.get(data);
 
 	   if(junaValidTag){
 	      junaValidTag = false;

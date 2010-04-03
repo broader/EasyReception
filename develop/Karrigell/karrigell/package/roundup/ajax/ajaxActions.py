@@ -1516,6 +1516,7 @@ class FilterByPropValueAction(GetItemAction):
         condition = self.form.get('filter')
         cl = self.form['context']
         klass = self.db.getclass(cl)
+        # get items' ids that filtered by 'condition'
         ids = klass.filter(None,condition)        
         if ids == [] :            
             raise exceptions.NotFound, _("Warning,there is no item of class '%s'.")%cl

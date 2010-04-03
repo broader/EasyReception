@@ -33623,3 +33623,54 @@ sent 62715 bytes  received 31 bytes  125492.00 bytes/sec
 total size is 270796  speedup is 4.32
 2010-04-03 13:31:11,667 INFO End backup loacl karrigell diretory to local git.
 2010-04-03 13:31:11,667 INFO Begin to backup local github to remote github host.
+2010-04-03 13:31:12,557 INFO Command: 
+git add .
+running result is :
+2010-04-03 13:31:16,817 INFO Command: 
+git commit -m 'Update time:2010-04-03T13:31:11.667855'
+running result is :[master 280e5d2] Update time:2010-04-03T13:31:11.667855
+ 6 files changed, 169 insertions(+), 88 deletions(-)
+ rewrite develop/Karrigell/muireception/sysadmin/.sysadmin.ks.swp (74%)
+2010-04-03 13:32:03,954 INFO Command: 
+git push origin master
+running result is :Counting objects: 33, done.
+Delta compression using up to 2 threads.
+Compressing objects:   6% (1/16)   Compressing objects:  12% (2/16)   Compressing objects:  18% (3/16)   Compressing objects:  25% (4/16)   Compressing objects:  31% (5/16)   Compressing objects:  37% (6/16)   Compressing objects:  43% (7/16)   Compressing objects:  50% (8/16)   Compressing objects:  56% (9/16)   Compressing objects:  62% (10/16)   Compressing objects:  68% (11/16)   Compressing objects:  75% (12/16)   Compressing objects:  81% (13/16)   Compressing objects:  87% (14/16)   Compressing objects:  93% (15/16)   Compressing objects: 100% (16/16)   Compressing objects: 100% (16/16), done.
+Writing objects:   5% (1/17)   Writing objects:  11% (2/17)   Writing objects:  17% (3/17)   Writing objects:  23% (4/17)   Writing objects:  29% (5/17)   Writing objects:  35% (6/17)   Writing objects:  41% (7/17)   Writing objects:  47% (8/17)   Writing objects:  52% (9/17)   Writing objects:  58% (10/17)   Writing objects:  64% (11/17)   Writing objects:  70% (12/17)   Writing objects:  76% (13/17)   Writing objects:  82% (14/17)   Writing objects:  88% (15/17)   Writing objects:  94% (16/17)   Writing objects: 100% (17/17)   Writing objects: 100% (17/17), 5.46 KiB, done.
+Total 17 (delta 12), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   1f125af..280e5d2  master -> master
+2010-04-03 13:32:03,954 INFO End backup local github to remote github host.
+2010-04-03 19:03:29,066 INFO Delete nousing captcha images
+2010-04-03 19:03:29,092 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-04-03 19:03:29,093 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-04-03 19:03:36,136 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%    0.00kB/s    0:00:00        362496 100%   10.48MB/s    0:00:00 (xfer#1, to-check=1045/3981)
+karrigell/package/roundup/ajax/ajaxActions.py
+       32768  29%   66.12kB/s    0:00:01        111948 100%  222.66kB/s    0:00:00 (xfer#2, to-check=1900/5886)
+muireception/
+muireception/.model.py.swp
+       16384 100%   32.59kB/s    0:00:00         16384 100%   32.59kB/s    0:00:00 (xfer#3, to-check=1590/5886)
+muireception/sysadmin/
+muireception/sysadmin/.sysadmin.ks.swp
+       32768  88%    0.00kB/s    0:00:00         36864 100%    3.91MB/s    0:00:00 (xfer#4, to-check=669/7906)
+muireception/sysadmin/sysadmin.ks
+       20829 100%  209.70kB/s    0:00:00         20829 100%  209.70kB/s    0:00:00 (xfer#5, to-check=668/7906)
+
+sent 245027 bytes  received 1268 bytes  32839.33 bytes/sec
+total size is 47642017  speedup is 193.43
+2010-04-03 19:03:36,231 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 66 bytes  received 12 bytes  156.00 bytes/sec
+total size is 270796  speedup is 3471.74
+2010-04-03 19:03:36,232 INFO End backup loacl karrigell diretory to local git.
+2010-04-03 19:03:36,232 INFO Begin to backup local github to remote github host.
