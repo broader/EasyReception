@@ -319,7 +319,7 @@ def _classListJs(klass):
 	paras.extend([_('Filter'),_('Clear Filter')])	
 	# url links
 	[ paras.append('/'.join((APPATH,name)))\ 
-	  for name in ('page_colsModel', 'page_classItems', 'page_classEdit')]
+	  for name in ('page_colsModel', 'page_classItems', 'page_classEdit', 'page_classEditAction')]
 	
 	paras = tuple(paras)
 	js = \
@@ -329,8 +329,7 @@ def _classListJs(klass):
 	title='%s', titleStyle='%s',
 	createTitle='%s', ediTitle='%s',
 	filterLabel="%s", clearFilterLabel="%s",
-	
-	colsModelUrl='%s', dataUrl='%s', editUrl='%s';
+	colsModelUrl='%s', dataUrl='%s', editUrl='%s', delClassItemUrl='%s';
 	
 	var colsModel=null, datagrid=null;
 	
@@ -351,29 +350,29 @@ def _classListJs(klass):
 	$(container).adopt(span,hr);
 	
 	 
-   // add filter input Element   
-   var filterInput = new Element('input',{style:'margin:15px 5px 15px 0;'});
+ 	 // add filter input Element   
+   	var filterInput = new Element('input',{style:'margin:15px 5px 15px 0;'});
    
-   var filterButton = new Element('a',{html:filterLabel,href:'javascript:;'});
+   	var filterButton = new Element('a',{html:filterLabel,href:'javascript:;'});
    
-   filterButton.addEvent('click',function (e){
-   	datagrid.loadData(dataUrl, {'filter': filterInput.value || ''});
-   });
+   	filterButton.addEvent('click',function (e){
+   	   datagrid.loadData(dataUrl, {'filter': filterInput.value || ''});
+   	});
    
    
-   var filterClearButton = new Element('a',{html: clearFilterLabel,href:'javascript:;'});
-   filterClearButton.addEvent('click', function(e){
-   	filterInput.setProperty('value','');
-   	datagrid.loadData();
-   }); 
+   	var filterClearButton = new Element('a',{html: clearFilterLabel,href:'javascript:;'});
+   	filterClearButton.addEvent('click', function(e){
+   	   filterInput.setProperty('value','');
+   	   datagrid.loadData();
+   	}); 
    
-   span = new Element('span');
-   $(container).grab(span);
-   interval = new Element('span',{html:' | '});
-   span.adopt(filterInput, filterButton, interval, filterClearButton);
+   	span = new Element('span');
+   	$(container).grab(span);
+   	interval = new Element('span',{html:' | '});
+   	span.adopt(filterInput, filterButton, interval, filterClearButton);
    
-   div = new Element('div');
-   $(container).grab(div);
+   	div = new Element('div');
+   	$(container).grab(div);
    
 	function renderGrid(){
 		datagrid = new omniGrid( div, {
@@ -409,6 +408,8 @@ def _classListJs(klass):
 		bnContainer.grab(button);
 	},datagrid);
 	
+	var query = {};
+        query[klassProp]= klass;
 	function actionAdapter(index){
 		var trs = datagrid.selected;
 		if( index != 0 && trs.length != 1 ){	// only one row should be selected
@@ -418,14 +419,13 @@ def _classListJs(klass):
 		
 		var modalOptions = {
 			width:600, height:380, modalOverlayClose: false,
-	   	onClose: function(e){
-	   		// refresh table's body
-	   		datagrid.loadData();
-	   	}
-		};
+	   		onClose: function(e){
+	   		   // refresh table's body
+	   		   datagrid.loadData();
+	   		}
+		};		
 		
-		var query = $H();
-		query[klassProp]= klass;
+		query = $H(query);
 		switch(index){
 			case 0:	// add action
 				url = [editUrl, query.toQueryString()].join('?');
@@ -447,13 +447,31 @@ def _classListJs(klass):
 				new MUI.Modal(modalOptions);
 				break;
 			case 2:	// delete action
-				// get the 'id' value of the item to be deleted
-				var nid = datagrid.getDataByRow(trs[0])['id'];
-				query['id'] = nid;
-				query = query.toQueryString();
-				
-				alert('delete action, query string is '+query);
+				MUI.confirm('Delete Class Item:', delClassItem.bind(datagrid), {});
 		};
+	};
+
+	function delClassItem(isConfirm){
+	   if(isConfirm.toInt()==1){return};
+
+	   jsonRequest = new Request.JSON({async:false});
+
+	   // set some options for Request.JSON instance
+	   jsonRequest.setOptions({
+	      url: delClassItemUrl,
+	      onSuccess: function(res){
+		 MUI.notification(res);
+	         this.loadData();
+	      }.bind(datagrid)
+	   });
+	   
+	   // get the 'id' value of the item to be deleted
+ 	   var trs = datagrid.selected;
+	   var nid = datagrid.getDataByRow(trs[0])['id'];
+	   query['id'] = nid;
+	   alert('delete action, query string is '+$H(query).toQueryString());
+	   jsonRequest.get(query);
+
 	};
 	
 	"""%paras
@@ -744,9 +762,14 @@ def _classEditJs(formId, bnStyle):
 	return js
 	
 def page_classEditAction(**args):
+	klass = args.pop(CLASSPROP)
 	successTag = 0
 	if args.get(ACTIONPROP):
-	   action,klass = [ args.pop(name) for name in (ACTIONPROP,CLASSPROP)] 
+	   action = args.pop(ACTIONPROP)
+	else:
+	   # 'delete' action
+	   nid = args.get('id')
+	   return
 
 	if ACTIONTYPES.index(action) == 0:
 		# 'create' action
