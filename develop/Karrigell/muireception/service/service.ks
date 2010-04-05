@@ -312,20 +312,21 @@ def _showServiceJs(category):
 		if(isConfirm.toInt()==1){return};
 		
 		jsonRequest = new Request.JSON({async:false});    
-	   // set some options for Request.JSON instance
-      jsonRequest.setOptions({
-      	url: deleteUrl,
-         onSuccess: function(res){
-         	MUI.notification(res);
-         	this.refreshTbody();
-         }.bind(this)
-      });
+	        
+  		// set some options for Request.JSON instance
+                jsonRequest.setOptions({
+        	url: deleteUrl,
+  	        onSuccess: function(res){
+         		MUI.notification(res);
+         		this.refreshTbody();
+         		}.bind(this)
+      		});
 	   
-	   tr = this.getSelectedRows()[0];
+		tr = this.getSelectedRows()[0];
 	   
-	   data = {'id':this.getInnerId(tr.id),'category':this.getCellValueByRowId(tr.id,'category')};
-	   data[actionProp] = actionTypes[2];
-	   jsonRequest.get(data);
+	   	data = {'id':this.getInnerId(tr.id),'category':this.getCellValueByRowId(tr.id,'category')};
+	   	data[actionProp] = actionTypes[2];
+	   	jsonRequest.get(data);
 		
 	};
 	

@@ -549,7 +549,7 @@ def action(client):
 		if res.get('success'):
 			res = res.get('data') or res.get('ok')			
 		else:			
-			print res.get('error')
+			print 'model.py,action(),L552,error info:',res.get('error')
 			res = None
 	except:
 		print sys.exc_info()

@@ -118,7 +118,7 @@ MUI.extend({
 	
 	//	Pop up a window to require user to confirm a action. 
 	confirm: function(message,closeFn, options){
-		defaultOptions = {
+		var defaultOptions = {
 			loadMethod:'html', type: 'modal', title: '',
 			maximizable: false,
 			//minimizable: false,
@@ -132,22 +132,23 @@ MUI.extend({
 			detaultOptions[key] = value;
 		});
 		
-		cmWindow = new MUI.Window(defaultOptions);
+		var cmWindow = new MUI.Window(defaultOptions);
 		
-		messageEl = new Element('div',{
+		var messageEl = new Element('div',{
 			html: message,
 			'class':'note',
 			'style':'font-weight:bold;font-size:1.5em;'
 		});
 		
 		// add buttons to content
-		buttons = new Element('div',{style:'text-align:right;'});
-		labels = ['<%=pagefn.BUTTONLABELS['confirmWindow']['confirm']%>', '<%=pagefn.BUTTONLABELS['confirmWindow']['cancel']%>'];
+		var buttons = new Element('div',{style:'text-align:right;'});
+		var labels = ['<%=pagefn.BUTTONLABELS['confirmWindow']['confirm']%>', '<%=pagefn.BUTTONLABELS['confirmWindow']['cancel']%>'];
+
 		['ok','cancel'].each(function(actionType,index){
 			// create buttons
 			options = {
 				txt: labels[index],
-			   imgType: actionType,
+			        imgType: actionType,
 				bnAttrs: {'style':'margin-right:1em;'}
 				//bnSkin: 'sexycadet'
 			};			
@@ -162,7 +163,7 @@ MUI.extend({
 			
 		});		
 		
-		container = new Element('div');
+		var container = new Element('div');
 		container.adopt(messageEl,buttons);			
 		
 		// add content to this confirm window

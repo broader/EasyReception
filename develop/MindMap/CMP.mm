@@ -1025,13 +1025,24 @@
 <node COLOR="#111111" CREATED="1254023363423" ID="Freemind_Link_1101343072" MODIFIED="1254023401189" TEXT="Error with time.strptime()Things to try:(1) Is it possible that your interactive session and your &quot;bash&quot; are using different locales? Put print time.strftime(some known struct_time) into your script and see if the day and month come out in a different language.(2) Put print repr(date) in your script to show unambiguously what you are getting from the latest.GetCreatedAt() call."/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1270272352642" ID="ID_197103914" MODIFIED="1270272355300" TEXT="Roundup">
+<node COLOR="#00b439" CREATED="1270272352642" FOLDED="true" ID="ID_197103914" MODIFIED="1270439718529" TEXT="Roundup">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1270272356643" ID="ID_1920960786" MODIFIED="1270272648512" TEXT="Key value &#x6821;&#x9a8c;">
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="messagebox_warning"/>
 <node COLOR="#111111" CREATED="1270272374006" ID="ID_1440362744" MODIFIED="1270272624879" TEXT="Create Action&#xa;---&gt;&#x68c0;&#x67e5;&#x662f;&#x5426;&#x4e0e; existed key values &#x503c;&#x91cd;&#x590d;&#x5373;&#x53ef;&#xa;&#xa;Edit Action&#xa;---&gt;1, &#x901a;&#x8fc7; node id &#x83b7;&#x5f97; old key value;&#xa;---&gt;2, &#x5982;&#x679c; &#xa;------&gt;input value == old key value---&gt; valid input&#xa;------&gt;&#x6216;&#x8005; input value &#x6ca1;&#x6709;&#x4e0e; existed key values &#x91cd;&#x590d; ---&gt; valid input"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1270439732311" ID="ID_449452072" MODIFIED="1270439736859" TEXT="model.py">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1270439738188" ID="ID_1310020106" MODIFIED="1270439743206" TEXT="action()">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1270439747910" ID="ID_499599883" MODIFIED="1270439939673" TEXT="&#x8fd4;&#x56de;&#x503c;&#xff1a;&#xa;data &#x4e3a;&#x7a7a;&#x65f6;&#xff0c;&#x8fd4;&#x56de;&#x7684;&#x662f;&apos;ok&apos;&#x4e2d;&#x7684;message &#x4fe1;&#x606f;">
+<icon BUILTIN="messagebox_warning"/>
+<icon BUILTIN="help"/>
+</node>
 </node>
 </node>
 <node COLOR="#00b439" CREATED="1254149527478" FOLDED="true" ID="Freemind_Link_17834818" MODIFIED="1270272342387" TEXT="Database">
@@ -1113,7 +1124,7 @@
 <node COLOR="#111111" CREATED="1270173496491" ID="ID_1874597123" MODIFIED="1270173498205" TEXT="http://vimcdoc.sourceforge.net/doc/help.html"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1269831250529" TEXT="karrigell">
+<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1270439729104" TEXT="karrigell">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1250824602428" FOLDED="true" ID="Freemind_Link_1774893402" MODIFIED="1265166091674" TEXT="_()---i18n">

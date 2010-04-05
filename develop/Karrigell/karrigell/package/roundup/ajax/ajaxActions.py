@@ -1249,7 +1249,7 @@ class GetItemsAction(GetItemAction):
         if ids == [] :
             #print _("Warning,there is no item of class '%s'.")%cl
             #raise exceptions.NotFound, _("Warning,there is no item of class '%s'.")%cl
-            self.client.ok_message.append( _("Warning,there is no item of class '%s'.")%cl)
+            self.client.ok_message.append("Warning,there is no item of class '%s'."%cl)
             return []
         
         # get the specified properties        
@@ -1561,16 +1561,24 @@ class GetItemsByStringPropAction(GetItemAction):
         cl = self.form['context']
         klass = self.db.getclass(cl)
         #property string, a dictionary holding the values of multiful 'String' properties
-        ps = self.form['filter']          
+        ps = self.form['filter']        
+        
+        print "GetItemsByStringPropAction,L1565,the properties and values are ",ps
+          
         ids = klass.stringFind(**ps)        
         props = self.form.get('propnames')
-        print "GetItemsByStringPropAction,L1504,props are %s, classname is %s"%(props, cl)
-        if props:            
+        
+        print "GetItemsByStringPropAction,L1567,props are %s, classname is %s, filtered nodes ids are %s"%(props, cl, ids)
+        
+        if not ids:
+            self.client.ok_message.append("Nothig find.")
+            return None
+        elif props:            
             if self.form.get('needId') == False:
                 values = [self.getitem(klass,id,props) for id in ids]            
             else:
                 values = [[id]+self.getitem(klass,id,props) for id in ids]            
-            #print "GetItemsByStringPropAction,L1516,filtered values are ", values
+            print "GetItemsByStringPropAction,L1573,filtered values are ", values
             return values
         else:            
             return ids  

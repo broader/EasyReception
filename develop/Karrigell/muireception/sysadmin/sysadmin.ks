@@ -39,26 +39,30 @@ def page_statusJunaValid(**args):
 
 	# get the items filtered by 'category' value
 	items = model.get_items_ByString(USER, 'status', {'category':category},('name','id'))
-	items = filter(None,items)
-	if items:
-	   existedNames = [ i[0] for i in items ]
 
-	valid = 0
-	if nid:
-	   for i in iter(items):
-	      if int(i[1]) == int(nid) :
-		 oldName = i[0]
-		 break
+	if items and type(items) == type([]) :
+	   valid = 0
+	   existedNames = [ i[0] for i in items ] 
+	   if nid:
+	      for i in iter(items):
+	         if int(i[1]) == int(nid) :
+		    oldName = i[0]
+		    break
 		
-	   if name == oldName and oldName in existedNames:
-	      valid = 1
-	   elif not name in existedNames:
-	      valid = 1
-	else:
-	   if not name in existedNames:
-	      valid = 1
+	      if name == oldName and oldName in existedNames:
+	         valid = 1
+	      elif not name in existedNames:
+	         valid = 1
+	   
+	   else:
+	      if not name in existedNames:
+	         valid = 1
 
-	print JSON.encode( {'valid': valid})
+	   print JSON.encode( {'valid': valid} )
+
+	else:
+	   print JSON.encode( {'valid': 1})
+	
 	return 
 
 def _validJs4statusItemEdit(**args):
@@ -443,7 +447,12 @@ def _classListJs(klass):
 				new MUI.Modal(modalOptions);
 				break;
 			case 2:	// delete action
-				alert('delete action');
+				// get the 'id' value of the item to be deleted
+				var nid = datagrid.getDataByRow(trs[0])['id'];
+				query['id'] = nid;
+				query = query.toQueryString();
+				
+				alert('delete action, query string is '+query);
 		};
 	};
 	
@@ -736,7 +745,9 @@ def _classEditJs(formId, bnStyle):
 	
 def page_classEditAction(**args):
 	successTag = 0
-	action,klass = [ args.pop(name) for name in (ACTIONPROP,CLASSPROP)] 
+	if args.get(ACTIONPROP):
+	   action,klass = [ args.pop(name) for name in (ACTIONPROP,CLASSPROP)] 
+
 	if ACTIONTYPES.index(action) == 0:
 		# 'create' action
 		[args.pop(key) for key in args.keys() if not args.get(key)]
