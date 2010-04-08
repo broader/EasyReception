@@ -769,6 +769,9 @@ def page_classEditAction(**args):
 	else:
 	   # 'delete' action
 	   nid = args.get('id')
+	   model.delete_item( USER, klass, nid, isId=True) 
+	   successTag = 1
+	   print successTag
 	   return
 
 	if ACTIONTYPES.index(action) == 0:
@@ -785,5 +788,5 @@ def page_classEditAction(**args):
 		successTag = 1
 			
 	print successTag
-	
+	return 
 	
