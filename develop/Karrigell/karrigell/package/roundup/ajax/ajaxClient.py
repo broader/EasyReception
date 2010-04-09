@@ -124,7 +124,7 @@ class Client:
         finally:
             if hasattr(self, 'db'):                
                 self.closedb()            
-            print 'ajaxClient,L127, response is ', self.response
+            #print 'ajaxClient,L127, response is ', self.response
             return self.response
 
     def inner_main(self):

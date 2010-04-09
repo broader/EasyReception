@@ -120,7 +120,7 @@ def get_items(operator, klass, props=None, link2key=False,ids=None):
 	client.form = form
 	return action(client)
 
-def get_items_ByString(operator, klass, search, propnames=None, needId=False):
+def get_items_ByString(operator, klass, search, propnames=None, needId=False,link2key=False):
 	""" Get items by specified string value of the class's String properties.
 	Parameters:
 	  	search - a dictionary holding the values of multiful 'String' properties;
@@ -132,12 +132,14 @@ def get_items_ByString(operator, klass, search, propnames=None, needId=False):
 		return None
 	
 	client.set_user(operator)		
-	form = { 	'action': 'gibs',\			
+	form = {\
+		'action': 'gibs',\			
               	'context': klass,\
               	'filter' : search,\    
               	'needId' : needId,\
-              	'propnames': propnames
-   }        	
+              	'propnames': propnames\
+   	}        	
+
 	client.form = form
 	return action(client)
 

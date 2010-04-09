@@ -1563,22 +1563,29 @@ class GetItemsByStringPropAction(GetItemAction):
         #property string, a dictionary holding the values of multiful 'String' properties
         ps = self.form['filter']        
         
-        print "GetItemsByStringPropAction,L1565,the properties and values are ",ps
+        #print "GetItemsByStringPropAction,L1565,the properties and values are ",ps
           
         ids = klass.stringFind(**ps)        
         props = self.form.get('propnames')
         
-        print "GetItemsByStringPropAction,L1567,props are %s, classname is %s, filtered nodes ids are %s"%(props, cl, ids)
+        #print "GetItemsByStringPropAction,L1571,props are %s, classname is %s, filtered nodes ids are %s"%(props, cl, ids)
         
         if not ids:
             self.client.ok_message.append("Nothig find.")
             return None
-        elif props:            
+        elif props:  
+            args = [klass,props]
+            if self.form.get('link2key'):
+                    args.append(True)
+                    
             if self.form.get('needId') == False:
-                values = [self.getitem(klass,id,props) for id in ids]            
+                #values = [self.getitem(klass,id,props) for id in ids]     
+                values = [self.getitem(*args) for id in ids]            
             else:
-                values = [[id]+self.getitem(klass,id,props) for id in ids]            
-            print "GetItemsByStringPropAction,L1573,filtered values are ", values
+                #values = [[id]+self.getitem(klass,id,props) for id in ids]
+                values = [[id]+self.getitem(*args) for id in ids]            
+            
+            #print "GetItemsByStringPropAction,L1581,filtered values are ", values
             return values
         else:            
             return ids  

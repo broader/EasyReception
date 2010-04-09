@@ -4,6 +4,10 @@ This module is mainly used for render html form element.
 
 from HTMLTags import *
 
+modules = {'pagefn': 'pagefn.py'}
+[locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items() ]
+
+
 def yform(fields):
 	""" Render YAML formats form components."""
 	divs = [ getField(item) for item in fields ]
@@ -29,7 +33,76 @@ def _getValidClass(field, required):
 		validClass = None 
 	
 	return validClass
-    
+
+def _radioField(field,oldvalue):
+	options = field.pop("options")
+	if not oldvalue:
+		oldvalue = 0
+			
+	radioes = [BR(),]
+	name = field.get("name")
+			
+	for option in options:				
+		if str(option.get("value")) == str(oldvalue) :
+			option["checked"] = ""
+					
+		option["name"] = name
+		option["type"] = "radio"
+		text = _( option.pop("label") )
+		input = INPUT(**option)
+		text = TEXT("".join(( text, "&nbsp;&nbsp;")))
+		radioes.append( Sum(( input, text)) )
+
+	return Sum(radioes)
+
+def _selectField(field,oldvalue):
+	options = field.pop("options")
+	if not oldvalue:
+		oldvalue = 0
+	
+	select = []
+	#name = field.get("name")
+			
+	for option in options:
+		if str(option.get("value")) == str(oldvalue):
+			option["selected"] = ""
+		
+		text = _( option.pop("label") )
+		select.append(OPTION(text, **option))
+			
+	[ field.pop(prop) for prop in ("type", "class")]	
+	
+	return SELECT(Sum(select),**field)
+
+def _textMultiCheckbox(field,oldvalue):
+	containerId = field.pop('id')
+	container = []
+	# monitor box
+	mElements = [ DIV(**{'class':'monitor-text'}),INPUT(**{'type':'hidden','name':field.get('name')})]
+	container.append( DIV(DIV(Sum(mElements)), **{'class':'monitor'}))
+
+	# menus container
+	chkboxes = []
+	for option in field['options']:
+		chkboxes.append(LI(SPAN(option)))
+	
+	container.append(UL(Sum(chkboxes)))
+	container = DIV(Sum(container),**{'id':containerId})
+
+	# js slice
+	js = \
+	"""
+	var containerId='%s';
+	MUI.textMultiCheckbox('',{
+		'onload': function(){
+			var stautsMultiChk = new TextMultiCheckbox(containerId);
+		}
+	});	
+	"""%(containerId)
+	script = pagefn.script(js,link=False)
+	return Sum((container,script))	
+
+ 
 def getField(field):
 	""" Render YAML formats form field."""
 	
@@ -82,40 +155,11 @@ def getField(field):
 		elif fieldType == "textarea":
 			input = TEXTAREA(oldvalue, **field)
 		elif fieldType == "radio":
-			options = field.pop("options")
-			if not oldvalue:
-				oldvalue = 0
-			
-			radioes = [BR(),]
-			name = field.get("name")
-			
-			for option in options:				
-				if str(option.get("value")) == str(oldvalue) :
-					option["checked"] = ""
-					
-				option["name"] = name
-				option["type"] = "radio"
-				text = _( option.pop("label") )
-				input = INPUT(**option)
-				text = TEXT("".join(( text, "&nbsp;&nbsp;")))
-				radioes.append( Sum(( input, text)) )
-				
-			input = Sum(radioes)
+			input = _radioField(field,oldvalue)
 		elif fieldType == "select":
-			options = field.pop("options")
-			if not oldvalue:
-				oldvalue = 0
-			select = []
-			name = field.get("name")
-			
-			for option in options:
-				if str(option.get("value")) == str(oldvalue):
-					option["selected"] = ""
-				text = _( option.pop("label") )
-				select.append(OPTION(text, **option))
-			
-			[ field.pop(prop) for prop in ("type", "class")]	
-			input = SELECT(Sum(select),**field)
+			input = _selectField(field,oldvalue)
+		elif fieldType == "textMultiCheckbox":
+			input = _textMultiCheckbox(field,oldvalue)
 		
 	div.append(input)
 	

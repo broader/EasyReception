@@ -139,15 +139,16 @@ def page_editPortfolio(**args):
 		name = element.get('name')
 		# Add 'id' property for each field		
 		element.update({'id':name})
-      # Add required property to the needed fields, 
-      # here means all the fields will be added the 'required' property.
+		# Add required property to the needed fields, 
+      		# here means all the fields will be added the 'required' property.
 		element.update({'required':False})
-      # add maybe old value
+      		# add maybe old value
 		element.update({'oldvalue':rember.get(name)})	
 	
 	# render the fields to the form
 	form = []
-   # get the OL content from formRender.py module	
+   	
+	# get the OL content from formRender.py module	
 	yform = formFn.yform
 	# calculate the fields' number showing in each column of the form	
 	interval = int(len(render)/3)	
@@ -158,7 +159,7 @@ def page_editPortfolio(**args):
 	right = DIV(Sum(yform(render[next:])), **{'class':'c33r', 'style':style})
 	divs = DIV(Sum((left, center, right)), **{'class':'subcolumns'})	
 	
-   # add the <Legend> tag
+   	# add the <Legend> tag
 	legend = LEGEND(Sum([ TEXT(user), TEXT(_('- Base Information ')) ]))    
 	form.append(FIELDSET(Sum((legend,divs))))
 	

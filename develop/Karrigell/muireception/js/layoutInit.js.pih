@@ -376,6 +376,20 @@ MUI.extend({
 		
 		MUI.import(appName,urls,options);
 		
+	},
+
+	/***********************************************************************
+	Imports TextMultiCheckbox plugin
+	************************************************************************/
+	textMultiCheckbox: function(appName, options){
+		// get lib files
+		var urls = [];
+		<% for url in pagefn.JSLIB['textMultiCheckbox']['files'] : %>
+			urls.push('<%=url%>');
+		<% end %>
+		
+		MUI.import(appName,urls,options);
+
 	}
 	
 });

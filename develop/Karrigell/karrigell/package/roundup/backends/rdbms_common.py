@@ -2115,7 +2115,7 @@ class Class(hyperdb.Class):
             where.append(propname)
             args.append(requirements[propname].lower())
 
-        print 'rdbms_common.Class.stringFind,L2118,sql arguments is ',args
+        #print 'rdbms_common.Class.stringFind,L2118,sql arguments is ',args
         
         # generate the where clause
         s = ' and '.join(['lower(_%s)=%s'%(col, self.db.arg) for col in where])
@@ -2126,7 +2126,7 @@ class Class(hyperdb.Class):
         # XXX numeric ids
         l = [str(x[0]) for x in self.db.sql_fetchall()]
         
-        print 'rdbms_common.Class.stringFind,L2129, search result is ', l
+        #print 'rdbms_common.Class.stringFind,L2129, search result is ', l
         
         return l
 

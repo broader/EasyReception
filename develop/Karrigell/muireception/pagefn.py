@@ -35,6 +35,11 @@ JSLIB['dataGrid'] = \
 {'files':['/'.join(('lib','grid',name)) for name in ('omnigrid.css','gridSupplement.css', 'omnigrid.js')],
 }
 
+# textMultiCheckbox
+JSLIB['textMultiCheckbox'] = \
+{'files':['/'.join(('lib','textMultiCheckbox',name)) for name in ('TextMultiCheckbox.css','TextMultiCheckbox.js')],
+}
+
 #--------------------------------------------------------------------------------------
 
 ##

@@ -41,21 +41,26 @@ def page_statusJunaValid(**args):
 	items = model.get_items_ByString(USER, 'status', {'category':category},('name','id'))
 
 	if items and type(items) == type([]) :
+	   # 'items' is a valid list and not empty
 	   valid = 0
 	   existedNames = [ i[0] for i in items ] 
 	   if nid:
+	      # 'edit' action
 	      for i in iter(items):
 	         if int(i[1]) == int(nid) :
 		    oldName = i[0]
 		    break
 		
 	      if name == oldName and oldName in existedNames:
+		 # input name not change
 	         valid = 1
 	      elif not name in existedNames:
+		 # new input name and not used
 	         valid = 1
 	   
 	   else:
 	      if not name in existedNames:
+		 # 'create' action and name not used
 	         valid = 1
 
 	   print JSON.encode( {'valid': valid} )

@@ -45,6 +45,7 @@ PROPS =\
 	{'name':'price','prompt':_('Unit Price'),'validate':[]},
 	{'name':'amount','prompt':_('Amount'),'validate':[]},
 	{'name':'detail','prompt':_('Supplement'),'validate':[],'type':'textarea'},
+	{'name':'status','prompt':_('Service Status'),'validate':[]}
 ]
 
 GETPROPSLABEL = lambda name : [item.get('prompt') for item in PROPS if item.get('name')== name ][0]
@@ -62,7 +63,8 @@ COLUMNMODEL = [
 	{'dataIndex':'serial','label':_('Serial'),'dataType':'string','hide':'1'},
 	{'dataIndex':'category','label':_('Category'),'dataType':'string','hide':'1'},
 	{'dataIndex':'subcategory','label':_('Subcategory'),'dataType':'string','hide':'1'},
-	{'dataIndex':'id','label':_('ServiceId'),'dataType':'string','hide':'1'}
+	{'dataIndex':'status','label':_('Service Status'),'dataType':'string','hide':'1'},
+	{'dataIndex':'id','label':_('ServiceId'),'dataType':'string','hide':'0'}
 ]
 
 # End*****************************************************************************************
@@ -219,7 +221,7 @@ def _showServiceJs(category):
 	var treeTable;
 	
 	var modalOptions = {
-		width:600, height:380, modalOverlayClose: false,
+		width:600, height:480, modalOverlayClose: false,
    		onClose: function(e){
    		// refresh table's body
    		treeTable.refreshTbody();
@@ -384,7 +386,7 @@ def page_colsModel(**args):
 def _getServiceItems(category,props=None):
 	# get items from 'service' class in database
 	search = {'category' : category}
-	items = model.get_items_ByString(USER, 'service', search, props)
+	items = model.get_items_ByString(USER, 'service', search, props, needId=False,link2key=True)
 	return items
 
 def _data2tree(items,idFn,pidFn):
@@ -510,6 +512,15 @@ def _formFieldsConstructor(values,setOldValue=False):
 		if not prop.get('type'):
 			prop['type'] = 'text'
 			
+		if name == 'status':
+			# set 'status' field to 'textMultiCheckbox' type
+			prop['type'] = 'textMultiCheckbox'
+			prop['options'] = [] 
+			items = model.get_items_ByString(USER, 'status', {'category':'service'},('name',))
+			if items and type(items) == type([]):
+				prop['options'] = [i[0] for i in items]
+
+
 		if not prop.has_key('required'):
 			prop['required'] = False	 	
 	
@@ -534,13 +545,13 @@ def page_editService(**args):
 	# ------> has category, it's subcategory creating action
 	
 	if not action :
-		if category:
+		if category:	# category 'create' action
 			props.pop('category')
 			[props.update({name:None,}) for name in ('name','description')]			
 			info.append( {'prompt':GETPROPSLABEL('category'), 'value':args.get('category')} )
 			hideInput.append( {'name':'category', 'value':args.get('category')} )			
 			props = _formFieldsConstructor(props)
-		else:
+		else:	# subcategory 'create' action
 			[ props.update({name:None,}) for name in ('category','description')]
 			props = _formFieldsConstructor(props,False) 
 		
@@ -575,7 +586,7 @@ def page_editService(**args):
 		labelStyle = {'label':'font-weight:bold;font-size:1.2em;color:dackblue;', \
 						  'td':'text-align:right;'}
 						  
-		valueStyle = {'label':'color:#ff6600;font-size:1.2em;', 'td':'text-align:left;width:6em;'}
+		valueStyle = {'label':'color:#ff6600;font-size:1.2em;', 'td':'text-align:left;width:auto;'}
 						  
 		print TABLE(formFn.render_table_fields(info, 2, labelStyle, valueStyle), style='border:none;')
 	
@@ -660,32 +671,33 @@ def _editServiceJs():
 	    }// the end for 'onload' definition
 	};// the end for 'options' definition
  
-   MUI.formValidLib(appName,options);
+      	MUI.formValidLib(appName,options);
    
-   /*****************************************************************************
-   Check whether the category name has been used    
-   *****************************************************************************/    
-   // A Request.JSON class for send validation request to server side
-   var categoryRequest = new Request.JSON({async:false});
+   	/*****************************************************************************
+   	Check whether the category name has been used    
+   	*****************************************************************************/    
+   	// A Request.JSON class for send validation request to server side
+   	var categoryRequest = new Request.JSON({async:false});
     
-   var categroyValidTag = false;
-   window[categroyValidFn] = function(el){
-      el.errors.push(categoryErr)
-      // set some options for Request.JSON instance
-      categoryRequest.setOptions({
-         url: categoryValidAction,
-         onSuccess: function(res){
-           if(res.valid == 1){categroyValidTag=true};
-         }
-      });
+   	var categroyValidTag = false;
+   	window[categroyValidFn] = function(el){
+      		el.errors.push(categoryErr);
+	
+	      	// set some options for Request.JSON instance
+      		categoryRequest.setOptions({
+         		url: categoryValidAction,
+         		onSuccess: function(res){
+           			if(res.valid == 1){categroyValidTag=true};
+         		}
+      		});
        
-      categoryRequest.get({'name':el.getProperty('value')});
-      if(categroyValidTag){
-         categroyValidTag=false;   // reset global variable 'categroyValidTag' to be 'false'
-         return true
-      }             
-      return false;
-   };    
+      		categoryRequest.get({'name':el.getProperty('value')});
+      		if(categroyValidTag){
+         		categroyValidTag=false;   // reset global variable 'categroyValidTag' to be 'false'
+         		return true
+      		};             
+      		return false;
+   	};    
 	
 	/******************************************************************************
 	Check whether the service name has been used
@@ -694,33 +706,36 @@ def _editServiceJs():
 	var nameValidTag = false;
 	
 	window[serviceNameValidFn] = function(el){
-		el.errors.push(serviceNameErr)
-      // set some options for Request.JSON instance
-      serviceNameRequest.setOptions({
-         url: serviceNameValidAction,
-         onSuccess: function(res){
-           if(res.valid == 1){nameValidTag=true};
-         }
-      });
+		el.errors.push(serviceNameErr);
+	
+	      	// set some options for Request.JSON instance
+      		serviceNameRequest.setOptions({
+         		url: serviceNameValidAction,
+         		onSuccess: function(res){
+           			if(res.valid == 1){nameValidTag=true};
+         		}
+      		});
       
-      serviceNameRequest.get({
-      	'name':el.getProperty('value'),
-      	'category': function(element){
-      		value = element.getParents('form')[0].getElement('input[name=category]')
-      		.getProperty('value');
-      		return value
-      	}(el)
-      });
+	      	serviceNameRequest.get({
+      			'name':el.getProperty('value'),
+      			'category': function(element){
+      				var value = element.getParents('form')[0].getElement('input[name=category]')
+      				.getProperty('value');
+      				return value
+      			}(el)
+      		});
       
-      if(nameValidTag){
-         nameValidTag=false;   // reset global variable 'nameValidTag' to be 'false'
-         return true
-      }             
-      return false;
+		if(nameValidTag){
+        		nameValidTag=false;   // reset global variable 'nameValidTag' to be 'false'
+         		return true
+      		}             
+      		
+		return false;
 	};
 	
 	
-	var buttons = $(formId).getElements('button')
+	var buttons = $(formId).getElements('button');
+
 	buttons[0].addEvent('click', function(e){
 		serviceCategoryFormchk.onSubmit(e);
 	});
