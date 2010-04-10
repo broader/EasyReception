@@ -33978,3 +33978,82 @@ sent 66 bytes  received 12 bytes  52.00 bytes/sec
 total size is 274436  speedup is 3518.41
 2010-04-09 18:30:21,025 INFO End backup loacl karrigell diretory to local git.
 2010-04-09 18:30:21,025 INFO Begin to backup local github to remote github host.
+2010-04-09 18:30:22,640 INFO Command: 
+git add .
+running result is :
+2010-04-09 18:30:28,021 INFO Command: 
+git commit -m 'Update time:2010-04-09T18:30:21.025992'
+running result is :[master 2b09e44] Update time:2010-04-09T18:30:21.025992
+ 25 files changed, 569 insertions(+), 115 deletions(-)
+ create mode 100644 develop/Karrigell/muireception/lib/textMultiCheckbox/TextMultiCheckbox.css
+ create mode 100644 develop/Karrigell/muireception/lib/textMultiCheckbox/TextMultiCheckbox.js
+ create mode 100644 develop/Karrigell/muireception/lib/textMultiCheckbox/img/checkbox.gif
+ create mode 100644 develop/Karrigell/muireception/lib/textMultiCheckbox/img/monitor-center-active.png
+ create mode 100644 develop/Karrigell/muireception/lib/textMultiCheckbox/img/monitor-center.png
+ create mode 100644 develop/Karrigell/muireception/lib/textMultiCheckbox/img/monitor-left-active.png
+ create mode 100644 develop/Karrigell/muireception/lib/textMultiCheckbox/img/monitor-left.png
+ create mode 100644 develop/Karrigell/muireception/lib/textMultiCheckbox/img/monitor-right-active.png
+ create mode 100644 develop/Karrigell/muireception/lib/textMultiCheckbox/img/monitor-right.png
+2010-04-09 18:30:37,237 INFO Command: 
+git push origin master
+running result is :Counting objects: 80, done.
+Delta compression using up to 2 threads.
+Compressing objects:   2% (1/46)   Compressing objects:   4% (2/46)   Compressing objects:   6% (3/46)   Compressing objects:   8% (4/46)   Compressing objects:  10% (5/46)   Compressing objects:  13% (6/46)   Compressing objects:  15% (7/46)   Compressing objects:  17% (8/46)   Compressing objects:  19% (9/46)   Compressing objects:  21% (10/46)   Compressing objects:  23% (11/46)   Compressing objects:  26% (12/46)   Compressing objects:  28% (13/46)   Compressing objects:  30% (14/46)   Compressing objects:  32% (15/46)   Compressing objects:  34% (16/46)   Compressing objects:  36% (17/46)   Compressing objects:  39% (18/46)   Compressing objects:  41% (19/46)   Compressing objects:  43% (20/46)   Compressing objects:  45% (21/46)   Compressing objects:  47% (22/46)   Compressing objects:  50% (23/46)   Compressing objects:  52% (24/46)   Compressing objects:  54% (25/46)   Compressing objects:  56% (26/46)   Compressing objects:  58% (27/46)   Compressing objects:  60% (28/46)   Compressing objects:  63% (29/46)   Compressing objects:  65% (30/46)   Compressing objects:  67% (31/46)   Compressing objects:  69% (32/46)   Compressing objects:  71% (33/46)   Compressing objects:  73% (34/46)   Compressing objects:  76% (35/46)   Compressing objects:  78% (36/46)   Compressing objects:  80% (37/46)   Compressing objects:  82% (38/46)   Compressing objects:  84% (39/46)   Compressing objects:  86% (40/46)   Compressing objects:  89% (41/46)   Compressing objects:  91% (42/46)   Compressing objects:  93% (43/46)   Compressing objects:  95% (44/46)   Compressing objects:  97% (45/46)   Compressing objects: 100% (46/46)   Compressing objects: 100% (46/46), done.
+Writing objects:   2% (1/46)   Writing objects:   4% (2/46)   Writing objects:   6% (3/46)   Writing objects:   8% (4/46)   Writing objects:  10% (5/46)   Writing objects:  13% (6/46)   Writing objects:  15% (7/46)   Writing objects:  17% (8/46)   Writing objects:  19% (9/46)   Writing objects:  21% (10/46)   Writing objects:  23% (11/46)   Writing objects:  26% (12/46)   Writing objects:  28% (13/46)   Writing objects:  30% (14/46)   Writing objects:  32% (15/46)   Writing objects:  34% (16/46)   Writing objects:  36% (17/46)   Writing objects:  39% (18/46)   Writing objects:  41% (19/46)   Writing objects:  43% (20/46)   Writing objects:  45% (21/46)   Writing objects:  47% (22/46)   Writing objects:  50% (23/46)   Writing objects:  52% (24/46)   Writing objects:  54% (25/46)   Writing objects:  56% (26/46)   Writing objects:  58% (27/46)   Writing objects:  60% (28/46)   Writing objects:  63% (29/46)   Writing objects:  65% (30/46)   Writing objects:  67% (31/46)   Writing objects:  69% (32/46)   Writing objects:  76% (35/46)   Writing objects:  78% (36/46)   Writing objects:  80% (37/46)   Writing objects:  82% (38/46)   Writing objects:  84% (39/46)   Writing objects:  86% (40/46)   Writing objects:  89% (41/46)   Writing objects:  91% (42/46)   Writing objects:  93% (43/46)   Writing objects:  95% (44/46)   Writing objects:  97% (45/46)   Writing objects: 100% (46/46)   Writing objects: 100% (46/46), 18.10 KiB, done.
+Total 46 (delta 34), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   b3228b9..2b09e44  master -> master
+2010-04-09 18:30:37,238 INFO End backup local github to remote github host.
+2010-04-10 21:50:09,795 INFO Delete nousing captcha images
+2010-04-10 21:50:09,820 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-04-10 21:50:09,821 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-04-10 21:50:18,066 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%    0.00kB/s    0:00:00        362496 100%    7.86MB/s    0:00:00 (xfer#1, to-check=1045/3985)
+karrigell/package/roundup/ajax/
+karrigell/package/roundup/ajax/ajaxActions.py
+       32768  29%   39.41kB/s    0:00:02        112465 100%  134.27kB/s    0:00:00 (xfer#2, to-check=1899/5889)
+karrigell/package/roundup/ajax/ajaxActions.pyc
+       32768  37%   39.02kB/s    0:00:01         87235 100%   94.97kB/s    0:00:00 (xfer#3, to-check=1898/5889)
+karrigell/package/roundup/ajax/ajaxClient.py
+       16630 100%   18.04kB/s    0:00:00         16630 100%   18.04kB/s    0:00:00 (xfer#4, to-check=1897/5889)
+karrigell/package/roundup/ajax/ajaxClient.pyc
+       12450 100%   10.97kB/s    0:00:00         12450 100%   10.97kB/s    0:00:01 (xfer#5, to-check=1896/5889)
+karrigell/package/roundup/backends/
+karrigell/package/roundup/backends/rdbms_common.py
+       32768  30%   28.73kB/s    0:00:02         65536  60%   57.14kB/s    0:00:00        108955 100%   83.78kB/s    0:00:01 (xfer#6, to-check=1858/5889)
+karrigell/package/roundup/backends/rdbms_common.pyc
+       32768  37%  210.53kB/s    0:00:00         86344 100%  511.03kB/s    0:00:00 (xfer#7, to-check=1857/5889)
+muireception/
+muireception/form.py
+        6603 100%   36.85kB/s    0:00:00          6603 100%   36.85kB/s    0:00:00 (xfer#8, to-check=1583/5889)
+muireception/model.py
+       17842 100%   99.00kB/s    0:00:00         17842 100%   99.00kB/s    0:00:00 (xfer#9, to-check=1570/5889)
+muireception/lib/textMultiCheckbox/
+muireception/lib/textMultiCheckbox/TextMultiCheckbox.css
+        1811 100%    0.00kB/s    0:00:00          1811 100%    0.00kB/s    0:00:00 (xfer#10, to-check=1004/7553)
+muireception/lib/textMultiCheckbox/TextMultiCheckbox.js
+        5355 100%    2.55MB/s    0:00:00          5355 100%    2.55MB/s    0:00:00 (xfer#11, to-check=1003/7553)
+muireception/service/
+muireception/service/service.ks
+       26217 100%   66.67kB/s    0:00:00         26217 100%   66.50kB/s    0:00:00 (xfer#12, to-check=673/7919)
+muireception/sysadmin/
+muireception/sysadmin/sysadmin.ks
+       22066 100%   55.40kB/s    0:00:00         22066 100%   55.40kB/s    0:00:00 (xfer#13, to-check=668/7919)
+
+sent 346783 bytes  received 1436 bytes  36654.63 bytes/sec
+total size is 47653588  speedup is 136.85
+2010-04-10 21:50:18,142 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 66 bytes  received 12 bytes  156.00 bytes/sec
+total size is 274436  speedup is 3518.41
+2010-04-10 21:50:18,143 INFO End backup loacl karrigell diretory to local git.
+2010-04-10 21:50:18,143 INFO Begin to backup local github to remote github host.

@@ -141,8 +141,10 @@ class Client:
             # possibly handle a form submit action (may change self.classname
             # and self.template, and may also append error/ok_messages)
             try:
-                data = self.handle_action()  
-                #print 'ajaxClient.Client.inner_main,L146', data
+                data = self.handle_action() 
+                if not data:
+                    self.ok_message.append('Nothing Return')
+                #print 'ajaxClient.Client.inner_main,L146,data is %s, ok message is %s'%(data, self.ok_message)
             except :
                 err = sys.exc_info()
                 print 'ajaxClient.inner_main,L149,error is ',err

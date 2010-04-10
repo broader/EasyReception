@@ -78,13 +78,14 @@ def _textMultiCheckbox(field,oldvalue):
 	containerId = field.pop('id')
 	container = []
 	# monitor box
-	mElements = [ DIV(**{'class':'monitor-text'}),INPUT(**{'type':'hidden','name':field.get('name')})]
+	mElements = [ DIV(oldvalue, **{'class':'monitor-text'}),INPUT(**{'type':'hidden','name':field.get('name'),'value':oldvalue})]
 	container.append( DIV(DIV(Sum(mElements)), **{'class':'monitor'}))
 
 	# menus container
 	chkboxes = []
 	for option in field['options']:
-		chkboxes.append(LI(SPAN(option)))
+		attrs = (option in oldvalue) and {'class':'selected'} or {}
+		chkboxes.append(LI(SPAN(option),**attrs))
 	
 	container.append(UL(Sum(chkboxes)))
 	container = DIV(Sum(container),**{'id':containerId})

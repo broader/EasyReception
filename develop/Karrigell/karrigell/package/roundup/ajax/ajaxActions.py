@@ -1175,11 +1175,11 @@ class GetItemAction(Action):
         # get the Link and Multilink properties 
         if link2key :
             # here used a syntax: (lambda x,y:...)(x,y) 
-            link = [(lambda name,prop: (isinstance(prop,hyperdb.Link) or \
-                                                               isinstance(prop,hyperdb.Multilink)) and \
-                                                               name)\
-                           (name,prop)\
-                          for name,prop in pperties.items()]
+            link = [(lambda name,prop: 
+                    (isinstance(prop,hyperdb.Link)\
+                     or isinstance(prop,hyperdb.Multilink))\
+                     and name)(name,prop)\
+                    for name,prop in pperties.items()]
             #print 'ajaxActions.GetItemAction,L1106,link is ',link
             #filter the False items.
             link = filter(None,link)
@@ -1574,16 +1574,16 @@ class GetItemsByStringPropAction(GetItemAction):
             self.client.ok_message.append("Nothig find.")
             return None
         elif props:  
-            args = [klass,props]
-            if self.form.get('link2key'):
-                    args.append(True)
-                    
+            link2key = self.form.get('link2key')
+            #print 'GetItemsByStringPropAction,L1578,link2key is ',link2key
             if self.form.get('needId') == False:
                 #values = [self.getitem(klass,id,props) for id in ids]     
-                values = [self.getitem(*args) for id in ids]            
+                values = [self.getitem(klass,id,props, link2key) for id in ids]     
+                #values = [self.getitem(*args) for id in ids]    
+                
             else:
                 #values = [[id]+self.getitem(klass,id,props) for id in ids]
-                values = [[id]+self.getitem(*args) for id in ids]            
+                values = [[id]+self.getitem(klass,id,props, link2key) for id in ids]
             
             #print "GetItemsByStringPropAction,L1581,filtered values are ", values
             return values

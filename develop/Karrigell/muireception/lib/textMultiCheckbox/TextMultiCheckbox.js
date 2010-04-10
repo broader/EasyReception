@@ -57,9 +57,6 @@ var TextMultiCheckbox = new Class({
 
 		// style this widget
 		this.container = $(container);
-		
-		alert('TextMultiCheckbox.initialize,container is '+this.container);
-
 		this.container.addClass(this.options.containerClass);
 		
 		// style monitor 
@@ -71,7 +68,8 @@ var TextMultiCheckbox = new Class({
 		
 		this.monitorTextElement = this.monitor.getElement('.'+[this.options.monitorClass, this.options.monitorTextClass].join('-'));
 		this.prompt = new Element( this.options.promptWrapper,{'html': this.options.prompText});
-		this.monitorTextElement.grab(this.prompt);
+		if(this.monitorTextElement.get('text') == '') this.monitorTextElement.grab(this.prompt);
+
 		this.formField = this.monitor.getElement(this.options.monitorFieldType);
 	
 		// style menus' container

@@ -63,8 +63,8 @@ COLUMNMODEL = [
 	{'dataIndex':'serial','label':_('Serial'),'dataType':'string','hide':'1'},
 	{'dataIndex':'category','label':_('Category'),'dataType':'string','hide':'1'},
 	{'dataIndex':'subcategory','label':_('Subcategory'),'dataType':'string','hide':'1'},
-	{'dataIndex':'status','label':_('Service Status'),'dataType':'string','hide':'1'},
-	{'dataIndex':'id','label':_('ServiceId'),'dataType':'string','hide':'0'}
+	{'dataIndex':'status','label':_('Service Status'),'dataType':'string','hide':'0'},
+	{'dataIndex':'id','label':_('ServiceId'),'dataType':'string','hide':'1'}
 ]
 
 # End*****************************************************************************************
@@ -433,7 +433,6 @@ def page_serviceItems(**args):
 		
 	# filter the root category items	
 	nameIndex = props.index('name')	
-	#rows = filter( lambda item: item['data'][nameIndex], _getServiceItems(category, props, True))
 	idFn = lambda i: i[props.index('id')]
 	pidFn = lambda i: i[props.index('subcategory')]
 	rows = filter( lambda item: item['data'][nameIndex], _treeFlattenData(category,props,idFn,pidFn))	

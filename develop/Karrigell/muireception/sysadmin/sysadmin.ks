@@ -46,6 +46,7 @@ def page_statusJunaValid(**args):
 	   existedNames = [ i[0] for i in items ] 
 	   if nid:
 	      # 'edit' action
+	      oldName = None
 	      for i in iter(items):
 	         if int(i[1]) == int(nid) :
 		    oldName = i[0]

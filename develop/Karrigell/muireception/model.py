@@ -137,6 +137,7 @@ def get_items_ByString(operator, klass, search, propnames=None, needId=False,lin
               	'context': klass,\
               	'filter' : search,\    
               	'needId' : needId,\
+		'link2key': link2key,\
               	'propnames': propnames\
    	}        	
 
