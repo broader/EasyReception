@@ -271,7 +271,7 @@ var TreeTable = new Class({
 		
 		// add properties to tr element
 		tr.setProperties({'id': rowId});
-		tr.addEvent('dblclick',this.onRowDoubleClick.bind(this));			
+		tr.addEvent('click',this.onRowClick.bind(this));			
 		
 		
 		if(depth.toInt() >= this.options.initialExpandedDepth){
@@ -380,7 +380,7 @@ var TreeTable = new Class({
 	/*
 	When a row has been double clicked, toggle its status between 'selected' and 'unselected'.
 	*/
-	onRowDoubleClick: function(event){
+	onRowClick: function(event){
 		// get <TR> element 
 		trs = event.target.getParents('tr');
 		tr = null;

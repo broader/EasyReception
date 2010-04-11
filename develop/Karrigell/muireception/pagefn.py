@@ -199,14 +199,25 @@ PORTFOLIO = {'panelsId':('editPortfolioPanel','editAccountPanel'),}
 # Hotel Reservation Application module
 #--------------------------------------------------------------------------------------
 #HOTEL = {'panelsId':{'left':{'list':'hotesList','info':'hotelInfo'},'right':'hotelReserve'},}
-HOTEL = {\
-	'categoryInService':'Hotel',\
-	'main':{\
-		'list':{'panelId':'hotelsList','panelTitle':_('Hotels List'), 'contentUrl':'service/userHotelsView.ks/page_hotelsList'},\
-		'info':{'panelId':'hotelsInfo','panelTitle':_('Detail Information of The Hotel')}\
-	}, \
-	'right':{'panelId':'hotelReservation','panelTitle':_('Your reservations')}\
+_hotelUrls = ['/'.join(('service','userHotelsView.ks',url)) for url in ('page_hotelsList','page_hotelInfo','page_roomReserve')]
+
+HOTEL = \
+{ 
+	'categoryInService':'Hotel',
+	'main':{
+		'list':{
+			'panelId': 'hotelsList', 
+			'panelTitle': _('Hotels List'), 'contentUrl': _hotelUrls[0]},
+
+		'info':{
+			'panelId': 'hotelsInfo',
+			'panelTitle': _('Detail Information of The Hotel'),
+			'contentUrl': _hotelUrls[1]},
+
+		'right':{'panelId':'hotelReservation','panelTitle':_('Your reservations')}
+	}
 }
+
 #---End--------------------------------------------------------------------------------
 
 ##

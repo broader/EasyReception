@@ -30,8 +30,6 @@ USER = getattr( so, pagefn.SOINFO['user']).get('username')
 # The category name for 'hotel' application to 'service' class
 SERVICECATEGORY = pagefn.HOTEL.get('categoryInService')
 
-# config data object
-#CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 
 # valid functions for form fields
 CHKFNS = ('serviceCategoryChk','serviceNameChk')
@@ -48,11 +46,6 @@ PROPS =\
 	{'name':'amount','prompt':_('Amount'),'validate':[]},
 	{'name':'detail','prompt':_('Supplement'),'validate':[],'type':'textarea'},
 ]
-
-#GETPROPSLABEL = lambda name : [item.get('prompt') for item in PROPS if item.get('name')== name ][0]
-
-# the id for category creation form 
-#SERVICEEDITFORM = 'serviceEditForm'
 
 # the properties info that will be shown in columns's title in the tree table to show services' list
 COLUMNMODEL = [
@@ -164,7 +157,7 @@ def _hotelsListJs():
 					treeColumn: 0,					
 					dataUrl: rowDataUrl,
 					idPrefix: 'hotel-',
-					initialExpandedDepth: 1,
+					initialExpandedDepth: 2,
 					renderOver: addButton
 				}
 			);// the end for 'treeTable' definition
@@ -203,7 +196,7 @@ def page_colsModel(**args):
 def _getServiceItems(category,props=None):
 	# get items from 'service' class in database
 	search = {'category' : category}
-	items = model.get_items_ByString(USER, 'service', search, props)
+	items = model.get_items_ByString(USER, 'service', search, props, link2key=True)
 	return items
 
 def _data2tree(items,idFn,pidFn):
