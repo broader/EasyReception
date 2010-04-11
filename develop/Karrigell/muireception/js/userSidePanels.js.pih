@@ -49,22 +49,22 @@ function hotelPanel(panelId){
 	});
 	
 	// the panel to show hotel list
-	pid = "<%=hotel.get('main')['list']['panelId']%>";
+	pid = "<%=hotel.get('mainColumn')['list']['panelId']%>";
 	new MUI.Panel({
 		id: pid,
 		column: 'hotelListColumn', 
-		title: "<%=hotel.get('main')['list']['panelTitle']%>",
-		contentURL: "<%=hotel.get('main')['list']['contentUrl']%>",
+		title: "<%=hotel.get('mainColumn')['list']['panelTitle']%>",
+		contentURL: "<%=hotel.get('mainColumn')['list']['contentUrl']%>",
 		onExpand: MUI.accordionPanels.pass(pid)
 	});
 	
 	// the panel to show selected hotel info
-	pid = "<%=hotel.get('main')['info']['panelId']%>";
+	pid = "<%=hotel.get('mainColumn')['info']['panelId']%>";
 	panel = new MUI.Panel({
 		id: pid,
 		column: 'hotelListColumn', 
-		title: "<%=hotel.get('main')['info']['panelTitle']%>",
-		contentURL:'portfolio/portfolio.ks/page_showPortfolio',
+		title: "<%=hotel.get('mainColumn')['info']['panelTitle']%>",
+		contentURL: "<%=hotel.get('mainColumn')['info']['contentUrl']%>",
 		onExpand: MUI.accordionPanels.pass(pid)
 	});
 	
@@ -72,10 +72,10 @@ function hotelPanel(panelId){
 	panel.toggleExpand();	
 	
 	new MUI.Panel({
-		id: "<%=hotel.get('right')['panelId']%>",
-		title: "<%=hotel.get('right')['panelTitle'] %>",
+		id: "<%=hotel.get('rightColumn')['panelId']%>",
+		title: "<%=hotel.get('rightColumn')['panelTitle'] %>",
 		column: 'hotelReserveColumn',
-		contentURL:'portfolio/portfolio.ks/page_showAccount'
+		contentURL: "<%=hotel.get('rightColumn')['contentUrl']%>",
 	});
 };
 

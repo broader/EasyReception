@@ -203,8 +203,9 @@ _hotelUrls = ['/'.join(('service','userHotelsView.ks',url)) for url in ('page_ho
 
 HOTEL = \
 { 
-	'categoryInService':'Hotel',
-	'main':{
+	'categoryInService':'Hotel',	# the value for 'category' property of 'service' Class in schema.py of roundup module
+
+	'mainColumn':{
 		'list':{
 			'panelId': 'hotelsList', 
 			'panelTitle': _('Hotels List'), 'contentUrl': _hotelUrls[0]},
@@ -212,10 +213,10 @@ HOTEL = \
 		'info':{
 			'panelId': 'hotelsInfo',
 			'panelTitle': _('Detail Information of The Hotel'),
-			'contentUrl': _hotelUrls[1]},
+			'contentUrl': _hotelUrls[1]}
+	},
 
-		'right':{'panelId':'hotelReservation','panelTitle':_('Your reservations')}
-	}
+	'rightColumn':{'panelId':'hotelReservation','panelTitle':_('Your reservations'), 'contentUrl': _hotelUrls[2]}
 }
 
 #---End--------------------------------------------------------------------------------

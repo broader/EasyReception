@@ -94,7 +94,7 @@ def _getTabs(**args):
 	for category in categories:
 		d = { 'text':category,\
 				'id':''.join((category,'Tab')),\
-				'url':'/'.join((APPATH, '?'.join(('page_showService', 'category=%s'%category))))}
+				'url':'/'.join((APPATH, '?'.join(('page_showServiceLayout', 'category=%s'%category))))}
 		tabs.append(d)
 	
 	tabs.append({'id':'addNewService', 'url':'/'.join((APPATH,'page_createCategoryInfo'))})
@@ -156,9 +156,84 @@ def page_info(**args):
 	print P('For editing servcie, please select a category of service by clicking the tabs on right operation panel first !')
 	return
 	
+# set suplement administration info
+SERVICEADMIN = {getattr(pagefn,'HOTEL')['categoryInService']:{'url':'service/adminHotels.ks',}}
+SERVICEADMINSUFFIX = 'admin'
+def page_showServiceLayout(**args):
+	ctag = CATEGORYTAG
+	category = args.get(ctag)
+	
+	# temporary function to add 'category' query to url
+	urlGenerator = lambda url : '?'.join((url, '='.join((ctag,category))))
+
+	# try to get the url for MUI.Panel, 
+	# which maybe supplied supplement administration functions
+	adminUrl = '' 
+	for key,value in SERVICEADMIN.items():
+		if key.upper() == category.upper():
+			adminUrl = value.get('url') 
+			break
+	adminUrl = (not adminUrl) and urlGenerator(adminUrl) or adminUrl
+
+	container = '-'.join((category, SERVICEADMINSUFFIX))
+	print DIV(**{'id':container})
+
+	# add javascript slice
+	# set service list url for MUI.Panel
+	url = '/'.join((APPATH,'page_showService'))
+	url =  urlGenerator(url)
+
+	paras = [container, url, adminUrl]
+	paras = tuple(paras)
+	js = \
+	"""
+	var container='%s', listUrl='%s',adminUrl='%s';
+
+	var mainColumn = [container, 'column'].join('-'),
+	listPanel = [container, 'panel'].join('-');
+	if(adminUrl==''){
+		new MUI.Column({ 
+			id: mainColumn,	container:container, placement:'main',
+			sortable: false
+		});
+		
+		new MUI.Panel({
+			id: listPanel, header:false, column: mainColumn,
+			contentURL: listUrl
+		});
+	}
+	else{
+		new MUI.Column({ 
+			id: mainColumn, container:container, placement:'main',
+			resizeLimit:[100, 500],	sortable: false
+		});
+		
+		var rightColumn = [container, 'right', 'column'].join('-');	
+		new MUI.Column({ 
+			id: rightColumn, container:container,placement:'right',
+			sortable: false
+		});
+
+		new MUI.Panel({
+			id: listPanel, header:false, column: mainColumn,
+			contentURL: listUrl
+		});
+		
+		var adminPanel = [container, 'admin','panel'].join('-');
+		new MUI.Panel({
+			id: adminPanel, header:false, column: rightColumn,
+			contentURL: adminUrl
+		});
+
+	};
+	"""%paras
+	print pagefn.script(js, link=False)
+	return
+
 PROPS4TABLE =  ['serial', 'name','subcategory','description', 'detail', 'price', 'amount']
 TABLECONTAINER = 'servcieTableDiv'
 CONTAINERID = lambda category : '-'.join((category,TABLECONTAINER))
+
 ADDSERVICEBUTTON = 'addService'
 ADDSERVICEBUTTONID = lambda category : '-'.join((category,ADDSERVICEBUTTON))
 

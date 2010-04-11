@@ -57,7 +57,8 @@ COLUMNMODEL = [
 	{'dataIndex':'serial','label':_('Serial'),'dataType':'string','hide':'1'},
 	{'dataIndex':'category','label':_('Category'),'dataType':'string','hide':'1'},
 	{'dataIndex':'subcategory','label':_('Subcategory'),'dataType':'string','hide':'1'},
-	{'dataIndex':'id','label':_('ServiceId'),'dataType':'string','hide':'1'}
+	{'dataIndex':'id','label':_('ServiceId'),'dataType':'string','hide':'1'},
+	{'dataIndex':'status','label':_('Service Status'),'dataType':'string','hide':'0'}
 ]
 
 # End*****************************************************************************************
@@ -259,4 +260,12 @@ def page_hotelItems(**args):
 	print JSON.encode(rows,encoding='utf8')
 	return
 
+def page_hotelInfo(**args):
+	print H2('The detail information for one hotel')
+	return
 	
+def page_roomReserve(**args):
+	print H2('User:%s rooms reservation'%USER)
+	return
+
+

@@ -120,6 +120,12 @@ Initialize layout in main window
 
 // Add two columns, one is sidebar and the other is the main column.
 function addColumns(){
+	/*
+	All these two MUI.Column instance are to be added to MUI.Desktop.pageWrapper, 
+	so it's no need to set 'container' option when initializing these two
+	MUI.Column instances.
+	*/
+
 	// first, add columns to main window of the desktop	
 	new MUI.Column({
 		id:'<%=sideBar %>', placement:'left', width:200, 
@@ -156,7 +162,7 @@ function layoutInit(){
 						panelsNumber = json['data'].length;
 						
 						json['data'].each(function(item,index){														
-							var pid=['<%=sidePanelPrefix %>', item['id']].join('-'),
+							var pid = ['<%=sidePanelPrefix %>', item['id']].join('-'),
 							text=item['text'], url=item['contentURL'], 
 							expandfn=item['onExpand'], collapse=item['onCollapse'];
 							
