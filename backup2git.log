@@ -34360,3 +34360,49 @@ sent 65568 bytes  received 31 bytes  131198.00 bytes/sec
 total size is 283169  speedup is 4.32
 2010-04-12 11:37:48,246 INFO End backup loacl karrigell diretory to local git.
 2010-04-12 11:37:48,246 INFO Begin to backup local github to remote github host.
+2010-04-12 11:37:48,449 INFO Command: 
+git add .
+running result is :
+2010-04-12 11:37:48,719 INFO Command: 
+git commit -m 'Update time:2010-04-12T11:37:48.246990'
+running result is :[master 93f86b4] Update time:2010-04-12T11:37:48.246990
+ 2 files changed, 52 insertions(+), 2 deletions(-)
+2010-04-12 11:37:54,971 INFO Command: 
+git push origin master
+running result is :Counting objects: 11, done.
+Delta compression using up to 2 threads.
+Compressing objects:  20% (1/5)   Compressing objects:  40% (2/5)   Compressing objects:  60% (3/5)   Compressing objects:  80% (4/5)   Compressing objects: 100% (5/5)   Compressing objects: 100% (5/5), done.
+Writing objects:  16% (1/6)   Writing objects:  33% (2/6)   Writing objects:  50% (3/6)   Writing objects:  66% (4/6)   Writing objects:  83% (5/6)   Writing objects: 100% (6/6)   Writing objects: 100% (6/6), 1.16 KiB, done.
+Total 6 (delta 3), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   8a44b39..93f86b4  master -> master
+2010-04-12 11:37:54,971 INFO End backup local github to remote github host.
+2010-04-12 20:48:16,424 INFO Delete nousing captcha images
+2010-04-12 20:48:16,451 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-04-12 20:48:16,451 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-04-12 20:48:23,686 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+muireception/lib/
+muireception/lib/inlineEdit/
+muireception/lib/inlineEdit/InlineEdit.js
+        2627 100%    0.00kB/s    0:00:00          2627 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1010/7438)
+muireception/lib/textMultiCheckbox/
+muireception/lib/textMultiCheckbox/TextMultiCheckbox.js
+        5355 100%   36.07kB/s    0:00:00          5355 100%   36.07kB/s    0:00:00 (xfer#2, to-check=1004/7556)
+
+sent 168972 bytes  received 1210 bytes  22690.93 bytes/sec
+total size is 47660790  speedup is 280.06
+2010-04-12 20:48:23,788 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768  11%    0.00kB/s    0:00:00        283183 100%    9.95MB/s    0:00:00 (xfer#1, to-check=0/2)
+
+sent 65571 bytes  received 31 bytes  131204.00 bytes/sec
+total size is 283183  speedup is 4.32
+2010-04-12 20:48:23,789 INFO End backup loacl karrigell diretory to local git.
+2010-04-12 20:48:23,789 INFO Begin to backup local github to remote github host.
