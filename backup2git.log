@@ -34406,3 +34406,31 @@ sent 65571 bytes  received 31 bytes  131204.00 bytes/sec
 total size is 283183  speedup is 4.32
 2010-04-12 20:48:23,789 INFO End backup loacl karrigell diretory to local git.
 2010-04-12 20:48:23,789 INFO Begin to backup local github to remote github host.
+2010-04-12 20:48:24,808 INFO Command: 
+git add .
+running result is :
+2010-04-12 20:48:29,227 INFO Command: 
+git commit -m 'Update time:2010-04-12T20:48:23.789843'
+running result is :[master c9992c3] Update time:2010-04-12T20:48:23.789843
+ 3 files changed, 139 insertions(+), 1 deletions(-)
+ create mode 100644 develop/Karrigell/muireception/lib/inlineEdit/InlineEdit.js
+2010-04-12 20:49:40,264 INFO Delete nousing captcha images
+2010-04-12 20:49:40,267 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-04-12 20:49:40,267 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-04-12 20:49:40,474 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+
+sent 165874 bytes  received 1159 bytes  334066.00 bytes/sec
+total size is 47660790  speedup is 285.34
+2010-04-12 20:49:40,529 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 66 bytes  received 12 bytes  156.00 bytes/sec
+total size is 283183  speedup is 3630.55
+2010-04-12 20:49:40,529 INFO End backup loacl karrigell diretory to local git.
+2010-04-12 20:49:40,529 INFO Begin to backup local github to remote github host.
