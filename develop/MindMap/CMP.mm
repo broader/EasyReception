@@ -947,7 +947,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1271033642562" POSITION="right" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" ID="Freemind_Link_986904229" MODIFIED="1271041873975" POSITION="right" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -1018,13 +1018,23 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1270439732311" FOLDED="true" ID="ID_449452072" MODIFIED="1270952143048" TEXT="model.py">
+<node COLOR="#00b439" CREATED="1270439732311" FOLDED="true" ID="ID_449452072" MODIFIED="1271041884425" TEXT="model.py">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1270439738188" FOLDED="true" ID="ID_1310020106" MODIFIED="1270952142056" TEXT="action()">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1270439747910" ID="ID_499599883" MODIFIED="1270439939673" TEXT="&#x8fd4;&#x56de;&#x503c;&#xff1a;&#xa;data &#x4e3a;&#x7a7a;&#x65f6;&#xff0c;&#x8fd4;&#x56de;&#x7684;&#x662f;&apos;ok&apos;&#x4e2d;&#x7684;message &#x4fe1;&#x606f;">
 <icon BUILTIN="messagebox_warning"/>
+<icon BUILTIN="help"/>
+</node>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1271041886921" ID="ID_1542591351" MODIFIED="1271041893961" TEXT="MochaUI">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1271041895427" ID="ID_1251875567" MODIFIED="1271041942274" TEXT="MUI.Column and MUI.Panel&#x4e0d;&#x80fd;&#x6b63;&#x5e38;&#x663e;&#x793a;&#xff1f;">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1271041948316" ID="ID_830659673" MODIFIED="1271042261344" TEXT="admin/service Panel &amp; sysadmin panel&#xa;&#x591a;&#x4e2a;tabs&#x4e0b;&#x5e0c;&#x671b;&#x663e;&#x793a;&#x4e24;&#x680f;&#xff0c;&#x5728;&#x8bbe;&#x7f6e;&#x4e00;&#x4e2a;DIV&#xff0c;&#x5e76;&#x4ee5;&#x6b64;DIV &#x4f5c;&#x4e3a;container&#x663e;&#x793a;MUI.Columns and MUI.Panels&#x65f6;&#xff0c;&#x51fa;&#x73b0;&#x65e0;&#x6cd5;&#x6b63;&#x5e38;&#x663e;&#x793a;&#x7684;&#x73b0;&#x8c61;&#xff0c;&#x67e5;&#x8be2;Html&#x53d1;&#x73b0;&#x662f;Column&#x8bbe;&#x7f6e;&#x8fc7;&#x4f4e;&#x3002;&#xa;&#xa;&#x5fc5;&#x987b;&#x8bbe;&#x7f6e;&#x4e0a;&#x7ea7;MUI.Panel&#x4e3a;container&#x624d;&#x80fd;&#x6b63;&#x5e38;&#x663e;&#x793a;&#xa;&#x5373;&#xff0c;MUI.Column&#x4e0d;&#x80fd;&#x4efb;&#x610f;&#x8bbe;&#x7f6e;container&#xff0c;&#x5fc5;&#x987b;&#x7531;MUI.Desktop.pageWrapper&#x4e00;&#x8109;&#x76f8;&#x627f;&#x8bbe;&#x7f6e;&#x4e0b;&#x6765;&#xff1f;">
 <icon BUILTIN="help"/>
 </node>
 </node>

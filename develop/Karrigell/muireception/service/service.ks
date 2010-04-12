@@ -85,16 +85,19 @@ def _getCategory( ):
 		values.sort()
 	return values
 	
-def _getTabs(**args):
+def _getTabs(panelId):
 	# get service catrgory
 	categories = _getCategory()
 	
 	# constructs the tabs list
 	tabs = []
 	for category in categories:
-		d = { 'text':category,\
-				'id':''.join((category,'Tab')),\
-				'url':'/'.join((APPATH, '?'.join(('page_showServiceLayout', 'category=%s'%category))))}
+		query = '&'.join(['='.join((name,value)) for name,value in {CATEGORYTAG:category,'panel':panelId}.items()])
+		d = { \
+			'text':category,\
+			'id':''.join((category,'Tab')),\
+			'url':'/'.join((APPATH, '?'.join(('page_showServiceLayout', query))))}
+		
 		tabs.append(d)
 	
 	tabs.append({'id':'addNewService', 'url':'/'.join((APPATH,'page_createCategoryInfo'))})
@@ -104,7 +107,7 @@ def index(**args):
 	panelId = args.get('panelid')
 	
 	lis = []
-	tabs = _getTabs()
+	tabs = _getTabs(panelId)
 	for index,tab in enumerate(tabs):
 		props = {'id':tab.get('id')}
 		if index == 0:
@@ -130,7 +133,7 @@ def _indexJs(panelId,tabsId):
 	"""%(panelId,tabsId)	
 	
 	js = [content,]
-	tabs = _getTabs()
+	tabs = _getTabs(panelId)
 	for tab in tabs :
 		slice = \
 		"""
@@ -159,9 +162,10 @@ def page_info(**args):
 # set suplement administration info
 SERVICEADMIN = {getattr(pagefn,'HOTEL')['categoryInService']:{'url':'service/adminHotels.ks',}}
 SERVICEADMINSUFFIX = 'admin'
+
 def page_showServiceLayout(**args):
 	ctag = CATEGORYTAG
-	category = args.get(ctag)
+	category,panel = [ args.get(attr) for attr in (ctag, 'panel')]
 	
 	# temporary function to add 'category' query to url
 	urlGenerator = lambda url : '?'.join((url, '='.join((ctag,category))))
@@ -173,9 +177,12 @@ def page_showServiceLayout(**args):
 		if key.upper() == category.upper():
 			adminUrl = value.get('url') 
 			break
-	adminUrl = (not adminUrl) and urlGenerator(adminUrl) or adminUrl
+	
+	adminUrl = adminUrl and urlGenerator(adminUrl)
 
-	container = '-'.join((category, SERVICEADMINSUFFIX))
+	#container = '-'.join((category, SERVICEADMINSUFFIX))
+	container = panel
+
 	print DIV(**{'id':container})
 
 	# add javascript slice
@@ -187,13 +194,13 @@ def page_showServiceLayout(**args):
 	paras = tuple(paras)
 	js = \
 	"""
-	var container='%s', listUrl='%s',adminUrl='%s';
+	var containerId='%s', listUrl='%s',adminUrl='%s';
 
-	var mainColumn = [container, 'column'].join('-'),
-	listPanel = [container, 'panel'].join('-');
+	var mainColumn = [containerId, 'column'].join('-'),
+	listPanel = [containerId, 'panel'].join('-');
 	if(adminUrl==''){
 		new MUI.Column({ 
-			id: mainColumn,	container:container, placement:'main',
+			id: mainColumn,	container:containerId, placement:'main',
 			sortable: false
 		});
 		
@@ -203,27 +210,50 @@ def page_showServiceLayout(**args):
 		});
 	}
 	else{
-		new MUI.Column({ 
-			id: mainColumn, container:container, placement:'main',
-			resizeLimit:[100, 500],	sortable: false
-		});
-		
-		var rightColumn = [container, 'right', 'column'].join('-');	
-		new MUI.Column({ 
-			id: rightColumn, container:container,placement:'right',
-			sortable: false
+		// create MUI.Columns
+		var rightColumn = [containerId, 'right', 'column'].join('-');	
+		var columnIds = [mainColumn,rightColumn];
+		var columnAttrs = [
+			{'id':columnIds[0],'placement':'main','resizeLimit':[100,200],'width':null},
+			{'id':columnIds[1],'placement':'right','resizeLimit':[400,500],'width':500}
+		];
+	
+		columnAttrs.each(function(attr){
+			new MUI.Column({
+				container: containerId, id: attr.id, placement: attr.placement, 
+				sortable: false, width: attr.width, resizeLimit: attr.resizeLimit 
+			});
 		});
 
+		
+		var adminPanel = [containerId, 'admin','panel'].join('-');
+		// create MUI.Panels
+		[
+			{'column':columnIds[0],'id': listPanel,'url': listUrl},
+			{'column':columnIds[1],'id': adminPanel,'url': adminUrl}		
+		].each(function(attrs){
+			new MUI.Panel({
+				id: attrs.id,
+				column: attrs.column, 
+				header: false,
+				contentURL: attrs.url,
+				//onExpand: MUI.accordionPanels.pass(attrs.id)
+			});
+		
+		});
+
+		/*
 		new MUI.Panel({
 			id: listPanel, header:false, column: mainColumn,
 			contentURL: listUrl
 		});
 		
-		var adminPanel = [container, 'admin','panel'].join('-');
+		var adminPanel = [containerId, 'admin','panel'].join('-');
 		new MUI.Panel({
 			id: adminPanel, header:false, column: rightColumn,
 			contentURL: adminUrl
 		});
+		*/
 
 	};
 	"""%paras
