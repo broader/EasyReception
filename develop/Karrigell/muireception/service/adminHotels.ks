@@ -95,22 +95,26 @@ def _indexJs(tableId):
 	
 	var selector = 'td.'+editableClass;
 	var els = $(container).getElements(selector);
-	var elDict = {};
+	var elsArray = [];
 	
 	els.each(function(el){
+		// get input type
 		inpuType = el.get('class').split(' ').erase('editable');
 		inpuType = inpuType.length==1 ? inpuType[0] : 'input';
+		// get rid of the '@' tag before input type
+		inpuType = inpuType.substr(1);
+		
 		var options = {
 			'editUrl': editUrl,
 			'errorHandler': info,
 			'editFieldName': el.get('rel'),
 			'errorHandler': info,
-			'inputType': inpuType
+			'inpuType': inpuType
 		};
-		elDict[el] = options;	
+		elsArray.push({'element': el, 'options': options});	
 	});
 	
-	MUI.inlineEdit(appName, elDict);
+	MUI.inlineEdit(appName, elsArray);
 	
 	function info(){ MUI.notification('Edit action failed!');};
 	

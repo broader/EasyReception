@@ -34626,3 +34626,66 @@ sent 66871 bytes  received 31 bytes  133804.00 bytes/sec
 total size is 289710  speedup is 4.33
 2010-04-13 17:20:00,030 INFO End backup loacl karrigell diretory to local git.
 2010-04-13 17:20:00,030 INFO Begin to backup local github to remote github host.
+2010-04-13 17:20:01,672 INFO Command: 
+git add .
+running result is :
+2010-04-13 17:20:06,813 INFO Command: 
+git commit -m 'Update time:2010-04-13T17:20:00.031025'
+running result is :[master e7dee2b] Update time:2010-04-13T17:20:00.031025
+ 17 files changed, 245 insertions(+), 57 deletions(-)
+ create mode 100644 develop/Karrigell/muireception/lib/textMultiCheckbox/.TextMultiCheckbox.js.swp
+ create mode 100644 develop/Karrigell/muireception/portfolio/.portfolio.ks.swp
+2010-04-13 17:20:15,761 INFO Command: 
+git push origin master
+running result is :Counting objects: 57, done.
+Delta compression using up to 2 threads.
+Compressing objects:   3% (1/29)   Compressing objects:   6% (2/29)   Compressing objects:  10% (3/29)   Compressing objects:  13% (4/29)   Compressing objects:  17% (5/29)   Compressing objects:  20% (6/29)   Compressing objects:  24% (7/29)   Compressing objects:  27% (8/29)   Compressing objects:  31% (9/29)   Compressing objects:  34% (10/29)   Compressing objects:  37% (11/29)   Compressing objects:  41% (12/29)   Compressing objects:  44% (13/29)   Compressing objects:  48% (14/29)   Compressing objects:  51% (15/29)   Compressing objects:  55% (16/29)   Compressing objects:  58% (17/29)   Compressing objects:  62% (18/29)   Compressing objects:  65% (19/29)   Compressing objects:  68% (20/29)   Compressing objects:  72% (21/29)   Compressing objects:  75% (22/29)   Compressing objects:  79% (23/29)   Compressing objects:  82% (24/29)   Compressing objects:  86% (25/29)   Compressing objects:  89% (26/29)   Compressing objects:  93% (27/29)   Compressing objects:  96% (28/29)   Compressing objects: 100% (29/29)   Compressing objects: 100% (29/29), done.
+Writing objects:   3% (1/30)   Writing objects:   6% (2/30)   Writing objects:  10% (3/30)   Writing objects:  13% (4/30)   Writing objects:  16% (5/30)   Writing objects:  20% (6/30)   Writing objects:  23% (7/30)   Writing objects:  26% (8/30)   Writing objects:  30% (9/30)   Writing objects:  33% (10/30)   Writing objects:  36% (11/30)   Writing objects:  40% (12/30)   Writing objects:  43% (13/30)   Writing objects:  46% (14/30)   Writing objects:  50% (15/30)   Writing objects:  53% (16/30)   Writing objects:  56% (17/30)   Writing objects:  60% (18/30)   Writing objects:  66% (20/30)   Writing objects:  70% (21/30)   Writing objects:  73% (22/30)   Writing objects:  76% (23/30)   Writing objects:  80% (24/30)   Writing objects:  83% (25/30)   Writing objects:  86% (26/30)   Writing objects:  90% (27/30)   Writing objects:  93% (28/30)   Writing objects:  96% (29/30)   Writing objects: 100% (30/30)   Writing objects: 100% (30/30), 18.15 KiB, done.
+Total 30 (delta 22), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   589b240..e7dee2b  master -> master
+2010-04-13 17:20:15,762 INFO End backup local github to remote github host.
+2010-04-13 20:49:30,459 INFO Delete nousing captcha images
+2010-04-13 20:49:30,484 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-04-13 20:49:30,485 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-04-13 20:49:36,781 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+muireception/
+deleting muireception/.pagefn.py.swp
+deleting muireception/.config.py.swp
+muireception/js/
+deleting muireception/js/.layoutInit.js.pih.swp
+muireception/js/layoutInit.js.pih
+       11310 100%    0.00kB/s    0:00:00         11310 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1011/7024)
+muireception/lib/inlineEdit/
+deleting muireception/lib/inlineEdit/.InlineEdit.js.swp
+muireception/lib/inlineEdit/InlineEdit.js
+        3741 100%   15.10kB/s    0:00:00          3741 100%   15.10kB/s    0:00:00 (xfer#2, to-check=1011/7440)
+muireception/lib/textMultiCheckbox/
+deleting muireception/lib/textMultiCheckbox/.TextMultiCheckbox.js.swp
+muireception/portfolio/
+deleting muireception/portfolio/.portfolio.ks.swp
+muireception/register/tmp/
+muireception/register/tmp/ea42be7f68.jpeg
+        1605 100%    3.14kB/s    0:00:00          1605 100%    3.14kB/s    0:00:00 (xfer#3, to-check=819/7924)
+muireception/service/
+deleting muireception/service/.adminHotels.ks.swp
+muireception/service/adminHotels.ks
+        3575 100%    6.98kB/s    0:00:00          3575 100%    6.98kB/s    0:00:00 (xfer#4, to-check=674/7924)
+muireception/sysadmin/
+deleting muireception/sysadmin/.sysadmin.ks.swp
+
+sent 174140 bytes  received 1267 bytes  26985.69 bytes/sec
+total size is 47667913  speedup is 271.76
+2010-04-13 20:49:36,899 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 66 bytes  received 12 bytes  156.00 bytes/sec
+total size is 289710  speedup is 3714.23
+2010-04-13 20:49:36,900 INFO End backup loacl karrigell diretory to local git.
+2010-04-13 20:49:36,900 INFO Begin to backup local github to remote github host.

@@ -307,10 +307,11 @@ MUI.extend({
 		// get the global Assets manager
 	   var am = MUI.assetsManager;		
 		urls.each(function(src){
-			fileType = MUI.fileType(src);			
+			fileType = MUI.fileType(src);	
+
 			if(fileType == 'css'){
 				if(!$defined(am.imported[src])){
-	    			am.import({'url':src,'app':appName,'type':'css'});	
+	    				am.import({'url':src,'app':appName,'type':'css'});	
 				}
 			}
 			else if(fileType == 'js'){
@@ -400,12 +401,11 @@ MUI.extend({
 	/**********************************************************************
 	Import InlineEdit plugin files and initialize corresponding Elements.
 	***********************************************************************/
-	inlineEdit: function(appName, elDict){
+	inlineEdit: function(appName, elsArray){
 		options = {
 			onload: function(){
-				$H(elDict).each(function(initOptions,el){
-					//alert(el+','+initOptions);
-					editEl = new InlineEditElement(el, initOptions);
+				elsArray.each(function(elObject){
+					editEl = new InlineEditElement(elObject.element, elObject.options);
 				});
 			}
 		};

@@ -41,7 +41,7 @@ var InlineEditElement = new Class({
 	initialize: function( element, options) {
 		// set options
 		this.setOptions(options);
-
+		
 		// add closure variable to 'this'
 		var self = this;
 
@@ -49,14 +49,17 @@ var InlineEditElement = new Class({
 		self.element = $(element);
 		if(!self.element) return;
 		
-		self.element.addEvent(triggerEventName,	function(e){
+		self.element.addEvent(self.options.triggerEventName, function(e){
 			new Event(e).stop();
 			self.setInput();
 		});
 		
 	},
-
+	
+	
 	setInput: function(){
+		alert('setInput function');
+		
 		// add closure variable to 'this'
 		var self = this;
 
@@ -66,9 +69,11 @@ var InlineEditElement = new Class({
 		// errase current
 		self.element.set('html','');
 
-		if(self.input){ self.input.set('value','');}
+		// clear old value in input of the instance
+		if(self.input) {self.input.set('value','');}		
 		else{
-			switch(self.options.inputType){
+			alert('setInput, input type is '+self.options.inpuType);
+			switch(self.options.inpuType){
 				case 'input':
 					self.input = new Element('input', {'class': 'box', 'text': oldValue});
 					// blur input when key 'Enter' is pressed
@@ -81,18 +86,19 @@ var InlineEditElement = new Class({
 					break;
 				default:
 					// add 'blur' event to input
-					self.input.addEvent('blur',function(e){ self.submit();});
+					self.input.addEvent('blur',function(e){
+						// self.submit();
+					});
 					break;
 			};
-		}
-
+		};
 
 		// inject input Element to this.element body
 		self.input.inject(self.element).select();
 		
-		// send action url		
-	},
-
+	}
+	
+	/*
 	submit: function(){
 		var data = {this.options.editFieldName: this.input.get('value').trim()};
 		var options = {url: editUrl, method:'post'};
@@ -122,10 +128,10 @@ var InlineEditElement = new Class({
 		var newValue = this.get('value').trim();
 		self.element.set('text',newValue).addClass(newValue==''? '' : self.options.emptyClass);
 	}
+	*/
 
 });
 
-var InlineEditElement = new Class();
 
 	
 	
