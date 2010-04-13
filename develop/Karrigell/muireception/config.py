@@ -69,25 +69,55 @@ INIDATA['userBaseInfo'] = \
 	  'class':'', 'required':False,'validate':[] }\
 ]
 
+INIDATA['Hotel'] = \
+{
+	'configProperty':[
+		{
+			'prompt':'status that could be reserved',
+			'name':'reservePermission',
+			'property':'status',
+			'value': ''
+		},
+	],
+}
 
-def _init(field):	
+def _init(value=None):	
 	stream = open(INICONFIG, 'wb')
-	yaml.dump(INIDATA,stream,explicit_start=True)
+	if value:
+		yaml.dump(value,stream,explicit_start=True)
+	else:
+		yaml.dump(INIDATA,stream,explicit_start=True)
+	
 	stream.close()
 	return	
 
-def _getConfig(field):
+def _openStream():
 	stream = open(INICONFIG, 'rb')
 	config = yaml.load(stream)
 	stream.close()
+	return config
+
+def _getConfig(field):
+	configObject = _openStream()	
 	res = None
-	if config:
-		res = config.get(field)	 	
+	if configObject:
+		res = configObject.get(field)	 	
 	return res
 	
 def getData(field):
-	config = _getConfig(field)
-	if not config :
-		_init(field)
+	initValue = _getConfig(field)
+	if not initValue :
+		# when there is no value, it's need to initialize config file again.
+		_init()
+
 	return _getConfig(field)
 	
+def editData(field, value):
+	old = getData(field)
+	if value != old:
+		# dump new value to yaml file
+		configObject = _openStream()
+		configObject[field] = value
+		_init(configObject)
+		 
+	return

@@ -26,6 +26,7 @@ var InlineEditElement = new Class({
 		'waitEditResult': true,		// is it need to wait the editting result from server side?
 		'responseTag': null,		// the response field name according which we judge the edit action is successful
 		'responseSuccessTag': null,	// the successful tag 	
+		'errorHandler': null,		// the handle function when change content fail in server side
 
 		'inpuType': null,		// the type for the input Element
 		'editUrl': null, 		// the url for the Request to server side to really acomplish the inline edit action 
@@ -41,11 +42,11 @@ var InlineEditElement = new Class({
 		// add closure variable to 'this'
 		var self = this;
 
-		this.input = null;
-		this.element = $(element);
-		if(!this.element) return;
+		self.input = null;
+		self.element = $(element);
+		if(!self.element) return;
 		
-		this.element.addEvent(triggerEventName,	function(e){
+		self.element.addEvent(triggerEventName,	function(e){
 			new Event(e).stop();
 			self.setInput();
 		});
@@ -53,37 +54,70 @@ var InlineEditElement = new Class({
 	},
 
 	setInput: function(){
+		// add closure variable to 'this'
+		var self = this;
+
 		// get old value in the Element
-		var oldValue = this.element.get('html').trim();
+		var oldValue = self.element.get('html').trim();
 
 		// errase current
-		this.element.set('html','');
+		self.element.set('html','');
 
-		// inject new input Element to this.element body
-		switch(this.options.inputType){
-			case 'input':
-				this.input = new Element('input', {'class': 'box', 'text': oldValue});
-				// blur input when key 'Enter' is pressed
-				this.input.addEvent('keydown',function(e){
-					if(e.key == 'enter') this.fireEvent('blur');
-				});
-				break;
-			case 'textarea':
-				this.input = new Element('textarea', {'class': 'box', 'text': oldValue});
-				break;
-			default:
-				// inject input to this.element
-				this.input.inject(this.element).select();
-				
-				// add 'blur' event to input
-				this.input.addEvent('blur',function(e){
-					// get input value and set it to this.element
-					var newValue = this.input.get('value').trim();
-					this.element.set('text',newValue).addClass(newValue==''?'':this.options.emptyClass);
-				}.bind(this));
-				break;
+		if(self.input){ self.input.set('value','');}
+		else{
+			switch(self.options.inputType){
+				case 'input':
+					self.input = new Element('input', {'class': 'box', 'text': oldValue});
+					// blur input when key 'Enter' is pressed
+					self.input.addEvent('keydown',function(e){
+						if(e.key == 'enter') this.fireEvent('blur');
+					});
+					break;
+				case 'textarea':
+					self.input = new Element('textarea', {'class': 'box', 'text': oldValue});
+					break;
+				default:
+					// add 'blur' event to input
+					self.input.addEvent('blur',function(e){ self.submit();});
+					break;
+			};
+		}
 
-		};	
+
+		// inject input Element to this.element body
+		self.input.inject(self.element).select();
+		
+		// send action url		
+	},
+
+	submit: function(){
+		var data = {this.options.editFieldName: this.input.get('value').trim()};
+		var options = {url: editUrl, method:'post'};
+		
+		if(this.options.waitEditResult){
+			options['onComplete'] = function(json){
+				if(json[this.options.responseTag]==this.options.responseSuccessTag){
+					// change the content in this.element
+					this.changeContent();
+				}
+				else{
+					if(this.options.errorHandler) this.options.errorHandler();
+				};
+			};
+			var request = new Request.JSON(options).get(data);
+		}
+		else{
+			// send request
+			var request = new Request.JSON(options).get(data);
+			// change the content in this.element
+			this.changeContent();
+		};
+	},
+
+	changeContent: function(){
+		// get input value and set it to this.element
+		var newValue = this.get('value').trim();
+		self.element.set('text',newValue).addClass(newValue==''? '' : self.options.emptyClass);
 	}
 
 });

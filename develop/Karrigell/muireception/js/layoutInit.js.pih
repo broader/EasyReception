@@ -318,8 +318,8 @@ MUI.extend({
 					am.import({'url':src,'app':appName,'type':'js'},options);
 				}
 				else{
-					fn = options.onload;										
-					if($defined(fn)){	fn();}
+					fn = options.onload;					
+					if($defined(fn)){fn();}
 				};	   
 			}
 			
@@ -391,6 +391,27 @@ MUI.extend({
 		// get lib files
 		var urls = [];
 		<% for url in pagefn.JSLIB['textMultiCheckbox']['files'] : %>
+			urls.push('<%=url%>');
+		<% end %>
+		
+		MUI.import(appName,urls,options);
+	},
+	
+	/**********************************************************************
+	Import InlineEdit plugin files and initialize corresponding Elements.
+	***********************************************************************/
+	inlineEdit: function(appName, elDict){
+		options = {
+			onload: function(){
+				$H(elDict).each(function(initOptions,el){
+					new InlineEdit(el, initOptions);
+				});
+			}
+		};
+		
+		// get lib files
+		var urls = [];
+		<% for url in pagefn.JSLIB['inlineEdit']['files'] : %>
 			urls.push('<%=url%>');
 		<% end %>
 		

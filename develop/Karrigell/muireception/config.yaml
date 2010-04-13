@@ -1,4 +1,8 @@
 ---
+Hotel:
+  configProperty:
+  - {name: reservePermission, prompt: status that could be reserved, property: status,
+    value: ''}
 userAccountInfo:
 - {name: username, prompt: Login Name, type: text}
 - {name: email, prompt: Email address, type: text}

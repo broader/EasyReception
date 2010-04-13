@@ -40,8 +40,12 @@ JSLIB['textMultiCheckbox'] = \
 {'files':['/'.join(('lib','textMultiCheckbox',name)) for name in ('TextMultiCheckbox.css','TextMultiCheckbox.js')],
 }
 
-#--------------------------------------------------------------------------------------
+# inlineEdit
+JSLIB['inlineEdit'] = \
+{'files':['/'.join(('lib','inlineEdit',name)) for name in ('inlineEdit.css','inlineEdit.js')],
+}
 
+#-------------------------------------------------------------------------------------- 
 ##
 # Datagrid Plugin Files
 #--------------------------------------------------------------------------------------
