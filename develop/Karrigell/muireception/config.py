@@ -1,6 +1,8 @@
 import os
 import yaml
 
+pagefn = Import('/'.join(('', 'pagefn.py')))
+
 INICONFIG = os.sep.join((rootdir, 'config.yaml'))
 INIDATA = {}
 INIDATA['userAccountInfo'] = \
@@ -69,13 +71,15 @@ INIDATA['userBaseInfo'] = \
 	  'class':'', 'required':False,'validate':[] }\
 ]
 
-INIDATA['Hotel'] = \
+# app name for 'Hotel'
+hotelAppName = getattr(pagefn, 'HOTEL').get('categoryInService')
+INIDATA[hotelAppName] = \
 {
 	'configProperty':[
 		{
-			'prompt':'status that could be reserved',
-			'name':'reservePermission',
-			'property':'status',
+			'name': 'reservePermission',
+			'prompt': 'status that could be reserved',
+			'property': 'status',
 			'value': ''
 		},
 	],
@@ -113,6 +117,12 @@ def getData(field):
 	return _getConfig(field)
 	
 def editData(field, value):
+	"""
+	Edit speccified config field's value.
+	Parameters:
+	field - the name of the field to be edit
+	value - the new value of the field
+	"""
 	old = getData(field)
 	if value != old:
 		# dump new value to yaml file

@@ -1,5 +1,5 @@
 """
-Pages mainly for administration.
+Pages mainly for administration functions for 'Hotel' service.
 """
 import copy,tools
 from tools import treeHandler
@@ -27,11 +27,99 @@ APP = pagefn.getApp(THIS.baseurl,1)
 so = Session()
 USER = getattr( so, pagefn.SOINFO['user']).get('username')
 
+# config data object
+INITCONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
+
 #************************************************End******************************************
 
 
 # ********************************************************************************************
 # The page functions begining 
 # ********************************************************************************************
+INLINEDITCLASS = 'editable'
 def index(**args):
-	print H2('admin hotel items')
+	"""
+	Show configurable properties for 'Hotel' service.
+	"""
+	# title
+	txt = 'Configurable Properties'
+	block = [DIV(A(txt),style="font-weight:bold; font-size:1.2em; padding-bottom:5px;color:#096DD1;")]
+	
+	# configrable properties
+	configField = getattr(pagefn, 'HOTEL').get('categoryInService')
+	props = INITCONFIG.getData(configField)
+	props = props and props.get('configProperty') or {}
+	
+	# constructs table header
+	headers = ('name', 'prompt', 'property', 'value')
+	tds = [TH(header) for header in headers]
+	
+	table = [TR(Sum(tds)),]
+	
+	# constructs table body
+	
+	style = 'font-weight:bold;font-size:1.3em;color:#86B50D'
+	trs = []
+	for value in props:
+		tds = []
+		for index, attr in enumerate(headers) :				
+			d = {}
+			if index == 0 :
+				d['style'] = style
+			elif index == len(headers)-1:
+				d['class'] =  ' '.join((INLINEDITCLASS,'@input'))
+				d['rel'] = value.get('name')
+			else:
+				d = {}
+
+			td = TD(value.get(attr) or '', **d)				 
+			tds.append(td)
+		
+		trs.append(TR(Sum(tds)))
+	
+	table.append(TBODY(Sum(trs)))
+	tableId = 'hotelConfigPropsTable'
+	block.append(TABLE(Sum(table), **{'id':tableId}))
+	
+	print Sum(block)
+
+	print pagefn.script(_indexJs(tableId),link=False)
+	return
+
+def _indexJs(tableId):
+	paras = [ APP, tableId, INLINEDITCLASS, '/'.join((APPATH,'page_editProp'))]
+	paras = tuple(paras)
+	js = \
+	"""
+	var appName='%s', container='%s', editableClass='%s', editUrl='%s';
+	
+	var selector = 'td.'+editableClass;
+	var els = $(container).getElements(selector);
+	var elDict = {};
+	
+	els.each(function(el){
+		inpuType = el.get('class').split(' ').erase('editable');
+		inpuType = inpuType.length==1 ? inpuType[0] : 'input';
+		var options = {
+			'editUrl': editUrl,
+			'errorHandler': info,
+			'editFieldName': el.get('rel'),
+			'errorHandler': info,
+			'inputType': inpuType
+		};
+		elDict[el] = options;	
+	});
+	
+	MUI.inlineEdit(appName, elDict);
+	
+	function info(){ MUI.notification('Edit action failed!');};
+	
+	"""%paras
+	return js
+
+def page_setProp(**args):
+	res = {'ok':'1'}
+	print JSON.encode(res)
+	return
+
+

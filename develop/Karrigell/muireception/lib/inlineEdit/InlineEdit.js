@@ -20,12 +20,12 @@ var InlineEditElement = new Class({
 	Implements: [Options], 
 	
 	options: {
-		'triggerEventName': null,	// the name for Event that trigger the inline edit action
-		'emptyClass': '',		// if nothing input, special css to show it
+		'triggerEventName': 'click',	// the name for Event that trigger the inline edit action
+		'emptyClass': 'editable-empty',		// if nothing input, special css to show it
 
 		'waitEditResult': true,		// is it need to wait the editting result from server side?
-		'responseTag': null,		// the response field name according which we judge the edit action is successful
-		'responseSuccessTag': null,	// the successful tag 	
+		'responseTag': 'ok',		// the response field name according which we judge the edit action is successful
+		'responseSuccessTag': '1',	// the successful tag 	
 		'errorHandler': null,		// the handle function when change content fail in server side
 
 		'inpuType': null,		// the type for the input Element
@@ -39,6 +39,9 @@ var InlineEditElement = new Class({
 	options - initalization options
 	*/
 	initialize: function( element, options) {
+		// set options
+		this.setOptions(options);
+
 		// add closure variable to 'this'
 		var self = this;
 
@@ -121,6 +124,8 @@ var InlineEditElement = new Class({
 	}
 
 });
+
+var InlineEditElement = new Class();
 
 	
 	

@@ -42,7 +42,7 @@ JSLIB['textMultiCheckbox'] = \
 
 # inlineEdit
 JSLIB['inlineEdit'] = \
-{'files':['/'.join(('lib','inlineEdit',name)) for name in ('inlineEdit.css','inlineEdit.js')],
+{'files':['/'.join(('lib','inlineEdit',name)) for name in ('InlineEdit.css','InlineEdit.js')],
 }
 
 #-------------------------------------------------------------------------------------- 

@@ -404,7 +404,8 @@ MUI.extend({
 		options = {
 			onload: function(){
 				$H(elDict).each(function(initOptions,el){
-					new InlineEdit(el, initOptions);
+					//alert(el+','+initOptions);
+					editEl = new InlineEditElement(el, initOptions);
 				});
 			}
 		};

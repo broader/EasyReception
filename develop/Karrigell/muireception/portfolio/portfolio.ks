@@ -25,9 +25,9 @@ so = Session()
 USER = getattr( so, pagefn.SOINFO['user']).get('username')
 
 # config data object
-CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
+INITCONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 
-# form fields' names in CONFIG file
+# form fields' names in config.yaml file
 ACCOUNTFIELDS = 'userAccountInfo'
 BASEINFO = 'userBaseInfo'
 
@@ -62,7 +62,7 @@ def _getCsv(operator, user):
 def _portfolioTable(user,colsNumber=1,labelStyle='',valueStyle='',tableStyle=''):
 	table = []
 	values = _getCsv( USER, user)
-	fields = CONFIG.getData(BASEINFO)
+	fields = INITCONFIG.getData(BASEINFO)
 	newFields = formFn.filterProps(fields,values)	
 	trs = formFn.render_table_fields( newFields, colsNumber, labelStyle, valueStyle)
 	table.append(trs)
@@ -132,7 +132,7 @@ def page_editPortfolio(**args):
 		
 	rember = _getCsv(USER,user)
 	
-	render = CONFIG.getData(BASEINFO)
+	render = INITCONFIG.getData(BASEINFO)
 	
 	# Add other properties for each field, these properties are 'id','required','oldvalue'
 	for element in render :
@@ -284,7 +284,7 @@ def _editPortfolioJs(panelReload):
 
 def page_editPortfolioAction(**args):
 	info = {}		
-	fields = [ item.get('name') for item in CONFIG.getData(BASEINFO) ]
+	fields = [ item.get('name') for item in INITCONFIG.getData(BASEINFO) ]
 	[ info.update( {name: args.get(name) or ''} ) for name in fields ]
 	
 	operator = USER
@@ -323,7 +323,7 @@ def page_showAccount(**args):
 	# append the caption
 	#table.append( CAPTION(_("Login Information"),style='text-align: center; font-size: 1.2em;font-weight:bold;'))
 		  	
-	fields = CONFIG.getData(ACCOUNTFIELDS)
+	fields = INITCONFIG.getData(ACCOUNTFIELDS)
 	fields.append({ 'name':'creation' , 'prompt':_('Created Time :'), 'type':'text'})
 	values = formFn.filterProps(fields, account)
 	"""
@@ -390,7 +390,7 @@ def _accountShowJs(**args):
 	
 def page_editAccount(**args):
 	
-	fields = CONFIG.getData(ACCOUNTFIELDS)
+	fields = INITCONFIG.getData(ACCOUNTFIELDS)
 	
 	# remove 'username' field
 	fields.pop(0)
@@ -551,7 +551,7 @@ def _editAccountJs(**args):
 
 def page_editAccountAction(**args):
 	""" Edit the user's account information. """
-	fields = CONFIG.getData(ACCOUNTFIELDS)	
+	fields = INITCONFIG.getData(ACCOUNTFIELDS)	
 	# remove 'username' field
 	fields.pop(0)
 	

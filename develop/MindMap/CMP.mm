@@ -1620,7 +1620,7 @@
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1271133331400" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1271134034106" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1265252373668" ID="ID_1883535158" MODIFIED="1271130988602" TEXT="Layout">
@@ -2254,44 +2254,14 @@
 <node COLOR="#111111" CREATED="1271132267994" ID="ID_725013548" LINK="http://tutorialzine.com/2009/11/hovering-gallery-css3-jquery/" MODIFIED="1271132270962" TEXT="http://tutorialzine.com/2009/11/hovering-gallery-css3-jquery/"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1271133324169" TEXT="Company web site">
+<node COLOR="#00b439" CREATED="1261017385572" ID="ID_1594767766" MODIFIED="1271134036565" TEXT="Company web site">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261017390365" ID="ID_4950788" MODIFIED="1271131065485" TEXT="http://ramblingsoul.com/preview/rs14/index.html">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-<node COLOR="#990000" CREATED="1261559272861" ID="ID_1171566340" MODIFIED="1271131065487" TEXT="http://www.opendesigns.org/preview/?template=2682">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-<node COLOR="#990000" CREATED="1261017403697" ID="ID_363894096" MODIFIED="1271131065489" TEXT="http://www.opendesigns.org/preview/?template=2615">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-<node COLOR="#990000" CREATED="1261581379542" ID="ID_75942929" MODIFIED="1271131065491" TEXT="http://blog.bingo929.com/99-high-quality-free-xhtml-css-div-templates.html#more-2698">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-<node COLOR="#990000" CREATED="1261559251111" ID="ID_648549467" MODIFIED="1271131065493" TEXT="nav bar">
+<node COLOR="#990000" CREATED="1261559251111" FOLDED="true" ID="ID_648549467" MODIFIED="1271134426262" TEXT="nav bar">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1261559256260" ID="ID_574316454" MODIFIED="1261559258478" TEXT="http://www.opendesigns.org/preview/?template=2684"/>
 </node>
-<node COLOR="#990000" CREATED="1261710057956" ID="ID_204262037" MODIFIED="1271131065497" TEXT="http://nouincolor.com/">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-<node COLOR="#990000" CREATED="1262920308425" ID="ID_600538248" MODIFIED="1271131065499" TEXT="http://www.opendesigns.org/preview/?design=1700">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-<node COLOR="#990000" CREATED="1263175539298" ID="ID_970268888" MODIFIED="1271131065501" TEXT="http://www.opendesigns.org/preview/?design=1710">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-<node COLOR="#990000" CREATED="1262920335165" ID="ID_1002294359" MODIFIED="1271131065503" TEXT="http://www.opendesigns.org/preview/?design=1699">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-<node COLOR="#990000" CREATED="1263174515439" ID="ID_1908253916" MODIFIED="1271131065505" TEXT="http://www.opendesigns.org/preview/?design=1709">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-<node COLOR="#990000" CREATED="1263175553706" ID="ID_403260123" MODIFIED="1271131065507" TEXT="http://www.opendesigns.org/preview/?design=1699">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-<node COLOR="#990000" CREATED="1267587744551" ID="ID_311976917" MODIFIED="1271131065509" TEXT="Alien">
+<node COLOR="#990000" CREATED="1267587744551" FOLDED="true" ID="ID_311976917" MODIFIED="1271134425687" TEXT="Alien">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1267587798642" ID="ID_725736465" MODIFIED="1267587800493" TEXT="http://www.opendesigns.org/preview/?design=1799"/>
 </node>
@@ -2302,16 +2272,50 @@
 <node COLOR="#111111" CREATED="1267587848480" ID="ID_652333271" MODIFIED="1267587850219" TEXT="http://www.opendesigns.org/preview/?design=1797"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1269337498944" ID="ID_973660080" MODIFIED="1271131065521" TEXT="Simple">
+<node COLOR="#990000" CREATED="1269337498944" FOLDED="true" ID="ID_973660080" MODIFIED="1271134419663" TEXT="Simple">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1269337506893" ID="ID_1203002521" MODIFIED="1269337508703" TEXT="http://www.opendesigns.org/preview/?design=1817"/>
 <node COLOR="#111111" CREATED="1269337532966" ID="ID_580995098" MODIFIED="1269337534792" TEXT="http://www.opendesigns.org/preview/?design=1830"/>
 <node COLOR="#111111" CREATED="1270545725333" ID="ID_672327193" LINK="http://www.opendesigns.org/preview/?design=1849" MODIFIED="1270545753650" TEXT="http://www.opendesigns.org/preview/?design=1849"/>
 </node>
-<node COLOR="#990000" CREATED="1271131016988" ID="ID_545156553" MODIFIED="1271131065529" TEXT="Technology">
+<node COLOR="#990000" CREATED="1271131016988" FOLDED="true" ID="ID_545156553" MODIFIED="1271134441049" TEXT="Technology">
 <font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="idea"/>
 <node COLOR="#111111" CREATED="1271131023552" ID="ID_1544488560" LINK="http://www.opendesigns.org/preview/?design=1894" MODIFIED="1271131030657" TEXT="http://www.opendesigns.org/preview/?design=1894"/>
 <node COLOR="#111111" CREATED="1271131615566" ID="ID_708134019" LINK="http://demo.tutorialzine.com/2010/02/html5-css3-website-template/template.html" MODIFIED="1271131618437" TEXT="http://demo.tutorialzine.com/2010/02/html5-css3-website-template/template.html"/>
+</node>
+<node COLOR="#990000" CREATED="1271134396534" FOLDED="true" ID="ID_217134314" MODIFIED="1271134416760" TEXT="Miscellaneous">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1261017390365" ID="ID_4950788" MODIFIED="1271134414391" TEXT="http://ramblingsoul.com/preview/rs14/index.html">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1261559272861" ID="ID_1171566340" MODIFIED="1271134414394" TEXT="http://www.opendesigns.org/preview/?template=2682">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1261017403697" ID="ID_363894096" MODIFIED="1271134414395" TEXT="http://www.opendesigns.org/preview/?template=2615">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1261581379542" ID="ID_75942929" MODIFIED="1271134414397" TEXT="http://blog.bingo929.com/99-high-quality-free-xhtml-css-div-templates.html#more-2698">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1261710057956" ID="ID_204262037" MODIFIED="1271134414400" TEXT="http://nouincolor.com/">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1262920308425" ID="ID_600538248" MODIFIED="1271134414401" TEXT="http://www.opendesigns.org/preview/?design=1700">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1263175539298" ID="ID_970268888" MODIFIED="1271134414403" TEXT="http://www.opendesigns.org/preview/?design=1710">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1262920335165" ID="ID_1002294359" MODIFIED="1271134414405" TEXT="http://www.opendesigns.org/preview/?design=1699">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1263174515439" ID="ID_1908253916" MODIFIED="1271134414407" TEXT="http://www.opendesigns.org/preview/?design=1709">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1263175553706" ID="ID_403260123" MODIFIED="1271134414419" TEXT="http://www.opendesigns.org/preview/?design=1699">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
 </node>
 </node>
 <node COLOR="#00b439" CREATED="1271132646423" FOLDED="true" ID="ID_1347972744" MODIFIED="1271133325279" TEXT="Portal">

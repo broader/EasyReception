@@ -1,7 +1,8 @@
 ---
 Hotel:
   configProperty:
-  - {name: reservePermission, prompt: status that could be reserved, property: status}
+  - {name: reservePermission, prompt: status that could be reserved, property: status,
+    value: 'notPay,toBeReserved'}
 userAccountInfo:
 - {name: username, prompt: Login Name, type: text}
 - {name: email, prompt: Email address, type: text}
