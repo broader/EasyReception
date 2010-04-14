@@ -27,6 +27,9 @@ APP = pagefn.getApp(THIS.baseurl,1)
 so = Session()
 USER = getattr( so, pagefn.SOINFO['user']).get('username')
 
+# config data object
+INITCONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
+
 # The category name for 'hotel' application to 'service' class
 SERVICECATEGORY = pagefn.HOTEL.get('categoryInService')
 
@@ -34,18 +37,20 @@ SERVICECATEGORY = pagefn.HOTEL.get('categoryInService')
 # valid functions for form fields
 CHKFNS = ('serviceCategoryChk','serviceNameChk')
 
+"""
 # the properties to be edit in form
 PROPS =\ 
 [
 	{'name':'category','prompt':_('Category'),'validate':[''.join(('~',CHKFNS[0])),],'required':True},
 	{'name':'subcategory','prompt':_('Subcategory'),'validate':[],'required':True},
 	{'name':'serial','prompt':_('Service Serial'),'validate':[]},
-	{'name':'name','prompt':_('Service Name'),'validate':[''.join(('~',CHKFNS[1])),],'required':True},
+	{'name':'name','prompt':_('Hotel/Room Type'),'validate':[''.join(('~',CHKFNS[1])),],'required':True},
 	{'name':'description','prompt':_('Description'),'validate':[],'type':'textarea'},
 	{'name':'price','prompt':_('Unit Price'),'validate':[]},
 	{'name':'amount','prompt':_('Amount'),'validate':[]},
 	{'name':'detail','prompt':_('Supplement'),'validate':[],'type':'textarea'},
 ]
+"""
 
 # the properties info that will be shown in columns's title in the tree table to show services' list
 COLUMNMODEL = [
@@ -94,6 +99,8 @@ def _hotelsListJs():
 	
 	[ paras.extend( [ action.get(key) for key in ('type','label')]) for action in ACTIONS ] 
 	paras.append(_('Please select only one type of room!'))
+	paras.append(_('The row you selecting could not be reserved! '))
+	paras.append(_('Reservation Edit'))
 	paras = tuple(paras)
 	js = \
 	"""
@@ -101,7 +108,7 @@ def _hotelsListJs():
 	colsModelUrl='%s', rowDataUrl='%s',
 	reserveValidUrl='%s', reserveEditUrl='%s',
 	bnAttributes = [{'type':'%s','label':'%s'},{'type':'%s','label':'%s'}],
-	rowSelectErr = '%s';	
+	rowSelectErr = '%s', unReserveErr='%s', editModalTitle='%s';	
 	
 	var treeTable;
 	
@@ -146,7 +153,7 @@ def _hotelsListJs():
 	};
 	
 	// set a global Request.JSON instance for send validation url for check the capability of selected row
-	var couldReserve = false;
+	var couldReserve = null;
 	var request = new Request.JSON({
 		url: reserveValidUrl,
 		async:false, 
@@ -159,19 +166,22 @@ def _hotelsListJs():
 		tr = ti.getSelectedRows()[0];
 		
 		// judge whether it's a room could be reserved
-		options = {}
+		couldReserve = false, options = {};
 		options[validProp] = ti.getCellValueByRowId(tr.get('id'), validProp);
 		request.get(options);
 
 		// popup modal dialog to reserve this type of room
 		if(!couldReserve) {
-			MUI.notification('The row you selecting could not be reserved! ');
+			MUI.notification(unReserveErr);
 			return;
 		};
 		
+		// get service id
+		query = ti.getRowDataWithProps(tr);
+		url = [reserveEditUrl, query.toQueryString()].join('?');	
 		new MUI.Modal({
-         		width:600, height:380,title: 'Reservation Edit',
-         		contentURL: reserveEditUrl,
+         		width:600, height:380,title: editModalTitle,
+         		contentURL: url,
          		modalOverlayClose: false,
          	});
 
@@ -305,12 +315,49 @@ def page_roomReserve(**args):
 	return
 
 def page_capableReserve(**args):
-	status = args.get('status')
-	print JSON.encode({'ok':1})
+	toCheck = args.get(VALIDPROP)
+	# get the status that could be reserved
+	status = INITCONFIG.getData('service')['hotel']['configProperty'][0]['value'] 
+	valid = (not toCheck in (None,'')) and (toCheck in status) and 1 or 0
+	print JSON.encode({'ok': valid, 'status':status, 'toChk':toCheck })
 	return
 
+RESERVEPROPS =\ 
+[
+	{'name':'amount','prompt':_('Amount'),'validate':[],'required':True},
+	{'name':'memo','prompt':_('Adendum'),'validate':[],'required':True},
+]
+	
 def page_reserveForm(**args):
-	print H2('Reservation Form')
+	# hotel info
+	table = []
+	# get hotel name
+	hotelId = args.get('subcategory')
+	if hotelId:
+		hotel = model.get_item(USER, 'service', hotelId, ('name',), keyIsId=True).get('name')
+	else:
+		hotel = ''
+	
+	attrs = {'style' : 'text-align: center; font-size: 1.6em;font-weight:bold;'}
+	table.append( CAPTION(hotel, **attrs))
+	# get room info
+	
+	fields = []
+	for prop in ('name', 'description', 'price'):
+		data = filter(lambda i : i.get('dataIndex')== prop ,COLUMNMODEL)[0]
+		if prop != 'name':
+			info = {'prompt':data.get('label'),'value':args.get(prop)}
+		else:
+			info = {'prompt': _('Room Type'),'value':args.get(prop)}
+		fields.append(info)
+	
+	trs = formFn.render_table_fields(fields)
+	
+	table.append(trs)	
+	print TABLE(Sum(table))
+	
+	# reserve form
+	hide = [{'name':'booker','value':USER}]
 	return
 
 
