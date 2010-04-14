@@ -82,18 +82,26 @@ ACTIONS = [
 	{'type':'house','label':_('Detail Information')},
 	{'type':'edit','label':_('Reserve')},
 ]
-
+VALIDPROP = 'status'
 def _hotelsListJs():
-	paras = [APP, CONTAINERID,]
-	paras.extend(['/'.join((APPATH,name)) for name in ('page_colsModel','page_hotelItems')])
+	paras = [APP, CONTAINERID, VALIDPROP]
+	paras.extend(\
+		[ 
+			'/'.join((APPATH,name)) 
+			for name in ('page_colsModel','page_hotelItems', 'page_capableReserve', 'page_reserveForm')
+		]
+	)
+	
 	[ paras.extend( [ action.get(key) for key in ('type','label')]) for action in ACTIONS ] 
 	paras.append(_('Please select only one type of room!'))
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName='%s', container='%s', colsModelUrl='%s', rowDataUrl='%s',
+	var appName='%s', container='%s', validProp='%s',
+	colsModelUrl='%s', rowDataUrl='%s',
+	reserveValidUrl='%s', reserveEditUrl='%s',
 	bnAttributes = [{'type':'%s','label':'%s'},{'type':'%s','label':'%s'}],
-	errInfo = '%s';	
+	rowSelectErr = '%s';	
 	
 	var treeTable;
 	
@@ -125,7 +133,7 @@ def _hotelsListJs():
 	function actionAdapter(index){
 		trs = this.getSelectedRows();
 		if(trs.length != 1){	// only one row should be selected
-			MUI.alert(errInfo);
+			MUI.alert(rowSelectErr);
 			return
 		};
 		
@@ -137,8 +145,36 @@ def _hotelsListJs():
 		};
 	};
 	
+	// set a global Request.JSON instance for send validation url for check the capability of selected row
+	var couldReserve = false;
+	var request = new Request.JSON({
+		url: reserveValidUrl,
+		async:false, 
+		onComplete:function(json){
+			if(json.ok == '1'){couldReserve=true;}
+		}
+	});
+
 	function reservation(ti){
-		alert('reserve action');
+		tr = ti.getSelectedRows()[0];
+		
+		// judge whether it's a room could be reserved
+		options = {}
+		options[validProp] = ti.getCellValueByRowId(tr.get('id'), validProp);
+		request.get(options);
+
+		// popup modal dialog to reserve this type of room
+		if(!couldReserve) {
+			MUI.notification('The row you selecting could not be reserved! ');
+			return;
+		};
+		
+		new MUI.Modal({
+         		width:600, height:380,title: 'Reservation Edit',
+         		contentURL: reserveEditUrl,
+         		modalOverlayClose: false,
+         	});
+
 	};
 	
 	function hotelDetail(ti){
@@ -266,6 +302,15 @@ def page_hotelInfo(**args):
 	
 def page_roomReserve(**args):
 	print H2('User:%s rooms reservation'%USER)
+	return
+
+def page_capableReserve(**args):
+	status = args.get('status')
+	print JSON.encode({'ok':1})
+	return
+
+def page_reserveForm(**args):
+	print H2('Reservation Form')
 	return
 
 

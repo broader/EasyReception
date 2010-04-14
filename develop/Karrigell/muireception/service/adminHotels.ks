@@ -47,8 +47,8 @@ def index(**args):
 	
 	# configrable properties
 	configField = getattr(pagefn, 'HOTEL').get('categoryInService')
-	props = INITCONFIG.getData(configField)
-	props = props and props.get('configProperty') or {}
+	props = INITCONFIG.getData('service')
+	props = props and props.get('hotel')['configProperty'] or {}
 	
 	# constructs table header
 	headers = ('name', 'prompt', 'property', 'value')

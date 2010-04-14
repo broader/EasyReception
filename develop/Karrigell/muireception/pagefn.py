@@ -1,6 +1,11 @@
 # karrigell modules
 from HTMLTags import *
 
+# config data object
+#RELPATH = (lambda p : p.split('/')[0])(THIS.baseurl)
+#INITCONFIG = Import('./config.py', rootdir=CONFIG.root_dir)
+INITCONFIG = Import( '/'.join(('', 'config.py')), rootdir=CONFIG.root_dir)
+
 # session object config
 SOINFO = {'user':'userinfo',}
 
@@ -207,7 +212,7 @@ _hotelUrls = ['/'.join(('service','userHotelsView.ks',url)) for url in ('page_ho
 
 HOTEL = \
 { 
-	'categoryInService':'Hotel',	# the value for 'category' property of 'service' Class in schema.py of roundup module
+	'categoryInService': INITCONFIG.getData('service')['hotel']['categoryInService'],	# the value for 'category' property of 'service' Class in schema.py of roundup module
 
 	'mainColumn':{
 		'list':{
@@ -329,5 +334,11 @@ def sexyButton(txt,bnAttrs={},bnType='',size='sexymedium',skin='sexysimple'):
 	bnClass = ' '.join(bnClass)
 	bnAttrs['class'] = bnClass
 	return BUTTON(SPAN(txt,**{'class':bnType}),**bnAttrs)
+
+def getConfig(appName):
+	# configrable properties
+	configField = HOTEL.get('categoryInService')
+	props = INITCONFIG.getData(configField)
+	props = props and props.get('configProperty') or {}
 
 	

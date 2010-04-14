@@ -103,19 +103,19 @@ def _portfolioShowJs(**args):
 	var portfolioBn='%s', portfolioDlgTitle='%s', portfolioEditUrl='%s';
 	function portfolioPageInit(){
 		// add mouseover effect to buttons
-   	new MooHover({container:portfolioBn,duration:800});
+   		new MooHover({container:portfolioBn,duration:800});
    	
-   	// Add click callback functions for buttons
-      $(portfolioBn)
-      .getElements('button')[0]
-      .addEvent('click',function(event){
-         new MUI.Modal({
-         	width:600, height:380,
-         	contentURL: portfolioEditUrl,
-         	title: portfolioDlgTitle,
-         	modalOverlayClose: false,
-         });
-      });
+   		// Add click callback functions for buttons
+      		$(portfolioBn)
+      		.getElements('button')[0]
+      		.addEvent('click',function(event){
+        		new MUI.Modal({
+         			width:600, height:380,
+         			contentURL: portfolioEditUrl,
+         			title: portfolioDlgTitle,
+         			modalOverlayClose: false,
+         		});
+      		});
 	};
 	
 	window.addEvent('domready', portfolioPageInit);

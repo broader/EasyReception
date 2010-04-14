@@ -1,8 +1,6 @@
 import os
 import yaml
 
-pagefn = Import('/'.join(('', 'pagefn.py')))
-
 INICONFIG = os.sep.join((rootdir, 'config.yaml'))
 INIDATA = {}
 INIDATA['userAccountInfo'] = \
@@ -72,17 +70,19 @@ INIDATA['userBaseInfo'] = \
 ]
 
 # app name for 'Hotel'
-hotelAppName = getattr(pagefn, 'HOTEL').get('categoryInService')
-INIDATA[hotelAppName] = \
+INIDATA['service'] = \
 {
-	'configProperty':[
-		{
-			'name': 'reservePermission',
-			'prompt': 'status that could be reserved',
-			'property': 'status',
-			'value': ''
-		},
-	],
+	'hotel': {
+		'categoryInService': 'Hotel',
+		'configProperty':[
+			{
+				'name': 'reservePermission',
+				'prompt': 'status that could be reserved',
+				'property': 'status',
+				'value': ''
+			},
+		],
+	}
 }
 
 def _init(value=None):	
