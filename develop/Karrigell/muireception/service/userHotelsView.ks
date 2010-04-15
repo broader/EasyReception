@@ -180,7 +180,7 @@ def _hotelsListJs():
 		query = ti.getRowDataWithProps(tr);
 		url = [reserveEditUrl, query.toQueryString()].join('?');	
 		new MUI.Modal({
-         		width:600, height:380,title: editModalTitle,
+         		width: 450, height: 400, y: 80, title: editModalTitle,
          		contentURL: url,
          		modalOverlayClose: false,
          	});
@@ -325,7 +325,7 @@ def page_capableReserve(**args):
 RESERVEPROPS =\ 
 [
 	{'name':'amount','prompt':_('Amount'),'validate':[],'required':True},
-	{'name':'memo','prompt':_('Adendum'),'validate':[],'required':True},
+	{'name':'memo','prompt':_('Adendum'), 'type':'textarea', 'validate':[],'required':True},
 ]
 	
 def page_reserveForm(**args):
@@ -340,8 +340,8 @@ def page_reserveForm(**args):
 	
 	attrs = {'style' : 'text-align: center; font-size: 1.6em;font-weight:bold;'}
 	table.append( CAPTION(hotel, **attrs))
-	# get room info
 	
+	# get room info	
 	fields = []
 	for prop in ('name', 'description', 'price'):
 		data = filter(lambda i : i.get('dataIndex')== prop ,COLUMNMODEL)[0]
@@ -351,13 +351,119 @@ def page_reserveForm(**args):
 			info = {'prompt': _('Room Type'),'value':args.get(prop)}
 		fields.append(info)
 	
-	trs = formFn.render_table_fields(fields)
+	trs = formFn.render_table_fields(fields,cols=1,labelStyle={},valueStyle={'td':'padding-left:2em;'})
 	
 	table.append(trs)	
-	print TABLE(Sum(table))
+	print DIV(TABLE(Sum(table)), style='margin-left:1em;')
 	
 	# reserve form
-	hide = [{'name':'booker','value':USER}]
+	_reserveForm()
+	
 	return
+
+def _reserveForm(**args):
+	form = []
+
+	# hide fileds to submit
+	hideInput = [{'name':'booker','value':USER}]
+
+	props = RESERVEPROPS
+	for prop in props:
+		prop['oldvalue'] = ''
+		prop['type'] = prop.get('type') or 'input'
+
+	div = DIV(Sum(formFn.yform(props)))
+	form.append(FIELDSET(div))
+	
+	# append hidden field that points out the action type
+	[item.update({'type':'hidden'}) for item in hideInput]
+	[ form.append(INPUT(**item)) for item in hideInput ]
+	
+
+	bnStyle = 'position:absolute;margin-left:15em;' 
+	formId = 'reserveEditForm'
+	form = \
+	FORM( 
+		Sum(form), 
+		**{'action': '/'.join((APPATH,'page_reserveEditAction')), 'id': formId, 'method':'post','class':'yform'}
+	)
+				
+	print DIV(form,style='')
+	
+	# import js slice
+	print pagefn.script(_reserveFormJs(formId, bnStyle), link=False)
+	return
+
+def _reserveFormJs(formId, bnStyle):
+	paras = [ APP, formId, bnStyle]
+	paras.extend( [ pagefn.BUTTONLABELS.get('confirmWindow').get(key) for key in ('confirm','cancel')] )
+	paras = tuple(paras)
+	js = \
+	"""
+	var appName='%s', formId='%s', bnStyle='%s',
+	confirmBnLabel='%s',cancelBnLabel='%s';
+	
+	var reserveEditFormChk;
+	// Load the form validation plugin script
+	var options = {
+	    onload:function(){ 
+		reserveEditFormChk = new FormCheck( formId,{
+		    submitByAjax: true,
+		    onAjaxSuccess: function(response){
+			if(response == 1){
+			    MUI.closeModalDialog();
+			};               
+		    },            
+		    
+ 		    display:{
+			errorsLocation : 1,
+			keepFocusOnError : 0, 
+			scrollToFirst : false
+		    }
+		});// the end for 'reserveEditFormChk' definition
+			
+	    }// the end for 'onload' definition
+	};// the end for 'options' definition
+ 
+   	MUI.formValidLib(appName,options);
+	
+	// add action buttons	
+	var bnContainer = new Element('div',{style: bnStyle});
+	$(formId).adopt(bnContainer);
+	
+	[
+	    {'type':'accept','label': confirmBnLabel},
+	    {'type':'cancel','label': cancelBnLabel}
+	].each(function(attrs,index){
+	    options = {
+		txt: attrs['label'],
+		imgType: attrs['type'],
+		bnAttrs: {'style':'margin-right:1em;'}	
+	    };
+	    button = MUI.styledButton(options);		
+	    button.addEvent('click',actionAdapter);
+	    bnContainer.grab(button);
+	});
+	
+	function actionAdapter(e){
+		var button = e.target;
+		var label = button.get('text');
+		
+		if(label == confirmBnLabel){
+			reserveEditFormChk.onSubmit(e);
+		}
+		else{
+			new Event(e).stop();
+			MUI.closeModalDialog();
+		}; 
+	};
+	"""%paras
+	return js
+
+def page_reserveEditAction(**args):
+	ok = 0
+	print ok
+	return
+
 
 
