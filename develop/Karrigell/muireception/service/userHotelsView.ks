@@ -96,6 +96,7 @@ def _hotelsListJs():
 			for name in ('page_colsModel','page_hotelItems', 'page_capableReserve', 'page_reserveForm')
 		]
 	)
+	paras.extend([ACTIONPROP, ACTIONTYPES[0]])
 	
 	[ paras.extend( [ action.get(key) for key in ('type','label')]) for action in ACTIONS ] 
 	paras.append(_('Please select only one type of room!'))
@@ -107,6 +108,7 @@ def _hotelsListJs():
 	var appName='%s', container='%s', validProp='%s',
 	colsModelUrl='%s', rowDataUrl='%s',
 	reserveValidUrl='%s', reserveEditUrl='%s',
+	action={'%s':'%s'};
 	bnAttributes = [{'type':'%s','label':'%s'},{'type':'%s','label':'%s'}],
 	rowSelectErr = '%s', unReserveErr='%s', editModalTitle='%s';	
 	
@@ -178,6 +180,7 @@ def _hotelsListJs():
 		
 		// get service id
 		query = ti.getRowDataWithProps(tr);
+		query.combine(action);
 		url = [reserveEditUrl, query.toQueryString()].join('?');	
 		new MUI.Modal({
          		width: 450, height: 400, y: 80, title: editModalTitle,
@@ -322,13 +325,9 @@ def page_capableReserve(**args):
 	print JSON.encode({'ok': valid, 'status':status, 'toChk':toCheck })
 	return
 
-RESERVEPROPS =\ 
-[
-	{'name':'amount','prompt':_('Amount'),'validate':[],'required':True},
-	{'name':'memo','prompt':_('Adendum'), 'type':'textarea', 'validate':[],'required':True},
-]
-	
+ACTIONPROP,ACTIONTYPES = 'action',('create','edit', 'delete')
 def page_reserveForm(**args):
+	action = args.get(ACTIONPROP)	
 	# hotel info
 	table = []
 	# get hotel name
@@ -357,15 +356,25 @@ def page_reserveForm(**args):
 	print DIV(TABLE(Sum(table)), style='margin-left:1em;')
 	
 	# reserve form
-	_reserveForm()
+	_reserveForm(action,hotelId)
 	
 	return
 
-def _reserveForm(**args):
+RESERVEPROPS =\ 
+[
+	{'name': 'amount','prompt': _('Amount'),'validate': ['number'],'required': True},
+	{'name': 'memo','prompt': _('Adendum'), 'type': 'textarea', 'validate': [],'required': False},
+]
+def _reserveForm(action, hotelId=None):
 	form = []
 
 	# hide fileds to submit
-	hideInput = [{'name':'booker','value':USER}]
+	if ACTIONTYPES.index(action) == 0:
+		hideInput = [\
+			{'name':'booker','value':USER}, 
+			{'name': ACTIONPROP,'value':action},
+			{'name': 'target', 'value':hotelId}
+		]
 
 	props = RESERVEPROPS
 	for prop in props:
@@ -461,7 +470,19 @@ def _reserveFormJs(formId, bnStyle):
 	return js
 
 def page_reserveEditAction(**args):
+	# get action type
+	action = args.get(ACTIONPROP)
+	
+	# response tag 
 	ok = 0
+	
+	#props = ('amount','memo','booker')
+	if ACTIONTYPES.index(action) == 0 :
+		args.pop(ACTIONPROP)
+		rid = model.create_item( USER, 'reserve', args)
+		if rid:
+			ok = 1
+ 
 	print ok
 	return
 

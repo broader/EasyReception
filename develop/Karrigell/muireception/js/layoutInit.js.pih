@@ -220,6 +220,10 @@ MUI.extend({
 			if(columns.contains(key)){ MUI.closeColumn($(key));};
 		});
 		
+		// clear the hash objects that save MUI.Column  instances and MUI.Panel instances
+		MUI.Columns.instances.empty();
+		MUI.Panels.instances.empty();
+		
 		// remove all the imported mootools.Assets
 		MUI.assetsManager.remove('<%=loginApp %>', 'app');
 		
@@ -264,16 +268,15 @@ MUI.extend({
 	},
 	
 	// collapse all other panels, only left user selected panel
-	accordionPanels: function(currentId){
+	accordionPanels: function(selectedId){
 		// get the MUI.Column of this MUI.Panel
-		var column = MUI.Panels.instances.get(currentId).options.column;
-		//var column = '<%=sideBar %>';
+		var column = MUI.Panels.instances.get(selectedId).options.column;
 		
 		MUI.Panels.instances.each(function(panel){
 			if (panel.options.column != column){
 				return
 			};
-			if (panel.options.id != currentId && panel.isCollapsed != true ){
+			if (panel.options.id != selectedId && panel.isCollapsed != true ){
 				panel.toggleExpand();
 			};
 		});

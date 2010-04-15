@@ -18,7 +18,7 @@ pri.setkey("name")
 # Statuses
 stat = Class(db, "status",
                 name=String(),
-                order=Number(),
+                order=String(),
                 category=String(),
                 description=String())
 stat.setkey("name")
@@ -106,15 +106,15 @@ issue = IssueClass(db, "issue",
 # Congress Service Related Classes
 # the services provided by Congress secretary
 service = Class(db, "service",
-			serial=String(),
-			name=String(),
-			category=String(),				# such as 'hotel', 'travel'...
-			subcategory=Link('service'),
-			price=String(), 					# the price of each service
-			description=String(),			# description for the service
-			detail=String(),					# footnote
-			amount=String(),
-			status=Link("status"))					# the amount of this service item			
+	serial=String(),
+	name=String(),
+	category=String(),		# such as 'hotel', 'travel'...
+	subcategory=Link('service'),
+	price=String(), 		# the price of each service
+	description=String(),		# description for the service
+	detail=String(),		# footnote
+	amount=String(),
+	status=Multilink("status"))		# the amount of this service item			
 #service.setkey("serial")
 
 # the record of each reservation

@@ -119,11 +119,11 @@ service = Class(db, "service",
 
 # the record of each reservation
 reserve = Class(db, "reserve",
-			serial=String(),
-			booker=Link("user"),		# who is booking
-			amount=Number(),			# the amount of the booked service 
-			target=Link("service"),	# which service to be booked
-			memo=String())				# maybe some description of this booking
+	serial=String(),
+	booker=Link("user"),		# who is booking
+	amount=Number(),		# the amount of the booked service 
+	target=Link("service"),	        # which service to be booked
+	memo=String())			# maybe some description of this booking
 #reserve.setkey("serial")
 
 # the dossier for user, saved in a csv formatted file

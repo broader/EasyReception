@@ -57,11 +57,9 @@ MUI.extend({
 		MUI.removeErr();
 		
 		// close modal dialog		
-   	MUI.Windows.instances.each(function(w){
-   		if(w.options.type=='modal'){
-   	 		w.close();
-   	 	};
-   	}); 
+		MUI.Windows.instances.each(function(w){
+   			if(w.options.type=='modal'){ w.close();	};
+   		}); 
    	
    	return true
 	},

@@ -384,21 +384,22 @@ def get_reserves(operator, booker, props=None):
 	reserves = filterByLink( operator, 'reserve', 'user', booker, props, 'booker')
 	return reserves
 
-def create_item(admin, klass, props, autoSerial=True):
+def create_item(operator, klass, props, autoSerial=True):
 	client = get_client()
 	if not client :
 		return None
 
-	if not admin or not klass or not props:
+	if not operator or not klass or not props:
 		return
 	
-	client.set_user(admin)	
+	client.set_user(operator)	
 	all_props = {(klass, None): props}
-	form = { 'action' : 'new',\
-		      'needId': True,		            
-		      'context' : klass,\
-		      'all_props': all_props		      
-		    }
+	form = { \
+		'action' : 'new',\
+	      	'needId': True,		            
+		'context' : klass,\
+		'all_props': all_props		      
+	}
 	
 	# if class has 'serial' property and needed to be auto created,
 	# set form['autoSerial'] to True.	
@@ -408,6 +409,7 @@ def create_item(admin, klass, props, autoSerial=True):
 	client.form = form
 	action(client)
 	newId = None
+	# dictionary 'form' has been set the value for key 'needId' duing roundup action
 	needId = form.get('needId')
 	if needId:
 		newId = needId.get(klass)	
