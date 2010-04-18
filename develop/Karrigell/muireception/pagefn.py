@@ -208,7 +208,7 @@ PORTFOLIO = {'panelsId':('editPortfolioPanel','editAccountPanel'),}
 # Hotel Reservation Application module
 #--------------------------------------------------------------------------------------
 #HOTEL = {'panelsId':{'left':{'list':'hotesList','info':'hotelInfo'},'right':'hotelReserve'},}
-_hotelUrls = ['/'.join(('service','userHotelsView.ks',url)) for url in ('page_hotelsList','page_hotelInfo','page_roomReserve')]
+_hotelUrls = ['/'.join(('service','userHotelsView.ks',url)) for url in ('page_hotelsList','page_hotelInfo','page_roomReservation')]
 
 HOTEL = \
 { 

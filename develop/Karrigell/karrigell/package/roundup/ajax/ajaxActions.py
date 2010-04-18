@@ -1376,7 +1376,9 @@ class FilterByLinkAction(GetItemAction):
         value = self.client.form['linkvalue']
         #Link Class name
         lcn = self.client.form['linkclass']
-        #print 'FilterByLinkAction,L1368, link class is %s, link value is %s'%(lcn, value)
+        
+        #print 'FilterByLinkAction,L1380, link class is %s, link value is %s'%(lcn, value)
+        
         # get the Link Class instance
         lci = self.db.getclass(lcn) 
         nid = lci.lookup(value)        
@@ -1384,7 +1386,9 @@ class FilterByLinkAction(GetItemAction):
         # get class instance
         cn = self.client.classname
         cl = self.db.getclass(cn)
-        #print 'FilterByLinkAction,L1379, class name is %s, link class id is %s'%(cn, id)
+        
+        #print 'FilterByLinkAction,L1390, class name is %s, link class id is %s'%(cn, nid)
+        
         # get ids of the items of this class, these items has the link property's id
         propname  = self.client.form.get('linkprop')
         if propname :
@@ -1393,9 +1397,18 @@ class FilterByLinkAction(GetItemAction):
                 tofind = lcn
         arg = {tofind : nid}        
         ids = cl.find(**arg)                
+        
+        #print 'FilterByLinkAction,L1401, argument is %s, finded ids are %s'%(arg, ids)
+        
         # get items'  values        
-        props = self.client.form['propnames']        
+        props = self.client.form['propnames'] or cl.getprops().keys()
+        
+        #print 'FilterByLinkAction,L1408, props for class %s are %s'%(cn, props)  
+             
         rows = [self.getitem(cl, nid,props,link2key=True) for nid in ids]
+        
+        #print 'FilterByLinkAction,L1407, result values are  %s'%rows
+        
         return rows
         
 

@@ -378,7 +378,7 @@ def get_issues(admin, props, search=None):
 		total = client.form.get('total')
 	return total,data
 
-def get_reserves(operator, booker, props=None):	
+def get_reservations(operator, booker, props=None):	
 	""" Get the properties' values of the items of 'reserve' Class in shcema.  
 	"""
 	reserves = filterByLink( operator, 'reserve', 'user', booker, props, 'booker')

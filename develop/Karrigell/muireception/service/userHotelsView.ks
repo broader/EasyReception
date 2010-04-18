@@ -312,10 +312,53 @@ def page_hotelItems(**args):
 def page_hotelInfo(**args):
 	print H2('The detail information for one hotel')
 	return
+
+RESERVESHOWPROPS = ('target', 'amount', 'memo','creation', 'serial')
+def page_roomReservation(**args):
+	# get reservations for this user
+	booker = args.get('booker') or USER
+	reservations = model.get_reservations( USER, booker, props=RESERVESHOWPROPS) or []
+	ul = []
+	for res in reservations:
+		div = [Sum((SPAN(value),BR())) for value in res]
+		ul.append(LI(Sum(div)))
 	
-def page_roomReserve(**args):
-	print H2('User:%s rooms reservation'%USER)
+	print UL(Sum(ul))	
+	
 	return
+
+def _rommInfo(**args) :
+	# hotel info
+	table = []
+	# get hotel name
+	roomId = args.get('target')
+	roomProps = ('name', 'description', 'price', 'subcategory')
+	roomValues = model.get_item(USER, 'service', roomId, roomProps, keyIsId=True)
+	hotelId = roomValue.pop('subcategory')
+	hotel = model.get_item(USER, 'service', hotelId, ('name',), keyIsId=True).get('name')
+	
+	attrs = {'style' : 'text-align: center; font-size: 1.6em;font-weight:bold;'}
+	table.append( CAPTION(hotel, **attrs))
+	
+	# get room info	
+	fields = []
+	for prop in ('name', 'description', 'price'):
+		data = filter(lambda i : i.get('dataIndex')== prop ,COLUMNMODEL)[0]
+		if prop != 'name':
+			info = {'prompt':data.get('label'),'value':args.get(prop)}
+		else:
+			info = {'prompt': _('Room Type'),'value':args.get(prop)}
+		fields.append(info)
+	
+	# get reservation info
+	for prop in ('amoun', 'memo'):
+		pass
+
+	trs = formFn.render_table_fields(fields,cols=1,labelStyle={},valueStyle={'td':'padding-left:2em;'})
+	
+	table.append(trs)	
+	print DIV(TABLE(Sum(table)), style='margin-left:1em;')
+
 
 def page_capableReserve(**args):
 	toCheck = args.get(VALIDPROP)
@@ -360,7 +403,7 @@ def page_reserveForm(**args):
 	
 	return
 
-RESERVEPROPS =\ 
+RESERVEFORMPROP =\ 
 [
 	{'name': 'amount','prompt': _('Amount'),'validate': ['number'],'required': True},
 	{'name': 'memo','prompt': _('Adendum'), 'type': 'textarea', 'validate': [],'required': False},
@@ -376,7 +419,7 @@ def _reserveForm(action, hotelId=None):
 			{'name': 'target', 'value':hotelId}
 		]
 
-	props = RESERVEPROPS
+	props = RESERVEFORMPROP
 	for prop in props:
 		prop['oldvalue'] = ''
 		prop['type'] = prop.get('type') or 'input'
