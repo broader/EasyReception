@@ -168,7 +168,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1176858964077" ID="Freemind_Link_1801314834" MODIFIED="1272202088612" TEXT="Application">
+<node COLOR="#00b439" CREATED="1176858964077" FOLDED="true" ID="Freemind_Link_1801314834" MODIFIED="1272203689857" TEXT="Application">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="button_cancel"/>
@@ -354,7 +354,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1253088310853" ID="Freemind_Link_1588183683" MODIFIED="1272202987957" TEXT="Registration">
+<node COLOR="#990000" CREATED="1253088310853" FOLDED="true" ID="Freemind_Link_1588183683" MODIFIED="1272203688367" TEXT="Registration">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1269821169358" ID="ID_401784031" MODIFIED="1269821184996" TEXT="Tools">
@@ -459,7 +459,7 @@
 <node COLOR="#00b439" CREATED="1272202865378" ID="ID_1064712418" MODIFIED="1272202884758" TEXT="Access Control">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1272202885675" ID="ID_1529149116" MODIFIED="1272202889850" TEXT="Examples">
+<node COLOR="#990000" CREATED="1272202885675" FOLDED="true" ID="ID_1529149116" MODIFIED="1272203693501" TEXT="Examples">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1272202890895" ID="ID_316741217" LINK="http://codecanyon.net/item/base-role-based-access-controlcakephp-plugin/full_screen_preview/89182" MODIFIED="1272202895373" TEXT="http://codecanyon.net/item/base-role-based-access-controlcakephp-plugin/full_screen_preview/89182"/>
 </node>
@@ -2289,7 +2289,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1271036052099" ID="ID_822841815" MODIFIED="1272171148627" TEXT="Widgets">
+<node COLOR="#00b439" CREATED="1271036052099" FOLDED="true" ID="ID_822841815" MODIFIED="1272203700886" TEXT="Widgets">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1271036057089" ID="ID_514524676" MODIFIED="1271036059363" TEXT="Clock">

@@ -35173,3 +35173,42 @@ sent 70621 bytes  received 31 bytes  141304.00 bytes/sec
 total size is 308488  speedup is 4.37
 2010-04-25 21:55:29,939 INFO End backup loacl karrigell diretory to local git.
 2010-04-25 21:55:29,939 INFO Begin to backup local github to remote github host.
+2010-04-25 21:55:30,962 INFO Command: 
+git add .
+running result is :
+2010-04-25 21:55:36,058 INFO Command: 
+git commit -m 'Update time:2010-04-25T21:55:29.939811'
+running result is :[master b23b17d] Update time:2010-04-25T21:55:29.939811
+ 2 files changed, 92 insertions(+), 25 deletions(-)
+2010-04-25 21:55:45,826 INFO Command: 
+git push origin master
+running result is :Counting objects: 11, done.
+Delta compression using up to 2 threads.
+Compressing objects:  20% (1/5)   Compressing objects:  40% (2/5)   Compressing objects:  60% (3/5)   Compressing objects:  80% (4/5)   Compressing objects: 100% (5/5)   Compressing objects: 100% (5/5), done.
+Writing objects:  16% (1/6)   Writing objects:  33% (2/6)   Writing objects:  50% (3/6)   Writing objects:  66% (4/6)   Writing objects:  83% (5/6)   Writing objects: 100% (6/6)   Writing objects: 100% (6/6), 1.98 KiB, done.
+Total 6 (delta 3), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   eba2b68..b23b17d  master -> master
+2010-04-25 21:55:45,827 INFO End backup local github to remote github host.
+2010-04-25 21:56:22,184 INFO Delete nousing captcha images
+2010-04-25 21:56:22,187 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-04-25 21:56:22,187 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-04-25 21:56:22,388 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+
+sent 166253 bytes  received 1159 bytes  334824.00 bytes/sec
+total size is 47727304  speedup is 285.09
+2010-04-25 21:56:22,458 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768  10%    0.00kB/s    0:00:00        308544 100%    8.77MB/s    0:00:00 (xfer#1, to-check=0/2)
+
+sent 70631 bytes  received 31 bytes  141324.00 bytes/sec
+total size is 308544  speedup is 4.37
+2010-04-25 21:56:22,459 INFO End backup loacl karrigell diretory to local git.
+2010-04-25 21:56:22,459 INFO Begin to backup local github to remote github host.
