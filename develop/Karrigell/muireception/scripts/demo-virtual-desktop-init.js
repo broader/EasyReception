@@ -62,7 +62,7 @@ initializeWindows = function(){
 		new MUI.Window({
 			id: 'ajaxpage',
 			loadMethod: 'xhr',
-			contentURL: 'pages/lipsum.html',
+			contentURL: '../pages/lipsum.html',
 			width: 340,
 			height: 150
 		});
@@ -75,7 +75,7 @@ initializeWindows = function(){
 	}	
 	
 	MUI.jsonWindows = function(){
-		var url = 'data/json-windows-data.js';
+		var url = '../data/json-windows-data.js';
 		var request = new Request.JSON({
 			url: url,
 			method: 'get',
@@ -96,33 +96,33 @@ initializeWindows = function(){
 			id: 'youtube',
 			title: 'YouTube in Iframe',
 			loadMethod: 'iframe',
-			contentURL: 'pages/youtube.html',
+			contentURL: '../pages/youtube.html',
 			width: 340,
 			height: 280,
 			resizeLimit:  {'x': [330, 2500], 'y': [250, 2000]},
 			toolbar: true,
-			toolbarURL: 'pages/youtube-tabs.html',
+			toolbarURL: '../pages/youtube-tabs.html',
 			toolbarOnload: function(){
 				MUI.initializeTabs('youtubeTabs');	
 
 				$('youtube1Link').addEvent('click', function(e){
 					MUI.updateContent({
 						'element':  $('youtube'),
-						'url':      'pages/youtube.html'
+						'url':      '../pages/youtube.html'
 					});
 				});
 	
 				$('youtube2Link').addEvent('click', function(e){
 					MUI.updateContent({
 						'element':  $('youtube'),
-						'url':      'pages/youtube2.html'
+						'url':      '../pages/youtube2.html'
 					});
 				});
 	
 				$('youtube3Link').addEvent('click', function(e){
 					MUI.updateContent({
 						'element':  $('youtube'),	
-						'url':      'pages/youtube3.html'
+						'url':      '../pages/youtube3.html'
 					});
 				});	
 			}			
@@ -141,7 +141,7 @@ initializeWindows = function(){
 			title: 'Canvas Clock',
 			addClass: 'transparent',
 			loadMethod: 'xhr',
-			contentURL: 'plugins/coolclock/index.html',
+			contentURL: '../plugins/coolclock/index.html',
 			shape: 'gauge',
 			headerHeight: 30,
 			width: 160,
@@ -150,7 +150,8 @@ initializeWindows = function(){
 			y: 152,
 			padding: { top: 0, right: 0, bottom: 0, left: 0 },
 			require: {			
-				js: [MUI.path.plugins + 'coolclock/scripts/coolclock.js'],
+				//js: [MUI.path.plugins + 'coolclock/scripts/coolclock.js'],
+				js: ['../plugins/' + 'coolclock/scripts/coolclock.js'],
 				onload: function(){
 					if (CoolClock) new CoolClock();
 				}	
@@ -169,7 +170,7 @@ initializeWindows = function(){
 			id: 'parametrics',
 			title: 'Window Parametrics',
 			loadMethod: 'xhr',
-			contentURL: 'plugins/parametrics/index.html',
+			contentURL: '../plugins/parametrics/index.html',
 			width: 305,
 			height: 110,
 			x: 230,
@@ -178,8 +179,8 @@ initializeWindows = function(){
 			resizable: false,
 			maximizable: false,
 			require: {
-				css: [MUI.path.plugins + 'parametrics/css/style.css'],
-				js: [MUI.path.plugins + 'parametrics/scripts/parametrics.js'],
+				css: ['../plugins/' + 'parametrics/css/style.css'],
+				js: ['../plugins/' + 'parametrics/scripts/parametrics.js'],
 				onload: function(){	
 					if (MUI.addRadiusSlider) MUI.addRadiusSlider();
 					if (MUI.addShadowSlider) MUI.addShadowSlider();
@@ -200,7 +201,7 @@ initializeWindows = function(){
 			id: 'windowevents',
 			title: 'Window Events',
 			loadMethod: 'xhr',
-			contentURL: 'pages/events.html',
+			contentURL: '../pages/events.html',
 			width: 340,
 			height: 250,			
 			onContentLoaded: function(windowEl){
@@ -241,7 +242,7 @@ initializeWindows = function(){
 			id: 'containertest',
 			title: 'Container Test',
 			loadMethod: 'xhr',
-			contentURL: 'pages/lipsum.html',
+			contentURL: '../pages/lipsum.html',
 			container: 'pageWrapper',
 			width: 340,
 			height: 150,
@@ -261,7 +262,7 @@ initializeWindows = function(){
 			id: 'iframetests',
 			title: 'Iframe Tests',
 			loadMethod: 'iframe',
-			contentURL: 'pages/iframetests.html'
+			contentURL: '../pages/iframetests.html'
 		});
 	}
 	if ($('iframetestsLinkCheck')) {
@@ -277,7 +278,7 @@ initializeWindows = function(){
 			id: id,
 			title: 'Accordian',
 			loadMethod: 'xhr',
-			contentURL: 'pages/accordian-demo.html',
+			contentURL: '../pages/accordian-demo.html',
 			width: 300,
 			height: 200,
 			scrollbars: false,
@@ -285,7 +286,7 @@ initializeWindows = function(){
 			maximizable: false,
 			padding: { top: 0, right: 0, bottom: 0, left: 0 },
 			require: {
-				css: [MUI.path.plugins + 'accordian/css/style.css'],
+				css: [ '..\/plugins\/'+ 'accordian/css/style.css'],
 				onload: function(){
 					this.windowEl = $(id);				
 					new Accordion('#' + id + ' h3.accordianToggler', "#" + id + ' div.accordianElement',{
@@ -324,7 +325,7 @@ initializeWindows = function(){
 			id: 'nocanvas',
 			title: 'No Canvas',
 			loadMethod: 'xhr',
-			contentURL: 'pages/lipsum.html',
+			contentURL: '../pages/lipsum.html',
 			addClass: 'no-canvas',
 			width: 305,
 			height: 175,
@@ -381,7 +382,7 @@ initializeWindows = function(){
 		new MUI.Window({
 			id: 'builder',
 			title: 'Window Builder',
-			icon: 'images/icons/page.gif',
+			icon: '../images/icons/page.gif',
 			loadMethod: 'xhr',
 			contentURL: 'plugins/windowform/',
 			width: 370,
@@ -391,10 +392,10 @@ initializeWindows = function(){
 			scrollbars: false,
 			onBeforeBuild: function(){
 				if ($('builderStyle')) return;
-				new Asset.css('plugins/windowform/css/style.css', {id: 'builderStyle'});
+				new Asset.css('../plugins/windowform/css/style.css', {id: 'builderStyle'});
 			},			
 			onContentLoaded: function(){
-				new Asset.javascript('plugins/windowform/scripts/Window-from-form.js', {
+				new Asset.javascript('../plugins/windowform/scripts/Window-from-form.js', {
 					id: 'builderScript',
 					onload: function(){
 						$('newWindowSubmit').addEvent('click', function(e){
@@ -450,33 +451,33 @@ initializeWindows = function(){
 			id: 'features',
 			title: 'Features',
 			loadMethod: 'xhr',
-			contentURL: 'pages/features-layout.html',
+			contentURL: '../pages/features-layout.html',
 			width: 305,
 			height: 175,
 			resizeLimit: {'x': [275, 2500], 'y': [125, 2000]},
 			toolbar: true,
-			toolbarURL: 'pages/features-tabs.html',
+			toolbarURL: '../pages/features-tabs.html',
 			toolbarOnload: function(){
 				MUI.initializeTabs('featuresTabs');
 
 				$('featuresLayoutLink').addEvent('click', function(e){
 					MUI.updateContent({
 						'element':  $('features'),
-						'url':       'pages/features-layout.html'
+						'url':       '../pages/features-layout.html'
 					});
 				});
 
 				$('featuresWindowsLink').addEvent('click', function(e){
 					MUI.updateContent({
 						'element':  $('features'),
-						'url':       'pages/features-windows.html'
+						'url':       '../pages/features-windows.html'
 					});
 				});
 
 				$('featuresGeneralLink').addEvent('click', function(e){
 					MUI.updateContent({
 						'element':  $('features'),
-						'url':       'pages/features-general.html'
+						'url':       '../pages/features-general.html'
 					});
 				});
 			}			
@@ -495,7 +496,7 @@ initializeWindows = function(){
 			addClass: 'about',
 			title: 'MochaUI',
 			loadMethod: 'xhr',
-			contentURL: 'pages/about.html',
+			contentURL: '../pages/about.html',
 			type: 'modal2',
 			width: 350,
 			height: 195,
