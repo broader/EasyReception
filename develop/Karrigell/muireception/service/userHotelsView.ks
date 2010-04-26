@@ -222,7 +222,11 @@ def _hotelsListJs():
 
 # decode all the values in a dictionary object to utf8 format 
 def _decodeDict2Utf8(d):
-	[d.update({k: str(v).decode('utf8')}) for k,v in d.items()]
+	for k,v in d.items():
+		if type(v) == type({}):
+			d.update({k: _decodeDict2Utf8(v)}) 
+		else:
+			d.update({k: str(v).decode('utf8')})
 	return d
 	
 def page_colsModel(**args):
@@ -338,15 +342,15 @@ def _roomReservationJs(container):
 		li = new Element('li');
 		ul.adopt( li, new Element('hr',{style:'padding:0.05em;'}));
 
-		creation = new Element('span',{html:data.creation});
-		serial = new Element('span',{html:data.serial});
-		hotel = new Element('span',{html:data.hotel});
-		room = new Element('span',{html:data.name});
-		des = new Element('span',{html:data.description});
-		price = new Element('span',{html:data.price});
-		amount = new Element('span',{html:data.amount});
-		sub = new Element('span',{html: data.price.toInt()*data.amount.toInt()});
-		memo = new Element('span',{html:data.memo});
+		creation = new Element('span',{html:data.creation.value});
+		serial = new Element('span',{html:data.serial.value});
+		hotel = new Element('span',{html:data.hotel.value});
+		room = new Element('span',{html:data.name.value});
+		des = new Element('span',{html:data.description.value});
+		price = new Element('span',{html:data.price.value});
+		amount = new Element('span',{html:data.amount.value});
+		sub = new Element('span',{html: data.price.value.toInt()*data.amount.value.toInt()});
+		memo = new Element('span',{html:data.memo.value});
 
 		li.adopt(creation,serial, new Element('br'), hotel, room , des, new Element('br'), price, amount, sub, memo);
 	};
@@ -355,6 +359,7 @@ def _roomReservationJs(container):
 	return js
 
 RESERVESHOWPROPS = ('target', 'amount', 'memo','creation', 'serial')
+RESERVEFIELDSPROMPT = {'amount':_('Amount'), 'memo':_('Addendum'), 'creation':_('Created Day'), 'serial': _('Reservation Serial')}
 def page_reservationData(**args):
 	# get reservations for this user
 	booker = args.get('booker') or USER
@@ -362,22 +367,31 @@ def page_reservationData(**args):
 	values = []
 	for reserve in reservations:
 		serviceId = reserve[0]
-		roomInfo = _roomInfo(serviceId)		
-		roomInfo.update(dict([(name,value) for name,value in zip(RESERVESHOWPROPS[1:],reserve[1:])]))
+		roomInfo = _roomInfo(serviceId)	
+		miscValues = dict([(name,value) for name,value in zip(RESERVESHOWPROPS[1:],reserve[1:])])	
+		miscValues = _addPrompt(miscValues,RESERVEFIELDSPROMPT)
+		roomInfo.update(miscValues)
                 roomInfo = _decodeDict2Utf8(roomInfo)
 		values.append(roomInfo)
 		# get hotel and room information
 	print JSON.encode(values,encoding='utf8')	
 	return
 
+def _addPrompt(dictValues, dictPrompts):
+	[ dictValues.update({key: {'value':dictValues.pop(key),'prompt':label}}) for key,label in dictPrompts.items() ]
+	return dictValues
+
 def _roomInfo(serviceId) :
-	# hotel info
 	# get hotel name
-	roomProps = ('name', 'description', 'price', 'subcategory')
+	roomProps = ['name', 'description', 'price', 'subcategory']
 	roomValues = model.get_item(USER, 'service', serviceId, roomProps, keyIsId=True)
+	# hotel info
 	hotelId = roomValues.pop('subcategory')
 	hotel = model.get_item(USER, 'service', hotelId, ('name',), keyIsId=True).get('name')
 	roomValues['hotel'] = hotel
+	# add prompt to each item
+	labels = {'name':_('Room Type'), 'description': _('Description'), 'price': _('Unit Price'), 'hotel': _('Hotel')}
+	roomValues = _addPrompt(roomValues, labels)	
 	return roomValues	
 
 def page_capableReserve(**args):

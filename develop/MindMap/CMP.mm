@@ -103,7 +103,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" ID="Freemind_Link_1929446294" MODIFIED="1272170114773" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1272252891554" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -2383,6 +2383,14 @@
 <node COLOR="#990000" CREATED="1271132935825" ID="ID_33291924" MODIFIED="1271132938973" TEXT="Layout">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1271132939957" ID="ID_332530851" LINK="http://tutorialzine.com/2009/09/simple-ajax-website-jquery/" MODIFIED="1271132943262" TEXT="http://tutorialzine.com/2009/09/simple-ajax-website-jquery/"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1272252899014" ID="ID_633714999" MODIFIED="1272252902398" TEXT="Optimize">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1272252903314" ID="ID_1602324824" MODIFIED="1272252909469" TEXT="articles">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1272252910434" ID="ID_980273100" LINK="http://www.javaeye.com/topic/651589" MODIFIED="1272252913587" TEXT="http://www.javaeye.com/topic/651589"/>
 </node>
 </node>
 </node>
