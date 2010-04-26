@@ -222,7 +222,7 @@ def _hotelsListJs():
 
 # decode all the values in a dictionary object to utf8 format 
 def _decodeDict2Utf8(d):
-	[d.update({k:v.decode('utf8')}) for k,v in d.items()]
+	[d.update({k: str(v).decode('utf8')}) for k,v in d.items()]
 	return d
 	
 def page_colsModel(**args):
@@ -286,12 +286,10 @@ def page_hotelItems(**args):
 	category = SERVICECATEGORY
 	
 	# filter the last three column that are  action clolumns 
-	#props = [item.get('dataIndex') for item in COLUMNMODEL[:-3]]
 	props = [item.get('dataIndex') for item in COLUMNMODEL ]
 		
 	# filter the root category items	
 	nameIndex = props.index('name')	
-	#rows = filter( lambda item: item['data'][nameIndex], _getServiceItems(category, props, True))
 	idFn = lambda i: i[props.index('id')]
 	pidFn = lambda i: i[props.index('subcategory')]
 	rows = filter( lambda item: item['data'][nameIndex], _treeFlattenData(category,props,idFn,pidFn))	
@@ -313,52 +311,74 @@ def page_hotelInfo(**args):
 	print H2('The detail information for one hotel')
 	return
 
-RESERVESHOWPROPS = ('target', 'amount', 'memo','creation', 'serial')
 def page_roomReservation(**args):
+	reserve = '-'.join((USER, 'hotelReservation'))
+	print DIV(**{'id': reserve})
+	print pagefn.script(_roomReservationJs(reserve),link=False)
+
+	return
+
+def _roomReservationJs(container):
+	paras = [container, '/'.join((APPATH, 'page_reservationData'))]
+	paras = tuple(paras)
+	js = \
+	"""
+	var container='%s', dataUrl='%s';
+
+	var ul = new Element('ul',{style:'list-style-type:none;'});
+	ul.inject($(container), 'top');
+	
+	request = new Request.JSON({url:dataUrl, onComplete: renderUl}).get();
+	
+	function renderUl(data){
+		data.each(renderLi);
+	};
+	
+	function renderLi(data){	
+		li = new Element('li');
+		ul.adopt( li, new Element('hr',{style:'padding:0.05em;'}));
+
+		creation = new Element('span',{html:data.creation});
+		serial = new Element('span',{html:data.serial});
+		hotel = new Element('span',{html:data.hotel});
+		room = new Element('span',{html:data.name});
+		des = new Element('span',{html:data.description});
+		price = new Element('span',{html:data.price});
+		amount = new Element('span',{html:data.amount});
+		sub = new Element('span',{html: data.price.toInt()*data.amount.toInt()});
+		memo = new Element('span',{html:data.memo});
+
+		li.adopt(creation,serial, new Element('br'), hotel, room , des, new Element('br'), price, amount, sub, memo);
+	};
+
+	"""%paras
+	return js
+
+RESERVESHOWPROPS = ('target', 'amount', 'memo','creation', 'serial')
+def page_reservationData(**args):
 	# get reservations for this user
 	booker = args.get('booker') or USER
 	reservations = model.get_reservations( USER, booker, props=RESERVESHOWPROPS) or []
-	ul = []
-	for res in reservations:
-		div = [Sum((SPAN(value),BR())) for value in res]
-		ul.append(LI(Sum(div)))
-	
-	print UL(Sum(ul))	
-	
+	values = []
+	for reserve in reservations:
+		serviceId = reserve[0]
+		roomInfo = _roomInfo(serviceId)		
+		roomInfo.update(dict([(name,value) for name,value in zip(RESERVESHOWPROPS[1:],reserve[1:])]))
+                roomInfo = _decodeDict2Utf8(roomInfo)
+		values.append(roomInfo)
+		# get hotel and room information
+	print JSON.encode(values,encoding='utf8')	
 	return
 
-def _rommInfo(**args) :
+def _roomInfo(serviceId) :
 	# hotel info
-	table = []
 	# get hotel name
-	roomId = args.get('target')
 	roomProps = ('name', 'description', 'price', 'subcategory')
-	roomValues = model.get_item(USER, 'service', roomId, roomProps, keyIsId=True)
-	hotelId = roomValue.pop('subcategory')
+	roomValues = model.get_item(USER, 'service', serviceId, roomProps, keyIsId=True)
+	hotelId = roomValues.pop('subcategory')
 	hotel = model.get_item(USER, 'service', hotelId, ('name',), keyIsId=True).get('name')
-	
-	attrs = {'style' : 'text-align: center; font-size: 1.6em;font-weight:bold;'}
-	table.append( CAPTION(hotel, **attrs))
-	
-	# get room info	
-	fields = []
-	for prop in ('name', 'description', 'price'):
-		data = filter(lambda i : i.get('dataIndex')== prop ,COLUMNMODEL)[0]
-		if prop != 'name':
-			info = {'prompt':data.get('label'),'value':args.get(prop)}
-		else:
-			info = {'prompt': _('Room Type'),'value':args.get(prop)}
-		fields.append(info)
-	
-	# get reservation info
-	for prop in ('amoun', 'memo'):
-		pass
-
-	trs = formFn.render_table_fields(fields,cols=1,labelStyle={},valueStyle={'td':'padding-left:2em;'})
-	
-	table.append(trs)	
-	print DIV(TABLE(Sum(table)), style='margin-left:1em;')
-
+	roomValues['hotel'] = hotel
+	return roomValues	
 
 def page_capableReserve(**args):
 	toCheck = args.get(VALIDPROP)
@@ -371,8 +391,8 @@ def page_capableReserve(**args):
 ACTIONPROP,ACTIONTYPES = 'action',('create','edit', 'delete')
 def page_reserveForm(**args):
 	action = args.get(ACTIONPROP)	
-	# hotel info
 	table = []
+	# hotel info
 	# get hotel name
 	hotelId = args.get('subcategory')
 	if hotelId:
@@ -399,7 +419,7 @@ def page_reserveForm(**args):
 	print DIV(TABLE(Sum(table)), style='margin-left:1em;')
 	
 	# reserve form
-	_reserveForm(action,hotelId)
+	_reserveForm(action, args.get('id') or None)
 	
 	return
 
