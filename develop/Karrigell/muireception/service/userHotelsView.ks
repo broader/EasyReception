@@ -323,11 +323,11 @@ def page_roomReservation(**args):
 	return
 
 def _roomReservationJs(container):
-	paras = [container, '/'.join((APPATH, 'page_reservationData'))]
+	paras = [container, '/'.join((APPATH, 'page_reservationData')), _('Subtotal')]
 	paras = tuple(paras)
 	js = \
 	"""
-	var container='%s', dataUrl='%s';
+	var container='%s', dataUrl='%s', subLable='%s';
 
 	var ul = new Element('ul',{style:'list-style-type:none;'});
 	ul.inject($(container), 'top');
@@ -338,21 +338,67 @@ def _roomReservationJs(container):
 		data.each(renderLi);
 	};
 	
-	function renderLi(data){	
-		li = new Element('li');
-		ul.adopt( li, new Element('hr',{style:'padding:0.05em;'}));
+	function rendeRow4Li(elements){
+		div = new Element('div');
+		elements.each(function(el){div.adopt(el);});
+		return div 
+	};
+	
+	var colon = new Element('span',{html:'&nbsp;:&nbsp;'});
+	function _renderField(field){
+		label = new Element('span',{html:field.prompt});
+		value = new Element('span',{html:field.value});
+		return [label, colon.clone(), value]
+	};
+	
+	var sep = new Element('span',{html:'&nbsp;,&nbsp;'});
+	function renderFields(fields, data){
+		var elements = [];
+		fields.each(function(name){
+			elements.push(_renderField(data[name]));
+			elements.push(sep.clone());			
+		});
+		elements.pop();
+		return elements
+	};
 
-		creation = new Element('span',{html:data.creation.value});
-		serial = new Element('span',{html:data.serial.value});
+	var liTemplate = new Element('li');
+	function renderLi(data){
+		li = liTemplate.clone();	
+		ul.adopt( li, new Element('hr',{style:'padding:0.05em;'}));
+		
+		// common seperator element
+		sep = new Element('span',{html:'&nbsp;,&nbsp;'});
+		colon = new Element('span',{html:'&nbsp;:&nbsp;'});
+		
+		// reservation serial and creation time
+		li.adopt(rendeRow4Li(renderFields(['serial','creation'],data)));
+
+		// hotel and room information
 		hotel = new Element('span',{html:data.hotel.value});
 		room = new Element('span',{html:data.name.value});
-		des = new Element('span',{html:data.description.value});
-		price = new Element('span',{html:data.price.value});
-		amount = new Element('span',{html:data.amount.value});
-		sub = new Element('span',{html: data.price.value.toInt()*data.amount.value.toInt()});
-		memo = new Element('span',{html:data.memo.value});
+		li.adopt(rendeRow4Li([hotel, sep.clone(), room]));
 
-		li.adopt(creation,serial, new Element('br'), hotel, room , des, new Element('br'), price, amount, sub, memo);
+		// room description
+		desPrompt = new Element('span',{html:data.description.prompt});
+		des = new Element('span',{html:data.description.value});
+		li.adopt(rendeRow4Li(renderFields(['description'],data)));
+
+		// cost information
+		priceLabel = new Element('span',{html:data.price.prompt});
+		price = new Element('span',{html:data.price.value});
+		amountLabel = new Element('span',{html:data.amount.prompt});
+		amount = new Element('span',{html:data.amount.value});
+		fields = renderFields(['price','amount'],data);
+
+		subLabel = new Element('span',{html: subLabel});
+		sub = new Element('span',{html: data.price.value.toInt()*data.amount.value.toInt()});
+		fields.extend([sep.clone(),subLabel, colon.clone(),sub]);
+		li.adopt(rendeRow4Li(fields));
+
+		// user's addenum requestion
+		memo = new Element('span',{html:data.memo.value});
+		li.adopt(memo);
 	};
 
 	"""%paras
@@ -368,6 +414,8 @@ def page_reservationData(**args):
 	for reserve in reservations:
 		serviceId = reserve[0]
 		roomInfo = _roomInfo(serviceId)	
+		# format Date object 
+		reserve[3] = str(reserve[3])[:10]
 		miscValues = dict([(name,value) for name,value in zip(RESERVESHOWPROPS[1:],reserve[1:])])	
 		miscValues = _addPrompt(miscValues,RESERVEFIELDSPROMPT)
 		roomInfo.update(miscValues)

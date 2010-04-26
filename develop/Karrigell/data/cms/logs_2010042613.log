@@ -1,0 +1,10 @@
+2010/04/26 13:14:36 - 127.0.0.1 - GET /images/ajax_loading.gif HTTP/1.1 200
+2010/04/26 13:14:36 - 127.0.0.1 - GET /menu.ks/page_validForm HTTP/1.1 200
+2010/04/26 13:14:40 - 127.0.0.1 - GET /menu.ks/page_validName?user=demo HTTP/1.1 200
+2010/04/26 13:14:40 - 127.0.0.1 - GET /menu.ks/page_validPwd?user=demo&pwd=990508 HTTP/1.1 200
+2010/04/26 13:14:40 - 127.0.0.1 - GET /menu.ks/page_postValid?_=1272287680880 HTTP/1.1 200
+2010/04/26 13:14:41 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/04/26 13:14:41 - 127.0.0.1 - GET /menu.ks/page_toggleMenu?showMenu=1&_=1272287681129 HTTP/1.1 200
+2010/04/26 13:14:41 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/04/26 13:14:41 - 127.0.0.1 - GET /menu.ks/page_loginSpan?page=0 HTTP/1.1 200
+2010/04/26 13:14:41 - 127.0.0.1 - GET /menu.ks/page_menuList?page=0 HTTP/1.1 200
