@@ -26,3 +26,6 @@
 
 /* import print layout | Druck-Layout einbinden */
 @import url(print/print_003_draft.css);
+
+/* import microformat in /add-ons directory */
+@import url(add-ons/microformats/microformats.css);

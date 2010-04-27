@@ -35360,3 +35360,121 @@ sent 66 bytes  received 12 bytes  52.00 bytes/sec
 total size is 309070  speedup is 3962.44
 2010-04-26 22:55:19,055 INFO End backup loacl karrigell diretory to local git.
 2010-04-26 22:55:19,055 INFO Begin to backup local github to remote github host.
+2010-04-26 22:55:19,972 INFO Command: 
+git add .
+running result is :
+2010-04-26 22:55:25,232 INFO Command: 
+git commit -m 'Update time:2010-04-26T22:55:19.055704'
+running result is :[master 1430ed2] Update time:2010-04-26T22:55:19.055704
+ 4 files changed, 142 insertions(+), 8 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010042613.log
+ create mode 100644 develop/Karrigell/data/cms/logs_2010042619.log
+2010-04-26 22:55:38,903 INFO Command: 
+git push origin master
+running result is :Counting objects: 21, done.
+Delta compression using up to 2 threads.
+Compressing objects:   8% (1/12)   Compressing objects:  16% (2/12)   Compressing objects:  25% (3/12)   Compressing objects:  33% (4/12)   Compressing objects:  41% (5/12)   Compressing objects:  50% (6/12)   Compressing objects:  58% (7/12)   Compressing objects:  66% (8/12)   Compressing objects:  75% (9/12)   Compressing objects:  83% (10/12)   Compressing objects:  91% (11/12)   Compressing objects: 100% (12/12)   Compressing objects: 100% (12/12), done.
+Writing objects:   8% (1/12)   Writing objects:  16% (2/12)   Writing objects:  25% (3/12)   Writing objects:  33% (4/12)   Writing objects:  41% (5/12)   Writing objects:  50% (6/12)   Writing objects:  58% (7/12)   Writing objects:  66% (8/12)   Writing objects:  75% (9/12)   Writing objects:  83% (10/12)   Writing objects:  91% (11/12)   Writing objects: 100% (12/12)   Writing objects: 100% (12/12), 2.66 KiB, done.
+Total 12 (delta 8), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   aff1e24..1430ed2  master -> master
+2010-04-26 22:55:38,903 INFO End backup local github to remote github host.
+2010-04-27 11:38:19,337 INFO Delete nousing captcha images
+2010-04-27 11:38:19,367 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-04-27 11:38:19,367 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-04-27 11:38:24,076 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010042701.log
+        2692 100%    0.00kB/s    0:00:00          2692 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1009/3681)
+data/cms/logs_2010042703.log
+        2373 100%    2.26MB/s    0:00:00          2373 100%    2.26MB/s    0:00:00 (xfer#2, to-check=1008/3681)
+data/cms/logs_2010042708.log
+        2373 100%    2.26MB/s    0:00:00          2373 100%    2.26MB/s    0:00:00 (xfer#3, to-check=1007/3681)
+data/cms/logs_2010042709.log
+         151 100%  147.46kB/s    0:00:00           151 100%  147.46kB/s    0:00:00 (xfer#4, to-check=1006/3681)
+muireception/css/yaml/
+muireception/css/yaml/my_layout.css
+        1097 100%    2.05kB/s    0:00:00          1097 100%    2.05kB/s    0:00:00 (xfer#5, to-check=1572/5943)
+muireception/css/yaml/add-ons/
+muireception/css/yaml/add-ons/microformats/
+muireception/css/yaml/add-ons/microformats/.microformats.css.swp
+       20480 100%   38.17kB/s    0:00:00         20480 100%   38.17kB/s    0:00:00 (xfer#6, to-check=1563/5943)
+muireception/css/yaml/add-ons/microformats/microformats.css
+        4227 100%    7.88kB/s    0:00:00          4227 100%    7.88kB/s    0:00:00 (xfer#7, to-check=1562/5943)
+muireception/css/yaml/add-ons/microformats/images/
+muireception/css/yaml/add-ons/microformats/images/external_link.png
+         232 100%    0.43kB/s    0:00:00           232 100%    0.43kB/s    0:00:00 (xfer#8, to-check=1560/5943)
+muireception/css/yaml/add-ons/microformats/images/hcalendar.png
+         633 100%    1.18kB/s    0:00:00           633 100%    1.18kB/s    0:00:00 (xfer#9, to-check=1559/5943)
+muireception/css/yaml/add-ons/microformats/images/hcard.png
+         673 100%    1.25kB/s    0:00:00           673 100%    1.25kB/s    0:00:00 (xfer#10, to-check=1558/5943)
+muireception/css/yaml/add-ons/microformats/images/hotel.png
+         611 100%    1.14kB/s    0:00:00           611 100%    1.14kB/s    0:00:00 (xfer#11, to-check=1557/5943)
+muireception/css/yaml/add-ons/microformats/images/icon-geo.png
+        4707 100%    8.76kB/s    0:00:00          4707 100%    8.76kB/s    0:00:00 (xfer#12, to-check=1556/5943)
+muireception/css/yaml/add-ons/microformats/images/icon-hatom.png
+         713 100%    1.33kB/s    0:00:00           713 100%    1.33kB/s    0:00:00 (xfer#13, to-check=1555/5943)
+muireception/css/yaml/add-ons/microformats/images/icon-haudio.png
+        1092 100%    2.03kB/s    0:00:00          1092 100%    2.03kB/s    0:00:00 (xfer#14, to-check=1554/5943)
+muireception/css/yaml/add-ons/microformats/images/icon-hcalendar-add.png
+        1106 100%    2.05kB/s    0:00:00          1106 100%    2.05kB/s    0:00:00 (xfer#15, to-check=1553/5943)
+muireception/css/yaml/add-ons/microformats/images/icon-hcalendar-download.png
+        1118 100%    2.08kB/s    0:00:00          1118 100%    2.08kB/s    0:00:00 (xfer#16, to-check=1552/5943)
+muireception/css/yaml/add-ons/microformats/images/icon-hcalendar.png
+         707 100%    1.31kB/s    0:00:00           707 100%    1.31kB/s    0:00:00 (xfer#17, to-check=1551/5943)
+muireception/css/yaml/add-ons/microformats/images/icon-hcard-add.png
+         707 100%    1.31kB/s    0:00:00           707 100%    1.31kB/s    0:00:00 (xfer#18, to-check=1550/5943)
+muireception/css/yaml/add-ons/microformats/images/icon-hcard-download.png
+         721 100%    1.34kB/s    0:00:00           721 100%    1.34kB/s    0:00:00 (xfer#19, to-check=1549/5943)
+muireception/css/yaml/add-ons/microformats/images/icon-hcard.png
+        1052 100%    1.95kB/s    0:00:00          1052 100%    1.95kB/s    0:00:00 (xfer#20, to-check=1548/5943)
+muireception/css/yaml/add-ons/microformats/images/icon-hresume.png
+         724 100%    1.34kB/s    0:00:00           724 100%    1.34kB/s    0:00:00 (xfer#21, to-check=1547/5943)
+muireception/css/yaml/add-ons/microformats/images/icon-rel-tag.png
+         720 100%    1.33kB/s    0:00:00           720 100%    1.33kB/s    0:00:00 (xfer#22, to-check=1546/5943)
+muireception/css/yaml/add-ons/microformats/images/icon-xfn.png
+         721 100%    1.34kB/s    0:00:00           721 100%    1.34kB/s    0:00:00 (xfer#23, to-check=1545/5943)
+muireception/css/yaml/add-ons/microformats/images/xfn/
+muireception/css/yaml/add-ons/microformats/images/xfn/xfn-child.png
+         429 100%    0.79kB/s    0:00:00           429 100%    0.79kB/s    0:00:00 (xfer#24, to-check=1543/5943)
+muireception/css/yaml/add-ons/microformats/images/xfn/xfn-colleague-met.png
+         430 100%    0.80kB/s    0:00:00           430 100%    0.80kB/s    0:00:00 (xfer#25, to-check=1542/5943)
+muireception/css/yaml/add-ons/microformats/images/xfn/xfn-colleague.png
+         413 100%    0.77kB/s    0:00:00           413 100%    0.77kB/s    0:00:00 (xfer#26, to-check=1541/5943)
+muireception/css/yaml/add-ons/microformats/images/xfn/xfn-friend-met.png
+         435 100%    0.81kB/s    0:00:00           435 100%    0.81kB/s    0:00:00 (xfer#27, to-check=1540/5943)
+muireception/css/yaml/add-ons/microformats/images/xfn/xfn-friend.png
+         413 100%    0.77kB/s    0:00:00           413 100%    0.77kB/s    0:00:00 (xfer#28, to-check=1539/5943)
+muireception/css/yaml/add-ons/microformats/images/xfn/xfn-me.png
+         385 100%    0.71kB/s    0:00:00           385 100%    0.71kB/s    0:00:00 (xfer#29, to-check=1538/5943)
+muireception/css/yaml/add-ons/microformats/images/xfn/xfn-parent.png
+         488 100%    0.90kB/s    0:00:00           488 100%    0.90kB/s    0:00:00 (xfer#30, to-check=1537/5943)
+muireception/css/yaml/add-ons/microformats/images/xfn/xfn-small.png
+         474 100%    0.88kB/s    0:00:00           474 100%    0.88kB/s    0:00:00 (xfer#31, to-check=1536/5943)
+muireception/css/yaml/add-ons/microformats/images/xfn/xfn-spouse.png
+         664 100%    1.23kB/s    0:00:00           664 100%    1.23kB/s    0:00:00 (xfer#32, to-check=1535/5943)
+muireception/css/yaml/add-ons/microformats/images/xfn/xfn-sweetheart-met.png
+         402 100%    0.74kB/s    0:00:00           402 100%    0.74kB/s    0:00:00 (xfer#33, to-check=1534/5943)
+muireception/css/yaml/add-ons/microformats/images/xfn/xfn-sweetheart.png
+         390 100%    0.72kB/s    0:00:00           390 100%    0.72kB/s    0:00:00 (xfer#34, to-check=1533/5943)
+muireception/service/
+muireception/service/.userHotelsView.ks.swp
+       32768 100%    0.00kB/s    0:00:00         32768 100%    0.00kB/s    0:00:00 (xfer#35, to-check=675/7980)
+muireception/service/userHotelsView.ks
+       18684 100%  222.51kB/s    0:00:00         18684 100%  222.51kB/s    0:00:00 (xfer#36, to-check=671/7980)
+
+sent 209601 bytes  received 1876 bytes  38450.36 bytes/sec
+total size is 47825372  speedup is 226.15
+2010-04-27 11:38:24,137 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 66 bytes  received 12 bytes  156.00 bytes/sec
+total size is 309070  speedup is 3962.44
+2010-04-27 11:38:24,137 INFO End backup loacl karrigell diretory to local git.
+2010-04-27 11:38:24,138 INFO Begin to backup local github to remote github host.

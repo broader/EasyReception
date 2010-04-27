@@ -207,7 +207,7 @@ def _hotelsListJs():
 					treeColumn: 0,					
 					dataUrl: rowDataUrl,
 					idPrefix: 'hotel-',
-					initialExpandedDepth: 2,
+					initialExpandedDepth: 1,
 					renderOver: addButton
 				}
 			);// the end for 'treeTable' definition
@@ -327,10 +327,14 @@ def _roomReservationJs(container):
 	paras = tuple(paras)
 	js = \
 	"""
-	var container='%s', dataUrl='%s', subLable='%s';
+	var container=$('%s'), dataUrl='%s', subLabel='%s';
+	
+	var subCostInfo = new Element('div',{html:'Subtotal Cost'});
+	subCostInfo.inject(container, 'bottom');
+	container.grab( new Element('hr', {style:'padding:0.1em;'}));
 
 	var ul = new Element('ul',{style:'list-style-type:none;'});
-	ul.inject($(container), 'top');
+	ul.inject(container, 'bottom');
 	
 	request = new Request.JSON({url:dataUrl, onComplete: renderUl}).get();
 	
@@ -345,17 +349,28 @@ def _roomReservationJs(container):
 	};
 	
 	var colon = new Element('span',{html:'&nbsp;:&nbsp;'});
-	function _renderField(field){
-		label = new Element('span',{html:field.prompt});
-		value = new Element('span',{html:field.value});
+	var cssTempl = $H({'price':'uprice','amount':'amount'});
+	function _renderField(data, name){
+		label = new Element('span',{html:data.prompt});
+		if(cssTempl.has(name)){
+			label.addClass(cssTempl[name]);
+		};
+		
+		if(name == 'amount'){
+			value = new Element('span',{html:data.value.toInt()});
+		}
+		else{
+			value = new Element('span',{html:data.value});
+		};
 		return [label, colon.clone(), value]
 	};
 	
+	// common seperator element
 	var sep = new Element('span',{html:'&nbsp;,&nbsp;'});
 	function renderFields(fields, data){
 		var elements = [];
 		fields.each(function(name){
-			elements.push(_renderField(data[name]));
+			elements.push(_renderField(data[name],name));
 			elements.push(sep.clone());			
 		});
 		elements.pop();
@@ -365,17 +380,15 @@ def _roomReservationJs(container):
 	var liTemplate = new Element('li');
 	function renderLi(data){
 		li = liTemplate.clone();	
+		li.addClass('hotel');
 		ul.adopt( li, new Element('hr',{style:'padding:0.05em;'}));
 		
-		// common seperator element
-		sep = new Element('span',{html:'&nbsp;,&nbsp;'});
-		colon = new Element('span',{html:'&nbsp;:&nbsp;'});
 		
 		// reservation serial and creation time
 		li.adopt(rendeRow4Li(renderFields(['serial','creation'],data)));
 
 		// hotel and room information
-		hotel = new Element('span',{html:data.hotel.value});
+		hotel = new Element('span',{html:data.hotel.value, 'class':'hotelname'});
 		room = new Element('span',{html:data.name.value});
 		li.adopt(rendeRow4Li([hotel, sep.clone(), room]));
 
@@ -383,17 +396,13 @@ def _roomReservationJs(container):
 		desPrompt = new Element('span',{html:data.description.prompt});
 		des = new Element('span',{html:data.description.value});
 		li.adopt(rendeRow4Li(renderFields(['description'],data)));
-
+		
 		// cost information
-		priceLabel = new Element('span',{html:data.price.prompt});
-		price = new Element('span',{html:data.price.value});
-		amountLabel = new Element('span',{html:data.amount.prompt});
-		amount = new Element('span',{html:data.amount.value});
 		fields = renderFields(['price','amount'],data);
 
-		subLabel = new Element('span',{html: subLabel});
+		label = new Element('span',{html: subLabel, 'class':'sub'});
 		sub = new Element('span',{html: data.price.value.toInt()*data.amount.value.toInt()});
-		fields.extend([sep.clone(),subLabel, colon.clone(),sub]);
+		fields.extend([sep.clone(),label, colon.clone(),sub]);
 		li.adopt(rendeRow4Li(fields));
 
 		// user's addenum requestion
@@ -405,7 +414,7 @@ def _roomReservationJs(container):
 	return js
 
 RESERVESHOWPROPS = ('target', 'amount', 'memo','creation', 'serial')
-RESERVEFIELDSPROMPT = {'amount':_('Amount'), 'memo':_('Addendum'), 'creation':_('Created Day'), 'serial': _('Reservation Serial')}
+RESERVEFIELDSPROMPT = {'amount':_('Amount'), 'memo':_('Addendum'), 'creation':_('Action Day'), 'serial': _('Reservation Serial')}
 def page_reservationData(**args):
 	# get reservations for this user
 	booker = args.get('booker') or USER
