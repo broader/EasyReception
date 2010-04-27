@@ -156,7 +156,7 @@ def _hotelsListJs():
 	
 	// set a global Request.JSON instance for send validation url for check the capability of selected row
 	var couldReserve = null;
-	var request = new Request.JSON({
+	var validRowRequest = new Request.JSON({
 		url: reserveValidUrl,
 		async:false, 
 		onComplete:function(json){
@@ -170,7 +170,7 @@ def _hotelsListJs():
 		// judge whether it's a room could be reserved
 		couldReserve = false, options = {};
 		options[validProp] = ti.getCellValueByRowId(tr.get('id'), validProp);
-		request.get(options);
+		validRowRequest.get(options);
 
 		// popup modal dialog to reserve this type of room
 		if(!couldReserve) {
@@ -329,17 +329,27 @@ def _roomReservationJs(container):
 	"""
 	var container=$('%s'), dataUrl='%s', subLabel='%s';
 	
-	var subCostInfo = new Element('div',{html:'Subtotal Cost'});
+	var colon = new Element('span',{html:'&nbsp;:&nbsp;'});
+	// common seperator element
+	var sep = new Element('span',{html:'&nbsp;,&nbsp;'});
+	
+	// subtotal cost information
+	var subCostInfo = new Element('div');
 	subCostInfo.inject(container, 'bottom');
 	container.grab( new Element('hr', {style:'padding:0.1em;'}));
+	// append label for subtotal cost
+	var subCostInfoLabel = new Element('span',{html:'Total Cost'});
+	var subCostValue = new Element('span');
+	subCostInfo.adopt(subCostInfoLabel,colon.clone(),subCostValue);
 
 	var ul = new Element('ul',{style:'list-style-type:none;'});
 	ul.inject(container, 'bottom');
 	
-	request = new Request.JSON({url:dataUrl, onComplete: renderUl}).get();
+	var request4roomReserve = new Request.JSON({url:dataUrl, onComplete: renderUl}).get();
 	
 	function renderUl(data){
 		data.each(renderLi);
+		subCostValue.set('text',subCostValue.retrieve('value'));
 	};
 	
 	function rendeRow4Li(elements){
@@ -348,7 +358,6 @@ def _roomReservationJs(container):
 		return div 
 	};
 	
-	var colon = new Element('span',{html:'&nbsp;:&nbsp;'});
 	var cssTempl = $H({'price':'uprice','amount':'amount'});
 	function _renderField(data, name){
 		label = new Element('span',{html:data.prompt});
@@ -365,8 +374,7 @@ def _roomReservationJs(container):
 		return [label, colon.clone(), value]
 	};
 	
-	// common seperator element
-	var sep = new Element('span',{html:'&nbsp;,&nbsp;'});
+	
 	function renderFields(fields, data){
 		var elements = [];
 		fields.each(function(name){
@@ -381,8 +389,7 @@ def _roomReservationJs(container):
 	function renderLi(data){
 		li = liTemplate.clone();	
 		li.addClass('hotel');
-		ul.adopt( li, new Element('hr',{style:'padding:0.05em;'}));
-		
+		ul.adopt(li);
 		
 		// reservation serial and creation time
 		li.adopt(rendeRow4Li(renderFields(['serial','creation'],data)));
@@ -401,13 +408,15 @@ def _roomReservationJs(container):
 		fields = renderFields(['price','amount'],data);
 
 		label = new Element('span',{html: subLabel, 'class':'sub'});
-		sub = new Element('span',{html: data.price.value.toInt()*data.amount.value.toInt()});
+		value = data.price.value.toFloat()*data.amount.value.toInt();
+		sub = new Element('span',{html: value});
+		subCostValue.store('value', (subCostValue.retrieve('value') || 0).toFloat() + value);
 		fields.extend([sep.clone(),label, colon.clone(),sub]);
 		li.adopt(rendeRow4Li(fields));
 
 		// user's addenum requestion
-		memo = new Element('span',{html:data.memo.value});
-		li.adopt(memo);
+		fields = renderFields(['memo'],data);
+		li.adopt(rendeRow4Li(fields));
 	};
 
 	"""%paras

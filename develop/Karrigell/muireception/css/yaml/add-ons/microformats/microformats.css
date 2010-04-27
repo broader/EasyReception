@@ -96,7 +96,13 @@ span.hotel, span.vcard, span.vevent {
 	color: saddleBrown;
 }
 
-.hotel .uprice,.amount, .sub{
+.hotel .uprice,.amount{
+	font-weight: bold;
+	font-size: 1em;
+	color: #3e3870;
+}
+
+.hotel .sub{
 	font-weight: bold;
 	font-size: 1em;
 	color: red;
