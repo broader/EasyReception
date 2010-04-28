@@ -324,10 +324,15 @@ def page_roomReservation(**args):
 
 def _roomReservationJs(container):
 	paras = [container, '/'.join((APPATH, 'page_reservationData')), _('Subtotal')]
+	
+	# add buttons' labels
+	paras.extend((_('Edit'), _('Delete')))
+	
 	paras = tuple(paras)
 	js = \
 	"""
-	var container=$('%s'), dataUrl='%s', subLabel='%s';
+	var container=$('%s'), dataUrl='%s', subLabel='%s',
+	bnLabels=['%s', '%s'];
 	
 	var colon = new Element('span',{html:'&nbsp;:&nbsp;'});
 	// common seperator element
@@ -417,6 +422,42 @@ def _roomReservationJs(container):
 		// user's addenum requestion
 		fields = renderFields(['memo'],data);
 		li.adopt(rendeRow4Li(fields));
+		
+		// add action buttons
+		li.adopt(addButton());
+
+	};
+	
+
+	/***********************************************************************
+	Return a button container which contains two buttons
+	************************************************************************/
+	function addButton(){
+		bnAttributes = [
+			{'type':'edit','label': bnLabels[0], 'bnSize':'sexysmall', 'bnSkin': 'sexyblue'},
+			{'type':'delete','label': bnLabels[1], 'bnSize':'sexysmall', 'bnSkin': 'sexyred'}
+		];	
+
+		bnContainer = new Element('div',{style: 'text-align:right;'});
+		
+		bnAttributes.each(function(attrs,index){
+			
+			options = {
+				txt: attrs['label'],
+			   	imgType: attrs['type'],
+				bnAttrs: {'style':'margin-right:1em;'},	
+				bnSize: attrs['bnSize'],
+				bnSkin: attrs['bnSkin']
+			};
+			
+			button = MUI.styledButton(options);
+			//button.addEvent('click',actionAdapter.pass(index,this));
+			
+			bnContainer.grab(button);
+			
+		});
+		
+		return bnContainer		
 	};
 
 	"""%paras
@@ -506,7 +547,7 @@ def page_reserveForm(**args):
 RESERVEFORMPROP =\ 
 [
 	{'name': 'amount','prompt': _('Amount'),'validate': ['number'],'required': True},
-	{'name': 'memo','prompt': _('Adendum'), 'type': 'textarea', 'validate': [],'required': False},
+	{'name': 'memo','prompt': _('Addendum'), 'type': 'textarea', 'validate': [],'required': False},
 ]
 def _reserveForm(action, hotelId=None):
 	form = []

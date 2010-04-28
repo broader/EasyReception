@@ -1,6 +1,6 @@
 <map version="0.9.0">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node COLOR="#000000" CREATED="1245853581417" ID="Freemind_Link_1611273437" MODIFIED="1270008683490" TEXT="                     CMP&#xa;(Congress Management Portal)">
+<node COLOR="#000000" CREATED="1245853581417" ID="Freemind_Link_1611273437" MODIFIED="1272423042109" TEXT="                     CMP&#xa;(Congress Management Portal)">
 <font NAME="SansSerif" SIZE="20"/>
 <hook NAME="accessories/plugins/AutomaticLayout.properties"/>
 <node COLOR="#0033ff" CREATED="1247629244030" FOLDED="true" ID="Freemind_Link_1151184350" MODIFIED="1262052493778" POSITION="left" TEXT="Roundup">
@@ -103,7 +103,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1272252891554" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1272419665702" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -498,6 +498,7 @@
 <node COLOR="#990000" CREATED="1272203124828" ID="ID_420820407" MODIFIED="1272203128676" TEXT="Examples">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1272203129650" ID="ID_1094331673" LINK="http://codecanyon.net/theme_previews/95807-backlinks-monitoring" MODIFIED="1272203133533" TEXT="http://codecanyon.net/theme_previews/95807-backlinks-monitoring"/>
+<node COLOR="#111111" CREATED="1272418551349" ID="ID_744564703" LINK="http://codecanyon.net/item/lead-tracker/99722" MODIFIED="1272418553777" TEXT="http://codecanyon.net/item/lead-tracker/99722"/>
 </node>
 </node>
 <node COLOR="#00b439" CREATED="1252293869407" ID="Freemind_Link_1698066433" MODIFIED="1272202959104" TEXT="Account">
@@ -591,10 +592,10 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1245853638712" FOLDED="true" ID="_" MODIFIED="1271576666593" POSITION="right" TEXT="Used Web Lib/Widgets">
+<node COLOR="#0033ff" CREATED="1245853638712" FOLDED="true" ID="_" MODIFIED="1272425235823" POSITION="right" TEXT="Used Web Lib/Widgets">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1258549795684" ID="ID_1371740104" MODIFIED="1270460115282" TEXT="jquery lib">
+<node COLOR="#00b439" CREATED="1258549795684" FOLDED="true" ID="ID_1371740104" MODIFIED="1272423075710" TEXT="jquery lib">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1245853648851" FOLDED="true" ID="Freemind_Link_1594731680" MODIFIED="1270471008853" TEXT="Multiselect">
@@ -642,7 +643,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1250147502580" FOLDED="true" ID="Freemind_Link_1283789823" MODIFIED="1258549810938" TEXT="jframe">
+<node COLOR="#990000" CREATED="1250147502580" FOLDED="true" ID="Freemind_Link_1283789823" MODIFIED="1272423054812" TEXT="jframe">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1250147521652" ID="Freemind_Link_126822534" MODIFIED="1258549810938" TEXT="Query.fn.activateJFrame-&gt;&#x6ce8;&#x91ca;&#x6389;&#x5c06;&#x6240;&#x6709;input buttons&#x4e2d;&#x5c06;&#x7b2c;&#x4e00;&#x4e2a;button&#x66ff;&#x6362;&#x4e3a;jFrame button&#x7684;&#x884c;&#x4e3a;&#xff0c;&#x539f;&#x610f;&#x4e3a;ie6&#x76f4;&#x63a5;Enter&#x65f6;&#x89e6;&#x53d1;form&#x63d0;&#x4ea4;&#xff1f;">
@@ -659,7 +660,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1253414058609" FOLDED="true" ID="Freemind_Link_70918243" MODIFIED="1258549810943" TEXT="Imporomptu">
+<node COLOR="#990000" CREATED="1253414058609" FOLDED="true" ID="Freemind_Link_70918243" MODIFIED="1272423075707" TEXT="Imporomptu">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1253414147714" ID="Freemind_Link_419786692" MODIFIED="1258549810943" TEXT="option:{callback : function(v,m,f){...},submit : function(v,m){...}}The callback function has three parameters.    * The first is the value of the button clicked.    * The second is a jQuery object of the message within the active state when the user clicked the button.    * The third is an object of key/value pairs of the form values. The keys are the name attribute for the form element.">
@@ -677,7 +678,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1258549813016" ID="ID_1232595129" MODIFIED="1270460110664" TEXT="mootools">
+<node COLOR="#00b439" CREATED="1258549813016" FOLDED="true" ID="ID_1232595129" MODIFIED="1272423021222" TEXT="mootools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1258549821023" FOLDED="true" ID="ID_399916535" MODIFIED="1270102982270" TEXT="tabs">
@@ -725,7 +726,7 @@
 <node COLOR="#111111" CREATED="1258549952599" ID="ID_616227543" MODIFIED="1258549955034" TEXT="http://www.e-magine.ro/web-dev-and-design/36/moodalbox/"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1268620263252" FOLDED="true" ID="ID_1186941418" MODIFIED="1269831230753" TEXT="MochaUI">
+<node COLOR="#00b439" CREATED="1268620263252" FOLDED="true" ID="ID_1186941418" MODIFIED="1272423025894" TEXT="MochaUI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1268620271613" ID="ID_1670060654" MODIFIED="1268620278853" TEXT="MUI.notification">
@@ -733,7 +734,7 @@
 <node COLOR="#111111" CREATED="1268620291854" ID="ID_994545196" MODIFIED="1268620316134" TEXT="Core.js,L363"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1259898004321" FOLDED="true" ID="ID_372536092" MODIFIED="1269831233729" TEXT="others ">
+<node COLOR="#00b439" CREATED="1259898004321" ID="ID_372536092" MODIFIED="1272423023376" TEXT="others ">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1259898055768" ID="ID_641093649" MODIFIED="1259900220999" TEXT="round corner">
@@ -744,9 +745,13 @@
 <node COLOR="#111111" CREATED="1259898032761" ID="ID_1878289414" MODIFIED="1259898038032" TEXT="http://dillerdesign.com/experiment/DD_roundies"/>
 </node>
 </node>
+<node COLOR="#990000" CREATED="1267407076275" ID="ID_1367333314" MODIFIED="1272423087114" TEXT="Buttons">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1267407086035" ID="ID_1549900647" LINK="http://code.google.com/p/sexybuttons/" MODIFIED="1272423095114" TEXT="http://code.google.com/p/sexybuttons/"/>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1179296386248" ID="Freemind_Link_564995791" MODIFIED="1267836765595" POSITION="left" TEXT="CSS">
+</node>
+<node COLOR="#0033ff" CREATED="1179296386248" FOLDED="true" ID="Freemind_Link_564995791" MODIFIED="1272419874248" POSITION="left" TEXT="CSS">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1179296391195" ID="Freemind_Link_1116687902" MODIFIED="1272029967843" TEXT="&#x8bed;&#x6cd5;">
@@ -859,7 +864,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1190364615306" FOLDED="true" ID="Freemind_Link_701613096" MODIFIED="1271133329391" POSITION="left" TEXT="&#x56fe;&#x6807;&#x5e93;&#xff08;icon&#xff09;">
+<node COLOR="#0033ff" CREATED="1190364615306" FOLDED="true" ID="Freemind_Link_701613096" MODIFIED="1272423013831" POSITION="left" TEXT="&#x56fe;&#x6807;&#x5e93;&#xff08;icon&#xff09;">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1190364635275" ID="Freemind_Link_1110402703" MODIFIED="1254629038428" TEXT="http://www.famfamfam.com/lab/icons/silk/">
@@ -1315,7 +1320,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1263825176522" ID="ID_850866582" MODIFIED="1271642966652" POSITION="left" TEXT="Market">
+<node COLOR="#0033ff" CREATED="1263825176522" FOLDED="true" ID="ID_850866582" MODIFIED="1272423010245" POSITION="left" TEXT="Market">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="idea"/>
@@ -1568,10 +1573,10 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1269743019792" FOLDED="true" ID="ID_1097979044" MODIFIED="1271131706030" TEXT="Web Site">
+<node COLOR="#00b439" CREATED="1269743019792" ID="ID_1097979044" MODIFIED="1272420007231" TEXT="Web Site">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1269743095678" FOLDED="true" ID="ID_1392311746" MODIFIED="1271131704967" TEXT="Effects">
+<node COLOR="#990000" CREATED="1269743095678" ID="ID_1392311746" MODIFIED="1272420014650" TEXT="Effects">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1269743037081" ID="ID_679272757" MODIFIED="1269743100657" TEXT="Sponsor Flip Wall">
 <font NAME="SansSerif" SIZE="12"/>
@@ -1604,7 +1609,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1270004570562" ID="ID_201492433" MODIFIED="1271384036839" POSITION="left" TEXT="Sponsor Management">
+<node COLOR="#0033ff" CREATED="1270004570562" FOLDED="true" ID="ID_201492433" MODIFIED="1272419990766" POSITION="left" TEXT="Sponsor Management">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -1680,6 +1685,13 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
+<node COLOR="#00b439" CREATED="1272419671596" ID="ID_1644448615" MODIFIED="1272419675650" TEXT="Examples">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1272419676641" ID="ID_1017746427" LINK="http://events.jquery.org/2010/sf-bay-area/" MODIFIED="1272419680903" TEXT="http://events.jquery.org/2010/sf-bay-area/">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
 </node>
 <node COLOR="#0033ff" CREATED="1271035965662" FOLDED="true" ID="ID_1623049594" MODIFIED="1271130984758" POSITION="left" TEXT="Knowledge Management">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
@@ -1697,7 +1709,7 @@
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1272169590742" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1272425236881" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1265252373668" FOLDED="true" ID="ID_1883535158" MODIFIED="1272171146225" TEXT="Layout">
@@ -1722,10 +1734,10 @@
 <node COLOR="#111111" CREATED="1271725777290" ID="ID_762251891" LINK="http://www.citrusdb.org/screenshots.html" MODIFIED="1271725780883" TEXT="http://www.citrusdb.org/screenshots.html"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1173066298350" FOLDED="true" ID="Freemind_Link_1468412211" MODIFIED="1272171145360" TEXT="UI">
+<node COLOR="#00b439" CREATED="1173066298350" ID="Freemind_Link_1468412211" MODIFIED="1272423075938" TEXT="UI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261723589326" FOLDED="true" ID="ID_80373969" MODIFIED="1271382340333" TEXT="Preference">
+<node COLOR="#990000" CREATED="1261723589326" ID="ID_80373969" MODIFIED="1272423076056" TEXT="Preference">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1176041576720" FOLDED="true" ID="Freemind_Link_940755797" MODIFIED="1267509170882" TEXT="Application">
 <edge STYLE="bezier" WIDTH="thin"/>
@@ -2112,9 +2124,6 @@
 </node>
 <node COLOR="#111111" CREATED="1267407013565" ID="ID_323990287" MODIFIED="1267407017670" TEXT="Print">
 <node COLOR="#111111" CREATED="1267407018698" ID="ID_1419360115" MODIFIED="1267407019989" TEXT="http://code.google.com/p/hartija/"/>
-</node>
-<node COLOR="#111111" CREATED="1267407076275" FOLDED="true" ID="ID_1367333314" MODIFIED="1267497605231" TEXT="Buttons">
-<node COLOR="#111111" CREATED="1267407086035" ID="ID_1549900647" MODIFIED="1267407087485" TEXT="http://code.google.com/p/sexybuttons/"/>
 </node>
 <node COLOR="#111111" CREATED="1267407332247" FOLDED="true" ID="ID_443424941" MODIFIED="1267497604304" TEXT="Icons">
 <node COLOR="#111111" CREATED="1267407335622" ID="ID_438190924" MODIFIED="1267407337820" TEXT="http://code.google.com/p/twotiny/"/>
@@ -2503,7 +2512,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1272029962059" POSITION="right" TEXT="Company web site">
+<node COLOR="#0033ff" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1272423006179" POSITION="right" TEXT="Company web site">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1261559251111" FOLDED="true" ID="ID_648549467" MODIFIED="1271246823173" TEXT="nav bar">
@@ -2544,14 +2553,14 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1272029741120" ID="ID_789259548" MODIFIED="1272029744186" TEXT="Artist">
+<node COLOR="#00b439" CREATED="1272029741120" FOLDED="true" ID="ID_789259548" MODIFIED="1272420023702" TEXT="Artist">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1272029745340" ID="ID_1374844496" LINK="http://www.loewydesign.com/" MODIFIED="1272029749085" TEXT="http://www.loewydesign.com/">
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1271131016988" ID="ID_545156553" MODIFIED="1272029900946" TEXT="Technology">
+<node COLOR="#00b439" CREATED="1271131016988" ID="ID_545156553" MODIFIED="1272420027202" TEXT="Technology">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="idea"/>
@@ -2563,6 +2572,10 @@
 </node>
 <node COLOR="#990000" CREATED="1272029902434" ID="ID_25129788" LINK="http://nclud.com/" MODIFIED="1272029908433" TEXT="http://nclud.com/">
 <font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1272420036398" ID="ID_1797442066" LINK="http://www.opendesigns.org/preview/?design=1924" MODIFIED="1272420048106" TEXT="http://www.opendesigns.org/preview/?design=1924">
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="button_ok"/>
 </node>
 </node>
 <node COLOR="#00b439" CREATED="1271134396534" FOLDED="true" ID="ID_217134314" MODIFIED="1272029735762" TEXT="Miscellaneous">
@@ -2599,7 +2612,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1271247508897" FOLDED="true" ID="ID_1313825833" MODIFIED="1272029738050" TEXT="Selected">
+<node COLOR="#00b439" CREATED="1271247508897" ID="ID_1313825833" MODIFIED="1272420029807" TEXT="Selected">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1271131615566" ID="ID_708134019" LINK="http://demo.tutorialzine.com/2010/02/html5-css3-website-template/template.html" MODIFIED="1271248016508" TEXT="http://demo.tutorialzine.com/2010/02/html5-css3-website-template/template.html">

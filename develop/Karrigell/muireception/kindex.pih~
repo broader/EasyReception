@@ -57,7 +57,7 @@
 		<div id="desktopFooter">			
 			<span>
 				&copy; 2006-2009
-				<a target="_blank" href="http://github.com/broader/EasyReception">Broader.ZHONG</a>
+				<a target="_blank" href="http://github.com/broader/EasyReception" class="copyright">Broader.ZHONG</a>
 				 - 
 				<a id="licenseLink" href="license.html" class="copyright">MIT License</a>,
 			</span>

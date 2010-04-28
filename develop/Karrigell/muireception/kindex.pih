@@ -10,7 +10,7 @@
 		
 				<h1 class="applicationTitle">EasyReception</h1>
 				<h2 class="tagline">					 
-					<span class="taglineEm">A Web Portal For Congress Reception Work</span>
+					<span class="taglineEm"><%=_('A Web Portal For Congress Reception Work')%></span>
 				</h2>
 				<div id="topNav">
 					<ul class="menu-right">

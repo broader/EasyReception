@@ -85,6 +85,9 @@ INIDATA['service'] = \
 	}
 }
 
+# i18n information
+INIDATA['i18n'] = {'currency':{'default':'$', 'zh':'￥'}}
+
 def _init(value=None):	
 	stream = open(INICONFIG, 'wb')
 	if value:
