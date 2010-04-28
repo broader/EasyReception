@@ -109,7 +109,7 @@ def _hotelsListJs():
 	colsModelUrl='%s', rowDataUrl='%s',
 	reserveValidUrl='%s', reserveEditUrl='%s',
 	action={'%s':'%s'};
-	bnAttributes = [{'type':'%s','label':'%s'},{'type':'%s','label':'%s'}],
+	createReserveBnAttributes = [{'type':'%s','label':'%s'},{'type':'%s','label':'%s'}],
 	rowSelectErr = '%s', unReserveErr='%s', editModalTitle='%s';	
 	
 	var treeTable;
@@ -122,7 +122,7 @@ def _hotelsListJs():
 		bnContainer = new Element('div',{style: 'text-align:left;'});
 		ti.container.grab(bnContainer);
 		
-		bnAttributes.each(function(attrs,index){
+		createReserveBnAttributes.each(function(attrs,index){
 			
 			options = {
 				txt: attrs['label'],
@@ -424,7 +424,7 @@ def _roomReservationJs(container):
 		li.adopt(rendeRow4Li(fields));
 		
 		// add action buttons
-		li.adopt(addButton());
+		li.adopt(reserveEditButtons(data.serial.value));
 
 	};
 	
@@ -432,7 +432,7 @@ def _roomReservationJs(container):
 	/***********************************************************************
 	Return a button container which contains two buttons
 	************************************************************************/
-	function addButton(){
+	function reserveEditButtons(serial){
 		bnAttributes = [
 			{'type':'edit','label': bnLabels[0], 'bnSize':'sexysmall', 'bnSkin': 'sexyblue'},
 			{'type':'delete','label': bnLabels[1], 'bnSize':'sexysmall', 'bnSkin': 'sexyred'}
@@ -451,13 +451,22 @@ def _roomReservationJs(container):
 			};
 			
 			button = MUI.styledButton(options);
-			//button.addEvent('click',actionAdapter.pass(index,this));
+			// save the serial value to button
+			button.store('serial',serial);
+
+			button.addEvent('click',reserveActionAdapter);
 			
 			bnContainer.grab(button);
 			
 		});
 		
 		return bnContainer		
+	};
+
+	function reserveActionAdapter(event){
+		new Event(event).stop();
+		button = event.target;
+		alert(button+','+button.retrieve('serial'));
 	};
 
 	"""%paras
@@ -513,30 +522,39 @@ ACTIONPROP,ACTIONTYPES = 'action',('create','edit', 'delete')
 def page_reserveForm(**args):
 	action = args.get(ACTIONPROP)	
 	table = []
-	# hotel info
-	# get hotel name
-	hotelId = args.get('subcategory')
-	if hotelId:
-		hotel = model.get_item(USER, 'service', hotelId, ('name',), keyIsId=True).get('name')
-	else:
-		hotel = ''
+	# room fields
+	fields, fieldsProp = [], ['name', 'description', 'price']
+	
+	actionIndex = ACTIONTYPES.index(action)
+	if actionIndex == 0 :	# 'create' action
+		# hotel info
+		# get hotel name
+		hotelId = args.get('subcategory')
+		if hotelId:
+			hotel = model.get_item(USER, 'service', hotelId, ('name',), keyIsId=True).get('name')
+		else:
+			hotel = ''
+		
+		# get room info	
+		for prop in fieldsProp :
+			# label for each field
+			data = filter(lambda i : i.get('dataIndex')== prop ,COLUMNMODEL)[0]
+			if prop != 'name':
+				info = {'prompt':data.get('label'),'value':args.get(prop)}
+			else:
+				info = {'prompt': _('Room Type'),'value':args.get(prop)}
+			fields.append(info)
+	
+
+	elif actionIndex == 1:	# 'edit' action
+		reserveSerial = args.get('serial')
 	
 	attrs = {'style' : 'text-align: center; font-size: 1.6em;font-weight:bold;'}
 	table.append( CAPTION(hotel, **attrs))
-	
-	# get room info	
-	fields = []
-	for prop in ('name', 'description', 'price'):
-		data = filter(lambda i : i.get('dataIndex')== prop ,COLUMNMODEL)[0]
-		if prop != 'name':
-			info = {'prompt':data.get('label'),'value':args.get(prop)}
-		else:
-			info = {'prompt': _('Room Type'),'value':args.get(prop)}
-		fields.append(info)
-	
 	trs = formFn.render_table_fields(fields,cols=1,labelStyle={},valueStyle={'td':'padding-left:2em;'})
-	
 	table.append(trs)	
+	
+	# information for hotel and room
 	print DIV(TABLE(Sum(table)), style='margin-left:1em;')
 	
 	# reserve form
@@ -549,7 +567,7 @@ RESERVEFORMPROP =\
 	{'name': 'amount','prompt': _('Amount'),'validate': ['number'],'required': True},
 	{'name': 'memo','prompt': _('Addendum'), 'type': 'textarea', 'validate': [],'required': False},
 ]
-def _reserveForm(action, hotelId=None):
+def _reserveForm(action, roomId=None):
 	form = []
 
 	# hide fileds to submit
@@ -557,7 +575,7 @@ def _reserveForm(action, hotelId=None):
 		hideInput = [\
 			{'name':'booker','value':USER}, 
 			{'name': ACTIONPROP,'value':action},
-			{'name': 'target', 'value':hotelId}
+			{'name': 'target', 'value':roomId}
 		]
 
 	props = RESERVEFORMPROP
