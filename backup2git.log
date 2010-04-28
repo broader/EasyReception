@@ -35689,3 +35689,75 @@ sent 71061 bytes  received 31 bytes  142184.00 bytes/sec
 total size is 310612  speedup is 4.37
 2010-04-28 17:01:25,490 INFO End backup loacl karrigell diretory to local git.
 2010-04-28 17:01:25,490 INFO Begin to backup local github to remote github host.
+2010-04-28 17:01:26,551 INFO Command: 
+git add .
+running result is :
+2010-04-28 17:01:32,005 INFO Command: 
+git commit -m 'Update time:2010-04-28T17:01:25.490672'
+running result is :[master a55c7a9] Update time:2010-04-28T17:01:25.490672
+ 4 files changed, 116 insertions(+), 39 deletions(-)
+ rewrite develop/Karrigell/data/muireception/translations.dat (96%)
+2010-04-28 17:01:44,003 INFO Command: 
+git push origin master
+running result is :Counting objects: 25, done.
+Delta compression using up to 2 threads.
+Compressing objects:   8% (1/12)   Compressing objects:  16% (2/12)   Compressing objects:  25% (3/12)   Compressing objects:  33% (4/12)   Compressing objects:  41% (5/12)   Compressing objects:  50% (6/12)   Compressing objects:  58% (7/12)   Compressing objects:  66% (8/12)   Compressing objects:  75% (9/12)   Compressing objects:  83% (10/12)   Compressing objects:  91% (11/12)   Compressing objects: 100% (12/12)   Compressing objects: 100% (12/12), done.
+Writing objects:   7% (1/13)   Writing objects:  15% (2/13)   Writing objects:  23% (3/13)   Writing objects:  30% (4/13)   Writing objects:  38% (5/13)   Writing objects:  46% (6/13)   Writing objects:  53% (7/13)   Writing objects:  61% (8/13)   Writing objects:  69% (9/13)   Writing objects:  76% (10/13)   Writing objects:  84% (11/13)   Writing objects:  92% (12/13)   Writing objects: 100% (13/13)   Writing objects: 100% (13/13), 4.63 KiB, done.
+Total 13 (delta 9), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   8bf7ad7..a55c7a9  master -> master
+2010-04-28 17:01:44,004 INFO End backup local github to remote github host.
+2010-04-28 22:05:51,447 INFO Delete nousing captcha images
+2010-04-28 22:05:51,479 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-04-28 22:05:51,479 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-04-28 22:05:57,783 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/muireception/
+data/muireception/conf.py
+        2127 100%    0.00kB/s    0:00:00          2127 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1007/3955)
+data/muireception/conf.py~
+        2121 100%    2.02MB/s    0:00:00          2121 100%    2.02MB/s    0:00:00 (xfer#2, to-check=1006/3955)
+data/muireception/translations.dat
+        5423 100%    5.17MB/s    0:00:00          5423 100%    5.17MB/s    0:00:00 (xfer#3, to-check=1005/3955)
+data/muireception/users.sqlite
+        3072 100%    1.46MB/s    0:00:00          3072 100%    1.46MB/s    0:00:00 (xfer#4, to-check=1004/3955)
+karrigell/core/k_encodings/
+karrigell/core/k_encodings/__init__.pyc
+         165 100%    0.46kB/s    0:00:00           165 100%    0.46kB/s    0:00:00 (xfer#5, to-check=2029/5945)
+karrigell/core/k_encodings/iso8859_1_ncc.pyc
+        2182 100%    6.00kB/s    0:00:00          2182 100%    6.00kB/s    0:00:00 (xfer#6, to-check=2027/5945)
+karrigell/core/k_encodings/k_encoding.pyc
+       11275 100%   30.84kB/s    0:00:00         11275 100%   30.84kB/s    0:00:00 (xfer#7, to-check=2025/5945)
+karrigell/core/k_encodings/k_encoding_charsets.pyc
+        9613 100%   26.22kB/s    0:00:00          9613 100%   26.22kB/s    0:00:00 (xfer#8, to-check=2023/5945)
+muireception/
+muireception/.model.py.swp
+       16384 100%   27.07kB/s    0:00:00         16384 100%   27.07kB/s    0:00:00 (xfer#9, to-check=1623/5945)
+muireception/config.py
+        3350 100%    5.53kB/s    0:00:00          3350 100%    5.53kB/s    0:00:00 (xfer#10, to-check=1622/5945)
+muireception/layout.ks
+       10749 100%   17.73kB/s    0:00:00         10749 100%   17.73kB/s    0:00:00 (xfer#11, to-check=1606/5945)
+muireception/pagefn.py
+       11398 100%   18.77kB/s    0:00:00         11398 100%   18.77kB/s    0:00:00 (xfer#12, to-check=1600/5945)
+muireception/service/
+muireception/service/.userHotelsView.ks.swp
+       32768  72%    0.00kB/s    0:00:00         45056 100%   11.72MB/s    0:00:00 (xfer#13, to-check=675/7982)
+muireception/service/userHotelsView.ks
+       21102 100%  254.41kB/s    0:00:00         21102 100%  254.41kB/s    0:00:00 (xfer#14, to-check=671/7982)
+
+sent 208222 bytes  received 1449 bytes  32257.08 bytes/sec
+total size is 47848918  speedup is 228.21
+2010-04-28 22:05:57,874 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768  10%    0.00kB/s    0:00:00        311696 100%   11.08MB/s    0:00:00 (xfer#1, to-check=0/2)
+
+sent 71276 bytes  received 31 bytes  142614.00 bytes/sec
+total size is 311696  speedup is 4.37
+2010-04-28 22:05:57,874 INFO End backup loacl karrigell diretory to local git.
+2010-04-28 22:05:57,875 INFO Begin to backup local github to remote github host.

@@ -127,26 +127,27 @@ MENUCONTAINER = 'desktopNavbar'
 
 SIDEPANELPREFIX = 'sidebar'
 
+#ascii2utf8 = lambda v : v.decode('utf8').encode('utf8')
 USERSIDEBARPANELS = \
 {
 'data': 
 	( 
-		{ 'id':'00', 'text':_("Portal"), 'onExpand':'portalPanel',\
+		{ 'id':'00', 'text': _("Portal"), 'onExpand':'portalPanel',\
 		  'onCollapse':'sidePanelCollapse', 'contentURL':'portal/portal.ks/page_info' },
 		
-		{ 'id':'01', 'text':_("Accommodation Service"), 'onExpand':'hotelPanel',\
+		{ 'id':'01', 'text': _("Accommodation Service"), 'onExpand':'hotelPanel',\
 		  'onCollapse':'sidePanelCollapse' },
 		       
-		{ 'id':'02', 'text':_("Travel Service"), 'onExpand':'travelPanel',\
+		{ 'id':'02', 'text': _("Travel Service"), 'onExpand':'travelPanel',\
 		  'onCollapse':'sidePanelCollapse' },
 		
-		{ 'id':'03', 'text':_("Service"), 'onExpand':'servicePanel',\
+		{ 'id':'03', 'text': _("Service"), 'onExpand':'servicePanel',\
 		  'onCollapse':'sidePanelCollapse' },
 		
-		{ 'id':'04', 'text':_("Need Help"), 'onExpand':'issuePanel',\
+		{ 'id':'04', 'text': _("Need Help"), 'onExpand':'issuePanel',\
 		  'onCollapse':'sidePanelCollapse' },
 		
-		{ 'id':'05', 'text':_("Portfolio"), 'onExpand':'portfolioPanel',\
+		{ 'id':'05', 'text': _("Portfolio"), 'onExpand':'portfolioPanel',\
 		  'onCollapse':'sidePanelCollapse', 'contentURL':'portfolio/portfolio.ks/page_info' },
        
 	),

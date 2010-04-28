@@ -4,8 +4,8 @@
 import os
 
 # karrigell_dir is in the namespace where this script is run in k_config.py
-root_dir = os.path.join(server_dir,"www")
-data_dir = os.path.join(server_dir, "data","www")
+root_dir = os.path.join(server_dir,"muireception")
+data_dir = os.path.join(server_dir, "data","muireception")
 cgi_dir = os.path.join(root_dir,"cgi-bin")
 
 # allow directory listing if url matches a directory ?
@@ -35,8 +35,8 @@ logging_rotate = "hourly"
 # if encode_input is set, input encoding is successful, and encode_ouput is
 # not set, then the output will be encoded with the same encoding as input
 #
-encode_input = False #True
-output_encoding = None #"utf-8"
+encode_input = False
+output_encoding = 'utf-8'
 
 # language to translate marked strings to
 language = None

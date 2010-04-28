@@ -2,6 +2,7 @@
 The pages and functions for menu setup
 """
 
+import sys
 from HTMLTags import *
 
 # 'THIS.script_url' is a global variable in Karrigell system
@@ -285,10 +286,9 @@ def page_accountValid(**args):
 			res['valid'] = 1		
 
 	try:	
-		import sys
 		sys.setdefaultencoding('utf8')
 	except:
-		pass		
+		pass
 	
 	for k,v in res.items():
 		res[k]= str(v).decode('utf8')
@@ -325,20 +325,25 @@ def page_menu(**args):
 	else:
 		menus = pagefn.ADMINMENUS
 	
-	print JSON.encode(menus)
+	for menuData in menus['data']:
+		menuData['text'] = menuData['text'].decode('utf8')
+	
+	print JSON.encode(menus, encoding='utf8')
 	return
 	
 def page_sideBarPanels(**args):
 	""" Return the panels info in the left side bar. """
-	#so = Session()
 	roles = getattr(so, pagefn.SOINFO['user']).get('roles') or ''	
 	
 	if pagefn.USEROLE in roles:
 		panels = pagefn.USERSIDEBARPANELS
 	else:
 		panels = pagefn.ADMINSIDEBARPANELS
-		
-	print JSON.encode(panels)
+	
+	for panelData in panels['data']:
+		panelData['text'] = panelData['text'].decode('utf8')
+	
+	print JSON.encode(panels, encoding='utf8')
 	return
 	
 def page_closeSession(**args):

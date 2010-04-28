@@ -323,8 +323,8 @@ def page_roomReservation(**args):
 	return
 
 def _roomReservationJs(container):
-	paras = [container, '/'.join((APPATH, 'page_reservationData')), _('Subtotal')]
-	
+	paras = [container, '/'.join((APPATH, 'page_reservationData')), _('Subtotal'), ACTIONPROP]
+	paras.extend(ACTIONTYPES[1:])
 	# add buttons' labels
 	paras.extend((_('Edit'), _('Delete')))
 	
@@ -332,8 +332,9 @@ def _roomReservationJs(container):
 	js = \
 	"""
 	var container=$('%s'), dataUrl='%s', subLabel='%s',
+	actionTag='%s', actions=['%s','%s'],
 	bnLabels=['%s', '%s'];
-	
+
 	var colon = new Element('span',{html:'&nbsp;:&nbsp;'});
 	// common seperator element
 	var sep = new Element('span',{html:'&nbsp;,&nbsp;'});
@@ -434,8 +435,8 @@ def _roomReservationJs(container):
 	************************************************************************/
 	function reserveEditButtons(serial){
 		bnAttributes = [
-			{'type':'edit','label': bnLabels[0], 'bnSize':'sexysmall', 'bnSkin': 'sexyblue'},
-			{'type':'delete','label': bnLabels[1], 'bnSize':'sexysmall', 'bnSkin': 'sexyred'}
+			{'type':'edit','label': bnLabels[0], 'bnSize':'sexysmall', 'bnSkin': 'sexyblue', 'action':actions[0]},
+			{'type':'delete','label': bnLabels[1], 'bnSize':'sexysmall', 'bnSkin': 'sexyred', 'action':actions[1]}
 		];	
 
 		bnContainer = new Element('div',{style: 'text-align:right;'});
@@ -451,8 +452,8 @@ def _roomReservationJs(container):
 			};
 			
 			button = MUI.styledButton(options);
-			// save the serial value to button
-			button.store('serial',serial);
+			// save the serial and action value to button
+			button.store('formData', {'serial':serial, 'action':attrs['action']});
 
 			button.addEvent('click',reserveActionAdapter);
 			
@@ -466,7 +467,8 @@ def _roomReservationJs(container):
 	function reserveActionAdapter(event){
 		new Event(event).stop();
 		button = event.target;
-		alert(button+','+button.retrieve('serial'));
+		data = button.retrieve('formData');
+		alert(button+','+data.serial+','+data.action);
 	};
 
 	"""%paras
@@ -547,7 +549,13 @@ def page_reserveForm(**args):
 	
 
 	elif actionIndex == 1:	# 'edit' action
+		# get the serial of this reservation	
 		reserveSerial = args.get('serial')
+		reserveProps = [ item['name'] for item in RESERVEFORMPROP]
+		reserveProps.append('target')
+		oldvalues = model.get_items_ByString(USER, 'reserve', {'serial':serial},reserveProps)
+		print oldvalues
+		return		
 	
 	attrs = {'style' : 'text-align: center; font-size: 1.6em;font-weight:bold;'}
 	table.append( CAPTION(hotel, **attrs))

@@ -35,8 +35,8 @@ logging_rotate = "hourly"
 # if encode_input is set, input encoding is successful, and encode_ouput is
 # not set, then the output will be encoded with the same encoding as input
 #
-encode_input = False #True
-output_encoding = None #"utf-8"
+encode_input = False
+output_encoding = None	#'utf-8'
 
 # language to translate marked strings to
 language = None
