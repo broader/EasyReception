@@ -323,7 +323,9 @@ def page_roomReservation(**args):
 	return
 
 def _roomReservationJs(container):
-	paras = [container, '/'.join((APPATH, 'page_reservationData')), _('Subtotal'), ACTIONPROP]
+	paras = [container, ]
+	paras.extend([ '/'.join((APPATH, name)) for name in ('page_reservationData','page_reserveForm')])
+	paras.extend([ _('Subtotal'), ACTIONPROP])
 	paras.extend(ACTIONTYPES[1:])
 	# add buttons' labels
 	paras.extend((_('Edit'), _('Delete')))
@@ -331,7 +333,9 @@ def _roomReservationJs(container):
 	paras = tuple(paras)
 	js = \
 	"""
-	var container=$('%s'), dataUrl='%s', subLabel='%s',
+	var container=$('%s'), 
+	dataUrl='%s', editUrl='%s',
+	subLabel='%s',
 	actionTag='%s', actions=['%s','%s'],
 	bnLabels=['%s', '%s'];
 
@@ -343,12 +347,19 @@ def _roomReservationJs(container):
 	var subCostInfo = new Element('div');
 	subCostInfo.inject(container, 'bottom');
 	container.grab( new Element('hr', {style:'padding:0.1em;'}));
-	// append label for subtotal cost
-	var subCostInfoLabel = new Element('span',{html:'Total Cost'});
-	var subCostValue = new Element('span');
-	subCostInfo.adopt(subCostInfoLabel,colon.clone(),subCostValue);
+	// append labels for subtotal information
+	// total reservations amount
+	var totalReserves = new Element('span',{html:'Total reservations'});
+	var totalReservesValue = new Element('span', {style:'color:red;font-weight:bold;font-size:1.2em;'});
+	subCostInfo.adopt(totalReserves,colon.clone(),totalReservesValue, sep.clone());
 
-	var ul = new Element('ul',{style:'list-style-type:none;'});
+	// total cost
+	var subCostInfoLabel = new Element('span',{html:'Total Cost'});
+	var subCostValue = new Element('span', {style:'color:red;font-weight:bold;font-size:1.2em;'});
+	subCostInfo.adopt(subCostInfoLabel,colon.clone(),subCostValue);
+	
+	// detail information for reserved rooms 
+	var ul = new Element('ul',{style:'list-style-type:none;overflow-y:scroll;height:400px;'});
 	ul.inject(container, 'bottom');
 	
 	var request4roomReserve = new Request.JSON({url:dataUrl, onComplete: renderUl}).get();
@@ -356,6 +367,7 @@ def _roomReservationJs(container):
 	function renderUl(data){
 		data.each(renderLi);
 		subCostValue.set('text',subCostValue.retrieve('value'));
+		totalReservesValue.set('text', ul.getElements('li').length);
 	};
 	
 	function rendeRow4Li(elements){
@@ -428,7 +440,6 @@ def _roomReservationJs(container):
 		li.adopt(reserveEditButtons(data.serial.value));
 
 	};
-	
 
 	/***********************************************************************
 	Return a button container which contains two buttons
@@ -468,9 +479,24 @@ def _roomReservationJs(container):
 		new Event(event).stop();
 		button = event.target;
 		data = button.retrieve('formData');
-		alert(button+','+data.serial+','+data.action);
+		if(actions.indexOf(data.action)==0){
+			// 'edit' action
+			query = $H();
+			query[actionTag] = data.action;
+			query['serial'] = data.serial;
+			url = [editUrl, query.toQueryString()].join('?');	
+			new MUI.Modal({
+         			width: 450, height: 400, y: 80, title: '',
+         			contentURL: url,
+         			modalOverlayClose: false,
+         		});
+		}
+		else{	// 'delete' action
+		};
+		
+		
 	};
-
+	
 	"""%paras
 	return js
 
@@ -500,6 +526,16 @@ def _addPrompt(dictValues, dictPrompts):
 	return dictValues
 
 def _roomInfo(serviceId) :
+	"""
+	Return the information for a type of room.
+	The format of returned information is:
+	{
+	'name':{'value': valueOfName, 'prompt': promptOfName},
+	'description':...,
+	'price':...,
+	'subcategory':...,
+	'hotel':...}
+	"""
 	# get hotel name
 	roomProps = ['name', 'description', 'price', 'subcategory']
 	roomValues = model.get_item(USER, 'service', serviceId, roomProps, keyIsId=True)
@@ -528,6 +564,19 @@ def page_reserveForm(**args):
 	fields, fieldsProp = [], ['name', 'description', 'price']
 	
 	actionIndex = ACTIONTYPES.index(action)
+	
+	def _getFields(props, values, labelProp='label'):
+		_fields = []
+		for prop in props :
+			# label for each field
+			data = filter(lambda i : i.get('dataIndex')== prop ,COLUMNMODEL)[0]
+			if prop != 'name':
+				info = {'prompt':data.get(labelProp),'value':values.get(prop)}
+			else:
+				info = {'prompt': _('Room Type'),'value':values.get(prop)}
+			_fields.append(info)
+		return _fields
+
 	if actionIndex == 0 :	# 'create' action
 		# hotel info
 		# get hotel name
@@ -538,24 +587,25 @@ def page_reserveForm(**args):
 			hotel = ''
 		
 		# get room info	
-		for prop in fieldsProp :
-			# label for each field
-			data = filter(lambda i : i.get('dataIndex')== prop ,COLUMNMODEL)[0]
-			if prop != 'name':
-				info = {'prompt':data.get('label'),'value':args.get(prop)}
-			else:
-				info = {'prompt': _('Room Type'),'value':args.get(prop)}
-			fields.append(info)
-	
+		fields = _getFields(fieldsProp, args)
 
 	elif actionIndex == 1:	# 'edit' action
 		# get the serial of this reservation	
 		reserveSerial = args.get('serial')
 		reserveProps = [ item['name'] for item in RESERVEFORMPROP]
 		reserveProps.append('target')
-		oldvalues = model.get_items_ByString(USER, 'reserve', {'serial':serial},reserveProps)
+		oldvalues = model.get_items_ByString(USER, 'reserve', {'serial':reserveSerial},reserveProps)[0]
 		print oldvalues
-		return		
+		# get room info
+		rid = oldvalues[-1]
+		roomInfo = _roomInfo(rid)
+		# hotel name
+		hotel = roomInfo.pop('hotel').get('value')
+		[roomInfo.update({name: value.get('value')}) for name,value in roomInfo.items()]
+		for k,v in roomInfo.items():
+			print k,',',v
+		#print roomInfo
+		fields = _getFields(fieldsProp, roomInfo, 'prompt')
 	
 	attrs = {'style' : 'text-align: center; font-size: 1.6em;font-weight:bold;'}
 	table.append( CAPTION(hotel, **attrs))
@@ -566,7 +616,7 @@ def page_reserveForm(**args):
 	print DIV(TABLE(Sum(table)), style='margin-left:1em;')
 	
 	# reserve form
-	_reserveForm(action, args.get('id') or None)
+	#_reserveForm(action, args.get('id') or None)
 	
 	return
 
