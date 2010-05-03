@@ -2602,7 +2602,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1272686752209" POSITION="right" TEXT="Company web site">
+<node COLOR="#0033ff" CREATED="1261017385572" ID="ID_1594767766" MODIFIED="1272857602189" POSITION="right" TEXT="Company web site">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1261559251111" FOLDED="true" ID="ID_648549467" MODIFIED="1271246823173" TEXT="nav bar">
@@ -2650,7 +2650,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1271131016988" FOLDED="true" ID="ID_545156553" MODIFIED="1272686751225" TEXT="Technology">
+<node COLOR="#00b439" CREATED="1271131016988" ID="ID_545156553" MODIFIED="1272857605734" TEXT="Technology">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="idea"/>
@@ -2666,6 +2666,9 @@
 <node COLOR="#990000" CREATED="1272420036398" ID="ID_1797442066" LINK="http://www.opendesigns.org/preview/?design=1924" MODIFIED="1272420048106" TEXT="http://www.opendesigns.org/preview/?design=1924">
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="button_ok"/>
+</node>
+<node COLOR="#990000" CREATED="1272857608934" ID="ID_524394828" LINK="http://www.opendesigns.org/preview/?design=1943" MODIFIED="1272857613610" TEXT="http://www.opendesigns.org/preview/?design=1943">
+<font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
 <node COLOR="#00b439" CREATED="1271134396534" FOLDED="true" ID="ID_217134314" MODIFIED="1272029735762" TEXT="Miscellaneous">

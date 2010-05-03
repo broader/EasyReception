@@ -564,20 +564,22 @@ def page_reserveForm(**args):
 	fields, fieldsProp = [], ['name', 'description', 'price']
 	
 	actionIndex = ACTIONTYPES.index(action)
+	oldvalues = {}
 	
-	def _getFields(props, values, labelProp='label'):
+	def _getFields(props, values):
 		_fields = []
 		for prop in props :
 			# label for each field
 			data = filter(lambda i : i.get('dataIndex')== prop ,COLUMNMODEL)[0]
 			if prop != 'name':
-				info = {'prompt':data.get(labelProp),'value':values.get(prop)}
+				info = {'prompt':data.get('label'),'value':values.get(prop)}
 			else:
 				info = {'prompt': _('Room Type'),'value':values.get(prop)}
 			_fields.append(info)
 		return _fields
 
 	if actionIndex == 0 :	# 'create' action
+		serviceId = args.get('id') 
 		# hotel info
 		# get hotel name
 		hotelId = args.get('subcategory')
@@ -595,17 +597,15 @@ def page_reserveForm(**args):
 		reserveProps = [ item['name'] for item in RESERVEFORMPROP]
 		reserveProps.append('target')
 		oldvalues = model.get_items_ByString(USER, 'reserve', {'serial':reserveSerial},reserveProps)[0]
-		print oldvalues
 		# get room info
-		rid = oldvalues[-1]
-		roomInfo = _roomInfo(rid)
+		serviceId = oldvalues.pop(-1)
+		oldvalues = dict([(k,v) for k,v in zip(reserveProps[:2],oldvalues)])
+		roomInfo = _roomInfo(serviceId)
 		# hotel name
 		hotel = roomInfo.pop('hotel').get('value')
 		[roomInfo.update({name: value.get('value')}) for name,value in roomInfo.items()]
-		for k,v in roomInfo.items():
-			print k,',',v
 		#print roomInfo
-		fields = _getFields(fieldsProp, roomInfo, 'prompt')
+		fields = _getFields(fieldsProp, roomInfo)
 	
 	attrs = {'style' : 'text-align: center; font-size: 1.6em;font-weight:bold;'}
 	table.append( CAPTION(hotel, **attrs))
@@ -616,7 +616,7 @@ def page_reserveForm(**args):
 	print DIV(TABLE(Sum(table)), style='margin-left:1em;')
 	
 	# reserve form
-	#_reserveForm(action, args.get('id') or None)
+	_reserveForm(action, serviceId, oldvalues)
 	
 	return
 
@@ -625,11 +625,11 @@ RESERVEFORMPROP =\
 	{'name': 'amount','prompt': _('Amount'),'validate': ['number'],'required': True},
 	{'name': 'memo','prompt': _('Addendum'), 'type': 'textarea', 'validate': [],'required': False},
 ]
-def _reserveForm(action, roomId=None):
+def _reserveForm(action, roomId, oldvalues={}):
 	form = []
 
 	# hide fileds to submit
-	if ACTIONTYPES.index(action) == 0:
+	if ACTIONTYPES.index(action) in (0,1):
 		hideInput = [\
 			{'name':'booker','value':USER}, 
 			{'name': ACTIONPROP,'value':action},
@@ -638,7 +638,7 @@ def _reserveForm(action, roomId=None):
 
 	props = RESERVEFORMPROP
 	for prop in props:
-		prop['oldvalue'] = ''
+		prop['oldvalue'] = oldvalues.get(prop['name']) or ''
 		prop['type'] = prop.get('type') or 'input'
 
 	div = DIV(Sum(formFn.yform(props)))
