@@ -600,6 +600,7 @@ def stringFind(klass, search):
 	instance = client.db.getclass(klass)
 	return instance.stringFind(**search)  
 
+# not used
 def reserve_detailParser(content, need):		
 	""" parse the 'detial' property's values to a dictionary,
 	   whose keys is in 'need'.
@@ -614,7 +615,8 @@ def reserve_detailParser(content, need):
 		if i[0] in need :
 			dprops.update({i[0] : i[1]})
 	return dprops
-	
+
+# not used
 def reserveSort(reserves, booker):
 	# Group by 'category' of the reserved 'service' item
 	# The result will be a dictionary whose format is 

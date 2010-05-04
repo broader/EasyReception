@@ -623,8 +623,7 @@ def _formFieldsConstructor(values,setOldValue=False):
 			items = model.get_items_ByString(USER, 'status', {'category':'service'},('name',))
 			if items and type(items) == type([]):
 				prop['options'] = [i[0] for i in items]
-
-
+		
 		if not prop.has_key('required'):
 			prop['required'] = False	 	
 	
@@ -677,6 +676,7 @@ def page_editService(**args):
 			props = _formFieldsConstructor(props,True)
 			# for 'edit' action, it's no need to check service 'name' property
 			filter(lambda i: i['name']=='name', props)[0]['validate'] = []
+			#filter(lambda i: i['name']=='serial', props)[0]['readonly'] = 'readonly'
 			
 			info.append( {'prompt':GETPROPSLABEL('category'),'value':args.get('category')} )
 			info.append({'prompt':GETPROPSLABEL('subcategory'),'value':args.get(PARENTNAMEPROP)})

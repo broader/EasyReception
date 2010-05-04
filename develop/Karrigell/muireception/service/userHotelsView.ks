@@ -33,6 +33,8 @@ INITCONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 # The category name for 'hotel' application to 'service' class
 SERVICECATEGORY = pagefn.HOTEL.get('categoryInService')
 
+# The id of right panel which shows user's reservations
+RESERVESHOWPANEL = pagefn.HOTEL.get('rightColumn')['panelId']
 
 # valid functions for form fields
 CHKFNS = ('serviceCategoryChk','serviceNameChk')
@@ -590,15 +592,16 @@ def page_reserveForm(**args):
 		
 		# get room info	
 		fields = _getFields(fieldsProp, args)
+		formargs = [action, serviceId]
 
 	elif actionIndex == 1:	# 'edit' action
 		# get the serial of this reservation	
 		reserveSerial = args.get('serial')
 		reserveProps = [ item['name'] for item in RESERVEFORMPROP]
-		reserveProps.append('target')
+		reserveProps.extend(('target','id'))
 		oldvalues = model.get_items_ByString(USER, 'reserve', {'serial':reserveSerial},reserveProps)[0]
 		# get room info
-		serviceId = oldvalues.pop(-1)
+		reserveId,serviceId = [oldvalues.pop(-1) for i in range(2)]
 		oldvalues = dict([(k,v) for k,v in zip(reserveProps[:2],oldvalues)])
 		roomInfo = _roomInfo(serviceId)
 		# hotel name
@@ -606,6 +609,7 @@ def page_reserveForm(**args):
 		[roomInfo.update({name: value.get('value')}) for name,value in roomInfo.items()]
 		#print roomInfo
 		fields = _getFields(fieldsProp, roomInfo)
+		formargs = [action, reserveId, oldvalues]
 	
 	attrs = {'style' : 'text-align: center; font-size: 1.6em;font-weight:bold;'}
 	table.append( CAPTION(hotel, **attrs))
@@ -616,7 +620,7 @@ def page_reserveForm(**args):
 	print DIV(TABLE(Sum(table)), style='margin-left:1em;')
 	
 	# reserve form
-	_reserveForm(action, serviceId, oldvalues)
+	_reserveForm(*formargs)
 	
 	return
 
@@ -625,7 +629,7 @@ RESERVEFORMPROP =\
 	{'name': 'amount','prompt': _('Amount'),'validate': ['number'],'required': True},
 	{'name': 'memo','prompt': _('Addendum'), 'type': 'textarea', 'validate': [],'required': False},
 ]
-def _reserveForm(action, roomId, oldvalues={}):
+def _reserveForm(action, target, oldvalues={}):
 	form = []
 
 	# hide fileds to submit
@@ -633,7 +637,7 @@ def _reserveForm(action, roomId, oldvalues={}):
 		hideInput = [\
 			{'name':'booker','value':USER}, 
 			{'name': ACTIONPROP,'value':action},
-			{'name': 'target', 'value':roomId}
+			{'name': 'target', 'value':target}
 		]
 
 	props = RESERVEFORMPROP
@@ -735,14 +739,18 @@ def page_reserveEditAction(**args):
 	
 	# response tag 
 	ok = 0
-	
-	#props = ('amount','memo','booker')
-	if ACTIONTYPES.index(action) == 0 :
+	actionIndex = ACTIONTYPES.index(action)
+	if actionIndex == 0 :	# 'create' action
 		args.pop(ACTIONPROP)
 		rid = model.create_item( USER, 'reserve', args)
 		if rid:
 			ok = 1
- 
+	elif actionIndex == 1 :	# 'edit' action
+		action, reserveId = [ args.pop(name) for name in (ACTIONPROP,'target')]
+		actionRes = model.edit_item( USER, 'reserve', reserveId, args, 'edit', keyIsId=True)
+		if actionRes:
+			ok = 1
+
 	print ok
 	return
 

@@ -633,18 +633,19 @@ def page_classEdit(**args):
 	info,hideInput = [],[]
 	
 	props = copy.deepcopy(args)
-	if props.has_key('id'):
-		# edit action
+	if props.has_key('id'):		# edit action
 		actionType = ACTIONTYPES[1]
-		nid = props.pop('id')
-		info.append( {'prompt':_('Item ID'), 'value':nid})
+		nid = props.pop('id') 
+		info.append({'prompt':_('Item ID'), 'value': nid}) 
+		if args.get('serial'):
+			serial = props.pop('serial')
+			info.append({'prompt':_('Serial'), 'value': serial})
 		
 		[hideInput.append({'name':name,'value':value}) \
 		for name,value in {CLASSPROP:klass, 'id':nid, ACTIONPROP:ACTIONTYPES[1]}.items()]
 		
 		props = _formFieldsConstructor(klass,props,True)
-	else:
-		# create action
+	else:	# create action
 		actionType = ACTIONTYPES[0]
 		[hideInput.append({'name':name,'value':value}) \
 		for name,value in {CLASSPROP:klass, ACTIONPROP:ACTIONTYPES[0]}.items()]
@@ -671,7 +672,7 @@ def page_classEdit(**args):
 		form.append(FIELDSET(div))
 		bnStyle = 'position:absolute;margin-left:15em;'
 	else:
-		interval = int(len(props)/2)+1	
+		interval = int(len(props)/2)	
 		style = 'border-right:1px solid #DDDDDD;'	
 		left = DIV(Sum(formFn.yform(props[:interval])), **{'class':'c50l'})
 		right = DIV(Sum(formFn.yform(props[interval:])), **{'class':'c50r'})
