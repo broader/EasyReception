@@ -124,7 +124,7 @@ def get_items_ByString(operator, klass, search, propnames=None, needId=False,lin
 	""" Get items by specified string value of the class's String properties.
 	Parameters:
 	  	search - a dictionary holding the values of multiful 'String' properties;
-	  	propnames - the properties' names;
+	  	propnames - a list or tuple which holds the properties' names;
 	  	needId - if True, the 'id' property will be added to the '0' index of the result list;
 	"""
 	client = get_client()

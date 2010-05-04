@@ -60,8 +60,7 @@ MUI.extend({
 		MUI.Windows.instances.each(function(w){
    			if(w.options.type=='modal'){ w.close();	};
    		}); 
-   	
-   	return true
+   		return true
 	},
 	
 	// a function to remove error prompts for FormCheck lib

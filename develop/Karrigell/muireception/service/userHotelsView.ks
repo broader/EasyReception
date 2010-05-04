@@ -325,8 +325,8 @@ def page_roomReservation(**args):
 	return
 
 def _roomReservationJs(container):
-	paras = [container, ]
-	paras.extend([ '/'.join((APPATH, name)) for name in ('page_reservationData','page_reserveForm')])
+	paras = [container, RESERVESHOWPANEL]
+	paras.extend([ '/'.join((APPATH, name)) for name in ('page_reservationData','page_reserveForm','page_reserveEditAction')])
 	paras.extend([ _('Subtotal'), ACTIONPROP])
 	paras.extend(ACTIONTYPES[1:])
 	# add buttons' labels
@@ -335,8 +335,8 @@ def _roomReservationJs(container):
 	paras = tuple(paras)
 	js = \
 	"""
-	var container=$('%s'), 
-	dataUrl='%s', editUrl='%s',
+	var container=$('%s'), panelId='%s', 
+	dataUrl='%s', editUrl='%s', deleteUrl='%s',
 	subLabel='%s',
 	actionTag='%s', actions=['%s','%s'],
 	bnLabels=['%s', '%s'];
@@ -481,22 +481,37 @@ def _roomReservationJs(container):
 		new Event(event).stop();
 		button = event.target;
 		data = button.retrieve('formData');
-		if(actions.indexOf(data.action)==0){
-			// 'edit' action
-			query = $H();
-			query[actionTag] = data.action;
-			query['serial'] = data.serial;
+		query = $H();
+		query[actionTag] = data.action;
+		query['serial'] = data.serial;
+		if(actions.indexOf(data.action)==0){	// 'edit' action
 			url = [editUrl, query.toQueryString()].join('?');	
 			new MUI.Modal({
          			width: 450, height: 400, y: 80, title: '',
          			contentURL: url,
-         			modalOverlayClose: false,
+         			modalOverlayClose: false
          		});
 		}
 		else{	// 'delete' action
+			info = 'Delete Rservation:<br>' + query.serial;
+			MUI.confirm(info, delReservation.pass(query), {});
 		};
 		
-		
+	};
+
+	function delReservation(querystr){
+		url = [deleteUrl, querystr.toQueryString()].join('?');	
+	   	// set some options for Request.HTML instance
+		deletRequest = new Request({async:false});
+	   	deletRequest.setOptions({
+	      		url: url,
+	      		onSuccess: function(text, xml){
+		 		MUI.notification(text);
+				MUI.refreshPanel(panelId);
+	      		}
+	   	});
+	   
+	   	deletRequest.get();
 	};
 	
 	"""%paras
@@ -668,12 +683,13 @@ def _reserveForm(action, target, oldvalues={}):
 	return
 
 def _reserveFormJs(formId, bnStyle):
-	paras = [ APP, formId, bnStyle]
+	paras = [ APP, RESERVESHOWPANEL, formId, bnStyle]
 	paras.extend( [ pagefn.BUTTONLABELS.get('confirmWindow').get(key) for key in ('confirm','cancel')] )
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName='%s', formId='%s', bnStyle='%s',
+	var appName='%s', panelId='%s',
+	formId='%s', bnStyle='%s',
 	confirmBnLabel='%s',cancelBnLabel='%s';
 	
 	var reserveEditFormChk;
@@ -683,9 +699,12 @@ def _reserveFormJs(formId, bnStyle):
 		reserveEditFormChk = new FormCheck( formId,{
 		    submitByAjax: true,
 		    onAjaxSuccess: function(response){
-			if(response == 1){
-			    MUI.closeModalDialog();
-			};               
+			if(response == 1){ 
+				MUI.closeModalDialog(); 
+				// rfresh the corresponding MUI.Panel
+				MUI.refreshPanel(panelId);	
+			}
+			else{ MUI.notification('Action Failed');};               
 		    },            
 		    
  		    display:{
@@ -735,22 +754,26 @@ def _reserveFormJs(formId, bnStyle):
 
 def page_reserveEditAction(**args):
 	# get action type
-	action = args.get(ACTIONPROP)
+	action = args.pop(ACTIONPROP)
 	
 	# response tag 
 	ok = 0
 	actionIndex = ACTIONTYPES.index(action)
 	if actionIndex == 0 :	# 'create' action
-		args.pop(ACTIONPROP)
 		rid = model.create_item( USER, 'reserve', args)
 		if rid:
 			ok = 1
 	elif actionIndex == 1 :	# 'edit' action
-		action, reserveId = [ args.pop(name) for name in (ACTIONPROP,'target')]
+		reserveId = args.pop('target') 
 		actionRes = model.edit_item( USER, 'reserve', reserveId, args, 'edit', keyIsId=True)
 		if actionRes:
 			ok = 1
-
+	elif actionIndex == 2 : # 'delete' action
+		reserveSerial = args.get('serial')
+		rid = model.get_items_ByString(USER, 'reserve', {'serial':reserveSerial}, ('id',))[0][0]
+		model.delete_item( USER, 'reserve', rid, isId=True)
+		ok = ' '.join((rid, _('has been deleted!')))
+		
 	print ok
 	return
 
