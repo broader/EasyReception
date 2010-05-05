@@ -1,0 +1,66 @@
+2010/05/05 03:12:05 - 127.0.0.1 - GET /navigation.ks/profile?path=service/accommodation/app.ks/index HTTP/1.1 200
+2010/05/05 03:12:06 - 127.0.0.1 - GET /lib/treeTable/jquery.treeTable.js?_=1273029126753 HTTP/1.1 200
+2010/05/05 03:12:06 - 127.0.0.1 - GET /images/icons/delete.png HTTP/1.1 200
+2010/05/05 03:12:06 - 127.0.0.1 - GET /images/icons/edit.png HTTP/1.1 200
+2010/05/05 03:12:06 - 127.0.0.1 - GET /lib/treeTable/jquery.treeTable.css HTTP/1.1 200
+2010/05/05 03:12:07 - 127.0.0.1 - GET /lib/treeTable/toggle-expand-dark.png HTTP/1.1 200
+2010/05/05 03:12:07 - 127.0.0.1 - GET /navigation.ks/profile?path=service HTTP/1.1 302 /service/index.hip
+2010/05/05 03:12:06 - 127.0.0.1 - GET /navigation.ks/profile?path=service/travel/app.ks/index HTTP/1.1 200
+2010/05/05 03:12:07 - 127.0.0.1 - GET /lib/treeTable/jquery.treeTable.js?_=1273029127808 HTTP/1.1 200
+2010/05/05 03:12:07 - 127.0.0.1 - GET /service/index.hip HTTP/1.1 200
+2010/05/05 03:12:08 - 127.0.0.1 - GET /service/service.ks/page_reserveEdit HTTP/1.1 200
+2010/05/05 03:12:08 - 127.0.0.1 - GET /service/service.ks/index HTTP/1.1 200
+2010/05/05 03:12:08 - 127.0.0.1 - GET /service/serviceChange.js.pih?listUrl=service/service.ks/page_serviceList&listDiv=serviceList&editUrl=service/service.ks/page_reserveEdit&editDiv=reserveEdit&page=&selectId=stype&_=1273029128955 HTTP/1.1 200
+2010/05/05 03:12:08 - 127.0.0.1 - GET /service/service.ks/page_reserveList?init=1 HTTP/1.1 200
+2010/05/05 03:12:09 - 127.0.0.1 - GET /lib/treeTable/jquery.treeTable.js?_=1273029129306 HTTP/1.1 200
+2010/05/05 03:12:09 - 127.0.0.1 - GET /service/reserveList.js.pih?categoryTag=noUsed&serviceDiv=serviceList&editDiv=reserveEdit&editUrl=service/service.ks/page_reserveEdit&subcategoryTag=hasChildren&reserveDiv=reserveList&action=edit&_=1273029129329 HTTP/1.1 200
+2010/05/05 03:12:10 - 127.0.0.1 - GET /navigation.ks/profile?path=issue HTTP/1.1 302 /issue/index.hip
+2010/05/05 03:12:10 - 127.0.0.1 - GET /issue/index.hip HTTP/1.1 200
+2010/05/05 03:12:10 - 127.0.0.1 - GET /js/jquery.form.js?_=1273029130302 HTTP/1.1 200
+2010/05/05 03:12:10 - 127.0.0.1 - GET /issue/issue.ks/index HTTP/1.1 200
+2010/05/05 03:12:10 - 127.0.0.1 - GET /issue/issue.ks/show HTTP/1.1 200
+2010/05/05 03:12:10 - 127.0.0.1 - GET /issue/issue.ks/page_editIssue HTTP/1.1 200
+2010/05/05 03:12:11 - 127.0.0.1 - GET /lib/dataTable/js/jquery.dataTables.js?_=1273029131390 HTTP/1.1 200
+2010/05/05 03:12:11 - 127.0.0.1 - GET /issue/issue.ks/page_getData?iColumns=5&sColumns=&iDisplayLength=10&iDisplayStart=0&sSearch=&bEscapeRegex=true&sSearch_0=&bEscapeRegex_0=true&sSearch_1=&bEscapeRegex_1=true&sSearch_2=&bEscapeRegex_2=true&sSearch_3=&bEscapeRegex_3=true&sSearch_4=&bEscapeRegex_4=true&iSortingCols=1&iSortCol_0=0&iSortDir_0=desc HTTP/1.1 200
+2010/05/05 03:12:12 - 127.0.0.1 - GET /navigation.ks/profile?path=user HTTP/1.1 302 /user/index.hip
+2010/05/05 03:12:12 - 127.0.0.1 - GET /user/index.hip HTTP/1.1 200
+2010/05/05 03:12:12 - 127.0.0.1 - GET /css/screen.css HTTP/1.1 200
+2010/05/05 03:12:12 - 127.0.0.1 - GET /user/account.ks HTTP/1.1 302 /user/account.ks/index
+2010/05/05 03:12:12 - 127.0.0.1 - GET /user/info.ks HTTP/1.1 302 /user/info.ks/index
+2010/05/05 03:12:12 - 127.0.0.1 - GET /user/account.ks/index HTTP/1.1 200
+2010/05/05 03:12:12 - 127.0.0.1 - GET /user/info.ks/index HTTP/1.1 200
+2010/05/05 03:12:15 - 127.0.0.1 - GET /navigation.ks/profile?path=issue HTTP/1.1 302 /issue/index.hip
+2010/05/05 03:12:15 - 127.0.0.1 - GET /issue/index.hip HTTP/1.1 200
+2010/05/05 03:12:15 - 127.0.0.1 - GET /js/jquery.form.js?_=1273029135849 HTTP/1.1 200
+2010/05/05 03:12:15 - 127.0.0.1 - GET /issue/issue.ks/index HTTP/1.1 200
+2010/05/05 03:12:16 - 127.0.0.1 - GET /issue/issue.ks/show HTTP/1.1 200
+2010/05/05 03:12:16 - 127.0.0.1 - GET /issue/issue.ks/page_editIssue HTTP/1.1 200
+2010/05/05 03:12:17 - 127.0.0.1 - GET /lib/dataTable/js/jquery.dataTables.js?_=1273029137014 HTTP/1.1 200
+2010/05/05 03:12:17 - 127.0.0.1 - GET /issue/issue.ks/page_getData?iColumns=5&sColumns=&iDisplayLength=10&iDisplayStart=0&sSearch=&bEscapeRegex=true&sSearch_0=&bEscapeRegex_0=true&sSearch_1=&bEscapeRegex_1=true&sSearch_2=&bEscapeRegex_2=true&sSearch_3=&bEscapeRegex_3=true&sSearch_4=&bEscapeRegex_4=true&iSortingCols=1&iSortCol_0=0&iSortDir_0=desc HTTP/1.1 200
+2010/05/05 03:12:44 - 127.0.0.1 - GET /issue/issue.ks/page_showIssueInPage?serial=I20091021023246 HTTP/1.1 200
+2010/05/05 03:12:45 - 127.0.0.1 - GET /lib/smartlists/smartlists.js.pih?listId=sl&prompt=All%20Message%27s%20Writers&pageItems=3&_=1273029165296 HTTP/1.1 200
+2010/05/05 03:15:50 - 127.0.0.1 - GET /issue/issue.ks/page_editIssue?assignedto=demo&keyword=%E6%97%85%E6%B8%B8%E6%9C%8D%E5%8A%A1&title=%E4%BD%95%E5%A4%84%E5%8F%91%E8%BD%A6%EF%BC%9F&nosy=demo%2C%E4%BD%99%E5%88%99%E6%88%90%2Csupervisor&serial=I20091021023246&creator=demo HTTP/1.1 200
+2010/05/05 03:15:50 - 127.0.0.1 - GET /issue/multiSelect.js.pih?kbutton=%E6%9B%B4%E6%94%B9%E5%85%B3%E9%94%AE%E8%AF%8D&pbn_enable=1&ok=%E7%A1%AE%E5%AE%9A&klabel=%E9%80%89%E6%8B%A9%E5%85%B3%E9%94%AE%E8%AF%8D&keywords=%E9%85%92%E5%BA%97,Registration,%E6%97%85%E6%B8%B8%E6%9C%8D%E5%8A%A1&pbutton=%E6%9B%B4%E6%94%B9%E7%9B%B8%E5%85%B3%E4%BA%BA%E5%91%98&plabel=%E9%80%89%E6%8B%A9%E4%BA%BA%E5%91%98&cancel=%E5%8F%96%E6%B6%88&kbn_enable=1&_=1273029350917 HTTP/1.1 200
+2010/05/05 03:15:50 - 127.0.0.1 - GET /issue/jframe.js.pih?formId=issue_edit_form&_=1273029350920 HTTP/1.1 200
+2010/05/05 03:15:51 - 127.0.0.1 - GET /lib/asmselect/jquery.asmselect.js?_=1273029351016 HTTP/1.1 200
+2010/05/05 03:15:51 - 127.0.0.1 - GET /lib/asmselect/jquery.color.js?_=1273029351018 HTTP/1.1 200
+2010/05/05 03:15:51 - 127.0.0.1 - GET /lib/asmselect/jquery.ui.js?_=1273029351021 HTTP/1.1 200
+2010/05/05 03:15:51 - 127.0.0.1 - GET /lib/multiselect/jquery.fcbkcomplete.js?_=1273029351024 HTTP/1.1 200
+2010/05/05 03:15:58 - 127.0.0.1 - GET /issue/issue.ks/postEditIssue?serial=I20091021023246&title=%E4%BD%95%E5%A4%84%E5%8F%91%E8%BD%A6%EF%BC%9F&keyword=%E6%97%85%E6%B8%B8%E6%9C%8D%E5%8A%A1&nosy=demo%2C%E4%BD%99%E5%88%99%E6%88%90%2Csupervisor&assignedto=demo&content=&submit=%E5%8F%96%E6%B6%88 HTTP/1.1 200
+2010/05/05 03:15:59 - 127.0.0.1 - GET /lib/smartlists/smartlists.js.pih?listId=sl&prompt=All%20Message%27s%20Writers&pageItems=3&_=1273029359284 HTTP/1.1 200
+2010/05/05 03:16:17 - 127.0.0.1 - GET /issue/issue.ks/page_showIssueInPage?serial=I20091021023246 HTTP/1.1 200
+2010/05/05 03:16:18 - 127.0.0.1 - GET /lib/smartlists/smartlists.js.pih?listId=sl&prompt=All%20Message%27s%20Writers&pageItems=3&_=1273029378177 HTTP/1.1 200
+2010/05/05 03:16:20 - 127.0.0.1 - GET /issue/issue.ks/page_showIssueInPage?serial=I20091027133247 HTTP/1.1 200
+2010/05/05 03:16:21 - 127.0.0.1 - GET /lib/smartlists/smartlists.js.pih?listId=sl&prompt=All%20Message%27s%20Writers&pageItems=3&_=1273029381442 HTTP/1.1 200
+2010/05/05 03:16:23 - 127.0.0.1 - GET /issue/issue.ks/page_showIssueInPage?serial=I20091014022545 HTTP/1.1 200
+2010/05/05 03:16:23 - 127.0.0.1 - GET /lib/smartlists/smartlists.js.pih?listId=sl&prompt=All%20Message%27s%20Writers&pageItems=3&_=1273029383697 HTTP/1.1 200
+2010/05/05 03:16:24 - 127.0.0.1 - GET /issue/issue.ks/page_showIssueInPage?serial=I20091010025543 HTTP/1.1 200
+2010/05/05 03:16:25 - 127.0.0.1 - GET /lib/smartlists/smartlists.js.pih?listId=sl&prompt=All%20Message%27s%20Writers&pageItems=3&_=1273029385287 HTTP/1.1 200
+2010/05/05 03:16:26 - 127.0.0.1 - GET /issue/issue.ks/page_showIssueInPage?serial=I20091010025543 HTTP/1.1 200
+2010/05/05 03:16:27 - 127.0.0.1 - GET /lib/smartlists/smartlists.js.pih?listId=sl&prompt=All%20Message%27s%20Writers&pageItems=3&_=1273029387209 HTTP/1.1 200
+2010/05/05 03:16:28 - 127.0.0.1 - GET /issue/issue.ks/page_showIssueInPage?serial=I20091009064542 HTTP/1.1 200
+2010/05/05 03:16:28 - 127.0.0.1 - GET /lib/smartlists/smartlists.js.pih?listId=sl&prompt=All%20Message%27s%20Writers&pageItems=3&_=1273029388560 HTTP/1.1 200
+2010/05/05 03:16:29 - 127.0.0.1 - GET /issue/issue.ks/page_showIssueInPage?serial=I20091009064542 HTTP/1.1 200
+2010/05/05 03:16:30 - 127.0.0.1 - GET /lib/smartlists/smartlists.js.pih?listId=sl&prompt=All%20Message%27s%20Writers&pageItems=3&_=1273029390347 HTTP/1.1 200
+2010/05/05 03:16:31 - 127.0.0.1 - GET /issue/issue.ks/page_showIssueInPage?serial=I20090721022241 HTTP/1.1 200
+2010/05/05 03:16:32 - 127.0.0.1 - GET /lib/smartlists/smartlists.js.pih?listId=sl&prompt=All%20Message%27s%20Writers&pageItems=3&_=1273029392115 HTTP/1.1 200

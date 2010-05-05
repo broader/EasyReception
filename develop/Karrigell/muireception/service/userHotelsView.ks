@@ -89,9 +89,10 @@ ACTIONS = [
 	{'type':'house','label':_('Detail Information')},
 	{'type':'edit','label':_('Reserve')},
 ]
-VALIDPROP = 'status'
+VALIDPROPS = ('status', 'id')
 def _hotelsListJs():
-	paras = [APP, CONTAINERID, VALIDPROP]
+	paras = [APP, CONTAINERID ]
+	paras.extend(VALIDPROPS)
 	paras.extend(\
 		[ 
 			'/'.join((APPATH,name)) 
@@ -102,19 +103,20 @@ def _hotelsListJs():
 	
 	[ paras.extend( [ action.get(key) for key in ('type','label')]) for action in ACTIONS ] 
 	paras.append(_('Please select only one type of room!'))
-	paras.append(_('The row you selecting could not be reserved! '))
 	paras.append(_('Reservation Edit'))
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName='%s', container='%s', validProp='%s',
+	var appName='%s', container='%s', 
+	validProps = ['%s', '%s'],
 	colsModelUrl='%s', rowDataUrl='%s',
 	reserveValidUrl='%s', reserveEditUrl='%s',
 	action={'%s':'%s'};
 	createReserveBnAttributes = [{'type':'%s','label':'%s'},{'type':'%s','label':'%s'}],
-	rowSelectErr = '%s', unReserveErr='%s', editModalTitle='%s';	
+	rowSelectErr = '%s', editModalTitle='%s';	
 	
 	var treeTable;
+	var unReserveErr = ''; 
 	
 	/***********************************************************************
 	Add buttons on the bottom of the hotel list table
@@ -163,15 +165,18 @@ def _hotelsListJs():
 		async:false, 
 		onComplete:function(json){
 			if(json.ok == '1'){couldReserve=true;}
+			else{ unReserveErr = json.info ;};
 		}
 	});
 
 	function reservation(ti){
 		tr = ti.getSelectedRows()[0];
 		
-		// judge whether it's a room could be reserved
+		// judge whether selected row is a room and has not been reserved by operator
 		couldReserve = false, options = {};
-		options[validProp] = ti.getCellValueByRowId(tr.get('id'), validProp);
+		validProps.each(function(prop){
+			options[prop] = ti.getCellValueByRowId(tr.get('id'), prop);
+		});
 		validRowRequest.get(options);
 
 		// popup modal dialog to reserve this type of room
@@ -565,12 +570,31 @@ def _roomInfo(serviceId) :
 	roomValues = _addPrompt(roomValues, labels)	
 	return roomValues	
 
+def _chkReserved(serviceId, booker):
+	# get reservations for thi booker	
+	reservations = model.get_reservations( USER, booker, props=('target',)) or []
+	reservations = [item[0] for item in reservations ]
+	valid = (serviceId not in reservations) and 1 or 0
+	return valid
+
 def page_capableReserve(**args):
-	toCheck = args.get(VALIDPROP)
+	status2chk, serviceId = [ args.get(prop) for prop in VALIDPROPS ]
+	
+	# response information
+	info = []
+
 	# get the status that could be reserved
 	status = INITCONFIG.getData('service')['hotel']['configProperty'][0]['value'] 
-	valid = (not toCheck in (None,'')) and (toCheck in status) and 1 or 0
-	print JSON.encode({'ok': valid, 'status':status, 'toChk':toCheck })
+	validStatus = (not status2chk in (None,'')) and (status2chk in status) and 1 or 0
+	if not validStatus:
+		info.append(_('Selected hotel could not be reserved!'))
+	
+	# confirm that user had not reserved this room
+	hasReserved = _chkReserved(serviceId, USER)
+	if not hasReserved:
+		info.append(_('Selected room has been reserved by you!'))
+	
+	print JSON.encode({'ok': validStatus and hasReserved, 'info': ' '.join(info)})
 	return
 
 ACTIONPROP,ACTIONTYPES = 'action',('create','edit', 'delete')
