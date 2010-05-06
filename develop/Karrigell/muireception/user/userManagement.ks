@@ -60,8 +60,8 @@ def index(**args):
 	title = _("Registered Users' List")
 	
 	input = INPUT(**{'style':'margin:15px 5px 15px 0;','id':FILTERINPUTID,'value':''})
-	bn = A(_('Filter'),**{'id':FILTERBN, 'href':'javascript:;'})
-	rbn = A(_('Clear Filter'),**{'id':FILTERCLEARBN, 'href':'javascript:;'})
+	bn = A( pagefn.JSLIB['dataGrid']['filter']['labels']['action'] ,**{'id':FILTERBN, 'href':'javascript:;'})
+	rbn = A( pagefn.JSLIB['dataGrid']['filter']['labels']['clear'],**{'id':FILTERCLEARBN, 'href':'javascript:;'})
 	
 	print H2(title),HR(style='padding:0 0 0.1em'),SPAN(Sum((input,bn,TEXT(' | '),rbn))),DIV(**{'id':GRIDID})
 	print pagefn.script(_usersGridJs(), link=False)
@@ -96,92 +96,82 @@ def _usersGridJs(**args):
 	
 	// load column model for the grid from server side 
 	var jsonRequest = new Request.JSON({
-		async: false,
-		url: colsModelUrl, 
+		async: false, url: colsModelUrl, 
 		onSuccess: function(json){
-    		colsModel = json['data'];
-    	}
+    			colsModel = json['data'];
+    		}
 	}).get();
    
-   // search action for grid
-   $(filterBn).addEvent('click',function (e){
-   	datagrid.loadData(dataUrl, {'filter':$(filterInput).value || ''});
-   });
-   
-   // refresh grid
-   $(filterClearBn).addEvent('click', function(e){
-   	$(filterInput).setProperty('value','');
-   	datagrid.loadData();
-   });   
-   
-   // edit the data of selected row
-   function gridRowEdit(evt){
-   	/* Parameters
-   	evt.target:the grid object
-   	evt.indices:the multi selected rows' indexes
-   	evt.row: the index of the row in the grid
-   	*/
-   	
-   	// get the data of the selected row
-   	row = evt.target.getDataByRow(evt.row);
-   	
-   	var urls = [];
-   	$H({'user':row['username'],'panelReload':'0'})
-   	.each(function(value,key){
-   		urls.push([key,value].join('='));
+	// search action for grid
+   	$(filterBn).addEvent('click',function (e){
+   		datagrid.loadData(dataUrl, {'filter':$(filterInput).value || ''});
    	});
-   	url = [editUrl,urls.join('&')].join('?');
-   	//url = editUrl + '?'+'user='+row['username'];
-   	
-   	// the dialog to edit portfolio
-   	new MUI.Modal({
-      	width:600, height:380, contentURL: url,
-      	title: dialogTitle,
-      	modalOverlayClose: false,
-      	onClose: function(e){
-      		datagrid.loadData();
-      	}
-      });
-   	
-   };
    
-   // accordion function which show more data for each row
-   function gridRowAccordion(obj){
-   	/* Parameters
-   	obj :
-   	{ 
-   		parent: Li element which holds the content for accordion, 
-   		row: the index for the row in the grid, 
-   		grid: table grid instance
-   	}
-   	*/
-   	row = obj.grid.getDataByRow(obj.row);
-   	name = row['username'];
-   	url = userInfoUrl+'?username='+name;
-   	obj.parent.load(url);
-   };
+  	// refresh grid
+   	$(filterClearBn).addEvent('click', function(e){
+   		$(filterInput).setProperty('value','');
+   		datagrid.loadData();
+   	});   
+   
+   	// edit the data of selected row
+   	function gridRowEdit(evt){
+   		/* Parameters
+   		evt.target:the grid object
+   		evt.indices:the multi selected rows' indexes
+   		evt.row: the index of the row in the grid
+   		*/
+   	
+   		// get the data of the selected row
+   		row = evt.target.getDataByRow(evt.row);
+   	
+   		var urls = [];
+   		$H({'user':row['username'],'panelReload':'0'})
+   		.each(function(value,key){
+   			urls.push([key,value].join('='));
+   		});
+   		url = [editUrl,urls.join('&')].join('?');
+   		//url = editUrl + '?'+'user='+row['username'];
+   	
+   		// the dialog to edit portfolio
+   		new MUI.Modal({
+      			width:600, height:380, contentURL: url,
+      			title: dialogTitle,
+      			modalOverlayClose: false,
+      			onClose: function(e){
+      				datagrid.loadData();
+      			}
+      		});
+   	
+   	};
+   
+   	// accordion function which show more data for each row
+   	function gridRowAccordion(obj){
+   		/* Parameters
+   		obj :
+   		{ 
+   			parent: Li element which holds the content for accordion, 
+   			row: the index for the row in the grid, 
+   			grid: table grid instance
+   		}
+   		*/
+   		row = obj.grid.getDataByRow(obj.row);
+   		name = row['username'];
+   		url = userInfoUrl+'?username='+name;
+   		obj.parent.load(url);
+   	};
    
    
 	function renderGrid(){	
 			
 		datagrid = new omniGrid( gridId, {
-			columnModel: colsModel,
-			url: dataUrl,
-			accordion: true,
+			columnModel: colsModel,	url: dataUrl, accordion: true,
 			accordionRenderer: gridRowAccordion,
 			autoSectionToggle: true,
 			perPageOptions: [20,40,50,100,200],
-			perPage:10,
-			page:1,
-			pagination:true,
-			serverSort:true,
-			showHeader: true,
-			sortHeader: true,
-			alternaterows: true,
-			resizeColumns: true,
-			multipleSelection:true,
-			width:810,
-			height: 420
+			perPage:10, page:1, pagination:true, serverSort:true,
+			showHeader: true, sortHeader: true, alternaterows: true,
+			resizeColumns: true, multipleSelection:true,
+			width:810, height: 380
 		});
 		
 		datagrid.addEvent('dblclick', gridRowEdit);

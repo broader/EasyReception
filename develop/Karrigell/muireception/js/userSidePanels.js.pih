@@ -97,7 +97,18 @@ function servicePanel(panelId){
 **	Issue side panel expand function
 */
 function issuePanel(panelId){
-	MUI.accordionPanels(panelId);	
+	MUI.initPanel(panelId);
+	
+	var cid = 'userViewIssueColumn'; 
+	new MUI.Column({
+		container:mainPanelId, id: cid, placement: 'main', 
+		sortable: false, width: null, resizeLimit: [100,200] 
+	});
+	
+	new MUI.Panel({
+		id: 'userViewIssuePanel', header:false, column: cid,
+		contentURL:'issue/userView.ks/page_issueList'
+	});	
 };
 
 
@@ -105,12 +116,7 @@ function issuePanel(panelId){
 **	Portfolio side panel expand function
 */
 function portfolioPanel(panelId){	
-	
-	//MUI.accordionPanels(panelId);
-	
-	//MUI.clearMainPanel();
 	MUI.initPanel(panelId);
-	 
 	
 	new MUI.Column({
 		container:mainPanelId, id: 'portfolioColumn', placement: 'main', 

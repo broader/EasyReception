@@ -37,7 +37,9 @@ JSLIB['treeTable'] = \
 
 # dataGrid lib
 JSLIB['dataGrid'] = \
-{'files':['/'.join(('lib','grid',name)) for name in ('omnigrid.css','gridSupplement.css', 'omnigrid.js')],
+{
+	'files':['/'.join(('lib','grid',name)) for name in ('omnigrid.css','gridSupplement.css', 'omnigrid.js')],
+	'filter': {'labels':{'action':_('Filter'), 'clear': _('Clear')}}
 }
 
 # textMultiCheckbox
@@ -145,7 +147,7 @@ USERSIDEBARPANELS = \
 		  'onCollapse':'sidePanelCollapse' },
 		
 		{ 'id':'04', 'text': _("Need Help"), 'onExpand':'issuePanel',\
-		  'onCollapse':'sidePanelCollapse' },
+		  'onCollapse':'sidePanelCollapse', 'contentURL':'issue/userView.ks/page_info' },
 		
 		{ 'id':'05', 'text': _("Portfolio"), 'onExpand':'portfolioPanel',\
 		  'onCollapse':'sidePanelCollapse', 'contentURL':'portfolio/portfolio.ks/page_info' },
@@ -208,7 +210,6 @@ PORTFOLIO = {'panelsId':('editPortfolioPanel','editAccountPanel'),}
 ##
 # Hotel Reservation Application module
 #--------------------------------------------------------------------------------------
-#HOTEL = {'panelsId':{'left':{'list':'hotesList','info':'hotelInfo'},'right':'hotelReserve'},}
 _hotelUrls = ['/'.join(('service','userHotelsView.ks',url)) for url in ('page_hotelsList','page_hotelInfo','page_roomReservation')]
 
 HOTEL = \
@@ -227,6 +228,13 @@ HOTEL = \
 	},
 
 	'rightColumn':{'panelId':'hotelReservation','panelTitle':_('Your reservations'), 'contentUrl': _hotelUrls[2]}
+}
+
+##
+# Issue Application Module
+##
+ISSUE = \
+{
 }
 
 #---End--------------------------------------------------------------------------------

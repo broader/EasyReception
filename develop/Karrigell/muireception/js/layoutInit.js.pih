@@ -152,11 +152,13 @@ function layoutInit(){
 		url: panelsDataUrl, 
 		onSuccess:function(json,html){					
 			am.import(
-				{	'url':json['js'],	// load the functions for the events of sidePanels
+				{
+					'url':json['js'],	// load the functions for the events of sidePanels
 					'app':'<%=loginApp %>',
 					'type':'js'
 				},
-				{	onload: function(){	// arrange the panels in left side bar
+				{
+					onload: function(){	// arrange the panels in left side bar
 						addColumns();						
 						var sideColumn = '<%=sideBar%>',
 						panelsNumber = json['data'].length;

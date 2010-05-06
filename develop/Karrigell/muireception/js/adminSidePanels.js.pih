@@ -39,7 +39,6 @@ function portalPanel(panelId){
 **	"Users Management" side panel expand function
 */
 function userManagementPanel(panelId){
-	//initPanel(panelId);
 	MUI.initPanel(panelId);
 	
 	var cid = 'userMangementColumn'; 
