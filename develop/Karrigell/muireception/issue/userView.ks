@@ -97,9 +97,7 @@ def _issueListJs(container):
 		];	
 
 		bnContainer = new Element('span',{style: 'margin-left:10em;'});
-		
 		bnAttributes.each(function(attrs,index){
-			
 			options = {
 				txt: attrs['label'],
 			   	imgType: attrs['type'],
@@ -107,13 +105,11 @@ def _issueListJs(container):
 				bnSize: attrs['bnSize'],
 				bnSkin: attrs['bnSkin']
 			};
-			
 			button = MUI.styledButton(options);
 			button.store('formData', {'action':attrs['action']});
 			button.addEvent('click', issueActionAdapter);
 			bnContainer.grab(button);
 		});
-		
 		return bnContainer		
 	};
 	
@@ -143,15 +139,9 @@ def _issueListJs(container):
          		contentURL: createUrl,
          		modalOverlayClose: false,
          	});
-
 	};
 
-
-	// 'create','edit','delete' action buttons
-	var bnsContainer = issueEditButtons();
-	
-
-	actionArea.adopt([filterContainer, bnsContainer]);
+	actionArea.adopt([filterContainer, issueEditButtons()]);
 	container.adopt(actionArea);
 	
 	// datagrid body
@@ -299,9 +289,114 @@ def page_info(**args):
 	print DIV(_('Ask help from the staff of the congress!'), **{'class':'info'})
 	return
 
+PROPS =\ 
+[
+	{'name': 'keyword','prompt': _('Keyword'),'validate': [],'required': True},
+	{'name': 'title','prompt': _('Title'), 'validate': [],'required': True},
+	{'name': 'message','prompt': _('Content'), 'type': 'textarea', 'validate': [],'required': True},
+]
 def page_createIssue(**args):
-	"""
-	"""
 	creator = args.get('creator') or USER
-	print H2(creator)
-	return 
+
+	form = []
+
+	# hide fileds to submit
+	hideInput = [\
+		{'name':'creator','value': creator}, 
+	]
+
+	props = PROPS
+	for prop in props:
+		prop['oldvalue'] = ''
+		prop['type'] = prop.get('type') or 'input'
+
+	div = DIV(Sum(formFn.yform(props)))
+	form.append(FIELDSET(div))
+	
+	# append hidden field that points out the action type
+	[item.update({'type':'hidden'}) for item in hideInput]
+	[ form.append(INPUT(**item)) for item in hideInput ]
+
+	formId = 'issueCreation'
+	form = \
+	FORM( 
+		Sum(form), 
+		**{'action': '/'.join((APPATH,'page_reserveEditAction')), 'id': formId, 'method':'post','class':'yform'}
+	)
+	
+	print DIV(form, **{'id': formId})
+	# import js slice
+	#print pagefn.script(_createIssueJs(formId, creator),link=False)		
+	
+	return
+
+def _createIssueJs(formId, creator):
+	paras = [ APP, formId, 'position:absolute;margin-left:15em;']
+	paras.extend( [ pagefn.BUTTONLABELS.get('confirmWindow').get(key) for key in ('confirm','cancel')] )
+	paras = tuple(paras)
+	js = \
+	"""
+	var appName='%s', 
+	formId='%s', bnStyle='%s',
+	confirmBnLabel='%s',cancelBnLabel='%s';
+	
+	var reserveEditFormChk;
+	// Load the form validation plugin script
+	var options = {
+	    onload:function(){ 
+		reserveEditFormChk = new FormCheck( formId,{
+		    submitByAjax: true,
+		    onAjaxSuccess: function(response){
+			if(response == 1){ 
+				MUI.closeModalDialog(); 
+				// rfresh the corresponding MUI.Panel
+				MUI.refreshPanel(panelId);	
+			}
+			else{ MUI.notification('Action Failed');};               
+		    },            
+		    
+ 		    display:{
+			errorsLocation : 1,
+			keepFocusOnError : 0, 
+			scrollToFirst : false
+		    }
+		});// the end for 'reserveEditFormChk' definition
+			
+	    }// the end for 'onload' definition
+	};// the end for 'options' definition
+ 
+   	MUI.formValidLib(appName,options);
+	
+	// add action buttons	
+	var bnContainer = new Element('div',{style: bnStyle});
+	$(formId).adopt(bnContainer);
+	
+	[
+	    {'type':'accept','label': confirmBnLabel},
+	    {'type':'cancel','label': cancelBnLabel}
+	].each(function(attrs,index){
+	    options = {
+		txt: attrs['label'],
+		imgType: attrs['type'],
+		bnAttrs: {'style':'margin-right:1em;'}	
+	    };
+	    button = MUI.styledButton(options);		
+	    button.addEvent('click',actionAdapter);
+	    bnContainer.grab(button);
+	});
+	
+	function actionAdapter(e){
+		var button = e.target;
+		var label = button.get('text');
+		
+		if(label == confirmBnLabel){
+			reserveEditFormChk.onSubmit(e);
+		}
+		else{
+			new Event(e).stop();
+			MUI.closeModalDialog();
+		}; 
+	};
+	"""%paras
+	return js
+

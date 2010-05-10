@@ -28,3 +28,5 @@
 2010/05/10 09:17:22 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found
 2010/05/10 09:17:22 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
 2010/05/10 09:17:25 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found
+2010/05/10 09:08:07 - 127.0.0.1 - GET /issue/issue.ks/page_newIssue HTTP/1.1 200
+2010/05/10 09:08:07 - 127.0.0.1 - GET /issue/jframe.js.pih?formId=issue_new_form&_=1273482487846 HTTP/1.1 200

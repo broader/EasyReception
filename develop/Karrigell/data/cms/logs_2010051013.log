@@ -1,0 +1,27 @@
+2010/05/10 13:14:53 - 127.0.0.1 - GET /images/ajax_loading.gif HTTP/1.1 200
+2010/05/10 13:14:53 - 127.0.0.1 - GET /menu.ks/page_validForm HTTP/1.1 200
+2010/05/10 13:14:56 - 127.0.0.1 - GET /menu.ks/page_validName?user=demo HTTP/1.1 200
+2010/05/10 13:14:57 - 127.0.0.1 - GET /menu.ks/page_validPwd?user=demo&pwd=990508 HTTP/1.1 200
+2010/05/10 13:14:57 - 127.0.0.1 - GET /menu.ks/page_postValid?_=1273497297549 HTTP/1.1 200
+2010/05/10 13:14:57 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/05/10 13:14:57 - 127.0.0.1 - GET /menu.ks/page_toggleMenu?showMenu=1&_=1273497297812 HTTP/1.1 200
+2010/05/10 13:14:58 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/05/10 13:14:58 - 127.0.0.1 - GET /menu.ks/page_loginSpan?page=0 HTTP/1.1 200
+2010/05/10 13:14:58 - 127.0.0.1 - GET /menu.ks/page_menuList?page=0 HTTP/1.1 200
+2010/05/10 13:15:00 - 127.0.0.1 - GET /navigation.ks/profile?path=issue HTTP/1.1 302 /issue/index.hip
+2010/05/10 13:15:00 - 127.0.0.1 - GET /issue/index.hip HTTP/1.1 200
+2010/05/10 13:15:01 - 127.0.0.1 - GET /js/jquery.form.js?_=1273497301056 HTTP/1.1 200
+2010/05/10 13:15:01 - 127.0.0.1 - GET /lib/multiselect/style.css HTTP/1.1 200
+2010/05/10 13:15:01 - 127.0.0.1 - GET /lib/asmselect/jquery.asmselect.css HTTP/1.1 200
+2010/05/10 13:15:01 - 127.0.0.1 - GET /lib/dataTable/css/demo_table.css HTTP/1.1 200
+2010/05/10 13:15:01 - 127.0.0.1 - GET /issue/issue.ks/index HTTP/1.1 200
+2010/05/10 13:15:01 - 127.0.0.1 - GET /issue/issue.ks/show HTTP/1.1 200
+2010/05/10 13:15:01 - 127.0.0.1 - GET /issue/issue.ks/page_editIssue HTTP/1.1 200
+2010/05/10 13:15:02 - 127.0.0.1 - GET /lib/dataTable/js/jquery.dataTables.js?_=1273497302244 HTTP/1.1 200
+2010/05/10 13:15:02 - 127.0.0.1 - GET /lib/dataTable/i18n/cn_CN.txt HTTP/1.1 200
+2010/05/10 13:15:02 - 127.0.0.1 - GET /lib/dataTable/images/sort_both.jpg HTTP/1.1 200
+2010/05/10 13:15:02 - 127.0.0.1 - GET /lib/dataTable/images/sort_desc.jpg HTTP/1.1 200
+2010/05/10 13:15:02 - 127.0.0.1 - GET /issue/issue.ks/page_getData?iColumns=5&sColumns=&iDisplayLength=10&iDisplayStart=0&sSearch=&bEscapeRegex=true&sSearch_0=&bEscapeRegex_0=true&sSearch_1=&bEscapeRegex_1=true&sSearch_2=&bEscapeRegex_2=true&sSearch_3=&bEscapeRegex_3=true&sSearch_4=&bEscapeRegex_4=true&iSortingCols=1&iSortCol_0=0&iSortDir_0=desc HTTP/1.1 200
+2010/05/10 13:15:03 - 127.0.0.1 - GET /issue/issue.ks/page_newIssue HTTP/1.1 200
+2010/05/10 13:15:04 - 127.0.0.1 - GET /issue/jframe.js.pih?formId=issue_new_form&_=1273497304150 HTTP/1.1 200
+2010/05/10 13:15:04 - 127.0.0.1 - GET /yaml/screen/images/button_blue.png HTTP/1.1 200
