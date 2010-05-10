@@ -298,7 +298,7 @@ var TreeTable = new Class({
 			
 			if(row.isLeaf.toInt()==0){
 				// add tree pointer  tag to this row 
-				options.class = this.options.depthPointer; 
+				options['class'] = this.options.depthPointer; 
 				options.events = {'click':	function(e){
 					new Event(e).stop();				
 					this.collapsedToggle(e.target.getParents('tr')[0]);

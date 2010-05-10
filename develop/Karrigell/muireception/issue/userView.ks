@@ -41,7 +41,7 @@ def page_issueList(**args):
 	print DIV(**{'id': userViewIssueList})
 	print pagefn.script( _issueListJs( userViewIssueList), link=False)
 	return
-ACTIONTAG, ACTIONS, ACTIONLABELS = 'action', ['create','edit','delete'],[_('Create'), _('Edit'), _('Delete')]
+ACTIONTAG, ACTIONS, ACTIONLABELS = 'action', ['create','edit'],[_('Create'), _('Edit')]
 def _issueListJs(container):
 	paras = [ APP, container, _('Your Issues List'),ACTIONTAG]
 	# filter labels
@@ -49,7 +49,8 @@ def _issueListJs(container):
 	# edit action buttons' labels
 	[ paras.extend(item) for item in (ACTIONS, ACTIONLABELS) ]
 
-	paras.extend([ '/'.join((APPATH,name)) for name in ( 'page_colsModel',)])
+	paras.extend([ '/'.join((APPATH,name)) for name in ( 'page_colsModel', 'page_createIssue')])
+	paras.append(_('Create a new issue'))
 	paras = tuple(paras)
 	js = \
 	"""
@@ -57,15 +58,22 @@ def _issueListJs(container):
 	// labels for filter buttons
 	filterBnLabels=['%s', '%s'],	
 	// actions and labels for actions
-	actions=['%s', '%s', '%s'], bnsLabels=['%s', '%s', '%s'],
+	actions=['%s', '%s'], bnLabels=['%s', '%s'],
 	// column model for issue grid
-	colsModelUrl='%s';
+	colsModelUrl='%s',
+	// create action url
+	createUrl='%s';
+	createTitle='%s';
+
+	// global variable for datagrid
+	var issueGrid = null;
 	
 	// title for this app
 	container.adopt( new Element('h2',{html:appTitle}), new Element('hr',{style:'padding-bottom:0.1em;'}));	
 
 	// Action area
-	var actionArea = new Element('div');	
+	var actionArea = new Element('div', {style:'padding-bottom:0.3em;'});
+	
 	// filter operation area
 	var filterContainer= [], filterInput= new Element('input', {style:'margin-right:0.5em'});
 	filterContainer.push(filterInput);
@@ -82,13 +90,13 @@ def _issueListJs(container):
 	/**********************************************************************************
 	Return a button container which contains three buttons - 'create','edit','delete'
 	***********************************************************************************/
-	function issueEditButtons(serial){
+	function issueEditButtons(){
 		bnAttributes = [
-			{'type':'edit','label': '', 'bnSize':'sexysmall', 'bnSkin': 'sexyblue', 'action':''},
-			{'type':'delete','label': '', 'bnSize':'sexysmall', 'bnSkin': 'sexyred', 'action':''}
+			{'type':'add','label': bnLabels[0], 'bnSize':'sexysmall', 'bnSkin': 'sexyblue', 'action':actions[0]},
+			{'type':'edit','label': bnLabels[1], 'bnSize':'sexysmall', 'bnSkin': 'sexyblue', 'action':actions[1]}
 		];	
 
-		bnContainer = new Element('div',{style: 'text-align:right;'});
+		bnContainer = new Element('span',{style: 'margin-left:10em;'});
 		
 		bnAttributes.each(function(attrs,index){
 			
@@ -101,13 +109,9 @@ def _issueListJs(container):
 			};
 			
 			button = MUI.styledButton(options);
-			// save the serial and action value to button
-			button.store('formData', {'serial':serial, 'action':attrs['action']});
-
-			button.addEvent('click',reserveActionAdapter);
-			
+			button.store('formData', {'action':attrs['action']});
+			button.addEvent('click', issueActionAdapter);
 			bnContainer.grab(button);
-			
 		});
 		
 		return bnContainer		
@@ -117,33 +121,42 @@ def _issueListJs(container):
 		new Event(event).stop();
 		button = event.target;
 		data = button.retrieve('formData');
-		query = $H();
-		query[actionTag] = data.action;
-		query['serial'] = data.serial;
-		if(actions.indexOf(data.action)==0){	// 'edit' action
-			url = [editUrl, query.toQueryString()].join('?');	
-			new MUI.Modal({
-         			width: 450, height: 400, y: 80, title: '',
-         			contentURL: url,
-         			modalOverlayClose: false
-         		});
-		}
-		else{	// 'delete' action
-			info = 'Delete Rservation:<br>' + query.serial;
-			MUI.confirm(info, delReservation.pass(query), {});
+		actionType = actions.indexOf(data.action);
+		switch (actionType){
+			case 0 :	// 'create' action
+				createIssue(issueGrid, data.action);
+				break;
+			case 1 :// 'edit' action
+				alert('edit action');
+				break;
+			case 2:
+				alert('delete action');
+				break;
 		};
-		
+	};
+	
+	function createIssue(ti, action){	
+		query = $H(); 
+		query.combine({actionTag:action});
+		new MUI.Modal({
+         		width: 450, height: 400, y: 80, title: createTitle,
+         		contentURL: createUrl,
+         		modalOverlayClose: false,
+         	});
+
 	};
 
+
 	// 'create','edit','delete' action buttons
-	var bnsContainer = new Element('span');
+	var bnsContainer = issueEditButtons();
+	
 
 	actionArea.adopt([filterContainer, bnsContainer]);
 	container.adopt(actionArea);
 	
 	// datagrid body
-	var issueListGrid = new Element('div');
-	container.adopt(issueListGrid);
+	var issueGridContainer = new Element('div');
+	container.adopt(issueGridContainer);
 	
 	function renderIssueGrid(){	
 		var colsModel=null;
@@ -156,7 +169,7 @@ def _issueListJs(container):
     			}
 		}).get();
 
-		datagrid = new omniGrid( issueListGrid, {
+		issueGrid = new omniGrid( issueGridContainer, {
 			columnModel: colsModel,	url: '', accordion: true,
 			accordionRenderer: issueGridAccordion,
 			autoSectionToggle: true,
@@ -167,7 +180,7 @@ def _issueListJs(container):
 			width:720, height: 280
 		});
 		
-		datagrid.addEvent('dblclick', issueGridRowAction);
+		issueGrid.addEvent('dblclick', issueGridRowAction);
 	};
 	
 	function issueGridAccordion(obj){
@@ -285,3 +298,10 @@ def page_issuesData(**args):
 def page_info(**args):
 	print DIV(_('Ask help from the staff of the congress!'), **{'class':'info'})
 	return
+
+def page_createIssue(**args):
+	"""
+	"""
+	creator = args.get('creator') or USER
+	print H2(creator)
+	return 
