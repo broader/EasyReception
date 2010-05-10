@@ -43,7 +43,7 @@ USERCOLUMNS = \
 
 ACCOUNTFIELDS = 'userAccountInfo'
 PORTFOLIOFIELDS = 'userBaseInfo'
-GRIDSORTONTAG, GRIDSORTBYTAG = ('sorton', 'sortby')
+GRIDSORTONTAG, GRIDSORTBYTAG = [ pagefn.JSLIB['dataGrid']['sorTag'][name] for name in ('sortOn', 'sortBy')] 
 BASEINFO = 'userBaseInfo'
 # End*****************************************************************************************
 

@@ -1369,7 +1369,7 @@ class FilterByLinkAction(GetItemAction):
     permissionType = ''
     
     def handle(self):
-        ''' Get the items' values by the specified Link or Multilink property vlaue.
+        ''' Get the items' values by the specified Link property value.
         '''                
         #print 'FilterByLinkAction,L1363,form values are ', self.client.form
         # get Link item id by its key property value
@@ -1379,9 +1379,8 @@ class FilterByLinkAction(GetItemAction):
         
         #print 'FilterByLinkAction,L1380, link class is %s, link value is %s'%(lcn, value)
         
-        # get the Link Class instance
-        lci = self.db.getclass(lcn) 
-        nid = lci.lookup(value)        
+        lci = self.db.getclass(lcn) # get the Link Class instance
+        nid = lci.lookup(value)     # get node id by its 'key' property value
         
         # get class instance
         cn = self.client.classname

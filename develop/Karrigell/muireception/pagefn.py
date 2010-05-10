@@ -39,7 +39,8 @@ JSLIB['treeTable'] = \
 JSLIB['dataGrid'] = \
 {
 	'files':['/'.join(('lib','grid',name)) for name in ('omnigrid.css','gridSupplement.css', 'omnigrid.js')],
-	'filter': {'labels':{'action':_('Filter'), 'clear': _('Clear')}}
+	'filter': {'labels':{'action':_('Filter'), 'clear': _('Clear')}},
+	'sorTag': {'sortOn':'SORTON', 'sortBy':'SORTBY'}	
 }
 
 # textMultiCheckbox
@@ -350,4 +351,12 @@ def getConfig(appName):
 	props = INITCONFIG.getData(configField)
 	props = props and props.get('configProperty') or {}
 
-	
+# recursviely decode all the values in a dictionary object to utf8 format 
+def decodeDict2Utf8(d):
+	for k,v in d.items():
+		if type(v) == type({}):
+			d.update({k: decodeDict2Utf8(v)}) 
+		else:
+			d.update({k: str(v).decode('utf8')})
+	return d
+

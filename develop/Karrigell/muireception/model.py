@@ -357,18 +357,20 @@ def get_userlist(operator, props, search=None):
 			data[rowindex] = new
 	return total,data
 
-def get_issues(admin, props, search=None):
+def get_issues(operator, props, search=None):
 	""" Get the issues that related with 'user'
 	"""
 	client = get_client()
-	client.set_user(admin)
+	client.set_user(operator)
 
 	# action
-	form = { 'context': 'issue',
-		      'action': 'filtertext',
-		      'search' : search,		      
-		      'propnames' : props,
-		    }
+	form = { 
+		'context': 'issue',
+		'action': 'filtertext',
+		'search' : search,		      
+		'propnames' : props,
+	}
+
 	client.form = form
 	data = action(client)	
 	if not data :
@@ -465,7 +467,7 @@ def edit_issue(admin, iprops, mprops, serial=None):
 		issueId = serial2id(serial)
 		edit_item(admin, 'issue', issueId, iprops, keyIsId=True)			
 	else:
-		# create a new issuei
+		# create a new issue
 		issueId = str(create_item(admin, 'issue', iprops))
 
 	if mprops:	

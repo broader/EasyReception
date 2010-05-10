@@ -227,15 +227,6 @@ def _hotelsListJs():
 	"""%paras
 	return js
 
-# decode all the values in a dictionary object to utf8 format 
-def _decodeDict2Utf8(d):
-	for k,v in d.items():
-		if type(v) == type({}):
-			d.update({k: _decodeDict2Utf8(v)}) 
-		else:
-			d.update({k: str(v).decode('utf8')})
-	return d
-	
 def page_colsModel(**args):
 	""" 
 	Return the columns' model of the trid on the client side, 
@@ -249,7 +240,7 @@ def page_colsModel(**args):
 			if type(v) == type(''):
 				item.update({k:v.decode('utf8')})
 			elif type(v) == type({}):
-				item.update({k:_decodeDict2Utf8(v)})
+				item.update({k: pagefn.decodeDict2Utf8(v)})
 					
 	print JSON.encode(colsModel,encoding='utf8')	
 	return
@@ -537,7 +528,7 @@ def page_reservationData(**args):
 		miscValues = dict([(name,value) for name,value in zip(RESERVESHOWPROPS[1:],reserve[1:])])	
 		miscValues = _addPrompt(miscValues,RESERVEFIELDSPROMPT)
 		roomInfo.update(miscValues)
-                roomInfo = _decodeDict2Utf8(roomInfo)
+                roomInfo = pagefn.decodeDict2Utf8(roomInfo)
 		values.append(roomInfo)
 		# get hotel and room information
 	print JSON.encode(values,encoding='utf8')	
@@ -597,7 +588,7 @@ def page_capableReserve(**args):
 	print JSON.encode({'ok': validStatus and hasReserved, 'info': ' '.join(info)})
 	return
 
-ACTIONPROP,ACTIONTYPES = 'action',('create','edit', 'delete')
+ACTIONPROP,ACTIONTYPES = 'action',['create','edit', 'delete']
 def page_reserveForm(**args):
 	action = args.get(ACTIONPROP)	
 	table = []
