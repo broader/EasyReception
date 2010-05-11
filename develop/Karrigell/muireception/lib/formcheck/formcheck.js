@@ -1046,6 +1046,9 @@ var FormCheck = new Class({
 	submitByAjax: function() {
 		var url = this.form.getProperty('action');
 		this.fireEvent('ajaxRequest');
+		
+		//alert('formcheck.js,L1050,submitByAjax, method is '+this.form.getProperty('method')+', action url is '+url);
+
 		new Request({
 			url: url,
 			method: this.form.getProperty('method'),

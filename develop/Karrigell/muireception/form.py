@@ -105,7 +105,22 @@ def _textMultiCheckbox(field,oldvalue):
 
  
 def getField(field):
-	""" Render YAML formats form field."""
+	""" 
+	Render YAML formats form field.
+	'field' format is :
+	[
+		{
+		'name': ...,
+		'prompt':..., 
+		'class':..., 
+		'required':[True or False], 
+		'oldvalue':..., 
+		'validate': [],
+		'type': one of ['text', 'input', 'textarea', 'radio', 'select', 'textMultiCheckbox']
+		},
+		......
+	]	
+	"""
 	
 	prompt,required,oldvalue = [ field.pop(prop) for prop in ( 'prompt', 'required', 'oldvalue' )]
 	

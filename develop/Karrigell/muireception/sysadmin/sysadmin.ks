@@ -414,8 +414,13 @@ def _classListJs(klass):
 		bnContainer.grab(button);
 	},datagrid);
 	
-	var query = {};
-        query[klassProp]= klass;
+	// initialize a query object
+	function _getQuery(){
+		query = {};
+        	query[klassProp]= klass;
+		return query
+	};	
+	
 	function actionAdapter(index){
 		var trs = datagrid.selected;
 		if( index != 0 && trs.length != 1 ){	// only one row should be selected
@@ -431,9 +436,9 @@ def _classListJs(klass):
 	   		}
 		};		
 		
-		query = $H(query);
 		switch(index){
 			case 0:	// add action
+				query = $H(_getQuery());
 				url = [editUrl, query.toQueryString()].join('?');
 				// the modal to edit a service item  
 				modalOptions.contentURL = url;
@@ -442,7 +447,7 @@ def _classListJs(klass):
 				new MUI.Modal(modalOptions);
 				break;
 			case 1:	// edit action	
-				// set the really action url
+				query = $H(_getQuery());	// set the really action url
 				query.extend(datagrid.getDataByRow(trs[0]));
 				url = [editUrl, query.toQueryString()].join('?');
 				

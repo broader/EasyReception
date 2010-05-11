@@ -30,7 +30,7 @@ var TextMultiCheckbox = new Class({
 		monitorTextClass: 'text',
 		prompText: 'Please select...',	// the prompt in the monitor elemnent
 		promptWrapper: 'span',
-		promptClass: 'prompText',	// the css class for prompt text
+		promptClass: 'prompt2input',	// the css class for prompt text
 		textSeperator: ',',		// the seperator of the showing text in monitor
 		monitorFieldType: 'input',	// container holds the selected text
 

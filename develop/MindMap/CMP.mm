@@ -604,7 +604,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1245853638712" FOLDED="true" ID="_" MODIFIED="1273482099729" POSITION="right" TEXT="Used Web Lib/Widgets">
+<node COLOR="#0033ff" CREATED="1245853638712" ID="_" MODIFIED="1273564146885" POSITION="right" TEXT="Used Web Lib/Widgets">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1258549795684" FOLDED="true" ID="ID_1371740104" MODIFIED="1272423075710" TEXT="jquery lib">
@@ -766,6 +766,12 @@
 <node COLOR="#990000" CREATED="1267407076275" ID="ID_1367333314" MODIFIED="1272423087114" TEXT="Buttons">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1267407086035" ID="ID_1549900647" LINK="http://code.google.com/p/sexybuttons/" MODIFIED="1272423095114" TEXT="http://code.google.com/p/sexybuttons/"/>
+</node>
+<node COLOR="#990000" CREATED="1273564152045" FOLDED="true" ID="ID_1405155560" MODIFIED="1273565402126" TEXT="TextMultiCheckBox">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1273564162504" ID="ID_5658655" MODIFIED="1273564168475" TEXT="&#x8c03;&#x7528;&#x65b9;&#x6cd5;">
+<node COLOR="#111111" CREATED="1273564170104" ID="ID_1591883511" MODIFIED="1273564270125" TEXT="form.py&#xa;---&gt;_textMultiCheckbox(),&#x751f;&#x6210;&#x6b64;widget"/>
+</node>
 </node>
 </node>
 </node>

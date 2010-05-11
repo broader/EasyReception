@@ -49,7 +49,7 @@ def _issueListJs(container):
 	# edit action buttons' labels
 	[ paras.extend(item) for item in (ACTIONS, ACTIONLABELS) ]
 
-	paras.extend([ '/'.join((APPATH,name)) for name in ( 'page_colsModel', 'page_createIssue')])
+	paras.extend([ '/'.join((APPATH,name)) for name in ( 'page_colsModel', 'page_createIssueForm')])
 	paras.append(_('Create a new issue'))
 	paras = tuple(paras)
 	js = \
@@ -135,7 +135,7 @@ def _issueListJs(container):
 		query = $H(); 
 		query.combine({actionTag:action});
 		new MUI.Modal({
-         		width: 450, height: 400, y: 80, title: createTitle,
+         		width: 450, height: 320, y: 80, title: createTitle,
          		contentURL: createUrl,
          		modalOverlayClose: false,
          	});
@@ -289,13 +289,39 @@ def page_info(**args):
 	print DIV(_('Ask help from the staff of the congress!'), **{'class':'info'})
 	return
 
+def _formFieldsConstructor(values):	
+	# start to render edit form
+	needProps = values.keys()
+	props = [item for item in PROPS if item['name'] in needProps]
+	for prop in props:
+		name = prop['name']
+		prop['id'] = name	
+		prop['oldvalue'] = ''
+				
+		if not prop.get('type'):
+			prop['type'] = 'text'
+			
+		if name == 'status':
+			# set 'status' field to 'textMultiCheckbox' type
+			prop['type'] = 'textMultiCheckbox'
+			prop['options'] = [] 
+			items = model.get_items_ByString(USER, 'status', {'category':'service'},('name',))
+			if items and type(items) == type([]):
+				prop['options'] = [i[0] for i in items]
+		
+		if not prop.has_key('required'):
+			prop['required'] = False	 	
+	
+	return props
+
 PROPS =\ 
 [
-	{'name': 'keyword','prompt': _('Keyword'),'validate': [],'required': True},
+	{'name': 'keyword','prompt': _('Keyword'),'validate': [],'required': False, 'type':'textMultiCheckbox'},
 	{'name': 'title','prompt': _('Title'), 'validate': [],'required': True},
 	{'name': 'message','prompt': _('Content'), 'type': 'textarea', 'validate': [],'required': True},
 ]
-def page_createIssue(**args):
+
+def page_createIssueForm(**args):
 	creator = args.get('creator') or USER
 
 	form = []
@@ -309,6 +335,9 @@ def page_createIssue(**args):
 	for prop in props:
 		prop['oldvalue'] = ''
 		prop['type'] = prop.get('type') or 'input'
+		prop['id'] = prop['name']
+		if prop['name'] == 'keyword':
+			prop['options'] = ['test','china']
 
 	div = DIV(Sum(formFn.yform(props)))
 	form.append(FIELDSET(div))
@@ -321,12 +350,12 @@ def page_createIssue(**args):
 	form = \
 	FORM( 
 		Sum(form), 
-		**{'action': '/'.join((APPATH,'page_reserveEditAction')), 'id': formId, 'method':'post','class':'yform'}
+		**{'action': '/'.join((APPATH,'page_createIssueAction')), 'id': formId, 'method':'post','class':'yform'}
 	)
 	
-	print DIV(form, **{'id': formId})
+	print form
 	# import js slice
-	#print pagefn.script(_createIssueJs(formId, creator),link=False)		
+	print pagefn.script(_createIssueJs(formId, creator),link=False)		
 	
 	return
 
@@ -336,21 +365,19 @@ def _createIssueJs(formId, creator):
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName='%s', 
-	formId='%s', bnStyle='%s',
+	var appName='%s', formId='%s', bnStyle='%s',
 	confirmBnLabel='%s',cancelBnLabel='%s';
 	
-	var reserveEditFormChk;
+	var issueCreationFormChk;
 	// Load the form validation plugin script
-	var options = {
+	var issueOptions = {
 	    onload:function(){ 
-		reserveEditFormChk = new FormCheck( formId,{
+		issueCreationFormChk = new FormCheck(formId,{
 		    submitByAjax: true,
 		    onAjaxSuccess: function(response){
 			if(response == 1){ 
 				MUI.closeModalDialog(); 
-				// rfresh the corresponding MUI.Panel
-				MUI.refreshPanel(panelId);	
+				// rfresh the issue grid
 			}
 			else{ MUI.notification('Action Failed');};               
 		    },            
@@ -360,12 +387,12 @@ def _createIssueJs(formId, creator):
 			keepFocusOnError : 0, 
 			scrollToFirst : false
 		    }
-		});// the end for 'reserveEditFormChk' definition
+		});// the end for 'issueCreationFormChk' definition
 			
 	    }// the end for 'onload' definition
 	};// the end for 'options' definition
  
-   	MUI.formValidLib(appName,options);
+   	MUI.formValidLib(appName,issueOptions);
 	
 	// add action buttons	
 	var bnContainer = new Element('div',{style: bnStyle});
@@ -390,7 +417,7 @@ def _createIssueJs(formId, creator):
 		var label = button.get('text');
 		
 		if(label == confirmBnLabel){
-			reserveEditFormChk.onSubmit(e);
+			issueCreationFormChk.onSubmit(e);
 		}
 		else{
 			new Event(e).stop();
@@ -399,4 +426,10 @@ def _createIssueJs(formId, creator):
 	};
 	"""%paras
 	return js
+
+
+def page_createIssueAction(**args):
+	pass
+	return
+
 
