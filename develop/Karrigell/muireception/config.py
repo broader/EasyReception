@@ -2,6 +2,8 @@ import os
 import yaml
 
 INICONFIG = os.sep.join((rootdir, 'config.yaml'))
+
+# the dictionary object which holds the default values for initial config file
 INIDATA = {}
 INIDATA['userAccountInfo'] = \
 [
@@ -84,6 +86,8 @@ INIDATA['service'] = \
 		],
 	}
 }
+
+INIDATA['superAdmin'] = 'admin'
 
 # i18n information
 

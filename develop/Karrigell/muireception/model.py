@@ -9,6 +9,11 @@ from roundup.i18n import _
 
 from roundup.ajax import ajaxInstance, ajaxClient
 
+try:
+	INITCONFIG = Import( 'config.py', rootdir=CONFIG.root_dir)
+except:
+	INITCONFIG = Import( '../config.py', rootdir=CONFIG.root_dir)
+
    	
 def valid_dir(path):    
     """ Check wether the path is a correct directory located data.
@@ -20,10 +25,10 @@ def valid_dir(path):
         print sys.exc_info()
     return tracker
 
-######################### database ################
-# get the path of database
+######################### database ###########################################
+# get the path of database, here 'CONFIG' is the global variable of Karrigell
 DBPATH  = os.path.join(CONFIG.data_dir, 'roundup')
-#################################################
+#############################################################################
 
 def create_client( ):
 	tracker = valid_dir(DBPATH )    
@@ -60,9 +65,14 @@ def get_client( ):
 	return client
 
 
+def _getSuperAdmin():
+	""" Return the super administrator for system."""
+	superAdmin = INITCONFIG.getData('superAdmin')
+	return superAdmin
+
 def login(usr=None, pwd=None):
 	client = get_client()
-	client.set_user('admin')	
+	client.set_user(_getSuperAdmin())	
 	form = { 'action' : 'login', 'context' : 'user', 'username' : usr, 'password' : pwd }
 	client.form = form
 	return action(client)     	
@@ -231,7 +241,7 @@ def filterByLink(operator, klass, linkclass, linkvalue,propnames,linkprop=None):
 	client.form = form
 	return action(client)
 	
-def get_file(admin, klass, id):
+def get_file(operator, klass, id):
 	""" Get the content of a FileClass in database.
 	"""
 	client = get_client()
@@ -239,7 +249,7 @@ def get_file(admin, klass, id):
 		'action': 'getfile',\
 		'context': klass,\
 		'id': id,\
-		'user': admin\
+		'user': operator\
 	}
 	
 	client.form = form
@@ -305,9 +315,9 @@ def edit_user_info(operator, user, actionType, content, filename=None, client=No
 		
 	return edit_linkcsv(client, 'user', userId, 'info', actionType, content, filename)
 	
-def get_adminlist(admin, props, search=None):
+def get_adminlist(operator, props, search=None):
 	client = get_client()
-	client.set_user(admin)
+	client.set_user(operator)
 	# action
 	form = { 'context': 'user',
 		      'action': 'getbysql',
@@ -417,19 +427,20 @@ def create_item(operator, klass, props, autoSerial=True):
 		newId = needId.get(klass)	
 	return newId
 
-def create_items(admin, klass, props, values):
+def create_items(operator, klass, props, values):
 	client = get_client()
 	if not client :
 		return None
-	elif not admin or not klass or not props:
+	elif not operator or not klass or not props:
 		return None
 	
-	client.set_user(admin)	
-	form = { 'action' : 'newitems',\      	      
-		      'context' : klass,\
-		      'propnames': props,\
-		      'propvalues': values\		      
-		    }
+	client.set_user(operator)	
+	form = { 
+		'action' : 'newitems',\      	      
+		'context' : klass,\
+		'propnames': props,\
+		'propvalues': values\		      
+	}
         client.form = form
 	ids = action(client)
 	return ids	
@@ -454,10 +465,10 @@ def delete_item(operator, klass, key, isId=True):
 		client.db.close()
 	return	
 	
-def edit_issue(admin, iprops, mprops, serial=None):
+def edit_issue(operator, iprops, mprops, serial=None):
 	""" A function to do 'CRUD' actions for issue class.
 	  Parameters:
-	  	admin-operator name	  	
+	  	operator-operator name	  	
 	  	iprops-a dictionary holds 'issue' class proerties' values
 	  	mprops-a dictionary holds 'message' class proerties' values, this will be used to set a 'message' class
 	  		     item which was linked to the property 'messages' of this issue
@@ -465,32 +476,32 @@ def edit_issue(admin, iprops, mprops, serial=None):
 	"""
 	if serial:
 		issueId = serial2id(serial)
-		edit_item(admin, 'issue', issueId, iprops, keyIsId=True)			
+		edit_item(operator, 'issue', issueId, iprops, keyIsId=True)			
 	else:
 		# create a new issue
-		issueId = str(create_item(admin, 'issue', iprops))
+		issueId = str(create_item(operator, 'issue', iprops))
 
 	if mprops:	
 		# create a new msg	
-		msgId = str(create_item(admin, 'msg', mprops))	
+		msgId = str(create_item(operator, 'msg', mprops))	
 		# add the message's id to the property 'messages' of Issue Class
 		props = {'messages': ''.join(('+', msgId))}
-		edit_item(admin, 'issue', issueId, props, keyIsId=True)
+		edit_item(operator, 'issue', issueId, props, keyIsId=True)
 	else:
 		msgId = ''
 	return issueId, msgId	
 	
-def get_class_props(admin,name,protected=0):
+def get_class_props(operator,name,protected=0):
 	client = get_client()
-	client.set_user(admin)
+	client.set_user(operator)
 	db = client.db
 	klass = db.getclass(name)
 	props = klass.getprops(protected)
 	return {'props':props,'key':klass.getkey()}
 
-def editcsv(admin, klass, content):
+def editcsv(operator, klass, content):
 	client = get_client()
-	client.set_user(admin)
+	client.set_user(operator)
 	form = {'context': klass,
 		     'content' : content,
 		     'action' : 'editcsv'
@@ -502,9 +513,9 @@ def permissionCheck(user, roles, path):
 	""" Check the permission of the user to this page path.
 	"""
 	client = get_client()
-	operator = 'admin'
+	# get a super user who has full permissions
+	operator = _getSuperAdmin()
 	
-	# 'admin' is a super user who has full permissions
 	if user == operator:
 		return True	
 	client.set_user(operator)
@@ -598,7 +609,7 @@ def stringFind(klass, search):
 		search -a dictionary holds the properties' names and their searched values 
 	"""
 	client = get_client()
-	client.set_user('admin')
+	client.set_user(_getSuperAdmin())
 	instance = client.db.getclass(klass)
 	return instance.stringFind(**search)  
 
@@ -661,6 +672,6 @@ def reserveSort(reserves, booker):
 	
 def getItemId(klass, key):
 	client = get_client()
-	client.set_user('admin')	
+	client.set_user(_getSuperAdmin())	
 	instance = client.db.getclass(klass)
 	return instance.lookup(key)

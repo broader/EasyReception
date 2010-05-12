@@ -630,7 +630,22 @@ def _formFieldsConstructor(klass, values, setOldValue=False):
 		newprops.append(prop)	 	
 	
 	return newprops
+
+def _keywordPropHandler(props):
+	for prop in props:
+		if prop['name'] != 'category':
+			continue
 		
+		prop['type'] = 'select'
+		prop['options'] = \
+			[
+			{'label':'test', 'value': 'china'},
+			{'label':'keyword', 'value': 'keyword'},
+		]
+	
+	return props
+
+CLASSADAPTOR = {'keyword':_keywordPropHandler,}
 ACTIONPROP,ACTIONTYPES = 'action',('create','edit')
 def page_classEdit(**args):
 	klass = args.pop(CLASSPROP)
@@ -638,6 +653,7 @@ def page_classEdit(**args):
 	info,hideInput = [],[]
 	
 	props = copy.deepcopy(args)
+	
 	if props.has_key('id'):		# edit action
 		actionType = ACTIONTYPES[1]
 		nid = props.pop('id') 
@@ -659,6 +675,10 @@ def page_classEdit(**args):
 		props = _getClassProps(klass, needId=False)
 		props = _formFieldsConstructor(klass,props)
 	
+	propAdaptor = CLASSADAPTOR.get(klass)
+	if propAdaptor:
+		props = propAdaptor(props)
+
 	# show the fields in 'info' list before html Form Element
 	if info:
 		[ item.update({'prompt':''.join((item.get('prompt') or '',':'))}) for item in info ]

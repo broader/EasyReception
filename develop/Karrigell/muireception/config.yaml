@@ -4,11 +4,12 @@ service:
     categoryInService: Hotel
     configProperty:
     - {name: reservePermission, prompt: status that could be reserved, property: status,
-      value: 'toBeReserve'}
+      value: ''}
+superAdmin: admin
 userAccountInfo:
-- {name: username, prompt: Login Name, type: text}
+- {name: username, prompt: !!python/str "\u767B\u5F55\u540D\u79F0", type: text}
 - {name: email, prompt: Email address, type: text}
-- {name: password, prompt: Password, type: password}
+- {name: password, prompt: !!python/str "\u5BC6\u7801", type: password}
 userBaseInfo:
 - class: ''
   name: prefix

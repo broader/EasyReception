@@ -61,17 +61,17 @@ def _selectField(field,oldvalue):
 		oldvalue = 0
 	
 	select = []
-	#name = field.get("name")
-			
 	for option in options:
 		if str(option.get("value")) == str(oldvalue):
 			option["selected"] = ""
 		
 		text = _( option.pop("label") )
 		select.append(OPTION(text, **option))
-			
-	[ field.pop(prop) for prop in ("type", "class")]	
 	
+	for item in ("type", "class"):
+		if field.has_key(item):
+			field.pop(item)
+				
 	return SELECT(Sum(select),**field)
 
 def _textMultiCheckbox(field,oldvalue):
@@ -110,13 +110,14 @@ def getField(field):
 	'field' format is :
 	[
 		{
-		'name': ...,
-		'prompt':..., 
-		'class':..., 
-		'required':[True or False], 
-		'oldvalue':..., 
-		'validate': [],
-		'type': one of ['text', 'input', 'textarea', 'radio', 'select', 'textMultiCheckbox']
+		'id': ...,	# the id for this form fieldElement;
+		'name': ...,	# field name;
+		'prompt':..., 	# the text to decribe the filed which usually is at the left of the form field;
+		'class':..., 	# the css class for prompt label
+		'required':[True or False], 	# is this filed could not be empty?
+		'oldvalue':..., # for edit action, old value is needed;
+		'validate': [],	# form field validate function names, should be a list 
+		'type': one of ['text', 'input', 'textarea', 'radio', 'select', 'textMultiCheckbox']	# the form field type
 		},
 		......
 	]	
