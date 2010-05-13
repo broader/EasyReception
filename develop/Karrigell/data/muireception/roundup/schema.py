@@ -100,7 +100,17 @@ issue = IssueClass(db, "issue",
 # not set 'serial' to be a key value because the serial is created before the issue item created
 #issue.setkey("serial")
 
+################################################################################################
 # Congress Service Related Classes
+################################################################################################
+
+# a relationship mapping class
+relation = Class(db, 'relation',
+        klassname=String(),
+        klassvalue=String(),
+        relateclass=String(),
+        relatevalue=String())
+
 # the services provided by Congress secretary
 service = Class(db, "service",
 	serial=String(),

@@ -131,7 +131,6 @@ def _formEditProps4classStatus():
 	    'validate':[''.join(('~',STATUSEDITJSFNS[0])),]
 	}
 	
-	#props['name'] = {'required':True,}
 	props['order'] = {'required':True,'validate':['number',]}
 	return props
 	
@@ -139,12 +138,13 @@ def _formEditProps4classStatus():
 FORMPROPS4CLASS = [\
 	{'name': 'role',},\
 	{'name': 'keyword',},\
+	{'name': 'relation',},\
 	{'name': 'priority',},\
 
 	{\
 	  'name': 'status',
 	  'propsFn': _formEditProps4classStatus,
-	  'validateFn': _validJs4statusItemEdit
+	  'js': _validJs4statusItemEdit
 	},\
 
 	{'name': 'user',},\
@@ -640,7 +640,20 @@ def _keywordPropHandler(props):
 	
 	return props
 
-CLASSADAPTOR = {'keyword':_keywordPropHandler,}
+def _relationPropHandler(props):
+	selectProps = {'klassname':'klassvalue','relateclass':'relatevalue'}
+	for prop in props:
+		propname = prop['name']
+		if propname in ( 'klassname', 'relateclass'):
+			prop['type'] = 'select'
+			prop['rel'] = selectProps.get(propname) 
+			prop['options'] = [{'label': str(item), 'value': str(item)} for item in model.get_classes(USER) ]
+		elif propname in ('klassvalue', 'relatevalue'):
+			prop['type'] = 'textMultiCheckbox'
+			prop['options'] = [] 
+	return props
+
+CLASSADAPTOR = {'keyword':_keywordPropHandler, 'relation': _relationPropHandler }
 ACTIONPROP,ACTIONTYPES = 'action',('create','edit')
 def page_classEdit(**args):
 	klass = args.pop(CLASSPROP)
@@ -714,9 +727,9 @@ def page_classEdit(**args):
 	print DIV(form,style='')
 	
 	js = _classEditJs(formId,bnStyle)
-	validFn = FORMPROPS4CLASS[WEB_EDIT_CLASS.index(klass)].get('validateFn')
-	if validFn:
-	   js = '\r\n'.join((js, validFn(**{'id': args.get('id') or ''})))
+	supplementJs = FORMPROPS4CLASS[WEB_EDIT_CLASS.index(klass)].get('js')
+	if supplementJs:
+	   js = '\r\n'.join((js, supplementJs(**{'id': args.get('id') or ''})))
 	
 	print pagefn.script(js, link=False)
 	return

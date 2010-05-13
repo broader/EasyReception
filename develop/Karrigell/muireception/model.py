@@ -154,6 +154,20 @@ def get_items_ByString(operator, klass, search, propnames=None, needId=False,lin
 	client.form = form
 	return action(client)
 
+def get_keyValues(operator, klass):
+	"""
+	Return a list  that holds the values of 'key' property of each item in this class instance.
+	"""
+	client = get_client()
+	if not client or not getattr(client,'db'):
+		return [] 
+	
+	client.set_user(operator)
+	key = client.db.getclass(klass).getkey()
+	values = get_item(operator, klass, (key,))
+	values = values and [i[0] for i in values] or []
+	return values
+
 def getUserDossier(operator, user):
 	"""
 	Return the dossier data which is saved in a csv formatted file on server side.
