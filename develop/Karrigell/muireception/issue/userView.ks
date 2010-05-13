@@ -337,8 +337,10 @@ def page_createIssueForm(**args):
 		prop['type'] = prop.get('type') or 'input'
 		prop['id'] = prop['name']
 		if prop['name'] == 'keyword':
-			prop['options'] = ['test','china']
-
+			#prop['options'] = ['test','china']
+			options = model.get_items_ByString( USER, 'keyword', {'category':'issue'}, propnames=('name',))
+			prop['options'] = options and [i[0] for i in options] or []
+			
 	div = DIV(Sum(formFn.yform(props)))
 	form.append(FIELDSET(div))
 	
@@ -429,7 +431,9 @@ def _createIssueJs(formId, creator):
 
 
 def page_createIssueAction(**args):
-	pass
+	creator, message = [args.pop(name) for name in ('creator','message')]
+	mprops = {'content':message}
+	#model.edit_issue(creator, args, mprops, serial=None)
 	return
 
 

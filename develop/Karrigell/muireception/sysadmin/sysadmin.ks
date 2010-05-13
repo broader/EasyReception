@@ -633,15 +633,10 @@ def _formFieldsConstructor(klass, values, setOldValue=False):
 
 def _keywordPropHandler(props):
 	for prop in props:
-		if prop['name'] != 'category':
-			continue
-		
-		prop['type'] = 'select'
-		prop['options'] = \
-			[
-			{'label':'test', 'value': 'china'},
-			{'label':'keyword', 'value': 'keyword'},
-		]
+		if prop['name'] == 'category':
+			prop['type'] = 'select'
+			prop['options'] = [{'label': str(item), 'value': str(item)} for item in model.get_classes(USER) ]
+			break
 	
 	return props
 

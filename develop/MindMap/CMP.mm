@@ -1677,16 +1677,16 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1273547504007" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1273722180805" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1273030192723" FOLDED="true" ID="ID_344232506" MODIFIED="1273295696550" TEXT="Idea">
+<node COLOR="#00b439" CREATED="1273030192723" ID="ID_344232506" MODIFIED="1273721857540" TEXT="Idea">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="idea"/>
 <node COLOR="#990000" CREATED="1273030209189" ID="ID_1863702122" MODIFIED="1273030433152" TEXT="For Desktop UI">
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1273030235681" FOLDED="true" ID="ID_907559796" MODIFIED="1273030559088" TEXT="Description">
+<node COLOR="#111111" CREATED="1273030235681" FOLDED="true" ID="ID_907559796" MODIFIED="1273721870418" TEXT="Description">
 <node COLOR="#111111" CREATED="1273030269331" ID="ID_643120518" MODIFIED="1273030419295" TEXT="&#x91c7;&#x7528;mocha&#x7684;desktop&#x6a21;&#x5f0f;&#xff0c;&#x5212;&#x5206;&#x4e3a;&#x4ee5;&#x4e0b;&#x533a;&#x57df;&#x6216;portlet&#xff1a;&#xa;1 &#x5f53;&#x65e5;&#x63d0;&#x9192;&#xff08;&#x8bb0;&#x4e8b;&#x5e16;&#xff09;&#xa;1.1 &#x81ea;&#x5b9a;&#x4e49;&#xa;1.2 &#x4e8b;&#x52a1;&#xa;&#xa;2 &#x4f1a;&#x8bae;&#x901a;&#x77e5;"/>
 </node>
 <node COLOR="#111111" CREATED="1273030240720" ID="ID_1458447197" MODIFIED="1273032435449" TEXT="Tools">
@@ -1694,6 +1694,14 @@
 <node COLOR="#111111" CREATED="1267497612681" ID="ID_1463941077" LINK="http://www.tympanus.net/jstickynote/#about" MODIFIED="1273029807476" TEXT="http://www.tympanus.net/jstickynote/#about"/>
 <node COLOR="#111111" CREATED="1271132112837" ID="ID_1161384671" LINK="http://tutorialzine.com/2010/01/sticky-notes-ajax-php-jquery/" MODIFIED="1271132116470" TEXT="http://tutorialzine.com/2010/01/sticky-notes-ajax-php-jquery/"/>
 </node>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1273721873983" ID="ID_1746439240" MODIFIED="1273722176798" TEXT="Shcema">
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="help"/>
+<node COLOR="#111111" CREATED="1273721879099" FOLDED="true" ID="ID_693531483" MODIFIED="1273722171698" TEXT="distributor class">
+<icon BUILTIN="help"/>
+<node COLOR="#111111" CREATED="1273721891450" ID="ID_1743363728" MODIFIED="1273722167410" TEXT="&#x5efa;&#x7acb;&#x4e00;&#x4e2a;&#x5206;&#x53d1;&#x7c7b;&#x6765;&#x7ba1;&#x7406;keyword &#x4e0e;&#x5176;&#x4ed6;&#x7c7b;&#x7684;&#x5339;&#x914d;&#x5173;&#x7cfb;&#xff1f;&#xa;distributor = Class( db, &apos;distributor&apos;, klass=String(), klassValue=String(), linKlass=String(), linKlassValues=String())&#xa;&#xa;keyword -&gt; classes&#xa;keyword -&gt; assignedTo---&gt;user&#xa;&#xa;&#x5982;&#x679c;&#x53ea;&#x662f; &quot;keyword&quot;&#x9700;&#x8981;&#x6b64;&#x79cd;&#x5173;&#x7cfb;&#x63cf;&#x8ff0;&#xff0c;&#x90a3;&#x4e48;&#x5728;&#x201c;keyword&#x201c;&#x7c7b;&#x5185;&#x90e8;&#x5b9a;&#x4e49;&#x662f;&#x5426;&#x66f4;&#x6709;&#x6548;&#x7387;&#xff1f;"/>
 </node>
 </node>
 </node>
@@ -2274,7 +2282,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1271036052099" ID="ID_822841815" MODIFIED="1273547494681" TEXT="Widgets">
+<node COLOR="#00b439" CREATED="1271036052099" FOLDED="true" ID="ID_822841815" MODIFIED="1273721855817" TEXT="Widgets">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1271036057089" FOLDED="true" ID="ID_514524676" MODIFIED="1273547497315" TEXT="Clock">
