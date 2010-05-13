@@ -78,7 +78,11 @@ def _textMultiCheckbox(field,oldvalue):
 	containerId = field.pop('id')
 	container = []
 	# monitor box
-	mElements = [ DIV(oldvalue, **{'class':'monitor-text'}),INPUT(**{'type':'hidden','name':field.get('name'),'value':oldvalue})]
+	mElements = [\
+		DIV(oldvalue, **{'class':'monitor-text'}),
+		INPUT(**{'type':'hidden','name':field.get('name'),'value':oldvalue})
+	]
+
 	container.append( DIV(DIV(Sum(mElements)), **{'class':'monitor'}))
 
 	# menus container
@@ -96,7 +100,7 @@ def _textMultiCheckbox(field,oldvalue):
 	var containerId='%s';
 	MUI.textMultiCheckbox('',{
 		'onload': function(){
-			var stautsMultiChk = new TextMultiCheckbox(containerId);
+			new TextMultiCheckbox(containerId);
 		}
 	});	
 	"""%(containerId)

@@ -13,7 +13,7 @@ license:
   - MIT-style license
 
 requires:
-  core/1.2.1:   '*'
+  Mootools/core/1.2.1:   '*'
 ...
 */
 var TextMultiCheckbox = new Class({
@@ -21,6 +21,8 @@ var TextMultiCheckbox = new Class({
 	Implements: [Options], 
 	
 	options: {
+		data: null,			// initial options' data to construct each elements of this widget
+
 		monitorText: ' selected',	// monitor text (localization)
 		containerClass: 'TextMultiSelect', 	// element container CSS class
 		monitorClass: 'monitor',	// monitor CSS class
@@ -56,11 +58,14 @@ var TextMultiCheckbox = new Class({
 		// set global action variables
 		this.active = false;
 
-		// style this widget
+		// add css style to this widget container
 		this.container = $(container);
 		this.container.addClass(this.options.containerClass);
 		
-		// style monitor 
+		// if options.data is not null, render each elements of this widget
+		if(this.options.data){ this.render();};
+
+		// add css style to monitor 
 		this.monitor = this.container.getElement('.'+this.options.monitorClass);	
 		this.monitor.addEvent('click', function(e){
 			new Event(e).stop();
@@ -73,7 +78,7 @@ var TextMultiCheckbox = new Class({
 
 		this.formField = this.monitor.getElement(this.options.monitorFieldType);
 	
-		// style menus' container
+		// add css style to menus' container
 		this.menusContainer = this.container.getElement(this.options.menusContainer);
 		this.menusContainer.setStyle('display','none');
 
@@ -82,9 +87,18 @@ var TextMultiCheckbox = new Class({
 	},
 
 	/*
+	render this widget
+	*/
+	render: function(){
+		// add monitor elements
+		// add multiselect menus
+		
+	},
+
+	/*
 	*/
 	initSelectMenu: function(){
-		var element = this.container;
+		// var element = this.container;
 		
 		// create 'self' variable point to 'this' TextMultiSelect instance
 		var self = this;

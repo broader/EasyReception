@@ -133,12 +133,39 @@ def _formEditProps4classStatus():
 	
 	props['order'] = {'required':True,'validate':['number',]}
 	return props
-	
+
+def page_getKeyValues(**args):
+	pass
+	return
+
+def _relationEditJs(**args):
+	formId = args.get('formId')
+	paras = [formId, 'klassname','klassvalue', 'relateclass', 'relatevalue']
+	paras.append('/'.join((APPATH,'page_getKeyValues')))
+	paras = tuple(paras)
+	js = \
+	"""
+	var formId='%s', selects={'%s':'%s', '%s':'%s'},
+	reqUrl='%s';
+	$(formId).getElements('select').each(function(select){
+		select.addEvent('change',function(event){
+			value = event.target.getProperty('value');
+			toSet = event.target.getProperty('rel');
+			ul = $(toSet).getElement('ul');
+			li = new Element('li');
+			li.adopt( new Element('span',{style:'padding-left:20px;',html:value}));
+			ul.adopt(li);	
+			//alert(value+','+);
+		});
+	});
+	"""%paras
+	return js
+		
 # the classes that could be edited by web page
 FORMPROPS4CLASS = [\
 	{'name': 'role',},\
 	{'name': 'keyword',},\
-	{'name': 'relation',},\
+	{'name': 'relation', 'js': _relationEditJs},\
 	{'name': 'priority',},\
 
 	{\
@@ -724,12 +751,13 @@ def page_classEdit(**args):
 		**{'action': '/'.join((APPATH,'page_classEditAction')), 'id': formId, 'method':'post','class':'yform'}
 	)
 				
-	print DIV(form,style='')
+	#print DIV(form,style='')
+	print form
 	
 	js = _classEditJs(formId,bnStyle)
 	supplementJs = FORMPROPS4CLASS[WEB_EDIT_CLASS.index(klass)].get('js')
 	if supplementJs:
-	   js = '\r\n'.join((js, supplementJs(**{'id': args.get('id') or ''})))
+	   js = '\r\n'.join((js, supplementJs(**{'id': args.get('id') or '', 'formId':formId})))
 	
 	print pagefn.script(js, link=False)
 	return
