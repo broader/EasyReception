@@ -668,17 +668,14 @@ def _keywordPropHandler(props):
 	return props
 
 def _relationPropHandler(props):
-	selectProps = {'klassname':'klassvalue','relateclass':'relatevalue'}
+	newProps = []	
 	for prop in props:
 		propname = prop['name']
 		if propname in ( 'klassname', 'relateclass'):
 			prop['type'] = 'select'
-			prop['rel'] = selectProps.get(propname) 
 			prop['options'] = [{'label': str(item), 'value': str(item)} for item in model.get_classes(USER) ]
-		elif propname in ('klassvalue', 'relatevalue'):
-			prop['type'] = 'textMultiCheckbox'
-			prop['options'] = [] 
-	return props
+			newProps.append(prop)
+	return newProps
 
 CLASSADAPTOR = {'keyword':_keywordPropHandler, 'relation': _relationPropHandler }
 ACTIONPROP,ACTIONTYPES = 'action',('create','edit')

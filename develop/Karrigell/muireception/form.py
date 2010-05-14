@@ -77,6 +77,7 @@ def _selectField(field,oldvalue):
 def _textMultiCheckbox(field,oldvalue):
 	containerId = field.pop('id')
 	container = []
+
 	# monitor box
 	mElements = [\
 		DIV(oldvalue, **{'class':'monitor-text'}),
