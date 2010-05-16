@@ -80,7 +80,7 @@ var TextMultiCheckbox = new Class({
 			this.menusShowToggle();
 		}.bind(this));
 		
-		if($defined(!this.monitorTextElement)){
+		if(!$defined(this.monitorTextElement)){
 			this.monitorTextElement = this.monitor.getElement('.'+this.monitorTextClass);
 		};
 		
@@ -93,12 +93,12 @@ var TextMultiCheckbox = new Class({
 		if(this.monitorTextElement.get('text') == '') {
 			this.monitorTextElement.grab(this.prompt);};
 
-		if($defined(!this.formField)){
+		if(!$defined(this.formField)){
 			this.formField = this.monitor.getElement(this.options.monitorFieldType);
 		};
 	
 		// add css style to menus' container
-		if($defined(!this.menusContainer)){
+		if(!$defined(this.menusContainer)){
 			this.menusContainer = this.container.getElement(this.options.menusContainer);
 		};
 		this.menusContainer.setStyle('display','none');
@@ -112,19 +112,20 @@ var TextMultiCheckbox = new Class({
 	*/
 	render: function(containerId){
 		// widget container
-		this.container = new Element('div', {'id':containerId, 'class':this.options.containerClass});
+		this.container = new Element('div', {
+			'id':containerId, 
+			'class':this.options.containerClass}
+		);
 
 		// add monitor elements
 		// a wrapper for monitor Element that makes its looking nicely
-		var monitorWrapper = new Element('div');
+		var monitorWrapper = new Element('div', {'class':this.options.monitorClass});
 
-		this.monitor = new Element('div', {'class':this.options.monitorClass});
+		this.monitor = new Element('div');
 		this.monitorTextElement = new Element('div', {'class':this.monitorTextClass});
- 		this.formField = new Element(this.options.monitorFieldType, {'name': containerId});
+ 		this.formField = new Element(this.options.monitorFieldType, {'name': containerId,'type':'hidden'});
 		this.monitor.adopt([this.monitorTextElement,this.formField]);
-
 		monitorWrapper.adopt(this.monitor);
-		this.container.adopt(monitorWrapper);
 
 		// add multiselect menus
 		this.menusContainer = new Element(this.options.menusContainer);
@@ -133,8 +134,9 @@ var TextMultiCheckbox = new Class({
 			var li = new Element('li');
 			li.grab(text);
 			this.menusContainer.adopt(li);
-		});
-		
+		}.bind(this));
+
+		this.container.adopt([monitorWrapper,this.menusContainer]);
 	},
 
 	/*

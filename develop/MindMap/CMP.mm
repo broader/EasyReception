@@ -2394,13 +2394,13 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1270952020458" FOLDED="true" ID="ID_1804767918" MODIFIED="1273738847152" POSITION="right" TEXT="Develop Evironment">
+<node COLOR="#0033ff" CREATED="1270952020458" FOLDED="true" ID="ID_1804767918" MODIFIED="1273829128011" POSITION="right" TEXT="Develop Evironment">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1262786726152" ID="ID_476877394" MODIFIED="1273546962149" TEXT="Source">
+<node COLOR="#00b439" CREATED="1262786726152" FOLDED="true" ID="ID_476877394" MODIFIED="1273828343092" TEXT="Source">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1266917069312" FOLDED="true" ID="ID_30201427" MODIFIED="1273546962152" TEXT="Management">
+<node COLOR="#990000" CREATED="1266917069312" ID="ID_30201427" MODIFIED="1273827249936" TEXT="Management">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1262786735562" ID="ID_495182632" MODIFIED="1273546962171" TEXT="GitHub">
@@ -2411,6 +2411,11 @@
 <node COLOR="#111111" CREATED="1262786741353" ID="ID_1161409631" MODIFIED="1262786771419" TEXT="&#x521b;&#x5efa;&#x76ee;&#x5f55;&#x6307;&#x5bfc;&#xff1a;&#xa;http://hi.baidu.com/jspring/blog/item/59f7dfcdce190a560fb345c1.html&#xa;&#xa;&#x4e0a;&#x4f20;&#x540c;&#x6b65;&#x6587;&#x4ef6;&#xff1a;&#xa;#git add &apos;your file or directory name&apos;&#xa;git commit -m &apos;you commit message&apos;&#xa;git push origin master&#xa;&#xa;&#x5220;&#x9664;&#x6587;&#x4ef6;&#xff1a;&#xa;git rm ./develop/Karrigell/muireception/register/tmp/*.jpeg&#xa;git commit -m &apos;you message&apos;&#xa;git push origin master&#xa;">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1273827253895" FOLDED="true" ID="ID_1062125826" MODIFIED="1273827310499" TEXT="bitbucket">
+<node COLOR="#111111" CREATED="1273827263329" ID="ID_938586333" MODIFIED="1273827266050" TEXT="account">
+<node COLOR="#111111" CREATED="1273827267739" ID="ID_68923380" MODIFIED="1273827306451" TEXT="user:broader&#xa;pwd:990508&#xa;mail:broader.zhong@yahoo.com.cn&#xa;&#xa;link:&#xa;http://bitbucket.org/broader/easyreception/admin"/>
 </node>
 </node>
 </node>
@@ -2529,10 +2534,10 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1273546965657" FOLDED="true" ID="ID_1612332752" MODIFIED="1273738846178" TEXT="Evironment">
+<node COLOR="#00b439" CREATED="1273546965657" FOLDED="true" ID="ID_1612332752" MODIFIED="1273829126996" TEXT="Evironment">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1167544327073" ID="Freemind_Link_1636742661" MODIFIED="1273630313150" TEXT="vi">
+<node COLOR="#990000" CREATED="1167544327073" FOLDED="true" ID="Freemind_Link_1636742661" MODIFIED="1273828346004" TEXT="vi">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1270127748720" FOLDED="true" ID="ID_897263369" MODIFIED="1273546974545" TEXT="Config">
@@ -2660,9 +2665,15 @@
 <node COLOR="#111111" CREATED="1272606040803" ID="ID_632165938" MODIFIED="1272606066737" TEXT=" sudo ln -s /usr/lib/jvm/java-6-sun-1.6.0.17/jre/plugin/i386/ns7/libjavaplugin_oji.so /usr/lib/firefox-addons/plugins/libjavaplugin_oji.so&#xa;"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1273546994920" ID="ID_1898045697" MODIFIED="1273547027835" TEXT="Debug Console">
+<node COLOR="#990000" CREATED="1273546994920" FOLDED="true" ID="ID_1898045697" MODIFIED="1273828347315" TEXT="Debug Console">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1273547003886" ID="ID_1300761576" LINK="http://www.clientcide.com/tools/browser-plugins/moobugger-the-mootools-javascript-console/" MODIFIED="1273547015914" TEXT="MooBugger"/>
+</node>
+<node COLOR="#990000" CREATED="1273828349084" FOLDED="true" ID="ID_942884910" MODIFIED="1273829126234" TEXT="Open Office">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1273828353900" ID="ID_1139015795" MODIFIED="1273828363673" TEXT="&#x9875;&#x9762;&#x80cc;&#x666f;">
+<node COLOR="#111111" CREATED="1273828365032" ID="ID_1924376507" MODIFIED="1273828443363" TEXT="Tools-&gt;Options-&gt;OpenOffice.org-&gt;Appearance-&gt;Document Background"/>
+</node>
 </node>
 </node>
 </node>

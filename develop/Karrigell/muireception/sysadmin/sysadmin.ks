@@ -140,24 +140,52 @@ def page_getKeyValues(**args):
 
 def _relationEditJs(**args):
 	formId = args.get('formId')
-	paras = [formId, 'klassname','klassvalue', 'relateclass', 'relatevalue']
+	paras = [ APP, formId, 'klassname','klassvalue', 'relateclass', 'relatevalue']
 	paras.append('/'.join((APPATH,'page_getKeyValues')))
 	paras = tuple(paras)
 	js = \
 	"""
-	var formId='%s', selects={'%s':'%s', '%s':'%s'},
+	var appName='%s', formId='%s', 
+	selects={'%s':'%s', '%s':'%s'},
 	reqUrl='%s';
+
 	$(formId).getElements('select').each(function(select){
-		select.addEvent('change',function(event){
-			value = event.target.getProperty('value');
-			toSet = event.target.getProperty('rel');
-			ul = $(toSet).getElement('ul');
-			li = new Element('li');
-			li.adopt( new Element('span',{style:'padding-left:20px;',html:value}));
-			ul.adopt(li);	
-			//alert(value+','+);
-		});
+		select.addEvent('change', setMultiCheckbox);
 	});
+	
+	function setMultiCheckbox(event){
+		var el = event.target,		
+		value = el.getProperty('value'),
+		mselectName = selects[el.getProperty('name')];
+		if($(mselectName)){
+			alert('MultiCheckbox already existed');
+		}
+		else{
+			// create TextMultiCheckbox
+			MUI.textMultiCheckbox(appName, {
+				'onload': function(){
+					// create label for multiChceckbox
+					alert(mselectName);
+					var label = new Element('label',{html:mselectName});
+					
+					options = {data:['test','china']};
+					checkbox = new TextMultiCheckbox(mselectName, options);
+					// form field container	
+					var div = new Element('div');
+					div.adopt([label, checkbox.container]);
+		
+					// find previous form field position and inert this field after it
+					previous = el.getParent('div');
+					div.inject(previous, 'after');
+				}
+			});
+		};
+	};
+
+	function createMultiCheckbox(previous,name){
+			
+	};
+
 	"""%paras
 	return js
 		
