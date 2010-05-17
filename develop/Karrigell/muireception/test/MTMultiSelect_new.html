@@ -1,0 +1,53 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <title>MTMultiSelect - justindonato.com</title>
+    <link rel="stylesheet" type="text/css" href="MTMultiSelect_files/css.css">
+    <!--<script charset="UTF-8" type="text/javascript" src="MTMultiSelect_files/mootools-1.js"></script>-->
+    <script charset="UTF-8" type="text/javascript" src="MTMultiSelect_files/mootools-1.2.4-core.js"></script>
+
+    <script charset="UTF-8" type="text/javascript" src="MTMultiSelect.js"></script>
+    <script charset="UTF-8" type="text/javascript" ">
+	window.addEvent('domready', function (){    
+		new MTMultiWidget({'container':'mtselect', 'dataUrl': 'MTMultiSelect_new.json'});
+	});
+    </script>
+    <link rel="stylesheet" type="text/css" href="MTMultiSelect_files/mtmultiselect__.css">
+
+</head>
+
+<body>
+    <div id="header">
+        <h1><a href="http://www.justindonato.com/">Justin Donato</a></h1>
+    </div>
+
+    <div id="container">
+        <div id="content">
+		<h1>MTMultiSelect</h1>
+		<h2>A paginated, filterable multi-select widget for MooTools</h2>
+		<p>
+			An example of MTMultiselect in action. Type in the blue box to filter. For more information, see 
+			<a href="http://www.justindonato.com/post/mtmultiselect">here</a>.
+		</p>
+		<hr>
+		<form>
+			<div id='mtselect'></div>	
+		</form>
+        </div>	<!-- 'content' end -->
+
+        <div id="sidebar">
+		<h1>Misc</h1>
+		<h2>Info</h2>
+		<ol><li class="first"><a href="http://www.justindonato.com/info/">Info &amp; Contact</a></li></ol>                        
+	</div>
+    
+	<div class="clear"></div>
+
+    </div>	<!-- 'container' end -->
+
+    <div id="footer">justindonato.com is © Justin Donato </div> 
+   
+</body>
+</html>

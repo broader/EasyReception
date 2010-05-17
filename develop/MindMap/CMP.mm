@@ -945,7 +945,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1273634505200" POSITION="right" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1274068413875" POSITION="right" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -1180,6 +1180,15 @@
 <node COLOR="#990000" CREATED="1272437283294" ID="ID_1066450904" MODIFIED="1272437286329" TEXT="Css">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1272437287423" ID="ID_209915944" LINK="http://www.javaeye.com/topic/651763" MODIFIED="1272437315328" TEXT="&#x6700;&#x5e38;&#x7528;&#x7684; 8 &#x79cd;CSS BUG&#x89e3;&#x51b3;&#x65b9;&#x6cd5;&#x4e0e;&#x6280;&#x5de7;"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1274064102900" ID="ID_248841588" MODIFIED="1274064105381" TEXT="JSON">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1274064106461" ID="ID_959197964" MODIFIED="1274064187795" TEXT="&#x6587;&#x4ef6;&#x683c;&#x5f0f;">
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#111111" CREATED="1274064123331" ID="ID_1526996899" MODIFIED="1274064237395" TEXT="&#x5fc5;&#x987b;&#x4f7f;&#x7528;&#x53cc;&#x5f15;&#x53f7;&quot;&#xff0c;&#xa;&#x5426;&#x5219;&#x65e0;&#x6cd5;Request.JSON&#x65e0;&#x6cd5;&#x8bc6;&#x522b;&#x670d;&#x52a1;&#x5668;&#x7aef;&#x8fd4;&#x56de;&#x7684;json&#x5bf9;&#x8c61;&#xa;&#xa;&#x8c03;&#x8bd5;MTMultiSelect.js&#x65f6;&#x53d1;&#x73b0;&#x6b64;&#x95ee;&#x9898;"/>
 </node>
 </node>
 </node>

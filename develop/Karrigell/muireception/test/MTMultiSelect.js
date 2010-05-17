@@ -1,6 +1,29 @@
     /*
+    **********************************************************************************
+    Copyright (c) 2009 Justin Donato (http://www.justindonato.com)
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+    
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
+    *********************************************************************************
     MTMultiSelect: An widget to make more user friendly interfaces
     for a multiselect box, using Mootools    
+    
+    Change the data src from select dom elements to a json file by Broader.ZHONG.
     
     Usage:
     
@@ -25,7 +48,7 @@
     Default is 'mtmultiselect'
     
     datasrc:
-    A select multiple dom object
+    A array object that holds the values for options
     
     selectedcls:
     The css class of the selected list item.
@@ -106,9 +129,12 @@
             this.displaylist.addEvent('rebuild', this.handleDisplayEvent.bind(this));
             this.filterform.addEvent('rebuild', this.handleFilterEvent.bind(this));
             this.paginator.addEvent('rebuild', this.handlePaginatorEvent.bind(this));            
-            
+           
+	    // get the items list that will be shown in the first page 
             var page = this.paginator.getpage(this.curlist);
-            this.filterform.build();            
+            this.filterform.build();  
+		
+	    // just show the items in one page          
             this.displaylist.build(page);
         },
 	
@@ -119,11 +145,9 @@
 	    var request = new Request.JSON({
 		url: dataUrl,
 		async: false,	
-		onComplete: function(selectData){	
-			alert('china');
-			data = selectData;
+		onComplete: function(json){	
+			data = json;
 	    }}).get();
-	    //alert('getData, data length is '+data.length);
 	    return data;
 	}
     });
@@ -146,9 +170,12 @@
         initialize: function(options){            
             this.setOptions(options);
         },
-        
+       
+	/*
+	Parameters: 
+	'opts'- the shown items of current page 
+	*/ 
         build: function(opts){
-            
             // If there's already an ol, remove it.
             var old = this.options.view.getElement('ol');
             if(old !== null) old.destroy();
@@ -157,20 +184,24 @@
             list = new Element('ol');
             place = this.options.paginator_on_bottom ? 'before' : 'after';
             list.inject(this.options.view.getLast(), place);
-            //this.options.view.grab(list);
             
             opts.each(function(item){ 
                     var li = new Element('li',{
                         'class': item.selected ? this.options.selectedcls : null,
-                        //'text': item.get('text')
                         'text': item.text
                     });
-                    li.store('select', item);                    
                     list.grab(li);     
                     
                     li.addEvent('click', function(evt){
                         evt.target.toggleClass('selected');
-                        evt.target.retrieve('select').selected = evt.target.hasClass('selected');                        
+
+			this.options.datasrc.filter(function(item){
+				return item.text == evt.target.get('text');
+			})
+			.each(function(item){
+				item.selected = evt.target.hasClass('selected');
+			});
+
                         this.fireEvent('rebuild', this.numselected());
                     }.bind(this));
                 }.bind(this));
@@ -182,10 +213,10 @@
         
         numselected: function(){
             var numselected = 0;     
-	    alert('DisplayList.numselected,'+$type(this.options.datasrc));       
             this.options.datasrc.each(function(item){
                 if(item.selected) numselected++;
             });
+
             return numselected;
         }        
         
@@ -351,7 +382,8 @@
                         } else {
                             filter_by_text = function(item){ return item.text.toLowerCase().contains(evt.target.value.toLowerCase()) };
                         }
-                        this.filter(this.options.datasrc.getChildren(), filter_by_text);
+                        //this.filter(this.options.datasrc.getChildren(), filter_by_text);
+                        this.filter(this.options.datasrc, filter_by_text);
                     }.bind(this)
                 }
             });
