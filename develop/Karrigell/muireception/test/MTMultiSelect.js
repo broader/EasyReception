@@ -77,10 +77,13 @@
             'datasrc': null,  // a select multiple dom object
 	    
 	    'container': null,  // the container element for this widget
+	    'fieldName': '',	// the field name for hidden input
 	    'dataUrl': null  // a json file url which will return the data of a multi select element
         },
         
         handleDisplayEvent: function(numselected){
+	    // add change to hidden select element
+	    this.setInput();
             this.filterform.update(numselected);
         },
         
@@ -110,10 +113,7 @@
             // Add the widget to the options. Pass them into a new DisplayList
             options.view = view; 
 		
-	    initData = this.getData(options.dataUrl);
-            options.datasrc = initData;
-            //this.curlist = this.options.datasrc.getChildren();
-            this.curlist = initData;           
+            this.curlist = options.datasrc = this.getData(options.dataUrl);
             this.displaylist = new DisplayList(options);
            
 	    options.numselected = this.displaylist.numselected();
@@ -123,8 +123,6 @@
 	    
  	    // the control for pagination
             this.paginator = new Paginator(options);
-
-	    
             
             this.displaylist.addEvent('rebuild', this.handleDisplayEvent.bind(this));
             this.filterform.addEvent('rebuild', this.handleFilterEvent.bind(this));
@@ -136,7 +134,26 @@
 		
 	    // just show the items in one page          
             this.displaylist.build(page);
+	    
+	    // initialize hidden inpu which holds selected values
+	    this.input = new Element('input',{name: options.fieldName, 'type':'hidden'});
+	    this.setInput();
+	    this.container.grab(this.input);
         },
+	
+	// reset the datasrc for this widget
+	reset: function(){},
+	
+	// set the selected values to hidden input element
+	setInput: function(){
+	    var values = this.displaylist.options.datasrc.filter(function(item){
+		return item.selected;
+	    }).map(function(item){
+		return item.text;
+	    }).join(',');
+
+	    this.input.setProperty('value', values);
+	},
 	
 	// get the data of multi select element
 	getData: function(dataUrl){
@@ -388,6 +405,7 @@
                 }
             });
             filterbox_container.grab(this.filterbox);
+	    //filterbox_container.adopt(this.filterbox, ul);
             
             this.options.view.grab(filterbox_container, this.options.inputpos);
         },                       

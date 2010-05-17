@@ -1,0 +1,54 @@
+        .mtmultiselect{
+            width: 400px;
+            background: #0D171A;
+            font: 12px verdana;            
+        }
+        .mtmultiselect .selected{
+            background-color: #4690BB;
+        }
+        .mtmultiselect ol .selected{
+            background-color: #4690BB;
+            background-image: url('check-mark.png');
+            background-position: left;
+            background-repeat: no-repeat;
+        }
+        .mtmultiselect ul li{            
+            display:inline;
+        }
+        .disabled{
+            color: #ccc;
+        }
+        .mtms_filterbox{
+            float: left;
+            padding: 5px;            
+        }
+        .mtms_filterbox input{
+            background: #4690BB;
+            border: 1px solid #141212;
+        }
+        .mtms_filtercontrols{
+            padding: 7px 0;
+            color: #B4A6A6;
+        }
+        .mtms_filtercontrols a, .mtms_paginator a{
+            color: #84D1E0;
+            padding: 0 4px 0 6px;
+        }
+        .mtms_paginator{
+            clear: both;
+            padding: 5px;
+        }
+        .mtmultiselect ol{
+            padding: 0;
+        }
+        .mtmultiselect ol li{
+            list-style-type: none;            
+            padding: 7px 5px 7px 25px;
+            border-bottom: 1px solid #444;
+            background-color: #88B2BD;
+            color: #fff;
+        }
+        .mtmultiselect ol li:hover{
+            background-color: #84D1E0;
+            color: #111;
+        }
