@@ -95,7 +95,7 @@
         },
 
         handlePaginatorEvent: function(){
-            var page = this.paginator.getpage(this.curlist);
+	    var page = this.paginator.getpage(this.curlist);
             this.displaylist.build(page);
         },
         
@@ -107,15 +107,19 @@
 	    
 	    this.container = $(options.container);
             var view = new Element('div', {'class': this.options.widgetcls});
-            //view.injectAfter(options.datasrc);
 	    this.container.grab(view);
-
+	    this.view = view;
             // Add the widget to the options. Pass them into a new DisplayList
             options.view = view; 
 		
-            this.curlist = options.datasrc = this.getData(options.dataUrl);
+            //this.curlist = options.datasrc = this.getData(options.dataUrl);
+            options.datasrc = this.getData(options.dataUrl);
             this.displaylist = new DisplayList(options);
-           
+            this.curlist = this.displaylist.options.datasrc;
+		
+	    // store the default list to view dom element, which will be retrieved by this.filterform 
+	    view.store('data',this.curlist);
+ 
 	    options.numselected = this.displaylist.numselected();
 		
 	    // the control for filtering
@@ -142,11 +146,47 @@
         },
 	
 	// reset the datasrc for this widget
-	reset: function(){},
+	reset: function(url){
+	    if(url == this.options.dataUrl) return;
+
+	    this.options.dataUrl = url;
+	
+            this.displaylist.options.datasrc = this.getData(url);
+            this.curlist = this.displaylist.options.datasrc;
+		
+	    // store the default list to view dom element, which will be retrieved by this.filterform 
+	    this.view.store('data',this.curlist);
+ 
+	    //options.numselected = this.displaylist.numselected();
+		
+	    // the control for filtering
+	    this.filterform.options.datasrc = this.filterform.options.view.retrieve('data');
+            this.filterform.options.numselected = this.displaylist.numselected();
+	    
+            this.filterform.update(this.filterform.options.numselected);
+	    // the control for pagination
+            //this.paginator = new Paginator(options);
+            
+       	    //this.displaylist.addEvent('rebuild', this.handleDisplayEvent.bind(this));
+            //this.filterform.addEvent('rebuild', this.handleFilterEvent.bind(this));
+            //this.paginator.addEvent('rebuild', this.handlePaginatorEvent.bind(this));            
+           
+	    // get the items list that will be shown in the first page 
+            var page = this.paginator.getpage(this.curlist);
+		
+	    // just show the items in one page          
+            this.displaylist.build(page);
+	    
+	    // initialize hidden inpu which holds selected values
+	    //this.input = new Element('input',{name: options.fieldName, 'type':'hidden'});
+	    this.setInput();
+	    //this.container.grab(this.input);
+		
+	},
 	
 	// set the selected values to hidden input element
 	setInput: function(){
-	    var values = this.displaylist.options.datasrc.filter(function(item){
+	    var values = this.displaylist.options.datasrc.filter(function(item){		
 		return item.selected;
 	    }).map(function(item){
 		return item.text;
@@ -399,8 +439,9 @@
                         } else {
                             filter_by_text = function(item){ return item.text.toLowerCase().contains(evt.target.value.toLowerCase()) };
                         }
-                        //this.filter(this.options.datasrc.getChildren(), filter_by_text);
-                        this.filter(this.options.datasrc, filter_by_text);
+
+			this.filter(this.options.view.retrieve('data'), filter_by_text);
+
                     }.bind(this)
                 }
             });

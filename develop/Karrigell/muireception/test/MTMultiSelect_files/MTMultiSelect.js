@@ -70,6 +70,7 @@
 
         handlePaginatorEvent: function(){
             var page = this.paginator.getpage(this.curlist);
+	    alert('handlePaginatorEvent, selected number is '+this.curlist.filter(function(item){return item.selected;}).length);
             this.displaylist.build(page);
         },
         
@@ -259,6 +260,7 @@
                                                      'events': {
                                                         'click': function(evt){
                                                             this.setpagenum(evt.target.innerHTML);
+							    alert('Paginator.updateControls,clicked event, source list length is '+list.length);
                                                             this.fireEvent('rebuild', [list]); // wrapped list
                                                         }.bind(this)}
                                                }), 'bottom');

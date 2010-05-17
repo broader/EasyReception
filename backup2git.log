@@ -45143,3 +45143,58 @@ sent 88 bytes  received 12 bytes  200.00 bytes/sec
 total size is 646607  speedup is 6466.07
 2010-05-17 17:07:57,266 INFO End backup loacl karrigell diretory to local git.
 2010-05-17 17:07:57,266 INFO Begin to backup local github to remote github host.
+2010-05-17 17:07:58,379 INFO Command: 
+git add .
+running result is :
+2010-05-17 17:08:03,200 INFO Command: 
+git commit -m 'Update time:2010-05-17T17:07:57.267089'
+running result is :[master 0387c95] Update time:2010-05-17T17:07:57.267089
+ 6 files changed, 219 insertions(+), 7 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010051714.log
+ create mode 100644 develop/Karrigell/muireception/test/MTMultiSelect_files/MTMultiSelect.css
+ create mode 100644 develop/Karrigell/muireception/test/MTMultiSelect_files/MTMultiSelect.css~
+2010-05-17 17:08:13,073 INFO Command: 
+git push origin master
+running result is :Counting objects: 26, done.
+Delta compression using up to 2 threads.
+Compressing objects:   6% (1/15)   Compressing objects:  13% (2/15)   Compressing objects:  20% (3/15)   Compressing objects:  26% (4/15)   Compressing objects:  33% (5/15)   Compressing objects:  40% (6/15)   Compressing objects:  46% (7/15)   Compressing objects:  53% (8/15)   Compressing objects:  60% (9/15)   Compressing objects:  66% (10/15)   Compressing objects:  73% (11/15)   Compressing objects:  80% (12/15)   Compressing objects:  86% (13/15)   Compressing objects:  93% (14/15)   Compressing objects: 100% (15/15)   Compressing objects: 100% (15/15), done.
+Writing objects:   6% (1/15)   Writing objects:  13% (2/15)   Writing objects:  20% (3/15)   Writing objects:  26% (4/15)   Writing objects:  33% (5/15)   Writing objects:  40% (6/15)   Writing objects:  46% (7/15)   Writing objects:  53% (8/15)   Writing objects:  60% (9/15)   Writing objects:  66% (10/15)   Writing objects:  73% (11/15)   Writing objects:  80% (12/15)   Writing objects:  93% (14/15)   Writing objects: 100% (15/15)   Writing objects: 100% (15/15), 2.99 KiB, done.
+Total 15 (delta 11), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   e26428f..0387c95  master -> master
+2010-05-17 17:08:13,074 INFO End backup local github to remote github host.
+2010-05-17 22:19:03,932 INFO Delete nousing captcha images
+2010-05-17 22:19:03,961 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-05-17 22:19:03,961 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-05-17 22:19:11,594 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010051720.log
+        2373 100%    0.00kB/s    0:00:00          2373 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1006/3720)
+muireception/test/
+muireception/test/MTMultiSelect.js
+       19811 100%    0.00kB/s    0:00:00         19811 100%    0.00kB/s    0:00:00 (xfer#2, to-check=688/8465)
+muireception/test/MTMultiSelect_2.json
+        1962 100%    1.87MB/s    0:00:00          1962 100%    1.87MB/s    0:00:00 (xfer#3, to-check=687/8465)
+muireception/test/MTMultiSelect_new.html
+        1979 100%    1.89MB/s    0:00:00          1979 100%    1.89MB/s    0:00:00 (xfer#4, to-check=686/8465)
+muireception/test/MTMultiSelect_new.json
+        1585 100%    1.51MB/s    0:00:00          1585 100%    1.51MB/s    0:00:00 (xfer#5, to-check=685/8465)
+muireception/test/MTMultiSelect_files/
+muireception/test/MTMultiSelect_files/MTMultiSelect.js
+       16262 100%    5.17MB/s    0:00:00         16262 100%    5.17MB/s    0:00:00 (xfer#6, to-check=681/8465)
+
+sent 185073 bytes  received 1341 bytes  24855.20 bytes/sec
+total size is 50126217  speedup is 268.90
+2010-05-17 22:19:11,659 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 88 bytes  received 12 bytes  200.00 bytes/sec
+total size is 646607  speedup is 6466.07
+2010-05-17 22:19:11,660 INFO End backup loacl karrigell diretory to local git.
+2010-05-17 22:19:11,660 INFO Begin to backup local github to remote github host.

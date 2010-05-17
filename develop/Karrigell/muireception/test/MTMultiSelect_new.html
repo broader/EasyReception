@@ -11,7 +11,12 @@
     <script charset="UTF-8" type="text/javascript" src="MTMultiSelect.js"></script>
     <script charset="UTF-8" type="text/javascript" ">
 	window.addEvent('domready', function (){    
-		new MTMultiWidget({'container':'mtselect', 'dataUrl': 'MTMultiSelect_new.json'});
+		var select = new MTMultiWidget({'container':'mtselect', 'dataUrl': 'MTMultiSelect_2.json'});
+		button = new Element('button', {html: 'change another datasrc'});
+		button.addEvent('click', function(evt){
+			select.reset('MTMultiSelect_new.json');
+		});	
+		button.inject($('mtselect'), 'after');
 	});
     </script>
     <link rel="stylesheet" type="text/css" href="MTMultiSelect_files/MTMultiSelect.css">
