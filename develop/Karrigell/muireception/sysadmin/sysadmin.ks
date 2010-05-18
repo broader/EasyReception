@@ -155,47 +155,32 @@ def _relationEditJs(**args):
 	var appName='%s', formId='%s', 
 	selects={'%s':'%s', '%s':'%s'},
 	reqUrl='%s';
-	
+
 	$(formId).getElements('select').each(function(select){
-		alert(select.getChildren().filter(function(item){ return item.getProperty('selected');}).length);
-
 		mselectName = selects[select.getProperty('name')];
-		alert(mselectName+','+$(mselectName));
-		if($(mselectName)){
-			alert('MultiCheckbox already existed');
-		}
-		else{
-			alert('china');
-			// add multi select widget to form
-			div = new Element('div',{html: mselectName});
-			div.inject(select.getParent('div'), 'after');
-			/*
-			MUI.multiSelect(appName, {
-				'onload': function(){
-					new MTMultiWidget({container:'', dataUrl:''});
-					return null	
-				}
-			});
-			*/
-		};
 
-		select.addEvent('change', setMultiCheckbox);
-	});
-	
-	function setMultiCheckbox(event){
-		/*
-		var el = event.target,		
-		value = el.getProperty('value'),
-		// create a multiful select box 
+		// add multi select widget to form
+		label = new Element('label', {html:mselectName});
+		div = new Element('div', {'class':'type-select', style:'border-bottom:1px solid #DDDDDD'});
+		div.grab(label);
+		div.inject(select.getParent('div'), 'after');
+		
+		var mtSelect = null;
 		MUI.multiSelect(appName, {
 			'onload': function(){
-				return null	
+				mtSelect = new MTMultiWidget({container:div, dataUrl:reqUrl});
 			}
 		});
-		*/
-	};
-
-	function createMultiCheckbox(previous,name){
+		select.store('mtSelect', mtSelect);
+		select.addEvent('change', setMultiSelect);
+	});
+	
+	function setMultiSelect(event){
+		var el = event.target;
+		mtSelect = el.retrieve('mtSelect');	
+		value = el.getProperty('value');
+		url = reqUrl+'?classname='+value;
+		mtSelect.reset(url);
 	};
 
 	"""%paras
@@ -495,8 +480,11 @@ def _classListJs(klass):
 			return
 		};
 		
+		// specified width for 'relation' class edit modal
+		mwidth=500, mheight=380;
+		if(klass=='relation') mwidth=850,mheight=550;		
 		var modalOptions = {
-			width:600, height:380, modalOverlayClose: false,
+			width:mwidth, height:mheight, modalOverlayClose: false,
 	   		onClose: function(e){
 	   		   // refresh table's body
 	   		   datagrid.loadData();
@@ -547,7 +535,6 @@ def _classListJs(klass):
  	   var trs = datagrid.selected;
 	   var nid = datagrid.getDataByRow(trs[0])['id'];
 	   query['id'] = nid;
-	   alert('delete action, query string is '+$H(query).toQueryString());
 	   jsonRequest.get(query);
 
 	};
@@ -765,10 +752,10 @@ def page_classEdit(**args):
 	# render the fields to the form	
 	form = []
 	# get the OL content from formRender.py module
-	if len(props) < 4 and klass != 'relation':	
+	if len(props) < 4 and klass != 'relation' :	
 		div = DIV(Sum(formFn.yform(props)))
 		form.append(FIELDSET(div))
-		bnStyle = 'position:absolute;margin-left:15em;'
+		bnStyle = 'margin-left:15em;'
 	else:
 		interval = int(len(props)/2)	
 		style = 'border-right:1px solid #DDDDDD;'	
@@ -776,7 +763,10 @@ def page_classEdit(**args):
 		right = DIV(Sum(formFn.yform(props[interval:])), **{'class':'c50r'})
 		divs = DIV(Sum((left, right)), **{'class':'subcolumns'})
 		form.append(divs)	
-		bnStyle = 'position:absolute;margin-left:12em;'
+		if klass == 'relation':
+			bnStyle = 'margin-left:24em;'
+		else:
+			bnStyle = 'margin-left:12em;'
 		
 	# append hidden field that points out the action type
 	[item.update({'type':'hidden'}) for item in hideInput]
@@ -788,8 +778,6 @@ def page_classEdit(**args):
 		Sum(form), 
 		**{'action': '/'.join((APPATH,'page_classEditAction')), 'id': formId, 'method':'post','class':'yform'}
 	)
-				
-	#print DIV(form,style='')
 	print form
 	
 	js = _classEditJs(formId,bnStyle)

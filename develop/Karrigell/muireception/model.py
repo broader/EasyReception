@@ -77,11 +77,14 @@ def login(usr=None, pwd=None):
 	client.form = form
 	return action(client)     	
 
-def get_classes(operator):
+def get_classes(operator, needKey=False):
 	""" Return a list of the names of all existing classes. """
 	client = get_client()
 	client.set_user(operator)
-	return client.db.getclasses()
+	klasses = client.db.getclasses()
+	if needKey:
+		klasses = [klass for klass in klasses if client.db.getclass(klass).getkey()]
+	return klasses
 	
 def get_item(operator, klass, key, props=None, keyIsId=False):
 	""" Get the propvalues of a item of a class stored in database.
@@ -121,7 +124,8 @@ def get_items(operator, klass, props=None, link2key=False,ids=None):
 		return None
 	
 	client.set_user(operator)		
-	form = { 	'action': 'getitems',\			
+	form = { 
+		'action': 'getitems',\			
               	'context': klass,\
               	'ids' : ids,\    
               	'propnames': props,\
@@ -159,13 +163,10 @@ def get_keyValues(operator, klass):
 	Return a list  that holds the values of 'key' property of each item in this class instance.
 	"""
 	client = get_client()
-	if not client or not getattr(client,'db'):
-		return [] 
-	
 	client.set_user(operator)
 	key = client.db.getclass(klass).getkey()
-	values = get_item(operator, klass, (key,))
-	values = values and [i[0] for i in values] or []
+	values = get_items(operator, klass, (key,))
+	values = values and type(values)==type([]) and [i[0] for i in values] or []
 	return values
 
 def getUserDossier(operator, user):

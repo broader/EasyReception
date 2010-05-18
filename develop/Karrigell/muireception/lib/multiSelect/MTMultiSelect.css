@@ -1,6 +1,6 @@
         .mtmultiselect{
             width: 430px;
-            background: #0D171A;
+            background: #F0F2FA;
             font: 12px verdana;            
         }
         .mtmultiselect .selected{
@@ -24,19 +24,20 @@
         }
         .mtms_filterbox input{
             background: #4690BB;
-            border: 1px solid #141212;
+            border: 2px solid #DDDDDD;
         }
         .mtms_filtercontrols{
             padding: 7px 0;
             color: #B4A6A6;
         }
         .mtms_filtercontrols a, .mtms_paginator a{
-            color: #84D1E0;
+            color: darkBlue;
             padding: 0 4px 0 6px;
         }
         .mtms_paginator{
             clear: both;
             padding: 5px;
+	    border-top: 1.8px solid #DDDDDD;
         }
         .mtmultiselect ol{
             padding: 0;

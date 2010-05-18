@@ -191,6 +191,18 @@
 		url: dataUrl,
 		async: false,	
 		onComplete: function(json){	
+			json.each(function(item){
+				// transformat boolean string to boolean value
+				switch(item.selected){
+					case 'false':
+						item.selected = false;
+						break;
+					case 'true':
+						item.selected = true;
+						break;
+				};
+			});
+
 			data = json;
 	    }}).get();
 	    return data;
