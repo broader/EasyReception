@@ -45198,3 +45198,93 @@ sent 88 bytes  received 12 bytes  200.00 bytes/sec
 total size is 646607  speedup is 6466.07
 2010-05-17 22:19:11,660 INFO End backup loacl karrigell diretory to local git.
 2010-05-17 22:19:11,660 INFO Begin to backup local github to remote github host.
+2010-05-17 22:19:12,809 INFO Command: 
+git add .
+running result is :
+2010-05-17 22:19:17,648 INFO Command: 
+git commit -m 'Update time:2010-05-17T22:19:11.660872'
+running result is :[master d3e44d6] Update time:2010-05-17T22:19:11.660872
+ 7 files changed, 198 insertions(+), 23 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010051720.log
+ create mode 100644 develop/Karrigell/muireception/test/MTMultiSelect_2.json
+2010-05-17 22:19:27,176 INFO Command: 
+git push origin master
+running result is :Counting objects: 27, done.
+Delta compression using up to 2 threads.
+Compressing objects:   6% (1/15)   Compressing objects:  13% (2/15)   Compressing objects:  20% (3/15)   Compressing objects:  26% (4/15)   Compressing objects:  33% (5/15)   Compressing objects:  40% (6/15)   Compressing objects:  46% (7/15)   Compressing objects:  53% (8/15)   Compressing objects:  60% (9/15)   Compressing objects:  66% (10/15)   Compressing objects:  73% (11/15)   Compressing objects:  80% (12/15)   Compressing objects:  86% (13/15)   Compressing objects:  93% (14/15)   Compressing objects: 100% (15/15)   Compressing objects: 100% (15/15), done.
+Writing objects:   6% (1/15)   Writing objects:  13% (2/15)   Writing objects:  20% (3/15)   Writing objects:  26% (4/15)   Writing objects:  33% (5/15)   Writing objects:  40% (6/15)   Writing objects:  46% (7/15)   Writing objects:  53% (8/15)   Writing objects:  60% (9/15)   Writing objects:  66% (10/15)   Writing objects:  73% (11/15)   Writing objects:  80% (12/15)   Writing objects:  86% (13/15)   Writing objects:  93% (14/15)   Writing objects: 100% (15/15)   Writing objects: 100% (15/15), 3.48 KiB, done.
+Total 15 (delta 11), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   0387c95..d3e44d6  master -> master
+2010-05-17 22:19:27,177 INFO End backup local github to remote github host.
+2010-05-18 11:22:14,633 INFO Delete nousing captcha images
+2010-05-18 11:22:14,660 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-05-18 11:22:14,661 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-05-18 11:22:19,708 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010051803.log
+        4080 100%    0.00kB/s    0:00:00          4080 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1007/3722)
+data/cms/logs_2010051809.log
+        2373 100%    2.26MB/s    0:00:00          2373 100%    2.26MB/s    0:00:00 (xfer#2, to-check=1006/3722)
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%  103.56kB/s    0:00:03        362496 100% 1017.24kB/s    0:00:00 (xfer#3, to-check=1045/4046)
+muireception/
+deleting muireception/test/MTMultiSelect_files/mtmultiselect__.css
+deleting muireception/test/MTMultiSelect_files/mtms__.js
+deleting muireception/test/MTMultiSelect_files/mootools-1.js
+deleting muireception/test/MTMultiSelect_files/mootools-1.2.4-core.js
+deleting muireception/test/MTMultiSelect_files/css.css
+deleting muireception/test/MTMultiSelect_files/check-mark.png
+deleting muireception/test/MTMultiSelect_files/MTMultiselect.js~
+deleting muireception/test/MTMultiSelect_files/MTMultiSelect_____.js
+deleting muireception/test/MTMultiSelect_files/MTMultiSelect.js
+deleting muireception/test/MTMultiSelect_files/MTMultiSelect.css~
+deleting muireception/test/MTMultiSelect_files/MTMultiSelect.css
+deleting muireception/test/MTMultiSelect_files/
+deleting muireception/test/MTMultiSelect_new.json
+deleting muireception/test/MTMultiSelect_new.html
+deleting muireception/test/MTMultiSelect_2.json
+deleting muireception/test/MTMultiSelect.js
+deleting muireception/test/MTMultiSelect.html
+deleting muireception/test/
+muireception/model.py
+       18802 100%   24.91kB/s    0:00:00         18802 100%   24.91kB/s    0:00:00 (xfer#4, to-check=1607/5990)
+muireception/pagefn.py
+       11732 100%   15.52kB/s    0:00:00         11732 100%   15.52kB/s    0:00:00 (xfer#5, to-check=1605/5990)
+muireception/js/
+deleting muireception/js/.layoutInit.js.pih.swp
+muireception/js/layoutInit.js.pih
+       12257 100%    0.00kB/s    0:00:00         12257 100%    0.00kB/s    0:00:00 (xfer#6, to-check=1019/7139)
+muireception/lib/
+muireception/lib/multiSelect/
+muireception/lib/multiSelect/MTMultiSelect.css
+        1551 100%    5.22kB/s    0:00:00          1551 100%    5.22kB/s    0:00:00 (xfer#7, to-check=1005/7678)
+muireception/lib/multiSelect/MTMultiSelect.css~
+        1547 100%    5.21kB/s    0:00:00          1547 100%    5.21kB/s    0:00:00 (xfer#8, to-check=1004/7678)
+muireception/lib/multiSelect/MTMultiSelect.js
+       19250 100%   64.60kB/s    0:00:00         19250 100%   64.60kB/s    0:00:00 (xfer#9, to-check=1003/7678)
+muireception/lib/multiSelect/MTMultiSelect.js~
+       19250 100%   64.38kB/s    0:00:00         19250 100%   64.38kB/s    0:00:00 (xfer#10, to-check=1002/7678)
+muireception/lib/multiSelect/img/
+muireception/lib/multiSelect/img/check-mark.png
+         325 100%    1.09kB/s    0:00:00           325 100%    1.09kB/s    0:00:00 (xfer#11, to-check=1000/7678)
+muireception/sysadmin/
+muireception/sysadmin/sysadmin.ks
+       24776 100%   31.67kB/s    0:00:00         24776 100%   31.67kB/s    0:00:00 (xfer#12, to-check=674/8455)
+
+sent 249882 bytes  received 1478 bytes  45701.82 bytes/sec
+total size is 49871332  speedup is 198.41
+2010-05-18 11:22:19,789 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 88 bytes  received 12 bytes  200.00 bytes/sec
+total size is 646607  speedup is 6466.07
+2010-05-18 11:22:19,789 INFO End backup loacl karrigell diretory to local git.
+2010-05-18 11:22:19,789 INFO Begin to backup local github to remote github host.

@@ -135,7 +135,14 @@ def _formEditProps4classStatus():
 	return props
 
 def page_getKeyValues(**args):
-	pass
+	operator = args.get('user') or USER
+	klass = args.get('classname')
+	if klass :
+		values = model.get_keyValues(operator,klass)
+		values = [{'text':i.decode('utf8'), 'selected':'false'} for i in values]
+	else:
+		values = []
+	print JSON.encode(values, encoding='utf8')
 	return
 
 def _relationEditJs(**args):
@@ -148,42 +155,47 @@ def _relationEditJs(**args):
 	var appName='%s', formId='%s', 
 	selects={'%s':'%s', '%s':'%s'},
 	reqUrl='%s';
-
-	$(formId).getElements('select').each(function(select){
-		select.addEvent('change', setMultiCheckbox);
-	});
 	
-	function setMultiCheckbox(event){
-		var el = event.target,		
-		value = el.getProperty('value'),
-		mselectName = selects[el.getProperty('name')];
+	$(formId).getElements('select').each(function(select){
+		alert(select.getChildren().filter(function(item){ return item.getProperty('selected');}).length);
+
+		mselectName = selects[select.getProperty('name')];
+		alert(mselectName+','+$(mselectName));
 		if($(mselectName)){
 			alert('MultiCheckbox already existed');
 		}
 		else{
-			// create TextMultiCheckbox
-			MUI.textMultiCheckbox(appName, {
+			alert('china');
+			// add multi select widget to form
+			div = new Element('div',{html: mselectName});
+			div.inject(select.getParent('div'), 'after');
+			/*
+			MUI.multiSelect(appName, {
 				'onload': function(){
-					// create label for multiChceckbox
-					alert(mselectName);
-					var label = new Element('label',{html:mselectName});
-					
-					options = {data:['test','china']};
-					checkbox = new TextMultiCheckbox(mselectName, options);
-					// form field container	
-					var div = new Element('div');
-					div.adopt([label, checkbox.container]);
-		
-					// find previous form field position and inert this field after it
-					previous = el.getParent('div');
-					div.inject(previous, 'after');
+					new MTMultiWidget({container:'', dataUrl:''});
+					return null	
 				}
 			});
+			*/
 		};
+
+		select.addEvent('change', setMultiCheckbox);
+	});
+	
+	function setMultiCheckbox(event){
+		/*
+		var el = event.target,		
+		value = el.getProperty('value'),
+		// create a multiful select box 
+		MUI.multiSelect(appName, {
+			'onload': function(){
+				return null	
+			}
+		});
+		*/
 	};
 
 	function createMultiCheckbox(previous,name){
-			
 	};
 
 	"""%paras
@@ -702,6 +714,7 @@ def _relationPropHandler(props):
 		if propname in ( 'klassname', 'relateclass'):
 			prop['type'] = 'select'
 			prop['options'] = [{'label': str(item), 'value': str(item)} for item in model.get_classes(USER) ]
+			prop['options'].insert(0, {'label': _('Please select'),'disabled':'disabled','selected':''})
 			newProps.append(prop)
 	return newProps
 
@@ -752,7 +765,7 @@ def page_classEdit(**args):
 	# render the fields to the form	
 	form = []
 	# get the OL content from formRender.py module
-	if len(props) < 4:	
+	if len(props) < 4 and klass != 'relation':	
 		div = DIV(Sum(formFn.yform(props)))
 		form.append(FIELDSET(div))
 		bnStyle = 'position:absolute;margin-left:15em;'

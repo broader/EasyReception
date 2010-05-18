@@ -24,11 +24,6 @@ JSLIB['formValid'] = \
 	'files': ['/'.join(( 'lib', 'formcheck', name )) for name in ('css/hack.css', 'theme/red/formcheck.css', 'lang.js.pih', 'formcheck.js')],
 }
 
-#FORMERRCLASS = 'fc-tbx'
-#FCLIBFILES = \
-#['/'.join(( 'lib', 'formcheck', name )) \
-#for name in ('css/hack.css', 'theme/red/formcheck.css', 'lang.js.pih', 'formcheck.js')]
-
 
 # treeTable lib
 JSLIB['treeTable'] = \
@@ -51,6 +46,11 @@ JSLIB['textMultiCheckbox'] = \
 # inlineEdit
 JSLIB['inlineEdit'] = \
 {'files':['/'.join(('lib','inlineEdit',name)) for name in ('InlineEdit.css','InlineEdit.js')],
+}
+
+# multiful select
+JSLIB['multiSelect'] = \
+{'files':['/'.join(('lib','multiSelect',name)) for name in ('MTMultiSelect.css','MTMultiSelect.js')],
 }
 
 #-------------------------------------------------------------------------------------- 

@@ -326,25 +326,26 @@ MUI.extend({
 	****************************************************************/
 	import: function(appName,urls,options){
 		// get the global Assets manager
-	   var am = MUI.assetsManager;		
+	   	var am = MUI.assetsManager;		
 		urls.each(function(src){
 			fileType = MUI.fileType(src);	
 
 			if(fileType == 'css'){
 				if(!$defined(am.imported[src])){
 	    				am.import({'url':src,'app':appName,'type':'css'});	
-				}
+				};
 			}
 			else if(fileType == 'js'){
 				if(!$defined(am.imported[src])){
 					am.import({'url':src,'app':appName,'type':'js'},options);
 				}
 				else{
+					// this plugin files have been imported,
+					// so just run the function
 					fn = options.onload;					
 					if($defined(fn)){fn();}
 				};	   
-			}
-			
+			};			
 		});	   
 		
 	},
@@ -434,6 +435,20 @@ MUI.extend({
 		// get lib files
 		var urls = [];
 		<% for url in pagefn.JSLIB['inlineEdit']['files'] : %>
+			urls.push('<%=url%>');
+		<% end %>
+		
+		MUI.import(appName,urls,options);
+
+	},
+	
+	/**********************************************************************
+	Import multiselect plugin files and initialize correspinding Elements.
+	***********************************************************************/
+	multiSelect: function(appName, options){
+		// get lib files
+		var urls = [];
+		<% for url in pagefn.JSLIB['multiSelect']['files'] : %>
 			urls.push('<%=url%>');
 		<% end %>
 		
