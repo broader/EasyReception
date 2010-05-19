@@ -33,10 +33,10 @@ class LimitedDict(dict):
         self.keys.append(key)
         if len(self.keys)>self.max_keys:
         		try:
-	            first = self.keys.pop(0)
-	            del self[first]
-	         except:
-	         	print 'The session key %s is not existed !'%first 
+        			first = self.keys.pop(0)
+        			del self[first]
+        		except:
+        			print 'The session key %s is not existed !'%first 
 
 class SessionObject(object):
 

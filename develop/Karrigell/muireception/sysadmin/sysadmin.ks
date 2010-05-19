@@ -136,10 +136,21 @@ def _formEditProps4classStatus():
 
 def page_getKeyValues(**args):
 	operator = args.get('user') or USER
+	oldValues = args.get('value')
+	if oldValues :
+		oldValues = oldValues.split(',')
+	
 	klass = args.get('classname')
 	if klass :
 		values = model.get_keyValues(operator,klass)
-		values = [{'text':i.decode('utf8'), 'selected':'false'} for i in values]
+		values.sort()
+		values = [\
+			{\
+			'text':i.decode('utf8'), \
+			'selected': i in oldValues and 'true' or 'false'\
+			}\ 
+			for i in values\
+		]
 	else:
 		values = []
 	print JSON.encode(values, encoding='utf8')
@@ -157,30 +168,43 @@ def _relationEditJs(**args):
 	reqUrl='%s';
 
 	$(formId).getElements('select').each(function(select){
-		mselectName = selects[select.getProperty('name')];
+		selectContainer = select.getParent('div');	
 
-		// add multi select widget to form
-		label = new Element('label', {html:mselectName});
-		div = new Element('div', {'class':'type-select', style:'border-bottom:1px solid #DDDDDD'});
-		div.grab(label);
-		div.inject(select.getParent('div'), 'after');
-		
-		var mtSelect = null;
 		MUI.multiSelect(appName, {
 			'onload': function(){
-				mtSelect = new MTMultiWidget({container:div, dataUrl:reqUrl});
+				mselectName = selects[select.getProperty('name')];
+				
+				hiddenInput = $(mselectName);
+				// get widget container and set some css style
+				parent = hiddenInput.getParent('div');
+				parent.setProperty('style', 'border: 0.5px solid #DDDDDD;');
+				parent.setProperty('class', '');
+				parent.addClass('type-select');
+
+				// get old value and remove the hidden input from DOM
+				oldValue = hiddenInput.getProperty('value');
+				hiddenInput.dispose();
+				
+				// constructs the multi select widget
+				mtSelectWidget = new MTMultiWidget({
+					container: parent, 
+					dataUrl: setReqUrl(reqUrl, select.getProperty('value'), oldValue), 
+					fieldName:mselectName
+				});
+
+				select.store('mtSelect', mtSelectWidget);
+				select.addEvent('change', setMultiSelect);
 			}
 		});
-		select.store('mtSelect', mtSelect);
-		select.addEvent('change', setMultiSelect);
 	});
 	
+	function setReqUrl(url, klass, value){
+		return [url, $H({'classname':klass, 'value':value}).toQueryString()].join('?'); 
+	};
+
 	function setMultiSelect(event){
-		var el = event.target;
-		mtSelect = el.retrieve('mtSelect');	
-		value = el.getProperty('value');
-		url = reqUrl+'?classname='+value;
-		mtSelect.reset(url);
+		mtSelect = event.target.retrieve('mtSelect');	
+		mtSelect.reset( setReqUrl(reqUrl,event.target.getProperty('value'), '') );
 	};
 
 	"""%paras
@@ -493,49 +517,47 @@ def _classListJs(klass):
 		
 		switch(index){
 			case 0:	// add action
-				query = $H(_getQuery());
-				url = [editUrl, query.toQueryString()].join('?');
 				// the modal to edit a service item  
-				modalOptions.contentURL = url;
-				
+				modalOptions.contentURL = [editUrl, $H(_getQuery()).toQueryString()].join('?');
 				modalOptions.title = createTitle;
 				new MUI.Modal(modalOptions);
 				break;
 			case 1:	// edit action	
 				query = $H(_getQuery());	// set the really action url
 				query.extend(datagrid.getDataByRow(trs[0]));
-				url = [editUrl, query.toQueryString()].join('?');
-				
 				// the modal to edit a service item  
-				modalOptions.contentURL = url;
-				
+				modalOptions.contentURL = [editUrl, query.toQueryString()].join('?');
 				modalOptions.title = ediTitle;
 				new MUI.Modal(modalOptions);
 				break;
 			case 2:	// delete action
-				MUI.confirm('Delete Class Item:', delClassItem.bind(datagrid), {});
+				prompt = 'Delete Class Item : '+datagrid.getDataByRow(datagrid.selected[0])['id'];
+				MUI.confirm( prompt, delClassItem.bind(datagrid), {});
 		};
 	};
 
 	function delClassItem(isConfirm){
 	   if(isConfirm.toInt()==1){return};
 
-	   jsonRequest = new Request.JSON({async:false});
+	   delRequest = new Request.JSON({async:false});
 
+	   alert('delete action url is '+delClassItemUrl);
 	   // set some options for Request.JSON instance
-	   jsonRequest.setOptions({
+	   delRequest.setOptions({
 	      url: delClassItemUrl,
-	      onSuccess: function(res){
-		 MUI.notification(res);
+	      onSuccess: function(resJson, resText){
+		 MUI.notification(resText);
 	         this.loadData();
 	      }.bind(datagrid)
 	   });
 	   
 	   // get the 'id' value of the item to be deleted
- 	   var trs = datagrid.selected;
-	   var nid = datagrid.getDataByRow(trs[0])['id'];
-	   query['id'] = nid;
-	   jsonRequest.get(query);
+	   //var nid = datagrid.getDataByRow(datagrid.selected[0])['id'];
+	   //query['id'] = nid;
+	   delQuery = {};
+	   delQuery[klassProp] = klass;
+	   delQuery['id'] = datagrid.getDataByRow(datagrid.selected[0])['id'];
+	   delRequest.get(delQuery);
 
 	};
 	
@@ -654,7 +676,7 @@ def _formFieldsConstructor(klass, values, setOldValue=False):
 	'required' - is this filed could not be empty?
 	'validate' - form field validate function names, should be a list 
 	"""
-	fn = FORMPROPS4CLASS[WEB_EDIT_CLASS.index(klass)].get('propsFn')
+	fn = FORMPROPS4CLASS[ WEB_EDIT_CLASS.index(klass) ].get('propsFn')
 	if fn:
 		defaultProps = fn()
 	else:
@@ -701,8 +723,13 @@ def _relationPropHandler(props):
 		if propname in ( 'klassname', 'relateclass'):
 			prop['type'] = 'select'
 			prop['options'] = [{'label': str(item), 'value': str(item)} for item in model.get_classes(USER) ]
-			prop['options'].insert(0, {'label': _('Please select'),'disabled':'disabled','selected':''})
-			newProps.append(prop)
+			prop['options'].insert(0, {'label': _('Please select'),'disabled':'disabled','selected':'', 'value':''})
+		else:
+			prop['type'] = 'hidden'
+			prop['id'] = propname
+
+		newProps.append(prop)
+
 	return newProps
 
 CLASSADAPTOR = {'keyword':_keywordPropHandler, 'relation': _relationPropHandler }
@@ -742,8 +769,9 @@ def page_classEdit(**args):
 	# show the fields in 'info' list before html Form Element
 	if info:
 		[ item.update({'prompt':''.join((item.get('prompt') or '',':'))}) for item in info ]
-		labelStyle = {'label':'font-weight:bold;font-size:1.2em;color:dackblue;', \
-						  'td':'text-align:right;'}
+		labelStyle = {\
+			'label':'font-weight:bold;font-size:1.2em;color:dackblue;', \
+			'td':'text-align:right;'}
 						  
 		valueStyle = {'label':'color:#ff6600;font-size:1.2em;', 'td':'text-align:left;width:6em;'}
 						  
@@ -864,8 +892,10 @@ def page_classEditAction(**args):
 	   # 'delete' action
 	   nid = args.get('id')
 	   model.delete_item( USER, klass, nid, isId=True) 
-	   successTag = 1
-	   print successTag
+	   # successTag = 1
+	   #print successTag
+	   info = 'item %s has been deleted!'%nid
+	   print info
 	   return
 
 	if ACTIONTYPES.index(action) == 0:

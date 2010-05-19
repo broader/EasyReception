@@ -1,5 +1,5 @@
         .mtmultiselect{
-            width: 430px;
+            width: auto;
             background: #F0F2FA;
             font: 12px verdana;            
         }
@@ -7,7 +7,7 @@
             background-color: #4690BB;
         }
         .mtmultiselect ol .selected{
-            background-color: #4690BB;
+            background-color: #628599;
             background-image: url('img/check-mark.png');
             background-position: left;
             background-repeat: no-repeat;
@@ -23,7 +23,7 @@
             padding: 5px;            
         }
         .mtms_filterbox input{
-            background: #4690BB;
+            background: #8FAABA;
             border: 2px solid #DDDDDD;
         }
         .mtms_filtercontrols{
@@ -50,6 +50,6 @@
             color: #fff;
         }
         .mtmultiselect ol li:hover{
-            background-color: #84D1E0;
+            background-color: #B8C7D1;
             color: #111;
         }

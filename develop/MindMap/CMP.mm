@@ -1559,11 +1559,11 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1270004570562" FOLDED="true" ID="ID_201492433" MODIFIED="1273377978503" POSITION="left" TEXT="Sponsor Management">
+<node COLOR="#0033ff" CREATED="1270004570562" FOLDED="true" ID="ID_201492433" MODIFIED="1274233262335" POSITION="left" TEXT="Sponsor Management">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
-<node COLOR="#00b439" CREATED="1270004758136" FOLDED="true" ID="ID_1487426203" MODIFIED="1273377187024" TEXT="Grab Eye Functions">
+<node COLOR="#00b439" CREATED="1270004758136" FOLDED="true" ID="ID_1487426203" MODIFIED="1274233261393" TEXT="Grab Eye Functions">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -1606,12 +1606,13 @@
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1271131736218" ID="ID_1184126787" LINK="http://tutorialzine.com/2010/02/photo-shoot-css-jquery/" MODIFIED="1271131740620" TEXT="http://tutorialzine.com/2010/02/photo-shoot-css-jquery/"/>
 </node>
-<node COLOR="#990000" CREATED="1271132423914" FOLDED="true" ID="ID_1595300196" MODIFIED="1273295732149" TEXT="Product Show">
+<node COLOR="#990000" CREATED="1271132423914" ID="ID_1595300196" MODIFIED="1274233111746" TEXT="Product Show">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1271132430380" ID="ID_1253574034" LINK="http://tutorialzine.com/2009/11/beautiful-apple-gallery-slideshow/" MODIFIED="1271132433864" TEXT="http://tutorialzine.com/2009/11/beautiful-apple-gallery-slideshow/"/>
 <node COLOR="#111111" CREATED="1271037217434" ID="ID_1982890718" LINK="http://www.artviper.net/test/ajaxslide/" MODIFIED="1271037226193" TEXT="http://www.artviper.net/test/ajaxslide/"/>
 <node COLOR="#111111" CREATED="1271384046632" ID="ID_1029041130" LINK="http://dev.herr-schuessler.de/jquery/popeye/" MODIFIED="1271384051723" TEXT="http://dev.herr-schuessler.de/jquery/popeye/"/>
 <node COLOR="#111111" CREATED="1272461899904" ID="ID_1120191225" LINK="http://cssrainbow.cn/tutorials/jquery/1251.html" MODIFIED="1272461903156" TEXT="http://cssrainbow.cn/tutorials/jquery/1251.html"/>
+<node COLOR="#111111" CREATED="1274233118312" ID="ID_355170690" LINK="http://mootools.net/forge/p/fx_presets" MODIFIED="1274233123328" TEXT="http://mootools.net/forge/p/fx_presets"/>
 </node>
 <node COLOR="#990000" CREATED="1273295719614" ID="ID_1445843254" MODIFIED="1273295728016" TEXT="Element Hover">
 <font NAME="SansSerif" SIZE="14"/>
@@ -2707,7 +2708,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1273548636508" POSITION="right" TEXT="Company Web Site">
+<node COLOR="#0033ff" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1274239722066" POSITION="right" TEXT="Company Web Site">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1272874065001" FOLDED="true" ID="ID_1315424594" MODIFIED="1273547542716" TEXT="Layout">
@@ -2893,6 +2894,16 @@
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1273378335716" ID="ID_487347746" MODIFIED="1273378362961" TEXT="&#x6a2a;&#x5411;Slide&#x65b9;&#x5f0f;&#x5c55;&#x793a;"/>
 <node COLOR="#111111" CREATED="1273378382714" ID="ID_953344442" MODIFIED="1273378401643" TEXT="Margin &amp; Padding, like book"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1274233269943" ID="ID_1155873100" MODIFIED="1274233272132" TEXT="I18n">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1274233273663" ID="ID_981711131" MODIFIED="1274233275952" TEXT="Tools">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1274233276774" ID="ID_1708174490" MODIFIED="1274233285173" TEXT="Template">
+<node COLOR="#111111" CREATED="1274233286039" ID="ID_28656080" LINK="http://mootools.net/forge/p/templates" MODIFIED="1274233289875" TEXT="http://mootools.net/forge/p/templates"/>
+</node>
 </node>
 </node>
 </node>

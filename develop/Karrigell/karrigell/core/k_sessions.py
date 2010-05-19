@@ -36,7 +36,7 @@ class LimitedDict(dict):
         			first = self.keys.pop(0)
         			del self[first]
         		except:
-        			print 'The session key %s is not existed !'%first 
+        			print 'The session key %s is not existed ! now first session id in session pool is %s'%(first,self.keys[0])
 
 class SessionObject(object):
 

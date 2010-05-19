@@ -122,7 +122,7 @@ def getField(field):
 		'required':[True or False], 	# is this filed could not be empty?
 		'oldvalue':..., # for edit action, old value is needed;
 		'validate': [],	# form field validate function names, should be a list 
-		'type': one of ['text', 'input', 'textarea', 'radio', 'select', 'textMultiCheckbox']	# the form field type
+		'type': one of ['text', 'input', 'textarea', 'radio', 'select', 'textMultiCheckbox', 'hidden']	# the form field type
 		},
 		......
 	]	
