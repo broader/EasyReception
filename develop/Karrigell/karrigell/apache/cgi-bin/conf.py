@@ -4,10 +4,13 @@
 import os
 
 # these are the values with the distribution directory structure
-server_dir = os.path.dirname(os.path.abspath(__file__)) # folder "cgi-bin"
+
+server_dir = os.getcwd() # folder "cgi-bin"
 karrigell_dir = os.path.dirname(os.path.dirname(server_dir)) # karrigell
 root_dir = os.path.dirname(karrigell_dir)
-data_dir = os.path.join(karrigell_dir,"data")
+data_dir = os.path.join(os.path.dirname(server_dir),"data")
+# no use caching on CGI mode
+cache_dir = None
 
 # if you had to put the files in folder cgi-bin to another place
 # you must replace these values
@@ -16,17 +19,14 @@ data_dir = os.path.join(karrigell_dir,"data")
 # data_dir is a folder with WRITE mode, if possible outside of the
 #    Document Root for security reasons
 # Example :
-# root_dir = '/home.41/k/a/r/karrigel/www'
-# server_dir = '/home.41/k/a/r/karrigel/cgi-bin'
-# karrigell_dir = os.path.join(root_dir,'karrigell')
-# data_dir = os.path.join(karrigell_dir,'apache','data')
+#root_dir = '/homez.151/karrigel/cgi-bin/www'
+#server_dir = '/homez.151/karrigel/cgi-bin'
+#karrigell_dir = os.path.join(root_dir,'karrigell')
+#data_dir = os.path.join(karrigell_dir,'apache','data')
+#cache_dir = None
 
 # allow directory listing if url matches a directory ?
-allow_directory_listing = True
-
-# if redirection to a script, should the extension be shown ?
-# default is True but some prefer no extension (cf REST principles)
-show_script_extensions = True
+allow_directory_listing = [None]
 
 # don't serve files with extension in this list
 hide_extensions = [".pdl"]
@@ -39,16 +39,8 @@ logging_file = None #os.path.join(karrigell_dir,"logs","access.log")
 logging_rotate = "hourly"
 
 # Unicode management
-# encode_input : boolean used to determine if server should try to transform 
-# data received from the client into Unicode, using the Accept-charset header
-#
 # encode_output : a string = the encoding to use to send data back to the 
 # client
-#
-# if encode_input is set, input encoding is successful, and encode_ouput is
-# not set, then the output will be encoded with the same encoding as input
-#
-encode_input = False #True
 output_encoding = None #"utf-8"
 
 # language to translate marked strings to
@@ -60,7 +52,10 @@ debug = True
 # dictionary of aliases
 # if alias["foo"] = "/usr/some_folder" then url /foo/bar.py will
 # be resolved to file /usr/some_folder/bar.py
-alias = {}
+alias = {
+    'blogs/sqlite/.*?':os.path.join(root_dir,'demo','sqlite','blog'),
+    'blogs/mysql/.*?':os.path.join(root_dir,'demo','mysql','blog')
+    }
 
 # use gzip to compress text files ?
 gzip = True

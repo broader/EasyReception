@@ -8,10 +8,15 @@ if not k_utils.is_default_host(REQUEST_HANDLER.host):
 import k_config
 from HTMLTags import *
 
+SET_UNICODE_OUT('utf-8')
+
+header = HEAD(TITLE(_("Virtual hosts management"))+ \
+    META(http_equiv="Content-Type",content="text/html; charset=utf-8")+ \
+    LINK(rel="stylesheet",href="../admin.css"))
+
 def index():
-    print HEAD(TITLE(_("Virtual hosts management"))+
-        LINK(rel="stylesheet",href="../admin.css"))
-    print A(_("Home"),href="../index.ks")
+    print header
+    print A(_("Home"),href="/")
     print H1(_("Virtual hosts management"))
     for host in k_config.config:
         if not k_utils.is_default_host(host):
@@ -34,8 +39,7 @@ def remove(host):
     raise HTTP_REDIRECTION,"index"
 
 def new_host():
-    print HEAD(TITLE(_("Virtual hosts management"))+
-        LINK(rel="stylesheet",href="../admin.css"))
+    print header
     print H1(_("New virtual host"))
     lines = TR(TD(_("Host name"))+TD(INPUT(name="host_name")))
     lines += TR(TD(_("Set default aliases"))+
@@ -47,8 +51,7 @@ def new_host():
     print FORM(TABLE(lines)+subm,action="create_host",method="POST")
 
 def create_host(**kw):
-    print HEAD(TITLE(_("Virtual hosts management"))+
-        LINK(rel="stylesheet",href="../admin.css"))
+    print header
     if kw["subm"] == _("Cancel"):
         raise HTTP_REDIRECTION,"index"
     # test if a host with this name already exists
@@ -103,7 +106,10 @@ def create_host(**kw):
     k_config.init()
     
     print "New host %s added" %host_name
-    print BR()+A(_("Test it"),href="http://%s" %host_name)
+    href = "http://%s" %host_name
+    if CONFIG.port != 80:
+        href = "http://%s:%s" %(host_name,CONFIG.port)
+    print BR()+A(_("Test it"),href=href)
     print BR()+A(_("Back"),href="index")
     
     

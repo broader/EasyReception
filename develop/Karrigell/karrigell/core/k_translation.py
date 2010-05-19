@@ -1,7 +1,7 @@
 import os
 import cPickle
 import k_config
-
+    
 class Translation:
 
     def __init__(self,config):
@@ -15,20 +15,23 @@ class Translation:
     def translation(self,src,headers):
         # translate source src into the language specified in the
         # accept-language header
+        # if no translation is defined, or no language specified in headers,
+        # return None
         if not self.config.language:
             if not "accept-language" in headers:
-                return src
+                return None
             else:
                 t_dict = self.get_translations()
                 if not src in t_dict:
-                    return src
+                    return None
                 else:
                     langs = headers["Accept-language"].split(",")
                     for lang in langs:
                         language = lang.split(";")[0]
+                        language = language.split('-')[0]
                         if language in t_dict[src]:
                             return t_dict[src][language]
-                    return src
+                    return None
         else:
             return self.translate_into(src,k_config.language)
 
@@ -53,7 +56,7 @@ class Translation:
 
     def translate_into(self,t_dict,src,language):
         if not src in t_dict or not language in t_dict[src]:
-            return src
+            return None
         else:
             return t_dict[src][language]
 

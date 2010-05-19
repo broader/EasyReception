@@ -1,0 +1,141 @@
+<script src="../pf_test.js"></script>
+
+<h1><%= chapter %>. Directories</h1>
+<p>La distribution Karrigell est organisée en répertoires. Ils sont définis par défaut quand vous installez le paquetage, mais vous pouvez changer ces valeurs dans les fichiers de configuration
+
+<h3><%= chapter %>.1 Structure des répertoires par défaut</h3>
+
+<table border="1">
+<tr>
+<th>Fichiers et répertoires</th>
+<th>Nom du répertoire</th>
+<th>Commentaires</th>
+</tr>
+
+<tr>
+<td valign="top">
+<pre>
+  Karrigell.py
+  server_config.py
+  default_host_conf.py
+  hosts
+</pre>
+</td>
+
+<td valign="top">Répertoire Serveur</td>
+<td valign="top">
+Au niveau le plus élevé de la distribution se trouvent les scripts qui gèrent le serveur web intégré :
+<ul>
+<li><span class="file">Karrigell.py</span> et les autres scripts qui lancents les serveurs intégrés
+<li><span class="file">server_config.py</span> définit les options du serveur
+<li><span class="file">default_host_conf.py</span> décrit les options de configuration par défaut pour les hôtes
+<li><span class="file">hosts</span> est un fichier texte qui fait correspondre les noms d'hôte avec l'emplacement de leur fichier de configuration
+</ul>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<pre>
++ karrigell
+  + core
+  + package
+  + ...
+</pre>
+</td>
+
+<td valign="top">Répertoire Karrigell</td>
+<td valign="top">
+Les script du canevas Karrigell
+<ul>
+<li><span class="file">core</span> : scripts du "coeur" de Karrigell
+<li><span class="file">package</span> : modules qui peuvent être importés par les scripts définis par l'utilisateur
+</ul>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<pre>
++ data
+  + www
+      + sessions
+      conf.py      
+</pre>
+</td>
+
+<td valign="top">Répertoire de données</td>
+<td valign="top">
+Stocke toutes les informations liées aux hôtes définis pour le serveur
+<br>Les données pour l'hôte par défaut (localhost) est stockée dans le sous-répertoire
+<span class="file">www</span>
+<ul>
+<li><span class="file">conf.py</span> : options de configuration pour cet hôte
+<li><span class="file">sessions</span> : un répertoire dans lequel les informations de sessions sont stockées
+<li>les fichiers de traces, la base de données des utilisateurs sont aussi stockées dans ce sous-répertoire
+</ul>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<pre>
++ www
+    index.pih
+    ...
+</pre>
+</td>
+
+<td valign="top">Répertoire racine pour l'hôte par défaut(localhost)</td>
+<td valign="top">
+Il s'agit du répertoire racine pour l'hôte par défaut (localhost) : le chemin où on va chercher les fichiers appelés par les urls commençant par http://localhost
+<br>Ce répertoire contient le script <span class="file">index.py</span>, qui est utilisé quand on entre l'url http://localhost dans le navigateur (le mécanisme de résolution d'URL
+recherche des fichiers d'index quand l'URL correspond à un répertoire)
+<br>Notez que le nom de ce répertoire racine est <span class="file">www</span>,
+le même que le nom du sous-répertoire du Répertoire de données où sont stockées les informations relatives à cet hôte</td>
+</tr>
+
+<tr>
+<td valign="top">
+<pre>
++ common
+  + admin
+  + demo
+  + doc
+  + ...
+</pre>
+</td>
+
+<td valign="top">Répertoire commun</td>
+<td valign="top">
+Ce répertoire contient les scripts qui peuvent être utilisés par différents hôtes, par
+exemple les services d'administration
+<br>Bien qu'ils ne soient pas situés dans le répertoire racine d'un hôte particulier, ils peuvent être servis par une url du type http://localhost/admin en utilisant un alias défini dans le fichier de configuration <span class="file">conf.py</span> pour un hôte donné
+</td>
+</tr>
+
+</table>
+
+</pre>
+<p>
+
+<h3><%= chapter %>.2 Personnalisation</h3>
+
+<p>Si vous voulez personnaliser les répertoires dans lesquels vous stockez les informations propres au serveur ou aux hôtes, voici ce qu'il faut faire :
+
+<ul>
+<li>pour changer le répertoire du script <span class="file">server_config.py</span>,
+démarrer le serveur intégré avec un argument additionnel sur la ligne de commande :
+<p>
+<div class="verbatim">
+<pre>
+python Karrigell.py [RepertoireConfigServeur]
+</pre>
+</div>
+
+<li>pour changer le répertoire du fichier <span class="file">hosts</span>,
+editer la valeur de <code>host_conf_dir</code> dans <span class="file">server_config.py</span>
+
+<li>pour changer l'emplacement du répertoire de données pour l'hôte par défaut, éditer la valeur de <code>data_dir</code> dans le script de configuration pour cet hôte
+
+</ul>

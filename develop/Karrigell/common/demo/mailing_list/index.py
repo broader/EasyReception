@@ -10,4 +10,4 @@ body += A(_("Set/Change smtp server address"), href='mailing/SetSmtpServer?redir
 body += A(_("Set/Change timeouts"), href='mailing/SetTimeouts?redir_to=%s'%THIS.url) + BR()
 #body += A(_("List management"), href='mailing_management/management?redir_to=%s'%THIS.url) + BR()
 
-print HTML(head+body)
+print HTML(head+BODY(body))

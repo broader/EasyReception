@@ -1,8 +1,5 @@
 from HTMLTags import *
 
-#relPath = lambda p : p.split('/')[0]
-#model = Import('/'.join((relPath(THIS.baseurl), 'model.py')), REQUEST_HANDLER=REQUEST_HANDLER)
-
 modules = {'pagefn' : 'pagefn.py'}
 [locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items()]	
 	

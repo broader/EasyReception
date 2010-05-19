@@ -95,7 +95,7 @@ class CookieStore:
         scheme,location, path, parameters, query, frag_id = \
             urlparse.urlparse(url)
         for key,morsel in stored_cookies.iteritems():
-            if not morsel["path"]:
+            if not morsel["path"] or morsel['path']=="/":
                 valid_cookies.append((key,morsel))
                 continue
             cookie_path_elts = morsel["path"].split("/")
@@ -142,7 +142,7 @@ class URL:
                 raise BadResponse, \
                     "error for %s : \nexpected result [%s], \nreturned result [%s]" \
                     %(self.url,self.result,result)
-        print ": ok"            
+        print ": ok"
     
 class Config:
 
@@ -151,19 +151,22 @@ class Config:
         self.host = "localhost"
         self.conf = conf
         # default config
-        Karrigell.k_config.config[self.host] = Karrigell.k_config.config[None]
+        #Karrigell.k_config.config[self.host] = Karrigell.k_config.config[None]
         # update with specified values
         Karrigell.k_config.config[self.host].update(conf)
         Karrigell.k_config.config[self.host].alias.update({"test":this_dir})
         Karrigell.k_config.config[self.host].data_dir = this_dir
+        config = Karrigell.k_config.config[self.host]
+        Karrigell.k_config.k_sessions.init_config_session(config)
+        #print Karrigell.k_config.config[self.host].global_modules
             
     def test(self,urls):
         print "\nTesting %s %s\n" %(self.host,self.conf)
-        server = Karrigell.ThreadingServer('',self.port,Karrigell.handler)
+        server = Karrigell.ThreadingServer('',self.port,Karrigell.handler,False)
 
         if not Karrigell.k_config.config[self.host].silent:
             sys.stderr.write("Karrigell %s running on port %s\n" \
-                %(Karrigell.HTTP.__version__,self.port))
+                %(Karrigell.k_version.__version__,self.port))
             sys.stderr.write("Press Ctrl+C to stop\n")
 
         thread.start_new_thread(server.run,())
@@ -187,8 +190,10 @@ class Config:
             try:
                 assert mtimes == new_mtimes
             except:
-                raise BadResponse,"persistent_sessions is False but "\
-                    "Session files have been modified"
+                sys.stdout.write("persistent_sessions is False but "\
+                    "Session files have been modified","error")
+                raw_input()
+                sys.exit()
 
 port = 8082
 sys.stdout = stdout
@@ -200,25 +205,28 @@ default_file = os.path.join(karrigell_dir,"core","default_conf.py")
 
 cookies = CookieStore()
 
-urls = [("",302),("index.ks",200),("undefined.xxx",404),
-    ("test/echo.py",200,{"name":"azertu"},"azertu\n"),
-    ("test/echo.py?name=sdfgh",200,{},"sdfgh\n"),
-    ("test/session1.py?name=pierre",200),
-    ("test/session2.py",200,{},"pierre\n"),
-    ("test/importError",200,{},Contains("ImportError")),
-    ("test/includeError",200,{},Contains("IOError")),
-    ("test/global.py",200,{},Not("azertu\n"))
+urls = [("",200),("/index.py",200),("/undefined.xxx",404),
+    ("/test/echo.py",200,{"name":"azertu"},"azertu\n"),
+    ("/test/echo.py?name=sdfgh",200,{},"sdfgh\n"),
+    ("/test/session1.py?name=pierre",200),
+    ("/test/session2.py",200,{},"pierre\n"),
+    ("/test/importError",200,{},Contains("ImportError")),
+    ("/test/includeError",200,{},Contains("IOError")),
+    ("/test/pages.pdl",403),
+    ("/test/global.py",200,{},Not("azertu\n"))
     ]
-Config(port).test(urls)
+c=Config(port)
+c.test(urls)
 
 Config(port,conf={"silent":True}).test(urls)
+
 
 # test with global modules
 conf = Config(port,conf={"global_modules":[os.path.join(this_dir,"aaa.py")],
     "silent":False})
 # the last test should return a value
 urls.pop()
-urls.append(("test/global.py",200,{},"azertu\n"))
+urls.append(("/test/global.py",200,{},"azertu\n"))
 
 conf.test(urls)
 
@@ -226,5 +234,4 @@ conf.test(urls)
 conf = Config(port,conf={"persistent_sessions":False,
     "global_modules":[os.path.join(this_dir,"aaa.py")]})
 conf.test(urls)
-
 raw_input()

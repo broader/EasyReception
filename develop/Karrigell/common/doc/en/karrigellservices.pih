@@ -1,26 +1,52 @@
-<html>
-<head>
-<title>Karrigell Services</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="STYLESHEET" href="lib.css">
-<style type="text/css">
-<!--
-dl {  background-color: #FFFFCC; border-width: 1; border-style:solid;}
--->
-</style></head>
-
-<body>
-
 <h1><%= chapter %>. Karrigell Services</h1>
 
+<h3><%= chapter %>.1 Definition</h3>
+
 <p>"Karrigell Services" are Python scripts which can handle several URLs, so that
-a complete service with different HTML pages can be created with just one script
-<p>To achieve this, the functions in a Karrigell service match a URL : the
-function <code>foo()</code> in the script <code>dummy.ks</code> is called by the URL
-<span class="url">dummy.ks/foo</span>
-<p>To call the method <code>foo(arg1,arg2)</code> the URL must be like 
-<span class="url">dummy.ks/foo?arg1=val1&arg2=val2</span> or called by a form with 
-fields <code>arg1</code> and <code>arg2</code>
+a complete service with different HTML pages can be created with just one script.
+<b>They are the most recommended way of writing scripts with Karrigell</b>, for
+ease of programming (access to user value is more straightforward) and maintenance
+(the logic of the whole application is defined in one script)
+
+<p>To achieve this, each function defined at the module level in a Karrigell service 
+matches a URL : the function <code>foo()</code> in the script <code>dummy.ks</code> 
+is called by the URL <span class="url">dummy.ks/foo</span>
+
+<p>This makes passing values from one page to another very straightforward : if
+a page has a link like
+
+<div><pre class="verbatim">&lt;A HREF="script.ks/foo?bar=99"&gt;</pre></div>
+<p>the script will handle the value by defining is as it argument :
+
+<div class="python"><pre>def foo(bar):
+    print bar
+</pre></div>
+
+<p>Form values are handled in a similar way :
+
+<p>
+<div><pre class="verbatim">&lt;FORM ACTION="script.ks/foo"&gt;
+&lt;INPUT NAME="bar"&gt;
+&lt;INPUT TYPE="submit" VALUE="Ok"&gt;
+</pre></div>
+
+<p>The same script as above will manage the value entered by the user :
+<p>
+<div class="python"><pre>def foo(bar):
+    print bar
+</pre></div>
+
+<p>The names defined as arguments to the function must be the same as
+those defined in the link or the form ; the function can also use default values
+like in ordinary Python scripts, in case no value was sent by the browser :
+
+<p>
+<div class="python"><pre>def foo(arg1,arg2=None):
+    print "First argument",arg1
+    if arg2 is not None:
+    	print "Second argument",arg2
+</pre></div>
+
 
 <p>If no function is specified, Karrigell searches for a function called 
 <code>index()</code> with no argument
@@ -29,24 +55,13 @@ fields <code>arg1</code> and <code>arg2</code>
 defined in the ks script, and whose definition starts at the column 0 in the source 
 code, can be called
 
-<p>If you need to define functions inside the script but don't want them to be
-called by a url, prefix them by an underscore (_)
-
-<p>
-<div class="verbatim">
-<pre class="verbatim">
-def _private(value):
-   """Private function - can't be called from the outside"""
-   return value+1
-
-</pre>
-</div>
+<h3><%= chapter %>.2 Building applications</h3>
 
 <p>To "jump" from one function to another, just specify the function name in a link or 
 a form action :
 
 <p>
-<div class="verbatim">
+<div class="python">
 <pre class="verbatim">
 def index():
    print '&lt;a href="foo?name=bar"&gt;go to foo&lt;/a&gt;'
@@ -61,13 +76,31 @@ def foo(name):
 methods, the relative URL for files or scripts in the <b>same</b> directory as a ks script 
 must be prefixed by "../"
 
-<p>All the HTTP environment, form fields, custom exceptions, functions for authentication,
+<p>All the HTTP environment, custom exceptions, functions for authentication,
 session handling etc. are the same as in Python scripts
 
-<p>Here is an example of a simple Karrigell Service :
+<h3><%= chapter %>.3 "Private" functions</h3>
+
+<p>If you need to define functions inside the script but don't want them to be
+called by a url, prefix them by an underscore (_)
 
 <p>
-<div class="verbatim">
+<div class="python">
+<pre class="verbatim">
+def _private(value):
+   """Private function - can't be called from the outside"""
+   return value+1
+
+</pre>
+</div>
+
+<h3><%= chapter %>.4 Example</h3>
+
+<p>Here is an example of a simple Karrigell Service, using session management
+and HTTP redirection :
+
+<p>
+<div class="python">
 <pre class="verbatim">
 so = Session()
 if not hasattr(so, 'x'):
@@ -98,6 +131,3 @@ def _private(x):
 
 </pre>
 </div>
-
-</body>
-</html>

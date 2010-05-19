@@ -1,14 +1,3 @@
-<html>
-<head>
-<title>Web server options</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="STYLESHEET" href="lib.css">
-<style type="text/css">
-<!--
--->
-</style></head>
-
-<body>
 <script src="../pf_test.js"></script>
 
 <h1><%= chapter %>. URL Resolution</h1>
@@ -27,7 +16,7 @@ field of the browser ; you should see the file displayed in the browser</p>
 <h2><%= chapter %>.2 Alias</h2>
 
 <p>To reach files out of the Root Directory, use aliases (see 
-<%= make_link("configuration options","configuration") %>
+<%= make_link("configuration options","configuration") %>)
 
 <h2><%= chapter %>.3 Default file extensions</h2>
 
@@ -41,13 +30,9 @@ file is found, an exception is raised too
 
 <p>If no file name is specified and the url matches a directory, the server looks for a file
 with the name <span class="file">index.html, index.htm, index.py, index.pih, index.hip</span>
-or <span class="file">index.ks</span>. If it doesn't find one, it prints a list of the
-subfolders and files in the directory; if it finds more than one, it raises an exception
-
-
-</body>
-</html>
-
-
-
-
+or <span class="file">index.ks</span>. If it fonds one, it is used to build the response ; 
+if it finds more than one, it raises an exception
+<p>If it doesn't find one, the behaviour depends on the option
+<code>allow_directory_listing</code> in the <%= make_link("configuration options",
+"configuration") %> : depending on its value, either a list of directories and files is
+displayed, or an error message is sent back

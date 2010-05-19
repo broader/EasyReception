@@ -42,13 +42,17 @@ MUI.extend({
 	Close old session of this application.
 	***********************************************************************************/
 	appInit: function(){
+		
+		//** to be removed
+		
 		// remove old cookie		
 		var name = '<%=pagefn.COOKIENAME %>';		
 		if(Cookie.read(name) != null){
 			Cookie.dispose(name);
 		};
 		// close old session object
-		initRequest = new Request.HTML().get('<%=pagefn.LAYOUTURLS[-1] %>');
+		new Request.HTML().get('<%=pagefn.LAYOUTURLS[-1] %>');
+		
 	},
 	
 	// a plugin to close single popup dialog window, such as login or register dialog 

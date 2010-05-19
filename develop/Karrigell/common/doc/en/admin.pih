@@ -1,15 +1,3 @@
-<html>
-<head>
-<title>Administration</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="STYLESHEET" href="lib.css">
-<style type="text/css">
-<!--
-dl {  background-color: #FFFFCC; border-width: 1; border-style:solid;}
--->
-</style></head>
-
-<body>
 <script src="../pf_test.js"></script>
 
 <h1><%= chapter %>. Administration</h1>
@@ -18,9 +6,8 @@ The administration interface allows the host administrator to update
 the configuration parameters, to edit scripts online, to enter string 
 translations, and to create database management programs
 
-<p>To access the administration interface, type in 
-<code>http://hostname/admin</code> in the address field of your 
-browser
+<p>To access the administration interface, you must login as administrator,
+using the link <a href="">Login</a> on the home page
 
 <h3><%= chapter %>.1 Administrator login / password</h3>
 
@@ -40,6 +27,10 @@ and a password for the host administrator :
 <TD>
 <INPUT name="login"></TD></TR>
 <TR>
+<TD>E-mail</TD>
+<TD>
+<INPUT name="email" size="50"></TD></TR>
+<TR>
 <TD>Password</TD>
 <TD>
 <INPUT Type="password" name="passwd1"></TD></TR>
@@ -58,17 +49,16 @@ and a password for the host administrator :
 
 <h3><%= chapter %>.2 Administration menu</h3>
 
-<p>Once they are set, you enter the administration menu
+<p>Once they are set, you will see the administration menu on the home page
 
 <BLOCKQUOTE>
 <table style="background-color:#F0F0F0">
 <tr><td>
-<A href="">Home</A><H2>Administration</H2>
+<H2>Administration</H2>
 <A href="">Configure</A>
 <BR><A href="">Script editor</A>
 <BR><A href="">Translations</A>
 <BR><A href="">Users management</A>
-<BR><A href="">Database management</A>
 <BR><A href="">Virtual hosts management</A>
 </tr></td></table>
 </BLOCKQUOTE>
@@ -97,7 +87,7 @@ in the web browser options. The translation of the strings can be edited, and sa
 by clicking on button "Ok"
 
 <p>
-<img src="../images/internat.png" border=0>
+<img src="../../images/internat.png" border=0>
 <p>You can check the effect by calling the script you've just modified and 
 changing the language order in the preferences
 
@@ -106,18 +96,8 @@ changing the language order in the preferences
 <p>This script allows the host administrator to manage the users database : add or remove
 users, change their roles, add new roles, etc
 
-<h3><%= chapter %>.7 Database management</h3>
-
-<p>A powerful online database manager for creating databases, editing their structure,
-create / remove / modify records, create requests and views. The database engines
-currently supported are PyDbLite, SQLite and MySQL
-
-<h3><%= chapter %>.8 Virtual hosts management</h3>
+<h3><%= chapter %>.7 Virtual hosts management</h3>
 
 <p>This tool allows the server administrator to create and remove 
 <%= make_link("virtual hosts","virtualhosts") %> online  and set some of the basic 
 configuration options
-</body>
-</html>
-
-

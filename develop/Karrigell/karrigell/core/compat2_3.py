@@ -15,8 +15,7 @@ def set_old(target):
 
     for old,new in (("serverDir","server_dir"),
         ("rootDir","root_dir"),
-        ("outputEncoding","output_encoding"),
-        ("encode_form_data","encode_input")):
+        ("outputEncoding","output_encoding")):
             setattr(target.handler.config,old,
                 getattr(target.handler.config,new))
 

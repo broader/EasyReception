@@ -1,14 +1,3 @@
-<html>
-<head>
-<title>Web server options</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="STYLESHEET" href="lib.css">
-<style type="text/css">
-<!--
--->
-</style></head>
-
-<body>
 <script src="../pf_test.js"></script>
 
 <h1><%= chapter %>. Virtual Hosts</h1>
@@ -68,7 +57,7 @@ Directory to this new subdirectory, and rename it to <span class="file">conf.py<
 <li>edit this script <span class="file">conf.py</span>
 to update the values of <code>root_dir</code> and <code>data_dir</code> :
 
-<div class="verbatim">
+<div class="python">
 <pre>root_dir = os.path.join(server_dir,"foo")
 data_dir = os.path.join(server_dir, "data","foo")
 </pre></div>
@@ -78,7 +67,7 @@ Directory and add a new line with the host name and the path to the configuratio
 
 <div class="verbatim">
 <pre>
-foo /usr/Karrigell-3.0/data/foo
+foo /usr/Karrigell-<%= version %>/data/foo/conf.py
 </pre>
 </div>
 
@@ -91,6 +80,3 @@ create and remove virtual hosts online
 Directory and Data Directory for a new host anywhere in your file system.
 In this case, you will have to customize the configuration scripts as mentioned
 in the previous section
-
-</body>
-</html>

@@ -36,14 +36,17 @@ class LimitedDict(dict):
         			first = self.keys.pop(0)
         			del self[first]
         		except:
-        			print 'The session key %s is not existed !'%first 
+        			print 'The session key %s is not existed ! now first session id in session pool is %s'%(first,self.keys[0])
 
 class SessionObject(object):
 
     def __init__(self, expires = 15):
         """Create a session object. If it has not been reset in the last
         "expires" minutes it is removed from the database the next time
-        it is opened"""
+        it is opened.
+	Parameters:
+	expires - the expired time length that count by seconds.
+	"""
         self._expires = expires
         self._timestamp = time.time()
 
@@ -101,6 +104,7 @@ def remove_old_sessions(config):
 
 def get_session_object(config,session_id,expires):
     if config.persistent_sessions:
+	# remove older or expired sessions? Ask by B.Z
         remove_old_sessions(config)
         path = os.path.join(config.data_dir,"sessions",session_id)
         try:
@@ -130,6 +134,11 @@ def make_session_object(config,expires):
 def save_session_object(config,session_id,session_obj):
     if config.persistent_sessions:
         path = os.path.join(config.data_dir,"sessions",session_id)
+	print 'k_sessions.py,save_session_object(),persistent option'
+	print 'session %s attributes are %s'%(session_id, dir(session_obj))
+	if hasattr(session_obj, 'userinfo'):
+		print getattr(session_obj, 'userinfo')
+
         slock.acquire()
         out = open(path,"wb")
         cPickle.dump(session_obj,out,cPickle.HIGHEST_PROTOCOL)

@@ -1,0 +1,79 @@
+[]
+# -*- coding: utf_8 -*-
+STDOUT("/*\nINITIALIZE THE USER\'S MENUS\n*/\n")
+# PYTHON CODE SLICE
+# get meus stored in pagefn.py
+pagefn = Import('/'.join(('', 'pagefn.py')))
+# initialize some page variables
+loginApp, layoutUrls, sidePanelPrefix = \
+[getattr(pagefn,name) for name in ('LOGINAPPNAME', 'LAYOUTURLS', 'SIDEPANELPREFIX')]
+logoutUrl = layoutUrls[-1]
+sideBar, mainColumn = pagefn.COLUMNS
+STDOUT("// the id of main panel in right main column\nvar mainPanelId = \'")
+STDOUT(str(pagefn.PANELSID['main']))
+STDOUT("\';\n// get the global Assets manager\nvar am = MUI.assetsManager;\n/*\nInitialize the top navigation info on the top right of the screen, \nthen switch the menu according user\'s login status.\n*/\nfunction topNavSwitch(login){\n	var topNav = $(\'")
+STDOUT(str(pagefn.LOGINPANEL))
+STDOUT("\')\n	var children = topNav.getChildren();\n	var url = \'")
+STDOUT(str(layoutUrls[0]))
+STDOUT("\';\n	switch(login){\n		case true:			\n			if(children.length < 2){\n				// append welcom information to top navigation bar\n				var span = new Element(\'span\');\n				span.load(url);			\n				topNav.grab(span);\n				topNav.getElements(\'ul\')[0].setProperty(\'style\',\'display:none;\');\n			}\n			else{\n				// just insert content to the welcome information container and \n				// envisible the container element\n				children[0].setProperty(\'style\',\'display:none;\');\n				children[1].load(url).setProperty(\'style\',\'display:block;\');\n			}\n			break\n		case false:\n			// delete the content in the welcome information container and \n			// make it invisible\n			children[0].setProperty(\'style\',\'display:block;\');\n			children[1].setProperties({\n				\'html\': \'\',\n				\'style\': \'display:none;\'\n			});\n			break\n	}\n};\n/*********************************************************************************\nInitialize menus\nParameters:\n	data - a Array instance, for which format is [{\'text\':\'..\',\'function\':\'...\'},]\n**********************************************************************************/\nfunction menuSet(data){	\n	var ul = new Element(\'ul\');\n	data.each(function(menu){\n		li = new Element(\'li\');			\n		a = new Element(\'a\',{\n			\'html\': menu[\'text\'],\n		 	\'class\':\'returnFalse\',\n		 	\'style\':\'text-decoration:none;\',\n		 	\'href\': \'\',\n			\'events\': {\n				\'click\': window[menu[\'function\']]\n			}\n		});\n		a.inject(li);		\n		li.inject(ul);		\n	});\n	$(\'")
+STDOUT(str(pagefn.MENUCONTAINER))
+STDOUT("\').grab(ul,\'top\');\n};\n/*\n**	Initialize menu by json data from server side\n*/\nfunction menuInit(){\n	var menurl = \'")
+STDOUT(str(layoutUrls[1]))
+STDOUT("\';\n	var data = new Request.JSON({\n		async: false,\n		url: menurl, \n		onSuccess:function(json,html){			\n			am.import(\n				{	\'url\':json[\'js\'],	// load the menus\' corresponding clickable functions\n					\'app\':\'")
+STDOUT(str(loginApp))
+STDOUT("\',\n					\'type\':\'js\'\n				},\n				{\n					onload: function(){						\n						menuSet(json[\'data\']);	// set the menus\' text\n					}\n				}\n			);\n		}\n	}).get();\n};\n/*\nInitialize layout in main window\n*/\n// Add two columns, one is sidebar and the other is the main column.\nfunction addColumns(){\n	/*\n	All these two MUI.Column instance are to be added to MUI.Desktop.pageWrapper, \n	so it\'s no need to set \'container\' option when initializing these two\n	MUI.Column instances.\n	*/\n	// first, add columns to main window of the desktop	\n	new MUI.Column({\n		id:\'")
+STDOUT(str(sideBar))
+STDOUT("\', placement:\'left\', width:200, \n		resizeLimit:[100, 300], sortable: true\n	});\n	new MUI.Column({ \n		id:\'")
+STDOUT(str(mainColumn))
+STDOUT("\', placement:\'main\',\n		resizeLimit:[100, 500], sortable: false\n	});\n	// add the main MUI.Panel to the main MUI.Column\n	new MUI.Panel({\n		id: mainPanelId, header:false, column: \'")
+STDOUT(str(mainColumn))
+STDOUT("\'\n	});\n};\n// Add panels to columns\nfunction layoutInit(){	\n	// get panels on the left column\n	var panelsDataUrl = \'")
+STDOUT(str(layoutUrls[2]))
+STDOUT("\';\n	var data = new Request.JSON({\n		url: panelsDataUrl, \n		onSuccess:function(json,html){					\n			am.import(\n				{\n					\'url\':json[\'js\'],	// load the functions for the events of sidePanels\n					\'app\':\'")
+STDOUT(str(loginApp))
+STDOUT("\',\n					\'type\':\'js\'\n				},\n				{\n					onload: function(){	// arrange the panels in left side bar\n						addColumns();						\n						var sideColumn = \'")
+STDOUT(str(sideBar))
+STDOUT("\',\n						panelsNumber = json[\'data\'].length;\n						json[\'data\'].each(function(item,index){														\n							var pid = [\'")
+STDOUT(str(sidePanelPrefix))
+STDOUT("\', item[\'id\']].join(\'-\'),\n							text=item[\'text\'], url=item[\'contentURL\'], \n							expandfn=item[\'onExpand\'], collapse=item[\'onCollapse\'];\n							// add panels for left column\n							var panel = new MUI.Panel({\n								id:pid, title:text, contentURL:url, \n								onExpand:window[expandfn].pass(pid),\n								onCollapse: window[collapse].pass(pid),								\n								column: sideColumn,								\n								onContentLoaded: function(){}\n							});\n							// collapse others panels, only left the first panel expand\n							if(index != 0){panel.toggleExpand();};\n						});					\n					}\n				}\n			);\n		}\n	}).get();	\n};\n// Add some assistant tools to MUI\nMUI.extend({\n	/* Prepare  the login menus */\n	login: function(){\n		var menuChain = new Chain();\n		menuChain.chain(\n			topNavSwitch(true),\n			menuInit(),\n			layoutInit()			\n		).callChain();\n	},\n	// logout function\n	logout: function(event){\n		new Event(event).stop();\n		MUI.notification(\'Really log out?\');\n		// remove menus in menu bar\n		$(\'")
+STDOUT(str(pagefn.MENUCONTAINER))
+STDOUT("\').getElement(\'ul\').dispose();\n		// reset the top navigation info\n		topNavSwitch(false);\n		// remove the columns in main window\n		MUI.Columns.instances.getKeys().each(function(key,index){\n			// Only the first two key ( the ids of side column and main column )\n			// are the reall existed MUI.Column instance,\n			// others should be no existed.\n			var columns = [\'")
+STDOUT(str(sideBar))
+STDOUT("\',\'")
+STDOUT(str(mainColumn))
+STDOUT("\'];\n			if(columns.contains(key)){ MUI.closeColumn($(key));};\n		});\n		// clear the hash objects that save MUI.Column  instances and MUI.Panel instances\n		MUI.Columns.instances.empty();\n		MUI.Panels.instances.empty();\n		// remove all the imported mootools.Assets\n		MUI.assetsManager.remove(\'")
+STDOUT(str(loginApp))
+STDOUT("\', \'app\');\n		// close session object on server side\n		new Request.HTML().get(\'")
+STDOUT(str(logoutUrl))
+STDOUT("\');\n		// application initialization, including closing old session and removing old cookie\n		MUI.appInit();\n	},\n	// set the id for the main MUI.Panel\n	mainPanelId: mainPanelId,\n	// remove all the MUI.Columns in the main panel\n	clearMainPanel: function (){	\n		MUI.Columns.instances\n		.filter(function(column,key){		// filter the instances whose element has been removed			\n			return $(column.options.id) != null;\n		})\n		.each(function(column){			\n			if(column.options.container.id == mainPanelId){\n				MUI.closeColumn($(column.options.id));\n			}\n		});\n	},\n	/*\n	// refresh the main MUI.Panel. Is it used ???\n	refreshMainPanel: function(){\n		MUI.Panels.instances\n		.filter(function(panel,key){\n			if( key == mainPanelId )\n				return false;\n			else if( MUI.Columns.instances.get(panel.options.column).options.container.id == mainPanelId)\n				return true;\n			else\n				return false;			\n		})\n		.each(function(panel){\n			panel.newPanel();\n		});\n	},\n	*/\n	// refresh the content of the specifized MUI.Panle by its panel ID\n	refreshPanel: function(panelId){\n		MUI.Panels.instances\n		.filter(function(panel,key){\n			if( key == panelId)\n				return true;\n			else\n				return false;			\n		})\n		.each(function(panel){\n			panel.newPanel();\n		});\n	},\n	// collapse all other panels, only left user selected panel\n	accordionPanels: function(selectedId){\n		// get the MUI.Column of this MUI.Panel\n		var column = MUI.Panels.instances.get(selectedId).options.column;\n		MUI.Panels.instances.each(function(panel){\n			if (panel.options.column != column){\n				return\n			};\n			if (panel.options.id != selectedId && panel.isCollapsed != true ){\n				panel.toggleExpand();\n			};\n		});\n	},\n	// initialzie actions before expand a MUI.Panel in the left side bar\n	initPanel: function(panelId){\n		// remove error tips which generated by \"FormCheck\" lib\n		MUI.removeErr();\n		// collapsed others MUI.Panels\n		MUI.accordionPanels(panelId);\n		// empty the main Panel which is to be used to show main page\n		MUI.clearMainPanel();\n	},\n	// judge file type by its name\n	fileType: function(url){\n		fileType = \'\';\n		if(url.contains(\'.css\')){fileType=\'css\';}\n		else if(url.contains(\'.js\') || url.contains(\'.js.pih\')){fileType=\'js\';}		\n		return fileType\n	},\n	/***************************************************************\n	A common function to handle import aciton for Mootools.Assets.\n	Here we assume that there is only one \'js\' file.\n	****************************************************************/\n	import: function(appName,urls,options){\n		// get the global Assets manager\n	   	var am = MUI.assetsManager;		\n		urls.each(function(src){\n			fileType = MUI.fileType(src);	\n			if(fileType == \'css\'){\n				if(!$defined(am.imported[src])){\n	    				am.import({\'url\':src,\'app\':appName,\'type\':\'css\'});	\n				};\n			}\n			else if(fileType == \'js\'){\n				if(!$defined(am.imported[src])){\n					am.import({\'url\':src,\'app\':appName,\'type\':\'js\'},options);\n				}\n				else{\n					// this plugin files have been imported,\n					// so just run the function\n					fn = options.onload;					\n					if($defined(fn)){fn();}\n				};	   \n			};			\n		});	   \n	},\n	/******************************************************************\n	Imports form validation lib and sets initial actions.	\n	*******************************************************************/\n	formValidLib: function(appName, options){\n		// get lib files\n		var urls = [];\n")
+for url in pagefn.JSLIB['formValid']['files'] :
+ STDOUT("			urls.push(\'")
+ STDOUT(str(url))
+ STDOUT("\');\n")
+STDOUT("		// get the global Assets manager\n	   var am = MUI.assetsManager;\n	   // import css file for validation\n	   urls.slice(0,2).each(function(src){\n	   	if(!$defined(am.imported[src])){\n	    		am.import({\'url\':src,\'app\':appName,\'type\':\'css\'});\n	    	}	\n		});\n		// i18n file of this lib\n		url = urls[2];\n	   if(!$defined(am.imported[url])){\n	   	am.import({\'url\':url,\'app\':appName,\'type\':\'js\'});\n	   };\n	   // the really validation functions\n		am.import({\'url\':urls[3],\'app\':appName,\'type\':\'js\'},options);\n	},\n	/*********************************************************************\n	Imports treeTable lib and sets initial actions.	\n	**********************************************************************/\n	treeTable: function(appName,options){\n		// get lib files\n		var urls = [];\n")
+for url in pagefn.JSLIB['treeTable']['files'] :
+ STDOUT("			urls.push(\'")
+ STDOUT(str(url))
+ STDOUT("\');\n")
+STDOUT("		MUI.import(appName,urls, options);\n	},\n	/***********************************************************************\n	Imports grid lib and sets initial actions.\n	************************************************************************/\n	dataGrid: function(appName, options){\n		// get lib files\n		var urls = [];\n")
+for url in pagefn.JSLIB['dataGrid']['files'] :
+ STDOUT("			urls.push(\'")
+ STDOUT(str(url))
+ STDOUT("\');\n")
+STDOUT("		MUI.import(appName,urls,options);\n	},\n	/***********************************************************************\n	Imports TextMultiCheckbox plugin\n	************************************************************************/\n	textMultiCheckbox: function(appName, options){\n		// get lib files\n		var urls = [];\n")
+for url in pagefn.JSLIB['textMultiCheckbox']['files'] :
+ STDOUT("			urls.push(\'")
+ STDOUT(str(url))
+ STDOUT("\');\n")
+STDOUT("		MUI.import(appName,urls,options);\n	},\n	/**********************************************************************\n	Import InlineEdit plugin files and initialize corresponding Elements.\n	***********************************************************************/\n	inlineEdit: function(appName, elsArray){\n		options = {\n			onload: function(){\n				elsArray.each(function(elObject){\n					editEl = new InlineEditElement(elObject.element, elObject.options);\n				});\n			}\n		};\n		// get lib files\n		var urls = [];\n")
+for url in pagefn.JSLIB['inlineEdit']['files'] :
+ STDOUT("			urls.push(\'")
+ STDOUT(str(url))
+ STDOUT("\');\n")
+STDOUT("		MUI.import(appName,urls,options);\n	},\n	/**********************************************************************\n	Import multiselect plugin files and initialize correspinding Elements.\n	***********************************************************************/\n	multiSelect: function(appName, options){\n		// get lib files\n		var urls = [];\n")
+for url in pagefn.JSLIB['multiSelect']['files'] :
+ STDOUT("			urls.push(\'")
+ STDOUT(str(url))
+ STDOUT("\');\n")
+STDOUT("		MUI.import(appName,urls,options);\n	}\n});\n")
+

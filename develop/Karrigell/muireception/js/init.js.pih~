@@ -42,13 +42,17 @@ MUI.extend({
 	Close old session of this application.
 	***********************************************************************************/
 	appInit: function(){
+		/*
+		//** to be removed
+		
 		// remove old cookie		
 		var name = '<%=pagefn.COOKIENAME %>';		
 		if(Cookie.read(name) != null){
 			Cookie.dispose(name);
 		};
 		// close old session object
-		initRequest = new Request.HTML().get('<%=pagefn.LAYOUTURLS[-1] %>');
+		// initRequest = new Request.HTML().get('<%=pagefn.LAYOUTURLS[-1] %>');
+		*/
 	},
 	
 	// a plugin to close single popup dialog window, such as login or register dialog 
@@ -57,13 +61,10 @@ MUI.extend({
 		MUI.removeErr();
 		
 		// close modal dialog		
-   	MUI.Windows.instances.each(function(w){
-   		if(w.options.type=='modal'){
-   	 		w.close();
-   	 	};
-   	}); 
-   	
-   	return true
+		MUI.Windows.instances.each(function(w){
+   			if(w.options.type=='modal'){ w.close();	};
+   		}); 
+   		return true
 	},
 	
 	// a function to remove error prompts for FormCheck lib
@@ -118,8 +119,8 @@ MUI.extend({
 	
 	//	Pop up a window to require user to confirm a action. 
 	confirm: function(message,closeFn, options){
-		defaultOptions = {
-			loadMethod:'html', type: 'window', title: '',
+		var defaultOptions = {
+			loadMethod:'html', type: 'modal', title: '',
 			maximizable: false,
 			//minimizable: false,
 			//resizable: false,				
@@ -132,22 +133,23 @@ MUI.extend({
 			detaultOptions[key] = value;
 		});
 		
-		cmWindow = new MUI.Window(defaultOptions);
+		var cmWindow = new MUI.Window(defaultOptions);
 		
-		messageEl = new Element('div',{
+		var messageEl = new Element('div',{
 			html: message,
 			'class':'note',
 			'style':'font-weight:bold;font-size:1.5em;'
 		});
 		
 		// add buttons to content
-		buttons = new Element('div',{style:'text-align:right;'});
-		labels = ['<%=pagefn.BUTTONLABELS['confirmWindow']['confirm']%>', '<%=pagefn.BUTTONLABELS['confirmWindow']['cancel']%>'];
+		var buttons = new Element('div',{style:'text-align:right;'});
+		var labels = ['<%=pagefn.BUTTONLABELS['confirmWindow']['confirm']%>', '<%=pagefn.BUTTONLABELS['confirmWindow']['cancel']%>'];
+
 		['ok','cancel'].each(function(actionType,index){
 			// create buttons
 			options = {
 				txt: labels[index],
-			   imgType: actionType,
+			        imgType: actionType,
 				bnAttrs: {'style':'margin-right:1em;'}
 				//bnSkin: 'sexycadet'
 			};			
@@ -162,7 +164,7 @@ MUI.extend({
 			
 		});		
 		
-		container = new Element('div');
+		var container = new Element('div');
 		container.adopt(messageEl,buttons);			
 		
 		// add content to this confirm window

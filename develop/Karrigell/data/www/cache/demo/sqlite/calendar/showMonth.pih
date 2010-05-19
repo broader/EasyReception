@@ -1,0 +1,64 @@
+[]
+# show a table with the month specified in date
+# parameters :
+# - b_date     : the datetime.date instance
+# - thisDate   : a datetime.date instance, if thisdate is
+#              inside the month, display it in a specific style
+# - markedDays : a list of the days to display in another
+#              specific style (for instance days with an event)
+# compute next and previous months
+nextyear=prevyear=b_year
+nextmonth=b_month+1
+if nextmonth>12:
+    nextmonth=1
+    nextyear+=1
+prevmonth=b_month-1
+if prevmonth<1:
+    prevmonth=12
+    prevyear-=1
+weeks=calendar.monthcalendar(b_year,b_month)
+header = calendar.month(b_year,b_month).split('\n')[:2]
+STDOUT("<table class=\"month\" cellpadding=\"0\" cellspacing=\"0\">\n <tr class=\"title\">\n  <td>\n   <table width=\"100%\">\n    <tr>\n     <td align=\"left\">\n")
+PRINT( A(B("<"),
+       href='index.pih?b_year=%s&b_month=%s' %(prevyear,prevmonth)))
+STDOUT("     </td>\n     <td align=\"center\" class=\"current\">")
+STDOUT(str(header[0]))
+STDOUT("</td>\n     <td align=\"right\">\n")
+PRINT( A(B(">"),
+    href='index.pih?b_year=%s&b_month=%s' %(nextyear,nextmonth)))
+STDOUT("     </td>\n    </tr>\n   </table>\n  </td>\n </tr>\n")
+STDOUT("<tr><td><table width=\"100%\" clas=\"month\" cellpadding=\"0\" cellspacing=\"0\">\n<tr class=\"title\">\n")
+for weekday in header[1].split():
+    STDOUT("    <td align=\"center\">")
+    STDOUT(str(weekday[0].upper()))
+    STDOUT("</td>\n")
+STDOUT("</tr>\n")
+for weeknum,week in enumerate(weeks):
+    STDOUT("    <tr class=\"days\">\n")
+    for w_day in week:
+        if w_day:
+            thisDate=datetime.date(b_year,b_month,int(w_day))
+            lnk = 'index.pih?day=%s&month=%s&year=%s' %(thisDate.day,
+                thisDate.month,thisDate.year)
+            if date==thisDate :
+                STDOUT("                <td align=\"center\" bgcolor=\"")
+                STDOUT(str(selected_color))
+                STDOUT("\">\n")
+            else:
+                STDOUT("                <td align=\"center\">\n")
+            STDOUT("            <a href=\"")
+            STDOUT(str(lnk))
+            STDOUT("\" class=\"month\">\n")
+            if w_day in evtsByDay:
+                STDOUT("                <b>")
+                STDOUT(str(w_day))
+                STDOUT("</b>\n")
+            else:
+                STDOUT(str(w_day))
+            STDOUT("            </a></td>           \n")
+        else :
+            STDOUT("            <td>&nbsp;</td>\n")
+    STDOUT("    </tr>\n")
+STDOUT("</table></td></tr>\n")
+STDOUT("</table>\n")
+

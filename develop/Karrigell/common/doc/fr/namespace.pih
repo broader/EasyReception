@@ -1,0 +1,228 @@
+<h1><%= chapter %>. Noms intégrés</h1>
+
+Cette page liste tous les noms intégrés disponibles dans les scripts Karrigell
+<p>
+<h3><%= chapter %>.1 Valeurs en lecture seule</h3>
+<p>
+
+<table border="1">
+<tr>
+ <td class="name">ACCEPTED_LANGUAGES</td>
+ <td>La liste des langues acceptées par le client (on peut les définir dans le navigateur)</td>
+</tr>
+<tr>
+ <td class="name">CONFIG</td>
+ <td>Les options de configuration, telles qu'elles sont définies dans les 
+    <%= make_link("fichiers de configuration","configuration") %>
+  <p>Attributs<ul>
+   <li><code>karrigell_dir</code>
+   <li><code>root_dir</code>
+   <li><code>data_dir</code>
+   <li><code>cache_dir</code>
+   <li><code>allow_directory_listing</code>
+   <li><code>hide_extensions</code>
+   <li><code>ignore</code>
+   <li><code>logging_file</code>
+   <li><code>output_encoding</code>
+    </ul>
+ </td>
+</tr>
+<tr>
+ <td class="name">COOKIE</td>
+ <td>Les cookies envoyés par le client au server. Instance de la classe SimpleCookie dans le module cookie de la distribution Python standard</td>
+</tr>
+
+<tr>
+ <td class="name">HEADERS</td>
+ <td>Les entêtes de requête, envoyés par l'agent utilisateur (navigateur) au serveur. Instance
+ de la classe <CODE>email.Message</CODE></td>
+</tr>
+
+<tr>
+ <td class="name">QUERY</td>
+ <td>Quand un script reçoit des données de formulaire, ou dans la chaîne de requête (query string) de l'url, QUERY est un dictionnaire qui fait correspondre les noms des champs et leurs valeurs</td>
+</tr>
+
+<tr>
+ <td class="name">REQUEST</td>
+ <td>Quand un script reçoit des données de formulaire, ou dans la chaîne de requête (query string) de l'url, REQUEST est un dictionnaire qui fait correspondre les noms des champs et leurs valeurs (synomyme de QUERY)</td>
+</tr>
+
+<tr>
+ <td class="name">REQUEST_HANDLER</td>
+ <td>Un objet qui représente le gestionnaire de requête courant
+ <p>Attributes
+ <p>
+    <table border="1">
+        <tr>
+        <td class="name">client_address</td>
+        <td valign="top">Un tuple avec l'adresse IP et le port du client,
+        par exemple <code>('127.0.0.1', 1825)</code></td>
+        </tr>
+
+        <tr>
+        <td class="name">command</td>
+        <td valign="top">La commande ou méthode HTTP (généralement <code>GET</code> ou 
+        <code>POST</code>)
+        </tr>
+
+        <tr>
+        <td class="name">version</td>
+        <td valign="top">Numéro de version de Karrigell</td>
+        </tr>
+      </table>
+</td>
+</tr>
+
+<tr>
+ <td class="name">THIS</td>
+ <td>Un objet qui représente le script courant. Les exemples supposent que le chemin du script dans le système de fichiers est <span class="file">C:\cygwin\home\Karrigell\webapps\demo\thisTest.pih</span>, 
+ et qu'on l'appelle par <code>demo/thisTest.pih?arg1=value1</code>
+ <p>Attributs
+ <p>
+ <table border="1">
+    
+    <tr>
+    <td class="name">url</td>
+    <td valign="top">L'url utilisée par le client pour invoquer le script, y compris la chaîne de requête (query string) s'il y en avait une (<code>/demo/thisTest.pih?arg1=value1)</code></td>
+    </tr>
+
+    <tr>
+    <td class="name">script_url</td>
+    <td valign="top">La partie de l'url qui s'arrête au nom du script avec son extension ;
+    enlève le le nom de fonction pour les scripts ks, les arguments des "url intelligentes", la chaîne de requête, etc. (<code>/demo/thisTest.pih)</code></td>
+    </tr>
+
+    <tr>
+        <td class="name">baseurl</td>
+        <td valign="top">La partie de l'url avant le nom du script (<code>demo/</code>)</td>
+    </tr>
+    
+    <tr>
+    <td class="name">args</td>
+    <td valign="top">Si le script est appelé avec des arguments additionnels séparés par des /, <CODE>args</CODE> est la liste de ces arguments (voir <%= make_link("url intelligentes","smarturls") %>)</td>
+    </tr>
+
+    <tr>
+    <td class="name">name</td>
+    <td valign="top">Nom complet du script dans le système de fichiers
+    (<code>C:\cygwin\home\Karrigell\webapps\demo\thisTest.pih</code>)</td>
+    </tr>
+
+    <tr>
+    <td class="name">cwd</td>
+    <td valign="top">Nom complet du répertoire du script dans le système de fichiers
+    (<code>C:\cygwin\home\Karrigell\webapps\demo</code>)</td>
+    </tr>
+
+    <tr>
+    <td class="name">ext</td>
+    <td valign="top">Extension du script (<code>.pih</code>)</td>
+    </tr>
+
+    <tr>
+    <td class="name">rel()</td>
+    <td valign="top">Une fonction utilisée pour construire des urls correctes à l'intérieur des fonctions qui reçoivent leurs arguments sous forme d'"url intelligentes" (du type host/script/script.ks/foo/bar)
+    </tr>
+
+    <tr>
+    <td class="name">py_code</td>
+    <td valign="top">Le code source du script, ou sa conversion en code pur-Python
+    </td>
+    </tr>
+    
+    <tr>
+    <td class="name">parent</td>
+    <td valign="top">Le script parent du script courant, si celui-ci a été inclus par la fonction  Include(), ou <code>None</code></td>
+    </tr>
+
+</table> 
+ 
+ </td>
+</tr>
+
+</table>
+
+
+<p>
+<h3><%= chapter %>.2 Variables et fonctions</h3>
+<p>
+
+<table border="1">
+
+<tr>
+ <td class="name">Include()</td>
+ <td>Fonction utilisée pour inclure un fichier ou un script dans un autre script</td>
+</tr>
+
+<tr>
+ <td class="name">Login([script_url],[role],
+    [valid_in],
+    [redir_to])</td>
+ <td>Fonction utilisée pour limiter l'accès au script à des utilisateurs authentifiés.
+ Par défaut, si l'utilisateur n'est pas connecté, redirige vers le script
+ <span class="file">login.ks</span> dans le répertoire <span class="file">common/admin</span>. Une autre url de script url peut être spécifiée pour personnaliser le test d'authentification. Si l'utilisateur est déjà connecté, la fonction ne fait rien
+ <br><CODE>role</CODE> est la liste des rôles acceptés par le script. Il prend la valeur <CODE>["admin"]</CODE> par défaut et peut inclure <CODE>"edit", "visit"</CODE> comme autres valeurs, ainsi que des valeurs personnalisables par l'administrateur
+ <br><CODE>valid_in</CODE> spécifie la partie du site où l'utilisateur sera connecté. Par défaut il s'agit des scripts dans le même fichier que le script appelant
+ <br><CODE>redir_to</CODE> est le chemin vers lequel l'utilisateur doit être dirigé après une authentification réussie. Par défaut il s'agit du chemin du script original
+</td>
+</tr>
+
+<tr>
+ <td class="name">Logout([script_url],
+    [valid_in],
+    [redir_to])</td>
+ <td>Déconnecte l'utilisateur. Les arguments ont la même signification que ci-dessus
+</td>
+</tr>
+
+<tr>
+ <td class="name">REL()</td>
+ <td>Une fonction qui transforme un nom de chemin relatif dans le système de fichiers en un nom absolu, en se basant sur le répertoire du script</td>
+</tr>
+
+<tr>
+ <td class="name">RESPONSE</td>
+ <td>Les entêtes de réponse envoyés par le serveur au client, tels que Content-type. 
+ Instance de la classe <CODE>email.Message</CODE></td>
+</tr>
+
+<tr>
+ <td class="name">Role()</td>
+ <td>Indique le rôle de l'utilisateur. S'il n'est pas connecté (voir <CODE>Login()</CODE>), 
+ la valeur est <CODE>None</CODE> ; sinon la valeur peut être "visit", "edit", "admin" ou une chaîne personnalisée par l'administrateur
+</tr>
+
+<tr>
+ <td class="name">Session()</td>
+ <td>Fonction qui renvoie l'<%= make_link("objet de session","sessions") %></td>
+</tr>
+
+<tr>
+ <td class="name">SET_COOKIE</td>
+ <td>Les cookies envoyés par le serveur au client. Instance de la classe SimpleCookie du module cookie de la distribution standard</td>
+</tr>
+
+ </td>
+</tr>
+
+</table>
+
+<p>
+<h3><%= chapter %>.3 Exceptions</h3>
+<p>
+
+<table border="1">
+
+<tr>
+ <td class="name">HTTP_REDIRECTION</td>
+ <td><code>raise HTTP_REDIRECTION,url</code> réalise une redirection HTTP (code 302) vers l'url spécifiée</td>
+</tr>
+
+<tr>
+ <td class="name">SCRIPT_END</td>
+ <td>Exception pour interrompre l'exécution du script</td>
+</tr>
+
+</table>
+

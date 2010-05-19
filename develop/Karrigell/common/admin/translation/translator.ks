@@ -2,17 +2,23 @@ import os
 import urllib
 
 from HTMLTags import *
+Login(role=["admin"],valid_in="/")
+SET_UNICODE_OUT("utf-8")
 
 header = HEAD(
     LINK(rel="stylesheet",href="../../admin.css")+
     META(http_equiv="Content-Type",content="text/html; charset=utf-8")
     )
-
+    
 def index(script):
     script = urllib.unquote_plus(script)
     name = os.path.basename(script)
-    import k_pygettext
-    strings = k_pygettext.get_strings(script)
+    ext = os.path.splitext(script)[1]
+    if ext in [".py",".pih",".hip",".ks"]:
+        import k_pygettext
+        strings = k_pygettext.get_strings(script)
+    elif ext == ".kt":
+        strings = KT.get_strings(script)
     list_langs = HEADERS.get("Accept-language","").split(",")
     langs = []
     for lang in list_langs:
@@ -29,13 +35,24 @@ def index(script):
         _string1 = _string.replace('"','&quot;')
         line = TD(_string)+INPUT(Type="hidden",name="orig-%s" %i,value=_string1)
         for lang in langs:
-            _trans = trans(t_dict,_string,lang).replace('"','&quot;')
-            _input = INPUT(name="%s-%s" %(lang,i),value=_trans)
+            _trans = trans(t_dict,_string,lang)
+            if _trans is None:
+                _input = TEXTAREA(_string,name="%s-%s" %(lang,i),
+                        cols=25,rows=len(_string1)/25,
+                        style="font-style:italic;")
+            else:
+                _trans = _trans.replace('"','&quot;')
+                _input = TEXTAREA(_trans,name="%s-%s" %(lang,i),
+                        cols=25,rows=len(_string1)/25)
             line += TD(_input)
         lines += [TR(line)]
-    print HTML(header +
-        BODY(H3(_("Translating stings in %s") %name) +
-             FORM(TABLE(Sum(lines))+INPUT(Type="submit",value="Ok"),
+    
+    explain = H3(_("Translating strings in %s") %name)
+    explain += I(_('Strings in italic have no translation yet. '))
+    explain += _('Enter your translation and save changes')+P()
+    print HTML(header + BODY(explain +
+             FORM(TABLE(Sum(lines))+
+                INPUT(Type="submit",value=_("Save translations")),
                 action="update",method="post")))
 
 def update(**kw):

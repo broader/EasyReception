@@ -1,22 +1,4 @@
-<html>
-<head>
-<title>Programming</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="STYLESHEET" href="lib.css">
-<style type="text/css">
-<!--
-dl {  background-color: #FFFFCC; border-width: 1; border-style:solid;}
--->
-</style></head>
-
-<body>
-
 <h1><%= chapter %>. Redirection</h1>
 
 <br><code>raise HTTP_REDIRECTION,uri</code> causes Karrigell to redirect the request to the given
 URI
-
-</body>
-</html>
-
-

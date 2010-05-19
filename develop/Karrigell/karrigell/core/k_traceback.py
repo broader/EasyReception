@@ -14,13 +14,15 @@ def trace(handler,exc_info,header,config):
     [exc_type,exc_value]=exc_info[:2]
     handler.resp_headers["Content-type"] = "text/html"
     if exc_type in [SyntaxError,IndentationError]:
-        errorMsg,(filename, line_num, offset, line) = exc_value
         try:
+            errorMsg,(filename, line_num, offset, line) = exc_value
             if script.ext == ".pih":
                 line_num = script.line_mapping[line_num-1]+1
             line = open(script.name).readlines()[line_num-1]
             line = cgi.escape(line)
         except:
+            line_num = 'unknown'
+            line = 'unknown'
             pass
     else:
         while len(tb)>1 and tb[-1][0] != "<string>":
@@ -51,24 +53,13 @@ def trace(handler,exc_info,header,config):
     msg.write("</pre></td></tr>")
     msg.write("</table><pre>")
     traceback.print_exc(file=msg)
-    # print state of variables
-    msg.write("</pre><table border=1>")
-    if hasattr(script,"ns"):
-        ns = script.ns
-        for key in ns:
-            if key == "QUERY" and script.data_encoding:
-                for k in ns[key]:
-                    ns[key][k] = ns[key][k].encode(script.data_encoding)
-            if key.startswith("_"):
-                continue
-            msg.write("<tr><td>%s</td><td>%s</td></tr>" \
-                %(key,cgi.escape(str(ns[key])) or "&nbsp;"))
-    msg.write("</table>")
+    msg.write("</pre>")
+
     if handler.get_log_level()=="admin":
         eform = '<form action="/admin/editor/editScript.ks"'
         eform += ' target="_blank"><input type="hidden" name="script" '
         eform += 'value="%s">' %urllib.quote_plus(script.name)
-        eform += '<input type="hidden" name="editable" value="1">'
+        #eform += '<input type="hidden" name="editable" value="1">'
         eform += '<input type="submit" value="Debug"></form>'
         msg.write(eform)
     return msg.getvalue()

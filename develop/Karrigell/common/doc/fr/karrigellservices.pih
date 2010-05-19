@@ -1,0 +1,121 @@
+<h1><%= chapter %>. Services Karrigell</h1>
+
+<h3><%= chapter %>.1 Syntaxe</h3>
+
+<p>Les "services Karrigell" sont des scripts Python qui peuvent gérer en même temps
+plusieurs URL, ce qui permet de développer un service complet (plusieurs pages HTML
+distinctes) en un seul script
+
+<b>C'est le style de programmation le plus recommandé pour écrire des scripts pour Karrigell</b>, par leur facilité de programmation (l'accès aux données utilisateur est plus simple) et de maintenance (toute la logique de l'application est regroupée dans un seul script)
+
+<p>Pour cela, les fonctions définie au niveau module d'un service Karrigell sont associées à une URL : la fonction <code>foo()</code> du script <code>monScript.ks</code> est appelé par l'URL
+<span class="url">dummy.ks/foo</span>
+
+<p>Pour appeler <code>foo(arg1,arg2)</code> l'URL doit être de la forme
+<span class="url">monScript.ks/foo?arg1=val1&arg2=val2</span> ou être appelée par un 
+formulaire avec les champs <code>arg1</code> et <code>arg2</code>
+
+
+<p>Ceci rend le passage d'arguments d'une page à l'autre extrêmement simple et lisible : si une page a un lien comme 
+<div><pre class="verbatim">&lt;A HREF="script.ks/foo?bar=99"&gt;</pre></div>
+<p>le script gèrera la valeur en la définissant comme argument :
+
+<div class="python"><pre>def foo(bar):
+    print bar
+</pre></div>
+
+<p>Les valeurs d'un formulaire sont gérées sous une forme similaire :
+
+<p>
+<div><pre class="verbatim">&lt;FORM ACTION="script.ks/foo"&gt;
+&lt;INPUT NAME="bar"&gt;
+&lt;INPUT TYPE="submit" VALUE="Ok"&gt;
+</pre></div>
+
+<p>Le même script que ci-dessus gèrera la valeur entrée par l'utilisateur :
+<p>
+<div class="python"><pre>def foo(bar):
+    print bar
+</pre></div>
+
+<p>Les noms définis comme arguments de la fonction doivent être les mêmes que ceux définis dans le lien ou le formulaire ; la fonction peut aussi avoir des valeurs par défaut comme dans les scripts Python ordinaires, au cas où aucune valeur n'a été envoyée par le navigateur :
+
+<p>
+<div class="python"><pre>def foo(arg1,arg2=None):
+    print "Premier argument",arg1
+    if arg2 is not None:
+    	print "Second argument",arg2
+</pre></div>
+
+<p>Si aucune fonction n'est spécifiée, Karrigell cherche une fonction appelée
+<code>index()</code>, sans argument
+<p>Notez que pour des raisons de sécurité et de lisibilité, seules les fonctions
+explicitement définies dans le script ks et dont la définition commence à la 1ère 
+colonne du code source peuvent être appelées
+
+<h3><%= chapter %>.2 Construction d'applications</h3>
+
+<p>Pour "sauter" d'une fonction à l'autre, il suffit de spécifier le nom de la fonction
+dans un lien ou une action de formulaire :
+
+<p>
+<dl><dd><pre class="verbatim">
+def index():
+   print '&lt;a href="foo?nom=bar"&gt;Aller vers foo&lt;/a&gt;'
+def foo(nom):
+   print '&lt;IMG SRC="../picture.jpg"&gt;'
+   print nom
+</pre></dl>
+
+<p>Remarquez la première ligne de la fonction <code>foo()</code> : à cause des méthodes de
+résolution des URL, l'URL relative des fichiers et des scripts qui se trouvent dans le
+<b>même</b> répertoire qu'un script ks doit être préfixé par "../"
+
+<p>Tout l'environnement HTTP, les champs de formulaires, les exceptions spécifiques, 
+les fonctions pour l'authentification, la gestion de sessions, etc. sont les mêmes
+que pour les scripts Python
+
+<h3><%= chapter %>.3 Fonctions "privées"</h3>
+
+<p>Si vous avez besoin de fonctions internes au script mais que vous ne voulez pas
+qu'on puisse les appeler par une url, faites-les commencer par un signe souligné (_)
+
+<p>
+<div class="python">
+<pre class="verbatim">
+def _privee(valeur):
+   """Fonction privée - ne peut pas être appelée par une URL"""
+   return valeur+1
+
+</pre>
+</div>
+
+<h3><%= chapter %>.4 Exemple</h3>
+
+<p>Voici un exemple de Service Karrigell simple, qui utilise la gestion de session et la redirection HTTP pour gérer un compteur :
+<p>
+<dl><dd><pre class="verbatim">
+so = Session()
+if not hasattr(so, 'x'):
+    so.x = 0
+def index():
+    print "x = %s" %so.x
+    print '&lt;br&gt;&lt;a href="increment"&gt;Incrémenter&lt;/a&gt;'
+    print '&lt;br&gt;&lt;a href="decrement"&gt;Décrémenter&lt;/a&gt;'
+    print '&lt;br&gt;&lt;a href="reset"&gt;Remise à zéro&lt;/a&gt;'
+    
+def increment():
+    so.x = _private(so.x)
+    raise HTTP_REDIRECTION,"index"
+def decrement():
+    so.x -= 1
+    raise HTTP_REDIRECTION,"index"
+def reset():
+    so.x = 0
+    raise HTTP_REDIRECTION,"index"
+def _private(x):
+    """Le nom de la fonction commence par _ : fonction interne, 
+    ne peut pas être invoquée par une url"""
+    return x+1
+</pre>
+</dl>

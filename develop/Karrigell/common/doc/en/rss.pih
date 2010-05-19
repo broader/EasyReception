@@ -1,16 +1,3 @@
-<html>
-<head>
-<title>RSS</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="STYLESHEET" href="lib.css">
-<style type="text/css">
-<!--
-dl {  background-color: #FFFFCC; border-width: 1; border-style:solid;}
--->
-</style></head>
-
-<body>
-
 <h1><%= chapter %>. RSS stream generator</h1>
 
 <h2><%= chapter %>.1 RSS()</h2>
@@ -94,12 +81,12 @@ another one, you have to specify the right timezone (see python doc for this).
 
 To generate the stream, you can use <code>Render()</code> or <code>RenderInFile()</code>.
 <p>
-<code>Render()</code> accepts a single parameter : the output encoding. 
-Default output encoding is <code>iso-8859-1</code>.<br>
+<code>Render()</code> accepts a single parameter : the output encoding (optional). 
+When not specified, default output encoding is <code>iso-8859-1</code>.<br>
 <code>Render()</code> outputs a unicode string correctly formatted.
-Default output encoding is <code>iso-8859-1</code>.<br>
+<br>
 <p>
-<code>RenderInfile()</code> accepts two parameters : a filename and the output encoding.<br>
+<code>RenderInfile()</code> accepts two parameters : a filename and the output encoding (optional).<br>
 <code>RenderInfile()</code> works like <code>Render()</code> but generates a file and returns nothing.
 
 <h2><%= chapter %>.5 Example</h2>
@@ -134,4 +121,3 @@ print rss.Render()
 <p>In this example, an RSS stream is generated with "Karrigell" as a title. Two items are added.
 
 <p>
-</html>

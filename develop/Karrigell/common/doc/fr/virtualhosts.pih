@@ -1,0 +1,66 @@
+<script src="../pf_test.js"></script>
+
+<h1><%= chapter %>. Hôtes virtuels</h1>
+
+<p>Le serveur intégré prend en charge la notion d'hôte virtuel, c'est-à-dire la capacité de servir différents noms d'hôtes sur le même serveur. Par exemple, la même instance du serveur intégré peut servir des requêtes vers <span class="url">www.foo.com</span> et <span class="url">www.bar.com</span>, pourvu que ces noms de domaines soient résolus vers l'adresse IP du serveur. Chacun de ces hôtes aura un répertoire racine propre, un fichier de configuration, un espace de stockage dédié pour les données de session et les utilisateurs, etc
+
+<p>Pour ajouter un hôte, vous devez d'abors vous assurer que le nom d'hôte est résolu vers l'adresse IP du serveur. La correspondance peut être effectuée dans le fichier d'hôtes du système (si vous ne savez pas ce que c'est et comment le personnaliser, tapez "fichier hôte" dans votre moteur de recherches favori)
+
+<p>Pour comprendre ce que vous avez à faire ensuite, commençons par la fin : la structure du répertoire adaptée pour ce nouvel hôte (appelé "foo" dans l'exemple)
+
+<pre>
+  Karrigell.py
+  server_config.py
+  default_host_conf.py
+  hosts.py
++ karrigell
+  + core
+  + package
+  + ...
++ data
+  + www
+      + sessions
+      conf.py
+  <b><font color="blue">+ foo
+      + sessions
+      conf.py</font></b>
++ www
+    index.pih
+    ...
+<b><font color="blue">+ foo
+    default.html
+    myscript.py
+    ...</font></b>
++ common
+  + admin
+  + demo
+  + doc
+  + ...
+</font></pre>
+
+<p>Les étapes à suivre sont :
+<ul>
+<li>créer un nouveau répertoire racine pour cet hôte : <span class="file">(rep serveur)/foo</span>
+<li>créer un nouveau sous-répertoire dans le Répertoire de Données
+<span class="file">(rep serveur)/data/foo</span>
+<li>copier le script <span class="file">default_host_conf.py</span> depuis de Répertoire Serveur dans ce nouveau sous-répertoire, et le renommer en <span class="file">conf.py</span>
+<li>éditer ce script <span class="file">conf.py</span> pour mettre à jour les valeurs de <code>root_dir</code> et <code>data_dir</code> :
+
+<div class="python">
+<pre>root_dir = os.path.join(server_dir,"foo")
+data_dir = os.path.join(server_dir, "data","foo")
+</pre></div>
+
+<li>éditer le fichier texte <span class="file">hosts</span> dans le Répertoire de Configuration Serveur et y ajouter une ligne avec le nom d'hôte et le chemin vers le fichier de configuration d'hôte : 
+
+<div class="verbatim">
+<pre>
+foo /usr/Karrigell-<%= version %>/data/foo/conf.py
+</pre>
+</div>
+
+</ul>
+
+<p>Pour l'administrateur du serveur, un programme est accessible depuis le menu Administration pour créer et supprimer des hôtes virtuels en ligne
+
+<p>Ce qui est décrit ci-dessus est en fait la configuration la plus simple possible : vous pouvez mettre le Répertoire Racine et le Répertoire de Données où vous voulez dans le système de fichiers. Dans ce cas, il faudra personnaliser les scripts de configuration comme indiqué dans le chapitre correspondant

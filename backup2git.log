@@ -45468,3 +45468,1354 @@ sent 76625 bytes  received 31 bytes  153312.00 bytes/sec
 total size is 647399  speedup is 8.45
 2010-05-19 17:15:12,349 INFO End backup loacl karrigell diretory to local git.
 2010-05-19 17:15:12,349 INFO Begin to backup local github to remote github host.
+2010-05-19 17:15:13,859 INFO Command: 
+git add .
+running result is :
+2010-05-19 17:15:19,226 INFO Command: 
+git commit -m 'Update time:2010-05-19T17:15:12.349723'
+running result is :[master f31109d] Update time:2010-05-19T17:15:12.349723
+ 15 files changed, 274 insertions(+), 59 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010051908.log
+ create mode 100644 develop/Karrigell/data/cms/logs_2010051914.log
+ create mode 100644 develop/Karrigell/data/muireception/sessions/0vpGTYUCFbtrpd7T
+ create mode 100644 develop/Karrigell/data/muireception/sessions/vu4JSmGKOZrElI6k
+2010-05-19 17:15:29,412 INFO Command: 
+git push origin master
+running result is :Counting objects: 55, done.
+Delta compression using up to 2 threads.
+Compressing objects:   3% (1/30)   Compressing objects:   6% (2/30)   Compressing objects:  10% (3/30)   Compressing objects:  13% (4/30)   Compressing objects:  16% (5/30)   Compressing objects:  20% (6/30)   Compressing objects:  23% (7/30)   Compressing objects:  26% (8/30)   Compressing objects:  30% (9/30)   Compressing objects:  33% (10/30)   Compressing objects:  36% (11/30)   Compressing objects:  40% (12/30)   Compressing objects:  43% (13/30)   Compressing objects:  46% (14/30)   Compressing objects:  50% (15/30)   Compressing objects:  53% (16/30)   Compressing objects:  56% (17/30)   Compressing objects:  60% (18/30)   Compressing objects:  63% (19/30)   Compressing objects:  66% (20/30)   Compressing objects:  70% (21/30)   Compressing objects:  73% (22/30)   Compressing objects:  76% (23/30)   Compressing objects:  80% (24/30)   Compressing objects:  83% (25/30)   Compressing objects:  86% (26/30)   Compressing objects:  90% (27/30)   Compressing objects:  93% (28/30)   Compressing objects:  96% (29/30)   Compressing objects: 100% (30/30)   Compressing objects: 100% (30/30), done.
+Writing objects:   3% (1/30)   Writing objects:   6% (2/30)   Writing objects:  10% (3/30)   Writing objects:  13% (4/30)   Writing objects:  16% (5/30)   Writing objects:  20% (6/30)   Writing objects:  23% (7/30)   Writing objects:  26% (8/30)   Writing objects:  30% (9/30)   Writing objects:  33% (10/30)   Writing objects:  36% (11/30)   Writing objects:  40% (12/30)   Writing objects:  43% (13/30)   Writing objects:  46% (14/30)   Writing objects:  53% (16/30)   Writing objects:  56% (17/30)   Writing objects:  60% (18/30)   Writing objects:  63% (19/30)   Writing objects:  66% (20/30)   Writing objects:  70% (21/30)   Writing objects:  73% (22/30)   Writing objects:  76% (23/30)   Writing objects:  80% (24/30)   Writing objects:  83% (25/30)   Writing objects:  86% (26/30)   Writing objects:  90% (27/30)   Writing objects:  93% (28/30)   Writing objects:  96% (29/30)   Writing objects: 100% (30/30)   Writing objects: 100% (30/30), 8.36 KiB, done.
+Total 30 (delta 22), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   da72042..f31109d  master -> master
+2010-05-19 17:15:29,412 INFO End backup local github to remote github host.
+2010-05-19 22:54:12,643 INFO Delete nousing captcha images
+2010-05-19 22:54:12,669 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-05-19 22:54:12,670 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-05-19 22:54:14,434 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+./
+deleting hosts~
+Async_core.py
+        6243 100%    0.00kB/s    0:00:00          6243 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1055/1057)
+Karrigell.py
+        1979 100%    1.89MB/s    0:00:00          1979 100%    1.89MB/s    0:00:00 (xfer#2, to-check=1053/1057)
+Karrigell_ThreadingHTTPServer.py
+        1897 100%    1.81MB/s    0:00:00          1897 100%    1.81MB/s    0:00:00 (xfer#3, to-check=1052/1057)
+Karrigell_async.py
+         864 100%  843.75kB/s    0:00:00           864 100%  843.75kB/s    0:00:00 (xfer#4, to-check=1051/1057)
+Karrigell_monoprocess.py
+        2106 100%    2.01MB/s    0:00:00          2106 100%    2.01MB/s    0:00:00 (xfer#5, to-check=1049/1057)
+Karrigell_multiprocess.py
+        2666 100%    1.27MB/s    0:00:00          2666 100%    1.27MB/s    0:00:00 (xfer#6, to-check=1048/1057)
+Karrigell_wsgi.py
+        3551 100%    1.69MB/s    0:00:00          3551 100%    1.69MB/s    0:00:00 (xfer#7, to-check=1047/1057)
+LICENCE.txt
+        1512 100%  492.19kB/s    0:00:00          1512 100%  492.19kB/s    0:00:00 (xfer#8, to-check=1046/1057)
+config_loader.py
+        2396 100%  779.95kB/s    0:00:00          2396 100%  779.95kB/s    0:00:00 (xfer#9, to-check=1045/1057)
+config_loader.pyc
+        2302 100%  562.01kB/s    0:00:00          2302 100%  562.01kB/s    0:00:00 (xfer#10, to-check=1044/1057)
+default_host_conf.py
+        1755 100%  428.47kB/s    0:00:00          1755 100%  428.47kB/s    0:00:00 (xfer#11, to-check=1043/1057)
+server_config.py
+        1089 100%  265.87kB/s    0:00:00          1089 100%  265.87kB/s    0:00:00 (xfer#12, to-check=1041/1057)
+server_config.py.old
+         673 100%  131.45kB/s    0:00:00           673 100%  131.45kB/s    0:00:00 (xfer#13, to-check=1040/1057)
+server_config.py~
+        1087 100%  212.30kB/s    0:00:00          1087 100%  212.30kB/s    0:00:00 (xfer#14, to-check=1039/1057)
+common/
+common/admin/
+common/admin/conf.tmpl
+        1527 100%    7.42kB/s    0:00:00          1527 100%    7.42kB/s    0:00:00 (xfer#15, to-check=1268/3130)
+common/admin/config.ks
+        2327 100%   11.31kB/s    0:00:00          2327 100%   11.31kB/s    0:00:00 (xfer#16, to-check=1267/3130)
+common/admin/create_users_db.ks
+        3355 100%   16.30kB/s    0:00:00          3355 100%   16.30kB/s    0:00:00 (xfer#17, to-check=1266/3130)
+common/admin/databases.ks
+        2356 100%   11.39kB/s    0:00:00          2356 100%   11.39kB/s    0:00:00 (xfer#18, to-check=1265/3130)
+common/admin/karrigell.css
+        5781 100%   27.95kB/s    0:00:00          5781 100%   27.95kB/s    0:00:00 (xfer#19, to-check=1261/3130)
+common/admin/login.ks
+       10160 100%   49.12kB/s    0:00:00         10160 100%   49.12kB/s    0:00:00 (xfer#20, to-check=1260/3130)
+common/admin/set_admin.ks
+        2623 100%   12.62kB/s    0:00:00          2623 100%   12.62kB/s    0:00:00 (xfer#21, to-check=1259/3130)
+common/admin/users.ks
+        3317 100%   15.96kB/s    0:00:00          3317 100%   15.96kB/s    0:00:00 (xfer#22, to-check=1257/3130)
+common/admin/vh_manager.ks
+        3906 100%   18.79kB/s    0:00:00          3906 100%   18.79kB/s    0:00:00 (xfer#23, to-check=1256/3130)
+common/admin/InstantSite/
+common/admin/InstantSite/PyDbLite/
+common/admin/InstantSite/PyDbLite/calendar.gif
+        1126 100%    5.14kB/s    0:00:00          1126 100%    5.14kB/s    0:00:00 (xfer#24, to-check=1246/3130)
+common/admin/InstantSite/PyDbLite/import.ks
+        2504 100%   11.43kB/s    0:00:00          2504 100%   11.43kB/s    0:00:00 (xfer#25, to-check=1235/3130)
+common/admin/InstantSite/PyDbLite/index.ks
+       13863 100%   62.97kB/s    0:00:00         13863 100%   62.97kB/s    0:00:00 (xfer#26, to-check=1234/3130)
+common/admin/InstantSite/PyDbLite/applications/
+common/admin/InstantSite/SQLite/
+common/admin/InstantSite/SQLite/check_type.py
+        1155 100%    5.25kB/s    0:00:00          1155 100%    5.25kB/s    0:00:00 (xfer#27, to-check=1220/3130)
+common/admin/InstantSite/SQLite/default.css
+         499 100%    2.27kB/s    0:00:00           499 100%    2.27kB/s    0:00:00 (xfer#28, to-check=1218/3130)
+common/admin/InstantSite/SQLite/generic.ks
+        4448 100%   20.20kB/s    0:00:00          4448 100%   20.20kB/s    0:00:00 (xfer#29, to-check=1216/3130)
+common/admin/InstantSite/SQLite/generic.tmpl
+         512 100%    2.33kB/s    0:00:00           512 100%    2.33kB/s    0:00:00 (xfer#30, to-check=1215/3130)
+common/admin/InstantSite/SQLite/import.ks
+        3939 100%   17.81kB/s    0:00:00          3939 100%   17.81kB/s    0:00:00 (xfer#31, to-check=1214/3130)
+common/admin/InstantSite/SQLite/index.ks
+       21145 100%   95.16kB/s    0:00:00         21145 100%   95.16kB/s    0:00:00 (xfer#32, to-check=1213/3130)
+common/admin/InstantSite/SQLite/sqlite_utils.py
+        3874 100%   17.43kB/s    0:00:00          3874 100%   17.43kB/s    0:00:00 (xfer#33, to-check=1207/3130)
+common/admin/InstantSite/SQLite/test.py
+        3803 100%   17.11kB/s    0:00:00          3803 100%   17.11kB/s    0:00:00 (xfer#34, to-check=1206/3130)
+common/admin/InstantSite/SQLite/applications/
+common/admin/InstantSite/SQLite/applications/agenda.css
+        1697 100%    7.60kB/s    0:00:00          1697 100%    7.60kB/s    0:00:00 (xfer#35, to-check=1201/3130)
+common/admin/InstantSite/SQLite/applications/calendar.css
+        1697 100%    7.60kB/s    0:00:00          1697 100%    7.60kB/s    0:00:00 (xfer#36, to-check=1200/3130)
+common/admin/InstantSite/SQLite/applications/calendar.gif
+        1126 100%    5.04kB/s    0:00:00          1126 100%    5.04kB/s    0:00:00 (xfer#37, to-check=1199/3130)
+common/admin/InstantSite/SQLite/applications/calendar.js
+        8343 100%   37.37kB/s    0:00:00          8343 100%   37.37kB/s    0:00:00 (xfer#38, to-check=1198/3130)
+common/admin/InstantSite/SQLite/broader/
+common/admin/InstantSite/SQLite/broader/Calandar.gif
+         661 100%    2.95kB/s    0:00:00           661 100%    2.95kB/s    0:00:00 (xfer#39, to-check=1190/3130)
+common/admin/InstantSite/SQLite/broader/agenda.css
+        1697 100%    7.57kB/s    0:00:00          1697 100%    7.57kB/s    0:00:00 (xfer#40, to-check=1189/3130)
+common/admin/InstantSite/SQLite/broader/calendar.css
+        1697 100%    7.57kB/s    0:00:00          1697 100%    7.57kB/s    0:00:00 (xfer#41, to-check=1188/3130)
+common/admin/InstantSite/SQLite/broader/calendar.gif
+        1126 100%    5.02kB/s    0:00:00          1126 100%    5.02kB/s    0:00:00 (xfer#42, to-check=1187/3130)
+common/admin/InstantSite/SQLite/broader/calendar.js
+        8343 100%   36.54kB/s    0:00:00          8343 100%   36.54kB/s    0:00:00 (xfer#43, to-check=1186/3130)
+common/admin/InstantSite/SQLite/broader/default.css
+         510 100%    2.23kB/s    0:00:00           510 100%    2.23kB/s    0:00:00 (xfer#44, to-check=1185/3130)
+common/admin/InstantSite/SQLite/broader/hour_entry.js
+        2308 100%   10.06kB/s    0:00:00          2308 100%   10.06kB/s    0:00:00 (xfer#45, to-check=1184/3130)
+common/admin/InstantSite/SQLite/broader/scw.js
+       32768  48%  142.22kB/s    0:00:00         67915 100%  290.89kB/s    0:00:00 (xfer#46, to-check=1183/3130)
+common/admin/InstantSite/SQLite/broader/slider.css
+         194 100%    0.83kB/s    0:00:00           194 100%    0.83kB/s    0:00:00 (xfer#47, to-check=1182/3130)
+common/admin/InstantSite/SQLite/broader/slider.html
+         278 100%    1.19kB/s    0:00:00           278 100%    1.19kB/s    0:00:00 (xfer#48, to-check=1181/3130)
+common/admin/InstantSite/SQLite/broader/slider.js
+         806 100%    3.45kB/s    0:00:00           806 100%    3.45kB/s    0:00:00 (xfer#49, to-check=1180/3130)
+common/admin/InstantSite/SQLite/broader/test.ks
+        4773 100%   20.44kB/s    0:00:00          4773 100%   20.44kB/s    0:00:00 (xfer#50, to-check=1179/3130)
+common/admin/InstantSite/mysql/
+common/admin/InstantSite/mysql/appli_template.kt
+         131 100%    0.56kB/s    0:00:00           131 100%    0.56kB/s    0:00:00 (xfer#51, to-check=1178/3130)
+common/admin/InstantSite/mysql/calendar.css
+        1697 100%    7.27kB/s    0:00:00          1697 100%    7.24kB/s    0:00:00 (xfer#52, to-check=1176/3130)
+common/admin/InstantSite/mysql/calendar.js
+        8343 100%   35.58kB/s    0:00:00          8343 100%   35.58kB/s    0:00:00 (xfer#53, to-check=1175/3130)
+common/admin/InstantSite/mysql/customize_entry_template.kt
+         907 100%    3.87kB/s    0:00:00           907 100%    3.87kB/s    0:00:00 (xfer#54, to-check=1174/3130)
+common/admin/InstantSite/mysql/customize_template.kt
+         309 100%    1.32kB/s    0:00:00           309 100%    1.32kB/s    0:00:00 (xfer#55, to-check=1173/3130)
+common/admin/InstantSite/mysql/customize_widgets.kt
+        2504 100%    9.63kB/s    0:00:00          2504 100%    9.63kB/s    0:00:00 (xfer#56, to-check=1172/3130)
+common/admin/InstantSite/mysql/db_template.kt
+         217 100%    0.83kB/s    0:00:00           217 100%    0.83kB/s    0:00:00 (xfer#57, to-check=1170/3130)
+common/admin/InstantSite/mysql/dom-drag.js
+        3939 100%   15.14kB/s    0:00:00          3939 100%   15.09kB/s    0:00:00 (xfer#58, to-check=1169/3130)
+common/admin/InstantSite/mysql/entry_template.kt
+         325 100%    1.24kB/s    0:00:00           325 100%    1.24kB/s    0:00:00 (xfer#59, to-check=1168/3130)
+common/admin/InstantSite/mysql/generic.ks
+        4433 100%   16.98kB/s    0:00:00          4433 100%   16.98kB/s    0:00:00 (xfer#60, to-check=1166/3130)
+common/admin/InstantSite/mysql/generic.tmpl
+         595 100%    2.28kB/s    0:00:00           595 100%    2.28kB/s    0:00:00 (xfer#61, to-check=1165/3130)
+common/admin/InstantSite/mysql/home_template.kt
+         184 100%    0.70kB/s    0:00:00           184 100%    0.70kB/s    0:00:00 (xfer#62, to-check=1164/3130)
+common/admin/InstantSite/mysql/index.ks
+        8122 100%   31.10kB/s    0:00:00          8122 100%   31.10kB/s    0:00:00 (xfer#63, to-check=1163/3130)
+common/admin/InstantSite/mysql/manage.css
+        1815 100%    6.92kB/s    0:00:00          1815 100%    6.92kB/s    0:00:00 (xfer#64, to-check=1162/3130)
+common/admin/InstantSite/mysql/manage.ks
+         428 100%    1.63kB/s    0:00:00           428 100%    1.63kB/s    0:00:00 (xfer#65, to-check=1161/3130)
+common/admin/InstantSite/mysql/menu.css
+        1150 100%    4.39kB/s    0:00:00          1150 100%    4.39kB/s    0:00:00 (xfer#66, to-check=1160/3130)
+common/admin/InstantSite/mysql/menu_template.kt
+         222 100%    0.85kB/s    0:00:00           222 100%    0.85kB/s    0:00:00 (xfer#67, to-check=1159/3130)
+common/admin/InstantSite/mysql/msg_template.kt
+         118 100%    0.45kB/s    0:00:00           118 100%    0.45kB/s    0:00:00 (xfer#68, to-check=1158/3130)
+common/admin/InstantSite/mysql/mysql.js
+        6737 100%   25.70kB/s    0:00:00          6737 100%   25.70kB/s    0:00:00 (xfer#69, to-check=1157/3130)
+common/admin/InstantSite/mysql/script_template.ks
+        2246 100%    8.57kB/s    0:00:00          2246 100%    8.57kB/s    0:00:00 (xfer#70, to-check=1153/3130)
+common/admin/InstantSite/mysql/table.ks
+       25152 100%   95.20kB/s    0:00:00         25152 100%   95.20kB/s    0:00:00 (xfer#71, to-check=1152/3130)
+common/admin/InstantSite/mysql/table_template.kt
+         274 100%    1.04kB/s    0:00:00           274 100%    1.04kB/s    0:00:00 (xfer#72, to-check=1151/3130)
+common/admin/InstantSite/mysql/utils.py
+        8557 100%   32.39kB/s    0:00:00          8557 100%   32.39kB/s    0:00:00 (xfer#73, to-check=1150/3130)
+common/admin/InstantSite/mysql/applications/
+common/admin/InstantSite/mysql/applications/appli_template.kt
+         219 100%    0.83kB/s    0:00:00           219 100%    0.83kB/s    0:00:00 (xfer#74, to-check=1146/3130)
+common/admin/InstantSite/mysql/applications/calendar.css
+        1697 100%    6.40kB/s    0:00:00          1697 100%    6.40kB/s    0:00:00 (xfer#75, to-check=1145/3130)
+common/admin/InstantSite/mysql/applications/calendar.js
+        8343 100%   31.46kB/s    0:00:00          8343 100%   31.46kB/s    0:00:00 (xfer#76, to-check=1144/3130)
+common/admin/InstantSite/mysql/applications/manage.css
+        1815 100%    6.84kB/s    0:00:00          1815 100%    6.84kB/s    0:00:00 (xfer#77, to-check=1141/3130)
+common/admin/InstantSite/mysql/applications/management.py
+       13108 100%   49.23kB/s    0:00:00         13108 100%   49.23kB/s    0:00:00 (xfer#78, to-check=1140/3130)
+common/admin/InstantSite/mysql/applications/images/
+common/admin/InstantSite/mysql/applications/images/b_drop.png
+         311 100%    1.15kB/s    0:00:00           311 100%    1.15kB/s    0:00:00 (xfer#79, to-check=1134/3130)
+common/admin/InstantSite/mysql/applications/images/b_edit.png
+         451 100%    1.67kB/s    0:00:00           451 100%    1.67kB/s    0:00:00 (xfer#80, to-check=1133/3130)
+common/admin/InstantSite/mysql/applications/images/calendar.gif
+         371 100%    1.37kB/s    0:00:00           371 100%    1.37kB/s    0:00:00 (xfer#81, to-check=1132/3130)
+common/admin/InstantSite/mysql/images/
+common/admin/InstantSite/mysql/images/b_browse.png
+         265 100%    0.98kB/s    0:00:00           265 100%    0.98kB/s    0:00:00 (xfer#82, to-check=1131/3130)
+common/admin/InstantSite/mysql/images/b_drop.png
+         311 100%    1.15kB/s    0:00:00           311 100%    1.15kB/s    0:00:00 (xfer#83, to-check=1130/3130)
+common/admin/InstantSite/mysql/images/b_edit.png
+         451 100%    1.67kB/s    0:00:00           451 100%    1.67kB/s    0:00:00 (xfer#84, to-check=1129/3130)
+common/admin/InstantSite/mysql/images/b_insrow.png
+         283 100%    1.05kB/s    0:00:00           283 100%    1.05kB/s    0:00:00 (xfer#85, to-check=1128/3130)
+common/admin/InstantSite/mysql/images/b_props.png
+         294 100%    1.08kB/s    0:00:00           294 100%    1.08kB/s    0:00:00 (xfer#86, to-check=1127/3130)
+common/admin/InstantSite/mysql/images/b_select.png
+         540 100%    1.99kB/s    0:00:00           540 100%    1.99kB/s    0:00:00 (xfer#87, to-check=1126/3130)
+common/admin/InstantSite/mysql/images/calendar.gif
+         371 100%    1.37kB/s    0:00:00           371 100%    1.37kB/s    0:00:00 (xfer#88, to-check=1125/3130)
+common/admin/editor/
+common/admin/editor/editor.py
+        2191 100%    8.07kB/s    0:00:00          2191 100%    8.07kB/s    0:00:00 (xfer#89, to-check=1123/3130)
+common/admin/editor/index.py
+         204 100%    0.75kB/s    0:00:00           204 100%    0.75kB/s    0:00:00 (xfer#90, to-check=1120/3130)
+common/admin/editor/images/
+common/admin/jQueryFileTree/
+common/admin/jQueryFileTree/connectors/
+common/admin/jQueryFileTree/images/
+common/admin/translation/
+common/admin/translation/fileMenu.pih
+         596 100%    2.20kB/s    0:00:00           596 100%    2.20kB/s    0:00:00 (xfer#91, to-check=1055/3130)
+common/admin/translation/index.py
+         201 100%    0.74kB/s    0:00:00           201 100%    0.74kB/s    0:00:00 (xfer#92, to-check=1053/3130)
+common/admin/translation/jQueryFileTree.py
+        2013 100%    7.42kB/s    0:00:00          2013 100%    7.39kB/s    0:00:00 (xfer#93, to-check=1052/3130)
+common/admin/translation/translator.ks
+        3208 100%   11.78kB/s    0:00:00          3208 100%   11.78kB/s    0:00:00 (xfer#94, to-check=1051/3130)
+common/demo/
+common/demo/base.txt
+       32768  47%  119.85kB/s    0:00:00         68272 100%  246.93kB/s    0:00:00 (xfer#95, to-check=1050/3130)
+common/demo/PyDbLite/
+common/demo/PyDbLite/blog/
+common/demo/PyDbLite/blog/blog.css
+        1071 100%    3.82kB/s    0:00:00          1071 100%    3.82kB/s    0:00:00 (xfer#96, to-check=1027/3130)
+common/demo/PyDbLite/blog/generateBlog.py
+        1467 100%    5.23kB/s    0:00:00          1467 100%    5.23kB/s    0:00:00 (xfer#97, to-check=1026/3130)
+common/demo/PyDbLite/blog/index.ks
+        5982 100%   21.32kB/s    0:00:00          5982 100%   21.32kB/s    0:00:00 (xfer#98, to-check=1025/3130)
+common/demo/PyDbLite/business/
+common/demo/PyDbLite/business/business.css
+         647 100%    2.31kB/s    0:00:00           647 100%    2.31kB/s    0:00:00 (xfer#99, to-check=1024/3130)
+common/demo/PyDbLite/business/createSongBase.py
+        2771 100%    9.84kB/s    0:00:00          2771 100%    9.84kB/s    0:00:00 (xfer#100, to-check=1023/3130)
+common/demo/PyDbLite/business/index.ks
+        6258 100%   22.22kB/s    0:00:00          6258 100%   22.22kB/s    0:00:00 (xfer#101, to-check=1022/3130)
+common/demo/PyDbLite/business/logs.txt
+        4920 100%   17.47kB/s    0:00:00          4920 100%   17.47kB/s    0:00:00 (xfer#102, to-check=1021/3130)
+common/demo/PyDbLite/business/songDb.py
+         558 100%    1.98kB/s    0:00:00           558 100%    1.98kB/s    0:00:00 (xfer#103, to-check=1020/3130)
+common/demo/PyDbLite/calendar/
+common/demo/PyDbLite/calendar/agendaDb.py
+         152 100%    0.54kB/s    0:00:00           152 100%    0.54kB/s    0:00:00 (xfer#104, to-check=1019/3130)
+common/demo/PyDbLite/calendar/calendar.css
+        2508 100%    8.91kB/s    0:00:00          2508 100%    8.91kB/s    0:00:00 (xfer#105, to-check=1018/3130)
+common/demo/PyDbLite/calendar/calendar.js
+        2535 100%    8.97kB/s    0:00:00          2535 100%    8.97kB/s    0:00:00 (xfer#106, to-check=1017/3130)
+common/demo/PyDbLite/calendar/clearSession.py
+          60 100%    0.21kB/s    0:00:00            60 100%    0.21kB/s    0:00:00 (xfer#107, to-check=1016/3130)
+common/demo/PyDbLite/calendar/dayFrame.pih
+        1536 100%    5.43kB/s    0:00:00          1536 100%    5.43kB/s    0:00:00 (xfer#108, to-check=1015/3130)
+common/demo/PyDbLite/calendar/delete.gif
+         858 100%    3.04kB/s    0:00:00           858 100%    3.04kB/s    0:00:00 (xfer#109, to-check=1014/3130)
+common/demo/PyDbLite/calendar/editEntry.py
+         800 100%    2.83kB/s    0:00:00           800 100%    2.83kB/s    0:00:00 (xfer#110, to-check=1013/3130)
+common/demo/PyDbLite/calendar/index.pih
+        2734 100%    9.67kB/s    0:00:00          2734 100%    9.67kB/s    0:00:00 (xfer#111, to-check=1012/3130)
+common/demo/PyDbLite/calendar/showMonth.pih
+        2191 100%    7.75kB/s    0:00:00          2191 100%    7.75kB/s    0:00:00 (xfer#112, to-check=1011/3130)
+common/demo/PyDbLite/calendar/startlog.txt
+           0 100%    0.00kB/s    0:00:00 (xfer#113, to-check=1010/3130)
+common/demo/PyDbLite/forum/
+common/demo/PyDbLite/forum/AuthenticationTest.py
+         342 100%    1.21kB/s    0:00:00           342 100%    1.21kB/s    0:00:00 (xfer#114, to-check=1009/3130)
+common/demo/PyDbLite/forum/admin.pih
+          27 100%    0.10kB/s    0:00:00            27 100%    0.10kB/s    0:00:00 (xfer#115, to-check=1008/3130)
+common/demo/PyDbLite/forum/admin1.pih
+         367 100%    1.29kB/s    0:00:00           367 100%    1.29kB/s    0:00:00 (xfer#116, to-check=1007/3130)
+common/demo/PyDbLite/forum/forum.css
+         631 100%    2.22kB/s    0:00:00           631 100%    2.22kB/s    0:00:00 (xfer#117, to-check=1006/3130)
+common/demo/PyDbLite/forum/forum.ini
+         192 100%    0.68kB/s    0:00:00           192 100%    0.68kB/s    0:00:00 (xfer#118, to-check=1005/3130)
+common/demo/PyDbLite/forum/forum.js
+        1133 100%    3.99kB/s    0:00:00          1133 100%    3.99kB/s    0:00:00 (xfer#119, to-check=1004/3130)
+common/demo/PyDbLite/forum/index.ks
+        6429 100%   22.67kB/s    0:00:00          6429 100%   22.67kB/s    0:00:00 (xfer#120, to-check=1003/3130)
+common/demo/PyDbLite/forum/randomContent.py
+        2319 100%    8.18kB/s    0:00:00          2319 100%    8.18kB/s    0:00:00 (xfer#121, to-check=1002/3130)
+common/demo/PyDbLite/forum/showThreadMessages.pih
+        2891 100%   10.16kB/s    0:00:00          2891 100%   10.16kB/s    0:00:00 (xfer#122, to-check=1001/3130)
+common/demo/PyDbLite/forum/test.py
+         280 100%    0.98kB/s    0:00:00           280 100%    0.98kB/s    0:00:00 (xfer#123, to-check=1000/3130)
+common/demo/PyDbLite/portal/
+common/demo/PyDbLite/portal/anonymousStyleSheet.css
+         109 100%    0.38kB/s    0:00:00           109 100%    0.38kB/s    0:00:00 (xfer#124, to-check=1107/3238)
+common/demo/PyDbLite/portal/authenticate.hip
+         621 100%    2.17kB/s    0:00:00           621 100%    2.17kB/s    0:00:00 (xfer#125, to-check=1106/3238)
+common/demo/PyDbLite/portal/editNews.hip
+         228 100%    0.80kB/s    0:00:00           228 100%    0.80kB/s    0:00:00 (xfer#126, to-check=1105/3238)
+common/demo/PyDbLite/portal/editPreferences.pih
+         733 100%    2.57kB/s    0:00:00           733 100%    2.57kB/s    0:00:00 (xfer#127, to-check=1104/3238)
+common/demo/PyDbLite/portal/footer.pih
+         155 100%    0.54kB/s    0:00:00           155 100%    0.54kB/s    0:00:00 (xfer#128, to-check=1103/3238)
+common/demo/PyDbLite/portal/header.hip
+        1285 100%    4.50kB/s    0:00:00          1285 100%    4.50kB/s    0:00:00 (xfer#129, to-check=1102/3238)
+common/demo/PyDbLite/portal/index.pih
+         400 100%    1.40kB/s    0:00:00           400 100%    1.40kB/s    0:00:00 (xfer#130, to-check=1101/3238)
+common/demo/PyDbLite/portal/insertNews.py
+         326 100%    1.14kB/s    0:00:00           326 100%    1.14kB/s    0:00:00 (xfer#131, to-check=1100/3238)
+common/demo/PyDbLite/portal/k_menu.hip
+         868 100%    3.04kB/s    0:00:00           868 100%    3.04kB/s    0:00:00 (xfer#132, to-check=1099/3238)
+common/demo/PyDbLite/portal/login.pih
+         656 100%    2.30kB/s    0:00:00           656 100%    2.30kB/s    0:00:00 (xfer#133, to-check=1098/3238)
+common/demo/PyDbLite/portal/logout.py
+         110 100%    0.39kB/s    0:00:00           110 100%    0.39kB/s    0:00:00 (xfer#134, to-check=1097/3238)
+common/demo/PyDbLite/portal/newsForm.pih
+         571 100%    1.99kB/s    0:00:00           571 100%    1.99kB/s    0:00:00 (xfer#135, to-check=1096/3238)
+common/demo/PyDbLite/portal/newuser.hip
+         646 100%    2.25kB/s    0:00:00           646 100%    2.25kB/s    0:00:00 (xfer#136, to-check=1095/3238)
+common/demo/PyDbLite/portal/poems.py
+         339 100%    1.18kB/s    0:00:00           339 100%    1.18kB/s    0:00:00 (xfer#137, to-check=1094/3238)
+common/demo/PyDbLite/portal/portalDb.py
+         415 100%    1.45kB/s    0:00:00           415 100%    1.45kB/s    0:00:00 (xfer#138, to-check=1093/3238)
+common/demo/PyDbLite/portal/publishNews.pih
+         859 100%    3.00kB/s    0:00:00           859 100%    3.00kB/s    0:00:00 (xfer#139, to-check=1092/3238)
+common/demo/PyDbLite/portal/removeNews.hip
+         191 100%    0.67kB/s    0:00:00           191 100%    0.67kB/s    0:00:00 (xfer#140, to-check=1091/3238)
+common/demo/PyDbLite/portal/setPreferences.py
+         234 100%    0.82kB/s    0:00:00           234 100%    0.82kB/s    0:00:00 (xfer#141, to-check=1090/3238)
+common/demo/PyDbLite/portal/showNews.hip
+         595 100%    2.08kB/s    0:00:00           595 100%    2.08kB/s    0:00:00 (xfer#142, to-check=1089/3238)
+common/demo/PyDbLite/portal/updateNews.py
+         356 100%    1.24kB/s    0:00:00           356 100%    1.24kB/s    0:00:00 (xfer#143, to-check=1088/3238)
+common/demo/PyDbLite/portal/data/
+common/demo/PyDbLite/portal/poems/
+common/demo/PyDbLite/portal/poems/baudelaire.htm
+         772 100%    2.67kB/s    0:00:00           772 100%    2.67kB/s    0:00:00 (xfer#144, to-check=1085/3238)
+common/demo/PyDbLite/portal/poems/corneille.htm
+        1299 100%    4.50kB/s    0:00:00          1299 100%    4.50kB/s    0:00:00 (xfer#145, to-check=1084/3238)
+common/demo/PyDbLite/portal/poems/hugo.htm
+         711 100%    2.46kB/s    0:00:00           711 100%    2.46kB/s    0:00:00 (xfer#146, to-check=1083/3238)
+common/demo/PyDbLite/portal/poems/musset.htm
+         800 100%    2.77kB/s    0:00:00           800 100%    2.77kB/s    0:00:00 (xfer#147, to-check=1082/3238)
+common/demo/PyDbLite/portal/poems/rimbaud.htm
+         798 100%    2.76kB/s    0:00:00           798 100%    2.76kB/s    0:00:00 (xfer#148, to-check=1081/3238)
+common/demo/PyDbLite/portal/poems/ronsard.htm
+         705 100%    2.44kB/s    0:00:00           705 100%    2.44kB/s    0:00:00 (xfer#149, to-check=1080/3238)
+common/demo/PyDbLite/portal/poems/verlaine.htm
+         757 100%    2.62kB/s    0:00:00           757 100%    2.62kB/s    0:00:00 (xfer#150, to-check=1079/3238)
+common/demo/PyDbLite/wiki/
+common/demo/PyDbLite/wiki/AuthenticationTest.py
+         337 100%    1.16kB/s    0:00:00           337 100%    1.16kB/s    0:00:00 (xfer#151, to-check=1078/3238)
+common/demo/PyDbLite/wiki/BuanBuan.py
+        7066 100%   24.38kB/s    0:00:00          7066 100%   24.38kB/s    0:00:00 (xfer#152, to-check=1077/3238)
+common/demo/PyDbLite/wiki/BuanBuan_kozh.py
+        4895 100%   16.89kB/s    0:00:00          4895 100%   16.89kB/s    0:00:00 (xfer#153, to-check=1076/3238)
+common/demo/PyDbLite/wiki/BuanEdit.pih
+        3492 100%   12.05kB/s    0:00:00          3492 100%   12.05kB/s    0:00:00 (xfer#154, to-check=1075/3238)
+common/demo/PyDbLite/wiki/BuanSave.py
+         933 100%    3.21kB/s    0:00:00           933 100%    3.21kB/s    0:00:00 (xfer#155, to-check=1074/3238)
+common/demo/PyDbLite/wiki/BuanShow.pih
+        1079 100%    3.71kB/s    0:00:00          1079 100%    3.71kB/s    0:00:00 (xfer#156, to-check=1073/3238)
+common/demo/PyDbLite/wiki/delete.gif
+         873 100%    3.00kB/s    0:00:00           873 100%    3.00kB/s    0:00:00 (xfer#157, to-check=1072/3238)
+common/demo/PyDbLite/wiki/edit.gif
+         855 100%    2.94kB/s    0:00:00           855 100%    2.94kB/s    0:00:00 (xfer#158, to-check=1071/3238)
+common/demo/PyDbLite/wiki/home.gif
+         842 100%    2.90kB/s    0:00:00           842 100%    2.90kB/s    0:00:00 (xfer#159, to-check=1070/3238)
+common/demo/PyDbLite/wiki/index.pih
+        1506 100%    5.18kB/s    0:00:00          1506 100%    5.18kB/s    0:00:00 (xfer#160, to-check=1069/3238)
+common/demo/PyDbLite/wiki/login.py
+          91 100%    0.31kB/s    0:00:00            91 100%    0.31kB/s    0:00:00 (xfer#161, to-check=1068/3238)
+common/demo/PyDbLite/wiki/logout.py
+          92 100%    0.32kB/s    0:00:00            92 100%    0.32kB/s    0:00:00 (xfer#162, to-check=1067/3238)
+common/demo/PyDbLite/wiki/search.py
+        1876 100%    6.45kB/s    0:00:00          1876 100%    6.45kB/s    0:00:00 (xfer#163, to-check=1066/3238)
+common/demo/PyDbLite/wiki/test
+         132 100%    0.45kB/s    0:00:00           132 100%    0.45kB/s    0:00:00 (xfer#164, to-check=1065/3238)
+common/demo/PyDbLite/wiki/test.pih
+          34 100%    0.12kB/s    0:00:00            34 100%    0.12kB/s    0:00:00 (xfer#165, to-check=1064/3238)
+common/demo/PyDbLite/wiki/wiki.css
+         700 100%    2.41kB/s    0:00:00           700 100%    2.40kB/s    0:00:00 (xfer#166, to-check=1063/3238)
+common/demo/PyDbLite/wiki/wikiAdmin.pih
+         671 100%    2.30kB/s    0:00:00           671 100%    2.30kB/s    0:00:00 (xfer#167, to-check=1062/3238)
+common/demo/PyDbLite/wiki/wikiAuthent.py
+         348 100%    1.19kB/s    0:00:00           348 100%    1.19kB/s    0:00:00 (xfer#168, to-check=1061/3238)
+common/demo/PyDbLite/wiki/wikiBase.py
+         259 100%    0.89kB/s    0:00:00           259 100%    0.89kB/s    0:00:00 (xfer#169, to-check=1060/3238)
+common/demo/PyDbLite/wiki/wikiRemove.py
+         635 100%    2.09kB/s    0:00:00           635 100%    2.09kB/s    0:00:00 (xfer#170, to-check=1059/3238)
+common/demo/cd-cover/
+common/demo/cd-cover/cdcover.css
+          79 100%    0.26kB/s    0:00:00            79 100%    0.26kB/s    0:00:00 (xfer#171, to-check=1037/3238)
+common/demo/cd-cover/cdcover.js
+        2145 100%    7.03kB/s    0:00:00          2145 100%    7.03kB/s    0:00:00 (xfer#172, to-check=1036/3238)
+common/demo/cd-cover/test.ks
+        7479 100%   24.51kB/s    0:00:00          7479 100%   24.51kB/s    0:00:00 (xfer#173, to-check=1032/3238)
+common/demo/kswiki/
+common/demo/kswiki/wiki.ks
+       12449 100%   40.66kB/s    0:00:00         12449 100%   40.66kB/s    0:00:00 (xfer#174, to-check=1020/3238)
+common/demo/kswiki/wiki/
+common/demo/kswiki/wiki/BuanBuan.py
+        7725 100%   25.23kB/s    0:00:00          7725 100%   25.23kB/s    0:00:00 (xfer#175, to-check=1018/3238)
+common/demo/kswiki/wiki/delete.gif
+         873 100%    2.85kB/s    0:00:00           873 100%    2.85kB/s    0:00:00 (xfer#176, to-check=1017/3238)
+common/demo/kswiki/wiki/edit.gif
+         855 100%    2.79kB/s    0:00:00           855 100%    2.79kB/s    0:00:00 (xfer#177, to-check=1016/3238)
+common/demo/kswiki/wiki/home.gif
+         842 100%    2.75kB/s    0:00:00           842 100%    2.75kB/s    0:00:00 (xfer#178, to-check=1015/3238)
+common/demo/kswiki/wiki/wiki.css
+         700 100%    2.28kB/s    0:00:00           700 100%    2.28kB/s    0:00:00 (xfer#179, to-check=1014/3238)
+common/demo/kswiki/wiki/wikiBase.py
+         319 100%    1.04kB/s    0:00:00           319 100%    1.04kB/s    0:00:00 (xfer#180, to-check=1013/3238)
+common/demo/kswiki/wiki/wikiBase_SQLite.py
+         529 100%    1.72kB/s    0:00:00           529 100%    1.72kB/s    0:00:00 (xfer#181, to-check=1012/3238)
+common/demo/kswiki/wiki/wikiBase_pydblite.py
+         319 100%    1.04kB/s    0:00:00           319 100%    1.04kB/s    0:00:00 (xfer#182, to-check=1011/3238)
+common/demo/kswiki/wiki/template/
+common/demo/kswiki/wiki/template/admin.kt
+         250 100%    0.81kB/s    0:00:00           250 100%    0.81kB/s    0:00:00 (xfer#183, to-check=1009/3238)
+common/demo/kswiki/wiki/template/edit.kt
+         558 100%    1.82kB/s    0:00:00           558 100%    1.82kB/s    0:00:00 (xfer#184, to-check=1008/3238)
+common/demo/kswiki/wiki/template/edithelp.kt
+         995 100%    3.24kB/s    0:00:00           995 100%    3.24kB/s    0:00:00 (xfer#185, to-check=1007/3238)
+common/demo/kswiki/wiki/template/editjs.kt
+        1015 100%    3.30kB/s    0:00:00          1015 100%    3.30kB/s    0:00:00 (xfer#186, to-check=1006/3238)
+common/demo/kswiki/wiki/template/index.kt
+        1336 100%    4.35kB/s    0:00:00          1336 100%    4.35kB/s    0:00:00 (xfer#187, to-check=1005/3238)
+common/demo/kswiki/wiki/template/master.kt
+         489 100%    1.59kB/s    0:00:00           489 100%    1.59kB/s    0:00:00 (xfer#188, to-check=1004/3238)
+common/demo/kswiki/wiki/template/remove.kt
+         137 100%    0.45kB/s    0:00:00           137 100%    0.45kB/s    0:00:00 (xfer#189, to-check=1003/3238)
+common/demo/kswiki/wiki/template/search.kt
+         472 100%    1.53kB/s    0:00:00           472 100%    1.53kB/s    0:00:00 (xfer#190, to-check=1002/3238)
+common/demo/kswiki/wiki/template/show.kt
+         232 100%    0.75kB/s    0:00:00           232 100%    0.75kB/s    0:00:00 (xfer#191, to-check=1001/3238)
+common/demo/mailing_list/
+common/demo/mailing_list/index.py
+         828 100%    2.69kB/s    0:00:00           828 100%    2.69kB/s    0:00:00 (xfer#192, to-check=1072/3323)
+common/demo/mailing_list/mailing.ks
+       13343 100%   43.15kB/s    0:00:00         13343 100%   43.15kB/s    0:00:00 (xfer#193, to-check=1071/3323)
+common/demo/mysql/
+common/demo/mysql/blog/
+common/demo/mysql/blog/blog.css
+        1617 100%    5.23kB/s    0:00:00          1617 100%    5.23kB/s    0:00:00 (xfer#194, to-check=1067/3323)
+common/demo/mysql/blog/blog_template.kt
+         875 100%    2.83kB/s    0:00:00           875 100%    2.83kB/s    0:00:00 (xfer#195, to-check=1066/3323)
+common/demo/mysql/blog/default_blog_settings.py
+         201 100%    0.65kB/s    0:00:00           201 100%    0.65kB/s    0:00:00 (xfer#196, to-check=1065/3323)
+common/demo/mysql/blog/index.ks
+       16417 100%   52.91kB/s    0:00:00         16417 100%   52.91kB/s    0:00:00 (xfer#197, to-check=1064/3323)
+common/demo/mysql/blog/msg_template.kt
+         255 100%    0.82kB/s    0:00:00           255 100%    0.82kB/s    0:00:00 (xfer#198, to-check=1063/3323)
+common/demo/mysql/blog/settings_template.kt
+         489 100%    1.56kB/s    0:00:00           489 100%    1.56kB/s    0:00:00 (xfer#199, to-check=1062/3323)
+common/demo/mysql/business/
+common/demo/mysql/business/business.css
+         647 100%    2.06kB/s    0:00:00           647 100%    2.06kB/s    0:00:00 (xfer#200, to-check=1061/3323)
+common/demo/mysql/business/createSongBase.py
+        3811 100%   12.12kB/s    0:00:00          3811 100%   12.12kB/s    0:00:00 (xfer#201, to-check=1060/3323)
+common/demo/mysql/business/index.ks
+        6605 100%   20.94kB/s    0:00:00          6605 100%   20.94kB/s    0:00:00 (xfer#202, to-check=1059/3323)
+common/demo/mysql/business/songDb.py
+         694 100%    2.20kB/s    0:00:00           694 100%    2.20kB/s    0:00:00 (xfer#203, to-check=1058/3323)
+common/demo/mysql/calendar/
+common/demo/mysql/calendar/agendaDb.py
+         508 100%    1.61kB/s    0:00:00           508 100%    1.61kB/s    0:00:00 (xfer#204, to-check=1057/3323)
+common/demo/mysql/calendar/calendar.css
+        2508 100%    7.95kB/s    0:00:00          2508 100%    7.95kB/s    0:00:00 (xfer#205, to-check=1056/3323)
+common/demo/mysql/calendar/calendar.js
+        2535 100%    8.04kB/s    0:00:00          2535 100%    8.04kB/s    0:00:00 (xfer#206, to-check=1055/3323)
+common/demo/mysql/calendar/clearSession.py
+          60 100%    0.19kB/s    0:00:00            60 100%    0.19kB/s    0:00:00 (xfer#207, to-check=1054/3323)
+common/demo/mysql/calendar/dayFrame.pih
+        1591 100%    5.04kB/s    0:00:00          1591 100%    5.03kB/s    0:00:00 (xfer#208, to-check=1053/3323)
+common/demo/mysql/calendar/delete.gif
+         858 100%    2.71kB/s    0:00:00           858 100%    2.71kB/s    0:00:00 (xfer#209, to-check=1052/3323)
+common/demo/mysql/calendar/editEntry.py
+         832 100%    2.63kB/s    0:00:00           832 100%    2.63kB/s    0:00:00 (xfer#210, to-check=1051/3323)
+common/demo/mysql/calendar/index.pih
+        3010 100%    9.51kB/s    0:00:00          3010 100%    9.51kB/s    0:00:00 (xfer#211, to-check=1050/3323)
+common/demo/mysql/calendar/showMonth.pih
+        2191 100%    6.92kB/s    0:00:00          2191 100%    6.92kB/s    0:00:00 (xfer#212, to-check=1049/3323)
+common/demo/quizz/
+common/demo/rss/
+common/demo/sqlite/
+common/demo/sqlite/blog/
+common/demo/sqlite/blog/blog.css
+        1617 100%    5.11kB/s    0:00:00          1617 100%    5.11kB/s    0:00:00 (xfer#213, to-check=1008/3323)
+common/demo/sqlite/blog/blog_template.kt
+         831 100%    2.63kB/s    0:00:00           831 100%    2.63kB/s    0:00:00 (xfer#214, to-check=1007/3323)
+common/demo/sqlite/blog/default_blog_settings.py
+         208 100%    0.66kB/s    0:00:00           208 100%    0.66kB/s    0:00:00 (xfer#215, to-check=1006/3323)
+common/demo/sqlite/blog/index.ks
+       14738 100%   46.43kB/s    0:00:00         14738 100%   46.43kB/s    0:00:00 (xfer#216, to-check=1005/3323)
+common/demo/sqlite/blog/msg_template.kt
+         255 100%    0.80kB/s    0:00:00           255 100%    0.80kB/s    0:00:00 (xfer#217, to-check=1004/3323)
+common/demo/sqlite/blog/settings_template.kt
+         489 100%    1.54kB/s    0:00:00           489 100%    1.54kB/s    0:00:00 (xfer#218, to-check=1003/3323)
+common/demo/sqlite/business/
+common/demo/sqlite/business/business.css
+         647 100%    2.03kB/s    0:00:00           647 100%    2.03kB/s    0:00:00 (xfer#219, to-check=1006/3327)
+common/demo/sqlite/business/createSongBase.py
+        3369 100%   10.58kB/s    0:00:00          3369 100%   10.58kB/s    0:00:00 (xfer#220, to-check=1005/3327)
+common/demo/sqlite/business/index.ks
+        6353 100%   19.95kB/s    0:00:00          6353 100%   19.95kB/s    0:00:00 (xfer#221, to-check=1004/3327)
+common/demo/sqlite/business/logs.txt
+        4920 100%   15.45kB/s    0:00:00          4920 100%   15.45kB/s    0:00:00 (xfer#222, to-check=1003/3327)
+common/demo/sqlite/business/songDb.py
+         530 100%    1.66kB/s    0:00:00           530 100%    1.66kB/s    0:00:00 (xfer#223, to-check=1002/3327)
+common/demo/sqlite/calendar/
+common/demo/sqlite/calendar/agendaDb.py
+         327 100%    1.02kB/s    0:00:00           327 100%    1.02kB/s    0:00:00 (xfer#224, to-check=1014/3340)
+common/demo/sqlite/calendar/calendar.css
+        2508 100%    7.85kB/s    0:00:00          2508 100%    7.85kB/s    0:00:00 (xfer#225, to-check=1013/3340)
+common/demo/sqlite/calendar/calendar.js
+        2535 100%    7.93kB/s    0:00:00          2535 100%    7.93kB/s    0:00:00 (xfer#226, to-check=1012/3340)
+common/demo/sqlite/calendar/clearSession.py
+          60 100%    0.19kB/s    0:00:00            60 100%    0.19kB/s    0:00:00 (xfer#227, to-check=1011/3340)
+common/demo/sqlite/calendar/dayFrame.pih
+        1582 100%    4.95kB/s    0:00:00          1582 100%    4.95kB/s    0:00:00 (xfer#228, to-check=1010/3340)
+common/demo/sqlite/calendar/delete.gif
+         858 100%    2.69kB/s    0:00:00           858 100%    2.69kB/s    0:00:00 (xfer#229, to-check=1009/3340)
+common/demo/sqlite/calendar/editEntry.py
+         805 100%    2.52kB/s    0:00:00           805 100%    2.52kB/s    0:00:00 (xfer#230, to-check=1008/3340)
+common/demo/sqlite/calendar/index.pih
+        2775 100%    8.66kB/s    0:00:00          2775 100%    8.66kB/s    0:00:00 (xfer#231, to-check=1007/3340)
+common/demo/sqlite/calendar/showMonth.pih
+        2191 100%    6.84kB/s    0:00:00          2191 100%    6.84kB/s    0:00:00 (xfer#232, to-check=1006/3340)
+common/demo/sqlite/calendar/startlog.txt
+           0 100%    0.00kB/s    0:00:00 (xfer#233, to-check=1005/3340)
+common/demo/sqlite/forum/
+common/demo/sqlite/forum/forum.css
+        1394 100%    4.32kB/s    0:00:00          1394 100%    4.32kB/s    0:00:00 (xfer#234, to-check=1033/3369)
+common/demo/sqlite/forum/forum.js
+        1149 100%    3.56kB/s    0:00:00          1149 100%    3.56kB/s    0:00:00 (xfer#235, to-check=1032/3369)
+common/demo/sqlite/forum/generateForum.py
+        3732 100%   11.53kB/s    0:00:00          3732 100%   11.53kB/s    0:00:00 (xfer#236, to-check=1031/3369)
+common/demo/sqlite/forum/index.ks
+       13930 100%   43.05kB/s    0:00:00         13930 100%   43.05kB/s    0:00:00 (xfer#237, to-check=1030/3369)
+common/demo/sqlite/forum/login.ks
+        4407 100%   13.58kB/s    0:00:00          4407 100%   13.58kB/s    0:00:00 (xfer#238, to-check=1029/3369)
+common/demo/sqlite/forum/manager.ks
+        5807 100%   17.89kB/s    0:00:00          5807 100%   17.89kB/s    0:00:00 (xfer#239, to-check=1028/3369)
+common/demo/sqlite/forum/randomContent.py
+        2319 100%    7.14kB/s    0:00:00          2319 100%    7.14kB/s    0:00:00 (xfer#240, to-check=1027/3369)
+common/demo/sqlite/forum/showThreadMessages.pih
+        3081 100%    9.49kB/s    0:00:00          3081 100%    9.49kB/s    0:00:00 (xfer#241, to-check=1026/3369)
+common/demo/sqlite/forum/utils.py
+         554 100%    1.71kB/s    0:00:00           554 100%    1.71kB/s    0:00:00 (xfer#242, to-check=1025/3369)
+common/demo/sqlite/kswiki/
+common/demo/sqlite/kswiki/wiki.ks
+       12449 100%   38.23kB/s    0:00:00         12449 100%   38.23kB/s    0:00:00 (xfer#243, to-check=1024/3369)
+common/demo/sqlite/kswiki/wiki/
+common/demo/sqlite/kswiki/wiki/BuanBuan.py
+        7725 100%   20.23kB/s    0:00:00          7725 100%   20.23kB/s    0:00:00 (xfer#244, to-check=1022/3369)
+common/demo/sqlite/kswiki/wiki/delete.gif
+         873 100%    2.29kB/s    0:00:00           873 100%    2.29kB/s    0:00:00 (xfer#245, to-check=1021/3369)
+common/demo/sqlite/kswiki/wiki/edit.gif
+         855 100%    2.24kB/s    0:00:00           855 100%    2.24kB/s    0:00:00 (xfer#246, to-check=1020/3369)
+common/demo/sqlite/kswiki/wiki/home.gif
+         842 100%    2.20kB/s    0:00:00           842 100%    2.20kB/s    0:00:00 (xfer#247, to-check=1019/3369)
+common/demo/sqlite/kswiki/wiki/wiki.css
+         700 100%    1.83kB/s    0:00:00           700 100%    1.83kB/s    0:00:00 (xfer#248, to-check=1018/3369)
+common/demo/sqlite/kswiki/wiki/wikiBase.py
+         529 100%    1.38kB/s    0:00:00           529 100%    1.38kB/s    0:00:00 (xfer#249, to-check=1017/3369)
+common/demo/sqlite/kswiki/wiki/wikiBase_SQLite.py
+         529 100%    1.38kB/s    0:00:00           529 100%    1.38kB/s    0:00:00 (xfer#250, to-check=1016/3369)
+common/demo/sqlite/kswiki/wiki/wikiBase_pydblite.py
+         319 100%    0.84kB/s    0:00:00           319 100%    0.84kB/s    0:00:00 (xfer#251, to-check=1015/3369)
+common/demo/sqlite/kswiki/wiki/template/
+common/demo/sqlite/kswiki/wiki/template/admin.kt
+         250 100%    0.65kB/s    0:00:00           250 100%    0.65kB/s    0:00:00 (xfer#252, to-check=1013/3369)
+common/demo/sqlite/kswiki/wiki/template/edit.kt
+         558 100%    1.46kB/s    0:00:00           558 100%    1.46kB/s    0:00:00 (xfer#253, to-check=1012/3369)
+common/demo/sqlite/kswiki/wiki/template/edithelp.kt
+         995 100%    2.60kB/s    0:00:00           995 100%    2.60kB/s    0:00:00 (xfer#254, to-check=1011/3369)
+common/demo/sqlite/kswiki/wiki/template/editjs.kt
+        1015 100%    2.65kB/s    0:00:00          1015 100%    2.65kB/s    0:00:00 (xfer#255, to-check=1010/3369)
+common/demo/sqlite/kswiki/wiki/template/index.kt
+        1336 100%    3.49kB/s    0:00:00          1336 100%    3.49kB/s    0:00:00 (xfer#256, to-check=1009/3369)
+common/demo/sqlite/kswiki/wiki/template/master.kt
+         489 100%    1.28kB/s    0:00:00           489 100%    1.28kB/s    0:00:00 (xfer#257, to-check=1008/3369)
+common/demo/sqlite/kswiki/wiki/template/remove.kt
+         137 100%    0.36kB/s    0:00:00           137 100%    0.36kB/s    0:00:00 (xfer#258, to-check=1007/3369)
+common/demo/sqlite/kswiki/wiki/template/search.kt
+         472 100%    1.23kB/s    0:00:00           472 100%    1.23kB/s    0:00:00 (xfer#259, to-check=1006/3369)
+common/demo/sqlite/kswiki/wiki/template/show.kt
+         232 100%    0.61kB/s    0:00:00           232 100%    0.61kB/s    0:00:00 (xfer#260, to-check=1005/3369)
+common/demo/sqlite/portal/
+common/demo/sqlite/portal/anonymousStyleSheet.css
+         109 100%    0.28kB/s    0:00:00           109 100%    0.28kB/s    0:00:00 (xfer#261, to-check=1026/3391)
+common/demo/sqlite/portal/authenticate.hip
+         888 100%    2.26kB/s    0:00:00           888 100%    2.26kB/s    0:00:00 (xfer#262, to-check=1025/3391)
+common/demo/sqlite/portal/editNews.hip
+         250 100%    0.64kB/s    0:00:00           250 100%    0.64kB/s    0:00:00 (xfer#263, to-check=1024/3391)
+common/demo/sqlite/portal/editPreferences.pih
+         733 100%    1.86kB/s    0:00:00           733 100%    1.86kB/s    0:00:00 (xfer#264, to-check=1023/3391)
+common/demo/sqlite/portal/footer.pih
+         155 100%    0.39kB/s    0:00:00           155 100%    0.39kB/s    0:00:00 (xfer#265, to-check=1022/3391)
+common/demo/sqlite/portal/header.hip
+        1294 100%    3.28kB/s    0:00:00          1294 100%    3.28kB/s    0:00:00 (xfer#266, to-check=1021/3391)
+common/demo/sqlite/portal/index.pih
+         400 100%    1.01kB/s    0:00:00           400 100%    1.01kB/s    0:00:00 (xfer#267, to-check=1020/3391)
+common/demo/sqlite/portal/insertNews.py
+         558 100%    1.42kB/s    0:00:00           558 100%    1.42kB/s    0:00:00 (xfer#268, to-check=1019/3391)
+common/demo/sqlite/portal/k_menu.hip
+         868 100%    2.20kB/s    0:00:00           868 100%    2.20kB/s    0:00:00 (xfer#269, to-check=1018/3391)
+common/demo/sqlite/portal/login.pih
+         656 100%    1.66kB/s    0:00:00           656 100%    1.66kB/s    0:00:00 (xfer#270, to-check=1017/3391)
+common/demo/sqlite/portal/logout.py
+         110 100%    0.28kB/s    0:00:00           110 100%    0.28kB/s    0:00:00 (xfer#271, to-check=1016/3391)
+common/demo/sqlite/portal/newsForm.pih
+         631 100%    1.60kB/s    0:00:00           631 100%    1.60kB/s    0:00:00 (xfer#272, to-check=1015/3391)
+common/demo/sqlite/portal/newuser.hip
+         957 100%    2.43kB/s    0:00:00           957 100%    2.43kB/s    0:00:00 (xfer#273, to-check=1014/3391)
+common/demo/sqlite/portal/poems.py
+         339 100%    0.86kB/s    0:00:00           339 100%    0.86kB/s    0:00:00 (xfer#274, to-check=1013/3391)
+common/demo/sqlite/portal/portalDb.py
+         525 100%    1.33kB/s    0:00:00           525 100%    1.33kB/s    0:00:00 (xfer#275, to-check=1012/3391)
+common/demo/sqlite/portal/publishNews.pih
+         868 100%    2.20kB/s    0:00:00           868 100%    2.20kB/s    0:00:00 (xfer#276, to-check=1011/3391)
+common/demo/sqlite/portal/removeNews.hip
+         203 100%    0.51kB/s    0:00:00           203 100%    0.51kB/s    0:00:00 (xfer#277, to-check=1010/3391)
+common/demo/sqlite/portal/setPreferences.py
+         249 100%    0.63kB/s    0:00:00           249 100%    0.63kB/s    0:00:00 (xfer#278, to-check=1009/3391)
+common/demo/sqlite/portal/showNews.hip
+         604 100%    1.53kB/s    0:00:00           604 100%    1.53kB/s    0:00:00 (xfer#279, to-check=1008/3391)
+common/demo/sqlite/portal/updateNews.py
+         600 100%    1.52kB/s    0:00:00           600 100%    1.52kB/s    0:00:00 (xfer#280, to-check=1007/3391)
+common/demo/sqlite/portal/data/
+common/demo/sqlite/portal/poems/
+common/demo/sqlite/portal/poems/baudelaire.htm
+         772 100%    1.93kB/s    0:00:00           772 100%    1.93kB/s    0:00:00 (xfer#281, to-check=1009/3396)
+common/demo/sqlite/portal/poems/corneille.htm
+        1299 100%    3.24kB/s    0:00:00          1299 100%    3.24kB/s    0:00:00 (xfer#282, to-check=1008/3396)
+common/demo/sqlite/portal/poems/hugo.htm
+         711 100%    1.78kB/s    0:00:00           711 100%    1.78kB/s    0:00:00 (xfer#283, to-check=1007/3396)
+common/demo/sqlite/portal/poems/musset.htm
+         800 100%    2.00kB/s    0:00:00           800 100%    2.00kB/s    0:00:00 (xfer#284, to-check=1006/3396)
+common/demo/sqlite/portal/poems/rimbaud.htm
+         798 100%    1.99kB/s    0:00:00           798 100%    1.99kB/s    0:00:00 (xfer#285, to-check=1005/3396)
+common/demo/sqlite/portal/poems/ronsard.htm
+         705 100%    1.76kB/s    0:00:00           705 100%    1.76kB/s    0:00:00 (xfer#286, to-check=1004/3396)
+common/demo/sqlite/portal/poems/verlaine.htm
+         757 100%    1.89kB/s    0:00:00           757 100%    1.89kB/s    0:00:00 (xfer#287, to-check=1003/3396)
+common/demo/sqlite/wiki/
+common/demo/sqlite/wiki/AuthenticationTest.py
+         337 100%    0.84kB/s    0:00:00           337 100%    0.84kB/s    0:00:00 (xfer#288, to-check=1019/3413)
+common/demo/sqlite/wiki/BuanBuan.py
+        5744 100%   14.31kB/s    0:00:00          5744 100%   14.31kB/s    0:00:00 (xfer#289, to-check=1018/3413)
+common/demo/sqlite/wiki/BuanBuan_kozh.py
+        4895 100%   12.19kB/s    0:00:00          4895 100%   12.19kB/s    0:00:00 (xfer#290, to-check=1017/3413)
+common/demo/sqlite/wiki/BuanEdit.pih
+        3304 100%    8.23kB/s    0:00:00          3304 100%    8.23kB/s    0:00:00 (xfer#291, to-check=1016/3413)
+common/demo/sqlite/wiki/BuanSave.py
+         942 100%    2.35kB/s    0:00:00           942 100%    2.35kB/s    0:00:00 (xfer#292, to-check=1015/3413)
+common/demo/sqlite/wiki/BuanShow.pih
+        1069 100%    2.66kB/s    0:00:00          1069 100%    2.66kB/s    0:00:00 (xfer#293, to-check=1014/3413)
+common/demo/sqlite/wiki/delete.gif
+         873 100%    2.17kB/s    0:00:00           873 100%    2.17kB/s    0:00:00 (xfer#294, to-check=1013/3413)
+common/demo/sqlite/wiki/edit.gif
+         855 100%    2.13kB/s    0:00:00           855 100%    2.12kB/s    0:00:00 (xfer#295, to-check=1012/3413)
+common/demo/sqlite/wiki/home.gif
+         842 100%    2.09kB/s    0:00:00           842 100%    2.09kB/s    0:00:00 (xfer#296, to-check=1011/3413)
+common/demo/sqlite/wiki/index.pih
+        1323 100%    3.29kB/s    0:00:00          1323 100%    3.29kB/s    0:00:00 (xfer#297, to-check=1010/3413)
+common/demo/sqlite/wiki/logout.py
+          55 100%    0.14kB/s    0:00:00            55 100%    0.14kB/s    0:00:00 (xfer#298, to-check=1009/3413)
+common/demo/sqlite/wiki/search.py
+        1876 100%    4.66kB/s    0:00:00          1876 100%    4.66kB/s    0:00:00 (xfer#299, to-check=1008/3413)
+common/demo/sqlite/wiki/test
+         132 100%    0.33kB/s    0:00:00           132 100%    0.33kB/s    0:00:00 (xfer#300, to-check=1007/3413)
+common/demo/sqlite/wiki/test.pih
+          34 100%    0.08kB/s    0:00:00            34 100%    0.08kB/s    0:00:00 (xfer#301, to-check=1006/3413)
+common/demo/sqlite/wiki/wiki.css
+         700 100%    1.74kB/s    0:00:00           700 100%    1.74kB/s    0:00:00 (xfer#302, to-check=1005/3413)
+common/demo/sqlite/wiki/wikiAdmin.pih
+         671 100%    1.67kB/s    0:00:00           671 100%    1.67kB/s    0:00:00 (xfer#303, to-check=1004/3413)
+common/demo/sqlite/wiki/wikiAuthent.py
+         348 100%    0.86kB/s    0:00:00           348 100%    0.86kB/s    0:00:00 (xfer#304, to-check=1003/3413)
+common/demo/sqlite/wiki/wikiBase.py
+         470 100%    1.17kB/s    0:00:00           470 100%    1.17kB/s    0:00:00 (xfer#305, to-check=1002/3413)
+common/demo/sqlite/wiki/wikiRemove.py
+         610 100%    1.52kB/s    0:00:00           610 100%    1.52kB/s    0:00:00 (xfer#306, to-check=1001/3413)
+common/doc/
+common/doc/en/
+common/doc/en/admin.pih
+        3275 100%    8.12kB/s    0:00:00          3275 100%    8.12kB/s    0:00:00 (xfer#307, to-check=1062/3512)
+common/doc/en/apache.pih
+        8789 100%   21.73kB/s    0:00:00          8789 100%   21.73kB/s    0:00:00 (xfer#308, to-check=1060/3512)
+common/doc/en/app_config.pih
+        1569 100%    3.88kB/s    0:00:00          1569 100%    3.88kB/s    0:00:00 (xfer#309, to-check=1059/3512)
+common/doc/en/authentication.pih
+        3863 100%    9.55kB/s    0:00:00          3863 100%    9.55kB/s    0:00:00 (xfer#310, to-check=1058/3512)
+common/doc/en/chapitres.txt
+        1039 100%    2.57kB/s    0:00:00          1039 100%    2.57kB/s    0:00:00 (xfer#311, to-check=1056/3512)
+common/doc/en/configuration.pih
+        9646 100%   23.79kB/s    0:00:00          9646 100%   23.79kB/s    0:00:00 (xfer#312, to-check=1054/3512)
+common/doc/en/cookies.pih
+        1564 100%    3.86kB/s    0:00:00          1564 100%    3.86kB/s    0:00:00 (xfer#313, to-check=1053/3512)
+common/doc/en/debugging.pih
+        2240 100%    5.52kB/s    0:00:00          2240 100%    5.52kB/s    0:00:00 (xfer#314, to-check=1051/3512)
+common/doc/en/default.css
+        5436 100%   13.37kB/s    0:00:00          5436 100%   13.37kB/s    0:00:00 (xfer#315, to-check=1050/3512)
+common/doc/en/directories.pih
+        4170 100%   10.26kB/s    0:00:00          4170 100%   10.26kB/s    0:00:00 (xfer#316, to-check=1049/3512)
+common/doc/en/email.pih
+        7200 100%   17.62kB/s    0:00:00          7200 100%   17.62kB/s    0:00:00 (xfer#317, to-check=1048/3512)
+common/doc/en/environment.pih
+        2381 100%    5.81kB/s    0:00:00          2381 100%    5.81kB/s    0:00:00 (xfer#318, to-check=1047/3512)
+common/doc/en/fileuploads.pih
+        1251 100%    3.05kB/s    0:00:00          1251 100%    3.05kB/s    0:00:00 (xfer#319, to-check=1046/3512)
+common/doc/en/head.html
+         596 100%    1.46kB/s    0:00:00           596 100%    1.46kB/s    0:00:00 (xfer#320, to-check=1044/3512)
+common/doc/en/htmlinsidepython.pih
+        1140 100%    2.78kB/s    0:00:00          1140 100%    2.78kB/s    0:00:00 (xfer#321, to-check=1043/3512)
+common/doc/en/htmltags.pih
+        8882 100%   21.68kB/s    0:00:00          8882 100%   21.68kB/s    0:00:00 (xfer#322, to-check=1041/3512)
+common/doc/en/import.pih
+        2679 100%    6.52kB/s    0:00:00          2679 100%    6.52kB/s    0:00:00 (xfer#323, to-check=1039/3512)
+common/doc/en/include.pih
+        2265 100%    5.52kB/s    0:00:00          2265 100%    5.52kB/s    0:00:00 (xfer#324, to-check=1038/3512)
+common/doc/en/index.py
+          54 100%    0.13kB/s    0:00:00            54 100%    0.13kB/s    0:00:00 (xfer#325, to-check=1037/3512)
+common/doc/en/index.tmpl
+        3656 100%    8.90kB/s    0:00:00          3656 100%    8.90kB/s    0:00:00 (xfer#326, to-check=1036/3512)
+common/doc/en/install.pih
+        2638 100%    6.42kB/s    0:00:00          2638 100%    6.42kB/s    0:00:00 (xfer#327, to-check=1035/3512)
+common/doc/en/karrigellservices.pih
+        4049 100%    9.67kB/s    0:00:00          4049 100%    9.67kB/s    0:00:00 (xfer#328, to-check=1033/3512)
+common/doc/en/kt.pih
+        6815 100%   16.23kB/s    0:00:00          6815 100%   16.23kB/s    0:00:00 (xfer#329, to-check=1032/3512)
+common/doc/en/localisation.pih
+        3524 100%    8.39kB/s    0:00:00          3524 100%    8.39kB/s    0:00:00 (xfer#330, to-check=1031/3512)
+common/doc/en/migration.pih
+        7324 100%   17.40kB/s    0:00:00          7324 100%   17.40kB/s    0:00:00 (xfer#331, to-check=1030/3512)
+common/doc/en/names.py
+        2069 100%    4.92kB/s    0:00:00          2069 100%    4.92kB/s    0:00:00 (xfer#332, to-check=1029/3512)
+common/doc/en/namespace.pih
+        7075 100%   16.81kB/s    0:00:00          7075 100%   16.81kB/s    0:00:00 (xfer#333, to-check=1028/3512)
+common/doc/en/pf_test.js
+          84 100%    0.20kB/s    0:00:00            84 100%    0.20kB/s    0:00:00 (xfer#334, to-check=1026/3512)
+common/doc/en/proxy.pih
+        4012 100%    9.53kB/s    0:00:00          4012 100%    9.53kB/s    0:00:00 (xfer#335, to-check=1024/3512)
+common/doc/en/pythoninsidehtml.pih
+        9580 100%   22.71kB/s    0:00:00          9580 100%   22.71kB/s    0:00:00 (xfer#336, to-check=1023/3512)
+common/doc/en/pythonscripts.pih
+        1843 100%    4.37kB/s    0:00:00          1843 100%    4.37kB/s    0:00:00 (xfer#337, to-check=1022/3512)
+common/doc/en/redirection.pih
+         142 100%    0.34kB/s    0:00:00           142 100%    0.34kB/s    0:00:00 (xfer#338, to-check=1021/3512)
+common/doc/en/reference.ks
+        5688 100%   13.45kB/s    0:00:00          5688 100%   13.45kB/s    0:00:00 (xfer#339, to-check=1020/3512)
+common/doc/en/rss.pih
+        4161 100%    9.84kB/s    0:00:00          4161 100%    9.84kB/s    0:00:00 (xfer#340, to-check=1019/3512)
+common/doc/en/sessions.pih
+        4751 100%   11.23kB/s    0:00:00          4751 100%   11.23kB/s    0:00:00 (xfer#341, to-check=1018/3512)
+common/doc/en/smarturls.pih
+        1622 100%    3.84kB/s    0:00:00          1622 100%    3.84kB/s    0:00:00 (xfer#342, to-check=1017/3512)
+common/doc/en/templates.pih
+        3016 100%    7.13kB/s    0:00:00          3016 100%    7.13kB/s    0:00:00 (xfer#343, to-check=1016/3512)
+common/doc/en/urlresolution.pih
+        1967 100%    4.64kB/s    0:00:00          1967 100%    4.64kB/s    0:00:00 (xfer#344, to-check=1008/3512)
+common/doc/en/userinput.pih
+        1749 100%    4.13kB/s    0:00:00          1749 100%    4.13kB/s    0:00:00 (xfer#345, to-check=1007/3512)
+common/doc/en/virtualhosts.pih
+        2783 100%    6.52kB/s    0:00:00          2783 100%    6.52kB/s    0:00:00 (xfer#346, to-check=1006/3512)
+common/doc/en/tour/
+common/doc/en/tour/hip_test.hip
+         362 100%    0.85kB/s    0:00:00           362 100%    0.85kB/s    0:00:00 (xfer#347, to-check=1017/3542)
+common/doc/en/tour/tour.pih
+       16402 100%   38.23kB/s    0:00:00         16402 100%   38.23kB/s    0:00:00 (xfer#348, to-check=1004/3542)
+common/doc/en/tour/unicode_test.ks
+         282 100%    0.66kB/s    0:00:00           282 100%    0.66kB/s    0:00:00 (xfer#349, to-check=1002/3542)
+common/doc/fr/
+common/doc/fr/admin.pih
+        3800 100%    8.86kB/s    0:00:00          3800 100%    8.86kB/s    0:00:00 (xfer#350, to-check=1056/3598)
+common/doc/fr/apache.pih
+        9536 100%   22.17kB/s    0:00:00          9536 100%   22.17kB/s    0:00:00 (xfer#351, to-check=1055/3598)
+common/doc/fr/app_config.pih
+        1835 100%    4.27kB/s    0:00:00          1835 100%    4.27kB/s    0:00:00 (xfer#352, to-check=1054/3598)
+common/doc/fr/authentication.pih
+        4228 100%    9.83kB/s    0:00:00          4228 100%    9.83kB/s    0:00:00 (xfer#353, to-check=1053/3598)
+common/doc/fr/chapitres.txt
+        1130 100%    2.62kB/s    0:00:00          1130 100%    2.62kB/s    0:00:00 (xfer#354, to-check=1052/3598)
+common/doc/fr/configuration.pih
+       10842 100%   25.15kB/s    0:00:00         10842 100%   25.15kB/s    0:00:00 (xfer#355, to-check=1051/3598)
+common/doc/fr/cookies.pih
+        1614 100%    3.74kB/s    0:00:00          1614 100%    3.74kB/s    0:00:00 (xfer#356, to-check=1050/3598)
+common/doc/fr/debugging.pih
+        2385 100%    5.52kB/s    0:00:00          2385 100%    5.52kB/s    0:00:00 (xfer#357, to-check=1049/3598)
+common/doc/fr/default.css
+        5436 100%   12.55kB/s    0:00:00          5436 100%   12.52kB/s    0:00:00 (xfer#358, to-check=1048/3598)
+common/doc/fr/directories.pih
+        4542 100%   10.46kB/s    0:00:00          4542 100%   10.46kB/s    0:00:00 (xfer#359, to-check=1047/3598)
+common/doc/fr/email.pih
+        8009 100%   18.45kB/s    0:00:00          8009 100%   18.45kB/s    0:00:00 (xfer#360, to-check=1046/3598)
+common/doc/fr/environment.pih
+        2585 100%    5.95kB/s    0:00:00          2585 100%    5.95kB/s    0:00:00 (xfer#361, to-check=1045/3598)
+common/doc/fr/fileuploads.pih
+        1387 100%    3.19kB/s    0:00:00          1387 100%    3.19kB/s    0:00:00 (xfer#362, to-check=1044/3598)
+common/doc/fr/head.html
+         596 100%    1.37kB/s    0:00:00           596 100%    1.37kB/s    0:00:00 (xfer#363, to-check=1043/3598)
+common/doc/fr/htmlinsidepython.pih
+        1260 100%    2.90kB/s    0:00:00          1260 100%    2.90kB/s    0:00:00 (xfer#364, to-check=1042/3598)
+common/doc/fr/htmltags.pih
+        9774 100%   22.46kB/s    0:00:00          9774 100%   22.46kB/s    0:00:00 (xfer#365, to-check=1041/3598)
+common/doc/fr/import.pih
+        2948 100%    6.77kB/s    0:00:00          2948 100%    6.77kB/s    0:00:00 (xfer#366, to-check=1040/3598)
+common/doc/fr/include.pih
+        2452 100%    5.62kB/s    0:00:00          2452 100%    5.62kB/s    0:00:00 (xfer#367, to-check=1039/3598)
+common/doc/fr/index.py
+          85 100%    0.19kB/s    0:00:00            85 100%    0.19kB/s    0:00:00 (xfer#368, to-check=1038/3598)
+common/doc/fr/index.tmpl
+        3967 100%    9.09kB/s    0:00:00          3967 100%    9.09kB/s    0:00:00 (xfer#369, to-check=1037/3598)
+common/doc/fr/install.pih
+        2865 100%    6.57kB/s    0:00:00          2865 100%    6.57kB/s    0:00:00 (xfer#370, to-check=1036/3598)
+common/doc/fr/karrigellservices.pih
+        4656 100%   10.65kB/s    0:00:00          4656 100%   10.65kB/s    0:00:00 (xfer#371, to-check=1035/3598)
+common/doc/fr/kt.pih
+        7334 100%   16.77kB/s    0:00:00          7334 100%   16.77kB/s    0:00:00 (xfer#372, to-check=1034/3598)
+common/doc/fr/localisation.pih
+        4166 100%    8.20kB/s    0:00:00          4166 100%    8.20kB/s    0:00:00 (xfer#373, to-check=1033/3598)
+common/doc/fr/migration.pih
+        8415 100%   16.50kB/s    0:00:00          8415 100%   16.50kB/s    0:00:00 (xfer#374, to-check=1032/3598)
+common/doc/fr/names.py
+        2108 100%    4.13kB/s    0:00:00          2108 100%    4.13kB/s    0:00:00 (xfer#375, to-check=1031/3598)
+common/doc/fr/namespace.pih
+        7923 100%   15.47kB/s    0:00:00          7923 100%   15.47kB/s    0:00:00 (xfer#376, to-check=1030/3598)
+common/doc/fr/navig.html
+         109 100%    0.21kB/s    0:00:00           109 100%    0.21kB/s    0:00:00 (xfer#377, to-check=1029/3598)
+common/doc/fr/pf_test.js
+          84 100%    0.16kB/s    0:00:00            84 100%    0.16kB/s    0:00:00 (xfer#378, to-check=1028/3598)
+common/doc/fr/proxy.pih
+        4251 100%    8.29kB/s    0:00:00          4251 100%    8.29kB/s    0:00:00 (xfer#379, to-check=1027/3598)
+common/doc/fr/pythoninsidehtml.pih
+        9859 100%   19.18kB/s    0:00:00          9859 100%   19.18kB/s    0:00:00 (xfer#380, to-check=1026/3598)
+common/doc/fr/pythonscripts.pih
+        2429 100%    4.72kB/s    0:00:00          2429 100%    4.72kB/s    0:00:00 (xfer#381, to-check=1025/3598)
+common/doc/fr/redirection.pih
+         150 100%    0.29kB/s    0:00:00           150 100%    0.29kB/s    0:00:00 (xfer#382, to-check=1024/3598)
+common/doc/fr/reference.ks
+        5868 100%   11.37kB/s    0:00:00          5868 100%   11.37kB/s    0:00:00 (xfer#383, to-check=1023/3598)
+common/doc/fr/rss.pih
+        4486 100%    8.67kB/s    0:00:00          4486 100%    8.67kB/s    0:00:00 (xfer#384, to-check=1022/3598)
+common/doc/fr/sessions.pih
+        5243 100%   10.12kB/s    0:00:00          5243 100%   10.12kB/s    0:00:00 (xfer#385, to-check=1021/3598)
+common/doc/fr/smarturls.pih
+        1845 100%    3.53kB/s    0:00:00          1845 100%    3.53kB/s    0:00:00 (xfer#386, to-check=1020/3598)
+common/doc/fr/templates.pih
+        2518 100%    4.82kB/s    0:00:00          2518 100%    4.82kB/s    0:00:00 (xfer#387, to-check=1019/3598)
+common/doc/fr/urlresolution.pih
+        2180 100%    4.17kB/s    0:00:00          2180 100%    4.17kB/s    0:00:00 (xfer#388, to-check=1018/3598)
+common/doc/fr/userinput.pih
+        1902 100%    3.63kB/s    0:00:00          1902 100%    3.63kB/s    0:00:00 (xfer#389, to-check=1017/3598)
+common/doc/fr/virtualhosts.pih
+        3030 100%    5.79kB/s    0:00:00          3030 100%    5.79kB/s    0:00:00 (xfer#390, to-check=1016/3598)
+common/doc/fr/tour/
+common/doc/fr/tour/GET_test.html
+         151 100%    0.29kB/s    0:00:00           151 100%    0.29kB/s    0:00:00 (xfer#391, to-check=1039/3623)
+common/doc/fr/tour/GET_test.py
+          94 100%    0.18kB/s    0:00:00            94 100%    0.18kB/s    0:00:00 (xfer#392, to-check=1038/3623)
+common/doc/fr/tour/POST_test.html
+         167 100%    0.32kB/s    0:00:00           167 100%    0.32kB/s    0:00:00 (xfer#393, to-check=1037/3623)
+common/doc/fr/tour/POST_test.py
+          94 100%    0.18kB/s    0:00:00            94 100%    0.18kB/s    0:00:00 (xfer#394, to-check=1036/3623)
+common/doc/fr/tour/THIS_test.py
+         209 100%    0.40kB/s    0:00:00           209 100%    0.40kB/s    0:00:00 (xfer#395, to-check=1035/3623)
+common/doc/fr/tour/aaa.py
+          47 100%    0.09kB/s    0:00:00            47 100%    0.09kB/s    0:00:00 (xfer#396, to-check=1034/3623)
+common/doc/fr/tour/config.py
+          90 100%    0.17kB/s    0:00:00            90 100%    0.17kB/s    0:00:00 (xfer#397, to-check=1033/3623)
+common/doc/fr/tour/conv_date.py
+         138 100%    0.26kB/s    0:00:00           138 100%    0.26kB/s    0:00:00 (xfer#398, to-check=1032/3623)
+common/doc/fr/tour/doc.css
+        2761 100%    5.27kB/s    0:00:00          2761 100%    5.27kB/s    0:00:00 (xfer#399, to-check=1031/3623)
+common/doc/fr/tour/editindex.py
+         179 100%    0.34kB/s    0:00:00           179 100%    0.34kB/s    0:00:00 (xfer#400, to-check=1030/3623)
+common/doc/fr/tour/env_test.py
+         170 100%    0.32kB/s    0:00:00           170 100%    0.32kB/s    0:00:00 (xfer#401, to-check=1029/3623)
+common/doc/fr/tour/global_test.py
+          59 100%    0.11kB/s    0:00:00            59 100%    0.11kB/s    0:00:00 (xfer#402, to-check=1028/3623)
+common/doc/fr/tour/header.py
+          33 100%    0.06kB/s    0:00:00            33 100%    0.06kB/s    0:00:00 (xfer#403, to-check=1027/3623)
+common/doc/fr/tour/headers.py
+         154 100%    0.29kB/s    0:00:00           154 100%    0.29kB/s    0:00:00 (xfer#404, to-check=1026/3623)
+common/doc/fr/tour/hello.py
+          33 100%    0.06kB/s    0:00:00            33 100%    0.06kB/s    0:00:00 (xfer#405, to-check=1025/3623)
+common/doc/fr/tour/hello1.py
+          70 100%    0.13kB/s    0:00:00            70 100%    0.13kB/s    0:00:00 (xfer#406, to-check=1024/3623)
+common/doc/fr/tour/hip_test.hip
+         362 100%    0.69kB/s    0:00:00           362 100%    0.69kB/s    0:00:00 (xfer#407, to-check=1023/3623)
+common/doc/fr/tour/importTest.py
+          67 100%    0.13kB/s    0:00:00            67 100%    0.13kB/s    0:00:00 (xfer#408, to-check=1022/3623)
+common/doc/fr/tour/includeTest.py
+          35 100%    0.07kB/s    0:00:00            35 100%    0.07kB/s    0:00:00 (xfer#409, to-check=1021/3623)
+common/doc/fr/tour/include_test.ks
+          87 100%    0.17kB/s    0:00:00            87 100%    0.17kB/s    0:00:00 (xfer#410, to-check=1020/3623)
+common/doc/fr/tour/include_test.py
+          25 100%    0.05kB/s    0:00:00            25 100%    0.05kB/s    0:00:00 (xfer#411, to-check=1019/3623)
+common/doc/fr/tour/ksTest.ks
+         467 100%    0.89kB/s    0:00:00           467 100%    0.89kB/s    0:00:00 (xfer#412, to-check=1018/3623)
+common/doc/fr/tour/login_test.ks
+         536 100%    1.02kB/s    0:00:00           536 100%    1.02kB/s    0:00:00 (xfer#413, to-check=1017/3623)
+common/doc/fr/tour/login_test.py
+          24 100%    0.05kB/s    0:00:00            24 100%    0.05kB/s    0:00:00 (xfer#414, to-check=1016/3623)
+common/doc/fr/tour/scriptError.py
+          35 100%    0.07kB/s    0:00:00            35 100%    0.07kB/s    0:00:00 (xfer#415, to-check=1015/3623)
+common/doc/fr/tour/session.html
+         153 100%    0.29kB/s    0:00:00           153 100%    0.29kB/s    0:00:00 (xfer#416, to-check=1014/3623)
+common/doc/fr/tour/session1.py
+         127 100%    0.24kB/s    0:00:00           127 100%    0.24kB/s    0:00:00 (xfer#417, to-check=1013/3623)
+common/doc/fr/tour/session2.py
+          37 100%    0.07kB/s    0:00:00            37 100%    0.07kB/s    0:00:00 (xfer#418, to-check=1012/3623)
+common/doc/fr/tour/tour.css
+         850 100%    1.62kB/s    0:00:00           850 100%    1.62kB/s    0:00:00 (xfer#419, to-check=1011/3623)
+common/doc/fr/tour/tour.pih
+       17298 100%   32.86kB/s    0:00:00         17298 100%   32.86kB/s    0:00:00 (xfer#420, to-check=1010/3623)
+common/doc/fr/tour/tour_en.pih
+       14943 100%   28.34kB/s    0:00:00         14943 100%   28.34kB/s    0:00:00 (xfer#421, to-check=1009/3623)
+common/doc/fr/tour/unicode_test.ks
+         282 100%    0.53kB/s    0:00:00           282 100%    0.53kB/s    0:00:00 (xfer#422, to-check=1008/3623)
+common/doc/fr/tour/version.py
+          29 100%    0.05kB/s    0:00:00            29 100%    0.05kB/s    0:00:00 (xfer#423, to-check=1007/3623)
+common/doc/images/
+common/editarea/
+common/editarea/docs/
+common/editarea/edit_area/
+common/editarea/edit_area/images/
+common/editarea/edit_area/langs/
+common/editarea/edit_area/plugins/charmap/
+common/editarea/edit_area/plugins/charmap/css/
+common/editarea/edit_area/plugins/charmap/images/
+common/editarea/edit_area/plugins/charmap/jscripts/
+common/editarea/edit_area/plugins/charmap/langs/
+common/editarea/edit_area/plugins/test/
+common/editarea/edit_area/plugins/test/css/
+common/editarea/edit_area/plugins/test/images/
+common/editarea/edit_area/plugins/test/langs/
+common/editarea/edit_area/reg_syntax/
+common/editarea/exemples/
+common/whizzywig/
+common/whizzywig/WhizzywigToolbar.png
+        1590 100%    2.98kB/s    0:00:00          1590 100%    2.98kB/s    0:00:00 (xfer#424, to-check=1015/3804)
+common/whizzywig/add_column_after.gif
+         119 100%    0.22kB/s    0:00:00           119 100%    0.22kB/s    0:00:00 (xfer#425, to-check=1014/3804)
+common/whizzywig/add_column_before.gif
+         119 100%    0.22kB/s    0:00:00           119 100%    0.22kB/s    0:00:00 (xfer#426, to-check=1013/3804)
+common/whizzywig/add_row_above.gif
+         118 100%    0.22kB/s    0:00:00           118 100%    0.22kB/s    0:00:00 (xfer#427, to-check=1012/3804)
+common/whizzywig/add_row_below.gif
+         138 100%    0.26kB/s    0:00:00           138 100%    0.26kB/s    0:00:00 (xfer#428, to-check=1011/3804)
+common/whizzywig/delete_column.gif
+         118 100%    0.22kB/s    0:00:00           118 100%    0.22kB/s    0:00:00 (xfer#429, to-check=1010/3804)
+common/whizzywig/delete_row.gif
+         120 100%    0.22kB/s    0:00:00           120 100%    0.22kB/s    0:00:00 (xfer#430, to-check=1009/3804)
+common/whizzywig/table_in_cell.gif
+         139 100%    0.26kB/s    0:00:00           139 100%    0.26kB/s    0:00:00 (xfer#431, to-check=1008/3804)
+common/whizzywig/whizzywig.js
+       26382 100%   49.26kB/s    0:00:00         26382 100%   49.26kB/s    0:00:00 (xfer#432, to-check=1007/3804)
+data/cms/
+data/cms/logs_2010051920.log
+        2373 100%    4.41kB/s    0:00:00          2373 100%    4.41kB/s    0:00:00 (xfer#433, to-check=1005/4131)
+data/cms/sessions/
+data/cms/sessions/uFA35ZxmRVlTTc4C
+          88 100%    0.16kB/s    0:00:00            88 100%    0.16kB/s    0:00:00 (xfer#434, to-check=1001/4340)
+data/muireception/
+data/muireception/conf.py
+        2121 100%    3.86kB/s    0:00:00          2121 100%    3.86kB/s    0:00:00 (xfer#435, to-check=1055/4453)
+data/muireception/conf.py~
+        2127 100%    3.87kB/s    0:00:00          2127 100%    3.87kB/s    0:00:00 (xfer#436, to-check=1054/4453)
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%   59.37kB/s    0:00:05        362496 100%  636.69kB/s    0:00:00 (xfer#437, to-check=1041/4453)
+data/muireception/sessions/
+deleting data/muireception/sessions/vu4JSmGKOZrElI6k
+deleting data/muireception/sessions/0vpGTYUCFbtrpd7T
+data/muireception/sessions/2ZyRE2TNHLigUxS1
+         212 100%    0.37kB/s    0:00:00           212 100%    0.37kB/s    0:00:00 (xfer#438, to-check=1011/4480)
+data/muireception/sessions/qRCY7aNO83WX4mfV
+         133 100%    0.23kB/s    0:00:00           133 100%    0.23kB/s    0:00:00 (xfer#439, to-check=1010/4480)
+data/www/
+data/www/agenda.sqlite
+        2048 100%    3.59kB/s    0:00:00          2048 100%    3.59kB/s    0:00:00 (xfer#440, to-check=1015/4493)
+data/www/business.sqlite
+       32768  49%   57.25kB/s    0:00:00         66560 100%  110.92kB/s    0:00:00 (xfer#441, to-check=1013/4493)
+data/www/conf.py
+        1972 100%    3.28kB/s    0:00:00          1972 100%    3.28kB/s    0:00:00 (xfer#442, to-check=1012/4493)
+data/www/portal.sqlite
+        3072 100%    5.11kB/s    0:00:00          3072 100%    5.11kB/s    0:00:00 (xfer#443, to-check=1009/4493)
+data/www/translations.dat
+       19325 100%   31.88kB/s    0:00:00         19325 100%   31.88kB/s    0:00:00 (xfer#444, to-check=1008/4493)
+data/www/users.sqlite
+        3072 100%    5.07kB/s    0:00:00          3072 100%    5.07kB/s    0:00:00 (xfer#445, to-check=1007/4493)
+data/www/users_db.py
+          16 100%    0.03kB/s    0:00:00            16 100%    0.03kB/s    0:00:00 (xfer#446, to-check=1006/4493)
+data/www/wiki.sqlite
+        2048 100%    3.37kB/s    0:00:00          2048 100%    3.37kB/s    0:00:00 (xfer#447, to-check=1005/4493)
+data/www/blogs/
+data/www/blogs/blog/
+data/www/blogs/blog/blog_settings.py
+         208 100%    0.34kB/s    0:00:00           208 100%    0.34kB/s    0:00:00 (xfer#448, to-check=1002/4497)
+data/www/cache/
+data/www/cache/config.py
+        3460 100%    5.69kB/s    0:00:00          3460 100%    5.69kB/s    0:00:00 (xfer#449, to-check=1019/4515)
+data/www/cache/demjson.py
+       32768  37%   53.51kB/s    0:00:01         88190 100%  142.82kB/s    0:00:00 (xfer#450, to-check=1018/4515)
+data/www/cache/header.ks
+        2626 100%    4.25kB/s    0:00:00          2626 100%    4.25kB/s    0:00:00 (xfer#451, to-check=1017/4515)
+data/www/cache/index.ks
+        2522 100%    4.08kB/s    0:00:00          2522 100%    4.08kB/s    0:00:00 (xfer#452, to-check=1016/4515)
+data/www/cache/index.py
+        5129 100%    8.29kB/s    0:00:00          5129 100%    8.29kB/s    0:00:00 (xfer#453, to-check=1015/4515)
+data/www/cache/kindex.pih
+        2232 100%    3.61kB/s    0:00:00          2232 100%    3.61kB/s    0:00:00 (xfer#454, to-check=1014/4515)
+data/www/cache/layout.ks
+       10435 100%   16.87kB/s    0:00:00         10435 100%   16.87kB/s    0:00:00 (xfer#455, to-check=1013/4515)
+data/www/cache/login.ks
+         197 100%    0.32kB/s    0:00:00           197 100%    0.32kB/s    0:00:00 (xfer#456, to-check=1012/4515)
+data/www/cache/model.py
+       18976 100%   30.58kB/s    0:00:00         18976 100%   30.58kB/s    0:00:00 (xfer#457, to-check=1011/4515)
+data/www/cache/pagefn.py
+       11700 100%   18.85kB/s    0:00:00         11700 100%   18.85kB/s    0:00:00 (xfer#458, to-check=1010/4515)
+data/www/cache/version.py
+         286 100%    0.46kB/s    0:00:00           286 100%    0.46kB/s    0:00:00 (xfer#459, to-check=1009/4515)
+data/www/cache/admin/
+data/www/cache/admin/create_users_db.ks
+        3297 100%    5.30kB/s    0:00:00          3297 100%    5.30kB/s    0:00:00 (xfer#460, to-check=1054/4567)
+data/www/cache/admin/index.ks
+        1293 100%    2.08kB/s    0:00:00          1293 100%    2.08kB/s    0:00:00 (xfer#461, to-check=1053/4567)
+data/www/cache/admin/login.ks
+       10025 100%   16.10kB/s    0:00:00         10025 100%   16.10kB/s    0:00:00 (xfer#462, to-check=1052/4567)
+data/www/cache/admin/set_admin.ks
+        2591 100%    4.16kB/s    0:00:00          2591 100%    4.16kB/s    0:00:00 (xfer#463, to-check=1051/4567)
+data/www/cache/admin/InstantSite/
+data/www/cache/admin/InstantSite/PyDbLite/
+data/www/cache/admin/InstantSite/PyDbLite/index.ks
+       13606 100%   21.82kB/s    0:00:00         13606 100%   21.82kB/s    0:00:00 (xfer#464, to-check=1047/4567)
+data/www/cache/admin/InstantSite/SQLite/
+data/www/cache/admin/InstantSite/SQLite/check_type.py
+        1106 100%    1.77kB/s    0:00:00          1106 100%    1.77kB/s    0:00:00 (xfer#465, to-check=1046/4567)
+data/www/cache/admin/InstantSite/SQLite/index.ks
+       20643 100%   33.05kB/s    0:00:00         20643 100%   33.05kB/s    0:00:00 (xfer#466, to-check=1045/4567)
+data/www/cache/admin/InstantSite/SQLite/sqlite_utils.py
+        3810 100%    6.10kB/s    0:00:00          3810 100%    6.10kB/s    0:00:00 (xfer#467, to-check=1044/4567)
+data/www/cache/blogs/
+data/www/cache/blogs/sqlite/
+data/www/cache/blogs/sqlite/blog/
+data/www/cache/blogs/sqlite/blog/index.ks
+       14532 100%   23.23kB/s    0:00:00         14532 100%   23.23kB/s    0:00:00 (xfer#468, to-check=1040/4567)
+data/www/cache/blogs/sqlite/index/
+data/www/cache/blogs/sqlite/index/index.ks
+       14532 100%   23.19kB/s    0:00:00         14532 100%   23.19kB/s    0:00:00 (xfer#469, to-check=1039/4567)
+data/www/cache/demo/
+data/www/cache/demo/sqlite/
+data/www/cache/demo/sqlite/business/
+data/www/cache/demo/sqlite/business/createSongBase.py
+        3278 100%    5.23kB/s    0:00:00          3278 100%    5.23kB/s    0:00:00 (xfer#470, to-check=1032/4567)
+data/www/cache/demo/sqlite/business/index.ks
+        6243 100%    9.95kB/s    0:00:00          6243 100%    9.95kB/s    0:00:00 (xfer#471, to-check=1031/4567)
+data/www/cache/demo/sqlite/calendar/
+data/www/cache/demo/sqlite/calendar/agendaDb.py
+         320 100%    0.51kB/s    0:00:00           320 100%    0.51kB/s    0:00:00 (xfer#472, to-check=1030/4567)
+data/www/cache/demo/sqlite/calendar/dayFrame.pih
+        2290 100%    3.65kB/s    0:00:00          2290 100%    3.65kB/s    0:00:00 (xfer#473, to-check=1029/4567)
+data/www/cache/demo/sqlite/calendar/index.pih
+        2772 100%    4.42kB/s    0:00:00          2772 100%    4.42kB/s    0:00:00 (xfer#474, to-check=1028/4567)
+data/www/cache/demo/sqlite/calendar/showMonth.pih
+        2539 100%    4.04kB/s    0:00:00          2539 100%    4.04kB/s    0:00:00 (xfer#475, to-check=1027/4567)
+data/www/cache/demo/sqlite/forum/
+data/www/cache/demo/sqlite/forum/index.ks
+       13625 100%   21.67kB/s    0:00:00         13625 100%   21.67kB/s    0:00:00 (xfer#476, to-check=1026/4567)
+data/www/cache/demo/sqlite/forum/utils.py
+         540 100%    0.86kB/s    0:00:00           540 100%    0.86kB/s    0:00:00 (xfer#477, to-check=1025/4567)
+data/www/cache/demo/sqlite/portal/
+data/www/cache/demo/sqlite/portal/footer.pih
+         199 100%    0.32kB/s    0:00:00           199 100%    0.32kB/s    0:00:00 (xfer#478, to-check=1024/4567)
+data/www/cache/demo/sqlite/portal/header.hip
+        1405 100%    2.23kB/s    0:00:00          1405 100%    2.23kB/s    0:00:00 (xfer#479, to-check=1023/4567)
+data/www/cache/demo/sqlite/portal/index.pih
+         415 100%    0.66kB/s    0:00:00           415 100%    0.66kB/s    0:00:00 (xfer#480, to-check=1022/4567)
+data/www/cache/demo/sqlite/portal/k_menu.hip
+         941 100%    1.49kB/s    0:00:00           941 100%    1.49kB/s    0:00:00 (xfer#481, to-check=1021/4567)
+data/www/cache/demo/sqlite/portal/poems.py
+         322 100%    0.51kB/s    0:00:00           322 100%    0.51kB/s    0:00:00 (xfer#482, to-check=1020/4567)
+data/www/cache/demo/sqlite/portal/portalDb.py
+         507 100%    0.81kB/s    0:00:00           507 100%    0.81kB/s    0:00:00 (xfer#483, to-check=1019/4567)
+data/www/cache/demo/sqlite/portal/showNews.hip
+         648 100%    1.03kB/s    0:00:00           648 100%    1.03kB/s    0:00:00 (xfer#484, to-check=1018/4567)
+data/www/cache/demo/sqlite/wiki/
+data/www/cache/demo/sqlite/wiki/index.pih
+        1576 100%    2.50kB/s    0:00:00          1576 100%    2.50kB/s    0:00:00 (xfer#485, to-check=1017/4567)
+data/www/cache/demo/sqlite/wiki/wikiBase.py
+         454 100%    0.72kB/s    0:00:00           454 100%    0.72kB/s    0:00:00 (xfer#486, to-check=1016/4567)
+data/www/cache/doc/
+data/www/cache/doc/en/
+data/www/cache/doc/en/index.py
+          61 100%    0.10kB/s    0:00:00            61 100%    0.10kB/s    0:00:00 (xfer#487, to-check=1014/4567)
+data/www/cache/doc/en/names.py
+        2000 100%    3.17kB/s    0:00:00          2000 100%    3.17kB/s    0:00:00 (xfer#488, to-check=1013/4567)
+data/www/cache/doc/en/reference.ks
+        5521 100%    8.75kB/s    0:00:00          5521 100%    8.75kB/s    0:00:00 (xfer#489, to-check=1012/4567)
+data/www/cache/js/
+data/www/cache/js/init.js.pih
+       10373 100%   16.42kB/s    0:00:00         10373 100%   16.42kB/s    0:00:00 (xfer#490, to-check=1011/4567)
+data/www/cache/js/layoutInit.js.pih
+       13227 100%   20.90kB/s    0:00:00         13227 100%   20.90kB/s    0:00:00 (xfer#491, to-check=1010/4567)
+data/www/cache/lib/
+data/www/cache/lib/formcheck/
+data/www/cache/lib/formcheck/lang.js.pih
+        2188 100%    3.46kB/s    0:00:00          2188 100%    3.46kB/s    0:00:00 (xfer#492, to-check=1008/4567)
+data/www/forum/
+data/www/forum/forums.sqlite
+        2048 100%    3.24kB/s    0:00:00          2048 100%    3.24kB/s    0:00:00 (xfer#493, to-check=1007/4567)
+data/www/sessions/
+data/www/sessions/9ki7W5xUilkliWIn
+          93 100%    0.15kB/s    0:00:00            93 100%    0.15kB/s    0:00:00 (xfer#494, to-check=1017/4580)
+data/www/sessions/jSkWEICR0INtuFvJ
+         235 100%    0.37kB/s    0:00:00           235 100%    0.37kB/s    0:00:00 (xfer#495, to-check=1013/4580)
+karrigell/
+karrigell/apache/
+karrigell/apache/cgi-bin/
+karrigell/apache/cgi-bin/conf.py
+        2281 100%    3.38kB/s    0:00:00          2281 100%    3.38kB/s    0:00:00 (xfer#496, to-check=2118/6501)
+karrigell/apache/cgi-bin/config_loader.py
+         860 100%    1.27kB/s    0:00:00           860 100%    1.27kB/s    0:00:00 (xfer#497, to-check=2117/6501)
+karrigell/apache/cgi-bin/k_handler.cgi
+        3159 100%    4.67kB/s    0:00:00          3159 100%    4.67kB/s    0:00:00 (xfer#498, to-check=2116/6501)
+karrigell/apache/data/
+karrigell/apache/data/conf.py
+        1503 100%    2.22kB/s    0:00:00          1503 100%    2.22kB/s    0:00:00 (xfer#499, to-check=2113/6501)
+karrigell/apache/mod_python/
+karrigell/apache/mod_python/config_loader.py
+        1281 100%    1.90kB/s    0:00:00          1281 100%    1.90kB/s    0:00:00 (xfer#500, to-check=2110/6501)
+karrigell/apache/mod_wsgi/
+karrigell/apache/mod_wsgi/wsgi.py
+        3524 100%    5.21kB/s    0:00:00          3524 100%    5.21kB/s    0:00:00 (xfer#501, to-check=2108/6501)
+karrigell/apache/mod_wsgi/wsgi_config_loader.py
+        1279 100%    1.89kB/s    0:00:00          1279 100%    1.89kB/s    0:00:00 (xfer#502, to-check=2107/6501)
+karrigell/apache/mod_wsgi/wsgi_test.py
+         369 100%    0.54kB/s    0:00:00           369 100%    0.54kB/s    0:00:00 (xfer#503, to-check=2106/6501)
+karrigell/core/
+karrigell/core/HIP.pyc
+        2729 100%    4.03kB/s    0:00:00          2729 100%    4.03kB/s    0:00:00 (xfer#504, to-check=2104/6501)
+karrigell/core/HTTP.py
+       20329 100%   29.81kB/s    0:00:00         20329 100%   29.67kB/s    0:00:00 (xfer#505, to-check=2103/6501)
+karrigell/core/HTTP.pyc
+       17203 100%   24.96kB/s    0:00:00         17203 100%   24.96kB/s    0:00:00 (xfer#506, to-check=2102/6501)
+karrigell/core/PythonInsideHTML.pyc
+       13032 100%   18.88kB/s    0:00:00         13032 100%   18.88kB/s    0:00:00 (xfer#507, to-check=2098/6501)
+karrigell/core/compat2_3.py
+         825 100%    1.20kB/s    0:00:00           825 100%    1.20kB/s    0:00:00 (xfer#508, to-check=2096/6501)
+karrigell/core/compat2_3.pyc
+        1405 100%    2.04kB/s    0:00:00          1405 100%    2.04kB/s    0:00:00 (xfer#509, to-check=2095/6501)
+karrigell/core/k_capture.pyc
+        1342 100%    1.94kB/s    0:00:00          1342 100%    1.94kB/s    0:00:00 (xfer#510, to-check=2091/6501)
+karrigell/core/k_config.py
+        6194 100%    8.96kB/s    0:00:00          6194 100%    8.96kB/s    0:00:00 (xfer#511, to-check=2090/6501)
+karrigell/core/k_config.pyc
+        5630 100%    8.15kB/s    0:00:00          5630 100%    8.15kB/s    0:00:00 (xfer#512, to-check=2089/6501)
+karrigell/core/k_databases.py
+        1089 100%    1.58kB/s    0:00:00          1089 100%    1.58kB/s    0:00:00 (xfer#513, to-check=2088/6501)
+karrigell/core/k_databases.pyc
+        1333 100%    1.93kB/s    0:00:00          1333 100%    1.93kB/s    0:00:00 (xfer#514, to-check=2087/6501)
+karrigell/core/k_environ.pyc
+        2276 100%    3.29kB/s    0:00:00          2276 100%    3.29kB/s    0:00:00 (xfer#515, to-check=2084/6501)
+karrigell/core/k_exceptions.pyc
+         593 100%    0.86kB/s    0:00:00           593 100%    0.86kB/s    0:00:00 (xfer#516, to-check=2082/6501)
+karrigell/core/k_gzip.pyc
+        1517 100%    2.19kB/s    0:00:00          1517 100%    2.19kB/s    0:00:00 (xfer#517, to-check=2080/6501)
+karrigell/core/k_logging.pyc
+        1337 100%    1.93kB/s    0:00:00          1337 100%    1.93kB/s    0:00:00 (xfer#518, to-check=2078/6501)
+karrigell/core/k_modules.pyc
+        1084 100%    1.57kB/s    0:00:00          1084 100%    1.57kB/s    0:00:00 (xfer#519, to-check=2076/6501)
+karrigell/core/k_sessions.pyc
+        7278 100%   10.50kB/s    0:00:00          7278 100%   10.50kB/s    0:00:00 (xfer#520, to-check=2071/6501)
+karrigell/core/k_sessions.py~
+        6075 100%    8.76kB/s    0:00:00          6075 100%    8.76kB/s    0:00:00 (xfer#521, to-check=2070/6501)
+karrigell/core/k_target.py
+       20421 100%   29.41kB/s    0:00:00         20421 100%   29.41kB/s    0:00:00 (xfer#522, to-check=2069/6501)
+karrigell/core/k_target.pyc
+       19997 100%   28.72kB/s    0:00:00         19997 100%   28.72kB/s    0:00:00 (xfer#523, to-check=2068/6501)
+karrigell/core/k_traceback.py
+        2470 100%    3.55kB/s    0:00:00          2470 100%    3.55kB/s    0:00:00 (xfer#524, to-check=2067/6501)
+karrigell/core/k_traceback.pyc
+        2476 100%    3.56kB/s    0:00:00          2476 100%    3.56kB/s    0:00:00 (xfer#525, to-check=2066/6501)
+karrigell/core/k_translation.py
+        2246 100%    3.22kB/s    0:00:00          2246 100%    3.22kB/s    0:00:00 (xfer#526, to-check=2065/6501)
+karrigell/core/k_translation.pyc
+        2694 100%    3.86kB/s    0:00:00          2694 100%    3.86kB/s    0:00:00 (xfer#527, to-check=2064/6501)
+karrigell/core/k_users_db.py
+        3097 100%    4.44kB/s    0:00:00          3097 100%    4.44kB/s    0:00:00 (xfer#528, to-check=2063/6501)
+karrigell/core/k_users_db.pyc
+        3987 100%    5.72kB/s    0:00:00          3987 100%    5.72kB/s    0:00:00 (xfer#529, to-check=2062/6501)
+karrigell/core/k_utils.pyc
+        2810 100%    4.02kB/s    0:00:00          2810 100%    4.02kB/s    0:00:00 (xfer#530, to-check=2060/6501)
+karrigell/core/k_version.py
+          21 100%    0.03kB/s    0:00:00            21 100%    0.03kB/s    0:00:00 (xfer#531, to-check=2059/6501)
+karrigell/core/k_version.pyc
+         184 100%    0.26kB/s    0:00:00           184 100%    0.26kB/s    0:00:00 (xfer#532, to-check=2058/6501)
+karrigell/core/old_dir.txt
+          38 100%    0.05kB/s    0:00:00            38 100%    0.05kB/s    0:00:00 (xfer#533, to-check=2056/6501)
+karrigell/core/python_code.pyc
+        2150 100%    3.08kB/s    0:00:00          2150 100%    3.08kB/s    0:00:00 (xfer#534, to-check=2054/6501)
+karrigell/core/k_encodings/
+karrigell/core/k_encodings/iso8859_1_ncc.pyc
+        2182 100%    3.12kB/s    0:00:00          2182 100%    3.12kB/s    0:00:00 (xfer#535, to-check=2044/6501)
+karrigell/core/k_encodings/k_encoding.pyc
+       11275 100%   16.12kB/s    0:00:00         11275 100%   16.12kB/s    0:00:00 (xfer#536, to-check=2042/6501)
+karrigell/core/k_encodings/k_encoding_charsets.pyc
+        9613 100%   13.72kB/s    0:00:00          9613 100%   13.72kB/s    0:00:00 (xfer#537, to-check=2040/6501)
+karrigell/dist/
+karrigell/dist/setup.py
+        2637 100%    3.76kB/s    0:00:00          2637 100%    3.76kB/s    0:00:00 (xfer#538, to-check=2037/6501)
+karrigell/package/
+karrigell/package/HTMLTags.py
+       15193 100%   21.66kB/s    0:00:00         15193 100%   21.66kB/s    0:00:00 (xfer#539, to-check=2036/6501)
+karrigell/package/HTMLTags.pyc
+       16406 100%   23.32kB/s    0:00:00         16406 100%   23.32kB/s    0:00:00 (xfer#540, to-check=2035/6501)
+karrigell/package/settings.py
+        1273 100%    1.81kB/s    0:00:00          1273 100%    1.81kB/s    0:00:00 (xfer#541, to-check=2029/6501)
+karrigell/package/transform_script.pyc
+        4728 100%    6.72kB/s    0:00:00          4728 100%    6.72kB/s    0:00:00 (xfer#542, to-check=2027/6501)
+karrigell/package/PyDbLite/
+karrigell/package/PyDbLite/LICENCE.txt
+        1512 100%    2.15kB/s    0:00:00          1512 100%    2.15kB/s    0:00:00 (xfer#543, to-check=2020/6501)
+karrigell/package/PyDbLite/MySQL.py
+       11580 100%   16.44kB/s    0:00:00         11580 100%   16.44kB/s    0:00:00 (xfer#544, to-check=2019/6501)
+karrigell/package/PyDbLite/PyDbLite.pyc
+       20890 100%   29.57kB/s    0:00:00         20890 100%   29.57kB/s    0:00:00 (xfer#545, to-check=2017/6501)
+karrigell/package/PyDbLite/SQLite.py
+       15027 100%   21.24kB/s    0:00:00         15027 100%   21.24kB/s    0:00:00 (xfer#546, to-check=2012/6501)
+karrigell/package/PyDbLite/SQLite.pyc
+       18970 100%   26.77kB/s    0:00:00         18970 100%   26.77kB/s    0:00:00 (xfer#547, to-check=2011/6501)
+karrigell/package/PyDbLite/__init__.pyc
+         204 100%    0.29kB/s    0:00:00           204 100%    0.29kB/s    0:00:00 (xfer#548, to-check=2009/6501)
+karrigell/package/PyDbLite/doc/
+karrigell/package/PyDbLite/doc/licence.html
+        2632 100%    3.71kB/s    0:00:00          2632 100%    3.71kB/s    0:00:00 (xfer#549, to-check=2005/6501)
+karrigell/package/PyDbLite/doc/licence_fr.html
+        2621 100%    3.69kB/s    0:00:00          2621 100%    3.69kB/s    0:00:00 (xfer#550, to-check=2004/6501)
+karrigell/package/extensions/
+karrigell/package/extensions/Cheetah.py
+         564 100%    0.79kB/s    0:00:00           564 100%    0.79kB/s    0:00:00 (xfer#551, to-check=2003/6501)
+karrigell/package/extensions/Cheetah.pyc
+        1130 100%    1.59kB/s    0:00:00          1130 100%    1.59kB/s    0:00:00 (xfer#552, to-check=2002/6501)
+karrigell/package/extensions/KT.py
+       10148 100%   14.28kB/s    0:00:00         10148 100%   14.28kB/s    0:00:00 (xfer#553, to-check=2001/6501)
+karrigell/package/extensions/KT.pyc
+        9324 100%   13.12kB/s    0:00:00          9324 100%   13.12kB/s    0:00:00 (xfer#554, to-check=2000/6501)
+karrigell/package/extensions/PythonStringSubst.py
+         746 100%    1.05kB/s    0:00:00           746 100%    1.05kB/s    0:00:00 (xfer#555, to-check=1999/6501)
+karrigell/package/extensions/PythonStringSubst.pyc
+        1534 100%    2.16kB/s    0:00:00          1534 100%    2.16kB/s    0:00:00 (xfer#556, to-check=1998/6501)
+karrigell/package/extensions/Template.py
+        2898 100%    4.07kB/s    0:00:00          2898 100%    4.07kB/s    0:00:00 (xfer#557, to-check=1997/6501)
+karrigell/package/extensions/Template.pyc
+        3381 100%    4.75kB/s    0:00:00          3381 100%    4.75kB/s    0:00:00 (xfer#558, to-check=1996/6501)
+karrigell/package/extensions/Test.py
+         478 100%    0.67kB/s    0:00:00           478 100%    0.67kB/s    0:00:00 (xfer#559, to-check=1995/6501)
+karrigell/package/extensions/Test.pyc
+        1058 100%    1.49kB/s    0:00:00          1058 100%    1.49kB/s    0:00:00 (xfer#560, to-check=1994/6501)
+karrigell/package/extensions/TranslationSubst.py
+        2952 100%    4.14kB/s    0:00:00          2952 100%    4.14kB/s    0:00:00 (xfer#561, to-check=1993/6501)
+karrigell/package/extensions/TranslationSubst.pyc
+        3506 100%    4.92kB/s    0:00:00          3506 100%    4.92kB/s    0:00:00 (xfer#562, to-check=1992/6501)
+karrigell/package/extensions/__init__.py
+         936 100%    1.31kB/s    0:00:00           936 100%    1.31kB/s    0:00:00 (xfer#563, to-check=1991/6501)
+karrigell/package/modules/
+karrigell/package/modules/__init__.py
+           0 100%    0.00kB/s    0:00:00 (xfer#564, to-check=1990/6501)
+karrigell/package/modules/__init__.pyc
+         164 100%    0.23kB/s    0:00:00           164 100%    0.23kB/s    0:00:00 (xfer#565, to-check=1989/6501)
+karrigell/package/modules/host_filter.pyc
+        1263 100%    1.77kB/s    0:00:00          1263 100%    1.77kB/s    0:00:00 (xfer#566, to-check=1987/6501)
+karrigell/package/modules/static_files.py
+         451 100%    0.63kB/s    0:00:00           451 100%    0.63kB/s    0:00:00 (xfer#567, to-check=1986/6501)
+karrigell/test/
+karrigell/test/importError.py
+          10 100%    0.01kB/s    0:00:00            10 100%    0.01kB/s    0:00:00 (xfer#568, to-check=1623/6501)
+karrigell/test/includeError.py
+          16 100%    0.02kB/s    0:00:00            16 100%    0.02kB/s    0:00:00 (xfer#569, to-check=1622/6501)
+karrigell/test/pages.pdl
+           0 100%    0.00kB/s    0:00:00 (xfer#570, to-check=1621/6501)
+karrigell/test/sock_test.py
+        3404 100%    4.40kB/s    0:00:00          3404 100%    4.40kB/s    0:00:00 (xfer#571, to-check=1618/6501)
+karrigell/test/test.py
+        7794 100%   10.05kB/s    0:00:00          7794 100%   10.05kB/s    0:00:00 (xfer#572, to-check=1617/6501)
+muireception/
+deleting muireception/version.py~
+deleting muireception/treeHandler.py~
+deleting muireception/tree.py~
+deleting muireception/pagefn.py~
+deleting muireception/model.py~
+deleting muireception/menu.ks~
+deleting muireception/layout.ks~
+deleting muireception/kindex.pih~
+deleting muireception/index.pih~
+deleting muireception/index.html~
+deleting muireception/header.ks~
+deleting muireception/form.py~
+deleting muireception/demjson.py~
+deleting muireception/config.py~
+muireception/config.yaml
+        1792 100%    1.91kB/s    0:00:00          1792 100%    1.91kB/s    0:00:00 (xfer#573, to-check=1614/6501)
+muireception/config.yaml~
+        1792 100%    1.91kB/s    0:00:00          1792 100%    1.91kB/s    0:00:00 (xfer#574, to-check=1613/6501)
+muireception/header.ks
+        2617 100%    2.79kB/s    0:00:00          2617 100%    2.79kB/s    0:00:00 (xfer#575, to-check=1608/6501)
+muireception/layout.ks
+       10509 100%   11.18kB/s    0:00:00         10509 100%   11.18kB/s    0:00:00 (xfer#576, to-check=1605/6501)
+muireception/js/
+muireception/js/init.js.pih
+        9743 100%    9.69kB/s    0:00:00          9743 100%    9.69kB/s    0:00:00 (xfer#577, to-check=1023/7649)
+muireception/js/init.js.pih~
+        9764 100%    9.69kB/s    0:00:00          9764 100%    9.69kB/s    0:00:00 (xfer#578, to-check=1022/7649)
+muireception/sysadmin/
+www/
+www/.htaccess
+         397 100%    0.00kB/s    0:00:00           397 100%    0.00kB/s    0:00:00 (xfer#579, to-check=7/8967)
+www/.htaccess_cgi
+         397 100%  387.70kB/s    0:00:00           397 100%  387.70kB/s    0:00:00 (xfer#580, to-check=6/8967)
+www/.htaccess_mod_python
+         237 100%  231.45kB/s    0:00:00           237 100%  231.45kB/s    0:00:00 (xfer#581, to-check=5/8967)
+www/index.py
+        5294 100%    5.05MB/s    0:00:00          5294 100%    5.05MB/s    0:00:00 (xfer#582, to-check=2/8967)
+www/login.ks
+         186 100%  181.64kB/s    0:00:00           186 100%  181.64kB/s    0:00:00 (xfer#583, to-check=0/8967)
+
+sent 917115 bytes  received 12743 bytes  371943.20 bytes/sec
+total size is 51136002  speedup is 54.99
+2010-05-19 22:54:14,545 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768   9%    0.00kB/s    0:00:00        337868 100%   12.12MB/s    0:00:00 (xfer#1, to-check=1/3)
+
+sent 77058 bytes  received 31 bytes  154178.00 bytes/sec
+total size is 649564  speedup is 8.43
+2010-05-19 22:54:14,545 INFO End backup loacl karrigell diretory to local git.
+2010-05-19 22:54:14,546 INFO Begin to backup local github to remote github host.

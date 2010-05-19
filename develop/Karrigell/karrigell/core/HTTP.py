@@ -26,8 +26,9 @@ import k_environ
 import k_gzip
 import k_sessions
 from k_exceptions import *
+import gc
 
-__version__ = "3.0"
+import k_version
 
 buf_size = 2<<16
 
@@ -35,6 +36,7 @@ class HTTP:
 
     log = True
     managed_extensions = ".htm",".html",".py",".pih",".hip",".ks"
+    version = k_version.__version__
 
     def __init__(self,server,(sock,client_address)):
         self.server = server
@@ -51,6 +53,7 @@ class HTTP:
             self.wfile.flush()
         self.wfile.close()
         self.rfile.close()
+        self.sock.close()
 
     def handle_request(self):
         try:
@@ -61,18 +64,36 @@ class HTTP:
         if not self.request_line.strip():
             self.keep_alive = False
             return
-        self.read_request()
-        self.process_request()
+        if self.read_request():
+            self.process_request()
+        else:
+            # bad request
+            self.keep_alive = False
+            return
 
     def read_request(self):
         # read request lines
+        # set default values
+        self.protocol = ""
+        self.resp_headers = {}
+        self.cookies = {}
         self.header_text = ""
+        self.config = k_config.get_host_conf(None)
+        # initialize log info
+        info = datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S - ")
+        info += str(self.client_address[0]) + (" - ")
+        info += self.request_line.strip()
+        self.info = info
+
+        # read headers
         while True:
-            line = self.rfile.readline()
+            line = self.rfile.readline(size=8192)
+            if len(line) == 8192:
+                return False # too long line = attack
             self.header_text += line
             if not line.strip():
                 break
-        self.parse_request()
+        return self.parse_request()
 
     def get_post_data(self):
         # get POST data from source
@@ -85,7 +106,7 @@ class HTTP:
         for k in fs.keys():
             if isinstance(fs[k],list):
                 post_data[k] = fs.getlist(k)
-            elif fs[k].file: # file upload : keep value as is
+            elif fs[k].filename: # file upload : keep value as is
                 post_data[k] = fs[k]
             else:
                 post_data[k] = fs.getlist(k)
@@ -97,12 +118,14 @@ class HTTP:
         try:
             self.method,self.url,self.protocol = self.request_line.strip().split()
         except:
-            self._log("error parsing request line [%s]" %self.request_line)
-            raise
-        # Allow spaces and other quoted characters 
-        self.url = urllib.unquote(self.url)
+            return False
+
+        if not self.method in ("HEAD","GET","POST"):
+            return False
+        
         # request headers
         self.headers = email.message_from_string(self.header_text)
+        return True
 
     def process_request(self):
         import k_target
@@ -112,7 +135,6 @@ class HTTP:
             "SCRIPT_END":SCRIPT_END,
             "HTTP_REDIRECTION":HTTP_REDIRECTION,
             "Session":self.Session,
-            "_":self.translation,
             "Role":self.get_log_level,
             "PRINT":self._print,
             "STDOUT":self._sys_stdout,
@@ -120,9 +142,10 @@ class HTTP:
             }
 
         self.output = cStringIO.StringIO()
+        info = self.info
 
         # defaults
-        self.output_encoding = None
+        self.output_encoding = sys.getdefaultencoding()
         self.resp_headers = email.message_from_string("")
         self.cookies = {}
 
@@ -130,12 +153,6 @@ class HTTP:
         conn_header = self.headers.get("connection","")
         self.keep_alive = (self.protocol == "HTTP/1.1") \
              and (conn_header.lower().startswith("keep-alive"))
-
-        # initialize log info
-        info = datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S - ")
-        info += str(self.client_address[0]) + (" - ")
-        info += self.request_line.strip()
-        self.info = info
 
         # set host-specific configuration
         self.host = self.headers.get('host',None)
@@ -154,22 +171,18 @@ class HTTP:
                 %self.host
             msg.write("<pre>")
             import traceback
-            traceback.print_exc(file=msg)
+            traceback.print_exc(file=sys.stderr)
             msg.write("</pre>")
             self.send_error(500,explain,msg.getvalue())
             return
 
         # encoding
-        self.charsets = None
-        if self.config.encode_input:
-            if "accept-charset" in self.headers:
-                charsets = self.headers["accept-charset"]
-                self.charsets = charsets.split(";")[0].split(",")
+        self.ouput_encoding = self.config.output_encoding
 
         self.SET_COOKIE = Cookie.SimpleCookie()
-        if self.headers.has_key("cookie"):
+        try :
             self.COOKIE=Cookie.SimpleCookie(self.headers["cookie"])
-        else:
+        except (KeyError, Cookie.CookieError) :
             self.COOKIE=Cookie.SimpleCookie()
 
         # script execution namespace
@@ -178,7 +191,7 @@ class HTTP:
             "RESPONSE":self.resp_headers,
             "COOKIE":self.COOKIE,
             "SET_COOKIE":self.SET_COOKIE,
-            "CONFIG":self.config,
+            "CONFIG":self.config
             })
 
         self.is_script = False
@@ -189,9 +202,11 @@ class HTTP:
             self.target = target
             if target.is_dir():
                 self.send_status(200,"Ok")
-
-                if self.config.allow_directory_listing:
-                    self.send_message(target.dirlist())
+                restrict = self.config.allow_directory_listing
+                if None in restrict or self.get_log_level() in restrict:
+                    import k_utils
+                    dir_list = k_utils.dirlist(target.name,target.url)
+                    self.send_message(dir_list)
                 else:
                     self.send_message("You don't have permission for %s"
                         %target.name)
@@ -237,8 +252,13 @@ class HTTP:
 
         # static files : guess content type, set output to the file object
         if not (target.is_script() or target.is_cgi()):
+            try:
+                self.hook("static_files")
+            except SCRIPT_END,msg:
+                self.send_error(403,"Forbidden",msg)
+                return
             # use browser cache if possible
-            if "If-Modified-Since" in self.headers:
+            if self.config.cache and "If-Modified-Since" in self.headers:
                 ims_tuple = rfc822.parsedate(self.headers["If-Modified-Since"])
                 if ims_tuple is not None:
                     ims_datetime = datetime.datetime(*ims_tuple[:7])
@@ -300,12 +320,10 @@ class HTTP:
                 self._log(info,500)
             return
         
-        self.ns["ENVIRON"] = env       
+        self.ns["ENVIRON"] = env
 
         if self.config.output_encoding:
             self.output_encoding = self.config.output_encoding
-        elif target.data_encoding:
-            self.output_encoding = target.data_encoding
 
         try:
             # execute Python script in namespace
@@ -315,6 +333,8 @@ class HTTP:
             target.run(self.ns)
             # namespace may be changed by script (RESPONSE, SET_COOKIE)
             self.ns.update(target.ns)
+            # save session object
+            self.save_session()
         except k_target.Redir,new_url:
             self.redirect(new_url)
             self._log(info,302,new_url)
@@ -344,31 +364,37 @@ class HTTP:
             pass
         except HTTP_REDIRECTION,url:
             self.cookies = self.ns["SET_COOKIE"]
-            self.save_session()
-            self.redirect(url)
-            self._log(info,302,url)
-            return
+            try:
+                self.save_session()
+                self.redirect(url)
+                self._log(info,302,url)
+                return
+            except:
+                self.ns["RESPONSE"] = {}
+                self.handle_exception(sys.exc_info(),
+                    "Error in %s" %target.script_url)
+                # don't know why but server blocks otherwise...
+                self.keep_alive = False
         except:
             # if other error or exception, print trace
             self.ns["RESPONSE"] = {}
             self.handle_exception(sys.exc_info(),
                 "Error in %s" %target.script_url)
-
+            
         # end of request
         self.resp_headers["Content-length"] = self.output.tell()
         if not "Content-type" in self.resp_headers:
             self.resp_headers["Content-type"] = "text/html"
         if not "charset" in self.resp_headers["Content-type"]:
-            if self.output_encoding:
+            if self.output_encoding is not None:
                 ctype = self.resp_headers["Content-type"]
                 del self.resp_headers["Content-type"]
                 self.resp_headers["Content-type"] = ctype + \
-                    ";charset:%s" %self.output_encoding
+                    "; charset=%s" %self.output_encoding
         self.cookies = self.ns["SET_COOKIE"]
         self.send_status(200,"Ok")
         self.send_headers()
         self.send_result()
-        self.save_session()
         self._log(info,200)
 
     # RFC 822 date time formatting
@@ -391,50 +417,30 @@ class HTTP:
                 hh, mm, ss)
         return s
 
-    def send_static(self,fileName):
-        """
-        25/01/2005 Luca Montecchian <l.montecchiani@teamsystem.com>
-        Http optimization, cache and headers for static files
-        """
-        s = os.stat(fileName)
-        mdt = time.gmtime(s.st_mtime)
-        lastModified = time.strftime("%a, %d %b %Y %H:%M:%S GMT", mdt)
-        size = str(s.st_size)
-        ims = self.HEADERS.get('if-modified-since',None)
-
-        if lastModified and ims == lastModified :
-            self.send_response(304)
-            return True
-        else:
-            # populate the header  ;) 
-            self.RESPONSE["Last-Modified"] = lastModified
-            self.RESPONSE["Content-Length"] = size
-        return False
-
     def handle_exception(self,exc_info,header):
+        #sys.stderr.write("\n\n COLLECT \n\n")
+        gc.collect()
         import k_traceback
         self._print(k_traceback.trace(self,exc_info,header,self.config))
 
     def _print(self,*data):
-        if self.output_encoding and isinstance(data,unicode):
-            self.output.write(" ".join([str(d).encode(self.output_encoding)
-                for d in data]))
-        else:
-            self.output.write(" ".join([str(d) for d in data]))
-        self.output.write("\n")
+        res = []
+        for d in data:
+            if self.output_encoding and isinstance(d,unicode):
+                res.append(d.encode(self.output_encoding))
+            else:
+                res.append(str(d))
+        self.output.write(" ".join(res)+"\n")
 
     def _sys_stdout(self,*data):
         """No space or line breaks"""
-        if self.output_encoding and isinstance(data,unicode):
-            self.output.write("".join([str(d).encode(self.output_encoding)
-                for d in data]))
-        else:
-            self.output.write("".join([str(d) for d in data]))
-
-    def translation(self,src):
-        import k_translation
-        trans = k_translation.Translation(self.config)
-        return trans.translation(src,self.headers)
+        res = []
+        for d in data:
+            if self.output_encoding and isinstance(d,unicode):
+                res.append(d.encode(self.output_encoding))
+            else:
+                res.append(str(d))
+        self.output.write("".join(res))
 
     def get_log_level(self):
         if "role" in self.COOKIE:
@@ -442,29 +448,35 @@ class HTTP:
         else:
             return None
 
-    def Session(self, expires=15*60):
+    def Session(self,expires=15*60,path='/'):
         """Function called in scripts, retrieves the session object
         expires is the time (in seconds) after which the session object
-        is removed from the session database if it has not been used"""
-	if hasattr(self,"sessionObj"):	    
+        is removed from the session database if it has not been used
+        path is the path where the session id cookie is valid
+        """
+        if hasattr(self,"sessionObj"):
+            #sys.stderr.write("HTTP self.sessionObject %s" %str(self.sessionObj))
             return self.sessionObj
         elif self.COOKIE.has_key("sessionId"):
-            self.sessionId = self.COOKIE["sessionId"].value
-            self.sessionObj = k_sessions.get_session_object(self.config,
-                self.sessionId,expires)
+            sessionId = self.COOKIE["sessionId"].value
+            #sys.stderr.write("HTTP self.config %s" %dir(self.config))
+            self.sessionObj = self.config.get_session_object(self.config,
+                sessionId,expires)
+            #sys.stderr.write("\nHTTP cookie sessionId %s at %s " %(str(sessionId), str(self.sessionObj)))
         else:
-            self.sessionId,self.sessionObj = \
-                k_sessions.make_session_object(self.config,expires)
-            self.SET_COOKIE["sessionId"] = self.sessionId
-
+            self.sessionObj = self.config.make_session_object(self.config,expires)
+            self.SET_COOKIE["sessionId"] = self.sessionObj._id
+            self.SET_COOKIE["sessionId"]["path"] = path
+            #sys.stderr.write("HTTP new sessionObj %s at %s " % (str(self.sessionObj._id), str(self.sessionObj)))
         return self.sessionObj
+
 
     def save_session(self):
         # save changes in session object
-        if hasattr(self,"sessionId"):
-            k_sessions.save_session_object(self.config,self.sessionId,
-                self.sessionObj)
-
+        if hasattr(self,"sessionObj"):
+            self.config.save_session_object(self.config, self.sessionObj)
+            delattr(self, "sessionObj")
+                
     def _log(self,*data):
         import k_logging
         try :
@@ -520,6 +532,7 @@ class HTTP:
         self.output = cStringIO.StringIO(info)
         self.send_result()
         self._log(self.info,code,self.url,explain)
+        self.keep_alive = False
 
     def send_result(self):
         """send result"""
@@ -539,15 +552,15 @@ class HTTP:
             except socket.error:
                 self.sock.close()
                 return
-        if not self.keep_alive:
-            self.sock.close()
-        if self.config.capture and self.is_script:
+        #if not self.keep_alive:
+        #    self.sock.close()
+        if hasattr(self,"config") and self.config.capture and self.is_script:
             capture_db = k_capture.open_db(self.config)
             k_capture.save(self,capture_db)
             self._log("%s requetes capturees" %len(capture_db))
 
     def version_string(self):
-        return "Karrigell %s" %__version__
+        return "Karrigell %s" %k_version.__version__
 
     def address_string(self):
         host, port = self.client_address[:2]

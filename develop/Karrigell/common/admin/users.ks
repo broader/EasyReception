@@ -1,11 +1,19 @@
 import os
 
+import k_databases
 import k_users_db
 from HTMLTags import *
 
-db = k_users_db.open_db(CONFIG)
+Login(role=["admin"],valid_in='/')
+
+db = k_users_db.get_db(CONFIG)
 
 roles = ["admin","edit","visit"]
+roles_file = os.path.join(CONFIG.data_dir,'roles.txt')
+if os.path.exists(roles_file):
+    roles += [line.strip() for line in open(roles_file)]
+
+SET_UNICODE_OUT('utf-8')
 
 def _header(title,src):
     return HEAD(TITLE("title")+
@@ -19,20 +27,24 @@ def index():
 
     t = H2("Users")
 
-    lines = TR(TH("Host")+TH("Login")+TH("Password hash")+TH("Role")+
-        TH("Session key")+TH("Nb visits")+TH("Last visit")+TD(" "))
+    lines = TR(TH("Host")+TH("Login")+TH("E-mail")+TH("Password hash")
+        +TH("Role")+TH("Session key")+TH("Nb visits")+TH("Last visit")
+        +TD("&nbsp;"))
 
+    fields = ["host","login","email","password","role","session_key",
+            "nb_visits","last_visit"]
     for r in db:
-        lines += TR(Sum([TD(r.get(k)) for k in db.fields]) +
+        lines += TR(Sum([TD(r.get(k)) for k in fields]) +
             TD(A("Edit",href="edit?recid=%s" %r["__id__"]))
             )
-    db_engine = "SQLite"
-    if CONFIG.sqlite is None:
-        db_engine = "PyDbLite"
+    engines = dict(k_databases.get_engines())
+    
+    db_engine = k_users_db.get_db_engine(CONFIG)
 
-    print BODY(A("Admin",href="/admin")+
+    print BODY(A(_("Home"),href="/")+
         t+TABLE(lines)+P()+A("New user",href="edit")+
-        P(SMALL("DB engine : %s" %db_engine)))
+        P(SMALL("DB engine : %s" %db_engine))+
+        P(SMALL(A(_('Logout'),href="logout"))))
 
 def edit(recid=-1):
     recid = int(recid)
@@ -51,6 +63,8 @@ def edit(recid=-1):
         TD(INPUT(name="login",value=r.get("login",""))))
     print TR(TD("Password")+
         TD(INPUT(name="password",Type="password")))
+    print TR(TD("E-mail")+
+        TD(INPUT(name="email",value=r.get("email",""))))
 
     print TD("Role")
     croles = Sum([INPUT(name="role",Type="radio",value=role,
@@ -94,3 +108,5 @@ def insert(**kw):
     db.commit()
     raise HTTP_REDIRECTION,"index"
 
+def logout():
+    Logout(valid_in='/',redir_to='/')

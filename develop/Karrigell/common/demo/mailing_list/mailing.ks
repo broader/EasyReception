@@ -25,7 +25,7 @@ db.create("email_address","status","rand_key","date_time",mode="open")
 
 
 def subscribe():
-    smtp_server = _GetSmtpServer()
+    smtp_server, smtp_user_name, smtp_password = _GetSmtpServer()
     head = HEAD(TITLE(_("Mailing list - subscribe"))+LINK(rel="stylesheet",href="../karrigell.css"))
     body = H1("Subscribe to mailing list")+BR()+BR()
     body += FORM(
@@ -36,9 +36,10 @@ def subscribe():
     print HTML(head+body)
 
 def subscribe_(email):
-    smtp_server = _GetSmtpServer()
+    smtp_server, smtp_user_name, smtp_password = _GetSmtpServer()
 
-    rec_list = db(email_address=email.value)
+    request = False
+    rec_list = db(email_address=email)
     if len(rec_list) :
         rec = rec_list[0]
         if rec['status']=="validated" or rec['status']=="wait_unsubscribe" :
@@ -54,6 +55,7 @@ def subscribe_(email):
         request_id=k_sessions.generate_random(10)
         # Create and send e-mail for validation
         msg = k_email.SendMail("Karrigell mailing list", smtp_server)
+        msg.set_smtp_username_and_password(smtp_user_name, smtp_password)
         msg.set_from("Karrigell mailing list", "")
         msg.set_message("""
         Welcome to karrigell mailing list.
@@ -62,11 +64,11 @@ def subscribe_(email):
         msg.message_append("http://")
         msg.message_append(ENVIRON["REMOTE_HOST"])
         msg.message_append(REL_I("subscribe_validation"))
-        msg.message_append("?email=%s&req_id=%s" % (email.value, request_id))
-        msg.add_recipient("", email.value)
+        msg.message_append("?email=%s&req_id=%s" % (email, request_id))
+        msg.add_recipient("", email)
         d = msg.send()
         if not d :
-            db.insert(email_address=email.value, status="wait_validation", 
+            db.insert(email_address=email, status="wait_validation", 
                        date_time=datetime.datetime.now(), rand_key=request_id)
             db.commit()
             print "You will receive an e-mail shortly." 
@@ -76,7 +78,7 @@ def subscribe_(email):
 
     
 def subscribe_validation(email, req_id):
-    smtp_server = _GetSmtpServer()
+    smtp_server, smtp_user_name, smtp_password = _GetSmtpServer()
     _delete_old_requests()
     rec_list = db(email_address=email, status="wait_validation", rand_key=req_id)
     if len(rec_list) :
@@ -90,7 +92,7 @@ def subscribe_validation(email, req_id):
         
     
 def unsubscribe():
-    smtp_server = _GetSmtpServer()
+    smtp_server, smtp_user_name, smtp_password = _GetSmtpServer()
     head = HEAD(TITLE(_("Mailing list - unsubscribe"))+LINK(rel="stylesheet",href="../karrigell.css"))
     body = H1("Unsubscribe from mailing list")+BR()+BR()
     body += FORM(
@@ -101,13 +103,14 @@ def unsubscribe():
     print HTML(head+body)
 
 def unsubscribe_(email):
-    smtp_server = _GetSmtpServer()
-    rec_list = db(email_address=email.value)
+    smtp_server, smtp_user_name, smtp_password = _GetSmtpServer()
+    rec_list = db(email_address=email)
     if len(rec_list) :
         rec = rec_list[0]
         request_id=k_sessions.generate_random(10)
         # Create and send e-mail for validation
         msg = k_email.SendMail("Karrigell mailing list", smtp_server)
+        msg.set_smtp_username_and_password(smtp_user_name, smtp_password)
         msg.set_from("Karrigell mailing list", "")
         msg.set_message("""
         This is a message from the karrigell mailing list.
@@ -116,8 +119,8 @@ def unsubscribe_(email):
         msg.message_append("http://")
         msg.message_append(ENVIRON["REMOTE_HOST"])
         msg.message_append(REL_I("unsubscribe_validation"))
-        msg.message_append("?email=%s&req_id=%s" % (email.value, request_id))
-        msg.add_recipient("", email.value)
+        msg.message_append("?email=%s&req_id=%s" % (email, request_id))
+        msg.add_recipient("", email)
         d = msg.send()
         if not d :
             db.update(rec, status="wait_unsubscribe", 
@@ -132,7 +135,7 @@ def unsubscribe_(email):
 
 
 def unsubscribe_validation(email, req_id):
-    smtp_server = _GetSmtpServer()
+    smtp_server, smtp_user_name, smtp_password = _GetSmtpServer()
     _delete_old_requests()
     rec_list = db(email_address=email, status="wait_unsubscribe", rand_key=req_id)
     if len(rec_list) :
@@ -146,7 +149,7 @@ def unsubscribe_validation(email, req_id):
         
 def send_email_to_mailing_list():
     Login(role=["admin"])
-    smtp_server = _GetSmtpServer()
+    smtp_server, smtp_user_name, smtp_password = _GetSmtpServer()
     head = HEAD(TITLE(_("Mailing list - send e-mail to mailing list"))+LINK(rel="stylesheet",href="../karrigell.css"))
     body = H1("Send e-mail to mailing list")+BR()+BR()
     body += FORM(
@@ -158,15 +161,16 @@ def send_email_to_mailing_list():
     
 def send_email_to_mailing_list_(email_txt):
     Login(role=["admin"])
-    smtp_server = _GetSmtpServer()
+    smtp_server, smtp_user_name, smtp_password = _GetSmtpServer()
 
     _delete_old_requests()
     addr_list = [ r for r in db if r['status']=="validated" or r['status']=="wait_unsubscribe"]
     if addr_list :
         # Create and send e-mail
         msg = k_email.SendMail("Karrigell mailing list", smtp_server)
+        msg.set_smtp_username_and_password(smtp_user_name, smtp_password)
         msg.set_from("Karrigell mailing list", "")
-        msg.set_message(email_txt.value)
+        msg.set_message(email_txt)
         msg.add_recipient("Karrigell mailing list", "", True, False) # Add fake address
         for addr in addr_list :
             msg.add_recipient("", addr["email_address"], False, True)    # Add hidden actual addresses
@@ -201,7 +205,7 @@ def _delete_old_requests(verbose=True):
 def _GetSmtpServer ():
     app_config = k_app_config.AppConfig ("mailing list")
     try :
-        return app_config.smtp_server
+        return app_config.smtp_server, app_config.smtp_user_name, app_config.smtp_password
     except AttributeError :
         raise HTTP_REDIRECTION, "SetSmtpServer?redir_to=%s" % THIS.url
 
@@ -211,8 +215,12 @@ def SetSmtpServer (redir_to):
     app_config = k_app_config.AppConfig ("mailing list")
     try :
         smtp_server = app_config.smtp_server
+        smtp_user_name = app_config.smtp_user_name
+        smtp_password = app_config.smtp_password
     except AttributeError :
         smtp_server = ""
+        smtp_user_name = ""
+        smtp_password = ""
     head = HEAD(TITLE(_("Mailing list - set smtp_server address"))+LINK(rel="stylesheet",href="../karrigell.css"))
     body = H1("Set SMTP server address for mailing list service")+BR()+BR()
     body += FORM(
@@ -220,15 +228,20 @@ def SetSmtpServer (redir_to):
         TR(TD("SMTP server :")+TD(INPUT(name="smtp_server", type="text", value=smtp_server)))+
         TR(TD("")+TD(INPUT(name="redir_to", type="hidden", value=redir_to)))+
         TR(TD(height="20", colspan=2))+
+        TR(TD("Leave following fields blank if you don't want to use SMTP authentication.", height="20", colspan=2))+
+        TR(TD("user name :")+TD(INPUT(name="smtp_user_name", type="text", value=smtp_user_name)))+
+        TR(TD("password :")+TD(INPUT(name="smtp_password", type="password", value=smtp_password)))+
         TR(TD()+TD(INPUT(Type="submit",value="Validate")))
         ), enctype="multipart/form-data", action="SetSmtpServer_",method="post")
     print HTML(head+body)
     
-def SetSmtpServer_ (smtp_server, redir_to):
+def SetSmtpServer_ (smtp_server, smtp_user_name, smtp_password, redir_to):
     Login(role=["admin"])
     app_config = k_app_config.AppConfig ("mailing list")
-    app_config.smtp_server = smtp_server.value
-    raise HTTP_REDIRECTION, redir_to.value
+    app_config.smtp_server = smtp_server
+    app_config.smtp_user_name = smtp_user_name
+    app_config.smtp_password = smtp_password
+    raise HTTP_REDIRECTION, redir_to
 
 
 
@@ -299,17 +312,17 @@ def SetTimeouts_ (st, ut, redir_to):
 
     s_error = False
     try :
-        app_config.subscribe_timeout = datetime.timedelta(int(st.value), 0, 0)
+        app_config.subscribe_timeout = datetime.timedelta(int(st), 0, 0)
     except ValueError :
         s_error = True
     
     u_error = False
     try :
-        app_config.unsubscribe_timeout = datetime.timedelta(int(ut.value), 0, 0)
+        app_config.unsubscribe_timeout = datetime.timedelta(int(ut), 0, 0)
     except ValueError :
         u_error = True
      
     if s_error or u_error :
-        raise HTTP_REDIRECTION, 'SetTimeouts?redir_to=%s&s_err=%s&u_err=%s' % (redir_to.value, s_error, u_error)
+        raise HTTP_REDIRECTION, 'SetTimeouts?redir_to=%s&s_err=%s&u_err=%s' % (redir_to, s_error, u_error)
     else :
-        raise HTTP_REDIRECTION, redir_to.value
+        raise HTTP_REDIRECTION, redir_to

@@ -1,14 +1,3 @@
-<html>
-<head>
-<title>Web server options</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="STYLESHEET" href="lib.css">
-<style type="text/css">
-<!--
--->
-</style></head>
-
-<body>
 <script src="../pf_test.js"></script>
 
 <h1><%= chapter %>. Configuration</h1>
@@ -41,7 +30,7 @@ the folder <span class="file">data/www</span>
 
 <br>Each host can be configured by a specific configuration file. The mapping between
 a host name and its configuration file is defined in the 
-plain text file <span class="file">hosts</span> in the Configuration Directory
+plain text file <span class="file">hosts</span> in the Server Configuration Directory
 
 <p>You can edit the host configuration script either with a text editor, or online from 
 the Administration menu, accessible from the home page
@@ -86,6 +75,16 @@ the Administration menu, accessible from the home page
 
         </BLOCKQUOTE>
 
+    <code>cache</code>
+        <BLOCKQUOTE>
+        Boolean to specify if HTTP caching should be used (with header <CODE>If-Modified-Since</CODE>).
+        Defaults to True</BLOCKQUOTE>
+
+    <code>ipv6</code>
+        <BLOCKQUOTE>
+        Boolean to specify if IPv6 should be used instead of IPv4.
+        Defaults to False</BLOCKQUOTE>
+
     <code>max_threads</code>
         <BLOCKQUOTE>
         The maximum number of threads than can be run by the multi-threaded built-in
@@ -128,8 +127,15 @@ the Administration menu, accessible from the home page
 
     <code>data_dir</code>
         <blockquote>
-        The directory where user-specific data stands : users database, translation file,
+        The directory where host-specific data stands : users database, translation file,
         session data
+        </blockquote>
+
+    <code>cache_dir</code>
+        <blockquote>
+        The directory where script cache stands. The cache avoids parsing scripts each time 
+        they are run ; it is updated when the source code of a script is modified
+        <br>If set to <code>None</code>, script caching is disabled
         </blockquote>
 
     <code>cgi_dir</code>
@@ -139,16 +145,14 @@ the Administration menu, accessible from the home page
 
     <code>allow_directory_listing</code>
         <blockquote>
-        If a url matches a directory with no index file in it, determine if the directory 
-        content should be printed, or if an error message should be sent
-        <br>Defaults to <CODE>True</CODE> (print directory content)
-        </blockquote>
-
-    <code>show_script_extensions</code>
-        <blockquote>
-        If a redirection to a script is performed, should the target script 
-        extension be shown ? Default is <CODE>True</CODE>, but some prefer no 
-        extension (cf REST principles)
+        The list of user roles (see <%= make_link("authentication",
+        "authentication") %>) that can see directory listings
+        if a url matches a directory with no index file in it.
+        If <code>None</code> is in the list, all users can see the listings
+        If value is <code>['admin','edit']</code>, only users with
+        one of the roles 'admin' or 'visit' will see a listing ; other users
+        will get an error message
+        <br>Defaults to <CODE>[None]</CODE>
         </blockquote>
 
     <code>hide_extensions</code>
@@ -163,7 +167,7 @@ the Administration menu, accessible from the home page
         <br>This can be used to forbid access to a set of directories. For instance if
         you have a version control that creates directories named <code>cvs</code> you
         can forbid access to them with this line :
-        <br><code>hide_paths = [".*/cvs/.*"]</code>
+        <br><code>ignore = [".*/cvs/.*"]</code>
         </blockquote>
 
     <code>logging_file</code>
@@ -173,7 +177,7 @@ the Administration menu, accessible from the home page
 
     <code>logging_rotate</code>
         <blockquote>
-        If <code>logging_file</code> is <code>True</code>, indicate when the log 
+        If <code>logging_file</code> is set, indicate when the log 
         file should be changed.
         If set to <CODE>None</CODE>, the same log file is always used. If set to 
         <CODE>"monthly", "daily"</CODE> or <CODE>"hourly"</CODE>, the logging 
@@ -182,18 +186,9 @@ the Administration menu, accessible from the home page
         with the month / day / hour appended
         </blockquote>
 
-    <code>encode_input</code>
-        <blockquote>
-        boolean used to determine if server should try to transform data 
-        received from the client into Unicode, using the Accept-charset header
-        </blockquote>
-
     <code>output_encoding</code>
         <blockquote>
         A string = the encoding to use to send data back to the client
-        <br>If <CODE>encode_input</CODE> is set, input encoding is successful, 
-        and <CODE>encode_output</CODE> is not set, then the output will be 
-        encoded with the same encoding as input
         </blockquote>
 
     <code>alias</code>
@@ -255,9 +250,3 @@ the Administration menu, accessible from the home page
         The maximum number of sessions that can be stored. Defaults to 500
         </BLOCKQUOTE>
 </blockquote>
-</body>
-</html>
-
-
-
-

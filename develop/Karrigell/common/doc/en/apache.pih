@@ -1,16 +1,3 @@
-<html>
-<head>
-<title>Python Inside HTML</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="STYLESHEET" href="lib.css">
-<style type="text/css">
-<!--
-dl {  background-color: #FFFFCC; border-width: 1; border-style:solid;}
--->
-</style></head>
-
-<body>
-
 <h1><%= chapter %>. Apache integration</h1>
 
 <p>There are several ways to run Karrigell with Apache :
@@ -30,7 +17,23 @@ dl {  background-color: #FFFFCC; border-width: 1; border-style:solid;}
 <td>
   <ul>
   <li>the CGI overhead reduces performance
-  <li>session management less flexible (session data must be stored on disk)
+  </ul>
+</td>
+</tr>
+
+<tr>
+<td>WSGI mode</td>
+<td>Communication between Apache and Karrigell uses the WSGI standard
+and relies on the Apache module mod_wsgi</td>
+<td>
+  <ul>
+  <li>good performance
+  <li>WSGI is the de facto standard for framework integration
+  </ul>
+</td>
+<td>
+  <ul>
+  <li>requires the mod_wsgi module (not available on many shared hosting services)
   </ul>
 </td>
 </tr>
@@ -69,12 +72,10 @@ sends all requests to it and returns the response to the client</td>
 </tr>
 
 
+
 </table>
 
 </ul>
-
-<p>Graham Dumpleton wrote <a href="http://code.google.com/p/modwsgi/wiki/IntegrationWithKarrigell">
-instructions</a> for running Karrigell with WSGI
 
 <h2><%= chapter %>.1 Overview</h2> 
 
@@ -82,7 +83,7 @@ instructions</a> for running Karrigell with WSGI
 <span class="file">httpd.conf</span> configuration file : the server port, the
 Document Root for the host, and directives that apply to the Document Root content.
 To simplify installation, the only required directive is <code>AllowOverride All</code>,
-which tells the server to apply the directives in <span class="file">.htacess</span>
+which tells the server to apply the directives in <span class="file">.htaccess</span>
 files : a model of these files is provided in the Karrigell distribution
 
 <p>This means that the section <code>&lt;Directory&gt;</code> relative to your
@@ -105,15 +106,23 @@ simplifies the configuration options
 <h2><%= chapter %>.2 CGI mode</h2>
 
 <p>This mode uses the Apache modules <CODE>mod_rewrite</CODE> and <CODE>mod_cgi</CODE> ;
-all the urls that must be managed by Karrigell (those matching a directory, or with
-one of the file extensions <span class="file">.py, .ks, .pih, .hip</span>) are
+all the urls that must be managed by Karrigell (everything except one of the static file 
+extensions <span class="file">html, htm, css, js, jpg, jpeg, gif, png</span>) are
 "rewritten" by <CODE>mod_rewrite</CODE> to be processed by a single cgi script, 
 <code>k_handler.cgi</code>, located by default in the folder 
 <code>karrigell/apache/cgi-bin</code>. This script takes Karrigell configuration 
 options from the configuration script <span class="file">conf.py</span>
 
-<p>The first step is to install or upload the content of <span class="file">
-Karrigell-Apache.tar.gz</span> in the Document Root of your Apache space
+<p>These modules must be loaded at Apache startup, so make sure that these lines
+are uncommented in your <span class="file">httpd.conf</span> file :
+
+<div class="verbatim">
+<pre>LoadModule cgi_module modules/mod_cgi.so
+LoadModule rewrite_module modules/mod_rewrite.so</pre>
+</div>
+
+<p>The next step is to install or upload the content of <span class="file">
+Karrigell-Apache-<%= version %>.tar.gz</span> in the Document Root of your Apache space
 
 <p>Then rename the file <span class="file">.htaccess_cgi</span> in this Document Root
 to <span class="file">.htaccess</span>
@@ -141,6 +150,7 @@ in this CGI folder<br>
   <li>server_dir = (the full path of the directory where you put cgi-bin)
   <li>data_dir = the full path of a directory with WRITE mode enabled, if possible 
   outside of the Document Root for security reasons
+  <li>cache_dir = os.path.join(data_dir, "cache")
   </ul>
 <li>in the <span class="file">.htaccess</span> file in the Document Root, edit
 the url of the script <span class="file">k_handler.cgi</span> with the correct
@@ -155,7 +165,39 @@ in <span class="file">.htaccess</span>
 cgi_dir.cgi</span> which will give you the full path of the CGI folder ; you should be
 able to deduce the other paths from it
 
-<h2><%= chapter %>.3 Integration with mod_python</h2>
+<h2><%= chapter %>.3 Integration with mod_wsgi</h2>
+
+mod_wsgi is a module which enables Apache to host any Python application which supports the Python WSGI interface
+
+<p>The script <span class="file">wsgi.py</span> in folder 
+<span class="file">apache/mod_wsgi</span> handles all the urls that must be managed by 
+Karrigell
+
+<p>mod_wsgi must be enabled by the Apache server. To do this, the first 
+thing to do is download and install mod_python from the 
+<a href="http://code.google.com/p/modwsgi/">website</a>, and follow the instructions to
+enable it in the Apache configuration file. In the "Dynamic Shared Object (DSO) 
+Support" section of <span class="file">httpd.conf</span>, add the line :
+
+<div class="verbatim">
+<pre>LoadModule wsgi_module modules/mod_wsgi.so</pre>
+</div>
+
+<p>Install or upload the content of <span class="file">
+Karrigell-Apache-<%= version %>.tar.gz</span> in the Document Root of your Apache space
+
+<p>If you have a file <span class="file">.htaccess</span> in this Document Root, 
+delete it or give it another name
+
+<p>Then in <span class="file">httpd.conf</span>, add this line :
+
+<div class="verbatim">
+<pre>WSGIScriptAlias / /path-to-Karrigell-root/karrigell/apache/mod_wsgi/wsgi.py
+</div>
+
+<p>This will direct all the requests to the script <span class="file">wsgi.py</span>, which manages all requests using Karrigell and returns the result to the Apache server
+
+<h2><%= chapter %>.4 Integration with mod_python</h2>
 
 Mod_python is an Apache module that embeds the Python interpreter within the server. It
 avoids the CGI overhead of starting the interpreter for each requests and thus provides 
@@ -163,8 +205,7 @@ much better performance
 
 <p>The script <span class="file">mod_python_handler.py</span> in folder 
 <span class="file">apache/mod_python</span> handles all the urls that must be managed by 
-Karrigell (those matching a directory, or with one of the file extensions 
-<span class="file">.py, .ks, .pih, .hip</span>)
+Karrigell
 
 <p>Of course mod_python must be enabled by the Apache server. To do this, the first 
 thing to do is download and install mod_python from the 
@@ -177,7 +218,7 @@ Support" section of <span class="file">httpd.conf</span>, add the line :
 </div>
 
 <p>Install or upload the content of <span class="file">
-Karrigell-Apache.tar.gz</span> in the Document Root of your Apache space
+Karrigell-Apache-<%= version %>.tar.gz</span> in the Document Root of your Apache space
 
 <p>Then rename the file <span class="file">.htaccess_mod_python</span> in 
 this Document Root to <span class="file">.htaccess</span>
@@ -186,5 +227,3 @@ this Document Root to <span class="file">.htaccess</span>
 to edit the configuration script <span class="file">conf.py</span> and replace 
 the value <code>data_dir</code> by the full path of a directory with WRITE mode 
 enabled, outside of the Document Root
-
-</html>

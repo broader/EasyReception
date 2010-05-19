@@ -1,3 +1,4 @@
+<% Login(role=["admin"],valid_in="/") %>
 <html>
 <head>
 <title>Karrigell home page</title>
@@ -21,7 +22,7 @@ body,li {font-family: sans-serif;
 </head>
 
 <body>
-<a href="../index.ks" target="_top"><%_ "Home" %></a>
+<a href="/" target="_top"><%_ "Home" %></a>
 <br>Scripts
 <div id="container_id"></div>
 </body>

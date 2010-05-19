@@ -7,6 +7,7 @@ import urllib
 import k_pygettext
 
 from HTMLTags import *
+Login(role=["admin"],valid_in="/")
 
 rel_folder = QUERY.get('dir','')
 if rel_folder:
@@ -41,6 +42,12 @@ if os.path.exists(folder):
             if ext in [".py",".pih",".hip",".ks"]:
                 try:
                     if k_pygettext.get_strings(abs_path):
+                        mark = True
+                except:
+                    pass
+            elif ext == ".kt":
+                try:
+                    if KT.get_strings(abs_path):
                         mark = True
                 except:
                     pass

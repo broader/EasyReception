@@ -3,6 +3,8 @@ import urllib
 
 from HTMLTags import *
 
+Login(role=["admin"],valid_in="/")
+
 def index(folder = None):
     if folder is None:
         folder = CONFIG.root_dir

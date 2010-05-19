@@ -1,16 +1,3 @@
-<html>
-<head>
-<title>Programming</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="STYLESHEET" href="lib.css">
-<style type="text/css">
-<!--
-dl {  background-color: #FFFFCC; border-width: 1; border-style:solid;}
--->
-</style></head>
-
-<body>
-
 <h1><%= chapter %>. Smart urls</h1>
 
 The normal way to pass parameters to a script is to use query strings in the url, or
@@ -22,7 +9,7 @@ http://host/path/script.py/foo/bar</code> ; here the parameters to the script ar
 attribute of THIS, THIS.args :
 
 <p>
-<div class="verbatim"><pre class="verbatim">
+<div class="python"><pre class="verbatim">
 print "The parameters are %s" %THIS.args
 </pre></div>
 <p>
@@ -33,7 +20,7 @@ was called without a subpath or with any number of parameters in the subpath
 
 <p>For instance if you write this relative url in the script :
 <p>
-<div class="verbatim"><pre class="verbatim">
+<div class="python"><pre class="verbatim">
 print '&lt;IMG SRC="images/pic.png"&gt;'
 </pre></div>
 <p>
@@ -46,16 +33,10 @@ want !
 <p>To get the right url, use function <code>THIS.rel()</code> this way :
 
 <p>
-<div class="verbatim"><pre class="verbatim">
+<div class="python"><pre class="verbatim">
 print '&lt;IMG SRC="%s"&gt;' %THIS.rel("images/pic.png")
 </pre></div>
 <p>
 
 <CODE>THIS.rel</CODE> prepends to the relative url provided as argument as many
 <code>'../'</code> as the number of parameters
-
-
-</body>
-</html>
-
-

@@ -7,16 +7,15 @@ import os
 root_dir = os.path.join(server_dir,"www")
 data_dir = os.path.join(server_dir, "data","www")
 cgi_dir = os.path.join(root_dir,"cgi-bin")
+cache_dir = os.path.join(data_dir, "cache")
 
-# allow directory listing if url matches a directory ?
-allow_directory_listing = True
-
-# if redirection to a script, should the extension be shown ?
-# default is True but some prefer no extension (cf REST principles)
-show_script_extensions = True
+# list of user roles allowed to see directory listings
+# if url matches a directory ?
+# None means any user. Other values can be 'admin','edit','visit'
+allow_directory_listing = [None]
 
 # don't serve files with extension in this list
-hide_extensions = [".pdl"]
+hide_extensions = [".pdl",".cache"]
 
 # don't serve files with path matching regular expressions in this list
 ignore = ["/core.*","/package.*","/conf.*","/data.*"]
@@ -26,16 +25,8 @@ logging_file = None #os.path.join(karrigell_dir,"logs","access.log")
 logging_rotate = "hourly"
 
 # Unicode management
-# encode_input : boolean used to determine if server should try to transform 
-# data received from the client into Unicode, using the Accept-charset header
-#
 # encode_output : a string = the encoding to use to send data back to the 
 # client
-#
-# if encode_input is set, input encoding is successful, and encode_ouput is
-# not set, then the output will be encoded with the same encoding as input
-#
-encode_input = False #True
 output_encoding = None #"utf-8"
 
 # language to translate marked strings to
@@ -51,7 +42,9 @@ alias = {"admin":os.path.join(server_dir,"common","admin"),
     "doc":os.path.join(server_dir,"common","doc"),
     "demo":os.path.join(server_dir,"common","demo"),
     "editarea":os.path.join(server_dir,"common","editarea"),
-    "siprojets":r"c:\siprojets"
+    "whizzywig":os.path.join(server_dir,"common","whizzywig"),
+    'blogs/sqlite/.*?':os.path.join(server_dir,'common','demo','sqlite','blog'),
+    'blogs/mysql/.*?':os.path.join(server_dir,'common','demo','mysql','blog')
     }
 
 # use gzip to compress text files ?

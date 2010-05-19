@@ -6,6 +6,7 @@ import CGIHTTPServer
 import cgi
 import email
 import cStringIO
+import datetime
 
 class Server:
     pass
@@ -49,12 +50,11 @@ try:
             self.request_line = "%s %s %s" %(env["REQUEST_METHOD"],
                 env["REQUEST_URI"],env["SERVER_PROTOCOL"])
 
-            # encoding
-            self.charsets = None
-            if k_config.config[None].encode_input:
-                if "accept-charset" in self.headers:
-                    charsets = self.headers["accept-charset"]
-                    self.charsets = charsets.split(";")[0].split(",")
+            # initialize log info
+            info = datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S - ")
+            info += str(self.client_address[0]) + (" - ")
+            info += self.request_line.strip()
+            self.info = info
 
         def send_status(self, code, message=None):
             """Don't send response code : Apache sends 200 Ok, 

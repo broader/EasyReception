@@ -1,0 +1,112 @@
+<h1><%= chapter %>. Migration de Karrigell 2.x à 3.y</h1>
+
+<p>Bien que la version 3 soit une réécriture complète des modules coeur de Karrigell, elle est presque entièrement compatible avec les versions précédentes. Les deux principaux changements sont la façon dont les modules écrits par l'utilateur sont importés, par une fonction intégrée <CODE>Import(<I>url_module</I>)</CODE> ; et la résolution des chemins relatifs dans le système de fichiers
+
+<H3>1 - Configuration</H3>
+
+<p>1.1 Les fichiers de configuration sont des scripts Python au lieu d'un fichier .ini unique : un pour le serveur, et un pour chaque hôte. La plupart des options de configuration sont les mêmes, si ce n'est que tous les noms ont été normalisés : en minuscules, avec des blancs soulignés entre les mots. Par exemple, <CODE>rootDir</CODE> devient <CODE>root_dir</CODE> - mais pour réduire l'incompatibilité, les "vieux" noms seront toujours reconnus
+
+<p>1.2 La seule option qui peut être définie sur la ligne de commande est le chemin du dossier dans lequel se trouve le fichier de configuration du serveur. Toutes les autres options telles que le port du serveur sont définies dans les scripts de configuration du serveur ou des hôtes
+
+<p>1.3 L'équivalent de l'option "protected" n'est pas encore implémenté
+
+<H3>2 - Syntaxe</H3>
+
+<p>
+
+<H4>2.1 Noms de fichiers relatifs</H4>
+
+<ul>
+<li> <CODE>os.getcwd()</CODE> n'est PAS modifié par le canevas comme c'était le cas dans les versions précédentes, parce que sa valeur n'est pas stable dans un environnement multithreads : on ne peut pas s'en servir de façon fiable dans les scripts
+<li> la chaîne intégrée <CODE>CWD</CODE> est le chemin complet du répertoire du script courant
+<li> la fonction intégrée <CODE>REL(<I>nom_de_fichier</I>)</CODE> convertit un nom de fichier relatif en un nom de fichier absolu, en se basant sur le répertoire du script courant
+<li> pour simplifier et rester compatible avec les versions précédentes, les fonctions intégrées de Python <CODE>open()</CODE> et <CODE>file()</CODE> convertissent les chemins relatifs de fichiers en chemins absolus en se basant sur le répertoire du script courant
+</ul>
+
+<H4>2.2 Importations</H4>
+<UL>
+<li> pour importer des modules Python situés dans la distribution standard, on utilise le mot-clé habituel <CODE>import</CODE>
+<li> vous pouvez aussi utiliser <CODE>import</CODE> pour des modules installés dans le répertoire  <span class="file">karrigell/package</span>
+<li> pour des modules écrits par l'utilisateur à l'intérieur d'une application, <CODE>import</CODE> ne peut pas fonctionner de manière fiable dans un environnement multi-threads où la valeur de <CODE>sys.path</CODE> peut être modifiée par les scripts, et parce que le partage de <code>sys.modules</code> au niveau de l'interpréteur peut conduire à des confusions sur les noms de modules. Il faut utiliser la fonction intégrée <CODE>Import()</CODE> :
+<div class="python"><pre>
+    module = Import(url_du_module)
+</pre></div>
+<li> pour faciliter la migration, le script <span class="file">karrigell/core/migrate_2_to_3.py</span>, à exécuter en ligne de commande, examine les scripts et produit un rapport avec tous les cas où <CODE>import</CODE> est utilisé pour importer des modules qui ne figurent pas dans la distribution Python installée sur la machine
+</UL>
+
+<H4>2.3 Include</H4>
+
+<p>En Karrigell 2.x, avec <CODE>Include(<I>url</I>)</CODE>, une url relative était résolue relativement à l'url <U>complète</U> du script, y compris le nom de fonction dans les scripts, les éventuels arguments d'"url intelligente", etc
+<p>Dans la version 3 la résolution est relative à l'url du <U>script</U>, sans tenir compte des éléments qui le suivent dans l'url
+
+<p>Soit par exemple le script <span class="file">ks_script.ks</span> :
+
+<div class="python">
+<pre>
+Include("entete.html")
+
+def mafonction(**kw):
+    Include("info.txt")
+</pre></div>
+
+<p>Quand on appelle l'url <span class="url">hote/dossier/ks_script.ks/mafonction?arg1=val1</span>  la résolution se base sur l'url du script, <span class="url">hote/dossier/ks_script.ks</span>. Donc :
+<ul>
+<li>l'url relative <span class="url">entete.html</span> est résolue comme l'url absolue <span class="url">hote/dossier/entete.html</span>
+<li>l'url relative <span class="url">info.txt</span> est résolue comme l'url absolue <span class="url">hote/dossier/info.txt</span>
+</ul>
+
+<H4>2.4 Résultats</H4>
+<ul>
+<li> quand un script est exécuté, il peut donner des valeurs spécifiques à des entêtes de réponse tels que <CODE>Content-type, Set-Cookie</CODE> etc, et il renvoie généralement des données à afficher par l'agent utilisateur. La réponse HTTP renvoyée par le serveur consiste en une ligne de réponse, des entêtes de réponse et des données
+<li> pour cette raison, <CODE>sys.stdout</CODE> ne peut pas être utilisé directement dans un script pour envoyer la réponse à l'agent utilisateur, parce que le résultat serait envoyé <U>AVANT</U> la ligne de réponse et les entêtes. La fonction intégrée <CODE>print</CODE> peut être utilisée pour cela ; elle est traduite en interne en la fonction intégrée <CODE>PRINT()</CODE>, qui peut d'ailleur aussi être utilisée directement : <CODE>PRINT(<I>data</I>)</CODE> donne le même résultat que <CODE>print data</CODE>
+<li> en interne, cette fonction <CODE>PRINT</CODE> accumule les données dans un tampon ; quand la requête est terminée, le serveur envoie la ligne de réponse, puis les entêtes de réponse, et finalement le contenu du tampon
+<li> pour éviter les espaces et les sauts de ligne introduits par <CODE>print</CODE> ou <CODE>PRINT</CODE>, utilisez la fonction intégrée <CODE>STDOUT()</CODE>
+</ul>
+
+<H4>2.5 Environnement</H4>
+
+<p>Un dictionnaire intégré, <CODE>ENVIRON</CODE>, contient les mêmes informations que <CODE>os.environ</CODE> pour les scripts CGI
+
+<H4>2.6 Gestion des utilisateurs</H4>
+
+<p>En version 3, la fonction intégrée <CODE>Logout()</CODE> efface les cookies de session et redirige vers la page spécifiée (par défaut, le script où la fonction a été appelée). Dans les versions précéentes elle renvoyait une chaîne de caractères avec un lien vers le script de déconnection
+
+<p>Vous devez donc remplacer toutes les lignes du style :
+<div class="python"><pre>
+if Role():
+    print Logout()
+</pre></div>
+
+<p>par quelque chose comme :
+
+<div class="python"><pre>if Role():
+    print '&lt;a href="logout"&gt;Déconnection&lt;/a&gt;'</pre>
+    </div>
+<p>et ajouter une fonction logout() comme ceci
+
+<div class="python"><pre>def logout():
+    Logout()</pre></div>
+<p>
+
+<H3>3 - Implémentation</H3>
+
+<p>
+<H4>3.1 Serveur multithread</H4>
+<p>Le serveur web par défaut, lancé par <span class="console">python Karrigell.py</span>, est un serveur multithead, capable de servir des requêtes à long temps de traitement sans bloquer le traitement des autres requêtes
+<p>Un autre serveur multi process donne également d'excellentes performances
+
+<H4>3.2 Gestion des sessions</H4>
+<p>Les sessions sont stockées sur disque, sauf si on a donné la valeur <CODE>False</CODE> à l'option <CODE>persistent_session</CODE> (ce qui ne fonctionnera pas de façon fiable dans des environnements multithread : si vous avez besoin de cette fonctionnalité, utilisez les versions asynchrone ou mono process du serveur). La durée de vie d'une session dans la base de données de sessions peut être configurée
+
+<H4>3.3 Types de données</H4>
+<p><CODE>HEADERS</CODE> et <CODE>RESP_HEADERS</CODE> sont des instances de <CODE>email.Message</CODE> (ils se comportent à peu près comme des dictionnaires dont les clés sont insensibles à la casse)
+
+<H3>4 - Web 2.0</H3>
+<p>
+<H4>4.1 editarea</H4>
+<p>La librairie Javascript <a href="http://projects.sourceforge.net/editarea/">EditArea</a> est incluse, pour permettre l'édition de scripts en ligne. Elle est utilisée dans l'éditeur de scripts accessible depuis le menu d'administration, et dans le cas d'erreur ou d'exception, le bouton Debug donne accès à une page où le script peut être édité en ligne
+
+<H4>4.2 jQuery</H4>
+<p>La libraire JavaScript <a href="http://jquery.com/">jQuery</a> et <a href="http://abeautifulsite.net/notebook/58">jQueryFileTree</a> sont également inclus. Elles sont utilisées par l'application d'édition de scripts dans le menu d'administration, pour parcourir les fichiers sans avoir à recharger toute la page
+
+

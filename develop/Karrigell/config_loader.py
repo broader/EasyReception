@@ -14,7 +14,8 @@ import getopt
 def usage():
     print "Usage : python Karrigell.py [-h] ConfigurationDirectory"
     print "\n\th = help (shows this message)"
-    print "\n\tConfigurationDirectory = the directory where the server configuration script is located."
+    print "\n\tConfigurationDirectory = the directory where the server" \
+        "configuration script is located."
 
 # get command-line options
 try:
@@ -44,17 +45,31 @@ else:
 execfile(os.path.join(server_conf_dir,"server_config.py"))
 
 # add core and package to sys.path
+# put them before standard distribution to make sure we have the
+# updated version of PyDbLite, HTMLTags etc.
 for _dir in ["core","package"]:
     path = os.path.join(karrigell_dir,_dir)
     if not path in sys.path:
-        sys.path.append(path)
+        sys.path.insert(1,path)
 
-# set server options in k_config
-import k_config
-for option in ["server_dir","karrigell_dir","host_conf_dir",
-               "persistent_sessions",
-               "max_threads","process_num",
-               "port","silent",
-               "modules"]:
-    setattr(k_config,option,globals()[option])
-k_config.init()
+def load():
+    """
+    Returns a dictionnary usable for k_config.py globals intialisation.
+    """
+    sc = {}
+    execfile(os.path.join(server_conf_dir,"server_config.py"), globals(), sc)
+    server_config={"server_dir":server_dir, "_args":_args}
+    for option in ["karrigell_dir","host_conf_dir",
+                   "cache",
+                   "persistent_sessions",
+                   "use_ipv6",
+                   "max_threads","process_num",
+                   "process_num_ipv6",
+                   "port","silent",
+                   "modules"]:
+        try :
+            server_config[option] = sc[option]
+        except KeyError :
+            raise KeyError, 'You must set "%s" option in server_config file' % option
+    return server_config
+    

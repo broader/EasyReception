@@ -8,55 +8,75 @@ import os
 import traceback
 import sys
 
-# read command line and load configuration
-import config_loader
+from multiprocessing import Process, freeze_support, RLock
 
-import k_config
-import HTTP
-
-import k_utils
-from Karrigell_async import Server,handler
-from processing import Process, currentProcess, freezeSupport,Lock
 
 if sys.platform == 'win32':
-    import processing.reduction    # make sockets pickable/inheritable
+    import multiprocessing.reduction    # make sockets pickable/inheritable
 
-MPLock = Lock()
 
-def kkk_serve(s,mplock,sys_args=None):
+def kkk_serve(server_config, use_ipv6):
     try:
-        k_utils.mplock = mplock
-        if sys_args!=None:
-            sys.argv = sys_args
-            reload(config_loader)
+        import k_config
+        k_config.init(server_config)
+
+        from Async_core import Server, handler
+
+        s = Server(('', k_config.port), handler, use_ipv6)
         s.run()
     except KeyboardInterrupt:
         s.close()
         sys.stderr.write("Ctrl+C pressed. Shutting down.\n")
 
-def main_start(process_num):
-    # Launch the server
-    port = k_config.port
 
-    s = Server(('',port),handler)
+def main_start(server_config):
+    try :
+        # Launch all ipv4 child processes
+        childs = []
+        for i in range(server_config["process_num"]):
+            child = Process(target=kkk_serve, args=(server_config,False))
+            child.daemon= True
+            child.start()
+            childs.append(child)
+            #import time
+            #time.sleep(0.5) # To see debug messages correctly.
+            
+        if server_config["use_ipv6"] == True :
+            # Launch all ipv6 child processes
+            for i in range(server_config["process_num_ipv6"]):
+                child = Process(target=kkk_serve, args=(server_config,True))
+                child.daemon= True
+                child.start()
+                childs.append(child)
+                #import time
+                #time.sleep(0.5) # To see debug messages correctly.
     
-    sys_args = None
-    if len(config_loader._args)>0:
-        sys_args = sys.argv
+        import k_version
+        print "Karrigell %s running on port %s\n%s processes using ipv4" \
+            %(k_version.__version__, server_config["port"], server_config["process_num"])
+        if server_config["use_ipv6"] == True :
+            print "%s processes using ipv6" % server_config["process_num_ipv6"]
+        else :
+            print ""
+            
+        print "Press Ctrl+C to stop"
     
-    for i in range(process_num):
-        child = Process(target=kkk_serve, args=(s,MPLock,sys_args))
-        child.setDaemon(True)
-        child.start()
-
-    print "Karrigell %s running on port %s, %s processes" \
-        %(HTTP.__version__,port,process_num)
-
-    print "Press Ctrl+C to stop"
-
-    kkk_serve(s,MPLock)
+        child.join()
+    except KeyboardInterrupt :
+        sys.stderr.write("Ctrl+C pressed. Shutting down.\n")
+    
+    # multiprocessing doc recommends to join all child processes on a unix system
+    for c in childs:
+        c.join()
 
 if __name__ == '__main__':
     if sys.platform == 'win32':
-        freezeSupport()
-    main_start(k_config.process_num)
+        freeze_support()
+
+    # read command line and load configuration
+    import config_loader
+    server_config = config_loader.load()
+    server_config["server_type"] = "Multiprocess"
+    server_config["rlock"] = RLock()
+        
+    main_start(server_config)

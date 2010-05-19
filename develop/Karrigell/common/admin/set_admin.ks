@@ -1,5 +1,6 @@
 import os
 import urllib
+import datetime
 
 import k_users_db
 from HTMLTags import *
@@ -49,8 +50,10 @@ def set_admin_info(url,login,passwd1,passwd2):
             db.create(("host","TEXT"),
                 ("login","TEXT"),("password","TEXT"),
                 ("role","TEXT"),("session_key","TEXT"),
-                ("nb_visits","INTEGER"),("last_visit","DATETIME"),
+                ("nb_visits","INTEGER"),
+                ("last_visit","BLOB"),
                 mode="open")
+            db.is_datetime('last_visit')
         # remove existing admin if any
         db.delete(db(role="admin"))
         # insert new admin
@@ -61,7 +64,8 @@ def set_admin_info(url,login,passwd1,passwd2):
         except ImportError:
             import sha # deprecated in Python 2.5
             pw_hash = sha.new(passwd1).hexdigest()
-        db.insert(login=login,password=pw_hash,role="admin",nb_visits=0)
+        db.insert(login=login,password=pw_hash,role="admin",nb_visits=0,
+            last_visit = datetime.datetime.now())
         db.commit()
 
         raise HTTP_REDIRECTION,urllib.unquote_plus(url)

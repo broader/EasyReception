@@ -6,11 +6,7 @@ name and change the dictionary conf in module virtual_hosts.py
 import os
 
 # allow directory listing if url matches a directory ?
-allow_directory_listing = True
-
-# if redirection to a script, should the extension be shown ?
-# default is True but some prefer no extension (cf REST principles)
-show_script_extensions = True
+allow_directory_listing = [None]
 
 # don't serve files with extension in this list
 hide_extensions = [".pdl"]
@@ -23,16 +19,8 @@ logging_file = None #os.path.join(karrigell_dir,"logs","access.log")
 logging_rotate = "hourly"
 
 # Unicode management
-# encode_input : boolean used to determine if server should try to transform 
-# data received from the client into Unicode, using the Accept-charset header
-#
 # encode_output : a string = the encoding to use to send data back to the 
 # client
-#
-# if encode_input is set, input encoding is successful, and encode_ouput is
-# not set, then the output will be encoded with the same encoding as input
-#
-encode_input = False #True
 output_encoding = None #"utf-8"
 
 # language to translate marked strings to
@@ -44,7 +32,10 @@ debug = True
 # dictionary of aliases
 # if alias["foo"] = "/usr/some_folder" then url /foo/bar.py will
 # be resolved to file /usr/some_folder/bar.py
-alias = {}
+alias = {
+    'blogs/sqlite/.*?':os.path.join(root_dir,'demo','sqlite','blog'),
+    'blogs/mysql/.*?':os.path.join(root_dir,'demo','mysql','blog')
+    }
 
 # use gzip to compress text files ?
 gzip = True

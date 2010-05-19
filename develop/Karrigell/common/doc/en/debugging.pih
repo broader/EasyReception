@@ -1,16 +1,3 @@
-<html>
-<head>
-<title>Debugging</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="STYLESHEET" href="lib.css">
-<style type="text/css">
-<!--
-dl {  background-color: #FFFFCC; border-width: 1; border-style:solid;}
--->
-</style></head>
-
-<body>
-
 <h1><%= chapter %>. Debugging</h1>
 
 <h2><%= chapter %>.1 Error or exception trace</h2>
@@ -60,7 +47,7 @@ where the exception was found
 
 <h2><%= chapter %>.2 Using <code>SCRIPT_END</code></h2>
 
-When debugging a script it can be useful to use the built-in exception <CODE>SCRIPT_END</CODE> 
+<p>When debugging a script it can be useful to use the built-in exception <CODE>SCRIPT_END</CODE> 
 to stop the execution. If you want to know the value of a variable when an exception is raised
 you will write something like
 <p>
@@ -72,7 +59,3 @@ raise SCRIPT_END
 (... the line where the exception is raised ...)
 </pre>
 </div>
-</body>
-</html>
-
-

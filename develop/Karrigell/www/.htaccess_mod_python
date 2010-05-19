@@ -1,5 +1,5 @@
 # this is the .htaccess file for mod_python
-Options -Indexes
+Options -Indexes -MultiViews
 
 SetHandler mod_python
 

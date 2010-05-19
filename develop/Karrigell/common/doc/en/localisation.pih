@@ -1,20 +1,5 @@
-<html>
-<head>
-<title>Internationalization</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="STYLESHEET" href="lib.css">
-<style type="text/css">
-<!--
-dl {  background-color: #FFFFCC; border-width: 1; border-style:solid;}
--->
-</style></head>
-
-<body>
 <h1><%= chapter %>. Localisation and Unicode</h1>
-<p>As you'll have guessed by reading this documentation, I'm not from an 
-English-speaking country (I'm French, and more precisely Breton - the name 
-Karrigell is a Breton word). So I've included a program to facilitate 
-localization of scripts
+<p>Karrigell includes a program to facilitate localization of scripts
 
 <h2><%= chapter %>.1 Translation</h2>
 
@@ -22,13 +7,13 @@ localization of scripts
 language, instead of writing it as a normal string with quotes, 
 it's written using a function called _, this way :
 
-<div class="verbatim"><pre class="verbatim">
+<div class="python"><pre class="verbatim">
 print _("Hello everybody")
 </pre></div>
 
 <p>In Python Inside HTML (PIH) you can use the shortcut &lt;%_ &gt; :
 
-<div class="verbatim"><pre class="verbatim">
+<div class="python"><pre class="verbatim">
 &lt;%_ "Hello everybody" %&gt;
 </pre></div>
 
@@ -50,31 +35,45 @@ pieces of information : the string representing the sign (a sequence of bytes)
 to guess an encoding (this is what a web browser usually does) but with no 
 guarantee of success
 
-<p>Karrigell defines two parameters in the configuration file to handle Unicode :
-<ul>
-<li><CODE>encode_input</CODE> : if set to <CODE>True</CODE>, Karrigell tries to transform form
-data into Unicode strings, trying different encodings one after the other. More
-precisely, if the received data only have ASCII characters, no conversion is made,
-the string is kept as is ; otherwise several encodings are tried and the first one
-that succeeds is used
-<br>So, the form data available in QUERY are either bytestrings or Unicode strings
-<br><CODE>encode_input</CODE> defaults to <CODE>False</CODE> : no Unicode conversion is made
+<p>The best thing to do when you write a script is to define explicitely the
+encoding used : for this, you can use the built-in function 
+<code>SET_UNICODE_OUT(<i>encoding</i>)</code>, where <i>encoding</i>
+is a string like 'iso-8859-1' or 'utf-8'
 
-<li><CODE>output_encoding</CODE> : defines the encoding that the browser will use
-to interprete the strings that it's asked to print. The default value is 
-<CODE>None</CODE>, meaning that no encoding is done : the strings are sent . You can define another encoding by
-setting <code>output_encoding</code> in section <CODE>[Server]</CODE> of the 
-configuration file to another value
+<p>If not set, the encoding for the document will be the one defined in the
+host configuration file by <code>output_encoding</code>. The default value is 
+<CODE>None</CODE>, meaning that no encoding is defined : it's much safer
+to define one, usually 'iso-8859-1' for languages using the latin alphabet
+and 'utf-8' for other writings. If not defined, you rely on the browser
+for guessing the encoding used, which can lead to unexpected rendering
 
-<p>You can see examples in the demo/unicode directory : set output_encoding to 
-utf-8 to see the expected result
-</ul>
+<h2><%= chapter %>.3 Example</h2>
 
-<hr align="left" width="10%">
-<a name="note1">(1) On Microsoft Internet Explorer the language preference is 
-set by Tools/Internet Options/General/Languages ; accepted languages are 
-chosen from a list and ordered by preference. On Firefox use 
-Edition/Preferences/Languages
+<div class="python"><pre class="verbatim">
+from HTMLTags import *
 
-</body>
-</html>
+def index():
+
+    SET_UNICODE_OUT("utf-8")
+    print FORM(INPUT(name="foo")+INPUT(Type="submit",value="Ok"),
+        action="bar")
+
+def bar(foo):
+    foo = unicode(foo,"utf-8").encode("iso-8859-1")
+    SET_UNICODE_OUT("iso-8859-1")
+    print foo
+</pre></div>
+
+<p>In <code>index()</code>, we set the encoding to utf-8 ; the browser will send the
+value enteredby the user encoded with this encoding
+<p>The function <code>bar</code> receives the value foo as a bytestring, the utf-8
+encoding of a Unicode string. We want to print it using another encoding, set by the
+line <code>SET_UNICODE_OUT("iso-8859-1")</code> : so we must first encode the
+Unicode string in this encoding, which is done in the first line of <code>bar()</code>.
+We can then print foo, it will be rendered as expected
+
+<h2><%= chapter %>.4 Built-in translations and Unicode</h2>
+
+If no encoding is specified, the built-in function _() returns the utf-8 encoding 
+of Unicode translations. If an encoding is supplied, it will be used by the function
+so that the translated text is encoded the right way

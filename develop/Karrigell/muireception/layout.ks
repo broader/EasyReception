@@ -22,8 +22,7 @@ VERSION = Import('/'.join((RELPATH, 'version.py')))
 APP = 'loginDialog'
 
 # the session object for this page
-so = Session()
-#pagefn.setCookie(SET_COOKIE,REQUEST_HANDLER)
+#so = Session()
 
 # config data object
 CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
@@ -104,11 +103,6 @@ def _autoDemo( ):
 def _formJs():
 	# callback function for slect action
 	paras = [ LOGINFORM, DEMOSELECT, FORMBUTTONS]
-	
-	# add some files' path for validation function
-	#names = ('css/hack.css', 'theme/red/formcheck.css', 'lang.js.pih', 'formcheck.js')
-	#paras.extend([ '/'.join(( 'lib', 'formcheck', name )) for name in names])
-	#paras.append('loginDialog')
 	paras.append(APP)
 	
 	# append the error prompts for fields' validation 
@@ -276,6 +270,7 @@ def page_accountValid(**args):
 			# valid user name and password, save them to session object	
 			data = {fields[0]:account[0],'roles':data[-1]}			
 			
+			so = Session()
 			setattr( so, pagefn.SOINFO['user'], data)
 			res['user'] = data
 			pagefn.setCookie(SET_COOKIE,REQUEST_HANDLER)
@@ -301,7 +296,7 @@ def page_welcomeInfo(**args):
 	Return the welcome information, 
 	which will be shown on the top right of the screen.
 	"""
-	
+	so = Session()
 	try:
 		username = getattr(so, pagefn.SOINFO['user']).get('username') or ''
 	except:
@@ -317,7 +312,7 @@ def page_welcomeInfo(**args):
 
 def page_menu(**args):
 	""" Return the menus data corresponding to user role. """
-	#so = Session()
+	so = Session()
 	roles = getattr(so, pagefn.SOINFO['user']).get('roles') or ''
 		
 	if pagefn.USEROLE in roles:
@@ -333,6 +328,7 @@ def page_menu(**args):
 	
 def page_sideBarPanels(**args):
 	""" Return the panels info in the left side bar. """
+	so = Session()
 	roles = getattr(so, pagefn.SOINFO['user']).get('roles') or ''	
 	
 	if pagefn.USEROLE in roles:
@@ -348,7 +344,7 @@ def page_sideBarPanels(**args):
 	
 def page_closeSession(**args):
 	""" Logout action, remove current session. """
-	#so = Session()
+	so = Session()
 	so.close()
 	return
 	

@@ -1,0 +1,99 @@
+<h1><%= chapter %>. Proxy mode</h1>
+
+<h3><%= chapter %>.1 Introduction</h3>
+
+<p>Dans ce mode, Apache est utilisé comme proxy entre le client et le serveur intégré. Vous devez le configurer de façon qu'il dirige toutes les requêtes vers ce serveur qui fonctionne en tâche de fond. Nous supposons que vous démarrez Apache sur le port 80 et le serveur intégré sur le port 8081 (pour des raisons de sécurité, sur Linux il vaut mieux démarrer Karrigell sur un port supérieur à 1024 et pas comme root)
+</p>
+
+<p>Je recopie l'essentiel de cette section à partir de la documentation de CherryPy, par Rémi Delon : http://www.cherrypy.org/wiki/BehindApache
+
+<h3><%= chapter %>.2 Editer httpd.conf</h3>
+
+<p>Il faut d'abord éditer le fichier de configuration d'Apache, <code>httpd.conf</code>
+
+<p>Dans la section Dynamic Shared Object (DSO), décommentez les lignes :
+
+<p>
+<div class="verbatim">
+<pre class="conf">LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+LoadModule rewrite_module modules/mod_rewrite.so
+</pre>
+</div>
+
+<p>Donnez à l'option DocumentRoot la valeur du répertoire racine de votre distribution Karrigell
+
+<p>Ajoutez les lignes suivantes pour autoriser le mode proxy :
+
+<div class="verbatim">
+<pre class="conf">ProxyRequests On
+
+&lt;Proxy *&gt;
+    Order allow,deny
+    Deny from none
+    Allow from all
+&lt;/Proxy&gt;
+</pre>
+</div>
+
+<p>mod_rewrite est utilisé pour demander à Apache d'envoyer les requêtes vers le serveur intégré. Ce module analyse l'url originale et le modifie en fonction d'expressions régulières
+
+<p>Ajoutez ces lignes à la section &lt;Directory &gt; pour le répertoire racine :
+
+<div class="verbatim">
+<pre class="conf">RewriteEngine On
+RewriteCond  %{SCRIPT_FILENAME} !autostart\.cgi$
+RewriteRule ^(.*) http://localhost:8081/$1 [P]
+ErrorDocument 502 /cgi-bin/autostart.cgi
+ErrorDocument 503 /cgi-bin/autostart.cgi
+</pre>
+</div>
+
+<p>La fonctionnalité essentielle est décrite dans la RewriteRule : elle indique à Apache de réécrire toutes les urls en une url absolue correspondant au serveur intégré qui tourne sur le port 8081, et d'utiliser le mode proxy pour lui passer la requête
+
+<p>Si le serveur intégré ne tourne pas, une erreur 502 ou 503 est renvoyée ; les dernières lignes indiquent à Apache d'appeler le script <CODE>autostart.cgi</CODE> dans ce cas. La deuxième ligne empêche Apache de se servir de la RewriteRule pour ce script en particulier (sinon il entrerait dans une boucle infinie)
+
+<h3><%= chapter %>.3 Edition de autostart.cgi</h3>
+
+<p>autoscript.cgi est un petit script, qui ressemble à ceci sous Linux/Unix :
+
+<div class="python">
+<pre class="verbatim">
+#!/usr/bin/python
+print "Content-type: text/html\r\n\r\n"
+print """&lt;html&gt;&lt;head&gt;&lt;META HTTP-EQUIV="Refresh" CONTENT="10; 
+      URL=/"&gt;&lt;/head&gt;&lt;body&gt;Restarting site ...&lt;a href="/"&gt;click 
+      here&lt;a&gt;&lt;/body&gt;&lt;/html&gt;"""
+import os
+import sys
+os.setpgid(os.getpid(), 0)
+server_script = r"c:\Karrigell\20090614\Karrigell.py"
+conf_dir = os.path.dirname(server_script)
+
+line = sys.executable + ' '+server_script +' %s &' %conf_dir
+
+try:
+    os.system(line)
+except:
+    import traceback
+    traceback.print_exc(file=out)
+</pre>
+</div>
+
+<p>Ce qu'il faut adapter :
+<ul><li>l'emplacement de l'interpréteur Python sur la première ligne
+<li>le chemin vers <CODE>Karrigell.py</CODE> sur la ligne "server_script"
+</ul>
+
+<p>Le script doit être mis dans le répertoire cgi-bin défini dans httpd.conf (normalement par la directiveScriptAlias). N'oubliez pas de lui affecter le mode "exécution"
+
+<h3><%= chapter %>.4 Démarrage du serveur</h3>
+
+<p>Le serveur doit être configuré avec ces valeurs dans <span class="file">
+server_config.py</span>:
+<ul>
+<li>port = 8081
+<li>silent = True
+</ul>
+
+<p>Démarrez le serveur intégré sur le port 8081 et démarrez Apache. Ceci devrait suffire pour faire fonctionner l'ensemble. En fonction de la valeur prise par <code>ServerName</code> (mettez 'localhost' pour les tests), entrez l'URL de votre serveur dans la barre d'adresses d'un navigateur et Karrigell/ModPython/Apache devrait servir des pages web comme le Karrigell "normal"

@@ -1,0 +1,124 @@
+<h1><%= chapter %>. Générateur de flux RSS</h1>
+
+<h2><%= chapter %>.1 RSS()</h2>
+
+Karrigell fournit une classe, <code>RSS()</code>, vous permettant de facilement générer des flux RSS 2.0.<br>
+<br>
+Utilisation de <code>RSS()</code> :<br>
+<br>
+<code>
+from k_rss import RSS<br>
+rss = RSS(parameters)<br>
+</code>
+<br>
+Les paramètres de <code>RSS()</code> sont nommés. En voici la liste :
+<ul>
+<li><code>title </code> <small>(obligatoire)</small>
+<li><code>link </code> <small>(obligatoire)</small>
+<li><code>description </code> <small>(obligatoire)</small>
+<li><code>language</code> 
+<li><code>copyright</code> 
+<li><code>managingEditor</code> 
+<li><code>webMaster</code> 
+<li><code>pubDate</code> 
+<li><code>lastBuildDate</code> 
+<li><code>category</code> 
+<li><code>generator</code> 
+<li><code>docs</code> 
+<li><code>cloud</code> 
+<li><code>ttl</code> 
+<li><code>image</code> 
+<li><code>rating</code> 
+<li><code>skipHours</code> 
+<li><code>skipDays</code> 
+</ul>
+
+<h2><%= chapter %>.2 AddItem()</h2>
+Une fois le "channel" créé à l'aide de <code>RSS()</code>, vous pouvez ajouter des éléments à l'aide de la 
+méthode <code>AddItem()</code>.<br>
+Utilisation de <code>AddItem()</code>:<br>
+<br>
+<code>
+rss.AddItem(parameters)<br>
+</code>
+<br>
+Les paramètres de <code>AddItem()</code> sont nommés. En voici la liste :
+<ul>
+<li><code>title</code>
+<li><code>link</code>
+<li><code>description</code>
+<li><code>author</code>
+<li><code>category</code> 
+<li><code>comments</code> 
+<li><code>enclosure</code> 
+<li><code>guid</code> 
+<li><code>pubDate</code> 
+<li><code>source</code> 
+</ul>
+Au minimum, <code>title</code> ou <code>description</code> doit être passé en argument à <code>AddItem()</code>.
+
+<h2><%= chapter %>.3 Types des paramètres</h2>
+
+Les paramètres de <code>RSS()</code> et de <code>AddItem()</code> peuvent être des types suivants :
+<ul>
+<li>texte : une chaine de caractère ou une chaine unicode.
+<li>date : datetime.datetime convertit en chaine de caractère en respectant le bon formatage. La "Timezone" est gérée <small>(cf note)</small>. 
+<li>image : un dictionaire contenant les clés suivantes :
+    <ul>
+    <li>url <small>(obligatoire)</small>
+    <li>title <small>(obligatoire)</small>
+    <li>link  <small>(obligatoire)</small>
+    <li>width
+    <li>height
+    <li>description
+    </ul>
+</ul>
+
+Note : La "Timezone" correspond au décalage horaire et prend en charge l'heure d'été.
+Si aucune "Timezone" est spécifiée, la "Timezone" locale au serveur est utilisée.
+Si votre serveur est dans une "Timezone" mais que les dates que vous utilisez se trouvent dans une autre
+"Timezone" vous devez spécifier la bonne "timezone" (pour plus détails, voir la doc python).
+
+<h2><%= chapter %>.4 Render() and RenderInFile()</h2>
+
+Pour générer un flux RSS, vous pouvez utiliser <code>Render()</code> or <code>RenderInFile()</code>.
+<p>
+<code>Render()</code> accepte un seul paramètre : l'encodage de sortie (optionnel,
+l'encodage de sortie par défaut est <code>iso-8859-1</code>).<br>
+<code>Render()</code> retourne une chaine unicode correctement formattée.
+<p>
+<code>RenderInfile()</code> accepte deux paramètres : un nom de fichier (obligatoire) ainsi que l'encodage de sortie (optionnel).<br>
+<code>RenderInfile()</code> a le même fonctionnement que <code>Render()</code> mais génère un fichier et ne retourne rien.
+
+<h2><%= chapter %>.5 Exemple</h2>
+
+<p>
+<pre class="verbatim">
+from k_rss import RSS
+import datetime
+ 
+rss = RSS(title="Karrigell", 
+          description="Flexible Python web framework, with a clear and intuitive syntax.", 
+          link="http://www.karrigell.com",
+          webMaster="quentel.pierre@wanadoo.fr (Pierre Quentel)", 
+          language="en",
+          generator="Karrigell RSS generator",
+          image={"url":"http://karrigell.sourceforge.net/images/karrigell_skeudenn.png",
+                 "title":"Karrigell",
+                 "link":"http://www.karrigell.com"}
+          )
+ 
+rss.AddItem (title='Last item', 
+             description='My most recent item.',
+             pubDate = datetime.datetime.now())
+ 
+rss.AddItem (title='First item', 
+             description='My first item.',
+             pubDate = datetime.datetime(year=2009, month=3, day=16, hour=22, minute=34, second=17))
+
+print rss.Render()
+</pre>
+
+<p>Dans cet exemple, un flux RSS est généré avec comme titre "Karrigell". Deux éléments sont ajoutés.
+
+<p>

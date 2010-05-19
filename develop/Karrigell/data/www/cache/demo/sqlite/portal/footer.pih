@@ -1,0 +1,8 @@
+[]
+import time
+STDOUT("<p>\n<hr width=\"33%\" align=\"left\">\n<i>\n")
+STDOUT(_("Powered by Karrigell"))
+STDOUT(" - ")
+STDOUT(str(time.strftime("%d/%m/%y %H:%M",time.localtime())))
+STDOUT("</i>\n")
+

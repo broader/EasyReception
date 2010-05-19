@@ -7,13 +7,12 @@ import os
 root_dir = os.path.join(server_dir,"www")
 data_dir = os.path.join(server_dir, "data","www")
 cgi_dir = os.path.join(root_dir,"cgi-bin")
+cache_dir = os.path.join(data_dir, "cache")
 
-# allow directory listing if url matches a directory ?
-allow_directory_listing = True
-
-# if redirection to a script, should the extension be shown ?
-# default is True but some prefer no extension (cf REST principles)
-show_script_extensions = True
+# list of user roles allowed to see directory listings
+# if url matches a directory ?
+# None means any user. Other values can be 'admin','edit','visit'
+allow_directory_listing = [None]
 
 # don't serve files with extension in this list
 hide_extensions = [".pdl"]
@@ -26,16 +25,8 @@ logging_file = None #os.path.join(karrigell_dir,"logs","access.log")
 logging_rotate = "hourly"
 
 # Unicode management
-# encode_input : boolean used to determine if server should try to transform 
-# data received from the client into Unicode, using the Accept-charset header
-#
 # encode_output : a string = the encoding to use to send data back to the 
 # client
-#
-# if encode_input is set, input encoding is successful, and encode_ouput is
-# not set, then the output will be encoded with the same encoding as input
-#
-encode_input = False #True
 output_encoding = None #"utf-8"
 
 # language to translate marked strings to
@@ -63,4 +54,4 @@ global_modules = [] #[os.path.join(root_dir,"demo","tour","aaa.py")]
 capture = False
 
 # maximum number of sessions
-max_sessions = 500
+max_sessions = 5

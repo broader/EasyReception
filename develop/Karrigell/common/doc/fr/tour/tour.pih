@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<HTML><HEAD><TITLE>Karrigell</TITLE>
+<META  http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../default.css" />
+
+<script>
+function show1(script,target)
+{ tg = document.getElementById(target)
+tg.src = script
+}
+</script>
+</HEAD>
+
+<BODY>
+
+<%
+import cgi
+from HTMLTags import *
+
+def txt(file_name):
+    """Return the HTML code for the TEXTAREA with content of file"""
+    src = open(file_name).readlines()
+    nb_lines = len(src)+1
+    width = max([len(line) for line in src])
+    output = []
+    for (i,line) in enumerate(src):
+        txt = cgi.escape(line)
+        txt = txt.replace(" ","&nbsp;")
+        output.append(DIV(DIV(i+1,Class="lnum")+
+            DIV("&nbsp;"+txt,Class="line"),width="%sem" %width)) 
+
+    return DIV(Sum(output),Class="src",cellpadding="1",cellspacing="0")+P()
+
+def form(script,target):
+    f = FORM(INPUT(Type="submit",value="Run"),
+        action=script,target=target)
+    return TD(f,valign="top")
+    
+chapters = ("Bonjour tout le monde !",
+    "L'espace de noms d'exécution",
+    "Données utilisateur",
+    "Entêtes de réponse - utilisation de HTMLTags",
+    "Données d'environnement",
+    "Gestion de session",
+    "Services Karrigell",
+    "Redirection",
+    "Authentification des utilisateurs",
+    "Fichiers et répertoires",
+    "Exceptions et erreurs",
+    "Importation de modules",
+    "Inclusion d'autres scripts"
+    )
+
+chap_num = 0
+
+def navig():
+    global chap_num
+    print '<h3>%s. %s</h3>' %(chap_num+1,chapters[chap_num])
+    chap_num += 1
+    
+%>
+
+<div id="upbg"></div>
+<div id="outer">
+    <table id="header">
+        <tr>
+        <td id="headercontent">
+            <h1>Karrigell<sup><%= REQUEST_HANDLER.version %></sup></h1>
+            <h2>Un canevas web pythonique</h2>
+        </td>
+
+        <td id="section">
+            <h1>Prise en mains</h1>
+
+        </td>
+
+    </table>
+
+    <div id="menu">
+        <ul>
+            <li><a href="../index.py">Documentation</a></li>
+            <li><a href="http://sourceforge.net/project/showfiles.php?group_id=67940">Téléchargements</a></li>
+            <li><a href="#" class="active">Prise en main</a></li>
+            <li><a href="../reference.ks">Référence</a></li>
+            <li><a href="http://groups.google.com/group/karrigell">Communauté</a></li>
+        </ul>
+    </div>
+    <div id="menubottom"></div>
+
+
+    <div id="content">
+
+        <div id="normalcontent">
+
+
+    <center><h1>Introduction à la programmation avec Karrigell</h1>
+    </center>
+
+    <p>Pour installer Karrigell, <a href="http://sourceforge.net/project/showfiles.php?group_id=67940">télécharger</a> le programme, puis décompressez-le et exécutez<code>python Karrigell.py</code>, ou si vous êtes sous Windows, lancez l'installeur. Dans les deux cas, vous aurez le serveur intégré actif sur le port 80, et vous pouvez créer des programmes avec un éditeur de texte, en les enregistrant dans le répertoire <span class="file">www</span> de la distribution
+    <p>
+    <% navig() # Bonjour tout le monde ! %>
+
+        <p>Nous commençons par le script Python qui écrit le message "Bonjour tout le monde !"
+        <p>
+        <%= txt("hello.py") %>
+
+        <table>
+        <tr>
+        <%= form("hello.py","if1") %>
+
+        <td valign="top">
+        <iframe id="if1" name="if1" width="400"></iframe>
+        </td>
+        </tr>
+        </table>
+
+        <p>Pour créer ce programme, utilisez un éditeur de texte, sauvegardez le texte ci-dessus dans un fichier appelé <span class="file">hello.py</span> dans le dossier <span class="file">www</span> de votre distribution Karrigell, puis entrez <span class="url">http://localhost/hello.py</span> dans votre navigateur web pour voir le résultat
+
+        <p>Notez que ce script est exactement le même que le programme "Bonjour tout le monde !" dans l'interpréteur Python ; vous n'avez aucun module à importer pour commencer à écrire des programmes
+
+    <% navig() # Bonjour tout le monde ! 2ème partie : l'espace de noms d'exécution %>
+
+        <p>Nous voulons maintenant imprimer le message "Bonjour tout le monde !" en mode texte au lieu de HTML. Pour cela l'entête <CODE>Content-type</CODE> doit prendre la valeur         <CODE>text/plain</CODE> au lieu de la valeur par défaut <CODE>text/html</CODE>
+
+        <p>
+        <%= txt("hello1.py") %>
+
+        <table>
+        <tr>
+        <%= form("hello1.py","if2") %>
+        <td valign="top">
+        <iframe name="if2" width="500"></iframe>
+        </td>
+        </tr>
+        </table>
+
+        <p>La différence avec le premier script est la ligne dans laquelle on affecte la valeur         <CODE>text/plain</CODE> à la clé <CODE>Content-Type</CODE> de la variable RESPONSE. Vous vous demandez peut-être d'où vient cette variable ? Eh bien, <B>Karrigell prépare un espace de noms</B> avant d'exécuter les scripts ; <CODE>RESPONSE</CODE> est l'une des variables intégrées dans cet espace de noms, sa fonction est de recevoir les valeurs pour les entêtes de réponse HTTP
+
+    <% navig() # Gestion des données utilisateur %>
+
+        <p>Voici un simple formulaire dans lequel l'utilisateur peut entrer une valeur et l'envoyer à un script sur le serveur
+
+        <p>
+        <div>
+        <%= txt("GET_test.html") %>
+        </div>
+        
+        et voici le script Python <span class="file">GET_test.py</span> qui gèrera les données envoyées par l'utilisateur
+
+        <p>
+        <div>
+        <%= txt("GET_test.py") %>
+        </div>
+
+        <p>Vous pouvez voir le résultat dans le cadre ci-dessous
+        <p>
+
+        <iframe id="if3" width="500" height="150" src="GET_test.html"></iframe>
+
+        <p>Dans le script Python vous voyez que les données utilisateur peuvent être récupérées en utilisant un dictionnaire appelé REQUEST, préparé par Karrigell pour être présent dans l'espace de noms d'exécution. Il fait correspondre les noms de champs à leur valeur. En plus, un raccourci peut être utilisé : le nom du champ avec un blanc souligné (_)
+
+        <p>Voyons maintenant comment gérer un formulaire avec la méthode POST au lieu de GET :
+        <p>
+        <div>
+        <%= txt("POST_test.html")  %>
+        Script <b>POST_test.py</b>
+        <%= txt("POST_test.py") %>
+        </div>
+
+        <iframe id="if3" width="500" height="150" src="POST_test.html"></iframe>
+
+        <p>Le script est exactement le même que pour les requêtes GET : Karrigell gère de façon transparente l'acquisition des données utilisateur avec les requêtes GET et POST
+        <p>
+
+    <% navig() #Entêtes de requête - utilisation de HTMLTags %>
+
+        <p>Nous voulons maintenant afficher les entêtes de requête. Ils sont accessibles dans la variable intégrée <code>HEADERS</code>. Si nous voulons les afficher dans une table HTML, nous pouvons naturellement afficher le code HTML directement avec des instructions comme
+
+        <blockquote><code>print "&lt;tr&gt;&lt;td&gt;%s&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;/tr&gt;" %(key,value)</code></blockquote>
+
+        mais le code devient rapidement difficile à lire s'il y a beaucoup de lignes de ce type
+
+        <p>Karrigell fournit un module intégré, <code>HTMLTags</code>, qui simplifie la préparation de la sortie en HTML. Voyons ceci dans l'exemple ci-dessous
+
+        <p>
+        <div>
+        <%= txt("headers.py") %>
+        </div>
+
+        <table>
+        <tr>
+        <%= form("headers.py","if5") %>
+
+        <td valign="top">
+        <iframe name="if5" width="500" height="350"></iframe>
+        </td>
+        </tr>
+        </table>
+
+        <p>Toutes les balises HTML ont un équivalent en tant que classe dans le module HTMLTags, avec le même nom que la balise en majuscules. Par exemple, l'expression <code>print TD(valeur)</code> produit le code pour générer une cellule avec la valeur spécifiée :
+        <dl>
+        <dd><pre>&lt;TD&gt;value&lt;/TD&gt;
+        </dl>
+        Les attributs peuvent être ajoutés comme arguments sous forme clé=valeur : 
+        <code>TD(value,align="left")</code>
+        <p>
+
+    <% navig() # Données d'environment %>
+
+        <p>Les données d'environnement, tels qu'elles sont définies dans la spécification CGI, sont disponibles dans le dictionnaire intégré <CODE>ENVIRON</CODE> :
+
+        <p>
+        <div>
+        <%= txt("env_test.py") %>
+        </div>
+
+        <table>
+        <tr>
+        <%= form("env_test.py","if4") %>
+
+        <td valign="top">
+        <iframe name="if4" width="500" height="350"></iframe>
+        </td>
+        </tr>
+        </table>
+        <p>
+
+    <% navig() # Gestion de sessions %>
+
+    <p>La façon habituelle de garder une trace de l'utilisateur pendant qu'il parcourt une application web est d'utiliser des sessions. Le serveur gère un objet de session qui contient toute l'information utile ; l'objet de session est identifié par un identifiant de session, une chaîne de caractères qui est stockée dans un cookie sur le navigateur du client
+
+    <p>Karrigell gère les sessions en utilisant la fonction intégrée appelée <code>Session()</code>, qui renvoie l'objet de session. Voyons comment cela fonctionne dans l'exemple ci-dessous
+    <p>
+        <div>
+        <%= txt("session.html") %>
+        Script <b>session1.py</b>
+        <%= txt("session1.py") %>
+        Script <b>session2.py</b>
+        <%= txt("session2.py") %>
+        </div>
+        
+        <iframe id="if6" width="500" height="150" src="session.html"></iframe>
+
+    <p>L'objet de session est initialisé la première fois que la fonction <code>Session()</code> est appelée par le script pour un utilisateur particulier ; ceci est réalisé dans le premier script Python ci-dessus. Dans le script suivant, l'information stockée dans l'objet de session est récupérée très simplement comme attribut de l'objet de session renvoyé par la fonction  <code>Session()</code>
+
+    <% navig() # Service Karrigell %>
+
+    <p>Une application web se compose typiquement d'un ensemble de pages ; l'utilisateur navigue d'une page à l'autre en suivant des liens ou en cliquant sur des boutons pour soumettre des données de formulaires au serveur
+    
+    <p>Au lieu d'avoir un script par page, Karrigell propose un format pour gérer toute une application dans un script unique : ils sont appelées des "services Karrigell" et ont l'extension ".ks", au lieu de ".py" pour les scripts en pur Python
+
+    <p>L'exemple ci-dessous montre une application simple pour éditer une valeur
+
+        <p>
+        <div>
+        <%= txt("ksTest.ks") %>
+        </div>
+
+        <table>
+        <tr>
+        <%= form("ksTest.ks","if6") %>
+
+        <td valign="top">
+        <iframe name="if6" width="500"></iframe>
+        </td>
+        </tr>
+        </table>
+
+    <p>Quand le script est appelé par son url (par exemple
+    <code>http://hote/dossier/script.ks</code>) le canevas recherche une fonction <code>index()</code> dans le script, et s'il en trouve une il redirige vers l'url <code>http://hote/dossier/script.ks/index</code>
+    <p>Cette fonctin est exécutée dans un espace de noms qui inclut les valeurs définies au niveau global du script, ici la variable <code>so</code> (l'objet de session)
+    <p>Les liens générés dans <code>index()</code> sont données en tant qu'urls relatives ; le navigateur les résoud en url absolues, comme <code>http://hote/dossier/script.ks/increment</code>. Quand cette url est appelée, la fonction  <code>increment</code> est exécutée, elle se termine par une redirection HTTP vers la fonction  <code>index()</code>
+
+    <% navig() # Redirection %>
+
+    <p>Dans le service Karrigell ci-dessus, vous avez remarqué la façon dont les redirections  HTTP sont gérées : une fois que la valeur est modifée, l'exception intégrée <code>HTTP_REDIRECTION</code> est déclenchée, avec l'url vers laquelle l'utilisateur doit être redirigé
+    <p>
+
+    <% navig() # Authentification des utilisateurs %>
+
+    <p>L'administrateur peut gérer une base de données d'utilisateurs (accessible depuis le menu d'administration). Les utilisateurs peuvent avoir différents rôles : admin, edit, visit
+
+    <p>Dans une application, l'appel de la fonction <code>Login(liste_de_roles)</code> vérifie si l'utilisateur est authentifié avec l'un des rôles définis dans la <code>liste_de_roles</code> (si elle n'est pas précisée, <code>liste_de_roles</code> prend par défaut la valeur <code>["admin"]</code>)
+
+    <p>S'il n'est pas déjà connecté avec ce rôle, l'application redirige vers un script qui demande et vérifie un identifiant et un mot de passe, puis redirige vers l'application si le résultat est positif
+
+    <p>La fonction <code>Role()</code> renvoie le rôle de l'utilisateur (<code>None</code> si l'utilisateur n'est pas connecté). La fonction <code>Logout()</code> est utilisée pour se déconnecter
+
+    <p>Pour exécuter le script ci-dessous, vous devrez vous connecter comme administrateur du site
+
+        <p>
+        <div>
+        <%= txt("login_test.ks") %>
+        </div>
+        
+        <table>
+        <tr>
+
+        <%= form("login_test.ks","if7") %>
+
+        <td valign="top">
+        <iframe name="if7" width="500"></iframe>
+        </td>
+        </tr>
+        </table>
+
+    <% navig() # Fichiers et répertoires %>
+
+    <p>Dans un environnement partagé comme un serveur web, les requêtes peuvent être gérées en parallèle par différents threads ou processus. Quand un script est exécuté, il n'est pas fiable de donner comme valeur au répertoire courant de l'interpréteur Python (par <code>os.chdir</code>) celui où se trouve le script, parce qu'un autre thread pourrait le modifier avant que le script ne se termine
+    <p>Vous devez dont être prudent si votre script doit accéder à des fichiers :
+    <ul>
+    <li>vous pouvez donner un nom de chemin relatif pour les fonctions intégrées <code>open()</code> ou <code>file()</code> : elles sont modifiées par Karrigell de façon que les chemins relatifs sont traduits en chemins absolus, relativement au dossier du script
+    <li>vous pouvez vous servir de la variable intégrée <code>CWD</code> qui donne le chemin absolu du répertoire du script
+    <li>ou vous pouvez utiliser la fonction intégrée <code>REL()</code> qui convertit un chemin relatif en un chemin absolu, relativement au répertoire du script
+    </ul>
+
+
+    <% navig() # Exceptions et erreurs %>
+
+    <p>Quand une exception ou une erreur est détectée sur une page, une trace d'erreur explicite est affichée
+
+    <p>L'exemple ci-dessous montre comment cela fonctionne
+
+        <p>
+        <div>
+        <%= txt("scriptError.py") %>
+        </div>
+        
+        <table>
+        <tr>
+
+        <%= form("scriptError.py","if8") %>
+
+        <td valign="top">
+        <iframe name="if8" width="600" height="350"></iframe>
+        </td>
+        </tr>
+        </table>
+
+    <% navig() # Importation de modules %>
+
+    <p>Les modules de la distribution Python standard peuvent être importés sans problème avec la syntaxe habituelle : <code>import os</code>
+
+    <p>Pour les modules écrits par l'utilisateur dans les dossiers des applications, vous ne pouvez pas utiliser cette syntaxe : le chemin dans lequel l'interpréteur recherche le module avec un nom donné est susceptible de changer à n'importe quel moment dans un environnement multithread
+    <p>Pour ces modules, vous devez utiliser la fonction intégrée <code>Import(<i>url</i>)</code>   où <i>url</i> est l'url relative (au script courant) ou absolu du module
+    <p>La valeur renvoyée par <code>Import()</code> doit être associée à un nom, qui sera utilisé comme le nom du module dans le script
+
+        <p>
+        <div>
+        <%= txt("importTest.py") %>
+        <p>Module <b>conv_date.py</b>
+        <p><%= txt("conv_date.py") %>
+        </div>
+        
+        <table>
+        <tr>
+
+        <%= form("importTest.py","if9") %>
+
+        <td valign="top">
+        <iframe name="if9" width="600" height="150"></iframe>
+        </td>
+        </tr>
+        </table>
+
+    <% navig() # Inclusion de documents et de scripts %>
+
+    <p>A l'intérieur d'un script, d'autres documents statiques ou le résultat d'autres scripts peuvent être inclus, en se servant de la fonction intégrée <code>Include(<i>autre_url</i>)</code>
+
+    <p>Pour un document statique, faites simplement <code>Include("statique.html")</code>
+
+    <p>Pour un script, vous pouvez passer des arguments clés/valeurs, ils seront présents dans l'espace de noms dans lequel le script est exécuté. Par exemple, pour inclure un entête avec le nom de l'utilisateur :
+
+        <p>
+        <div>
+        <%= txt("includeTest.py") %>
+        <p>Script <b>header.py</b>
+        <p><%= txt("header.py") %>
+        </div>
+
+        <table>
+        <tr>
+        <%= form("includeTest.py","if10") %>
+
+        <td valign="top">
+        <iframe name="if10" width="600" height="150"></iframe>
+        </td>
+        </tr>
+        </table>
+
+</div>
+</div>
+</div>
+
+</BODY>
+</HTML>

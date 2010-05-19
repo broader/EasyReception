@@ -4,393 +4,219 @@ from HTMLTags import *
 
 import MySQLdb
 
-ask = Import("ask")
-
-Types = ['TINYINT','BIT','BOOL',
-  'SMALLINT',
-  'MEDIUMINT',
-  'INT',
-  'INTEGER',
-  'BIGINT',
-  'REAL',
-  'DOUBLE',
-  'FLOAT',
-  'DECIMAL','DEC','FIXED',
-  'NUMERIC',
-  'DATE',
-  'TIME',
-  'TIMESTAMP',
-  'DATETIME',
-  'YEAR',
-  'CHAR',
-  'VARCHAR',
-  'TINYBLOB',
-  'BLOB',
-  'MEDIUMBLOB',
-  'LONGBLOB',
-  'TINYTEXT',
-  'TEXT',
-  'MEDIUMTEXT',
-  'LONGTEXT',
-  'ENUM',
-  'SET']
-Types.sort()
-
-class ConfigError(Exception):
-    pass
-
-def makeDict(res):
-    # convert the result of a cursor.fetchall() to a list
-    # of dictionaries
-    records = []
-    for item in res:
-        records.append(dict([(fname,item[i])
-            for (i,fname) in enumerate(['recno']+field_names)]))
-    return records
-
 # restrict access to administrator
-Login(role=["admin"])
+Login(role=["admin"],valid_in='/')
+user = COOKIE['login'].value
 
-#header
-script = SCRIPT(src="../mysql.js")+SCRIPT(src="../genScript.js")
+if not os.path.exists(REL(user)):
+    # new user
+    os.mkdir(REL(user))
+    os.mkdir(REL(user,'images'))
 
-header=HEAD(LINK(rel="stylesheet",href="../manage.css") +
-    TITLE('MySQL management')+script)
-
-print '<html>'
-print header
-
-def index():
-    if hasattr(Session(),"connection"):
-        print "session has connection"
-        #Session().connection.close()
-    print '<body>'
-    print H1('Connection to MySQL server')
-    ask.ask('Database info','open_connection',
-        ('Host','host'),('User','user'),
-        ('Password','passwd','password'))
-
-def open_connection(host,user,passwd):
-    connection = MySQLdb.connect(host=host,user=user,
-        passwd=passwd)
-    Session().connection = connection
-    Session().cursor = connection.cursor()
-    Session().conn_info = host,user,passwd
-    Session().folded = {}
-    if hasattr(Session(),'db'):
-        del Session().db
-    raise HTTP_REDIRECTION,"view"
-
-def _show_databases():
-    Session().cursor.execute("SHOW DATABASES")
-    print '<ul>'
-    for _db in Session().cursor.fetchall():
-        db = _db[0]
-        if db in ['information_schema','mysql']:
+import shutil
+for fname in os.listdir(REL("applications")):
+    if os.path.isfile(REL("applications",fname)):
+        if fname.startswith('.'):
             continue
-        lnk = A(db,href="view?db=%s&action=show_db" %db)
-        if Session().folded.get(db,True):
-            print LI(A(SPAN('+',Class="fold"),
-                href="view?db=%s&action=unfold" %db)+
-                TEXT('&nbsp;')+lnk)
+        shutil.copyfile(REL("applications",fname),REL(user,fname))
+for fname in os.listdir(REL("applications","images")):
+    if os.path.isfile(REL("applications","images",fname)):
+        if fname.startswith('.'):
+            continue
+        shutil.copyfile(REL("applications","images",fname),
+            REL(user,"images",fname))
+
+# unicode
+SET_UNICODE_OUT('utf-8')
+
+# file with MySQL connection info : host,user,password
+mysql_settings_file = os.path.join(CONFIG.data_dir,'mysql_settings.py')
+
+def _hidden(**kw):
+    return Sum([INPUT(Type="hidden",name=key,value=value)
+        for (key,value) in kw.iteritems()])
+
+def _actions(db_name,table_name):
+    links = []
+    for icon,title,href in [
+        ('b_props',_('Settings'),'../table.ks/table_structure'),
+        ('b_drop',_('Drop'),'drop_table')]:
+
+        pic = IMG(src='../images/%s.png' %icon,border=0)
+        links.append(A(pic,
+            href='%s?db_name=%s&table_name=%s' %(href,db_name,table_name),
+            title=title))
+    return TABLE(TR(Sum([TD(link,Class='tb_table') for link in links])))
+
+def index(db_name=None,table_name=None):
+    try:
+        exec(open(mysql_settings_file).read())
+    except:
+        content = A(_('Home'),href='/')
+        content += H1('MySQL database management')
+        content += "Connection information (host,user,password) is not available. "
+        content += BR()+A("Set it",href='/admin/databases')
+        print KT('msg_template.kt',**locals())
+        raise SCRIPT_END
+    frameset = FRAMESET(cols="200,*")
+    if db_name is not None:
+        frameset <= FRAME(src="menu?db_name=%s" %db_name)
+        if table_name is None:
+            frameset <= FRAME(name="right",src="show_db?db_name=%s" %db_name)
         else:
-            print LI(A(SPAN('-',Class="fold"),
-                href="view?db=%s&action=fold" %db)+
-                TEXT('&nbsp;')+lnk)
-            print '<ul>'
-            _show_tables(db)
-            print '</ul>'
-    print LI(A('[New]',href="view?action=create_db"))
-    print '</ul>'
+            frameset <= FRAME(name="right",
+                src="../table.ks/table_structure?db_name=%s&table_name=%s" 
+                %(db_name,table_name))
+    else:
+        frameset <= FRAME(src="menu")
+        frameset <= FRAME(name="right",src="show_db")
+    print frameset
 
-def create_new_db(new_db):
-    Session().cursor.execute('CREATE DATABASE IF NOT EXISTS %s' %new_db)
-    Session().cursor.execute('USE %s' %new_db)
-    Session().db = new_db
-    raise HTTP_REDIRECTION,'view'
+def _connection():
+    exec(open(mysql_settings_file).read())
+    return MySQLdb.connect(host=host,user=user,
+        passwd=password)
+    
+def _cursor():
+    exec(open(mysql_settings_file).read())
+    connection = MySQLdb.connect(host=host,user=user,
+        passwd=password)
+    return connection.cursor()
 
-def _create_new_table():
-    print H3('New table in database %s' %Session().db)
-    print '<form action="view">'
-    print '<input type="hidden" name="new_table" value="1">'
-    print '<input name="table">'
-    print '<input type="submit" value="Ok">'
-    print '</form>'
+def menu(db_name=None):
+    cursor = _cursor()
+    cursor.execute("SHOW DATABASES")
+    dbs = [ db[0] for db in cursor.fetchall()
+            if not db[0] in ['information_schema','mysql'] ]
+
+    if db_name is None:
+        res = ''
+        for db in dbs:
+            res += A(db,href="index?db_name=%s" %db,target="_top")+BR()
+    else:
+        form = FORM(Id="home",action='index',target="_top")
+        options = [ OPTION(db,value=db,selected=db==db_name)
+            for db in dbs]
+        form <= SELECT(Sum(options),name="db_name",
+            onChange="document.getElementById('home').submit()")
+        res = form
+        res += A(B(db_name),href='show_db?db_name=%s' %db_name,target="right")
+        res += UL(_show_tables(db_name))
+
+    print KT('menu_template.kt',stylesheet='../menu.css',
+        content=res)
 
 def _show_tables(db):
-    Session().cursor.execute('USE %s' %db)
-    Session().cursor.execute('SHOW TABLES')
-    for table_info in Session().cursor.fetchall():
+    cursor = _cursor()
+    cursor.execute('USE %s' %db)
+    cursor.execute('SHOW TABLES')
+    res = ''
+    for table_info in cursor.fetchall():
         tname = table_info[0]
-        print LI(A(tname,href="view?db=%s&table=%s"
-            %(db,tname)))
-    print LI(A("[New]",href="view?action=new_table"))
+        res += LI(A(tname,
+            href="../table.ks/table_structure?db_name=%s&table_name=%s"
+                %(db,tname),target="right"))+'\n'
+    return res
 
-def view(db=None,table=None,action="",new_db=0,new_table=0):
-    print '<body onLoad="change_type()" onKeyUp="validate()">'
-    print H2('MySQL management')
-    if db is None and hasattr(Session(),"db"):
-        db = Session().db
+def _detailed_tables(db_name):
+    cursor = _cursor()
+    cursor.execute('USE %s' %db_name)
+    cursor.execute('SHOW TABLES')
+    table = TABLE(Class="db_tables")
+    table <= TR(TH(_('Name'))+TH(_('Fields'))+TH(_('Records'))+TH(_('Actions')))
+    for table_info in cursor.fetchall():
+        table_name = table_info[0]
+        cells = TD(table_name,Class='db_table')
+        cursor.execute('DESCRIBE %s' %table_name)
+        fields = [row[0] for row in cursor.fetchall()]
+        cells += TD(SELECT().from_list(fields),Class='db_table')
+        cursor.execute('SELECT COUNT(*) FROM %s' %table_name)
+        cells += TD(cursor.fetchone()[0],Class='rec_num')
+        cells += TD(_actions(db_name,table_name))
+        table <= TR(cells)
+    return table
+
+def show_db(db_name=None):
+    exec(open(mysql_settings_file).read())
+    stylesheet = '../manage.css'
+    cursor = _cursor()
+    if db_name:
+        cursor.execute('USE %s' %db_name)
+        cursor.execute('SHOW TABLES')
+        table_info = cursor.fetchall()
+        if table_info:
+            content = H4(_("Structure"))
+            content += _detailed_tables(db_name)
+            drop = ''
+        else:
+            content = _('This database has no table')
+            drop = FORM(action='drop_db')
+            drop <= INPUT(Type="hidden",name="db_name",value=db_name)
+            drop <= INPUT(Type="submit",value="Drop database")
+            content += drop
+        create = TD(H5(_("New table")))
+        form = FORM(action="../table.ks/table_structure")
+        form <= _hidden(db_name=db_name,new=1)
+        form <= INPUT(name="table_name")+INPUT(Type="submit",value=_('Create'))
+        create += TD(form)
+        content += P()+TABLE(TR(create))
+        print KT('db_template.kt',**locals())
     else:
-        Session().db = db
-    if action=="create_db":
-        db = 0
-    if action=="unfold":
-        Session().folded[db] = False
-    elif action=="fold":
-        Session().folded[db] = True
-    print '<table cellpadding="10">'
-    print '<tr><td valign="top" id="tblist">'
-    _show_databases()
-    print '</td>'
-    if db:
-        Session().cursor.execute('USE %s' %db)
-    print '<td valign="top">'
-    if action=="create_db":
-        ask.ask('Create new database','create_new_db',
-            ('Name','new_db'))
-    elif action=="new_table":
-        _create_new_table()
-    elif action=="show_db":
-        print "Database %s" %db
-        print FORM(INPUT(Type="hidden",name="action",value="drop_db")+
+        cursor.execute('SHOW DATABASES')
+        content = _('%s databases') %(len(cursor.fetchall())-2)
+
+        create = TD(H5(_("New database")))
+        form = FORM(action="create_db",target="_top")
+        form <= INPUT(name="db_name")+INPUT(Type="submit",value=_('Create'))
+        create += TD(form)
+
+        content += create
+        print KT('home_template.kt',**locals())
+
+def create_db(db_name):
+    cursor = _cursor()
+    cursor.execute('CREATE DATABASE IF NOT EXISTS %s' %db_name)
+    raise HTTP_REDIRECTION,'index?db_name=%s' %db_name
+
+def drop_db(db_name):
+    exec(open(mysql_settings_file).read())
+    cursor = _cursor()
+    cursor.execute('USE %s' %db_name)
+    cursor.execute('SHOW TABLES')
+    if len(cursor.fetchall()):
+        content = "Can't drop database %s " %db_name
+        content += "; all tables must be dropped first"
+    else:
+        content = "Are you sure you want to delete database %s ?" %db_name
+        content += P()+FORM(INPUT(Type="hidden",name="db_name",value=db_name)+
             INPUT(Type="submit",value="Drop database"),
-            action="view")
-    elif action=="drop_db":
-        _drop_db()
-    elif action=="drop_table":
-        _drop_table()
-    else:
-        view_table(table,new_table)
-    print '</td></tr></table>'
-    print A("Close session",href="index")
-    print '</body></html>'
+            action="drop_db_confirm",target="_top")
+        content += INPUT(Type="button",value="Cancel",onClick="javascript:back()")
+
+    print KT('db_template.kt',**locals())
     
-def view_db(db,new=0):
-    Session().db = db
+def drop_db_confirm(db_name):
+    _cursor().execute('DROP DATABASE %s' %db_name)
+    raise HTTP_REDIRECTION,'index'
 
-def view_table(table,new=0):
-    if table is None:
-        return
-    print '<h4>'
-    print 'Database %s' %Session().db
-    print '&nbsp;Table %s</h4>' %table
-    
-    new = int(new)
-    Session().table = table
-    columns = []
-    if new == 0:
-        print TABLE(TR(
-            TD(FORM(INPUT(Type="submit",value="Drop table")+
-                INPUT(Type="hidden",name="action",value="drop_table"),
-               action="view"))  +
-            TD(FORM(INPUT(Type="submit",value="Generate management script"),
-               action="generate_script"))
-              ))
-               
-        Session().cursor.execute('DESCRIBE %s' %table)
-        print '<form action="remove_fields" name="fields" method="post" target="_top">'
-        print '<table border="1" width="100%">'
-        print TR(TH('&nbsp')+TH('Field')+TH('Type')+TH('Null')+TH('Key')+
-            TH('Default')+TH('Extra'))
-        columns = []
-        for field_info in Session().cursor.fetchall():
-            s = INPUT(Type="checkbox",name="field[]",value=field_info[0],onClick="sel_field()")
-            columns.append(field_info[:2])
-            print TR(TD(s)+Sum([ TD(item or '&nbsp;') for item in field_info ]))
-        print '</table>'
-        print INPUT(Type="submit",value="Remove selected",id="sub",disabled=True)
-        print '</form>'
-        Session().columns = columns
+def drop_table(db_name,table_name):
+    exec(open(mysql_settings_file).read())
+    content = P()+"Are you sure you want to delete table %s" %table_name
+    content += "? This will erase all data"
+    row = TR()
+    row <= TD(FORM(_hidden(db_name=db_name,table_name=table_name)+
+        INPUT(Type="submit",value=_("Drop table")),
+        action="drop_table_confirm",target="_top"))
+    row <= TD(FORM(_hidden(db_name=db_name)+
+        INPUT(Type="submit",value=_("Cancel")),
+        action="show_db"))
+    content += P()+TABLE(row)
+    print KT('db_template.kt',**locals())
 
-    print '<form action = "insert_field" name="add" method="post" target="_top">'
-    print INPUT(name="table",id="table",Type="hidden",value=table)
-    print INPUT(name="new",id="new",Type="hidden",value=new)
-    print H4('Insert new field')
-    print '<p><div id="field_def">'
-    print '<table>'
-    print '<tr><td>'
-    print '<table border="1">'
-    print TR(TD(B('Field name'))+TD(INPUT(name="field")))
-    if not new:
-        pos = OPTION('FIRST',value="FIRST")
-        for i,item in enumerate(columns):
-            pos += OPTION('AFTER %s' %item[0],value='AFTER %s' %item[0],
-                 selected = i==(len(columns)-1)) 
-        print TR(TD('Position')
-            +TD(SELECT(pos,name="position",onChange="validate()")))
-    print '<tr>'
-    print TD('Type')
-    print TD(SELECT(Sum([ OPTION(t,value=t,selected=t=='TEXT') for t in Types ]),
-            name="Type",id="Type",onChange="change_type()"))
-    print '</tr>'
-    print TR(TD('NULL')+TD(TEXT('NULL')+
-             INPUT(name="null",Type="radio",
-                   checked=True,onClick="ch_null(0)") +
-             TEXT('NOT NULL')+
-             INPUT(name="null",Type="radio",onClick="ch_null(1)")))
-    print TR(TD('DEFAULT')+TD(INPUT(id="default",name="default",disabled=True)))
-    print TR(TD('KEY')+TD(TEXT('no')+
-             INPUT(name="key",Type="radio",
-                   checked=True,onClick="ch_key(0)") +
-             TEXT('KEY')+
-             INPUT(name="key",Type="radio",onClick="ch_key(1)")+
-             TEXT('PRIMARY KEY')+
-             INPUT(name="key",Type="radio",onClick="ch_key(2)")
-             ))
-    print '</table>'
-    print '</td>'
-    print TD(DIV(id="f_opt",style="position:absolute"),valign="top")
-    print '</tr></table>'
-    print "<p>SQL statement"
-    print BR()+TEXTAREA(name="sql",cols="40",rows="4")
-    print INPUT(id="subm",Type="submit", value="Ok")
-    print '</div>' # end of field_def
-    print '</form>'
-    print '</body></html>'
+def drop_table_confirm(db_name,table_name):
+    cursor = _cursor()
+    cursor.execute('USE %s' %db_name)
+    cursor.execute('DROP TABLE %s' %table_name)
+    raise HTTP_REDIRECTION,"../index.ks/index?db_name=%s" %db_name
 
-def remove_fields(field):
-    for f in field:
-        Session().cursor.execute('ALTER TABLE %s DROP %s' 
-            %(Session().table,f))
-    raise HTTP_REDIRECTION,"view?db=%s&table=%s" %(Session().db,
-        Session().table)
 
-def insert_field(**kw):
-    sql = kw["sql"]
-    Session().cursor.execute(sql)
-    Session().connection.commit()
-    raise HTTP_REDIRECTION,"view?db=%s&table=%s" %(Session().db,
-        Session().table)
-
-def _drop_db():
-    db = Session().db
-    Session().cursor.execute('USE %s' %db)
-    Session().cursor.execute('SHOW TABLES')
-    if len(Session().cursor.fetchall()):
-        print "Can't drop database %s ; all tables must be dropped first" %db
-        raise SCRIPT_END
-    print "Are you sure you want to delete database %s ?" %db
-    print P()+FORM(INPUT(Type="hidden",name="db",value=db)+
-        INPUT(Type="submit",value="Drop database"),
-        action="drop_db_confirm")
-    print INPUT(Type="button",value="Cancel",onClick="javascript:back()")
-    print "</body>"
-
-def drop_db_confirm(db):
-    Session().cursor.execute('DROP DATABASE %s' %db)
-    del Session().db
-    raise HTTP_REDIRECTION,'view'
-
-def _drop_table():
-    print "Are you sure you want to delete table %s" %Session().table
-    print "? This will erase all data"
-    print P()+FORM(INPUT(Type="submit",value="Drop table"),
-        action="drop_table_confirm",target="_top")
-    print INPUT(Type="button",value="Cancel",onClick="javascript:back()")
-
-def drop_table_confirm():
-    Session().cursor.execute('DROP TABLE %s' %Session().table)
-    del Session().table
-    raise HTTP_REDIRECTION,"view?db=%s" %Session().db
-
-def generate_script():
-    print H2("Generating script for table %s" %Session().table)
-    print '<form action="generate_script_2" method="post">'
-    sec = INPUT('low (anyone can see/edit records)',Type="radio",value="low",name="security",
-            onClick="change_sec(this)")+BR()+\
-        INPUT('standard (anyone can see records, edition restricted to administrator)',
-            Type="radio",value="standard",name="security",
-            onClick="change_sec(this)",checked=True)+BR()+\
-        INPUT('high (only the admin can see and edit records)',
-            Type="radio",value="high",name="security",onClick="change_sec(this)")
-    e_security = TR(TD(B("Security level")+BR())+TD(sec))
-    print e_security
-    adm_info = TABLE(TR(TD('Login')+TD(INPUT(name="login")))+
-        TR(TD('Password')+TD(INPUT(Type="password",name="passwd"))))
-    print SPAN(adm_info,id="adm_info")
-    print INPUT(Type="submit",value="Ok")
-    print '</form>'
-
-def generate_script_2(security,login=None,passwd=None):
-    """Generate the management script"""
-    table = Session().table
-    name = table
-    # initialize the variables
-    Session().cursor.execute('DESCRIBE '+table)
-    __id__ = None
-    info = []
-    for field in Session().cursor.fetchall():
-        Field,Type,Null,Key,Default,Extra = field
-        if Key == 'PRI' and Extra == 'auto_increment':
-            __id__ = Field
-        else:
-            info.append((Field,Type,Null,Key,Default,Extra))
-    if __id__ is None:
-        print "Error - base %s has no integer primary key with auto_increment"\
-            %table
-        raise SCRIPT_END
-
-    if security != 'low':
-        admin_file = os.path.join('applications',table + '.ini')
-        if not login or not passwd:
-            if not os.path.exists(admin_file):
-                raise ConfigError,'Administrator login or password missing'
-        else:
-            _save_admin_info(admin_file,login,passwd)
-
-    from db_mysql import inits,open_,all_records,\
-        select_by_id,insert_or_update,remove
-
-    template = open('rs_%s.tpl' %security).read()
-
-    # open the generated ks script
-    out = open(os.path.join('applications','%s.ks' %table),'w')
-    out.write('"""Database management\nGenerated %s"""\n\n'
-        %(datetime.now().strftime('%x %X')))
-
-    for k,v in zip(['host','user','passwd'],Session().conn_info):
-        out.write('%s = "%s"\n' %(k,v))
-    out.write('base_name = "%s"\n' %Session().db)
-    out.write('name = "%s"\n' %table)
-    out.write('fields = (')
-    out.write(','.join(['("%s","%s","input")' %f for f in Session().columns]))
-    out.write(')\n')
-    out.write('__id__ = "%s"\n' %__id__)
-
-    ask_fields = ""
-    for field in Session().columns:
-        fn = field[0]
-        if fn == __id__:
-            continue
-        input_format = 'input' #field[2]
-        if field[1].lower() == 'date':
-            input_format = 'calendar'
-        if input_format == 'textarea':
-            ask_fields += '    print TR(TD("%s")+' %fn
-            ask_fields += 'TD(TEXTAREA(record["%s"],name="%s",rows="10",cols="50")))\n' %(fn,fn)
-        elif input_format == 'calendar':
-            ask_fields += '    print TR(TD("%s")+' %fn
-            ask_fields += 'TD(INPUT(name="%s",id="%s",size="20",value=record["%s"])+\n' %(fn,fn,fn)
-            ask_fields += '        A(IMG(src="../Calandar.gif",border=0),\n'
-            ask_fields += '        href= "javascript:scwShow(document.'
-            ask_fields += 'getElementById(\'%s\'), this);" )))\n' %fn
-        else:
-            ask_fields += '    print TR(TD("%s")+' %fn
-            ask_fields += 'TD(INPUT(name="%s",size="40",value=record["%s"])))\n' %(fn,fn)
-
-    out.write(template %locals())
-    out.close()
-
-    print "Script <b>%s.ks</b> generated<br>" %table
-    print '<a href="../applications/%s.ks" target="_new">Test it</a>' \
-        %table
-    print '<br><a href="view?table=%s">Back to configuration</a>' %table
-
-def _save_admin_info(admin_file,login,password):
-    # save md5 digest of the login and password
-    import md5
-    out = open(admin_file,'wb')
-    out.write(md5.new(login).digest())
-    out.write(md5.new(password).digest())
-    out.close()

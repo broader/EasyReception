@@ -1,4 +1,4 @@
-Login(role=["admin"])
+Login(role=["admin"],valid_in='/')
 
 import cgi
 import urllib
@@ -6,6 +6,7 @@ from HTMLTags import *
 
 host = ENVIRON["REMOTE_HOST"]
 conf_file = CONFIG.__file__
+SET_UNICODE_OUT("iso-8859-1")
 
 def index():
 
@@ -21,7 +22,7 @@ def index():
         })""",
         language="javascript", Type="text/javascript"))
 
-    front = A(_("Home"),href="../index.ks")+BR()
+    front = A(_("Home"),href="/")+BR()
     front += H3("Current config file is %s" %conf_file)
     front += INPUT(Type="submit",name="subm",value=_("Save changes"))
     front += INPUT(Type="submit",name="subm",value=_("Cancel"))+BR()
@@ -33,7 +34,7 @@ def index():
 
 def save_changes(content,subm):
     if subm==_("Cancel"):
-        raise HTTP_REDIRECTION,"../index.ks"
+        raise HTTP_REDIRECTION,"/"
     # normalize line ends
     content = "\n".join(content.split("\r\n"))
     # test if new source has no syntax error
@@ -63,4 +64,4 @@ def apply():
     import k_config
     k_config.set_host_conf(host,CONFIG.__file__)
     print _("New configuration applied")
-    print BR()+A("Admin",href="/admin")
+    print BR()+A(_("Home"),href="/")

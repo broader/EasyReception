@@ -1,0 +1,37 @@
+body {font-family: verdana,sans-serif, arial, ;
+	font-size: 10pt;
+	color: #000000;}
+
+td {font-family: verdana,sans-serif, arial, ;
+	font-size: 10pt;
+	}
+
+table.src { padding-left:3;
+	padding-right:3;
+	background-color: #FFFFFF;
+	border-width:1;
+	border-style:dotted;
+	border-color:#000000;
+	}
+
+td.lnum {background-color:#D0D0D0;
+	color:#00FF00
+	text-align:right;
+	margin-left:5;
+	}
+
+td.line {background-color:#FFFFC0;
+	text-align:left;
+	font-family: courier;
+	}
+
+.file                   { font-family: avantgarde, sans-serif; 
+							color: #00008b;}
+code, tt                { font-family: "lucida typewriter", lucidatypewriter,
+                                       monospace; 
+                         }
+table.navig {background-color: #D0D0D0;
+	font-weight: bold;
+	font-size: 200%;
+   }
+td.navig {font-size: 20 }

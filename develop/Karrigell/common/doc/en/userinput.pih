@@ -1,16 +1,3 @@
-<html>
-<head>
-<title>Programming</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="STYLESHEET" href="lib.css">
-<style type="text/css">
-<!--
-dl {  background-color: #FFFFCC; border-width: 1; border-style:solid;}
--->
-</style></head>
-
-<body>
-
 <h1><%= chapter %>. User input</h1>
 
 The <code>REQUEST</code> variable is a dictionary representing the query string if the script is
@@ -43,7 +30,7 @@ it comes from a <code>&lt;SELECT MULTIPLE&gt;</code> form field for instance)
 
 <p>In <code>myScript.py</code> the input would be displayed with :
 <p>
-<div class="verbatim"><pre class="verbatim">
+<div class="python"><pre class="verbatim">
 print "&lt;br&gt;Spam is ",REQUEST["spam"]
 if REQUEST.has_key("animal"):
     print "&lt;br&gt;Animal is ",str(REQUEST["animal"])
@@ -54,7 +41,7 @@ if REQUEST.has_key("animal"):
 prepended to the field name. The code above could be written in this simpler way :
 
 <p>
-<div class="verbatim">
+<div class="python">
 <pre class="verbatim">
 print "&lt;br&gt;Spam is ",_spam
 if REQUEST.has_key("animal"):
@@ -63,9 +50,3 @@ if REQUEST.has_key("animal"):
 <p>
 The underscore is introduced to reduce the risks of naming conflicts with Python reserved words or
 with the name of frequently used modules
-
-
-</body>
-</html>
-
-

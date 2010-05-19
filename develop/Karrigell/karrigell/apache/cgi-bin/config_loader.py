@@ -3,10 +3,10 @@
 import sys
 import os
 
-
 options = {
     'cgi_dir': None, # cgi scripts are managed by Apache
     'persistent_sessions' : True,
+    'cache':False,
     'modules' : {"host_filter":[]}
     }
 
@@ -22,3 +22,19 @@ for _dir in ["core","package"]:
 import k_config
 k_config.init_apache(options)
 k_config.modules = options['modules']
+
+config = k_config.config[None]
+config.server_type = "Multiprocess"
+
+# dummy locking
+class dummy_lock:
+
+    def acquire(self):
+        pass
+
+    def release(self):
+        pass
+
+config.rlock = dummy_lock()
+import k_sessions
+k_sessions.init_config_session(config)

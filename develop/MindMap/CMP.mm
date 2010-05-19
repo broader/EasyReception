@@ -527,7 +527,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1176858951119" FOLDED="true" ID="Freemind_Link_55211099" MODIFIED="1273633071416" POSITION="left" TEXT="Roundup &amp; Karrigell Server Config">
+<node COLOR="#0033ff" CREATED="1176858951119" FOLDED="true" ID="Freemind_Link_55211099" MODIFIED="1274274738768" POSITION="left" TEXT="Roundup &amp; Karrigell Server Config">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node BACKGROUND_COLOR="#ccff00" COLOR="#00b439" CREATED="1171026666158" FOLDED="true" ID="Freemind_Link_1327588509" MODIFIED="1254629446562" TEXT="KarrigellRequestHandler mixin Roundup.cgi.ajaxlcient">
@@ -945,7 +945,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1274068413875" POSITION="right" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1274280825610" POSITION="right" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -1072,50 +1072,6 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1263825181828" FOLDED="true" ID="ID_854025776" MODIFIED="1269831251729" TEXT="Session">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<icon BUILTIN="messagebox_warning"/>
-<icon BUILTIN="yes"/>
-<node COLOR="#990000" CREATED="1263825186476" ID="ID_260522020" MODIFIED="1269423605355" TEXT="&#x8bfb;&#x53d6;&#x4e0d;&#x540c;app&#x4e0b;&#x7684;&#x9875;&#x9762;&#x65f6;&#xff0c;cookie&#x6ca1;&#x6709;&#x968f;&#x9875;&#x9762;&#x4e00;&#x540c;&#x53d1;&#x9001;&#x5230;&#x670d;&#x52a1;&#x5668;&#x7aef;&#xff0c;&#xa;&#x5bfc;&#x81f4;&#x8bfb;&#x53d6;session object &#x6df7;&#x4e71;&#xff1f;">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1264133373135" FOLDED="true" ID="ID_1287632556" MODIFIED="1264133381423" TEXT="&#x63cf;&#x8ff0;">
-<node COLOR="#111111" CREATED="1263894272543" ID="ID_1370004916" MODIFIED="1263954661024" TEXT="&#x95ee;&#x9898;&#x539f;&#x56e0;&#xff1a;&#xa;cookie&#x53d1;&#x9001;&#x7684;&#x8def;&#x5f84;&#x95ee;&#x9898;&#xff0c;&#xa;&#x5f53;&#x521b;&#x5efa;session object&#x65f6;&#xff0c;&#x670d;&#x52a1;&#x5668;&#x7aef;&#xff08;self.SET_COOKIE&#xff09;&#x6ca1;&#x6709;&#x8bbe;&#x7f6e;&apos;path&apos;&#x53c2;&#x6570;&#xff0c;&#x5bfc;&#x81f4;&#x7f3a;&#x7701;&#x4e3a;Request&#x9875;&#x9762;&#x7684;&#x8def;&#x5f84;&#x3002;&#xa;&#x4f8b;&#x5982;&#xff1a;&#xa;layout.ks&#x4e2d;&#x8bbe;&#x7f6e;session object&#x540e;&#xff0c;cookie&#x8def;&#x5f84;&#x88ab;&#x8bbe;&#x7f6e;&#x4e3a;/layout/&#xff1b;&#xa;&#x8fd9;&#x6837;&#x8bbf;&#x95ee;portfolio&#x8def;&#x5f84;&#x4e0b;&#x7684;&#x9875;&#x9762;&#x65f6;&#xff0c;&#x7531;&#x4e8e;&#x8def;&#x5f84;&#x4e0d;&#x7b26;&#x5408;&#x6761;&#x4ef6;&#xff0c;cookie&#x4e0d;&#x4f1a;&#x88ab;&#x8bbe;&#x7f6e;&#x5728;&#x8be5;&#x9875;&#x9762;&#x7684;header&#x4e2d;&#x53d1;&#x51fa;&#xff0c;&#x5bfc;&#x81f4;&#x670d;&#x52a1;&#x5668;&#x7aef;&#x6ca1;&#x6709;&#x6536;&#x5230;cookie&#x548c;&#x5176;&#x4e2d;&#x7684;sessionId&#xff0c;&#x4e8e;&#x662f;&#x53c8;&#x521b;&#x5efa;&#x65b0;&#x7684;session&#x3002;">
-<icon BUILTIN="messagebox_warning"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1263954754718" FOLDED="true" ID="ID_941457021" MODIFIED="1269423617166" TEXT="&#x89e3;&#x51b3;&#x529e;&#x6cd5;">
-<node COLOR="#111111" CREATED="1263894154322" ID="ID_24661739" MODIFIED="1263954740723" TEXT="&#x591a;&#x6b21;&#x5237;&#x65b0;&#x9875;&#x9762;&#xff0c;&#x4e5f;&#x4f1a;&#x5bfc;&#x81f4;session object &#x8bfb;&#x5199;&#x9519;&#x8bef;&#xff1f;&#xa;&#x4fee;&#x6b63;&#xff1a;&#xa;layout.ks---&gt;&#xa;# the session object for this page&#xa;so = Session()&#xa;sname = pagefn.COOKIENAME&#xa;# SET_COOKIE is a instance of Cookie.SimpleCookie,&#xa;# When a new key is set for a SimpleCookie object, a Morsel instance is created.&#xa;SET_COOKIE[sname]=getattr(REQUEST_HANDLER, sname)&#xa;# set cookie path&#xa;SET_COOKIE[sname][&apos;path&apos;] = &apos;/&apos;&#xa;"/>
-<node COLOR="#111111" CREATED="1263954675969" ID="ID_492948300" MODIFIED="1263954726762" TEXT="&#x4e3a;&#x589e;&#x5f3a;&#x5b89;&#x5168;&#x6027;&#xff0c;&#x6dfb;&#x52a0;MUI.removeCookie() function&#x7528;&#x4e8e;&#x6e05;&#x9664;sessionId;&#xa;-&gt;init.js.pih-&gt;preLoginInit()&#x4e2d;&#x8c03;&#x7528;MUI.removeCookie,&#x5373;&#x6bcf;&#x6b21;&#x767b;&#x5f55;&#x524d;&#x6e05;&#x9664;sessionId&#xa;-&gt;layoutInit.js.pih&#x4e2d;-&gt;MUI.logout()&#x4e2d;&#x8c03;&#x7528;MUI.removeCookie,&#x5373;&#x6bcf;&#x6b21;&#x9000;&#x51fa;&#x767b;&#x5f55;&#x540e;&#x6e05;&#x9664;sessionId"/>
-</node>
-<node COLOR="#111111" CREATED="1263895524886" FOLDED="true" ID="ID_1440716339" MODIFIED="1264132992849" TEXT="prefer reading">
-<node COLOR="#111111" CREATED="1263895538997" ID="ID_21860316" MODIFIED="1263895540864" TEXT="http://www.jayconrod.com/cgi/view_post.py?17"/>
-<node COLOR="#111111" CREATED="1263895549571" ID="ID_1683813128" MODIFIED="1263895550415" TEXT="http://webpython.codepoint.net/cgi_morsel"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1264133292399" FOLDED="true" ID="ID_374577331" MODIFIED="1269423619447" TEXT="&#x540c;&#x4e00;ks&#x6587;&#x4ef6;&#x4e2d;&#xff0c;&#x7edf;&#x4e00;&#x8bbe;&#x7f6e;Session&#x548c;SET_COOKIE&#xff0c;&#x5bfc;&#x81f4;sessionId&#x88ab;&#x591a;&#x6b21;&#x8bbe;&#x7f6e;">
-<font NAME="SansSerif" SIZE="14"/>
-<icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1264133384414" FOLDED="true" ID="ID_422791638" MODIFIED="1264156413877" TEXT="&#x63cf;&#x8ff0;">
-<node COLOR="#111111" CREATED="1264132999282" ID="ID_1837167565" MODIFIED="1264133278650" TEXT="Karrigell&#x7684;ks&#x6587;&#x4ef6;&#x673a;&#x5236;&#x4e3a;&#xff1a;&#xa;&#x6bcf;&#x4e2a;&#x51fd;&#x6570;&#x8fd4;&#x56de;&#x4e00;&#x4e2a;&#x9875;&#x9762;&#xff0c;&#x8fd9;&#x6837;&#x5982;&#x679c;session&#x7684;&#x521d;&#x59cb;&#x5316;&#x4e3a;&#x5168;&#x5c40;&#x53d8;&#x91cf;&#xff08;&#x4f8b;&#x5982;:&#x5728;ks&#x6587;&#x4ef6;&#x5934;&#x521d;&#x59cb;&#x5316;so=Session()&#xff0c;&#x540c;&#x65f6;&#x8bbe;&#x7f6e;SET_COOKIE&#xff09;,&#xa;&#x4f1a;&#x5bfc;&#x81f4;&#x6bcf;&#x6b21;&#x8bbf;&#x95ee;ks&#x6587;&#x4ef6;&#x4e2d;&#x7684;&#x4e00;&#x4e2a;&#x51fd;&#x6570;&#xff0c;&#x90fd;&#x4f1a;&#x91cd;&#x65b0;&#x8bbe;&#x7f6e;&#x8fd4;&#x56de;&#x7684;SET_COOKIE&#x4fe1;&#x606f;&#x5bfc;&#x81f4;&#x91cd;&#x65b0;&#x8bbe;&#x7f6e;sessionId&#xff0c;&#x6700;&#x7ec8;&#x4e0d;&#x540c;&#x9875;&#x9762;&#x65e0;&#x6cd5;&#x8bbf;&#x95ee;&#x540c;&#x4e00;&#x4e2a;Session Object."/>
-</node>
-<node COLOR="#111111" CREATED="1264133391212" ID="ID_776035324" MODIFIED="1269422851262" TEXT="&#x89e3;&#x51b3;">
-<node COLOR="#111111" CREATED="1264133401935" ID="ID_1209524773" MODIFIED="1264156003165" TEXT="init.js.pih&#xa;---&gt;MUI.appInit()&#xa;------&gt;&#x8c03;&#x7528;layout.ks/page_closeSession(),&#x6e05;&#x9664;Server &#x7aef;RequestHandler&#x4e2d;&#x4fdd;&#x7559;&#x7684;Session Object&#xa;&#xa;---&gt;&#x9875;&#x9762;&#x521d;&#x59cb;&#x5316;&#x65f6;&#x8c03;&#x7528;MUI.appInit&#xa;&#xa;&#x540c;&#x65f6;&#x4e3a;&#x65b9;&#x4fbf;&#x8bbe;&#x7f6e;Cookie &#xff0c;&#x589e;&#x52a0;pagefn.setCookie()&#x51fd;&#x6570;&#xa;&#x5728;ks&#x6587;&#x4ef6;&#x7684;&#x5177;&#x4f53;&#x9875;&#x9762;&#x51fd;&#x6570;&#x4e2d;&#x8bbe;&#x7f6e;SET_COOKIE&#x65f6;&#xff0c;&#x8c03;&#x7528;pagefn.setCookie()&#x51fd;&#x6570;&#x5b8c;&#x6210;&#x6b64;&#x529f;&#x80fd;&#x3002;"/>
-</node>
-<node COLOR="#111111" CREATED="1264156024454" ID="ID_204315342" MODIFIED="1269423599407" TEXT="HTTP.py-&gt;HTTP.Session()&#x5206;&#x6790;">
-<icon BUILTIN="help"/>
-<icon BUILTIN="idea"/>
-<node COLOR="#111111" CREATED="1264156078809" ID="ID_1550093625" MODIFIED="1264156381563" TEXT="//RequestHandler&#x4e2d;&#x4fdd;&#x5b58;&#x6709;Session Object ,&#x76f4;&#x63a5;&#x8c03;&#x7528;&#x6b64;Object&#x3002;&#x95ee;&#x9898;&#xff1a;&#x8fd9;&#x6837;&#x4f1a;&#x5bfc;&#x81f4;&#x65b0;&#x9875;&#x9762;&#x8c03;&#x7528;&#x65e7; Session&#xff1f;&#xa;if hasattr(self,&quot;sessionObj&quot;):&#x9;&#xa;    return self.sessionObj&#xa;&#xa;// Request header &#x4e2d;&#x5305;&#x542b;&#x6709;cookie&#x4fe1;&#x606f;&#xff0c;&#x6839;&#x636e;&#x6b64;&#x4fe1;&#x606f;&#x83b7;&#x5f97;&#x5185;&#x5b58;&#x4e2d;&#x7684;Session Object&#xa;elif self.COOKIE.has_key(&quot;sessionId&quot;):&#xa;     self.sessionId = self.COOKIE[&quot;sessionId&quot;].value&#xa;     self.sessionObj = k_sessions.get_session_object(self.config,self.sessionId,expires)&#xa;&#xa;// &#x521b;&#x5efa;&#x65b0;&#x7684;Session Object&#xa;else:&#xa;     self.sessionId,self.sessionObj = k_sessions.make_session_object(self.config,expires)&#xa;     self.SET_COOKIE[&quot;sessionId&quot;] = self.sessionId&#xa;&#xa;return self.sessionObj"/>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1269422868923" ID="ID_1354042928" MODIFIED="1269423592095" TEXT="&#x9057;&#x7559;&#x95ee;&#x9898;">
-<font NAME="SansSerif" SIZE="14"/>
-<icon BUILTIN="messagebox_warning"/>
-<icon BUILTIN="button_cancel"/>
-<icon BUILTIN="button_ok"/>
-<node COLOR="#111111" CREATED="1269422877447" ID="ID_1239812545" MODIFIED="1269423710766" TEXT="&#x73b0;&#x5728;roundup tracker &#x5728;RequestHandler&#x4e2d;&#x88ab;&#x7f13;&#x5b58;&#x5e76;&#x53cd;&#x590d;&#x4f7f;&#x7528;,&#xa;sesssion object = requestHandler.sessionId&#xa;&#x8fd9;&#x6837;&#x53ef;&#x80fd;&#x4f1a;&#x5bfc;&#x81f4;sessionId&#x7d0a;&#x4e71;?&#xa;&#x4f8b;&#x5982;&#xff1a;&#xa;demo&#x767b;&#x5f55;&#xff0c;&#x5374;&#x663e;&#x793a;admin&#x7684;&#x754c;&#x9762;&#xff1b;&#xa;&#x6b63;&#x5e38;&#x767b;&#x5f55;&#xff0c;&#x5374;&#x65e0;&#x6cd5;&#x8bfb;&#x53d6;role&#x7b49;session object &#x5c5e;&#x6027;&#xff1b;&#xa;&#xa;&#x73b0;&#x5728;&#x5df2;&#x5220;&#x9664;RequestHandler&#x4e2d;&#x7684;roundup tracker instance &#x7f13;&#x5b58;"/>
-</node>
-</node>
 <node COLOR="#00b439" CREATED="1270272352642" FOLDED="true" ID="ID_197103914" MODIFIED="1270952085448" TEXT="Roundup">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
@@ -1125,31 +1081,31 @@
 <node COLOR="#111111" CREATED="1270272374006" ID="ID_1440362744" MODIFIED="1270272624879" TEXT="Create Action&#xa;---&gt;&#x68c0;&#x67e5;&#x662f;&#x5426;&#x4e0e; existed key values &#x503c;&#x91cd;&#x590d;&#x5373;&#x53ef;&#xa;&#xa;Edit Action&#xa;---&gt;1, &#x901a;&#x8fc7; node id &#x83b7;&#x5f97; old key value;&#xa;---&gt;2, &#x5982;&#x679c; &#xa;------&gt;input value == old key value---&gt; valid input&#xa;------&gt;&#x6216;&#x8005; input value &#x6ca1;&#x6709;&#x4e0e; existed key values &#x91cd;&#x590d; ---&gt; valid input"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1273634502552" TEXT="Karrigell">
+<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1274280824353" TEXT="Karrigell">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1250824602428" FOLDED="true" ID="Freemind_Link_1774893402" MODIFIED="1265166091674" TEXT="_()---i18n">
+<node COLOR="#990000" CREATED="1250824602428" FOLDED="true" ID="Freemind_Link_1774893402" MODIFIED="1274274708400" TEXT="_()---i18n">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1250824620013" ID="Freemind_Link_452775334" MODIFIED="1260243699317" TEXT="_(&quot;...&quot;)&#x63d0;&#x793a;str not callable &#x9519;&#x8bef;&#xff0c;&#x68c0;&#x67e5;&#x53d1;&#x73b0;URL&#x4e2d;&#x5e26;&#x6709;&quot;&quot;&#x53c2;&#x6570;&#xff0c;&#x5373;&#x7a7a;&#x7684;&#x8868;&#x5355;&#x53d8;&#x91cf;&#xff0c;&#x5bfc;&#x81f4;Karrigell&#x4e2d;&#x7684;_&#x51fd;&#x6570;&#x53d1;&#x751f;&#x89e3;&#x6790;&#x9519;&#x8bef;">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1170422421911" FOLDED="true" ID="Freemind_Link_61090711" MODIFIED="1265166095426" TEXT="&#x6587;&#x4ef6;&#x7f16;&#x7801;&#x8bbe;&#x5b9a;">
+<node COLOR="#990000" CREATED="1170422421911" FOLDED="true" ID="Freemind_Link_61090711" MODIFIED="1274274726304" TEXT="&#x6587;&#x4ef6;&#x7f16;&#x7801;&#x8bbe;&#x5b9a;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1174877413413" ID="Freemind_Link_42008706" MODIFIED="1260243705160" TEXT="karrigell.ini&#x4fee;&#x6539;&#xff1a;outputEncoding = utf-8">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1253975213187" FOLDED="true" ID="Freemind_Link_155505941" MODIFIED="1265166094554" TEXT="Virtual Host Config">
+<node COLOR="#990000" CREATED="1253975213187" FOLDED="true" ID="Freemind_Link_155505941" MODIFIED="1274274714776" TEXT="Virtual Host Config">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1253975226636" ID="Freemind_Link_1785529272" MODIFIED="1261467684143" TEXT="&#x4e3b;&#x673a;hosts&#x6587;&#x4ef6;&#xff0c;Linux&#x4e0b;&#x4e3a;/etc/hosts&#xa;127.0.0.1 localhost&#xa;127.0.0.1 cms&#xa;&#xa;Karrigell&#x5b89;&#x88c5;&#x76ee;&#x5f55;&#x4e0b;hosts&#x6587;&#x4ef6;&#xff0c;&#x6dfb;&#x52a0;&#xff1a;&#xa;cms /home/broader/develop/R@K/CMS/Karrigell/data/cms/conf.py&#xa;&#xa;&#x91cd;&#x65b0;&#x542f;&#x52a8;Karrigell">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1260451613749" FOLDED="true" ID="ID_1531639743" MODIFIED="1265166096962" TEXT="Indent Error">
+<node COLOR="#990000" CREATED="1260451613749" FOLDED="true" ID="ID_1531639743" MODIFIED="1274274715768" TEXT="Indent Error">
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="messagebox_warning"/>
 <icon BUILTIN="yes"/>
@@ -1157,7 +1113,7 @@
 <node COLOR="#111111" CREATED="1260451690651" ID="ID_1486718180" MODIFIED="1260451819616" TEXT="{,  [ ,  &apos;&apos;&apos; ,  &quot;&quot;&quot; &#x7f3a;&#x5c11;&#x5bf9;&#x5e94;&#x7684;&#x7ed3;&#x675f;&#x7b26;&#x53f7;&#xff0c;&#xa;&#x6216;&#x662f;&#x6587;&#x4ef6;&#x6700;&#x540e;&#x4e00;&#x884c; &#x4ee5; &apos;\&apos; &#x7ed3;&#x675f;&#xa;"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1265166162729" FOLDED="true" ID="ID_1537892475" MODIFIED="1273633467103" TEXT="Unicode &amp; UTF8">
+<node COLOR="#990000" CREATED="1265166162729" FOLDED="true" ID="ID_1537892475" MODIFIED="1274274728584" TEXT="Unicode &amp; UTF8">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -1173,6 +1129,65 @@
 <node COLOR="#111111" CREATED="1273633491829" ID="ID_1759401359" MODIFIED="1273633903399" TEXT="&#x5bfc;&#x5165;&#x94fe;&#xff1a;&#xa;&quot;&#x67d0;&#x9875;&#x9762;&quot;&#xff0d;&#x300b;model.py-&gt;config.py&#xa;&#xa;&#x4fee;&#x6b63;&#x70b9;&#xff1a;&#xa;model.py-&gt;&#xa;INITCONFIG = Import( &quot;../config.py&quot;, rootdir=CONFIG.root_dir)&#xa;&#xa;&#x6b64;&#x5904;&#x5fc5;&#x987b;&#x4f7f;&#x7528;&quot;../config.py&quot;&#xff0c;&#x5426;&#x5219;Karrigell-&gt;k_target.py-&gt;Target._import()&#x4e2d;&#x4ee5;&#x4e0b;&#x8bed;&#x53e5;&#xa;abs_url = urlparse.urljoin(self.script_url,url)&#xa;&#x5c06;&#x5bfc;&#x81f4;&quot;&#x67d0;&#x9875;&#x9762;&#x201c;&#x7684;&#x76f8;&#x5bf9;&#x8def;&#x5f84;&#x88ab;&#x6dfb;&#x52a0;&#xff0c;&#x4ece;&#x800c;&#x5f15;&#x53d1;Import Error"/>
 </node>
 </node>
+<node COLOR="#990000" CREATED="1263825181828" FOLDED="true" ID="ID_854025776" MODIFIED="1274278523432" TEXT="Session">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="messagebox_warning"/>
+<icon BUILTIN="yes"/>
+<node COLOR="#111111" CREATED="1263825186476" FOLDED="true" ID="ID_260522020" MODIFIED="1274278515393" TEXT="&#x8bfb;&#x53d6;&#x4e0d;&#x540c;app&#x4e0b;&#x7684;&#x9875;&#x9762;&#x65f6;&#xff0c;cookie&#x6ca1;&#x6709;&#x968f;&#x9875;&#x9762;&#x4e00;&#x540c;&#x53d1;&#x9001;&#x5230;&#x670d;&#x52a1;&#x5668;&#x7aef;&#xff0c;&#xa;&#x5bfc;&#x81f4;&#x8bfb;&#x53d6;session object &#x6df7;&#x4e71;&#xff1f;">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1264133373135" ID="ID_1287632556" MODIFIED="1274274792704" TEXT="&#x63cf;&#x8ff0;">
+<node COLOR="#111111" CREATED="1263894272543" ID="ID_1370004916" MODIFIED="1263954661024" TEXT="&#x95ee;&#x9898;&#x539f;&#x56e0;&#xff1a;&#xa;cookie&#x53d1;&#x9001;&#x7684;&#x8def;&#x5f84;&#x95ee;&#x9898;&#xff0c;&#xa;&#x5f53;&#x521b;&#x5efa;session object&#x65f6;&#xff0c;&#x670d;&#x52a1;&#x5668;&#x7aef;&#xff08;self.SET_COOKIE&#xff09;&#x6ca1;&#x6709;&#x8bbe;&#x7f6e;&apos;path&apos;&#x53c2;&#x6570;&#xff0c;&#x5bfc;&#x81f4;&#x7f3a;&#x7701;&#x4e3a;Request&#x9875;&#x9762;&#x7684;&#x8def;&#x5f84;&#x3002;&#xa;&#x4f8b;&#x5982;&#xff1a;&#xa;layout.ks&#x4e2d;&#x8bbe;&#x7f6e;session object&#x540e;&#xff0c;cookie&#x8def;&#x5f84;&#x88ab;&#x8bbe;&#x7f6e;&#x4e3a;/layout/&#xff1b;&#xa;&#x8fd9;&#x6837;&#x8bbf;&#x95ee;portfolio&#x8def;&#x5f84;&#x4e0b;&#x7684;&#x9875;&#x9762;&#x65f6;&#xff0c;&#x7531;&#x4e8e;&#x8def;&#x5f84;&#x4e0d;&#x7b26;&#x5408;&#x6761;&#x4ef6;&#xff0c;cookie&#x4e0d;&#x4f1a;&#x88ab;&#x8bbe;&#x7f6e;&#x5728;&#x8be5;&#x9875;&#x9762;&#x7684;header&#x4e2d;&#x53d1;&#x51fa;&#xff0c;&#x5bfc;&#x81f4;&#x670d;&#x52a1;&#x5668;&#x7aef;&#x6ca1;&#x6709;&#x6536;&#x5230;cookie&#x548c;&#x5176;&#x4e2d;&#x7684;sessionId&#xff0c;&#x4e8e;&#x662f;&#x53c8;&#x521b;&#x5efa;&#x65b0;&#x7684;session&#x3002;">
+<icon BUILTIN="messagebox_warning"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1263954754718" ID="ID_941457021" MODIFIED="1274274763842" TEXT="&#x89e3;&#x51b3;&#x529e;&#x6cd5;">
+<node COLOR="#111111" CREATED="1263894154322" ID="ID_24661739" MODIFIED="1263954740723" TEXT="&#x591a;&#x6b21;&#x5237;&#x65b0;&#x9875;&#x9762;&#xff0c;&#x4e5f;&#x4f1a;&#x5bfc;&#x81f4;session object &#x8bfb;&#x5199;&#x9519;&#x8bef;&#xff1f;&#xa;&#x4fee;&#x6b63;&#xff1a;&#xa;layout.ks---&gt;&#xa;# the session object for this page&#xa;so = Session()&#xa;sname = pagefn.COOKIENAME&#xa;# SET_COOKIE is a instance of Cookie.SimpleCookie,&#xa;# When a new key is set for a SimpleCookie object, a Morsel instance is created.&#xa;SET_COOKIE[sname]=getattr(REQUEST_HANDLER, sname)&#xa;# set cookie path&#xa;SET_COOKIE[sname][&apos;path&apos;] = &apos;/&apos;&#xa;"/>
+<node COLOR="#111111" CREATED="1263954675969" ID="ID_492948300" MODIFIED="1263954726762" TEXT="&#x4e3a;&#x589e;&#x5f3a;&#x5b89;&#x5168;&#x6027;&#xff0c;&#x6dfb;&#x52a0;MUI.removeCookie() function&#x7528;&#x4e8e;&#x6e05;&#x9664;sessionId;&#xa;-&gt;init.js.pih-&gt;preLoginInit()&#x4e2d;&#x8c03;&#x7528;MUI.removeCookie,&#x5373;&#x6bcf;&#x6b21;&#x767b;&#x5f55;&#x524d;&#x6e05;&#x9664;sessionId&#xa;-&gt;layoutInit.js.pih&#x4e2d;-&gt;MUI.logout()&#x4e2d;&#x8c03;&#x7528;MUI.removeCookie,&#x5373;&#x6bcf;&#x6b21;&#x9000;&#x51fa;&#x767b;&#x5f55;&#x540e;&#x6e05;&#x9664;sessionId"/>
+</node>
+<node COLOR="#111111" CREATED="1263895524886" FOLDED="true" ID="ID_1440716339" MODIFIED="1274274790584" TEXT="prefer reading">
+<node COLOR="#111111" CREATED="1263895538997" ID="ID_21860316" MODIFIED="1263895540864" TEXT="http://www.jayconrod.com/cgi/view_post.py?17"/>
+<node COLOR="#111111" CREATED="1263895549571" ID="ID_1683813128" MODIFIED="1263895550415" TEXT="http://webpython.codepoint.net/cgi_morsel"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1264133292399" FOLDED="true" ID="ID_374577331" MODIFIED="1274278514417" TEXT="&#x540c;&#x4e00;ks&#x6587;&#x4ef6;&#x4e2d;&#xff0c;&#x7edf;&#x4e00;&#x8bbe;&#x7f6e;Session&#x548c;SET_COOKIE&#xff0c;&#x5bfc;&#x81f4;sessionId&#x88ab;&#x591a;&#x6b21;&#x8bbe;&#x7f6e;">
+<font NAME="SansSerif" SIZE="12"/>
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#111111" CREATED="1264133384414" ID="ID_422791638" MODIFIED="1274274886486" TEXT="&#x63cf;&#x8ff0;">
+<node COLOR="#111111" CREATED="1264132999282" ID="ID_1837167565" MODIFIED="1264133278650" TEXT="Karrigell&#x7684;ks&#x6587;&#x4ef6;&#x673a;&#x5236;&#x4e3a;&#xff1a;&#xa;&#x6bcf;&#x4e2a;&#x51fd;&#x6570;&#x8fd4;&#x56de;&#x4e00;&#x4e2a;&#x9875;&#x9762;&#xff0c;&#x8fd9;&#x6837;&#x5982;&#x679c;session&#x7684;&#x521d;&#x59cb;&#x5316;&#x4e3a;&#x5168;&#x5c40;&#x53d8;&#x91cf;&#xff08;&#x4f8b;&#x5982;:&#x5728;ks&#x6587;&#x4ef6;&#x5934;&#x521d;&#x59cb;&#x5316;so=Session()&#xff0c;&#x540c;&#x65f6;&#x8bbe;&#x7f6e;SET_COOKIE&#xff09;,&#xa;&#x4f1a;&#x5bfc;&#x81f4;&#x6bcf;&#x6b21;&#x8bbf;&#x95ee;ks&#x6587;&#x4ef6;&#x4e2d;&#x7684;&#x4e00;&#x4e2a;&#x51fd;&#x6570;&#xff0c;&#x90fd;&#x4f1a;&#x91cd;&#x65b0;&#x8bbe;&#x7f6e;&#x8fd4;&#x56de;&#x7684;SET_COOKIE&#x4fe1;&#x606f;&#x5bfc;&#x81f4;&#x91cd;&#x65b0;&#x8bbe;&#x7f6e;sessionId&#xff0c;&#x6700;&#x7ec8;&#x4e0d;&#x540c;&#x9875;&#x9762;&#x65e0;&#x6cd5;&#x8bbf;&#x95ee;&#x540c;&#x4e00;&#x4e2a;Session Object."/>
+</node>
+<node COLOR="#111111" CREATED="1264133391212" ID="ID_776035324" MODIFIED="1269422851262" TEXT="&#x89e3;&#x51b3;">
+<node COLOR="#111111" CREATED="1264133401935" ID="ID_1209524773" MODIFIED="1264156003165" TEXT="init.js.pih&#xa;---&gt;MUI.appInit()&#xa;------&gt;&#x8c03;&#x7528;layout.ks/page_closeSession(),&#x6e05;&#x9664;Server &#x7aef;RequestHandler&#x4e2d;&#x4fdd;&#x7559;&#x7684;Session Object&#xa;&#xa;---&gt;&#x9875;&#x9762;&#x521d;&#x59cb;&#x5316;&#x65f6;&#x8c03;&#x7528;MUI.appInit&#xa;&#xa;&#x540c;&#x65f6;&#x4e3a;&#x65b9;&#x4fbf;&#x8bbe;&#x7f6e;Cookie &#xff0c;&#x589e;&#x52a0;pagefn.setCookie()&#x51fd;&#x6570;&#xa;&#x5728;ks&#x6587;&#x4ef6;&#x7684;&#x5177;&#x4f53;&#x9875;&#x9762;&#x51fd;&#x6570;&#x4e2d;&#x8bbe;&#x7f6e;SET_COOKIE&#x65f6;&#xff0c;&#x8c03;&#x7528;pagefn.setCookie()&#x51fd;&#x6570;&#x5b8c;&#x6210;&#x6b64;&#x529f;&#x80fd;&#x3002;"/>
+</node>
+<node COLOR="#111111" CREATED="1264156024454" ID="ID_204315342" MODIFIED="1274275860373" TEXT="HTTP.py-&gt;HTTP.Session()&#x5206;&#x6790;">
+<icon BUILTIN="help"/>
+<icon BUILTIN="idea"/>
+<node COLOR="#111111" CREATED="1264156078809" ID="ID_1550093625" MODIFIED="1264156381563" TEXT="//RequestHandler&#x4e2d;&#x4fdd;&#x5b58;&#x6709;Session Object ,&#x76f4;&#x63a5;&#x8c03;&#x7528;&#x6b64;Object&#x3002;&#x95ee;&#x9898;&#xff1a;&#x8fd9;&#x6837;&#x4f1a;&#x5bfc;&#x81f4;&#x65b0;&#x9875;&#x9762;&#x8c03;&#x7528;&#x65e7; Session&#xff1f;&#xa;if hasattr(self,&quot;sessionObj&quot;):&#x9;&#xa;    return self.sessionObj&#xa;&#xa;// Request header &#x4e2d;&#x5305;&#x542b;&#x6709;cookie&#x4fe1;&#x606f;&#xff0c;&#x6839;&#x636e;&#x6b64;&#x4fe1;&#x606f;&#x83b7;&#x5f97;&#x5185;&#x5b58;&#x4e2d;&#x7684;Session Object&#xa;elif self.COOKIE.has_key(&quot;sessionId&quot;):&#xa;     self.sessionId = self.COOKIE[&quot;sessionId&quot;].value&#xa;     self.sessionObj = k_sessions.get_session_object(self.config,self.sessionId,expires)&#xa;&#xa;// &#x521b;&#x5efa;&#x65b0;&#x7684;Session Object&#xa;else:&#xa;     self.sessionId,self.sessionObj = k_sessions.make_session_object(self.config,expires)&#xa;     self.SET_COOKIE[&quot;sessionId&quot;] = self.sessionId&#xa;&#xa;return self.sessionObj"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1269422868923" FOLDED="true" ID="ID_1354042928" MODIFIED="1274278516472" TEXT="&#x9057;&#x7559;&#x95ee;&#x9898;">
+<font NAME="SansSerif" SIZE="12"/>
+<icon BUILTIN="messagebox_warning"/>
+<icon BUILTIN="button_cancel"/>
+<icon BUILTIN="button_ok"/>
+<node COLOR="#111111" CREATED="1269422877447" ID="ID_1239812545" MODIFIED="1269423710766" TEXT="&#x73b0;&#x5728;roundup tracker &#x5728;RequestHandler&#x4e2d;&#x88ab;&#x7f13;&#x5b58;&#x5e76;&#x53cd;&#x590d;&#x4f7f;&#x7528;,&#xa;sesssion object = requestHandler.sessionId&#xa;&#x8fd9;&#x6837;&#x53ef;&#x80fd;&#x4f1a;&#x5bfc;&#x81f4;sessionId&#x7d0a;&#x4e71;?&#xa;&#x4f8b;&#x5982;&#xff1a;&#xa;demo&#x767b;&#x5f55;&#xff0c;&#x5374;&#x663e;&#x793a;admin&#x7684;&#x754c;&#x9762;&#xff1b;&#xa;&#x6b63;&#x5e38;&#x767b;&#x5f55;&#xff0c;&#x5374;&#x65e0;&#x6cd5;&#x8bfb;&#x53d6;role&#x7b49;session object &#x5c5e;&#x6027;&#xff1b;&#xa;&#xa;&#x73b0;&#x5728;&#x5df2;&#x5220;&#x9664;RequestHandler&#x4e2d;&#x7684;roundup tracker instance &#x7f13;&#x5b58;"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1274278527294" FOLDED="true" ID="ID_1348534102" MODIFIED="1274280810418" TEXT="Migrate from 3.0 to 3.1">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1274278542563" ID="ID_1302898135" MODIFIED="1274278551283" TEXT="&#x65b9;&#x6cd5;">
+<node COLOR="#111111" CREATED="1274278570728" ID="ID_6930495" MODIFIED="1274278640168" TEXT="&#x5c06;3.1&#x76ee;&#x5f55;&#x4e0b;&#x7684;&#x6587;&#x4ef6;&#x590d;&#x5236;&#x5230;3.0&#x76ee;&#x5f55;&#x4e0b;,&#xa;&#x5e94;&#x7528;&#x76ee;&#x5f55;&#x7ed3;&#x6784;&#x4e0e;&#x5185;&#x5bb9;&#x4e0d;&#x53d8;"/>
+</node>
+<node COLOR="#111111" CREATED="1274278552671" ID="ID_1843131412" MODIFIED="1274278567743" TEXT="&#x95ee;&#x9898;&#x53ca;&#x89e3;&#x51b3;">
+<node COLOR="#111111" CREATED="1274280522633" ID="ID_1637812530" MODIFIED="1274280529717" TEXT="Unicode Error">
+<node COLOR="#111111" CREATED="1274278644909" ID="ID_1984542851" MODIFIED="1274278713813" TEXT="pagefn.py&#x4e2d;&#x5bfc;&#x5165;config.py&#x65f6;&#x62a5;Unicode Error,&#xa;&#x5c06;config.yaml&#x4e2d;&#x5185;&#x5bb9;&#x6e05;&#x7a7a;&#x540e;&#x4e0d;&#x518d;&#x62a5;&#x9519;"/>
+</node>
+<node COLOR="#111111" CREATED="1274280537218" ID="ID_831299768" MODIFIED="1274280791359" TEXT="Karrigell &#x9996;&#x9875;&#xff0c;&#x767b;&#x5f55;&#x6570;&#x636e;&#x5e93;&#x7ba1;&#x7406;&#x754c;&#x9762;&#x62a5;&#x9519;">
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#111111" CREATED="1274280582856" ID="ID_557874321" MODIFIED="1274280782159" TEXT="$Karrigell/karrigell/package/PyDblite/SQLite.py&#xa;L366,&#xa;for field_name in self.conv_func:&#x9;&#xa;*************************************************************************&#xa;    res[field_name] = self.conv_func[field_name](res[field_name])&#xa;*************************************************************************&#xa;---&gt; &#xa;*************************************************************************&#xa;    try:&#xa;        res[field_name] = self.conv_func[field_name](res[field_name])&#xa;    except:&#xa;        print field_name, self.conv_func[field_name]&#xa;*************************************************************************"/>
+</node>
+</node>
+</node>
 </node>
 <node COLOR="#00b439" CREATED="1272437278661" FOLDED="true" ID="ID_84948246" MODIFIED="1272438493550" TEXT="Html">
 <edge STYLE="bezier" WIDTH="thin"/>
@@ -1182,7 +1197,7 @@
 <node COLOR="#111111" CREATED="1272437287423" ID="ID_209915944" LINK="http://www.javaeye.com/topic/651763" MODIFIED="1272437315328" TEXT="&#x6700;&#x5e38;&#x7528;&#x7684; 8 &#x79cd;CSS BUG&#x89e3;&#x51b3;&#x65b9;&#x6cd5;&#x4e0e;&#x6280;&#x5de7;"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1274064102900" ID="ID_248841588" MODIFIED="1274064105381" TEXT="JSON">
+<node COLOR="#00b439" CREATED="1274064102900" FOLDED="true" ID="ID_248841588" MODIFIED="1274274686032" TEXT="JSON">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1274064106461" ID="ID_959197964" MODIFIED="1274064187795" TEXT="&#x6587;&#x4ef6;&#x683c;&#x5f0f;">

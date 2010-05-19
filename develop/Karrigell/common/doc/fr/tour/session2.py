@@ -1,0 +1,1 @@
+print "Re-bonjour %s" %Session().name

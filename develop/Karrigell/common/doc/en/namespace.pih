@@ -1,21 +1,11 @@
-<html>
-<head>
-<title>Karrigell namespace</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="STYLESHEET" href="lib.css">
-<style type="text/css">
-<!--
-td {  font-size:13;}
-td.name { font-family: courier;font-weight: bold;vertical-align:top }
--->
-</style></head>
-
-<body>
-
 <h1><%= chapter %>. Built-in names</h1>
 
 This page lists all the names available in Karrigell scripts
+
 <p>
+<h3><%= chapter %>.1 Read-only values</h3>
+<p>
+
 <table border="1">
 <tr>
  <td class="name">ACCEPTED_LANGUAGES</td>
@@ -24,16 +14,17 @@ This page lists all the names available in Karrigell scripts
 <tr>
  <td class="name">CONFIG</td>
  <td>Configuration options, as set in the 
- 	<%= make_link("configuration file","configuration") %>
+    <%= make_link("configuration file","configuration") %>
   <p>Attributes<ul>
    <li><code>karrigell_dir</code>
    <li><code>root_dir</code>
    <li><code>data_dir</code>
+   <li><code>cache_dir</code>
    <li><code>allow_directory_listing</code>
    <li><code>hide_extensions</code>
    <li><code>ignore</code>
    <li><code>logging_file</code>
-   <li><code>encode_input</code>
+   <li><code>output_encoding</code>
     </ul>
  </td>
 </tr>
@@ -50,54 +41,9 @@ This page lists all the names available in Karrigell scripts
 </tr>
 
 <tr>
- <td class="name">HTTP_REDIRECTION</td>
- <td><code>raise HTTP_REDIRECTION,url</code> performs an HTTP redirection (302) to the 
- specified url</td>
-</tr>
-
-<tr>
- <td class="name">Include()</td>
- <td>Function used to include a file or a script in another script</td>
-</tr>
-
-<tr>
- <td class="name">Login([script_url],[role],
-    [valid_in],
-    [redir_to])</td>
- <td>Function used to limit access to the script to authenticated users.
- By default, if the user is not yet logged in, redirects to the script 
- <span class="file">login.ks</span> in the <span class="file">admin</span>
- directory. Another script url can be 
- specified to customize the authentication test. If the user is already logged
- in, the function does nothing
- <br><CODE>role</CODE> is the list of roles accepted by the script. It defaults
- to <CODE>["admin"]</CODE> and can include <CODE>"edit"</CODE> and 
- <CODE>"visit"</CODE> as other values
- <br><CODE>valid_in</CODE> specifies the part of the site where the user will 
- be logged. Defaults to the scripts in the same folder as the calling script
- <br><CODE>redir_to</CODE> is the path the user will be sent to after a successful
- login. It defaults to the path of the original script
-</td>
-</tr>
-
-<tr>
- <td class="name">Logout([script_url],
-    [valid_in],
-    [redir_to])</td>
- <td>Logs out the user. The arguments have the same meaning as above
-</td>
-</tr>
-
-<tr>
  <td class="name">QUERY</td>
  <td>When a script receives form data, QUERY is a dictionary mapping field names 
  to field values</td>
-</tr>
-
-<tr>
- <td class="name">REL()</td>
- <td>A function to transform a relative path name to an absolute path name,
- based on the script directory</td>
 </tr>
 
 <tr>
@@ -125,38 +71,10 @@ This page lists all the names available in Karrigell scripts
     </tr>
 
     <tr>
-    <td class="name">encoding</td>
-    <td valign="top">The encoding as returned by function guess_type in built-in
-    module <code>mimetypes</code></td>
+    <td class="name">version</td>
+    <td valign="top">Karrigell version number</td>
     </tr>
   </table>
-<tr>
- <td class="name">RESPONSE</td>
- <td>The response headers sent by the server to the client, such as Content-type. 
- Instance of the <CODE>email.Message</CODE> class</td>
-</tr>
-
-<tr>
- <td class="name">Role()</td>
- <td>Indicates the user role. If he is not yet logged in (see <CODE>Login()</CODE>), 
- value is <CODE>None</CODE> ; otherwise it is one of "visit", "edit" or "admin"
-</tr>
-
-<tr>
- <td class="name">SCRIPT_END</td>
- <td>Exception to stop the script execution</td>
-</tr>
-
-<tr>
- <td class="name">Session()</td>
- <td>Function that returns the <%= make_link("session object","sessions") %></td>
-</tr>
-
-<tr>
- <td class="name">SET_COOKIE</td>
- <td>The Cookies sent by the server to the client. Instance of the SimpleCookie class in 
- Python cookie module</td>
-</tr>
 
 <tr>
  <td class="name">THIS</td>
@@ -171,7 +89,7 @@ This page lists all the names available in Karrigell scripts
     <td class="name">url</td>
     <td valign="top">The url used by the client to request the script , including the
     query string if there was one
-    (<code>/demo/thisTest.pih)</code></td>
+    (<code>/demo/thisTest.pih?arg1=value1)</code></td>
     </tr>
 
     <tr>
@@ -189,8 +107,8 @@ This page lists all the names available in Karrigell scripts
     <tr>
     <td class="name">args</td>
     <td valign="top">If the script is requested with additional arguments separated 
-    by /, subpath is the list of these arguments (see <a href="programming.html#smart">
-    "smart urls"</a>)</td>
+    by /, <CODE>args</CODE> is the list of these arguments (see 
+    <%= make_link("smart urls","smarturls") %>)</td>
     </tr>
 
     <tr>
@@ -236,4 +154,93 @@ This page lists all the names available in Karrigell scripts
 
 </table>
 
-</html>
+<p>
+<h3><%= chapter %>.2 Variables and functions</h3>
+<p>
+
+<table border="1">
+
+<tr>
+ <td class="name">Include()</td>
+ <td>Function used to include a file or a script in another script</td>
+</tr>
+
+<tr>
+ <td class="name">Login([script_url],[role],
+    [valid_in],
+    [redir_to])</td>
+ <td>Function used to limit access to the script to authenticated users.
+ By default, if the user is not yet logged in, redirects to the script 
+ <span class="file">login.ks</span> in the <span class="file">admin</span>
+ directory. Another script url can be 
+ specified to customize the authentication test. If the user is already logged
+ in, the function does nothing
+ <br><CODE>role</CODE> is the list of roles accepted by the script. It defaults
+ to <CODE>["admin"]</CODE> and can include <CODE>"edit"</CODE> and 
+ <CODE>"visit"</CODE> as other values
+ <br><CODE>valid_in</CODE> specifies the part of the site where the user will 
+ be logged. Defaults to the scripts in the same folder as the calling script
+ <br><CODE>redir_to</CODE> is the path the user will be sent to after a successful
+ login. It defaults to the path of the original script
+</td>
+</tr>
+
+<tr>
+ <td class="name">Logout([script_url],
+    [valid_in],
+    [redir_to])</td>
+ <td>Logs out the user. The arguments have the same meaning as above
+</td>
+</tr>
+
+<tr>
+ <td class="name">REL()</td>
+ <td>A function to transform a relative path name to an absolute path name,
+ based on the script directory</td>
+</tr>
+
+<tr>
+ <td class="name">RESPONSE</td>
+ <td>The response headers sent by the server to the client, such as Content-type. 
+ Instance of the <CODE>email.Message</CODE> class</td>
+</tr>
+
+<tr>
+ <td class="name">Role()</td>
+ <td>Indicates the user role. If he is not yet logged in (see <CODE>Login()</CODE>), 
+ value is <CODE>None</CODE> ; otherwise it is one of "visit", "edit" or "admin"
+</tr>
+
+<tr>
+ <td class="name">Session()</td>
+ <td>Function that returns the <%= make_link("session object","sessions") %></td>
+</tr>
+
+<tr>
+ <td class="name">SET_COOKIE</td>
+ <td>The Cookies sent by the server to the client. Instance of the SimpleCookie class in 
+ Python cookie module</td>
+</tr>
+
+
+</table>
+
+<p>
+<h3><%= chapter %>.3 Exceptions</h3>
+<p>
+
+<table border="1">
+
+<tr>
+ <td class="name">HTTP_REDIRECTION</td>
+ <td><code>raise HTTP_REDIRECTION,url</code> performs an HTTP redirection (302) to the 
+ specified url</td>
+</tr>
+
+<tr>
+ <td class="name">SCRIPT_END</td>
+ <td>Exception to stop the script execution</td>
+</tr>
+
+</table>
+

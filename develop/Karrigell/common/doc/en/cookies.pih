@@ -1,0 +1,40 @@
+<h1><%= chapter %>. Cookies</h1>
+<p>Cookies management uses two built-in variables, <code>COOKIE</code> and
+<code>SET_COOKIE</code>
+
+<p><code>COOKIE</code> is the cookie sent by the user agent to the server : if
+a piece of information was stored on the client side for the domain to which the
+script belongs, the script will receive this information. <code>COOKIE</code>
+is an instance of the class <code>Cookie.SimpleCookie</code>. The value of the
+cookie named <code>foo</code> is
+<p>
+<div class="python"><pre class="verbatim">
+val = COOKIE["foo"].value
+</pre></div>
+
+<p>If the script wants to store a cookie on the client side, it must use 
+<code>SET_COOKIE</code>, which is also an instance of the class 
+<code>Cookie.SimpleCookie</code>. For instance, to store the value of a cookie
+named foo and define the path where the cookie is valid :
+
+<p>
+<div class="python"><pre class="verbatim">
+SET_COOKIE["foo"] = "bar"
+SET_COOKIE["foo"]["path"] = "/path/where/cookie/is/valid"
+</pre></div>
+
+<p>To define an expiration date for the cookie, you can use the function
+<code>expire_format()</code> in the built-in module <code>k_utils</code>, and
+pass an instance of <code>datetime.datetime</code> as argument :
+
+<p>
+<div class="python"><pre class="verbatim">
+import k_utils
+import datetime
+
+SET_COOKIE["foo"] = "bar"
+SET_COOKIE["foo"]["path"] = "/path/where/cookie/is/valid"
+# expire in 30 days
+exp_date = datetime.datetime.now()+datetime.timedelta(30)
+SET_COOKIE["foo"]["expires"] = k_utils.expire_format(exp_date)
+</pre></div>

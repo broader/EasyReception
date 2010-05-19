@@ -1,14 +1,3 @@
-<html>
-<head>
-<title>Web server options</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="STYLESHEET" href="lib.css">
-<style type="text/css">
-<!--
--->
-</style></head>
-
-<body>
 <script src="../pf_test.js"></script>
 
 <h1><%= chapter %>. Directories</h1>
@@ -103,7 +92,7 @@ Stores all the information related to the hosts defined for the server
 <td valign="top">
 This is the root directory for the default host (localhost) : the path where
 files requested by the url http://localhost are searched
-<br>This directory contains the script index.pih, which is served when you
+<br>This directory contains the script <span class="file">index.py</span>, which is served when you
 type in the url http://localhost in your browser (the URL resolution mechanism
 searches for index files when the URL matches a directory)
 <br>Note that the name of this root directory is <span class="file">www</span>,
@@ -161,10 +150,3 @@ edit the value of <code>host_conf_dir</code> in <span class="file">server_config
 <code>data_dir</code> in the configuration script for this host
 
 </ul>
-
-</body>
-</html>
-
-
-
-
