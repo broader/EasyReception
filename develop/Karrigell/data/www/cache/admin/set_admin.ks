@@ -11,7 +11,12 @@ def index(url):
     if k_users_db.has_admin(CONFIG):
         PRINT( "Administrator login / password already set")
         raise SCRIPT_END
-    head = HEAD(LINK(rel="stylesheet",href="../karrigell.css"))
+    head = [\
+	LINK(rel="stylesheet",href="../karrigell.css"),\
+	META(**{"http-equiv":"Content-Type", "content":"text/html; charset=UTF-8"})\
+    ]
+    head = HEAD(Sum(head))
+    #head = HEAD(LINK(rel="stylesheet",href="../karrigell.css"))
     body = H3(_('Create a login/password for host "%s" administrator'
         %ENVIRON["REMOTE_HOST"]))
     body += FORM(INPUT(Type="hidden",name="url",value=url)+
@@ -44,7 +49,9 @@ def set_admin_info(url,login,passwd1,passwd2):
     else:
         # create users database
         db = k_users_db.get_db(CONFIG)
-        if not CONFIG.sqlite:
+	PRINT( 'Karrigell/common/admin/set_admin.ks.set_admin_info, L46, CONFIG attributes are '%dir(CONFIG))
+        #if not CONFIG.sqlite:
+	if not hasattr(CONFIG, 'sqlite'):
             db.create("host","login","password","role","session_key",
                 "nb_visits","last_visit",mode="open")
         else:

@@ -24,10 +24,10 @@ def index():
 
     front = A(_("Home"),href="/")+BR()
     front += H3("Current config file is %s" %conf_file)
-    front += INPUT(Type="submit",name="subm",value=_("Save changes"))
-    #front += INPUT(Type="submit",name="subm",value="Save changes")
-    front += INPUT(Type="submit",name="subm",value=_("Cancel"))+BR()
-    #front += INPUT(Type="submit",name="subm",value="Cancel")+BR()
+    #front += INPUT(Type="submit",name="subm",value=_("Save changes"))
+    front += INPUT(Type="submit",name="subm",value="Save changes")
+    #front += INPUT(Type="submit",name="subm",value=_("Cancel"))+BR()
+    front += INPUT(Type="submit",name="subm",value="Cancel")+BR()
     front += BR()
     content = TEXTAREA(cgi.escape(open(conf_file).read()),
         Id="conf",name="content",cols="100",rows="40")

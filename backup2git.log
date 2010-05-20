@@ -46819,3 +46819,991 @@ sent 77058 bytes  received 31 bytes  154178.00 bytes/sec
 total size is 649564  speedup is 8.43
 2010-05-19 22:54:14,545 INFO End backup loacl karrigell diretory to local git.
 2010-05-19 22:54:14,546 INFO Begin to backup local github to remote github host.
+2010-05-19 22:54:21,213 INFO Command: 
+git add .
+running result is :
+2010-05-19 22:54:25,262 INFO Command: 
+git commit -m 'Update time:2010-05-19T22:54:14.546163'
+running result is :[master b37177a] Update time:2010-05-19T22:54:14.546163
+ 580 files changed, 41064 insertions(+), 4821 deletions(-)
+ create mode 100644 develop/Karrigell/Async_core.py
+ mode change 100755 => 100644 develop/Karrigell/Karrigell.py
+ rewrite develop/Karrigell/Karrigell_async.py (93%)
+ rewrite develop/Karrigell/Karrigell_multiprocess.py (69%)
+ create mode 100644 develop/Karrigell/Karrigell_wsgi.py
+ create mode 100644 develop/Karrigell/LICENCE.txt
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/PyDbLite/calendar.gif
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/applications/agenda.css
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/applications/calendar.css
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/applications/calendar.gif
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/applications/calendar.js
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/broader/Calandar.gif
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/broader/agenda.css
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/broader/calendar.css
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/broader/calendar.gif
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/broader/calendar.js
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/broader/default.css
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/broader/hour_entry.js
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/broader/scw.js
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/broader/slider.css
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/broader/slider.html
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/broader/slider.js
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/broader/test.ks
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/check_type.py
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/default.css
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/generic.ks
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/generic.tmpl
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/import.ks
+ rewrite develop/Karrigell/common/admin/InstantSite/SQLite/index.ks (97%)
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/sqlite_utils.py
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/SQLite/test.py
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/appli_template.kt
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/applications/appli_template.kt
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/applications/calendar.css
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/applications/calendar.js
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/applications/images/b_drop.png
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/applications/images/b_edit.png
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/applications/images/calendar.gif
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/applications/manage.css
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/applications/management.py
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/calendar.css
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/calendar.js
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/customize_entry_template.kt
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/customize_template.kt
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/customize_widgets.kt
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/db_template.kt
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/dom-drag.js
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/entry_template.kt
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/generic.ks
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/generic.tmpl
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/home_template.kt
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/images/b_browse.png
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/images/b_drop.png
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/images/b_edit.png
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/images/b_insrow.png
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/images/b_props.png
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/images/b_select.png
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/images/calendar.gif
+ rewrite develop/Karrigell/common/admin/InstantSite/mysql/index.ks (96%)
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/manage.ks
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/menu.css
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/menu_template.kt
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/msg_template.kt
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/script_template.ks
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/table.ks
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/table_template.kt
+ create mode 100644 develop/Karrigell/common/admin/InstantSite/mysql/utils.py
+ create mode 100644 develop/Karrigell/common/admin/create_users_db.ks
+ create mode 100644 develop/Karrigell/common/admin/databases.ks
+ create mode 100644 develop/Karrigell/common/admin/editor/index.py
+ create mode 100644 develop/Karrigell/common/admin/translation/index.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/blog/blog.css
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/blog/generateBlog.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/blog/index.ks
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/business/business.css
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/business/createSongBase.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/business/index.ks
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/business/logs.txt
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/business/songDb.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/calendar/agendaDb.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/calendar/calendar.css
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/calendar/calendar.js
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/calendar/clearSession.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/calendar/dayFrame.pih
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/calendar/delete.gif
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/calendar/editEntry.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/calendar/index.pih
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/calendar/showMonth.pih
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/calendar/startlog.txt
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/forum/AuthenticationTest.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/forum/admin.pih
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/forum/admin1.pih
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/forum/forum.css
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/forum/forum.ini
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/forum/forum.js
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/forum/index.ks
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/forum/randomContent.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/forum/showThreadMessages.pih
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/forum/test.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/anonymousStyleSheet.css
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/authenticate.hip
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/editNews.hip
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/editPreferences.pih
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/footer.pih
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/header.hip
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/index.pih
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/insertNews.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/k_menu.hip
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/login.pih
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/logout.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/newsForm.pih
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/newuser.hip
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/poems.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/poems/baudelaire.htm
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/poems/corneille.htm
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/poems/hugo.htm
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/poems/musset.htm
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/poems/rimbaud.htm
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/poems/ronsard.htm
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/poems/verlaine.htm
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/portalDb.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/publishNews.pih
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/removeNews.hip
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/setPreferences.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/showNews.hip
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/portal/updateNews.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/AuthenticationTest.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/BuanBuan.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/BuanBuan_kozh.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/BuanEdit.pih
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/BuanSave.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/BuanShow.pih
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/delete.gif
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/edit.gif
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/home.gif
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/index.pih
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/login.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/logout.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/search.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/test
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/test.pih
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/wiki.css
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/wikiAdmin.pih
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/wikiAuthent.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/wikiBase.py
+ create mode 100644 develop/Karrigell/common/demo/PyDbLite/wiki/wikiRemove.py
+ create mode 100644 develop/Karrigell/common/demo/base.txt
+ create mode 100644 develop/Karrigell/common/demo/cd-cover/cdcover.css
+ create mode 100644 develop/Karrigell/common/demo/cd-cover/cdcover.js
+ create mode 100644 develop/Karrigell/common/demo/cd-cover/test.ks
+ create mode 100644 develop/Karrigell/common/demo/kswiki/wiki.ks
+ create mode 100644 develop/Karrigell/common/demo/kswiki/wiki/BuanBuan.py
+ create mode 100644 develop/Karrigell/common/demo/kswiki/wiki/delete.gif
+ create mode 100644 develop/Karrigell/common/demo/kswiki/wiki/edit.gif
+ create mode 100644 develop/Karrigell/common/demo/kswiki/wiki/home.gif
+ create mode 100644 develop/Karrigell/common/demo/kswiki/wiki/template/admin.kt
+ create mode 100644 develop/Karrigell/common/demo/kswiki/wiki/template/edit.kt
+ create mode 100644 develop/Karrigell/common/demo/kswiki/wiki/template/edithelp.kt
+ create mode 100644 develop/Karrigell/common/demo/kswiki/wiki/template/editjs.kt
+ create mode 100644 develop/Karrigell/common/demo/kswiki/wiki/template/index.kt
+ create mode 100644 develop/Karrigell/common/demo/kswiki/wiki/template/master.kt
+ create mode 100644 develop/Karrigell/common/demo/kswiki/wiki/template/remove.kt
+ create mode 100644 develop/Karrigell/common/demo/kswiki/wiki/template/search.kt
+ create mode 100644 develop/Karrigell/common/demo/kswiki/wiki/template/show.kt
+ create mode 100644 develop/Karrigell/common/demo/kswiki/wiki/wiki.css
+ create mode 100644 develop/Karrigell/common/demo/kswiki/wiki/wikiBase.py
+ create mode 100644 develop/Karrigell/common/demo/kswiki/wiki/wikiBase_SQLite.py
+ create mode 100644 develop/Karrigell/common/demo/kswiki/wiki/wikiBase_pydblite.py
+ create mode 100644 develop/Karrigell/common/demo/mysql/blog/blog.css
+ create mode 100644 develop/Karrigell/common/demo/mysql/blog/blog_template.kt
+ create mode 100644 develop/Karrigell/common/demo/mysql/blog/default_blog_settings.py
+ create mode 100644 develop/Karrigell/common/demo/mysql/blog/index.ks
+ create mode 100644 develop/Karrigell/common/demo/mysql/blog/msg_template.kt
+ create mode 100644 develop/Karrigell/common/demo/mysql/blog/settings_template.kt
+ create mode 100644 develop/Karrigell/common/demo/mysql/business/business.css
+ create mode 100644 develop/Karrigell/common/demo/mysql/business/createSongBase.py
+ create mode 100644 develop/Karrigell/common/demo/mysql/business/index.ks
+ create mode 100644 develop/Karrigell/common/demo/mysql/business/songDb.py
+ create mode 100644 develop/Karrigell/common/demo/mysql/calendar/agendaDb.py
+ create mode 100644 develop/Karrigell/common/demo/mysql/calendar/calendar.css
+ create mode 100644 develop/Karrigell/common/demo/mysql/calendar/calendar.js
+ create mode 100644 develop/Karrigell/common/demo/mysql/calendar/clearSession.py
+ create mode 100644 develop/Karrigell/common/demo/mysql/calendar/dayFrame.pih
+ create mode 100644 develop/Karrigell/common/demo/mysql/calendar/delete.gif
+ create mode 100644 develop/Karrigell/common/demo/mysql/calendar/editEntry.py
+ create mode 100644 develop/Karrigell/common/demo/mysql/calendar/index.pih
+ create mode 100644 develop/Karrigell/common/demo/mysql/calendar/showMonth.pih
+ create mode 100644 develop/Karrigell/common/demo/sqlite/blog/blog_template.kt
+ create mode 100644 develop/Karrigell/common/demo/sqlite/blog/default_blog_settings.py
+ rewrite develop/Karrigell/common/demo/sqlite/blog/index.ks (68%)
+ create mode 100644 develop/Karrigell/common/demo/sqlite/blog/msg_template.kt
+ create mode 100644 develop/Karrigell/common/demo/sqlite/blog/settings_template.kt
+ create mode 100644 develop/Karrigell/common/demo/sqlite/business/business.css
+ create mode 100644 develop/Karrigell/common/demo/sqlite/business/createSongBase.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/business/index.ks
+ create mode 100644 develop/Karrigell/common/demo/sqlite/business/logs.txt
+ create mode 100644 develop/Karrigell/common/demo/sqlite/business/songDb.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/calendar/agendaDb.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/calendar/calendar.css
+ create mode 100644 develop/Karrigell/common/demo/sqlite/calendar/calendar.js
+ create mode 100644 develop/Karrigell/common/demo/sqlite/calendar/clearSession.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/calendar/dayFrame.pih
+ create mode 100644 develop/Karrigell/common/demo/sqlite/calendar/delete.gif
+ create mode 100644 develop/Karrigell/common/demo/sqlite/calendar/editEntry.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/calendar/index.pih
+ create mode 100644 develop/Karrigell/common/demo/sqlite/calendar/showMonth.pih
+ create mode 100644 develop/Karrigell/common/demo/sqlite/calendar/startlog.txt
+ create mode 100644 develop/Karrigell/common/demo/sqlite/forum/forum.css
+ create mode 100644 develop/Karrigell/common/demo/sqlite/forum/forum.js
+ create mode 100644 develop/Karrigell/common/demo/sqlite/forum/generateForum.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/forum/index.ks
+ create mode 100644 develop/Karrigell/common/demo/sqlite/forum/login.ks
+ create mode 100644 develop/Karrigell/common/demo/sqlite/forum/manager.ks
+ create mode 100644 develop/Karrigell/common/demo/sqlite/forum/randomContent.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/forum/showThreadMessages.pih
+ create mode 100644 develop/Karrigell/common/demo/sqlite/forum/utils.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/kswiki/wiki.ks
+ create mode 100644 develop/Karrigell/common/demo/sqlite/kswiki/wiki/BuanBuan.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/kswiki/wiki/delete.gif
+ create mode 100644 develop/Karrigell/common/demo/sqlite/kswiki/wiki/edit.gif
+ create mode 100644 develop/Karrigell/common/demo/sqlite/kswiki/wiki/home.gif
+ create mode 100644 develop/Karrigell/common/demo/sqlite/kswiki/wiki/template/admin.kt
+ create mode 100644 develop/Karrigell/common/demo/sqlite/kswiki/wiki/template/edit.kt
+ create mode 100644 develop/Karrigell/common/demo/sqlite/kswiki/wiki/template/edithelp.kt
+ create mode 100644 develop/Karrigell/common/demo/sqlite/kswiki/wiki/template/editjs.kt
+ create mode 100644 develop/Karrigell/common/demo/sqlite/kswiki/wiki/template/index.kt
+ create mode 100644 develop/Karrigell/common/demo/sqlite/kswiki/wiki/template/master.kt
+ create mode 100644 develop/Karrigell/common/demo/sqlite/kswiki/wiki/template/remove.kt
+ create mode 100644 develop/Karrigell/common/demo/sqlite/kswiki/wiki/template/search.kt
+ create mode 100644 develop/Karrigell/common/demo/sqlite/kswiki/wiki/template/show.kt
+ create mode 100644 develop/Karrigell/common/demo/sqlite/kswiki/wiki/wiki.css
+ create mode 100644 develop/Karrigell/common/demo/sqlite/kswiki/wiki/wikiBase.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/kswiki/wiki/wikiBase_SQLite.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/kswiki/wiki/wikiBase_pydblite.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/anonymousStyleSheet.css
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/authenticate.hip
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/editNews.hip
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/editPreferences.pih
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/footer.pih
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/header.hip
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/index.pih
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/insertNews.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/k_menu.hip
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/login.pih
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/logout.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/newsForm.pih
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/newuser.hip
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/poems.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/poems/baudelaire.htm
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/poems/corneille.htm
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/poems/hugo.htm
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/poems/musset.htm
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/poems/rimbaud.htm
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/poems/ronsard.htm
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/poems/verlaine.htm
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/portalDb.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/publishNews.pih
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/removeNews.hip
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/setPreferences.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/showNews.hip
+ create mode 100644 develop/Karrigell/common/demo/sqlite/portal/updateNews.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/AuthenticationTest.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/BuanBuan.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/BuanBuan_kozh.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/BuanEdit.pih
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/BuanSave.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/BuanShow.pih
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/delete.gif
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/edit.gif
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/home.gif
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/index.pih
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/logout.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/search.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/test
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/test.pih
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/wiki.css
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/wikiAdmin.pih
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/wikiAuthent.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/wikiBase.py
+ create mode 100644 develop/Karrigell/common/demo/sqlite/wiki/wikiRemove.py
+ create mode 100644 develop/Karrigell/common/doc/en/cookies.pih
+ create mode 100644 develop/Karrigell/common/doc/en/default.css
+ create mode 100644 develop/Karrigell/common/doc/en/email.pih
+ rewrite develop/Karrigell/common/doc/en/environment.pih (90%)
+ create mode 100644 develop/Karrigell/common/doc/en/head.html
+ rewrite develop/Karrigell/common/doc/en/htmltags.pih (88%)
+ create mode 100644 develop/Karrigell/common/doc/en/index.py
+ create mode 100644 develop/Karrigell/common/doc/en/index.tmpl
+ create mode 100644 develop/Karrigell/common/doc/en/kt.pih
+ create mode 100644 develop/Karrigell/common/doc/en/migration.pih
+ create mode 100644 develop/Karrigell/common/doc/en/names.py
+ create mode 100644 develop/Karrigell/common/doc/en/pf_test.js
+ rewrite develop/Karrigell/common/doc/en/redirection.pih (70%)
+ create mode 100644 develop/Karrigell/common/doc/en/reference.ks
+ create mode 100644 develop/Karrigell/common/doc/en/templates.pih
+ create mode 100644 develop/Karrigell/common/doc/en/tour/hip_test.hip
+ create mode 100644 develop/Karrigell/common/doc/en/tour/tour.pih
+ create mode 100644 develop/Karrigell/common/doc/en/tour/unicode_test.ks
+ create mode 100644 develop/Karrigell/common/doc/fr/admin.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/apache.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/app_config.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/authentication.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/chapitres.txt
+ create mode 100644 develop/Karrigell/common/doc/fr/configuration.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/cookies.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/debugging.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/default.css
+ create mode 100644 develop/Karrigell/common/doc/fr/directories.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/email.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/environment.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/fileuploads.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/head.html
+ create mode 100644 develop/Karrigell/common/doc/fr/htmlinsidepython.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/htmltags.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/import.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/include.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/index.py
+ create mode 100644 develop/Karrigell/common/doc/fr/index.tmpl
+ create mode 100644 develop/Karrigell/common/doc/fr/install.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/karrigellservices.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/kt.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/localisation.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/migration.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/names.py
+ create mode 100644 develop/Karrigell/common/doc/fr/namespace.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/navig.html
+ create mode 100644 develop/Karrigell/common/doc/fr/pf_test.js
+ create mode 100644 develop/Karrigell/common/doc/fr/proxy.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/pythoninsidehtml.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/pythonscripts.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/redirection.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/reference.ks
+ create mode 100644 develop/Karrigell/common/doc/fr/rss.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/sessions.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/smarturls.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/templates.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/GET_test.html
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/GET_test.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/POST_test.html
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/POST_test.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/THIS_test.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/aaa.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/config.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/conv_date.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/doc.css
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/editindex.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/env_test.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/global_test.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/header.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/headers.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/hello.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/hello1.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/hip_test.hip
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/importTest.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/includeTest.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/include_test.ks
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/include_test.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/ksTest.ks
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/login_test.ks
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/login_test.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/scriptError.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/session.html
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/session1.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/session2.py
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/tour.css
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/tour.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/tour_en.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/unicode_test.ks
+ create mode 100644 develop/Karrigell/common/doc/fr/tour/version.py
+ create mode 100644 develop/Karrigell/common/doc/fr/urlresolution.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/userinput.pih
+ create mode 100644 develop/Karrigell/common/doc/fr/virtualhosts.pih
+ create mode 100644 develop/Karrigell/common/whizzywig/WhizzywigToolbar.png
+ create mode 100644 develop/Karrigell/common/whizzywig/add_column_after.gif
+ create mode 100644 develop/Karrigell/common/whizzywig/add_column_before.gif
+ create mode 100644 develop/Karrigell/common/whizzywig/add_row_above.gif
+ create mode 100644 develop/Karrigell/common/whizzywig/add_row_below.gif
+ create mode 100644 develop/Karrigell/common/whizzywig/delete_column.gif
+ create mode 100644 develop/Karrigell/common/whizzywig/delete_row.gif
+ create mode 100644 develop/Karrigell/common/whizzywig/table_in_cell.gif
+ create mode 100644 develop/Karrigell/common/whizzywig/whizzywig.js
+ rewrite develop/Karrigell/config_loader.pyc (66%)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010051920.log
+ create mode 100644 develop/Karrigell/data/cms/sessions/uFA35ZxmRVlTTc4C
+ create mode 100644 develop/Karrigell/data/muireception/sessions/2ZyRE2TNHLigUxS1
+ create mode 100644 develop/Karrigell/data/muireception/sessions/qRCY7aNO83WX4mfV
+ create mode 100644 develop/Karrigell/data/www/agenda.sqlite
+ create mode 100644 develop/Karrigell/data/www/blogs/blog/blog_settings.py
+ create mode 100644 develop/Karrigell/data/www/business.sqlite
+ create mode 100644 develop/Karrigell/data/www/cache/admin/InstantSite/PyDbLite/index.ks
+ create mode 100644 develop/Karrigell/data/www/cache/admin/InstantSite/SQLite/check_type.py
+ create mode 100644 develop/Karrigell/data/www/cache/admin/InstantSite/SQLite/index.ks
+ create mode 100644 develop/Karrigell/data/www/cache/admin/InstantSite/SQLite/sqlite_utils.py
+ create mode 100644 develop/Karrigell/data/www/cache/admin/create_users_db.ks
+ create mode 100644 develop/Karrigell/data/www/cache/admin/index.ks
+ create mode 100644 develop/Karrigell/data/www/cache/admin/login.ks
+ create mode 100644 develop/Karrigell/data/www/cache/admin/set_admin.ks
+ create mode 100644 develop/Karrigell/data/www/cache/blogs/sqlite/blog/index.ks
+ create mode 100644 develop/Karrigell/data/www/cache/blogs/sqlite/index/index.ks
+ create mode 100644 develop/Karrigell/data/www/cache/config.py
+ create mode 100644 develop/Karrigell/data/www/cache/demjson.py
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/business/createSongBase.py
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/business/index.ks
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/calendar/agendaDb.py
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/calendar/dayFrame.pih
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/calendar/index.pih
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/calendar/showMonth.pih
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/forum/index.ks
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/forum/utils.py
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/portal/footer.pih
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/portal/header.hip
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/portal/index.pih
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/portal/k_menu.hip
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/portal/poems.py
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/portal/portalDb.py
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/portal/showNews.hip
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/wiki/index.pih
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/wiki/wikiBase.py
+ create mode 100644 develop/Karrigell/data/www/cache/doc/en/index.py
+ create mode 100644 develop/Karrigell/data/www/cache/doc/en/names.py
+ create mode 100644 develop/Karrigell/data/www/cache/doc/en/reference.ks
+ create mode 100644 develop/Karrigell/data/www/cache/header.ks
+ create mode 100644 develop/Karrigell/data/www/cache/index.ks
+ create mode 100644 develop/Karrigell/data/www/cache/index.py
+ create mode 100644 develop/Karrigell/data/www/cache/js/init.js.pih
+ create mode 100644 develop/Karrigell/data/www/cache/js/layoutInit.js.pih
+ create mode 100644 develop/Karrigell/data/www/cache/kindex.pih
+ create mode 100644 develop/Karrigell/data/www/cache/layout.ks
+ create mode 100644 develop/Karrigell/data/www/cache/lib/formcheck/lang.js.pih
+ create mode 100644 develop/Karrigell/data/www/cache/login.ks
+ create mode 100644 develop/Karrigell/data/www/cache/model.py
+ create mode 100644 develop/Karrigell/data/www/cache/pagefn.py
+ create mode 100644 develop/Karrigell/data/www/cache/version.py
+ create mode 100644 develop/Karrigell/data/www/forum/forums.sqlite
+ create mode 100644 develop/Karrigell/data/www/portal.sqlite
+ create mode 100644 develop/Karrigell/data/www/sessions/9ki7W5xUilkliWIn
+ create mode 100644 develop/Karrigell/data/www/sessions/jSkWEICR0INtuFvJ
+ rewrite develop/Karrigell/data/www/translations.dat (99%)
+ create mode 100644 develop/Karrigell/data/www/users_db.py
+ create mode 100644 develop/Karrigell/data/www/wiki.sqlite
+ create mode 100644 develop/Karrigell/karrigell/apache/mod_wsgi/wsgi.py
+ create mode 100644 develop/Karrigell/karrigell/apache/mod_wsgi/wsgi_config_loader.py
+ create mode 100644 develop/Karrigell/karrigell/apache/mod_wsgi/wsgi_test.py
+ rewrite develop/Karrigell/karrigell/core/HTTP.pyc (78%)
+ rewrite develop/Karrigell/karrigell/core/k_config.pyc (82%)
+ create mode 100644 develop/Karrigell/karrigell/core/k_databases.py
+ create mode 100644 develop/Karrigell/karrigell/core/k_databases.pyc
+ rewrite develop/Karrigell/karrigell/core/k_modules.pyc (99%)
+ rewrite develop/Karrigell/karrigell/core/k_sessions.pyc (92%)
+ rewrite develop/Karrigell/karrigell/core/k_target.pyc (72%)
+ rewrite develop/Karrigell/karrigell/core/k_traceback.pyc (74%)
+ rewrite develop/Karrigell/karrigell/core/k_users_db.pyc (99%)
+ rewrite develop/Karrigell/karrigell/core/k_utils.pyc (72%)
+ create mode 100644 develop/Karrigell/karrigell/core/k_version.py
+ create mode 100644 develop/Karrigell/karrigell/core/k_version.pyc
+ create mode 100644 develop/Karrigell/karrigell/core/old_dir.txt
+ create mode 100644 develop/Karrigell/karrigell/dist/setup.py
+ rewrite develop/Karrigell/karrigell/package/HTMLTags.pyc (70%)
+ create mode 100644 develop/Karrigell/karrigell/package/PyDbLite/LICENCE.txt
+ rewrite develop/Karrigell/karrigell/package/PyDbLite/SQLite.pyc (82%)
+ create mode 100644 develop/Karrigell/karrigell/package/PyDbLite/doc/licence.html
+ create mode 100644 develop/Karrigell/karrigell/package/PyDbLite/doc/licence_fr.html
+ create mode 100644 develop/Karrigell/karrigell/package/extensions/Cheetah.py
+ create mode 100644 develop/Karrigell/karrigell/package/extensions/Cheetah.pyc
+ create mode 100644 develop/Karrigell/karrigell/package/extensions/KT.py
+ create mode 100644 develop/Karrigell/karrigell/package/extensions/KT.pyc
+ create mode 100644 develop/Karrigell/karrigell/package/extensions/PythonStringSubst.py
+ create mode 100644 develop/Karrigell/karrigell/package/extensions/PythonStringSubst.pyc
+ create mode 100644 develop/Karrigell/karrigell/package/extensions/Template.py
+ create mode 100644 develop/Karrigell/karrigell/package/extensions/Template.pyc
+ create mode 100644 develop/Karrigell/karrigell/package/extensions/Test.py
+ create mode 100644 develop/Karrigell/karrigell/package/extensions/Test.pyc
+ create mode 100644 develop/Karrigell/karrigell/package/extensions/TranslationSubst.py
+ create mode 100644 develop/Karrigell/karrigell/package/extensions/TranslationSubst.pyc
+ create mode 100644 develop/Karrigell/karrigell/package/extensions/__init__.py
+ create mode 100644 develop/Karrigell/karrigell/package/modules/static_files.py
+ create mode 100644 develop/Karrigell/karrigell/package/settings.py
+ create mode 100644 develop/Karrigell/karrigell/package/transform_script.pyc
+ create mode 100644 develop/Karrigell/karrigell/test/importError.py
+ create mode 100644 develop/Karrigell/karrigell/test/includeError.py
+ create mode 100644 develop/Karrigell/karrigell/test/pages.pdl
+ create mode 100644 develop/Karrigell/karrigell/test/sock_test.py
+ mode change 100755 => 100644 develop/Karrigell/muireception/config.yaml~
+ mode change 100755 => 100644 develop/Karrigell/muireception/js/init.js.pih~
+ create mode 100644 develop/Karrigell/server_config.py.old
+ rewrite develop/Karrigell/www/.htaccess (84%)
+ rewrite develop/Karrigell/www/.htaccess_cgi (84%)
+ create mode 100644 develop/Karrigell/www/index.py
+ create mode 100644 develop/Karrigell/www/login.ks
+2010-05-19 23:00:33,337 INFO Command: 
+git push origin master
+running result is :Counting objects: 652, done.
+Delta compression using up to 2 threads.
+Compressing objects:   0% (1/480)   Compressing objects:   1% (5/480)   Compressing objects:   2% (10/480)   Compressing objects:   3% (15/480)   Compressing objects:   4% (20/480)   Compressing objects:   5% (24/480)   Compressing objects:   6% (29/480)   Compressing objects:   7% (34/480)   Compressing objects:   8% (39/480)   Compressing objects:   9% (44/480)   Compressing objects:  10% (48/480)   Compressing objects:  11% (53/480)   Compressing objects:  12% (58/480)   Compressing objects:  13% (63/480)   Compressing objects:  14% (68/480)   Compressing objects:  15% (72/480)   Compressing objects:  16% (77/480)   Compressing objects:  17% (82/480)   Compressing objects:  18% (87/480)   Compressing objects:  19% (92/480)   Compressing objects:  20% (96/480)   Compressing objects:  21% (101/480)   Compressing objects:  22% (106/480)   Compressing objects:  23% (111/480)   Compressing objects:  24% (116/480)   Compressing objects:  25% (120/480)   Compressing objects:  26% (125/480)   Compressing objects:  27% (130/480)   Compressing objects:  28% (135/480)   Compressing objects:  29% (140/480)   Compressing objects:  30% (144/480)   Compressing objects:  31% (149/480)   Compressing objects:  32% (154/480)   Compressing objects:  33% (159/480)   Compressing objects:  34% (164/480)   Compressing objects:  35% (168/480)   Compressing objects:  36% (173/480)   Compressing objects:  37% (178/480)   Compressing objects:  38% (183/480)   Compressing objects:  39% (188/480)   Compressing objects:  40% (192/480)   Compressing objects:  41% (197/480)   Compressing objects:  42% (202/480)   Compressing objects:  43% (207/480)   Compressing objects:  44% (212/480)   Compressing objects:  45% (216/480)   Compressing objects:  46% (221/480)   Compressing objects:  47% (226/480)   Compressing objects:  48% (231/480)   Compressing objects:  49% (236/480)   Compressing objects:  50% (240/480)   Compressing objects:  51% (245/480)   Compressing objects:  52% (250/480)   Compressing objects:  53% (255/480)   Compressing objects:  54% (260/480)   Compressing objects:  55% (264/480)   Compressing objects:  56% (269/480)   Compressing objects:  57% (274/480)   Compressing objects:  58% (279/480)   Compressing objects:  59% (284/480)   Compressing objects:  60% (288/480)   Compressing objects:  61% (293/480)   Compressing objects:  62% (298/480)   Compressing objects:  63% (303/480)   Compressing objects:  64% (308/480)   Compressing objects:  65% (312/480)   Compressing objects:  66% (317/480)   Compressing objects:  67% (322/480)   Compressing objects:  68% (327/480)   Compressing objects:  69% (332/480)   Compressing objects:  70% (336/480)   Compressing objects:  71% (341/480)   Compressing objects:  72% (346/480)   Compressing objects:  73% (351/480)   Compressing objects:  74% (356/480)   Compressing objects:  75% (360/480)   Compressing objects:  76% (365/480)   Compressing objects:  77% (370/480)   Compressing objects:  78% (375/480)   Compressing objects:  79% (380/480)   Compressing objects:  80% (384/480)   Compressing objects:  81% (389/480)   Compressing objects:  82% (394/480)   Compressing objects:  83% (399/480)   Compressing objects:  84% (404/480)   Compressing objects:  85% (408/480)   Compressing objects:  86% (413/480)   Compressing objects:  87% (418/480)   Compressing objects:  88% (423/480)   Compressing objects:  89% (428/480)   Compressing objects:  90% (432/480)   Compressing objects:  91% (437/480)   Compressing objects:  92% (442/480)   Compressing objects:  93% (447/480)   Compressing objects:  94% (452/480)   Compressing objects:  95% (456/480)   Compressing objects:  96% (461/480)   Compressing objects:  97% (466/480)   Compressing objects:  98% (471/480)   Compressing objects:  99% (476/480)   Compressing objects: 100% (480/480)   Compressing objects: 100% (480/480), done.
+Writing objects:   0% (1/499)   Writing objects:   1% (5/499)   Writing objects:   2% (10/499)   Writing objects:   3% (15/499)   Writing objects:   4% (20/499)   Writing objects:   5% (25/499)   Writing objects:   6% (30/499)   Writing objects:   7% (38/499)   Writing objects:   8% (40/499)   Writing objects:   9% (45/499)   Writing objects:  10% (50/499)   Writing objects:  11% (55/499)   Writing objects:  12% (60/499)   Writing objects:  13% (65/499)   Writing objects:  14% (70/499)   Writing objects:  15% (75/499)   Writing objects:  16% (80/499)   Writing objects:  17% (85/499)   Writing objects:  18% (91/499)   Writing objects:  19% (95/499)   Writing objects:  20% (100/499)   Writing objects:  21% (105/499)   Writing objects:  22% (110/499)   Writing objects:  23% (115/499)   Writing objects:  24% (120/499)   Writing objects:  25% (125/499)   Writing objects:  26% (130/499)   Writing objects:  27% (135/499)   Writing objects:  28% (140/499)   Writing objects:  29% (145/499)   Writing objects:  30% (150/499)   Writing objects:  31% (155/499)   Writing objects:  32% (160/499)   Writing objects:  33% (165/499)   Writing objects:  34% (170/499)   Writing objects:  35% (175/499)   Writing objects:  36% (180/499)   Writing objects:  37% (186/499)   Writing objects:  38% (190/499)   Writing objects:  39% (195/499)   Writing objects:  40% (200/499)   Writing objects:  41% (206/499)   Writing objects:  42% (210/499)   Writing objects:  43% (215/499)   Writing objects:  44% (220/499)   Writing objects:  45% (225/499)   Writing objects:  46% (231/499)   Writing objects:  47% (235/499)   Writing objects:  48% (240/499)   Writing objects:  49% (245/499)   Writing objects:  50% (250/499)   Writing objects:  51% (255/499)   Writing objects:  52% (260/499)   Writing objects:  53% (265/499)   Writing objects:  54% (270/499)   Writing objects:  55% (275/499)   Writing objects:  56% (280/499)   Writing objects:  57% (285/499)   Writing objects:  58% (290/499)   Writing objects:  59% (295/499)   Writing objects:  60% (300/499)   Writing objects:  61% (305/499)   Writing objects:  62% (310/499)   Writing objects:  63% (315/499)   Writing objects:  64% (320/499)   Writing objects:  65% (325/499)   Writing objects:  66% (330/499)   Writing objects:  67% (335/499)   Writing objects:  68% (340/499)   Writing objects:  69% (345/499)   Writing objects:  70% (350/499)   Writing objects:  71% (355/499)   Writing objects:  72% (360/499)   Writing objects:  73% (365/499)   Writing objects:  74% (371/499)   Writing objects:  75% (375/499)   Writing objects:  76% (380/499)   Writing objects:  77% (385/499)   Writing objects:  78% (390/499)   Writing objects:  79% (395/499)   Writing objects:  80% (400/499)   Writing objects:  81% (405/499)   Writing objects:  82% (410/499)   Writing objects:  83% (415/499)   Writing objects:  84% (420/499)   Writing objects:  85% (425/499)   Writing objects:  86% (430/499)   Writing objects:  87% (435/499)   Writing objects:  88% (440/499)   Writing objects:  89% (445/499)   Writing objects:  90% (450/499)   Writing objects:  91% (455/499)   Writing objects:  92% (460/499)   Writing objects:  93% (465/499)   Writing objects:  94% (470/499)   Writing objects:  95% (475/499)   Writing objects:  96% (480/499)   Writing objects:  97% (485/499)   Writing objects:  98% (490/499)   Writing objects:  99% (495/499)   Writing objects: 100% (499/499)   Writing objects: 100% (499/499), 450.91 KiB, done.
+Total 499 (delta 175), reused 0 (delta 0)
+To git@github.com:broader/EasyReception.git
+   f31109d..b37177a  master -> master
+2010-05-19 23:00:33,337 INFO End backup local github to remote github host.
+2010-05-20 11:38:43,619 INFO Delete nousing captcha images
+2010-05-20 11:38:43,645 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/registration/tmp/*.jpeg
+running result is :
+2010-05-20 11:38:43,646 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-05-20 11:38:45,066 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+common/admin/
+common/admin/config.ks
+        2462 100%    0.00kB/s    0:00:00          2462 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1056/2919)
+common/admin/config.ks~
+        2462 100%    2.35MB/s    0:00:00          2462 100%    2.35MB/s    0:00:00 (xfer#2, to-check=1055/2919)
+common/admin/set_admin.ks
+        2800 100%    2.67MB/s    0:00:00          2800 100%    2.67MB/s    0:00:00 (xfer#3, to-check=1047/2919)
+common/admin/set_admin.ks~
+        2900 100%    2.77MB/s    0:00:00          2900 100%    2.77MB/s    0:00:00 (xfer#4, to-check=1046/2919)
+data/cms/
+deleting data/cms/logs_2010051920.log
+deleting data/cms/logs_2010051914.log
+deleting data/cms/logs_2010051908.log
+deleting data/cms/logs_2010051819.log
+deleting data/cms/logs_2010051814.log
+deleting data/cms/logs_2010051813.log
+deleting data/cms/logs_2010051809.log
+deleting data/cms/logs_2010051803.log
+deleting data/cms/logs_2010051720.log
+deleting data/cms/logs_2010051714.log
+deleting data/cms/logs_2010051709.log
+deleting data/cms/logs_2010051611.log
+deleting data/cms/logs_2010051414.log
+deleting data/cms/logs_2010051319.log
+deleting data/cms/logs_2010051314.log
+deleting data/cms/logs_2010051309.log
+deleting data/cms/logs_2010051214.log
+deleting data/cms/logs_2010051209.log
+deleting data/cms/logs_2010051208.log
+deleting data/cms/logs_2010051201.log
+deleting data/cms/logs_2010051120.log
+deleting data/cms/logs_2010051114.log
+deleting data/cms/logs_2010051109.log
+deleting data/cms/logs_2010051108.log
+deleting data/cms/logs_2010051106.log
+deleting data/cms/logs_2010051019.log
+deleting data/cms/logs_2010051014.log
+deleting data/cms/logs_2010051013.log
+deleting data/cms/logs_2010051009.log
+deleting data/cms/logs_2010051008.log
+deleting data/cms/logs_2010051007.log
+deleting data/cms/logs_2010050911.log
+deleting data/cms/logs_2010050904.log
+deleting data/cms/logs_2010050817.log
+deleting data/cms/logs_2010050804.log
+deleting data/cms/logs_2010050609.log
+deleting data/cms/logs_2010050520.log
+deleting data/cms/logs_2010050517.log
+deleting data/cms/logs_2010050516.log
+deleting data/cms/logs_2010050512.log
+deleting data/cms/logs_2010050510.log
+deleting data/cms/logs_2010050509.log
+deleting data/cms/logs_2010050504.log
+deleting data/cms/logs_2010050503.log
+deleting data/cms/logs_2010050502.log
+deleting data/cms/logs_2010042802.log
+deleting data/cms/logs_2010042720.log
+deleting data/cms/logs_2010042709.log
+deleting data/cms/logs_2010042708.log
+deleting data/cms/logs_2010042703.log
+deleting data/cms/logs_2010042701.log
+deleting data/cms/logs_2010042619.log
+deleting data/cms/logs_2010042613.log
+deleting data/cms/logs_2010042609.log
+deleting data/cms/logs_2010041814.log
+deleting data/cms/logs_2010041711.log
+deleting data/cms/logs_2010041613.log
+deleting data/cms/logs_2010041609.log
+deleting data/cms/logs_2010041607.log
+deleting data/cms/logs_2010041603.log
+deleting data/cms/logs_2010041512.log
+deleting data/cms/logs_2010041509.log
+deleting data/cms/logs_2010041420.log
+deleting data/cms/logs_2010041419.log
+deleting data/cms/logs_2010041412.log
+deleting data/cms/logs_2010041408.log
+deleting data/cms/logs_2010041407.log
+deleting data/cms/logs_2010040709.log
+deleting data/cms/logs_2010040610.log
+deleting data/cms/logs_2010040602.log
+deleting data/cms/logs_2010040509.log
+deleting data/cms/logs_2010040109.log
+deleting data/cms/logs_2010033108.log
+deleting data/cms/logs_2010033102.log
+deleting data/cms/logs_2010033020.log
+deleting data/cms/logs_2010033013.log
+deleting data/cms/logs_2010032703.log
+deleting data/cms/logs_2010032608.log
+deleting data/cms/logs_2010032606.log
+deleting data/cms/logs_2010032602.log
+deleting data/cms/logs_2010032601.log
+deleting data/cms/logs_2010032519.log
+deleting data/cms/logs_2010032514.log
+deleting data/cms/logs_2010032511.log
+deleting data/cms/logs_2010032509.log
+deleting data/cms/logs_2010032508.log
+deleting data/cms/logs_2010032402.log
+deleting data/cms/logs_2010032315.log
+deleting data/cms/logs_2010032209.log
+deleting data/cms/logs_2010032208.log
+deleting data/cms/logs_2010032012.log
+deleting data/cms/logs_2010031916.log
+deleting data/cms/logs_2010031913.log
+deleting data/cms/logs_2010031811.log
+deleting data/cms/logs_2010031809.log
+deleting data/cms/logs_2010031808.log
+deleting data/cms/logs_2010031803.log
+deleting data/cms/logs_2010031713.log
+deleting data/cms/logs_2010031710.log
+deleting data/cms/logs_2010031709.log
+deleting data/cms/logs_2010031708.log
+deleting data/cms/logs_2010031704.log
+deleting data/cms/logs_2010031613.log
+deleting data/cms/logs_2010031518.log
+deleting data/cms/logs_2010031513.log
+deleting data/cms/logs_2010031508.log
+deleting data/cms/logs_2010031501.log
+deleting data/cms/logs_2010031500.log
+deleting data/cms/logs_2010031416.log
+deleting data/cms/logs_2010031410.log
+deleting data/cms/logs_2010031314.log
+deleting data/cms/logs_2010031311.log
+deleting data/cms/logs_2010031310.log
+deleting data/cms/logs_2010031214.log
+deleting data/cms/logs_2010031202.log
+deleting data/cms/logs_2010031120.log
+deleting data/cms/logs_2010031109.log
+deleting data/cms/logs_2010031009.log
+deleting data/cms/logs_2010031007.log
+deleting data/cms/logs_2010030919.log
+deleting data/cms/logs_2010030909.log
+deleting data/cms/logs_2010030906.log
+deleting data/cms/logs_2010030820.log
+deleting data/cms/logs_2010030806.log
+deleting data/cms/logs_2010030801.log
+deleting data/cms/logs_2010030608.log
+deleting data/cms/logs_2010030604.log
+deleting data/cms/logs_2010030603.log
+deleting data/cms/logs_2010030514.log
+deleting data/cms/logs_2010030508.log
+deleting data/cms/logs_2010030502.log
+deleting data/cms/logs_2010030411.log
+deleting data/cms/logs_2010030406.log
+deleting data/cms/logs_2010030403.log
+deleting data/cms/logs_2010030314.log
+deleting data/cms/logs_2010030310.log
+deleting data/cms/logs_2010030213.log
+deleting data/cms/logs_2010030210.log
+deleting data/cms/logs_2010030108.log
+deleting data/cms/logs_2010022809.log
+deleting data/cms/logs_2010022803.log
+deleting data/cms/logs_2010022709.log
+deleting data/cms/logs_2010022708.log
+deleting data/cms/logs_2010022616.log
+deleting data/cms/logs_2010022608.log
+deleting data/cms/logs_2010022514.log
+deleting data/cms/logs_2010022509.log
+deleting data/cms/logs_2010022420.log
+deleting data/cms/logs_2010022409.log
+deleting data/cms/logs_2010022407.log
+deleting data/cms/logs_2010022405.log
+deleting data/cms/logs_2010022314.log
+deleting data/cms/logs_2010022308.log
+deleting data/cms/logs_2010022306.log
+deleting data/cms/logs_2010022216.log
+deleting data/cms/logs_2010022213.log
+deleting data/cms/logs_2010022210.log
+deleting data/cms/logs_2010022121.log
+deleting data/cms/logs_2010022115.log
+deleting data/cms/logs_2010022109.log
+deleting data/cms/logs_2010022107.log
+deleting data/cms/logs_2010022102.log
+deleting data/cms/logs_2010022100.log
+deleting data/cms/logs_2010022015.log
+deleting data/cms/logs_2010022003.log
+deleting data/cms/logs_2010021014.log
+deleting data/cms/logs_2010021009.log
+deleting data/cms/logs_2010020921.log
+deleting data/cms/logs_2010020914.log
+deleting data/cms/logs_2010020909.log
+deleting data/cms/logs_2010020810.log
+deleting data/cms/logs_2010020716.log
+deleting data/cms/logs_2010020715.log
+deleting data/cms/logs_2010020709.log
+deleting data/cms/logs_2010020708.log
+deleting data/cms/logs_2010020621.log
+deleting data/cms/logs_2010020610.log
+deleting data/cms/logs_2010020604.log
+deleting data/cms/logs_2010020603.log
+deleting data/cms/logs_2010020514.log
+deleting data/cms/logs_2010020511.log
+deleting data/cms/logs_2010020510.log
+deleting data/cms/logs_2010020509.log
+deleting data/cms/logs_2010020503.log
+deleting data/cms/logs_2010020409.log
+deleting data/cms/logs_2010020403.log
+deleting data/cms/logs_2010020402.log
+deleting data/cms/logs_2010020320.log
+deleting data/cms/logs_2010020314.log
+deleting data/cms/logs_2010020308.log
+deleting data/cms/logs_2010020306.log
+deleting data/cms/logs_2010020219.log
+deleting data/cms/logs_2010020214.log
+deleting data/cms/logs_2010020213.log
+deleting data/cms/logs_2010020212.log
+deleting data/cms/logs_2010020210.log
+deleting data/cms/logs_2010020120.log
+deleting data/cms/logs_2010020109.log
+deleting data/cms/logs_2010020107.log
+deleting data/cms/logs_2010020100.log
+deleting data/cms/logs_2010013123.log
+deleting data/cms/logs_2010013112.log
+deleting data/cms/logs_2010013104.log
+deleting data/cms/logs_2010013011.log
+deleting data/cms/logs_2010012909.log
+deleting data/cms/logs_2010012902.log
+deleting data/cms/logs_2010012811.log
+deleting data/cms/logs_2010012711.log
+deleting data/cms/logs_2010012614.log
+deleting data/cms/logs_2010012610.log
+deleting data/cms/logs_2010012608.log
+deleting data/cms/logs_2010012603.log
+deleting data/cms/logs_2010012520.log
+deleting data/cms/logs_2010012515.log
+deleting data/cms/logs_2010012512.log
+deleting data/cms/logs_2010012510.log
+deleting data/cms/logs_2010012411.log
+deleting data/cms/logs_2010012312.log
+deleting data/cms/logs_2010012215.log
+deleting data/cms/logs_2010012202.log
+deleting data/cms/logs_2010012201.log
+deleting data/cms/logs_2010012020.log
+deleting data/cms/logs_2010012013.log
+deleting data/cms/logs_2010012009.log
+deleting data/cms/logs_2010011711.log
+deleting data/cms/logs_2010011603.log
+deleting data/cms/logs_2010011201.log
+deleting data/cms/logs_2010011109.log
+deleting data/cms/logs_2010011107.log
+deleting data/cms/logs_2010011016.log
+deleting data/cms/logs_2010011005.log
+deleting data/cms/logs_2010010910.log
+deleting data/cms/logs_2010010810.log
+deleting data/cms/logs_2010010716.log
+deleting data/cms/logs_2010010712.log
+deleting data/cms/logs_2010010709.log
+deleting data/cms/logs_2010010705.log
+deleting data/cms/logs_2010010619.log
+deleting data/cms/logs_2010010617.log
+deleting data/cms/logs_2010010615.log
+deleting data/cms/logs_2010010613.log
+deleting data/cms/logs_2010010609.log
+deleting data/cms/logs_2010010520.log
+deleting data/cms/logs_2010010515.log
+deleting data/cms/logs_2010010509.log
+deleting data/cms/logs_2010010419.log
+deleting data/cms/logs_2010010415.log
+deleting data/cms/logs_2010010413.log
+deleting data/cms/logs_2010010401.log
+deleting data/cms/logs_2009122610.log
+deleting data/cms/logs_2009122609.log
+deleting data/cms/logs_2009122514.log
+deleting data/cms/logs_2009122509.log
+deleting data/cms/logs_2009122421.log
+deleting data/cms/logs_2009122420.log
+deleting data/cms/logs_2009122417.log
+deleting data/cms/logs_2009122413.log
+deleting data/cms/logs_2009122409.log
+deleting data/cms/logs_2009121817.log
+deleting data/cms/logs_2009121813.log
+deleting data/cms/logs_2009121809.log
+deleting data/cms/logs_2009121805.log
+deleting data/cms/logs_2009121714.log
+deleting data/cms/logs_2009121710.log
+deleting data/cms/logs_2009121708.log
+deleting data/cms/logs_2009121702.log
+deleting data/cms/logs_2009121616.log
+deleting data/cms/logs_2009121608.log
+deleting data/cms/logs_2009120715.log
+deleting data/cms/logs_2009120710.log
+deleting data/cms/logs_2009120702.log
+deleting data/cms/logs_2009112110.log
+deleting data/cms/logs_2009112102.log
+deleting data/cms/logs_2009112016.log
+deleting data/cms/logs_2009112008.log
+deleting data/cms/logs_2009110910.log
+deleting data/cms/logs_2009110902.log
+deleting data/cms/logs_2009110311.log
+deleting data/cms/logs_2009110219.log
+deleting data/cms/logs_2009110216.log
+deleting data/cms/logs_2009110214.log
+deleting data/cms/logs_2009110208.log
+deleting data/cms/logs_2009110207.log
+deleting data/cms/logs_2009110203.log
+deleting data/cms/logs_2009110202.log
+deleting data/cms/logs_2009110200.log
+deleting data/cms/logs_2009110114.log
+deleting data/cms/logs_2009110110.log
+deleting data/cms/logs_2009110109.log
+deleting data/cms/logs_2009110106.log
+deleting data/cms/logs_2009103111.log
+deleting data/cms/logs_2009103110.log
+deleting data/cms/logs_2009103103.log
+deleting data/cms/logs_2009103015.log
+deleting data/cms/logs_2009103011.log
+deleting data/cms/logs_2009103010.log
+deleting data/cms/logs_2009103003.log
+deleting data/cms/logs_2009102920.log
+deleting data/cms/logs_2009102919.log
+deleting data/cms/logs_2009102914.log
+deleting data/cms/logs_2009102913.log
+deleting data/cms/logs_2009102912.log
+deleting data/cms/logs_2009102909.log
+deleting data/cms/logs_2009102908.log
+deleting data/cms/logs_2009102907.log
+deleting data/cms/logs_2009102906.log
+deleting data/cms/logs_2009102903.log
+deleting data/cms/logs_2009102902.log
+deleting data/cms/logs_2009102901.log
+deleting data/cms/logs_2009102809.log
+deleting data/cms/logs_2009102801.log
+deleting data/cms/logs_2009102721.log
+deleting data/cms/logs_2009102720.log
+deleting data/cms/logs_2009102715.log
+deleting data/cms/logs_2009102710.log
+deleting data/cms/logs_2009102709.log
+deleting data/cms/logs_2009102615.log
+deleting data/cms/logs_2009102614.log
+deleting data/cms/logs_2009102511.log
+deleting data/cms/logs_2009102417.log
+deleting data/cms/logs_2009102416.log
+deleting data/cms/logs_2009102311.log
+deleting data/cms/logs_2009102216.log
+data/cms/logs_2010052008.log
+         246 100%    1.40kB/s    0:00:00           246 100%    1.40kB/s    0:00:00 (xfer#5, to-check=1013/3819)
+data/cms/users_db.py
+          16 100%    0.09kB/s    0:00:00            16 100%    0.09kB/s    0:00:00 (xfer#6, to-check=1010/3819)
+data/ereception/
+deleting data/ereception/logs_2010011119.log
+deleting data/ereception/logs_2010011115.log
+deleting data/ereception/logs_2010011107.log
+deleting data/ereception/logs_2010011103.log
+deleting data/ereception/logs_2010010810.log
+deleting data/ereception/logs_2010010709.log
+deleting data/ereception/logs_2010010416.log
+deleting data/ereception/logs_2010010408.log
+deleting data/ereception/logs_2010010317.log
+deleting data/ereception/logs_2010010312.log
+deleting data/ereception/logs_2010010211.log
+deleting data/ereception/logs_2009122909.log
+deleting data/ereception/logs_2009122819.log
+deleting data/ereception/logs_2009122814.log
+deleting data/ereception/logs_2009122808.log
+deleting data/ereception/logs_2009122803.log
+deleting data/ereception/logs_2009122720.log
+deleting data/ereception/logs_2009122610.log
+deleting data/ereception/logs_2009122609.log
+deleting data/ereception/logs_2009122514.log
+deleting data/ereception/logs_2009122509.log
+deleting data/ereception/logs_2009122414.log
+data/ereception/users_db.py
+          16 100%    0.07kB/s    0:00:00            16 100%    0.07kB/s    0:00:00 (xfer#7, to-check=1002/4029)
+data/muireception/
+data/muireception/translations.dat
+        5655 100%   23.11kB/s    0:00:00          5655 100%   23.11kB/s    0:00:00 (xfer#8, to-check=1005/4065)
+data/muireception/users.sqlite
+        3072 100%   12.55kB/s    0:00:00          3072 100%   12.55kB/s    0:00:00 (xfer#9, to-check=1004/4065)
+data/muireception/users_db.py
+          16 100%    0.07kB/s    0:00:00            16 100%    0.07kB/s    0:00:00 (xfer#10, to-check=1003/4065)
+data/muireception/sessions/
+data/muireception/sessions/oNeJMHtH7U4EcNYt
+         212 100%    0.86kB/s    0:00:00           212 100%    0.86kB/s    0:00:00 (xfer#11, to-check=1017/4148)
+data/shinepo/
+data/shinepo/users_db.py
+          16 100%    0.07kB/s    0:00:00            16 100%    0.07kB/s    0:00:00 (xfer#12, to-check=1010/4148)
+data/www/
+data/www/users.sqlite
+        3072 100%   12.50kB/s    0:00:00          3072 100%   12.50kB/s    0:00:00 (xfer#13, to-check=1009/4158)
+data/www/cache/
+data/www/cache/form.py
+        7116 100%   28.83kB/s    0:00:00          7116 100%   28.83kB/s    0:00:00 (xfer#14, to-check=1027/4188)
+data/www/cache/index.pih
+         503 100%    2.04kB/s    0:00:00           503 100%    2.04kB/s    0:00:00 (xfer#15, to-check=1024/4188)
+data/www/cache/layout.ks
+       10438 100%   42.30kB/s    0:00:00         10438 100%   42.30kB/s    0:00:00 (xfer#16, to-check=1021/4188)
+data/www/cache/pagefn.py
+       11703 100%   47.23kB/s    0:00:00         11703 100%   47.23kB/s    0:00:00 (xfer#17, to-check=1018/4188)
+data/www/cache/admin/
+data/www/cache/admin/config.ks
+        2453 100%    9.90kB/s    0:00:00          2453 100%    9.90kB/s    0:00:00 (xfer#18, to-check=1021/4205)
+data/www/cache/admin/databases.ks
+        2334 100%    9.42kB/s    0:00:00          2334 100%    9.42kB/s    0:00:00 (xfer#19, to-check=1019/4205)
+data/www/cache/admin/set_admin.ks
+        2906 100%   11.68kB/s    0:00:00          2906 100%   11.68kB/s    0:00:00 (xfer#20, to-check=1016/4205)
+data/www/cache/admin/users.ks
+        3310 100%   13.30kB/s    0:00:00          3310 100%   13.30kB/s    0:00:00 (xfer#21, to-check=1015/4205)
+data/www/cache/admin/vh_manager.ks
+        3845 100%   15.45kB/s    0:00:00          3845 100%   15.45kB/s    0:00:00 (xfer#22, to-check=1014/4205)
+data/www/cache/admin/editor/
+data/www/cache/admin/editor/editScript.ks
+        2179 100%    8.76kB/s    0:00:00          2179 100%    8.76kB/s    0:00:00 (xfer#23, to-check=1004/4205)
+data/www/cache/admin/editor/index.py
+         202 100%    0.81kB/s    0:00:00           202 100%    0.81kB/s    0:00:00 (xfer#24, to-check=1003/4205)
+data/www/cache/admin/editor/jQueryFileTree.py
+        1673 100%    6.70kB/s    0:00:00          1673 100%    6.70kB/s    0:00:00 (xfer#25, to-check=1002/4205)
+data/www/cache/admin/translation/
+data/www/cache/admin/translation/fileMenu.pih
+         656 100%    2.63kB/s    0:00:00           656 100%    2.63kB/s    0:00:00 (xfer#26, to-check=1006/4210)
+data/www/cache/admin/translation/index.py
+         200 100%    0.80kB/s    0:00:00           200 100%    0.80kB/s    0:00:00 (xfer#27, to-check=1005/4210)
+data/www/cache/admin/translation/jQueryFileTree.py
+        1946 100%    7.79kB/s    0:00:00          1946 100%    7.79kB/s    0:00:00 (xfer#28, to-check=1004/4210)
+data/www/cache/admin/translation/translator.ks
+        3134 100%   12.54kB/s    0:00:00          3134 100%   12.54kB/s    0:00:00 (xfer#29, to-check=1003/4210)
+data/www/cache/doc/
+data/www/cache/doc/reference.ks
+        8128 100%   32.40kB/s    0:00:00          8128 100%   32.40kB/s    0:00:00 (xfer#30, to-check=1026/4262)
+data/www/cache/issue/
+data/www/cache/issue/userView.ks
+       13195 100%   46.86kB/s    0:00:00         13195 100%   46.86kB/s    0:00:00 (xfer#31, to-check=1021/4262)
+data/www/cache/js/
+data/www/cache/js/adminSidePanels.js.pih
+        2749 100%    9.76kB/s    0:00:00          2749 100%    9.76kB/s    0:00:00 (xfer#32, to-check=1020/4262)
+data/www/cache/js/userSidePanels.js.pih
+        3791 100%   13.41kB/s    0:00:00          3791 100%   13.41kB/s    0:00:00 (xfer#33, to-check=1017/4262)
+data/www/cache/portal/
+data/www/cache/portal/portal.ks
+        1313 100%    4.65kB/s    0:00:00          1313 100%    4.65kB/s    0:00:00 (xfer#34, to-check=1014/4262)
+data/www/cache/portal/portal4admin.ks
+        1319 100%    4.67kB/s    0:00:00          1319 100%    4.67kB/s    0:00:00 (xfer#35, to-check=1013/4262)
+data/www/cache/portfolio/
+data/www/cache/portfolio/portfolio.ks
+       16083 100%   56.70kB/s    0:00:00         16083 100%   56.70kB/s    0:00:00 (xfer#36, to-check=1012/4262)
+data/www/cache/service/
+data/www/cache/service/service.ks
+       28908 100%  101.18kB/s    0:00:00         28908 100%  101.18kB/s    0:00:00 (xfer#37, to-check=1011/4262)
+data/www/cache/sysadmin/
+data/www/cache/sysadmin/sysadmin.ks
+       25471 100%   88.52kB/s    0:00:00         25471 100%   88.52kB/s    0:00:00 (xfer#38, to-check=1010/4262)
+data/www/cache/user/
+data/www/cache/user/userManagement.ks
+        8808 100%   30.61kB/s    0:00:00          8808 100%   30.61kB/s    0:00:00 (xfer#39, to-check=1009/4262)
+data/www/sessions/
+data/www/sessions/9f2zSaqkY5QmuYFU
+         209 100%    0.73kB/s    0:00:00           209 100%    0.73kB/s    0:00:00 (xfer#40, to-check=1018/4275)
+karrigell/core/
+karrigell/core/k_pygettext.pyc
+        1926 100%    5.30kB/s    0:00:00          1926 100%    5.28kB/s    0:00:00 (xfer#41, to-check=2074/6196)
+karrigell/package/PyDbLite/
+karrigell/package/PyDbLite/SQLite.pyc
+       18963 100%   51.87kB/s    0:00:00         18963 100%   51.87kB/s    0:00:00 (xfer#42, to-check=2011/6196)
+muireception/
+muireception/config.yaml
+        1792 100%    3.40kB/s    0:00:00          1792 100%    3.40kB/s    0:00:00 (xfer#43, to-check=1614/6196)
+muireception/config.yaml~
+        1792 100%    3.40kB/s    0:00:00          1792 100%    3.40kB/s    0:00:00 (xfer#44, to-check=1613/6196)
+muireception/layout.ks
+       10512 100%   19.93kB/s    0:00:00         10512 100%   19.93kB/s    0:00:00 (xfer#45, to-check=1605/6196)
+muireception/pagefn.py
+       11735 100%   22.21kB/s    0:00:00         11735 100%   22.21kB/s    0:00:00 (xfer#46, to-check=1601/6196)
+
+sent 261720 bytes  received 2230 bytes  105580.00 bytes/sec
+total size is 49756064  speedup is 188.51
+2010-05-20 11:38:45,170 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768   9%    0.00kB/s    0:00:00        343866 100%    9.27MB/s    0:00:00 (xfer#1, to-check=1/3)
+
+sent 78354 bytes  received 31 bytes  156770.00 bytes/sec
+total size is 655562  speedup is 8.36
+2010-05-20 11:38:45,170 INFO End backup loacl karrigell diretory to local git.
+2010-05-20 11:38:45,171 INFO Begin to backup local github to remote github host.

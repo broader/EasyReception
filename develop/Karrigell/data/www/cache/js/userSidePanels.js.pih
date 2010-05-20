@@ -1,0 +1,33 @@
+[]
+# -*- coding: utf_8 -*-
+STDOUT("/*\n** FUNCTIONS FOR SIDE PANELS EXPAND, THESE SIDEPANELS BELONGS TO NORMAL USER ROLE.\n*/\n")
+# PYTHON CODE SLICE
+# get meus stored in pagefn.py
+pagefn = Import('/'.join(('', 'pagefn.py')))
+# initialize some page variables
+sideBar, mainColumn = pagefn.COLUMNS
+portfolio, hotel = [ getattr(pagefn, attr) for attr in ('PORTFOLIO', 'HOTEL')]
+STDOUT("var mainPanelId = MUI.mainPanelId;\n/*\n** The public function for side panels collapsing\n*/\nfunction sidePanelCollapse(panelId){	\n	//alert(\'panel collapsed\');\n};\n/*\n**	Portal side panel expand function\n*/\nfunction portalPanel(panelId){\n	MUI.accordionPanels(panelId);\n};\n/*\n**	Accommodation side panel expand function\n*/\nfunction hotelPanel(panelId){		\n	//MUI.accordionPanels(panelId);	\n	//MUI.clearMainPanel();\n	MUI.initPanel(panelId); \n	new MUI.Column({\n		container:mainPanelId, id: \'hotelListColumn\', placement: \'main\', \n		sortable: false, width: null, resizeLimit: [100,200] \n	});\n	new MUI.Column({\n		container:mainPanelId, id: \'hotelReserveColumn\', placement: \'right\',  \n		sortable: false, width: 500, resizeLimit: [400,500] \n	});\n	// the panel to show hotel list\n	pid = \"")
+STDOUT(str(hotel.get('mainColumn')['list']['panelId']))
+STDOUT("\";\n	new MUI.Panel({\n		id: pid,\n		column: \'hotelListColumn\', \n		title: \"")
+STDOUT(str(hotel.get('mainColumn')['list']['panelTitle']))
+STDOUT("\",\n		contentURL: \"")
+STDOUT(str(hotel.get('mainColumn')['list']['contentUrl']))
+STDOUT("\",\n		onExpand: MUI.accordionPanels.pass(pid)\n	});\n	// the panel to show selected hotel info\n	pid = \"")
+STDOUT(str(hotel.get('mainColumn')['info']['panelId']))
+STDOUT("\";\n	panel = new MUI.Panel({\n		id: pid,\n		column: \'hotelListColumn\', \n		title: \"")
+STDOUT(str(hotel.get('mainColumn')['info']['panelTitle']))
+STDOUT("\",\n		contentURL: \"")
+STDOUT(str(hotel.get('mainColumn')['info']['contentUrl']))
+STDOUT("\",\n		onExpand: MUI.accordionPanels.pass(pid)\n	});\n	// collapsed this panel\n	panel.toggleExpand();	\n	new MUI.Panel({\n		id: \"")
+STDOUT(str(hotel.get('rightColumn')['panelId']))
+STDOUT("\",\n		title: \"")
+STDOUT(str(hotel.get('rightColumn')['panelTitle']))
+STDOUT("\",\n		column: \'hotelReserveColumn\',\n		contentURL: \"")
+STDOUT(str(hotel.get('rightColumn')['contentUrl']))
+STDOUT("\",\n	});\n};\n/*\n**	Travel side panel expand function\n*/\nfunction travelPanel(panelId){	\n	MUI.accordionPanels(panelId);	\n};\n/*\n**	Service side panel expand function\n*/\nfunction servicePanel(panelId){	\n	MUI.accordionPanels(panelId);	\n};\n/*\n**	Issue side panel expand function\n*/\nfunction issuePanel(panelId){\n	MUI.initPanel(panelId);\n	var cid = \'userViewIssueColumn\'; \n	new MUI.Column({\n		container:mainPanelId, id: cid, placement: \'main\', \n		sortable: false, width: null, resizeLimit: [100,200] \n	});\n	new MUI.Panel({\n		id: \'userViewIssuePanel\', header:false, column: cid,\n		contentURL:\'issue/userView.ks/page_issueList\'\n	});	\n};\n/*\n**	Portfolio side panel expand function\n*/\nfunction portfolioPanel(panelId){	\n	MUI.initPanel(panelId);\n	new MUI.Column({\n		container:mainPanelId, id: \'portfolioColumn\', placement: \'main\', \n		sortable: false, width: null, resizeLimit: [100,200] \n	});\n	new MUI.Column({\n		container:mainPanelId, id: \'accountColumn\', placement: \'right\',  \n		sortable: false, width: 500, resizeLimit: [400,500] \n	});\n	new MUI.Panel({\n		id: \'")
+STDOUT(str(portfolio.get('panelsId')[0]))
+STDOUT("\', header:false, column: \'portfolioColumn\',\n		contentURL:\'portfolio/portfolio.ks/page_showPortfolio\'\n	});\n	new MUI.Panel({\n		id: \'")
+STDOUT(str(portfolio.get('panelsId')[1]))
+STDOUT("\', header:false, column: \'accountColumn\',\n		contentURL:\'portfolio/portfolio.ks/page_showAccount\'\n	});\n};\n")
+

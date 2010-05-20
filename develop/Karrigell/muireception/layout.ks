@@ -273,7 +273,7 @@ def page_accountValid(**args):
 			so = Session()
 			setattr( so, pagefn.SOINFO['user'], data)
 			res['user'] = data
-			pagefn.setCookie(SET_COOKIE,REQUEST_HANDLER)
+			#pagefn.setCookie(SET_COOKIE,REQUEST_HANDLER)
 			
 	else:
 		# check whether the account is existed 
@@ -344,7 +344,7 @@ def page_sideBarPanels(**args):
 	
 def page_closeSession(**args):
 	""" Logout action, remove current session. """
-	so = Session()
-	so.close()
+	#so = Session()
+	#so.close()
 	return
 	

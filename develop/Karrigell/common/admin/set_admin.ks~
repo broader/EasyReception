@@ -48,7 +48,7 @@ def set_admin_info(url,login,passwd1,passwd2):
     else:
         # create users database
         db = k_users_db.get_db(CONFIG)
-
+	print 'Karrigell/common/admin/set_admin.ks.set_admin_info, L46, CONFIG attributes are '%dir(CONFIG)
         if not CONFIG.sqlite:
             db.create("host","login","password","role","session_key",
                 "nb_visits","last_visit",mode="open")

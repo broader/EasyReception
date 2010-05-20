@@ -320,16 +320,16 @@ def script(src, link=True):
 ##########################################################################################
 
 # some global variables stored in Session object of Karrigell
-COOKIENAME = "sessionId"
+COOKIENAME = "sessionObj"
 def setCookie(cookie,requestHandler):
 	""" Set cookie info in the header of a html page. """
 	sname = COOKIENAME
 	# cookie is the Karrigell's global variable "SET_COOKIE",
 	# which is a instance of Cookie.SimpleCookie.
 	# When a new key is set for a SimpleCookie object, a Morsel instance is created.
-	cookie[sname] = getattr(requestHandler, sname)
+	#cookie[sname] = getattr(requestHandler, sname)
 	# set cookie path
-	cookie[sname]['path'] = '/'
+	#cookie[sname]['path'] = '/'
 	return
 
 def sexyButton(txt,bnAttrs={},bnType='',size='sexymedium',skin='sexysimple'):
