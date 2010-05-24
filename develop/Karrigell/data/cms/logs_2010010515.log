@@ -1,5 +1,0 @@
-2010/01/05 15:09:13 - 127.0.0.1 - GET /menu.ks/page_toggleMenu?showMenu=0&_=1262675353890 HTTP/1.1 200
-2010/01/05 15:09:14 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
-2010/01/05 15:09:14 - 127.0.0.1 - GET /menu.ks/page_menuList?page=0 HTTP/1.1 200
-2010/01/05 15:09:14 - 127.0.0.1 - GET /menu.ks/page_loginSpan?page=0 HTTP/1.1 200
-2010/01/05 15:09:16 - 127.0.0.1 - GET /menu.ks/page_validForm HTTP/1.1 200

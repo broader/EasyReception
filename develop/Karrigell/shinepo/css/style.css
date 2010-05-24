@@ -1,8 +1,0 @@
-#left_sider { background: #86b50d; width: 25%; float: left; }
-#left_sider ul { list-style-positon: outside;}
-#left_sider li { margin: 8px 0px 8px 30px; font-weight: bold; color:#ffffff; }
-#left_sider li a{ color: #ffffff; }	
-#left_sider li a:visited  { color: #036; }
-
-/*#left_sider a:focus, a:hover, a:active { color:#d9dad8; text-decoration:underline; } */
-#left_sider li a:focus, a:hover, a:active { color:#ffffff; text-decoration:underline; }

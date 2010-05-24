@@ -1,1 +1,0 @@
-Logout(valid_in="/",redir_to=THIS.baseurl+"/index.pih")

@@ -1,1 +1,0 @@
-Session().name = _name

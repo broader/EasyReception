@@ -1,3 +1,0 @@
-<td>
-<% print "bonjour" %>
-</td>

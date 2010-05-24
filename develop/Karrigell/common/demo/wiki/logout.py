@@ -1,1 +1,0 @@
-Logout(path="/demo/wiki/index.pih")

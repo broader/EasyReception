@@ -1,8 +1,0 @@
-# this is the .htaccess file for mod_python
-Options -Indexes -MultiViews
-
-SetHandler mod_python
-
-# module mod_python_handler.py is in folder mod_python
-PythonHandler karrigell/apache/mod_python/mod_python_handler
-PythonDebug On 

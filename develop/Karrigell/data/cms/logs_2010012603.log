@@ -1,4 +1,0 @@
-2010/01/26 03:20:37 - 127.0.0.1 - GET / HTTP/1.1 302 /index.pih
-2010/01/26 03:20:37 - 127.0.0.1 - GET /index.pih HTTP/1.1 200
-2010/01/26 03:20:38 - 127.0.0.1 - GET /lib/validate/validation_messages.js.pih HTTP/1.1 200
-2010/01/26 03:20:38 - 127.0.0.1 - GET /home.pih HTTP/1.1 200

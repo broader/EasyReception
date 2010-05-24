@@ -1,8 +1,0 @@
-2009/12/24 17:41:25 - 127.0.0.1 - GET /menu.ks/page_validName?user=demo HTTP/1.1 200
-2009/12/24 17:41:25 - 127.0.0.1 - GET /menu.ks/page_validPwd?user=demo&pwd=990508 HTTP/1.1 200
-2009/12/24 09:41:26 - 127.0.0.1 - GET /menu.ks/page_postValid?_=1261647686875 HTTP/1.1 200
-2009/12/24 09:41:27 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
-2009/12/24 09:41:27 - 127.0.0.1 - GET /menu.ks/page_toggleMenu?showMenu=1&_=1261647687153 HTTP/1.1 200
-2009/12/24 09:41:27 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
-2009/12/24 09:41:27 - 127.0.0.1 - GET /menu.ks/page_loginSpan?page=0 HTTP/1.1 200
-2009/12/24 09:41:27 - 127.0.0.1 - GET /menu.ks/page_menuList?page=0 HTTP/1.1 200

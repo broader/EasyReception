@@ -1,1 +1,0 @@
-print "Bienvenue <b>",user,"</b>"

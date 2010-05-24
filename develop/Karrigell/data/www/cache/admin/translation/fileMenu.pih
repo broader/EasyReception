@@ -1,7 +1,0 @@
-[]
-# -*- coding: utf_8 -*-
-Login(role=["admin"],valid_in="/")
-STDOUT("<html>\n<head>\n<title>Karrigell home page</title>\n<script src=\"/admin/jquery-1.2.6.js\"></script>\n<script src=\"../jQueryFileTree/jQueryFileTree.js\"></script>\n<script>\n$(document).ready( function() {\n    $(\'#container_id\').fileTree(\n        { root: \'\',\n        script:\'jQueryFileTree.py\' },\n        function(file) {}\n        );\n});\n</script>\n<style>\nbody,li {font-family: sans-serif;\n    font-size:13}\n</style>\n</head>\n<body>\n<a href=\"/\" target=\"_top\">")
-STDOUT(_("Home"))
-STDOUT("</a>\n<br>Scripts\n<div id=\"container_id\"></div>\n</body>\n</html>\n")
-

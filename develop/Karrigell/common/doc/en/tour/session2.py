@@ -1,1 +1,0 @@
-print "Hello again %s" %Session().name

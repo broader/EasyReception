@@ -1,3 +1,0 @@
-2009/04/12 18:22:19 - 127.0.0.1 - GET / HTTP/1.1 302 /index.pih
-2009/04/12 18:22:19 - 127.0.0.1 - GET /index.pih HTTP/1.1 200
-2009/04/12 18:22:19 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found

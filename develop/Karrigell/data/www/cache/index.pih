@@ -1,8 +1,0 @@
-[]
-Include ("header.ks/index", title=_("EasyReception Congress Management Portal" ))
-STDOUT("<body>\n<div class=\"page_margins\">\n    <!-- start: skip link navigation -->\n    <!-- end: skip link navigation -->\n    <div class=\"page\">\n    		<!-- menu component -->		\n")
-Include ("menu.ks/index")
-STDOUT("		<div id=\"main\">\n		</div><!--main end -->	\n		<!-- footer component -->\n")
-Include("footer.pih")
-STDOUT("    </div><!-- page end -->\n</div><!-- page_margins end -->\n</body>\n</html>\n")
-
