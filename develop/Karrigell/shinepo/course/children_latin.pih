@@ -1,0 +1,41 @@
+<div class="subcolumns">
+	<div class="c75l">
+		<div class="subc">
+			<div class="floatbox">
+				<pre>少儿拉丁舞蹈培训班</pre>
+				<!-- the content of this table -->
+				<% table = {'header' : '为具备一定舞蹈基础的青少年量身定制的拉丁舞蹈考级培训班',\
+						    'body' : (('适合年龄', '7岁以上'),\
+								 ('授课内容', '拉丁舞基础、伦巴、桑巴、恰恰恰、斗牛、牛仔'),\
+								 ('授课老师', '北京舞蹈学院考级资格优秀教师'),\								 
+								 ('时间安排', '每周日上午 9：00－10：30 (每次2课时;每课时45分钟)'),\								 
+							        )\
+						   } 
+				%>
+				<!-- constructs the table -->
+				<table border="0" cellpadding="0" cellspacing="0" class="full">					
+          				<thead>
+          					<% print '<tr><th scope="col" colspan="2">%s</th></tr>'%table['header'] %>
+					</thead>          				
+          				<tbody>
+          					<% for i in table['body'] : 
+          						print '<tr>'
+          						print '<th scope="row" class="sub">%s</th>'%i[0] 
+          						print '<td>%s</td>'%i[1]
+          						print '</tr>'          					
+          					%>          					
+          				</tbody>
+          			</table> 
+          			<img src="images/home/children_2.png" class="float_left">
+				<img src="images/home/children_1.png" class="float_left">
+			</div><!-- floatbox end -->
+			
+		</div><!-- subcl end -->
+	</div><!-- c75l end -->
+	
+	<div class="c25r">
+		<div class="subcr">
+			<h5>在名师指导下，您的孩子将会获得心想事成的优异成绩！</h5>		
+		</div>	
+	</div>
+</div><!-- subcolumns end -->			

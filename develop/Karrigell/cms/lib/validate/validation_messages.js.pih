@@ -1,0 +1,24 @@
+/*
+ * Translated default messages for the jQuery validation plugin.
+ * Language: CN
+ * Author: Fayland Lam <fayland at gmail dot com>
+ */
+jQuery.extend(jQuery.validator.messages, {
+        required: "<%=_("This field is required!") %>",
+	remote: "<%=_("Please fixed this field!") %>",
+	email: "<%=_("The email format is not right!") %>",
+	url: "<%=_("Please input valid URL link!") %>",
+	date: "<%=_("Please input valid date !") %>",
+	dateISO: "<%=_("Please input valid date(ISO)!") %>",
+	number: "<%=_("Please input valid number!") %>",
+	digits: "<%=_("Only int number could be input !") %>",
+	creditcard: "<%=_("Please input valid number of the credit card!") %>",
+	equalTo: "<%=_("Please input the same value again!") %>",
+	accept: "<%=_("Please input the word with valid suffix!") %>",
+	maxlength: jQuery.format("<%=_("Please input a string whose length is no more than {0} !") %>"),
+	minlength: jQuery.format("<%=_("Please input a string whose length is no less than {0} !") %>"),
+	rangelength: jQuery.format("<%=_("Please input a string whose length is between {0} and {1} !")%>"),
+	range: jQuery.format("<%=_("Please input a value  between {0} and {1}!") %>"),
+	max: jQuery.format("<%=_("Please input a value not more than {0} !") %>"),
+	min: jQuery.format("<%=_("Please input a value not less than {0} !") %>")
+});

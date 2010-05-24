@@ -1,0 +1,72 @@
+<h1><%= chapter %>. Authentication and user management</h1>
+
+<h2><%= chapter %>.1 Login(), Logout() and Role()</h2>
+
+For user authentication, Karrigell provides a framework using 3 built-in functions, 
+<code>Login()</code>, <code>Logout()</code> and <code>Role()</code>. The default 
+implementation relies on a users database managed by the script 
+<code>users.ks</code>, which is reserved to the site administrator. This script
+is available from the home page : Administration/Users management
+
+<br>Users can have different roles, returned by function <code>Role()</code> :
+<ul>
+<li><code>None</code> if user is not logged in
+<li><code>visit</code> if user is logged as "visitor" : can only see pages, but not edit them
+<li><code>edit</code> if user is logged as "editor" : can edit data
+<li><code>admin</code> if user is logged as site administrator
+</ul>
+
+<p>The site administrator can add other roles by creating a file called 
+<span class="file">roles.txt</span> and putting it in the Data Directory 
+(<span class="file">data/www</span> for local host). This file has a line
+per role name
+
+<p>To restrict the access to a script to users who have a given role, use the function 
+<p><code>Login([<i>script,[role,[valid_in,[redir_to,[add_user]]]]]</i>)</code><p>
+When it is executed, it checks if the user is authenticated (using a cookie mechanism) ; if not :
+<ul>
+<li>a redirection is performed to a script (by default <code>/login.ks/login</code>) which prompts the user for a login and password
+<li>another script checks if login and password are present in the users database and if the user with these login and password has one of the roles specified in <code>role</code> (defaults to <code>["admin"]</code>)
+<li>if so, a redirection is performed to the original script, or to another url which can be specified as the argument <code>redir_to</code> : 
+
+<div class="python">
+<pre>
+Login(role=["admin"],redir_to="/send/me/here/after/login")</code>
+</pre>
+</div>
+
+<li>by default, the logging is valid for the folder in which the script is located. You can change the validity scope by the argument <code>valid_in</code>. For instance,
+<div class="python">
+<pre>
+Login(valid_in="/")</code>
+</pre>
+</div>
+
+makes logging valid for the whole root directory
+</ul>
+
+<p>Another script than the default <code>/login.ks/login</code> can be specified as argument to the 
+<code>Login()</code> function : <code>Login(script="/utils/custom_login.py")</code> for instance
+
+<p>If a user logs in with a login that is not yet in the users database, by default, he will receive an error message. If the parameter <code>add_user</code> is set to one of the possible roles (<code>"admin", "edit", "vidit")</code>, a button to create a new account will be proposed and the user will be able to enter his personal information. In any case, if the login already exists and the password submitted is not correct, an error message will also be returned
+
+<p><code>Logout(<i>[script,[valid_in,[redir_to]]]</i>)</code> erases logging information. The logout script defaults to <CODE>/admin/login.ks/logout</CODE> ; <code>valid_in</code> and <code>redir_to</code> have the same meaning as for <code>Login()</code>
+
+<h2><%= chapter %>.2 Example</h2>
+
+<p>
+<div class="python">
+<pre class="verbatim">
+def index():
+    # check if user is administrator or editor
+    Login(role=["edit","admin"])
+
+    # only shows is Login successful
+    print "Logged in as ",Role()
+</pre></div>
+
+<p>If the user is not logged is as administrator or editor, <code>Login()</code> redirects to the page requesting login and password
+<p>If he is logged as "edit" or "admin", <code>Login()</code> doesn't do anything and the rest of the function <code>index()</code> is run : function <code>Role()</code> returns the current user role
+
+
+<p>

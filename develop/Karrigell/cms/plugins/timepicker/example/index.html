@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>jQuery.ptTimeSelect</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="../doc/styles/main.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="ui.core.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="ui.theme.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/timecntr/jquery-ui-1.7.1.custom.css" media="screen" />
+	
+	<script type="text/javascript" language="JavaScript" src="jquery.js"></script>
+	
+	<!-- ptTimeSelect files below -->
+	<link rel="stylesheet" type="text/css" href="../src/jquery.ptTimeSelect.css" media="screen" />
+	<script type="text/javascript" language="JavaScript" src="../src/jquery.ptTimeSelect.js"></script>
+
+	
+	<!-- Demo code for this example page -->
+	<script language="JavaScript">
+		$(document).ready(
+			function () {
+				$('code').each(
+					function() {
+						eval($(this).html());
+					}
+				)
+			}
+		);
+		
+		// Populate usage
+		$(document).ready(function(){
+			
+			$.get(
+				"../doc/files/jquery-ptTimeSelect-js.html",
+				function(d){
+					var h = jQuery(d).find("div.CFunction h3:contains('.ptTimeSelect')").closest(".CFunction");
+					$("#usageDocMainMethod").empty().append(h);
+				},
+				"html");
+			$.get(
+				"../doc/files/jquery-ptTimeSelect-js.html",
+				function(d){
+					var h = $(d).find(".CHeading:contains('INSTALLATION') + .CParagraph");
+					$("#usageDocInstallation").empty().append(h);
+				}
+			);
+
+		});
+	</script>
+	
+<style type="text/css">
+
+</style>
+	
+</head>
+<body>
+	<div id="wrapper">
+		<div id="logo">
+			<h1>jQuery.ptTimeSelect</h1>
+		</div>
+		<p id="top">A jQuery Plugin</p>
+		
+		<ul id="menu">
+			<li><a class="current" href="http://pttimeselect.sourceforge.net/" title="Home">Home</a></li>
+			<li><a href="../doc/index.html">Source Documentation</a></li>
+			<li><a href="http://sourceforge.net/projects/pttimeselect/">SourceForge Project Home</a></li>		
+		</ul>		
+			
+		<div class="column">
+			<h1><span class="number">D</span>ownload</h1>
+			<p><a href="http://sourceforge.net/project/platformdownload.php?group_id=190063">jQuery.ptTimeSelect</a></p>
+		</div>
+		
+		<div class="column">
+			<h1><span class="number">R</span>equired</h1>
+			<p><a href="http://jquery.com/">www.jquery.com</a> (v1.3.2 or higher)<br /></p>
+		</div>
+		
+		<div class="column">
+			<h1><span class="number">S</span>upport</h1>
+			<p>Via the Help Forum at SourceForge. <a href="http://sourceforge.net/forum/forum.php?forum_id=668273">Click here</a> to post your question/problem.</p>
+		</div>
+		
+		<div class="clear"></div>
+		
+		<table width="98%" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td valign="top" width="50%">
+					<div class="half" id="usageDoc">
+						<h2>Documentation</h2>
+						
+						<h3>Installation</h3>
+						<div id="usageDocInstallation">
+							Loading...
+						</div>
+						
+						<h3>Usage</h3>
+						<div id="usageDocMainMethod">
+							Loading...
+						</div>
+						
+					</div>
+				</td>
+				<td valign="top" width="50%">
+					<div class="half" id="demoExamples">
+						<h2>Demo</h2>
+						<div id="sample1">
+							<h3>Example 1</h3>
+							Default call with no params defined. [<a href="javascript: void(0);" onclick="javascript:$('#sample1 code').toggle('slow');">view source</a>]
+							<code>
+
+$('#sample1 input').ptTimeSelect();
+
+
+</code>
+
+							<form onsubmit="javascript: void(0);">
+								<div>Start: <input name="s1Time2" value="" /><br /></div>
+								<div>
+									End: <input name="s1Time2" value="" />
+									<select>
+										<option>Option 1 here</option>
+										<option>Options 2 here</option>
+									</select><br /> <br />
+									<select>
+										<option>Option 1 here</option>
+										<option>Options 2 here</option>
+									</select>
+								</div>
+							</form>
+							<br /><br />
+						</div>
+					
+						<div id="sample2">
+							<h3>Example 2</h3>
+							Call with customized SET button label. [<a href="javascript: void(0);" onclick="javascript:$('#sample2 code').toggle('slow');">view source</a>]
+							<code>
+
+$('#sample2 input').ptTimeSelect({
+	popupImage: 'Select Time'
+});
+
+
+</code>
+							<form onsubmit="return void(0);">
+								<div>Start Time:<br /><input name="s2Time1" value="" /></div>
+								<div>End Time:<br /><input name="s2Time2" value="" /></div>
+							</form>
+						</div>
+							
+						<div id="sample3">
+							<h3>Example 3</h3>
+							Call with customized class by the name of timeCntr. The class was defined using the jQuery UI ThemeRoller. 
+							[<a href="javascript: void(0);" onclick="javascript:$('#sample3>code').toggle('slow');">view source</a>]
+							<code>
+
+$('#sample3 input').ptTimeSelect({
+	containerClass: "timeCntr",
+	containerWidth: "350px",
+	setButtonLabel: "Select",
+	minutesLabel: "min",
+	hoursLabel: "Hrs"
+});
+
+
+</code>
+
+							<form onsubmit="return void(0);">
+								<div>Start:</b><input name="s3Time1" size="8" value="" /></div>
+								<div>End:</b><input name="s3Time2" size="8" value="" /><br /></div>
+							</form>
+						</div>
+						<div id="sample4">
+							<h3>Example 2</h3>
+							Call with defined events. [<a href="javascript: void(0);" onclick="javascript:$('#sample4 code').toggle('slow');">view source</a>]
+							<code>
+
+$('#sample4 input').ptTimeSelect({
+	onBeforeShow: function(i){
+		$('#sample4 #sample4-data').append('onBeforeShow(event) Input field: ' + $(i).attr('name') + "<br>");
+	},
+	onClose: function(i) {
+		$('#sample4 #sample4-data').append('onClose(event)Time selected:' + $(i).val() + "<br>");
+	}
+	
+});
+
+
+</code>
+							<form onsubmit="return void(0);">
+								<div>Start Time:<br /><input name="s2Time1" value="" /><br /></div>
+							</form>
+							<div id="sample4-data">
+								<div style="font-weight: bold;">Event Data</div>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+		
+		<div class="clear"></div>
+		
+		<div class="news">
+			<table width="98%" cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td valign="top">
+						<div class="half">
+							<a href="http://sourceforge.net">
+				<img align="texttop" src="http://sflogo.sourceforge.net/sflogo.php?group_id=190063&amp;type=2" width="125" height="37" border="0" alt="SourceForge.net" /></a>
+						</div>
+					</td>
+					<td valign="top">
+						<div class="half">
+						<p>ptTimeSelect is a jQuery plugin that provides a UI for a user to define and set a time on a user form. It requires jQuery (obviously) as well as the dimmention.js plugin (available from jQuery as well).</p>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div id="footer">
+			<p>&copy; Copyright purtuga.com &middot; Design: <a href="http://www.solucija.com/" title="Visit Solucija">Luka Cvrk</a></p>
+		</div>
+	</div>
+</body>
+</html>

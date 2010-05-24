@@ -1,0 +1,52 @@
+<h1><%= chapter %>. User input</h1>
+
+The <code>REQUEST</code> variable is a dictionary representing the query string if the script is
+called with the HTTP <code>GET</code> method, or the fields of a form submitted with the HTTP <code>
+POST</code> method
+
+<p><code>REQUEST</code> keys are the name of the fields. The values are the value of the field
+<ul>
+<li>as a string,
+<li>or a list of strings if the field name ends with <code>[]</code> (if
+it comes from a <code>&lt;SELECT MULTIPLE&gt;</code> form field for instance)
+</ul>
+
+<p>Suppose you have an HTML form such as :
+
+<p>
+<div class="verbatim">
+<pre class="verbatim">
+&lt;form action="myScript.py"&gt;
+  Spam &lt;input name="spam"&gt;
+  &lt;br&gt;&lt;select multiple name="animal[]"&gt;
+  &lt;option value="dog"&gt;Dog
+  &lt;option value="cat"&gt;Cat
+  &lt;option value="frog"&gt;Frog
+  &lt;/select&gt;
+  &lt;br&gt;&lt;input type="submit" value="Ok"&gt;
+&lt;/form&gt;
+</pre>
+</div>
+
+<p>In <code>myScript.py</code> the input would be displayed with :
+<p>
+<div class="python"><pre class="verbatim">
+print "&lt;br&gt;Spam is ",REQUEST["spam"]
+if REQUEST.has_key("animal"):
+    print "&lt;br&gt;Animal is ",str(REQUEST["animal"])
+</pre></div>
+<p>
+
+<p>Access to these data is available through a shortcut, consisting in the underscore <code>_</code>
+prepended to the field name. The code above could be written in this simpler way :
+
+<p>
+<div class="python">
+<pre class="verbatim">
+print "&lt;br&gt;Spam is ",_spam
+if REQUEST.has_key("animal"):
+    print "&lt;br&gt;Animal is ",str(_animal)
+</pre></div>
+<p>
+The underscore is introduced to reduce the risks of naming conflicts with Python reserved words or
+with the name of frequently used modules

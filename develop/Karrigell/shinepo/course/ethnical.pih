@@ -1,0 +1,45 @@
+<div class="subcolumns">
+	<div class="c75l">
+		<div class="subc">
+			<div class="floatbox">
+				<pre>民族舞课程－“吉祥舞蹈卡”</pre>
+				<!-- the content of this table -->
+				<% table = {'header' : '民族舞课程',\
+						    'body' : (('课程种类', '傣族舞、维族舞、彝族舞、藏族舞、蒙族舞、汉族舞、高山族、鲜族舞、\
+						    		  <br>苗族舞、东北秧歌、胶州、海阳秧歌、云南花灯等民族、民间舞蹈，<br>中国舞、\
+						    		  古典舞课程'),\
+								 ('授课内容', '舞蹈基础、身韵，元素组合、技巧，元素组合，成品舞蹈，剧目编排'),\
+								 ('时间安排', '每周二次，每次二课时  会员赠送周五辅导课！！！ '),\
+								 ('授课老师', '王丽娜, 北京舞蹈学院、民族学院优秀舞蹈老师;<br>冯丽，中国舞蹈网研究员'),\
+								 ('上课时间', '每周二 、周三，上午9：00—10：30，王丽娜老师授课;<br>每周五，上午9：00—10：30，冯丽老师授课;')\
+							        )\
+						   } 
+				%>
+				<!-- constructs the table -->
+				<table border="0" cellpadding="0" cellspacing="0" class="full">					
+          				<thead>
+          					<% print '<tr><th scope="col" colspan="2">%s</th></tr>'%table['header'] %>
+					</thead>          				
+          				<tbody>
+          					<% for i in table['body'] : 
+          						print '<tr>'
+          						print '<th scope="row" class="sub">%s</th>'%i[0] 
+          						print '<td>%s</td>'%i[1]
+          						print '</tr>'          					
+          					%>          					
+          				</tbody>
+          			</table>  
+			</div><!-- floatbox end -->
+		</div><!-- subcl end -->
+	</div><!-- c75l end -->
+	
+	<div class="c25r">
+		<div class="subcr">
+			<p class="info">
+				现在各种民族舞蹈由于其特有的民族风格和文化多样性越来越受到都市青年的青睐<br>
+				假如在聚会或晚会上您能即兴表演一段与种不同的舞蹈，相信会给很多人留下深刻的印象。<br>
+				<h5>民族舞蹈将给您带来与众不同的展现自我气质的机会！</h5>
+			</p>
+		</div>	
+	</div>
+</div><!-- subcolumns end -->			

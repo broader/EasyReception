@@ -103,7 +103,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1273630307161" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1274538072314" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -163,7 +163,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1176858964077" FOLDED="true" ID="Freemind_Link_1801314834" MODIFIED="1273630306375" TEXT="Application">
+<node COLOR="#00b439" CREATED="1176858964077" FOLDED="true" ID="Freemind_Link_1801314834" MODIFIED="1274407676397" TEXT="Application">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="button_cancel"/>
@@ -400,14 +400,14 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1257233438846" FOLDED="true" ID="ID_1216660804" MODIFIED="1269821368440" TEXT="Web Map">
+<node COLOR="#990000" CREATED="1257233438846" FOLDED="true" ID="ID_1216660804" MODIFIED="1274407675172" TEXT="Web Map">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="help"/>
 <icon BUILTIN="yes"/>
-<node COLOR="#111111" CREATED="1261378950005" FOLDED="true" ID="ID_182198775" MODIFIED="1269060399958" TEXT="tools">
+<node COLOR="#111111" CREATED="1261378950005" ID="ID_182198775" MODIFIED="1274407557869" TEXT="tools">
 <font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1268877109410" FOLDED="true" ID="ID_148530390" MODIFIED="1268986043480" TEXT="&#x5730;&#x56fe;&#x64cd;&#x4f5c;">
+<node COLOR="#111111" CREATED="1268877109410" ID="ID_148530390" MODIFIED="1274407654443" TEXT="&#x5730;&#x56fe;&#x64cd;&#x4f5c;">
 <node COLOR="#111111" CREATED="1261378609375" ID="ID_658374767" MODIFIED="1268984079193" TEXT="http://www.openlayers.org/">
 <node COLOR="#111111" CREATED="1268985418203" ID="ID_27382300" MODIFIED="1268985432598" TEXT="&#x81ea;&#x5b9a;&#x4e49;&#x5730;&#x56fe;"/>
 <node COLOR="#111111" CREATED="1268985443100" ID="ID_1165079959" MODIFIED="1268985446368" TEXT="tutorials">
@@ -418,12 +418,16 @@
 </node>
 <node COLOR="#111111" CREATED="1261378940940" ID="ID_1531604039" MODIFIED="1261378941889" TEXT="http://mapserver.org/"/>
 <node COLOR="#111111" CREATED="1266888272841" ID="ID_415993031" MODIFIED="1266888275563" TEXT="http://www.geomajas.org/"/>
+<node COLOR="#111111" CREATED="1274407575000" ID="ID_282592667" MODIFIED="1274407577817" TEXT="mootools">
+<node COLOR="#111111" CREATED="1274407571348" ID="ID_1056870298" LINK="http://mootools.net/forge/p/mmap" MODIFIED="1274407583617" TEXT="http://mootools.net/forge/p/mmap"/>
+<node COLOR="#111111" CREATED="1274407656400" ID="ID_1186730012" LINK="http://mootools.net/forge/p/atlas" MODIFIED="1274407658782" TEXT="http://mootools.net/forge/p/atlas"/>
 </node>
-<node COLOR="#111111" CREATED="1268454868433" FOLDED="true" ID="ID_348356231" MODIFIED="1268981291391" TEXT="&#x7ecf;&#x7eac;&#x5ea6;&#x67e5;&#x8be2;">
+</node>
+<node COLOR="#111111" CREATED="1268454868433" FOLDED="true" ID="ID_348356231" MODIFIED="1274407565840" TEXT="&#x7ecf;&#x7eac;&#x5ea6;&#x67e5;&#x8be2;">
 <node COLOR="#111111" CREATED="1268450229955" ID="ID_967304884" MODIFIED="1268450230901" TEXT="http://mootools.net/forge/p/locate"/>
 <node COLOR="#111111" CREATED="1268454858906" ID="ID_1222689470" MODIFIED="1268454860286" TEXT="http://isithackday.com/hacks/geo/yql-geo-library/"/>
 </node>
-<node COLOR="#111111" CREATED="1268877091324" ID="ID_1278541748" MODIFIED="1268877097291" TEXT="&#x76f8;&#x5bf9;&#x4f4d;&#x79fb;">
+<node COLOR="#111111" CREATED="1268877091324" FOLDED="true" ID="ID_1278541748" MODIFIED="1274407566832" TEXT="&#x76f8;&#x5bf9;&#x4f4d;&#x79fb;">
 <node COLOR="#111111" CREATED="1268877098460" ID="ID_317230405" MODIFIED="1268877099397" TEXT="http://digitarald.de/playground/fly-over-background/"/>
 </node>
 <node COLOR="#111111" CREATED="1268877258927" ID="ID_975802032" MODIFIED="1268877261547" TEXT="Zoom">
@@ -502,10 +506,10 @@
 <node COLOR="#111111" CREATED="1269585550829" ID="ID_1674813649" MODIFIED="1269585552112" TEXT="http://www.imagemagick.org/script/index.php"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1252293851374" FOLDED="true" ID="Freemind_Link_549981737" MODIFIED="1273626803607" TEXT="Statistics">
+<node COLOR="#00b439" CREATED="1252293851374" FOLDED="true" ID="Freemind_Link_549981737" MODIFIED="1274509203350" TEXT="Statistics">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1272203124828" ID="ID_420820407" MODIFIED="1272203128676" TEXT="Examples">
+<node COLOR="#990000" CREATED="1272203124828" FOLDED="true" ID="ID_420820407" MODIFIED="1274509202550" TEXT="Examples">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1272203129650" ID="ID_1094331673" LINK="http://codecanyon.net/theme_previews/95807-backlinks-monitoring" MODIFIED="1272203133533" TEXT="http://codecanyon.net/theme_previews/95807-backlinks-monitoring"/>
 <node COLOR="#111111" CREATED="1272418551349" ID="ID_744564703" LINK="http://codecanyon.net/item/lead-tracker/99722" MODIFIED="1272418553777" TEXT="http://codecanyon.net/item/lead-tracker/99722"/>
@@ -513,6 +517,9 @@
 <node COLOR="#990000" CREATED="1273475051987" ID="ID_429729730" MODIFIED="1273475054423" TEXT="Tools">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1273475055778" ID="ID_1510238402" LINK="http://g.raphaeljs.com/" MODIFIED="1273475058994" TEXT="http://g.raphaeljs.com/"/>
+<node COLOR="#111111" CREATED="1274509095543" ID="ID_455441924" MODIFIED="1274509099153" TEXT="Google">
+<node COLOR="#111111" CREATED="1274509101266" ID="ID_1775640170" LINK="http://www.iwanna.cn/archives/2010/05/22/3286/" MODIFIED="1274509105115" TEXT="http://www.iwanna.cn/archives/2010/05/22/3286/"/>
+</node>
 </node>
 </node>
 <node COLOR="#00b439" CREATED="1252293869407" ID="Freemind_Link_1698066433" MODIFIED="1272202959104" TEXT="Account">
@@ -945,7 +952,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1274326705568" POSITION="right" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" ID="Freemind_Link_986904229" MODIFIED="1274666786322" POSITION="right" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -1081,7 +1088,7 @@
 <node COLOR="#111111" CREATED="1270272374006" ID="ID_1440362744" MODIFIED="1270272624879" TEXT="Create Action&#xa;---&gt;&#x68c0;&#x67e5;&#x662f;&#x5426;&#x4e0e; existed key values &#x503c;&#x91cd;&#x590d;&#x5373;&#x53ef;&#xa;&#xa;Edit Action&#xa;---&gt;1, &#x901a;&#x8fc7; node id &#x83b7;&#x5f97; old key value;&#xa;---&gt;2, &#x5982;&#x679c; &#xa;------&gt;input value == old key value---&gt; valid input&#xa;------&gt;&#x6216;&#x8005; input value &#x6ca1;&#x6709;&#x4e0e; existed key values &#x91cd;&#x590d; ---&gt; valid input"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1274326699729" TEXT="Karrigell">
+<node COLOR="#00b439" CREATED="1174877401376" ID="Freemind_Link_503549801" MODIFIED="1274666788071" TEXT="Karrigell">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1250824602428" FOLDED="true" ID="Freemind_Link_1774893402" MODIFIED="1274274708400" TEXT="_()---i18n">
@@ -1113,11 +1120,11 @@
 <node COLOR="#111111" CREATED="1260451690651" ID="ID_1486718180" MODIFIED="1260451819616" TEXT="{,  [ ,  &apos;&apos;&apos; ,  &quot;&quot;&quot; &#x7f3a;&#x5c11;&#x5bf9;&#x5e94;&#x7684;&#x7ed3;&#x675f;&#x7b26;&#x53f7;&#xff0c;&#xa;&#x6216;&#x662f;&#x6587;&#x4ef6;&#x6700;&#x540e;&#x4e00;&#x884c; &#x4ee5; &apos;\&apos; &#x7ed3;&#x675f;&#xa;"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1265166162729" FOLDED="true" ID="ID_1537892475" MODIFIED="1274274728584" TEXT="Unicode &amp; UTF8">
+<node COLOR="#990000" CREATED="1265166162729" FOLDED="true" ID="ID_1537892475" MODIFIED="1274590387759" TEXT="Unicode &amp; UTF8">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1265166193364" FOLDED="true" ID="ID_669740718" MODIFIED="1272459330569" TEXT="&#x89e3;&#x51b3;&#x4ee5;&#x4e0b;&#x9519;&#x8bef;&#xff1a;&#xa;UnicodeDecodeError: &apos;utf8&apos; codec can&apos;t decode byte 0xbc in position 0: unexpected code byte">
+<node COLOR="#111111" CREATED="1265166193364" ID="ID_669740718" MODIFIED="1274589392411" TEXT="&#x89e3;&#x51b3;&#x4ee5;&#x4e0b;&#x9519;&#x8bef;&#xff1a;&#xa;UnicodeDecodeError: &apos;utf8&apos; codec can&apos;t decode byte 0xbc in position 0: unexpected code byte">
 <icon BUILTIN="yes"/>
 <node COLOR="#111111" CREATED="1267145167676" ID="ID_568421079" MODIFIED="1267145167677" TEXT="&#xa;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xa;reload(sys)&#xa;sys.setdefaultencoding(&apos;utf8&apos;)&#x9; &#xa;&#xa;# &#x91c7;&#x7528;&#x5217;&#x8868;&#x9012;&#x5f52;&#x65b9;&#x5f0f;&#x6709;&#x65f6;&#x4f1a;&#x5f15;&#x53d1;&#x9519;&#x8bef;&#xff0c;&#x6b64;&#x65f6;&#x9700;&#x5bf9;&#x6bcf;&#x4e2a;&#x5b57;&#x7b26;&#x4e32;&#x8fdb;&#x884c;utf8&#x89e3;&#x7801;&#xa;#encoded = [[i.decode(&apos;utf8&apos;) for i in row] for row in rslice]&#xa;&#xa;for row in rslice:&#xa;  for i,s in enumerate(row) :&#xa;    row[i] = s.decode(&apos;utf8&apos;)&#xa;&#xa;&#x9875;&#x9762;&#x8fd4;&#x56de;&#x5ba2;&#x6237;&#x7aef;json&#x683c;&#x5f0f;&#x6570;&#x636e;&#x65f6;&#xff0c;&#xa;JSON.encode(data,encoding=&apos;utf8&apos;)"/>
 </node>
@@ -1129,7 +1136,7 @@
 <node COLOR="#111111" CREATED="1273633491829" ID="ID_1759401359" MODIFIED="1273633903399" TEXT="&#x5bfc;&#x5165;&#x94fe;&#xff1a;&#xa;&quot;&#x67d0;&#x9875;&#x9762;&quot;&#xff0d;&#x300b;model.py-&gt;config.py&#xa;&#xa;&#x4fee;&#x6b63;&#x70b9;&#xff1a;&#xa;model.py-&gt;&#xa;INITCONFIG = Import( &quot;../config.py&quot;, rootdir=CONFIG.root_dir)&#xa;&#xa;&#x6b64;&#x5904;&#x5fc5;&#x987b;&#x4f7f;&#x7528;&quot;../config.py&quot;&#xff0c;&#x5426;&#x5219;Karrigell-&gt;k_target.py-&gt;Target._import()&#x4e2d;&#x4ee5;&#x4e0b;&#x8bed;&#x53e5;&#xa;abs_url = urlparse.urljoin(self.script_url,url)&#xa;&#x5c06;&#x5bfc;&#x81f4;&quot;&#x67d0;&#x9875;&#x9762;&#x201c;&#x7684;&#x76f8;&#x5bf9;&#x8def;&#x5f84;&#x88ab;&#x6dfb;&#x52a0;&#xff0c;&#x4ece;&#x800c;&#x5f15;&#x53d1;Import Error"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1263825181828" ID="ID_854025776" MODIFIED="1274325129585" TEXT="Session">
+<node COLOR="#990000" CREATED="1263825181828" FOLDED="true" ID="ID_854025776" MODIFIED="1274590389081" TEXT="Session">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -1174,8 +1181,8 @@
 <node COLOR="#111111" CREATED="1269422877447" ID="ID_1239812545" MODIFIED="1269423710766" TEXT="&#x73b0;&#x5728;roundup tracker &#x5728;RequestHandler&#x4e2d;&#x88ab;&#x7f13;&#x5b58;&#x5e76;&#x53cd;&#x590d;&#x4f7f;&#x7528;,&#xa;sesssion object = requestHandler.sessionId&#xa;&#x8fd9;&#x6837;&#x53ef;&#x80fd;&#x4f1a;&#x5bfc;&#x81f4;sessionId&#x7d0a;&#x4e71;?&#xa;&#x4f8b;&#x5982;&#xff1a;&#xa;demo&#x767b;&#x5f55;&#xff0c;&#x5374;&#x663e;&#x793a;admin&#x7684;&#x754c;&#x9762;&#xff1b;&#xa;&#x6b63;&#x5e38;&#x767b;&#x5f55;&#xff0c;&#x5374;&#x65e0;&#x6cd5;&#x8bfb;&#x53d6;role&#x7b49;session object &#x5c5e;&#x6027;&#xff1b;&#xa;&#xa;&#x73b0;&#x5728;&#x5df2;&#x5220;&#x9664;RequestHandler&#x4e2d;&#x7684;roundup tracker instance &#x7f13;&#x5b58;"/>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1274320675710" ID="ID_433686554" MODIFIED="1274320683158" TEXT="&#x89e3;&#x51b3;&#x529e;&#x6cd5;">
-<node COLOR="#111111" CREATED="1274320693706" ID="ID_387659754" MODIFIED="1274320700534" TEXT="layout.ks">
+<node COLOR="#111111" CREATED="1274320675710" FOLDED="true" ID="ID_433686554" MODIFIED="1274539718385" TEXT="&#x89e3;&#x51b3;&#x529e;&#x6cd5;">
+<node COLOR="#111111" CREATED="1274320693706" FOLDED="true" ID="ID_387659754" MODIFIED="1274539717322" TEXT="layout.ks">
 <node COLOR="#111111" CREATED="1274320709899" ID="ID_1005593136" MODIFIED="1274320925639" TEXT="&#x7531;&#x4e8e;&#x8be5;&#x6587;&#x4ef6;&#x8d1f;&#x8d23;&#x767b;&#x5f55;&#x8fc7;&#x7a0b;&#x63a7;&#x5236;&#xff0c;&#x5c06;session&#x7684;&#x8c03;&#x7528;&#x5206;&#x5e03;&#x4e8e;&#x5177;&#x4f53;&#x51fd;&#x6570;&#x4e2d;&#xff0c;&#x800c;&#x4e0d;&#x662f;&#x5728;ks&#x6587;&#x4ef6;&#x7684;&#x5f00;&#x5934;&#x5168;&#x5c40;&#x5b9a;&#x4e49;&#xff1b;&#xa;&#xa;&#x4ec5;&#x5728;&#x7528;&#x6237;&#x5e10;&#x6237;&#x3001;&#x53e3;&#x4ee4;&#x6821;&#x9a8c;&#x6210;&#x529f;&#x540e;&#xff0c;&#x5c06;&#x7528;&#x6237;&#x767b;&#x5f55;&#x4fe1;&#x606f;&#x5b58;&#x50a8;&#x5230;&#x521a;&#x521b;&#x5efa;&#x7684;session objcet&#x4e2d;&#x3002;&#xa;"/>
 <node COLOR="#111111" CREATED="1274320931003" ID="ID_1794841848" MODIFIED="1274325150022" TEXT="K3.1&#xa;---&gt;HTTP.py&#xa;------&gt;def Session(self,expires=15*60,path=&apos;/&apos;):&#xa;&#x7531;&#x4e8e;&#x6b64;&#x5904;&#x5c06;cookie&#x7684;&#x76f8;&#x5bf9;&#x8def;&#x5f84;&#x7f3a;&#x7701;&#x8bbe;&#x7f6e;&#x4e3a;&apos;/&apos;,&#x5728;layout.ks&#x6587;&#x4ef6;&#x4e2d;&#x4e0d;&#x7528;&#x518d;&#x9488;&#x5bf9;&#x6b64;&#x505a;&#x5904;&#x7406;&#x3002;&#xa;">
 <arrowlink DESTINATION="ID_1348534102" ENDARROW="Default" ENDINCLINATION="-65;-51;" ID="Arrow_ID_1331154546" STARTARROW="None" STARTINCLINATION="-73;22;"/>
@@ -1188,27 +1195,41 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1274278527294" FOLDED="true" ID="ID_1348534102" MODIFIED="1274325150032" TEXT="Migrate from 3.0 to 3.1">
+<node COLOR="#990000" CREATED="1274278527294" FOLDED="true" ID="ID_1348534102" MODIFIED="1274666816742" TEXT="Migrate from 3.0 to 3.1">
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1274278542563" FOLDED="true" ID="ID_1302898135" MODIFIED="1274325124798" TEXT="&#x65b9;&#x6cd5;">
+<node COLOR="#111111" CREATED="1274278542563" FOLDED="true" ID="ID_1302898135" MODIFIED="1274603466631" TEXT="&#x65b9;&#x6cd5;">
 <node COLOR="#111111" CREATED="1274278570728" ID="ID_6930495" MODIFIED="1274278640168" TEXT="&#x5c06;3.1&#x76ee;&#x5f55;&#x4e0b;&#x7684;&#x6587;&#x4ef6;&#x590d;&#x5236;&#x5230;3.0&#x76ee;&#x5f55;&#x4e0b;,&#xa;&#x5e94;&#x7528;&#x76ee;&#x5f55;&#x7ed3;&#x6784;&#x4e0e;&#x5185;&#x5bb9;&#x4e0d;&#x53d8;"/>
 </node>
-<node COLOR="#111111" CREATED="1274278552671" FOLDED="true" ID="ID_1843131412" MODIFIED="1274325124231" TEXT="&#x95ee;&#x9898;&#x53ca;&#x89e3;&#x51b3;">
-<node COLOR="#111111" CREATED="1274280522633" FOLDED="true" ID="ID_1637812530" MODIFIED="1274325041183" TEXT="Unicode Error">
+<node COLOR="#111111" CREATED="1274278552671" ID="ID_1843131412" MODIFIED="1274538110938" TEXT="&#x95ee;&#x9898;&#x53ca;&#x89e3;&#x51b3;">
+<node COLOR="#111111" CREATED="1274280522633" FOLDED="true" ID="ID_1637812530" MODIFIED="1274603463679" TEXT="Unicode Error">
 <icon BUILTIN="button_ok"/>
 <node COLOR="#111111" CREATED="1274321216164" ID="ID_667865283" MODIFIED="1274324220966" TEXT="Exception in module /pagefn.py imported by /kindex&#xa;Line 7    &#xa;INITCONFIG = Import( &apos;/&apos;.join((&apos;&apos;, &apos;config.py&apos;)), rootdir=CONFIG.root_dir)&#xa;K_ImportError: (, &apos;/config.py&apos;, (, UnicodeEncodeError(&apos;ascii&apos;, u&apos;\u767b\u5f55\u540d\u79f0&apos;, 0, 4, &apos;ordinal not in range(128)&apos;), ))&#xa;**********************************************************************************************&#xa;&#x5c06;$muireception/config.yaml&#x4e2d;&#x5185;&#x5bb9;&#x6e05;&#x7a7a;&#x540e;&#x4e0d;&#x518d;&#x62a5;&#x9519;&#xa;&#xa;&#x6b64;&#x9519;&#x8bef;&#x51fa;&#x73b0;&#x4e8e;&#x6bcf;&#x6b21;&#x767b;&#x5f55;$muireception/admin&#x540e;&#xff0c;&#x8bbe;&#x7f6e;&#x7528;&#x6237;&#x540d;&#x53ca;&#x5bc6;&#x7801;&#x65f6;&#x62a5;&#x9519;&#xa;*********************************************************************************************&#xa;Error in /admin/set_admin.ks&#xa;Line 47    &#xa;if not CONFIG.sqlite:&#xa;AttributeError: Config instance has no attribute &apos;sqlite&apos;&#xa;*********************************************************************************************&#xa;"/>
+<node COLOR="#111111" CREATED="1274589651828" ID="ID_1235173914" MODIFIED="1274590601232" TEXT="&#x6839;&#x672c;&#x89e3;&#x51b3;&#x4e4b;&#x9053;">
+<icon BUILTIN="messagebox_warning"/>
+<icon BUILTIN="button_ok"/>
+<node COLOR="#111111" CREATED="1274589664263" FOLDED="true" ID="ID_1051225165" MODIFIED="1274590650999" TEXT="&#x6e90;&#x7801;&#x8ffd;&#x8e2a;">
+<node COLOR="#111111" CREATED="1274589705326" ID="ID_1324189329" MODIFIED="1274590338059" TEXT="k_target.py, _import(),L476&#xa;---&gt;L497&#xa;try:&#xa;    module.run(ns,included=True) ---&gt;module : Target instance&#xa;except:&#xa;     tb = cStringIO.StringIO()&#xa;     traceback.print_exc(file=tb)&#xa;     raise K_ImportError,(module,url,sys.exc_info())&#xa;&#xa;---&gt;import error,&#x63a8;&#x6d4b;&#x4e3a; self._()&#x51fa;&#x9519;&#xa;---&gt;L512, self.translation()&#xa;------&gt;l520, &#xa;encoding = self.handler.output_encoding&#xa;&#xa;&gt;&gt; HTTP.py, Class HTTP()&#xa;---&gt;L130, self. process_request()&#xa;------&gt;&#xa;*******************************************************&#xa;# defaults&#xa;self.output_encoding = sys.getdefaultencoding()&#xa;*******************************************************&#xa;Change to &#xa;******************************************************************&#xa;# defaults&#xa;reload(sys)&#xa;sys.setdefaultencoding(&apos;utf8&apos;)  # &#x6b64;&#x5904;&#x5c06;python &#x89e3;&#x91ca;&#x5668;&#x7f3a;&#x7701;&#x8bbe;&#x7f6e;&#x4e3a;&apos;utf8&apos;&#xa;self.output_encoding = sys.getdefaultencoding()&#xa;******************************************************************&#xa;"/>
 </node>
-<node COLOR="#111111" CREATED="1274324176785" FOLDED="true" ID="ID_1981813344" MODIFIED="1274325042398" TEXT="$app/admin Error">
+</node>
+</node>
+<node COLOR="#111111" CREATED="1274324176785" FOLDED="true" ID="ID_1981813344" MODIFIED="1274589639743" TEXT="$app/admin Error">
 <icon BUILTIN="button_ok"/>
 <node COLOR="#111111" CREATED="1274324187801" ID="ID_604732120" MODIFIED="1274325020896" TEXT="&#x521d;&#x6b21;&#x767b;&#x5f55;&#x65f6;&#xff0c;&#x4f1a;&#x63d0;&#x793a;&#x521b;&#x5efa;&#x65b0;&#x5e10;&#x6237;&#xff0c;&#x8bbe;&#x7f6e;&#x7528;&#x6237;&#x540d;&#x53ca;&#x5bc6;&#x7801;&#x65f6;&#x62a5;&#x9519;&#xa;*********************************************************************************************&#xa;Error in /admin/set_admin.ks&#xa;Line 47    &#xa;if not CONFIG.sqlite:&#xa;AttributeError: Config instance has no attribute &apos;sqlite&apos;&#xa;*********************************************************************************************&#xa;&#xa;Trace Error&#xa;-------------------------------------------------------------------------------&#xa;$Karrigell/common/admin/set_admin.ks&#xa;---&gt;set_admin_info()&#xa;------&gt;L50,&#xa;else:&#xa;        # create users database&#xa;---------&gt;        db = k_users_db.get_db(CONFIG)&#xa;&#xa;&gt;&gt;&gt;$Karrigell/karrigell/core/k_users_db.py&#xa;---&gt;$Karrigell/common/admin/set_admin.ks&#xa;------&gt;get_db(config)&#xa;---------&gt;&#xa;if not has_db_settings(config):&#xa;        return None&#xa;------&gt;has_db_settings(config)&#xa;---------&gt;&#xa;    db_settings = os.path.join(config.data_dir,&apos;users_db.py&apos;)&#xa;&#xa;&#x81f3;&#x6b64;&#x53d1;&#x73b0;&#x7531;&#x4e8e;&#x4ece;K3.0&#x8fc1;&#x79fb;&#x81f3;K3.1&#x65f6;&#xff0c;muireception&#x5e94;&#x7528;&#x76f4;&#x63a5;&#x590d;&#x5236;&#x800c;&#x4e0d;&#x662f;&#x7531;k3.1&#x521b;&#x5efa;&#xff0c;&#x5bfc;&#x81f4;&#xa;$Karrigell/data/muireception/users_db.py&#x6587;&#x4ef6;&#x6ca1;&#x6709;&#x521b;&#x5efa;,&#xa;&#x76f4;&#x63a5;&#x4ece;$Karrigell/data/muireception/users_db.py&#x4e2d;&#x590d;&#x5236;&#x81f3;&#x8be5;&#x76ee;&#x5f55;&#x5373;&#x53ef;&#x3002;&#xa;&#x8be5;&#x6587;&#x4ef6;&#x5185;&#x5bb9;&#x53ea;&#x6709;&#x4e00;&#x884c;&#xff1a;&#xa;engine=&quot;SQLite&quot;">
 <icon BUILTIN="button_ok"/>
 <icon BUILTIN="messagebox_warning"/>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1274280537218" FOLDED="true" ID="ID_831299768" MODIFIED="1274324153351" TEXT="Karrigell &#x9996;&#x9875;&#xff0c;&#x767b;&#x5f55;&#x6570;&#x636e;&#x5e93;&#x7ba1;&#x7406;&#x754c;&#x9762;&#x62a5;&#x9519;">
+<node COLOR="#111111" CREATED="1274280537218" FOLDED="true" ID="ID_831299768" MODIFIED="1274590383055" TEXT="Karrigell &#x9996;&#x9875;&#xff0c;&#x767b;&#x5f55;&#x6570;&#x636e;&#x5e93;&#x7ba1;&#x7406;&#x754c;&#x9762;&#x62a5;&#x9519;">
 <icon BUILTIN="messagebox_warning"/>
 <icon BUILTIN="button_ok"/>
 <node COLOR="#111111" CREATED="1274280582856" ID="ID_557874321" MODIFIED="1274280782159" TEXT="$Karrigell/karrigell/package/PyDblite/SQLite.py&#xa;L366,&#xa;for field_name in self.conv_func:&#x9;&#xa;*************************************************************************&#xa;    res[field_name] = self.conv_func[field_name](res[field_name])&#xa;*************************************************************************&#xa;---&gt; &#xa;*************************************************************************&#xa;    try:&#xa;        res[field_name] = self.conv_func[field_name](res[field_name])&#xa;    except:&#xa;        print field_name, self.conv_func[field_name]&#xa;*************************************************************************"/>
+</node>
+<node COLOR="#111111" CREATED="1274539749712" FOLDED="true" ID="ID_9823699" MODIFIED="1274590598639" TEXT="Virtual Host Create Error">
+<icon BUILTIN="button_cancel"/>
+<node COLOR="#111111" CREATED="1274539772987" ID="ID_1724094223" MODIFIED="1274539788861" TEXT="vh_manager.ks">
+<node COLOR="#111111" CREATED="1274539790284" ID="ID_290806603" MODIFIED="1274539889897" TEXT="L106, create_host&#xa;---&gt;k_config.init()&#xa;&#xa;k_config.py&#xa;---&gt;L72, init(server_config), &#x6b64;&#x5904;&#x9700;&#x8981;&quot;server_config&quot;&#x53c2;&#x6570;&#xa;// &#x53ef;&#x53c2;&#x8003;Karrigell_async.py&#x4e2d;&#x7684;&#x8bbe;&#x7f6e;"/>
+<node COLOR="#111111" CREATED="1274539892510" ID="ID_1377864833" MODIFIED="1274540119033" TEXT="&#x8fd0;&#x884c;&#x8be5;&#x51fd;&#x6570;&#x524d;&#xff0c;&#x76f8;&#x5173;host&#x53c2;&#x6570;&#x5df2;&#x5199;&#x5165;hosts&#x6587;&#x4ef6;&#xff0c; $Karrigell/data/&#x4e0b;&#x76f8;&#x5173;&#x6587;&#x4ef6;&#x5df2;&#x751f;&#x6210;&#xff0c;$Karrigell/&#x4e0b;&#x76f8;&#x5173;virtual host &#x4e3b;&#x673a;&#x6587;&#x4ef6;&#x5939;&#x4e5f;&#x5df2;&#x751f;&#x6210;&#x3002;&#xa;&#xa;&#x8be5;&#x51fd;&#x6570;&#x529f;&#x80fd;&#x4e3a;&#xff0c;&#x5411;&#x5f53;&#x524d;server&#x7684;config&#x5b9e;&#x4f8b;&#xff08;&#x5185;&#x5b58;&#x8fd0;&#x884c;&#x4e2d;&#xff09;&#x6dfb;&#x52a0;&#x65b0;&#x7684;virtual host &#x53c2;&#x6570;&#xff1b;&#x4e4b;&#x540e;&#x663e;&#x793a;&#x4e00;&#x4e2a;&#x6307;&#x5411;&#x65b0;&#x751f;&#x6210;&#x7684;&#x865a;&#x62df;&#x4e3b;&#x673a;&#x7684;&#x94fe;&#x63a5;"/>
+</node>
 </node>
 </node>
 </node>
@@ -2450,10 +2471,10 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1270952020458" FOLDED="true" ID="ID_1804767918" MODIFIED="1274326703575" POSITION="right" TEXT="Develop Evironment">
+<node COLOR="#0033ff" CREATED="1270952020458" ID="ID_1804767918" MODIFIED="1274590553730" POSITION="right" TEXT="Develop Evironment">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1262786726152" FOLDED="true" ID="ID_476877394" MODIFIED="1273828343092" TEXT="Source">
+<node COLOR="#00b439" CREATED="1262786726152" ID="ID_476877394" MODIFIED="1274590555141" TEXT="Source">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1266917069312" ID="ID_30201427" MODIFIED="1273827249936" TEXT="Management">
@@ -2475,10 +2496,10 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1266917080151" FOLDED="true" ID="ID_370832872" MODIFIED="1273546962183" TEXT="Change">
+<node COLOR="#990000" CREATED="1266917080151" ID="ID_370832872" MODIFIED="1274590557735" TEXT="Change">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1183969360528" ID="Freemind_Link_1717488379" MODIFIED="1273546962185" TEXT="javascript">
+<node COLOR="#111111" CREATED="1183969360528" FOLDED="true" ID="Freemind_Link_1717488379" MODIFIED="1274590705199" TEXT="javascript">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1260329913465" ID="ID_484061448" MODIFIED="1266917101003" TEXT="jQuery">
@@ -2502,7 +2523,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1260329928560" ID="ID_1432963465" MODIFIED="1266917122336" TEXT="Mootools">
+<node COLOR="#111111" CREATED="1260329928560" FOLDED="true" ID="ID_1432963465" MODIFIED="1274590703873" TEXT="Mootools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1261625402522" FOLDED="true" ID="ID_1117421280" MODIFIED="1269869082107" TEXT="Knowledge Or Experience">
@@ -2582,10 +2603,50 @@
 </node>
 <node COLOR="#111111" CREATED="1266917223325" ID="ID_320623265" MODIFIED="1273546962348" TEXT="Karrigell">
 <font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1266917274150" FOLDED="true" ID="ID_1171070791" MODIFIED="1266917536502" TEXT="k_sessions.py">
+<node COLOR="#111111" CREATED="1274590572356" ID="ID_1239765131" MODIFIED="1274590576369" TEXT="K3.0">
+<node COLOR="#111111" CREATED="1266917274150" FOLDED="true" ID="ID_1171070791" MODIFIED="1274590688815" TEXT="k_sessions.py">
 <icon BUILTIN="messagebox_warning"/>
 <icon BUILTIN="button_cancel"/>
 <node COLOR="#111111" CREATED="1266917310958" ID="ID_88625123" MODIFIED="1266917515335" TEXT="&#x95ee;&#x9898;&#xff1a;session&#x6570;&#x91cf;&#x8d85;&#x8fc7;&#x8bbe;&#x5b9a;&#x503c;&#x65f6;&#xff0c;&#x5220;&#x9664;&#x65e7;session&#x65f6;&#x62a5;KeyError&#x9519;&#x8bef;&#xff0c;&#x5bfc;&#x81f4;&#x670d;&#x52a1;&#x5668;&#x5d29;&#x6e83;&#x3002;&#xa;&#xa;class LimitedDict(dict):&#xa;---&gt;__setitem__()&#xa;------&gt;L35&#xa;*********************old**********************************&#xa;first = self.keys.pop(0)&#xa;del self[first]&#xa;--------------------------------------------------&#xa;&#xa;*********************new**********************************&#xa;try:&#xa;  first = self.keys.pop(0)&#xa;  del self[first]&#xa;except:&#xa;  print &apos;The session key %s is not existed !&apos;%first&#xa;---------------------------------------------------"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1274590581648" ID="ID_457520891" MODIFIED="1274666816734" TEXT="K3.1">
+<arrowlink DESTINATION="ID_1348534102" ENDARROW="Default" ENDINCLINATION="394;0;" ID="Arrow_ID_904810897" STARTARROW="None" STARTINCLINATION="268;51;"/>
+<node COLOR="#111111" CREATED="1274590615452" FOLDED="true" ID="ID_558859582" MODIFIED="1274666772622" TEXT="Unicode Error">
+<icon BUILTIN="button_ok"/>
+<node COLOR="#111111" CREATED="1274603100632" FOLDED="true" ID="ID_643411685" MODIFIED="1274603447103" TEXT="&#x95ee;&#x9898;&#x8ffd;&#x8e2a;">
+<icon BUILTIN="yes"/>
+<node COLOR="#111111" CREATED="1274589705326" ID="ID_672101580" MODIFIED="1274603321478" TEXT="k_target.py, _import(),L476&#xa;---&gt;L497&#xa;try:&#xa;    module.run(ns,included=True) ---&gt;module : Target instance&#xa;except:&#xa;     tb = cStringIO.StringIO()&#xa;     traceback.print_exc(file=tb)&#xa;     raise K_ImportError,(module,url,sys.exc_info())&#xa;&#xa;---&gt;import error,&#x63a8;&#x6d4b;&#x4e3a; self._()&#x51fa;&#x9519;&#xa;---&gt;L512, self.translation()&#xa;------&gt;l520, &#xa;encoding = self.handler.output_encoding&#xa;&#xa;&gt;&gt; HTTP.py, Class HTTP()&#xa;---&gt;L130, self. process_request()&#xa;------&gt;&#xa;*******************************************************&#xa;# defaults&#xa;self.output_encoding = sys.getdefaultencoding() # is &quot;ascii&quot; encoding&#xa;# &#x5982;&#x679c;$Karrigell/data/application/config.py &#x4e2d; output-encoding = None,&#xa;# &#x5219;&#x4f7f;&#x7528;sys.getdefaultencoding()---&gt;&quot;ascii&quot;&#xff0c;&#x5bfc;&#x81f4;UnicodeError&#xa;&#xa;*******************************************************&#xa;"/>
+</node>
+<node COLOR="#111111" CREATED="1274603332654" ID="ID_1985781230" MODIFIED="1274603335269" TEXT="Solution">
+<node COLOR="#111111" CREATED="1274603064349" ID="ID_62714375" MODIFIED="1274603442911" TEXT="&#x65b9;&#x6cd5;&#x4e00;">
+<icon BUILTIN="full-1"/>
+<icon BUILTIN="button_ok"/>
+<node COLOR="#111111" CREATED="1274589705326" ID="ID_165474520" MODIFIED="1274603431375" TEXT="&#x5982;&#x679c;$Karrigell/data/application/config.py &#x4e2d; output-encoding = None,&#xa;&#x5219;&#x4f7f;&#x7528;sys.getdefaultencoding()---&gt;&quot;ascii&quot;&#xff0c;&#x5bfc;&#x81f4;UnicodeError&#xa;&#xa;&#x73b0;&#x8bbe;&#x7f6e;&#xa;$Karrigell/data/application/config.py &#xa;---&gt; output-encoding = &quot;utf-8&quot;&#xa;"/>
+</node>
+<node COLOR="#111111" CREATED="1274603069337" FOLDED="true" ID="ID_1087942253" MODIFIED="1274603351111" TEXT="&#x65b9;&#x6cd5;&#x4e8c;">
+<node COLOR="#111111" CREATED="1274590585920" ID="ID_1117555551" MODIFIED="1274602470695" TEXT="HTTP.py">
+<icon BUILTIN="yes"/>
+<icon BUILTIN="button_ok"/>
+<node COLOR="#111111" CREATED="1274589705326" ID="ID_1326703464" MODIFIED="1274590338059" TEXT="k_target.py, _import(),L476&#xa;---&gt;L497&#xa;try:&#xa;    module.run(ns,included=True) ---&gt;module : Target instance&#xa;except:&#xa;     tb = cStringIO.StringIO()&#xa;     traceback.print_exc(file=tb)&#xa;     raise K_ImportError,(module,url,sys.exc_info())&#xa;&#xa;---&gt;import error,&#x63a8;&#x6d4b;&#x4e3a; self._()&#x51fa;&#x9519;&#xa;---&gt;L512, self.translation()&#xa;------&gt;l520, &#xa;encoding = self.handler.output_encoding&#xa;&#xa;&gt;&gt; HTTP.py, Class HTTP()&#xa;---&gt;L130, self. process_request()&#xa;------&gt;&#xa;*******************************************************&#xa;# defaults&#xa;self.output_encoding = sys.getdefaultencoding()&#xa;*******************************************************&#xa;Change to &#xa;******************************************************************&#xa;# defaults&#xa;reload(sys)&#xa;sys.setdefaultencoding(&apos;utf8&apos;)  # &#x6b64;&#x5904;&#x5c06;python &#x89e3;&#x91ca;&#x5668;&#x7f3a;&#x7701;&#x8bbe;&#x7f6e;&#x4e3a;&apos;utf8&apos;&#xa;self.output_encoding = sys.getdefaultencoding()&#xa;******************************************************************&#xa;"/>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1274666464332" FOLDED="true" ID="ID_136270889" MODIFIED="1274666995210" TEXT="CMS &#x79fb;&#x690d; Error">
+<node COLOR="#111111" CREATED="1274666496921" FOLDED="true" ID="ID_1313577766" MODIFIED="1274666758241" TEXT="Import admin_config.py &#x9519;&#x8bef;">
+<icon BUILTIN="button_ok"/>
+<node COLOR="#111111" CREATED="1274666516650" ID="ID_544460559" MODIFIED="1274666729050" TEXT="&#x539f;&#x56e0;&#xff1a;&#xa;k_target.py, Target.__init__, L170&#xa;---&gt;mo = re.match(&apos;^/(%s)&apos; %alias,path)    # &#x6b64;&#x52a0;&#x67e5;&#x4e3a;&#x65b0;&#x6dfb;&#x52a0;&#xff0c;&#x5bfc;&#x81f4;&#x5305;&#x542b;&quot;admin$.py&quot;&#x7684;&#x6587;&#x4ef6;&#x90fd;&#x4f1a;&#x88ab;&#x8bc6;&#x522b;&#x4e3a;admin&#x76ee;&#x5f55;&#x3002;&#xa; &#xa;&#x5c06;admin_config.py&#x66f4;&#x540d;&#x4e3a;backgroundConfig.py, &#x5e76;&#x5c06;&#x6240;&#x6709;&#x8c03;&#x7528;&#x6b64;&#x6587;&#x4ef6;&#x540d;&#x5904;&#x66f4;&#x6362;&#xff0c;&#x7cfb;&#x7edf;&#x6b63;&#x5e38;"/>
+<node COLOR="#111111" CREATED="1274666517844" ID="ID_461325000" MODIFIED="1274666517845" TEXT=""/>
+</node>
+<node COLOR="#111111" CREATED="1274666741393" ID="ID_1707138762" MODIFIED="1274666763857" TEXT="sysadmin &#x9519;&#x8bef;">
+<icon BUILTIN="button_cancel"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1274666825320" FOLDED="true" ID="ID_133001798" MODIFIED="1274666994482" TEXT="shinepo &#x79fb;&#x690d; Error">
+<node COLOR="#111111" CREATED="1274666839573" ID="ID_310940613" MODIFIED="1274666967798" TEXT="/etc/hosts &#x672a;&#x6dfb;&#x52a0;&#xa;127.0.0.1&#x9;shinepo&#xa;&#xa;&#x5bfc;&#x81f4;&#x6d4f;&#x89c8;&#x5668;&#x4e2d;&#x8f93;&#x5165;shinepo:8080&#x6ca1;&#x6709;&#x53cd;&#x5e94;"/>
+<node COLOR="#111111" CREATED="1274666865805" ID="ID_1784040253" MODIFIED="1274666990684" TEXT="$Karrigell/data/cms/conf.py&#xa;output-encoding = &quot;utf-8&quot;&#xa;&#xa;&#x5ba2;&#x6237;&#x7aef;&#x9875;&#x9762;&#x8fd4;&#x56de;&#x4e71;&#x7801;  "/>
+</node>
 </node>
 </node>
 </node>
@@ -2754,10 +2815,10 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1274239722066" POSITION="right" TEXT="Company Web Site">
+<node COLOR="#0033ff" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1274666447717" POSITION="right" TEXT="Company Web Site">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1272874065001" FOLDED="true" ID="ID_1315424594" MODIFIED="1273547542716" TEXT="Layout">
+<node COLOR="#00b439" CREATED="1272874065001" ID="ID_1315424594" MODIFIED="1274662598427" TEXT="Layout">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1261559251111" FOLDED="true" ID="ID_648549467" MODIFIED="1273378430710" TEXT="nav bar">
@@ -2786,7 +2847,7 @@
 <node COLOR="#111111" CREATED="1267587848480" ID="ID_652333271" LINK="http://www.opendesigns.org/preview/?design=1797" MODIFIED="1271246682959" TEXT="http://www.opendesigns.org/preview/?design=1797"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1273541799017" ID="ID_1258507687" MODIFIED="1273541801300" TEXT="Font">
+<node COLOR="#990000" CREATED="1273541799017" FOLDED="true" ID="ID_1258507687" MODIFIED="1274662600080" TEXT="Font">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1273541802308" ID="ID_1464815612" LINK="http://www.opendesigns.org/preview/?design=1953" MODIFIED="1273541805825" TEXT="http://www.opendesigns.org/preview/?design=1953"/>
 </node>
@@ -2811,7 +2872,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1271131016988" FOLDED="true" ID="ID_545156553" MODIFIED="1273378428335" TEXT="Technology">
+<node COLOR="#990000" CREATED="1271131016988" FOLDED="true" ID="ID_545156553" MODIFIED="1274662609073" TEXT="Technology">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="idea"/>
@@ -2861,7 +2922,7 @@
 <icon BUILTIN="full-1"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1271247508897" FOLDED="true" ID="ID_1313825833" MODIFIED="1273378985647" TEXT="Selected">
+<node COLOR="#990000" CREATED="1271247508897" ID="ID_1313825833" MODIFIED="1274662601857" TEXT="Selected">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1271131615566" ID="ID_708134019" LINK="http://demo.tutorialzine.com/2010/02/html5-css3-website-template/template.html" MODIFIED="1273378894039" TEXT="http://demo.tutorialzine.com/2010/02/html5-css3-website-template/template.html">
@@ -2898,12 +2959,15 @@
 <icon BUILTIN="button_ok"/>
 <icon BUILTIN="full-3"/>
 </node>
+<node COLOR="#111111" CREATED="1274662611780" ID="ID_1044993509" LINK="http://clandrei.de/" MODIFIED="1274662621004" TEXT="http://clandrei.de/">
+<icon BUILTIN="full-6"/>
+</node>
 </node>
 </node>
 <node COLOR="#00b439" CREATED="1273547545544" ID="ID_44830356" MODIFIED="1273547547541" TEXT="App">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1273547548387" ID="ID_393031848" MODIFIED="1273547555512" TEXT="Guest Book">
+<node COLOR="#990000" CREATED="1273547548387" FOLDED="true" ID="ID_393031848" MODIFIED="1274662601288" TEXT="Guest Book">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1273547558001" ID="ID_1712204510" LINK="http://jibberbook.com/" MODIFIED="1273547566767" TEXT="jibberBook"/>
 </node>
@@ -2912,7 +2976,7 @@
 <node COLOR="#111111" CREATED="1273547751428" ID="ID_1653298821" LINK="http://blog.gonchuki.com/archives/css-sprites2-its-mootools-time/" MODIFIED="1273547769262" TEXT="Css Sprites2"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1272874077641" FOLDED="true" ID="ID_181569051" MODIFIED="1273378990134" TEXT="Virtual Web Server">
+<node COLOR="#00b439" CREATED="1272874077641" FOLDED="true" ID="ID_181569051" MODIFIED="1274662593616" TEXT="Virtual Web Server">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1272874094829" ID="ID_1247499914" LINK="http://www.net.cn/static/hosting/" MODIFIED="1272874098141" TEXT="http://www.net.cn/static/hosting/">
@@ -2953,7 +3017,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1273293789336" FOLDED="true" ID="ID_1705404438" MODIFIED="1273294559405" POSITION="right" TEXT="Web Site Analize Tools">
+<node COLOR="#0033ff" CREATED="1273293789336" FOLDED="true" ID="ID_1705404438" MODIFIED="1274538084242" POSITION="right" TEXT="Web Site Analize Tools">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1273293872148" ID="ID_291748799" LINK="http://www.iwanna.cn/archives/2010/05/07/2966/" MODIFIED="1273293895552" TEXT="&#x7528;&#x6237;&#x884c;&#x4e3a;&#x70b9;&#x51fb;&#x70ed;&#x533a;&#x8ddf;&#x8e2a;&#x91c7;&#x96c6;">

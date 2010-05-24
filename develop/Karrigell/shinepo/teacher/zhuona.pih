@@ -1,0 +1,23 @@
+<div class="subcolumns">
+	<div class="c75l">
+		<div class="subc">
+			<div class="floatbox">				
+				<h4>卓娜老师</h4>
+				<p class="info">
+					<img src="images/home/zhuona_1.png" class="float_left" style="border: none">
+					<img src="images/home/zhuona_2.png" class="center">
+					<img src="images/home/zhuona_3.png" class="float_right"><br>					
+					毕业于上戏舞蹈学院中国舞系,  
+					法国AAA级肚皮舞教练,冠军之舞签约演员和明星教练。<br>					
+				</p>
+			</div><!-- floatbox end -->
+			
+		</div><!-- subcl end -->
+	</div><!-- c75l end -->
+	
+	<div class="c25r">
+		<div class="subcr">			
+		</div>	
+	</div>
+	
+</div><!-- subcolumns end -->			

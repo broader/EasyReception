@@ -1,0 +1,85 @@
+/**
+ The script to be loaded by getScript() function calling on the other pages.
+ Using 'pih' format to be more programly.
+*/
+
+/**
+ The function to replace the  captcha image and key
+ */
+$('.captcha').click(function(){
+	// reload the dynamic script to do such things:
+	// replace a new captcha key and a captcha image;
+	// replace the key to the validation rule
+	$.getScript('register/formActions.ks/switchImage');		 
+});
+
+/* *
+The call back function for form submit in step_1.hip
+*/
+function tabmover(data){
+	// data is a json object
+	if(data['type']==0){alert("After Submit!");}
+	else{alert(data['type'] +'\n' +data['session']['email'] +'\n' + data['session']['username'])};
+		
+	var t =$('#tabs');	
+	// Note that the '0' tab must be disabled after '1' tab has been selected. 
+	t.tabs('enable', 1).tabs('select', 1).tabs('disable', 0);	
+};
+
+$(function() {
+	// show a simple loading indicator
+	var loader = $('<div id="loader"><img src="images/ajax_loading.gif" alt="loading..." /></div>')
+		.css({position: "absolute", top: "20em", left: "30em"})
+		.appendTo("#main")
+		.hide();
+	$().ajaxStart(function() {
+		loader.show();
+	}).ajaxStop(function() {
+		loader.hide();
+	}).ajaxError(function(a, b, e) {
+		throw e;
+	});
+	
+	// start form validation	
+	var v = $("#<%=_formId%>").validate({
+		//onkeyup: false,	
+		errorClass: "warning",
+		errorElement: "span",	
+		rules:{ 
+			username : {remote: "register/formActions.ks/existName"},
+			cemail: {equalTo: "#email"},
+			cpwd: {equalTo: "#pwd"},
+			captcha : {
+				remote: {
+					url:"register/formActions.ks/validCaptcha",
+				   type: "get",
+        			data: {key: function() {return $("#ckey").val();}}
+        		}
+        	}
+		},
+		
+		messages:{
+			username: {remote : "<%=_("The name has been used! Please use another name.")%>"},
+			cemail: {equalTo: "<%=_("Please input the same email address to be confirmed .")%>"},
+			cpwd: {equalTo: "<%=_("Please input the same password to be confirmed .")%>"},
+			captcha: {remote : "<%=_("The input value is not the same as the right image, please input again!") %>"}
+		},
+		
+		onfocusout: false,
+		
+		highlight: function(element, errorClass) {
+					     $(element).fadeOut(
+					     		function() {
+       								$(element).fadeIn()}
+       					     ) },
+       							
+		submitHandler: function(form) {
+			$(form).ajaxSubmit({				
+				success : tabmover,
+				dataType: "json"
+			});
+		}
+	});
+});
+
+

@@ -1,0 +1,13 @@
+/**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * Footer Copyright Link Style
+  *
+  * Apply some css rules for class '.copyright' in footer DIV.  
+  */
+  
+  .copyright a { color:#CCF564;}
+  .copyright a:focus,a:hover,a:active,a:visited { color:#CCF564;text-decoration:underline; }
+  
+  .copyright a:hover { }
+  

@@ -1,0 +1,48 @@
+<div class="subcolumns">
+	<div class="c75l">
+		<div class="subc">
+			<div class="floatbox">
+				<pre>少儿舞蹈基础班</pre>
+				<!-- the content of this table -->
+				<% table = {'header' : '以快乐教学为理念，针对少儿发育制定形体训练，注重孩子综合素质的培养，<br>\
+								   通过学习培养小朋友对音乐、舞蹈元素的理解和兴趣，训练身体协调性、合作互助能力、\
+								   充分发挥自身潜能，打好艺术基础。',\
+						    'body' : (('适合年龄', '4岁—7岁'),\
+								 ('授课内容', '少儿形体、舞蹈考级课程、舞蹈基础、舞蹈表演、组合排练'),\
+								 ('授课老师', '北京舞蹈学院考级资格优秀教师'),\								 
+								 ('时间安排', '周六  下午15：00－16：30    (每次2课时;每课时45分钟)'),\																 
+							        )\
+						   } 
+				%>
+				<!-- constructs the table -->
+				<table border="0" cellpadding="0" cellspacing="0" class="full">					
+          				<thead>
+          					<% print '<tr><th scope="col" colspan="2">%s</th></tr>'%table['header'] %>
+					</thead>          				
+          				<tbody>
+          					<% for i in table['body'] : 
+          						print '<tr>'
+          						print '<th scope="row" class="sub">%s</th>'%i[0] 
+          						print '<td>%s</td>'%i[1]
+          						print '</tr>'          					
+          					%>          					
+          				</tbody>
+          			</table>   
+          			<img src="images/home/children_2.png" class="float_left">
+				<img src="images/home/children_1.png" class="float_left">
+			</div><!-- floatbox end -->
+			
+		</div><!-- subcl end -->
+	</div><!-- c75l end -->
+	
+	<div class="c25r">
+		<div class="subcr">
+			<p class="info">
+				对幼儿进行一定的体操、舞蹈形体训练有助于幼儿身体的发育、成长，在发达国家已成为幼儿教育的一个共识。<br>
+				很多体态、气质俱佳的人都曾经在少儿时代进行过类似的训练。<br>
+				<h5>在干净、明亮的健身馆，伴着优美的旋律，在温柔、耐心的老师陪伴下，您的小孩会拥有一段温馨难忘的记忆！</h5>
+				
+			</p>
+		</div>	
+	</div>
+</div><!-- subcolumns end -->			

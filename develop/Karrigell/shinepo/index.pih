@@ -1,0 +1,46 @@
+<% Include ("header.hip", title="北京炫点文化艺术中心" ) %>
+
+<body>
+
+<div class="page_margins">
+    <!-- start: skip link navigation -->
+    <!-- end: skip link navigation -->
+    <div class="page">
+    		<!-- menu component -->		
+		<%Include ("menu.hip", page=0) %>
+		
+		<!-- the right scrollable banner on the top of each page  -->		
+		<div class="subcolumns" style="margin-bottom:1px; border:10x;height:20px; background: #F9F9F9 none repeat scroll 0; border-bottom: 0.2px solid #EFEFEF;">
+			<!-- Includes scrolled right window -->            		
+  			<%Include ("home_banner_scrollright.pih") %>
+		</div>
+
+		<!-- The shadow on the top of the main content -->
+		<div id="shadow_top"></div>
+		
+		<!-- main content component -->
+		<style>
+			#main .loading {
+				color:#993333; 
+				font-size:1.2em; 
+				margin: 0 0 0em; 
+				text-align: center;
+			}
+			
+		</style>
+		<div id="main">
+		</div><!--main end -->	
+		
+		<!-- The shadow on the bottom of the main content -->
+		<div id="shadow_bottom"></div>
+		
+		<!-- footer component -->
+		<%Include("footer.pih") %>
+		
+		
+    </div><!-- page end -->
+</div><!-- page_margins end -->
+
+</body>
+</html>
+

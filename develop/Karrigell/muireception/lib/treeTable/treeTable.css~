@@ -1,0 +1,54 @@
+/* ******************************************************* */
+
+.treeTable table { 
+	width:auto; 
+	border-collapse:collapse; 
+	margin-bottom:0.5em; 
+	border-top:2px #888 solid; 
+	border-bottom:2px #888 solid; 
+}
+
+.treeTable table caption { font-variant:small-caps; }
+.treeTable table.full { width:100%; }
+.treeTable table.fixed { table-layout:fixed; }
+
+.treeTable th,td { padding:0.5em; }
+.treeTable thead th { color:#000; border-bottom:2px #800 solid;background:#e0e0e0; color:#333; }
+.treeTable tbody th { background:#e0e0e0; color:#333; }
+.treeTable tbody th[scope="row"], tbody th.sub { background:#f0f0f0; }
+
+.treeTable tbody th { border-bottom:1px solid #fff; text-align:left; }
+.treeTable tbody td { border-bottom:1px solid #eee; }
+
+.treeTable tbody tr:hover th[scope="row"],
+.treeTable tbody tr:hover tbody th.sub { background:#f0e8e8; }
+
+/* the background color for mouse hover  */
+/*.treeTable tbody tr:hover td { background:#fff8f8; }*/
+.treeTable tbody tr:hover td { background:gainsboro; }
+
+
+/*******************************
+	selected row style
+********************************/
+.treeTable tbody tr.selected { background:#a8b8ed; }
+
+/*******************************
+	collapsable style
+********************************/
+
+.treeTable tr td .expander {
+  background-position: left center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  padding: 0;
+  zoom: 1; /* IE7 Hack */
+}
+
+.treeTable tr.collapsed td .expander {
+  background-image: url(images/toggle-expand-dark.png);
+}
+
+.treeTable tr.expanded td .expander {
+  background-image: url(images/toggle-collapse-dark.png);
+}

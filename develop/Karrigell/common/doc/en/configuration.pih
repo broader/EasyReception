@@ -1,0 +1,252 @@
+<script src="../pf_test.js"></script>
+
+<h1><%= chapter %>. Configuration</h1>
+
+The configuration is defined on three levels :
+<ul>
+<li><b>command line</b> : when the built-in server is used, the directory 
+where the server-specific configuration script is located can be specified
+
+<p>
+<div class="verbatim">
+<pre>
+python Karrigell.py [ServerConfigDirectory]
+</pre>
+</div>
+
+<p>By default, the directory used is the same as the one where 
+<span class="file">Karrigell.py</span> stands
+
+<li><b>server configuration script</b> : defines directories used by the framework, and
+options relevant at the server level (session storage, maximum number of
+threads, etc). For the built-in web server, these data are stored in the script <span class="file">
+server_config.py</span> in the Server Configuration Directory defined above<p>
+
+<li><b>host configuration scripts</b> : defined in the script <span class="file">
+conf.py</span> in each host data directory ; for localhost, it is located in
+the folder <span class="file">data/www</span>
+
+</ul>
+
+<br>Each host can be configured by a specific configuration file. The mapping between
+a host name and its configuration file is defined in the 
+plain text file <span class="file">hosts</span> in the Server Configuration Directory
+
+<p>You can edit the host configuration script either with a text editor, or online from 
+the Administration menu, accessible from the home page
+
+<h3><%= chapter %>.1 Server configuration</h3>
+
+<p>This script defines the following values :
+<blockquote>
+
+    <code>karrigell_dir</code>
+        <blockquote>
+        The directory where the core Karrigell framework is installed : the one where the
+        folders <span class="file">core</span> and <span class="file">package</span>
+        stand
+        </blockquote>
+
+    <p>
+    <code>host_conf_dir</code>
+        <blockquote>
+        The directory where the host-specific configuration text file 
+        <span class="file">hosts</span> is located
+        </blockquote>
+    <p>
+    <code>port</code>
+        <blockquote>
+        The port where the server runs
+        </blockquote>
+
+    <code>persistent_sessions</code>
+
+        <BLOCKQUOTE>
+        In most situations, it is better to set this option to <code>True</code>,
+        meaning that session data is stored on disk : storing it in memory
+        is not safe in a multi threaded environment, either with the built-in 
+        multi-threaded server or behind Apache
+        <p>This limits session data to types that can be serialized by the pickle module
+        <p>In case you need to store unpicklable Python objects as session data, you can set
+        persistent_sessions to <code>False</code>. As mentioned above, be aware that this will
+        only work reliably with a mono-process, mono-thread server such as the built-in
+        <span class="file">Karrigell_monoprocess.py</span> or 
+        <span class="file">Karrigell_async.py</span>
+
+        </BLOCKQUOTE>
+
+    <code>cache</code>
+        <BLOCKQUOTE>
+        Boolean to specify if HTTP caching should be used (with header <CODE>If-Modified-Since</CODE>).
+        Defaults to True</BLOCKQUOTE>
+
+    <code>ipv6</code>
+        <BLOCKQUOTE>
+        Boolean to specify if IPv6 should be used instead of IPv4.
+        Defaults to False</BLOCKQUOTE>
+
+    <code>max_threads</code>
+        <BLOCKQUOTE>
+        The maximum number of threads than can be run by the multi-threaded built-in
+        web server
+        </BLOCKQUOTE>
+
+    <code>process_num</code>
+        <BLOCKQUOTE>
+        The number of processes launched when the multi-process built-in
+        web server is started
+        </BLOCKQUOTE>
+
+    <code>silent</code>
+        <BLOCKQUOTE>
+        A boolean value to indicate if the server should write a logging info on sys.stderr
+        for each request
+        </BLOCKQUOTE>
+
+    <code>modules</code>
+        <BLOCKQUOTE>
+        A dictionary mapping name of steps in request processing to a list of
+        modules. When the specified step is reached, the function <code>main()</code> of
+        each module is applied to the request handler object
+        </BLOCKQUOTE>
+
+
+</blockquote>
+
+<h3><%= chapter %>.2 Host configuration</h3>
+
+<p>The values that can be set are :
+<p>
+<blockquote>
+    <code>root_dir</code>
+        <blockquote>
+        Set the <code>root_dir</code> option to the full name of the Root Directory, the 
+        one from which you'll want to serve files. The default is the folder 
+        <code>www</code> in the Server Directory
+        </blockquote>
+
+    <code>data_dir</code>
+        <blockquote>
+        The directory where host-specific data stands : users database, translation file,
+        session data
+        </blockquote>
+
+    <code>cache_dir</code>
+        <blockquote>
+        The directory where script cache stands. The cache avoids parsing scripts each time 
+        they are run ; it is updated when the source code of a script is modified
+        <br>If set to <code>None</code>, script caching is disabled
+        </blockquote>
+
+    <code>cgi_dir</code>
+        <blockquote>
+        The directory where CGI scripts are located
+        </blockquote>
+
+    <code>allow_directory_listing</code>
+        <blockquote>
+        The list of user roles (see <%= make_link("authentication",
+        "authentication") %>) that can see directory listings
+        if a url matches a directory with no index file in it.
+        If <code>None</code> is in the list, all users can see the listings
+        If value is <code>['admin','edit']</code>, only users with
+        one of the roles 'admin' or 'visit' will see a listing ; other users
+        will get an error message
+        <br>Defaults to <CODE>[None]</CODE>
+        </blockquote>
+
+    <code>hide_extensions</code>
+        <blockquote>
+        A list of file extensions that will be hidden (return error 403)
+        </blockquote>
+
+    <code>ignore</code>
+        <blockquote>
+        A list of regular expression patterns that will be matched to url paths ; if a
+        match succeeds then the server will return error 403
+        <br>This can be used to forbid access to a set of directories. For instance if
+        you have a version control that creates directories named <code>cvs</code> you
+        can forbid access to them with this line :
+        <br><code>ignore = [".*/cvs/.*"]</code>
+        </blockquote>
+
+    <code>logging_file</code>
+        <blockquote>
+        The path of a logging file. If not set, no logging is performed
+        </blockquote>
+
+    <code>logging_rotate</code>
+        <blockquote>
+        If <code>logging_file</code> is set, indicate when the log 
+        file should be changed.
+        If set to <CODE>None</CODE>, the same log file is always used. If set to 
+        <CODE>"monthly", "daily"</CODE> or <CODE>"hourly"</CODE>, the logging 
+        file changes with the month, the day or the hour ; the name of the 
+        logging file is the one set in <CODE>loggin_file</CODE>,
+        with the month / day / hour appended
+        </blockquote>
+
+    <code>output_encoding</code>
+        <blockquote>
+        A string = the encoding to use to send data back to the client
+        </blockquote>
+
+    <code>alias</code>
+        <BLOCKQUOTE>
+        A dictionary mapping an alias to the path of a folder in the file system. 
+        For instance :
+        <div class="verbatim">
+        <pre>
+        <script>
+        if (pf == 'w')
+        { document.write('alias = {"scripts" : "c:\\\\My&nbsp;Documents\\\\Karrigell&nbsp;scripts"}') }
+        else
+        { document.write('alias = {"scripts" : "home/myprogs/Karrigell_scripts"}') }
+        </script>
+        </pre>
+        </div>
+        then the url <span class="url">
+        htpp://localhost/scripts/index.html</span> will serve the file <span class="file">
+        <script>
+        if (pf == 'w')
+        { document.write('c:\\My&nbsp;Documents\\Karrigell&nbsp;scripts\\index.html') }
+        else
+        { document.write('home/myprogs/Karrigell_scripts/index.html') }
+        </script>
+        </span>
+        </BLOCKQUOTE>
+
+    <code>debug</code>
+        <BLOCKQUOTE>
+        indicates if you want detailed information,
+        including the Python traceback, to be printed in case of error or exception
+        during script execution. Defaults to <CODE>True</CODE>. If set to 
+        <CODE>False</CODE>, only a message like "Server was unable to process the 
+        request" will be printed, without any other detail
+        </BLOCKQUOTE>
+
+    <code>gzip</code>
+        <BLOCKQUOTE>
+        If set to <CODE>True</CODE>, and the user agent supports gzip encoding 
+        (most browsers do), the server compresses the data sent to the user agent for
+        text files. This reduces network load, but slows down the server a little
+        </BLOCKQUOTE>
+
+    <code>global_modules</code>
+        <BLOCKQUOTE>
+        A list of paths to the modules which must be imported in
+        every script run by Karrigell. If you have a line like
+        <blockquote>
+        <div class="verbatim">
+        <pre>global_modules = ["/usr/scripts/myScript.py"]
+        </div></blockquote>
+
+        the module name <CODE>myScript</CODE> will be available in the namespace of all scripts
+        </BLOCKQUOTE>
+
+    <code>max_sessions</code>
+
+        <BLOCKQUOTE>
+        The maximum number of sessions that can be stored. Defaults to 500
+        </BLOCKQUOTE>
+</blockquote>

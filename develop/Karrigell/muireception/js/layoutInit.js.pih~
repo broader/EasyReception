@@ -1,0 +1,373 @@
+/*
+INITIALIZE THE USER'S MENUS
+*/
+
+<% 
+# PYTHON CODE SLICE
+# get meus stored in pagefn.py
+pagefn = Import('/'.join(('', 'pagefn.py')))
+
+# initialize some page variables
+loginApp, layoutUrls, sidePanelPrefix = \
+[getattr(pagefn,name) for name in ('LOGINAPPNAME', 'LAYOUTURLS', 'SIDEPANELPREFIX')]
+
+logoutUrl = layoutUrls[-1]
+
+sideBar, mainColumn = pagefn.COLUMNS
+%>
+
+// the id of main panel in right main column
+var mainPanelId = '<%=pagefn.PANELSID['main'] %>';
+
+// get the global Assets manager
+var am = MUI.assetsManager;
+
+/*
+Initialize the top navigation info on the top right of the screen, 
+then switch the menu according user's login status.
+*/
+function topNavSwitch(login){
+	var topNav = $('<%=pagefn.LOGINPANEL %>')
+	var children = topNav.getChildren();
+	var url = '<%=layoutUrls[0]%>';
+	
+	switch(login){
+		case true:			
+			if(children.length < 2){
+				// append welcom information to top navigation bar
+				var span = new Element('span');
+				span.load(url);			
+				topNav.grab(span);
+				topNav.getElements('ul')[0].setProperty('style','display:none;');
+			}
+			else{
+				// just insert content to the welcome information container and 
+				// envisible the container element
+				children[0].setProperty('style','display:none;');
+				children[1].load(url).setProperty('style','display:block;');
+			}
+			break
+		case false:
+			// delete the content in the welcome information container and 
+			// make it invisible
+			children[0].setProperty('style','display:block;');
+			children[1].setProperties({
+				'html': '',
+				'style': 'display:none;'
+			});
+			break
+	}
+	
+};
+
+
+/*********************************************************************************
+Initialize menus
+Parameters:
+	data - a Array instance, for which format is [{'text':'..','function':'...'},]
+**********************************************************************************/
+function menuSet(data){	
+	var ul = new Element('ul');
+	data.each(function(menu){
+		li = new Element('li');			
+		a = new Element('a',{
+			'html': menu['text'],
+		 	'class':'returnFalse',
+		 	'style':'text-decoration:none;',
+		 	'href': '',
+			'events': {
+				'click': window[menu['function']]
+			}
+		});
+		a.inject(li);		
+		li.inject(ul);		
+	});
+	
+	$('<%=pagefn.MENUCONTAINER%>').grab(ul,'top');
+
+};
+
+
+/*
+**	Initialize menu by json data from server side
+*/
+function menuInit(){
+	var menurl = '<%=layoutUrls[1] %>';
+	var data = new Request.JSON({
+		async: false,
+		url: menurl, 
+		onSuccess:function(json,html){			
+			am.import(
+				{	'url':json['js'],	// load the menus' corresponding clickable functions
+					'app':'<%=loginApp %>',
+					'type':'js'
+				},
+				{
+					onload: function(){						
+						menuSet(json['data']);	// set the menus' text
+					}
+				}
+			);
+		}
+	}).get();
+	
+};
+
+
+/*
+Initialize layout in main window
+*/
+
+// Add two columns, one is sidebar and the other is the main column.
+function addColumns(){
+	// first, add columns to main window of the desktop	
+	new MUI.Column({
+		id:'<%=sideBar %>', placement:'left', width:200, 
+		resizeLimit:[100, 300], sortable: true
+	});
+
+	new MUI.Column({ 
+		id:'<%=mainColumn %>', placement:'main',
+		resizeLimit:[100, 500], sortable: false
+	});
+	
+	// add the main MUI.Panel to the main MUI.Column
+	new MUI.Panel({
+		id: mainPanelId, header:false, column: '<%=mainColumn %>'
+	});
+};
+
+
+// Add panels to columns
+function layoutInit(){	
+	// get panels on the left column
+	var panelsDataUrl = '<%=layoutUrls[2] %>';
+	var data = new Request.JSON({
+		url: panelsDataUrl, 
+		onSuccess:function(json,html){					
+			am.import(
+				{	'url':json['js'],	// load the functions for the events of sidePanels
+					'app':'<%=loginApp %>',
+					'type':'js'
+				},
+				{	onload: function(){	// arrange the panels in left side bar
+						addColumns();						
+						var sideColumn = '<%=sideBar%>',
+						panelsNumber = json['data'].length;
+						
+						json['data'].each(function(item,index){														
+							var pid=['<%=sidePanelPrefix %>', item['id']].join('-'),
+							text=item['text'], url=item['contentURL'], 
+							expandfn=item['onExpand'], collapse=item['onCollapse'];
+							
+							// add panels for left column
+							var panel = new MUI.Panel({
+								id:pid, title:text, contentURL:url, 
+								onExpand:window[expandfn].pass(pid),
+								onCollapse: window[collapse].pass(pid),								
+								column: sideColumn,								
+								onContentLoaded: function(){}
+							});
+							
+							// collapse others panels, only left the first panel expand
+							if(index != 0){panel.toggleExpand();};
+						});					
+					}
+				}
+			);
+		}
+	}).get();	
+};
+
+
+
+// Add some assistant tools to MUI
+MUI.extend({
+
+	/* Prepare  the login menus */
+	login: function(){
+		var menuChain = new Chain();
+		menuChain.chain(
+			topNavSwitch(true),
+			menuInit(),
+			layoutInit()			
+		).callChain();
+	},
+	
+	// logout function
+	logout: function(event){
+		new Event(event).stop();
+		MUI.notification('Really log out?');
+		
+		// remove menus in menu bar
+		$('<%=pagefn.MENUCONTAINER%>').getElement('ul').dispose();
+		
+		// reset the top navigation info
+		topNavSwitch(false);
+		
+		// remove the columns in main window
+		MUI.Columns.instances.getKeys().each(function(key,index){
+			// Only the first two key ( the ids of side column and main column )
+			// are the reall existed MUI.Column instance,
+			// others should be no existed.
+			var columns = ['<%=sideBar %>','<%=mainColumn%>'];
+			if(columns.contains(key)){ MUI.closeColumn($(key));};
+		});
+		
+		// remove all the imported mootools.Assets
+		MUI.assetsManager.remove('<%=loginApp %>', 'app');
+		
+		// close session object on server side
+		new Request.HTML().get('<%=logoutUrl %>');
+		
+		// application initialization, including closing old session and removing old cookie
+		MUI.appInit();
+	},
+	
+	// set the id for the main MUI.Panel
+	mainPanelId: mainPanelId,
+	
+	// remove all the MUI.Columns in the main panel
+	clearMainPanel: function (){	
+		MUI.Columns.instances
+		.filter(function(column,key){		// filter the instances whose element has been removed			
+			return $(column.options.id) != null;
+		})
+		.each(function(column){			
+			if(column.options.container.id == mainPanelId){
+				MUI.closeColumn($(column.options.id));
+			}
+		});
+	},
+	
+	// refresh the main MUI.Panel. Is it used ???
+	refreshMainPanel: function(){
+		MUI.Panels.instances
+		.filter(function(panel,key){
+			if( key == mainPanelId )
+				return false;
+			else if( MUI.Columns.instances.get(panel.options.column).options.container.id == mainPanelId)
+				return true;
+			else
+				return false;			
+		})
+		.each(function(panel){
+			panel.newPanel();
+		});
+		
+	},
+	
+	// collapse all other panels, only left user selected panel
+	accordionPanels: function(currentId){
+		// get the MUI.Column of this MUI.Panel
+		var column = MUI.Panels.instances.get(currentId).options.column;
+		//var column = '<%=sideBar %>';
+		
+		MUI.Panels.instances.each(function(panel){
+			if (panel.options.column != column){
+				return
+			};
+			if (panel.options.id != currentId && panel.isCollapsed != true ){
+				panel.toggleExpand();
+			};
+		});
+	},
+	
+	// initialzie actions before expand a MUI.Panel in the left side bar
+	initPanel: function(panelId){
+	},
+	
+	// judge file type by its name
+	fileType: function(url){
+		fileType = '';
+		if(url.contains('.css')){fileType='css';}
+		else if(url.contains('.js') || url.contains('.js.pih')){fileType='js';}		
+		return fileType
+	},
+	
+	/***************************************************************
+	A common function to handle import aciton for Mootools.Assets.
+	Here we assume that there is only one 'js' file.
+	****************************************************************/
+	import: function(appName,urls,options){
+		// get the global Assets manager
+	   var am = MUI.assetsManager;		
+		urls.each(function(src){
+			fileType = MUI.fileType(src);			
+			if(fileType == 'css'){
+				if(!$defined(am.imported[src])){
+	    			am.import({'url':src,'app':appName,'type':'css'});	
+				}
+			}
+			else if(fileType == 'js'){
+				if(!$defined(am.imported[src])){
+					am.import({'url':src,'app':appName,'type':'js'},options);
+				}
+				else{
+					fn = options.onload;										
+					if($defined(fn)){	fn();}
+				};	   
+			}
+			
+		});	   
+		
+	},
+	
+	/******************************************************************
+	Imports form validation lib and sets initial actions.	
+	*******************************************************************/
+	formValidLib: function(appName, options){
+		// get lib files
+		var urls = [];
+		<% for url in pagefn.JSLIB['formValid']['files'] : %>
+			urls.push('<%=url%>');
+		<% end %>
+		
+		// get the global Assets manager
+	   var am = MUI.assetsManager;
+	   
+	   // import css file for validation
+	   urls.slice(0,2).each(function(src){
+	   	if(!$defined(am.imported[src])){
+	    		am.import({'url':src,'app':appName,'type':'css'});
+	    	}	
+		});
+		
+		// i18n file of this lib
+		url = urls[2];
+	   if(!$defined(am.imported[url])){
+	   	am.import({'url':url,'app':appName,'type':'js'});
+	   };
+	   
+	   // the really validation functions
+		am.import({'url':urls[3],'app':appName,'type':'js'},options);
+	},
+	
+	/*********************************************************************
+	Imports treeTable lib and sets initial actions.	
+	**********************************************************************/
+	treeTable: function(appName,options){
+		// get lib files
+		var urls = [];
+		<% for url in pagefn.JSLIB['treeTable']['files'] : %>
+			urls.push('<%=url%>');
+		<% end %>
+		
+		MUI.import(appName,urls, options);
+	},
+	
+	/***********************************************************************
+	Imports grid lib and sets initial actions.
+	************************************************************************/
+	dataGrid: function(appName, options){
+		// get lib files
+		var urls = [];
+		<% for url in pagefn.JSLIB['dataGrid']['files'] : %>
+			urls.push('<%=url%>');
+		<% end %>
+		
+		MUI.import(appName,urls,options);
+		
+	}
+	
+});

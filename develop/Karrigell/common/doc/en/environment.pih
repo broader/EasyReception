@@ -1,0 +1,45 @@
+<h1><%= chapter %>. Environment data</h1>
+
+<p>Access to the HTTP environment is provided through global variables available in the script's
+namespace :
+<ol>
+<li>Read-only variables
+
+	<ul>
+
+	<li><code>REQUEST_HANDLER</code> is an object representing the request ; a useful
+	attribute is <code>client_address</code>, a 2-element tuple with client IP address 
+	and port, for example ('127.0.0.1', 1825)
+	<li><code>ENVIRON</code> is a dictionary with the CGI environment variables : 
+	<code>SERVER-SOFTWARE, REQUEST-METHOD, QUERY-STRING,</code>, etc.
+	<li><code>HEADERS</code> is a dictionary with the HTTP headers sent by the browser : 
+	the key is the header name, the value is the header's value. For instance 
+	<code>HEADERS["accept-language"]</code> will return the value of the 
+	<var>accept-language</var> header
+	<li><code>ACCEPTED_LANGUAGES</code> is a list of languages accepted by the 
+	user's browser, ordered by preference. The items are two-character strings identifying 
+	the language, according to the ISO 639 codification (<code>en</code> for English, 
+	<code>fr</code> for French, etc)
+	<li><code>COOKIE</code> is a dictionary-like SimpleCookie object (in Python <code>Cookie</code>
+	module) that stores the cookies sent by the web browser with the HTTP request
+	(see the section on <%= make_link("cookies","cookies") %>)
+	<li><CODE>Role()</CODE> is a function that returns the user's role, as defined in the
+	built-in user management framework (see the chapter on 
+	<%= make_link("authentication","authentication") %>)
+	<li><code>THIS</code> is an instance of the class <code>Target</code> (in 
+	<span class="file">k_target.py</span>) representing the current script
+	</ul>
+
+<li>Read-write variables
+	<ul>
+	<li><code>SET_COOKIE</code> is another SimpleCookie object to which you can set keys and values 
+	which will be stored by the web browser as cookies (see the section on <%= make_link("cookies","cookies") %>)
+	<li><code>RESPONSE</code> is a dictionary in which you'll set values for the response 
+	header that will be sent to the client. This dictionary is insensitive to the 
+	case of the keys : <CODE>RESPONSE['Content-type']</CODE> and <CODE>RESPONSE['CONTENT-type']</CODE> 
+	return the same result
+	</ul>
+
+</ol>
+<p>The list of built-in names is described in the 
+<%= make_link("namespace","namespace") %> section

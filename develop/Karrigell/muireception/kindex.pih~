@@ -1,0 +1,74 @@
+<% Include ("header.ks/index") %>
+
+<body>
+
+<div id="desktop">
+
+	<div id="desktopHeader">
+		<div id="desktopTitlebarWrapper">
+			<div id="desktopTitlebar">
+		
+				<h1 class="applicationTitle">EasyReception</h1>
+				<h2 class="tagline">					 
+					<span class="taglineEm"><%=_('A Web Portal For Congress Reception Work')%></span>
+				</h2>
+				<div id="topNav">
+					<ul class="menu-right">
+						<li><a href="#" >Login</a></li>
+						<li><a href="#" >Register</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+		<div id="desktopNavbar">	
+			<!--
+				This area will be filled corresponding menues after user has been logined.
+				Before user login, that should be a blank area.			
+			-->	
+			
+			<div class="toolbox divider">
+				<div id="spinnerWrapper"><div id="spinner"></div></div>		
+			</div>
+
+			<div class="toolbox divider">	
+				<select id="themeControl" name="themeControl" size="1" onchange="MochaUI.Themes.init(this.options[this.selectedIndex].value)">
+					<option id="chooseTheme" value="" selected><%=_('Choose Theme:')%></option>
+					<option value="default">Default</option>
+					<option value="Charcoal">Charcoal</option>
+					<option value="Grey">Grey</option>
+				</select>	
+			</div>		
+
+		</div><!-- desktopNavbar end -->
+	</div><!-- desktopHeader end -->
+
+	<div id="dockWrapper">
+		<div id="dock">
+			<div id="dockPlacement"></div>
+			<div id="dockAutoHide"></div>
+			<div id="dockSort"><div id="dockClear" class="clear"></div></div>
+		</div>
+	</div>
+
+	<div id="pageWrapper"></div>
+
+	<div id="desktopFooterWrapper">
+		<div id="desktopFooter">			
+			<span>
+				&copy; 2006-2009
+				<a target="_blank" href="http://github.com/broader/EasyReception" class="copyright">Broader.ZHONG</a>
+				 - 
+				<a id="licenseLink" href="license.html" class="copyright">MIT License</a>,
+			</span>
+			<span style="text-align:center;">
+				<%=_('CSS style powered by ')%>
+     			<a href="http://www.yaml.de/en/home.html" target="YAML" class="copyright">YAML</a>
+			</span>
+		</div>
+	</div>
+
+</div><!-- desktop end -->
+
+</body>
+</html>

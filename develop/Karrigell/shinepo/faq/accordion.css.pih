@@ -1,0 +1,17 @@
+<script type="text/javascript" src="js/faq.accordion.js" />
+
+<style type="text/css" media="screen" >
+#list1 .title { font-weight:bold; }
+#list1, #list2 { width:20em; }
+.title, .mytitle { 
+	cursor:pointer; 
+	border-bottom:1px solid #CCCCCC; 
+	margin-top:0.5em; 
+	padding:0.1em; 
+	width: 220%;
+}
+
+.on  .mytitle { background-color:#C0C0C0; }
+.off .mytitle { background-color:#E0E0E0; }
+.content, .mycontent  { width: 210%; }
+</style>

@@ -1,0 +1,48 @@
+<h1><%= chapter %>. Données utilisateur</h1>
+
+La variable <code>REQUEST</code> est un dictionnaire qui représente la chaîne de requête si le script est appelé par la méthode HTTP <code>GET</code>, ou les champs d'un formulaire soumis par la méthode HTTP <code>POST</code>
+
+<p>Les clés de <code>REQUEST</code> sont les noms des champs. Les valeurs sont les valeurs des champs
+<ul>
+<li>sous forme de chaîne de caractères,
+<li>ou de liste si le nom du champ se termine par <code>[]</code> (s'il vient d'un champ de formulaire <code>&lt;SELECT MULTIPLE&gt;</code> par exemple)
+</ul>
+
+<p>Supposons que vous ayez un formulaire HTML de cette forme :
+
+<p>
+<div class="verbatim">
+<pre class="verbatim">
+&lt;form action="monScript.py"&gt;
+  Spam &lt;input name="spam"&gt;
+  &lt;br&gt;&lt;select multiple name="animal[]"&gt;
+  &lt;option value="chien"&gt;Chien
+  &lt;option value="chat"&gt;Chat
+  &lt;option value="grenouille"&gt;Grenouille
+  &lt;/select&gt;
+  &lt;br&gt;&lt;input type="submit" value="Ok"&gt;
+&lt;/form&gt;
+</pre>
+</div>
+
+<p>Dans <code>monScript.py</code> les données d'entrée seraient affichées ainsi :
+<p>
+<div class="python"><pre class="verbatim">
+print "&lt;br&gt;Spam vaut ",REQUEST["spam"]
+if REQUEST.has_key("animal"):
+    print "&lt;br&gt;L'animal est ",str(REQUEST["animal"])
+</pre></div>
+<p>
+
+<p>L'accès à ces données est aussi possible par un raccourci, consistant en un blanc souligné <code>_</code> ajouté au début du nom de champ. Le code ci-dessus pourrait être écrit de cette façon plus concise :
+
+<p>
+<div class="python">
+<pre class="verbatim">
+print "&lt;br&gt;Spam vaut ",_spam
+if REQUEST.has_key("animal"):
+    print "&lt;br&gt;L'animal est ",str(_animal)
+</pre></div>
+<p>
+Le blanc souligné est introduit pour réduire les risques de conflits de noms avec les noms
+réservés de Python ou avec le nom de modules utilisés fréquemment

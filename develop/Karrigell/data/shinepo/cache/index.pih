@@ -1,0 +1,10 @@
+[]
+Include ("header.hip", title="北京炫点文化艺术中心" )
+STDOUT("<body>\n<div class=\"page_margins\">\n    <!-- start: skip link navigation -->\n    <!-- end: skip link navigation -->\n    <div class=\"page\">\n    		<!-- menu component -->		\n")
+Include ("menu.hip", page=0)
+STDOUT("		<!-- the right scrollable banner on the top of each page  -->		\n		<div class=\"subcolumns\" style=\"margin-bottom:1px; border:10x;height:20px; background: #F9F9F9 none repeat scroll 0; border-bottom: 0.2px solid #EFEFEF;\">\n			<!-- Includes scrolled right window -->            		\n")
+Include ("home_banner_scrollright.pih")
+STDOUT("		</div>\n		<!-- The shadow on the top of the main content -->\n		<div id=\"shadow_top\"></div>\n		<!-- main content component -->\n		<style>\n			#main .loading {\n				color:#993333; \n				font-size:1.2em; \n				margin: 0 0 0em; \n				text-align: center;\n			}\n		</style>\n		<div id=\"main\">\n		</div><!--main end -->	\n		<!-- The shadow on the bottom of the main content -->\n		<div id=\"shadow_bottom\"></div>\n		<!-- footer component -->\n")
+Include("footer.pih")
+STDOUT("    </div><!-- page end -->\n</div><!-- page_margins end -->\n</body>\n</html>\n")
+

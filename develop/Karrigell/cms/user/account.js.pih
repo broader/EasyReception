@@ -1,0 +1,53 @@
+/**
+Get the submit butto in form and reset it's click callback function,
+in order to avoid the mask by jquery.jframe.js.
+*/
+function loadjFrame(json){	
+	return jFrameSubmitInput($(".submit").get(1));	
+};
+
+
+/* *
+The call back function for form submit in account.ks/edit
+*/
+$(function() {	
+	$().ajaxError(function(event, xhr, settings) {		
+		return jFrameSubmitInput(jQuery(":image,:submit,:button", this).get(0));
+		//throw e;
+	});
+			
+	// start form validation	
+	var v = $("#<%=_formId%>").validate({		
+		rules:{ 
+			oldpwd : {
+				remote: {
+					url:"user/formActions.ks/existPwd",
+					type: 'post',
+					data: {"username": function() {return $("#username").val();}}
+				}
+			},			
+			cpwd: {equalTo: "#pwd"},			
+		},		
+		messages:{
+			oldpwd: {remote : "<%=_("The old password is not right! Please input it again.")%>"},			
+			cpwd: {equalTo: "<%=_("Please input the same password to be confirmed .")%>"}			
+		},
+		
+		onfocusout: false,
+		onkeyup : false,
+		focusCleanup : true,		
+		highlight: function(element, errorClass) {
+					     $(element).fadeOut(function() {
+       							$(element).fadeIn()}) },
+		submitHandler: function(form) {
+			$(form).ajaxSubmit({				
+				//success : loadjFrame,
+				dataType: "script"
+			});		
+		}
+	});
+});
+
+
+
+		     

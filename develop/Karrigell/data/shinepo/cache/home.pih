@@ -1,0 +1,28 @@
+[]
+STDOUT("	<div class=\"subcolumns\">\n		<div class=\"c25l\">\n			<div class=\"subcl\">\n				<div class=\"floatbox\">\n					<h6>北方明珠社区艺术团参加中原华夏物业公司年会演出受到全场热烈欢迎</h6>	\n					<img class=\"float_left\" alt=\"演出图片\" src=\"images/home/zhongyuanhuaxia.png\"/>\n					<p class=\"info\">								\n          				2009年3月6日，中原华夏物业总公司在艾维克大酒店召开新春年会。\n          				北方明珠社区与炫点舞蹈俱乐部和谐共建成立的北方明珠艺术团代表北方明珠社区在大会上表演了精彩的舞蹈节目。\n          				受到全场的热烈欢迎，展现了北方明珠社区的精神风貌，以及社区与社区管辖内文化单位、物业管理、和谐共建的初步成果。\n          				受到了广大居民的支持和中原华夏物业公司方的高度赞许和评价。<br>\n          				<strong><u>本次活动中的集体舞蹈由炫点特聘民族舞教师王丽娜老师编排设计。</u></strong>				\n          				</p>\n          				<hr>\n          								<!--the weekly schedule of the courses  -->\n")
+titles = ('每日时间', '18：40 －19：30', ' 19：40 －20：30')
+schedule = {'0' : ('周一', ('民族舞','流行爵士舞')),\
+    '1' : ('周二', ('舞蹈身韵','肚皮舞')),\
+    '2' : ('周三', ('民族舞','流行爵士舞')),\
+    '3' : ('周四', ('拉丁舞（两个课时）','／')),\
+    '4' : ('周五', ('肚皮舞','街舞')),\
+    '5' : ('周六', ('／','／')),\
+    '6' : ('周日', ('国际标准交谊舞','／'))}
+STDOUT("			<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"full\">					\n          			<thead>\n")
+PRINT( '	<tr><th scope="col" colspan="%s">2009年3月份会员课程</th></tr>'%len(titles))
+STDOUT("          			</thead>\n          			<tbody>\n          				<!-- constructs table title -->\n          				<tr>          						\n")
+for title in titles :
+  PRINT( '<th scope="col">%s</th>'%title)
+STDOUT("            				</tr>         \n            				<!--constucts the table body  -->\n")
+ths = schedule.keys()
+ths.sort()
+for k in ths:
+ PRINT( '<tr>')
+ PRINT( '<th scope="row" class="sub">%s</th>'%schedule[k][0])
+ for danceType in schedule[k][1]:
+  PRINT( '<td>%s</td>'%danceType)
+ PRINT( '</tr>')
+STDOUT("            			</tbody>\n            		</table>		\n				</div>							\n			</div><!--subcl end -->\n		</div><!-- c33l end -->\n		<div class=\"c50l\">\n			<div class=\"subc\">		\n				<h6>四月炫点活动</h6>		\n				<blockquote>\n					<pre>炫点舞蹈会员卡四月份优惠活动！！！</pre>\n					<pre>民族舞年卡特惠活动中</pre>\n					<pre>王丽娜老师4月份蒙族舞元素班正在招生</pre>					\n				</blockquote>\n				<hr>\n				<h6>民族舞成品舞（剧目课）课程,开课，报名中！！！</h6>\n				<img class=\"float_right\" alt=\"dummy image\" src=\"images/home/wanglina.png\"/>\n				<blockquote>\n					<pre>授课老师：王丽娜老师</pre>\n					北京舞蹈学院、民族学院优秀舞蹈老师。\n				</blockquote>\n				<p class=\"info\">					\n					授课内容：基础韵律、舞蹈合成、队形编排......<br>											\n					<strong>上课时间：每周1次，每次1小时30分钟</strong>						\n				</p>\n				<hr>\n				<h6>瑜伽、普拉提－喧嚣城市中找寻自我的训练</h6>\n				<img class=\"float_left\" alt=\"dummy image\" src=\"images/home/ningshiwei.png\"/>\n				<blockquote>\n					<pre>授课老师：宁士维老师</pre>\n					亚洲瑜伽协会资深瑜伽导师、高级普拉提培训师。\n				</blockquote>\n				<p class=\"info\">					\n					授课内容：传统瑜伽、瘦身瑜伽、理疗瑜伽、动感普拉提<br>											\n					<strong>上课时间：每周二 、四,下午16：30—18：00</strong>						\n				</p>	\n				<hr>\n				<h6>跆拳道课程开班啦！</h6>\n				<blockquote>\n					<pre>教练：Teakwondo teacher. Chen</pre>\n						国家一级教练员,湖北省跆拳道男子组63~68kg级冠军,“大众杯”跆拳道比赛裁判,曾在世界跆拳道联盟黑带七段李幼植门下学习传统跆拳道技巧。\n				</blockquote>\n				<p class=\"info\">\n					本跆拳道课程一切教学按照韩国训练方法进行，实行韩语、汉语双语结合授课，真正让学员学到正宗的韩国式跆拳道。<br>\n					<strong>课程安排：每周日下午16:30 ~ 18:00</strong>						\n				</p>				\n				<hr>\n				<h6>流行爵士舞，个性舞蹈的才艺展示</h6>				\n				<blockquote>\n					<pre>授课老师：李振华</pre>\n					2006年5月20日 D.Z.COOL舞团参加 CY街舞争霸赛并取得北部赛区HIP-HOP第一名，最终获得全国 HIP-HOP 第三名；<br>\n					2005年5月1~3日北京CK舞团荣获Hip-Hop炫舞青春首都高校街舞邀请赛总决赛季军；<br>\n					2004动感地带中国大学生街舞挑战赛北京赛区第一名,北部赛区第三名。<br>					\n				</blockquote>\n				<p class=\"info\">					\n					授课内容：<br>\n					头、颈、肩、上肢、躯干、胯部等部位的基础训练；<br>\n					从基础动作中认真听音乐的节拍，学会懂得听音乐的节奏和其要表现的氛围，掌握最基本的舞蹈感觉（HIPHOP、LA）等；<br>\n					在最基本的爵士舞蹈动作中灵活运用，收放自如；<br>											\n					<strong>上课时间：周六上午10：45－12：15</strong>						\n				</p>		\n			</div><!--subc end -->\n		</div><!-- c33l end -->\n		<div class=\"c25r\">\n			<div class=\"subcr\">\n				<!-- Includes gallery of shinepo  which includs popup window showing -->            		\n")
+Include ("home_right_lightbox.pih")
+STDOUT("				<hr>\n				<h6>拉丁舞－释放现代生活的激情</h6>\n				<img class=\"float_center\" alt=\"dummy image\" src=\"images/home/zhanglu_1.png\"/>\n				<blockquote>\n					<pre>授课老师：张路</pre>\n					中国体育舞蹈协会会员；<br>\n					全国A级教师；<br>					\n				</blockquote>\n				<p class=\"info\">					\n					授课内容：精品拉丁舞<br>											\n					<strong>上课时间：每周两次</strong>						\n				</p>\n			</div><!-- subcr end -->\n		</div><!-- c33r end -->\n	</div><!-- subcolumns end -->\n")
+

@@ -1,0 +1,139 @@
+<h1><%= chapter %>. KT - Karrigell Templates</h1>
+
+KT est un moteur de modèles simple pour les "services Karrigell" (.ks) et les scripts Python. Les buts de KT sont de: 
+<ul>
+<li>fournir un système de modèles simple, sans programmation (la logique, les boucles, etc. sont gérées dans les scripts en Python)</li>
+<li>supporter le système intégré de traduction de Karrigell</li>
+<li>supporter la substitution de variables</li>
+<li>prendre en charge l'inclusion d'autres modèles</li>
+</ul>
+
+<h2><%= chapter %>.1 Syntaxe du langage de modèles KT</h2>
+
+<p>Les modèles KT sont enregistrés avec l'extension <CODE>.kt</CODE>. Le langage utilise les balises suivantes, qui sont insérées dans d'autres parties de texte, typiquement HTML.
+
+<h4>Balise d'inclusion</h4>
+<p><div class="python"><pre>
+   @[template_url]
+</div>
+<p>Inclut le modèle spécifié par template_url. Les URLs sont traitées de la même façon que dans la fonction <code>Import()</code>. Les chemins relatifs sont pris en charge, et sont relatifs au modèle parent. Les inclusions sont traitées récursivement, de façon que des modèles fils puissent inclure d'autres modèles
+
+<h4>Balise de substitution</h4>
+<p><div class="python"><pre>
+   $identifiant
+   $objet.attribut
+   $dictionnaire.clef
+</div>
+<p>Substitue un identifiant par sa valeur. Les identifiants peuvent être de simples noms de variables ou peuvent être des objets ou des dictionnaires. Si on utilise des dictionnaires, les clés doivent avoir la forme d'un identifiant Python valide
+
+<h4>Balise de traduction</h4>
+<p><div class="python"><pre>
+   _[chaîne à traduire]
+</div>
+<p>Traduit la chaîne de caractères en utilisant le système de traduction intégré de Karrigell. Il s'agit de l'équivalent de la fonction <code>_()</code> des script .ks et Python et de la syntaxe  <code>&lt;%_ %&gt;</code> de Python Inside HTML
+
+<h4>Combinaison de balises</h4>
+<p><div class="python"><pre>
+   @[$identifier]
+   _[$identifier]
+</div>
+<p>Les inclusions peuvent être controlées par le script appelant en donnant à l'identifiant la valeur de l'url d'un modèle. Les styles <code>$objet.attribut</code> et <code>$dictionnaire.clef</code> peuvent également être utilisés. Ceci apporte un haut niveau de flexibilité dans la façon d'utiliser les modèles. Par exemple, un modèle maître peut contenir l'habillage basique de la page, puis différents modèles fils y sont insérés sous le contrôle du script appelant
+<p>Si un <code>$identifiant</code> n'est pas défini, ou a la valeur <CODE>False</CODE>, alors aucune inclusion n'est effectuée. Ceci permet au script appelant de "désactiver" une inclusion
+<p>En théorie les $identifiants peuvent être placés dans des balises de traduction, mais ce n'est pas recommandé. Il vaut mieux effectuer les traductions dans le script appelant en utilisant la fonction <code>_()</code>
+
+<h2><%= chapter %>.2 Appel de KT depuis un script</h2>
+Les valeurs à inclure dans les modèles sont passées par le script comme arguments à mots-clés :
+<p><div class="python"><pre>
+   print KT(url_modele, var1=var1, var2=var2, data=dict, ligne=ligne, this=THIS, ...)  
+</div>
+<p>L'url du modèle pointe vers le fichier de modèle KT, avec les mêmes règles de résolution que la fonction <CODE>Import()</CODE>
+<p>La syntaxe <CODE>**dict</CODE> est aussi supportée :
+<p><div class="python"><pre>
+   print KT(url_modele, **dict)
+</div>
+<p>Pour faciliter les choses, la fonction intégrée Python <CODE>locals()</CODE> peut être affectée à un argument mot-clé, ce qui rend l'espace de noms local disponible dans le modèle:
+<p><div class="python"><pre>
+   print KT(url_modele, data=locals())
+</div>
+
+<h2><%= chapter %>.3 Traitement</h2>
+Les modèles sont traités de la façon suivante
+<ol>
+<li>toutes les inclusions sont traitées récursivement pour construire un modèle consolidé. Les <code>$identifiants</code> dans les balises <code>@[]</code> sont étendus en premier. Si un <code>$identifiant</code> n'est pas défini ou a la valeur <CODE>False</CODE>, aucune inclusion n'est effectuée et aucune erreur n'est signalée. Ceci permet au script appelant de "désactiver" une inclusion. Les références circulaires sont détectées et une <CODE>RecursionError</CODE> est déclenchée si un modèle essaie de s'inclure lui-même, ou si un modèle fils essaie d'inclure son parent</li>
+<li>toutes les autres substitutions sont effectuées sur le modèle consolidé</li>
+<li>les traductions sont effectuées</li>
+</ol>
+
+<h2><%= chapter %>.4 Gestion des traductions</h2>
+L'outil d'administration pour les traductions reconnaît les fichiers kt. Il extrait automatiquement les chaînes de caractères à traduire à partir des balises <code>_[]</code> de la même façon qu'il les extrait des appels à la fonction <code>_()</code> dans les scripts <CODE>.py, .hip</CODE> et <CODE>.ks</CODE> et des balises <code>&lt;%_ %&gt;</code> pour <CODE>.pih</CODE>
+
+<h2><%= chapter %>.5 Unicode</h2>
+KT convertit tout le texte en Unicode en utilisant le codage UTF-8, et retourne une chaîne Unicode
+
+<h2><%= chapter %>.6 Exemple</h2>
+Voici un exemple de modèle KT, appelé <code>template/maitre.kt</code>:
+<p><div class="python"><pre class="python">&lt;html&gt;
+&lt;head&gt;
+&lt;link rel="stylesheet" href="$this.baseurl/css/mon.css"&gt;
+&lt;title&gt;MonAppli $data.titre&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+@[$data.bodytmpl]
+&lt;hr&gt;
+&lt;i&gt;_[Powered by Karrigell]&lt;/i&gt;
+&lt;p /&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</div>
+
+<p>Notez la façon dont <code>THIS</code> est passé à KT et utilisé pour définir l'url de la feuille de style CSS
+
+<p>La balise <code>@[$data.bodytmpl]</code> inclut un autre modèle, dont le nom est contenu dans l'identifiant <code>$data.bodytmpl</code>. Dans cet exemple, nous donnerons à <code>$data.bodytmpl</code> la value <code>index.kt</code>
+
+<p><code>index.kt</code> contient ce code:
+
+<p><div class="browser"><pre>
+&lt;h1&gt;Bienvenue à la page d'accueil de $data.qui !&lt;h1&gt;
+</div>
+
+<p>Ce morceau de code montre comme le modèle serait appelé depuis un script ks appelé <code>/monappli.ks</code>"
+
+<p><div class="python"><pre class="python">
+def index():
+    SET_UNICODE_OUT("utf-8")
+    titre = ' -  accueil'
+    qui = 'Tartempion'
+    bodytmpl = 'index.kt'
+    print KT('modele/maitre.kt', data=locals(), this=THIS)
+</div>
+
+<p>Si la langue du navigateur du lecteur est English, l'appel de  /monappli.kt/index produit ce code  html:
+<p><div class="browser"><pre>&lt;html&gt;
+&lt;head&gt;
+&lt;link rel="stylesheet" href="/css/mon.css"&gt;
+&lt;title&gt;MonAppli - accueil&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Bienvenue sur la page d'accueil de Tartempion !&lt;/h1&gt;
+&lt;hr&gt;
+&lt;i&gt;Powered by Karrigell&lt;/i&gt;
+&lt;p /&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</div>
+
+<p>Si la langue du navigateur est Français, et que la traduction de "Powered by Karrigell" a été saisie dans l'outil d'administration, le résultat serait :
+<p><div class="browser"><pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;link rel="stylesheet" href="/css/mon.css"&gt;
+&lt;title&gt;MonAppli - accueil&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Bienvenue sur la page d'accueil de Tartempion !&lt;/h1&gt;
+&lt;hr&gt;
+&lt;i&gt;Motorisé par Karrigell&lt;/i&gt;
+&lt;p /&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</div>

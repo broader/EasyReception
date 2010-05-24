@@ -1,0 +1,117 @@
+<h1><%= chapter %>. Proxy mode</h1>
+
+<h3><%= chapter %>.1 Introduction</h3>
+
+<p>In this mode, Apache is used as a proxy between the client and the built-in 
+server. You have to configure it so that it sends all the requests to this server
+running in the background. We will suppose that you 
+start Apache on port 80 and the built-in server on port 8081 (for security reasons, 
+on Linux Karrigell should be started on a port above 1024 and not as root)
+</p>
+
+<p>I copy most of this section from Remi Delon's CherryPy documentation : 
+http://www.cherrypy.org/wiki/BehindApache
+
+<h3><%= chapter %>.2 Editing httpd.conf</h3>
+
+<p>First you must edit the Apache config file <code>httpd.conf</code>
+
+<p>In the Dynamic Shared Object (DSO) section, uncomment the lines
+
+<p>
+<div class="verbatim">
+<pre class="conf">LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+LoadModule rewrite_module modules/mod_rewrite.so
+</pre>
+</div>
+
+<p>Set the DocumentRoot option to the Root Directory of your Karrigell distribution
+
+<p>Add the following lines to enable proxy mode :
+
+<div class="verbatim">
+<pre class="conf">ProxyRequests On
+
+&lt;Proxy *&gt;
+    Order allow,deny
+    Deny from none
+    Allow from all
+&lt;/Proxy&gt;
+</pre>
+</div>
+
+<p>mod_rewrite is used to ask Apache to send the requests to the built-in server. This 
+module parses the original url and changes it according to regular expressions
+
+<p>Add these lines in the section &lt;Directory &gt; for the Document Root :
+
+<div class="verbatim">
+<pre class="conf">RewriteEngine On
+RewriteCond  %{SCRIPT_FILENAME} !autostart\.cgi$
+RewriteRule ^(.*) http://localhost:8081/$1 [P]
+ErrorDocument 502 /cgi-bin/autostart.cgi
+ErrorDocument 503 /cgi-bin/autostart.cgi
+</pre>
+</div>
+
+The main functionality is provided by the RewriteRule : it tells Apache to rewrite 
+all the urls to an absolute url corresponding to the built-in server running on port 
+8081 and use the proxy mode to pass the request
+
+<p>If the built-in server is not running, an HTTP error 502 or 503 is returned ; the last 
+lines tell Apache to call the script <CODE>autostart.cgi</CODE> in this case. The 
+second line prevents Apache to use the RewriteRule for this specific script 
+(otherwise it would enter an infinite loop)
+
+<h3><%= chapter %>.3 Editing autostart.cgi</h3>
+
+<p>autoscript.cgi is a short script, looking like this on Linux/Unix :
+
+<div class="python">
+<pre class="verbatim">
+#!/usr/bin/python
+print "Content-type: text/html\r\n\r\n"
+print """&lt;html&gt;&lt;head&gt;&lt;META HTTP-EQUIV="Refresh" CONTENT="10; 
+      URL=/"&gt;&lt;/head&gt;&lt;body&gt;Restarting site ...&lt;a href="/"&gt;click 
+      here&lt;a&gt;&lt;/body&gt;&lt;/html&gt;"""
+import os
+import sys
+os.setpgid(os.getpid(), 0)
+server_script = r"c:\Karrigell\20090614\Karrigell.py"
+conf_dir = os.path.dirname(server_script)
+
+line = sys.executable + ' '+server_script +' %s &' %conf_dir
+
+try:
+    os.system(line)
+except:
+    import traceback
+    traceback.print_exc(file=out)
+</pre>
+</div>
+
+<p>What you have to adapt is 
+<ul><li>the location of the Python interpreter on the first line (#!python
+on Windows)
+
+<li>the path to <CODE>Karrigell.py</CODE> on the line "server_script"
+</ul>
+
+<p>This script must be put in the cgi-bin directory defined in httpd.conf
+(normally by the ScriptAlias directive). Don't forget to set the "execution" 
+mode for it
+
+<h3><%= chapter %>.4 Starting the server</h3>
+
+<p>The server must be configured with these values in <span class="file">
+server_config.py</span>:
+<ul>
+<li>port = 8081
+<li>silent = True
+</ul>
+
+<p>Start the built-in web server on port 8081 and start Apache. This should be 
+enough to get it going. Depending on what <code>ServerName</code> is set to 
+(use 'localhost' for testing), enter the URL of your server into the URL bar 
+of a web browser and Karrigell/Apache should serve web pages like normal Karrigell.

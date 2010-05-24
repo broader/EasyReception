@@ -1,0 +1,122 @@
+/*
+INITIALIZE THE USER'S MENUS
+*/
+
+<% 
+# PYTHON CODE SLICE
+# get meus stored in pagefn.py
+pagefn = Import('/'.join(('', 'pagefn.py')))
+loginApp = pagefn.LOGINAPPNAME
+%>
+
+// get the global Assets manager
+var am = MUI.assetsManager;
+
+/*
+Initialize the top navigation info on the top right of the screen, 
+then switch the menu according user's login status.
+*/
+function topNavSwitch(login){
+	var topNav = $('<%=pagefn.LOGINPANEL %>')
+	var children = topNav.getChildren();
+	var url = '<%=pagefn.MENUURLS[0]%>';
+	
+	switch(login){
+		case true:			
+			if(children.length < 2){
+				var span = new Element('span');
+				span.load(url);			
+				topNav.grab(span);
+				topNav.getElements('ul')[0].setProperty('style','display:none;');
+			}
+			else{
+				children[0].setProperty('style','display:none;');
+				children[1].load(url).setProperty('style','display:block;');
+			}
+			break
+		case false:
+			children[0].setProperty('style','display:block;');
+			children[1].setProperties({
+				'html': '',
+				'style': 'display:none;'
+			});
+			break
+	}
+	
+};
+
+
+/*********************************************************************************
+Initialize menus
+Parameters:
+	data - a Array instance, for which format is [{'text':'..','function':'...'},]
+**********************************************************************************/
+function menuSet(data){	
+	var ul = new Element('ul');
+	data.each(function(menu){
+		li = new Element('li');			
+		a = new Element('a',{
+			'html': menu['text'],
+		 	'class':'returnFalse',
+		 	'style':'text-decoration:none;',
+		 	'href': '',
+			'events': {
+				'click': window[menu['function']]
+			}
+		});
+		a.inject(li);		
+		li.inject(ul);		
+	});
+	
+	$('<%=pagefn.MENUCONTAINER%>').grab(ul,'top');
+
+};
+
+
+/*
+**	Initialize menu by json data from server side
+*/
+function menuInit(){
+	var menurl = '<%=pagefn.MENUURLS[1] %>';
+	var data = new Request.JSON({
+		url: menurl, 
+		onSuccess:function(json,html){			
+			am.import(
+				{	'url':json['js'],	// load the menus' corresponding clickable functions
+					'app':'<%=loginApp %>',
+					'type':'js'
+				},
+				{
+					onload: function(){						
+						menuSet(json['data']);	// set the menus' text
+					}
+				}
+			);
+		}
+	}).get();
+	
+};
+
+
+// Add some assistant tools to MUI
+MUI.extend({
+	// login function
+	login: function(){
+		var menuChain = new Chain();
+		menuChain.chain(
+			topNavSwitch(true),
+			menuInit()			
+		).callChain();
+	},
+	// logout function
+	logout: function(event){
+		new Event(event).stop();
+		MUI.notification('Really log out?');
+		// remove menus in menu bar
+		$('<%=pagefn.MENUCONTAINER%>').getElement('ul').dispose();
+		// reset the top navigation info
+		topNavSwitch(false);
+		// remove all the imported mootools.Assets
+		am.remove('<%=loginApp %>', 'app');
+	}
+});

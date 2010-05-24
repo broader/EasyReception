@@ -1,0 +1,94 @@
+---
+service:
+  hotel:
+    categoryInService: Hotel
+    configProperty:
+    - {name: reservePermission, prompt: status that could be reserved, property: status,
+      value: ''}
+superAdmin: admin
+userAccountInfo:
+- {name: username, prompt: !!python/str "\u767B\u5F55\u540D\u79F0", type: text}
+- {name: email, prompt: Email address, type: text}
+- {name: password, prompt: !!python/str "\u5BC6\u7801", type: password}
+userBaseInfo:
+- class: ''
+  name: prefix
+  options:
+  - {label: !!python/str "\u5148\u751F", value: '0'}
+  - {label: !!python/str "\u5973\u58EB", value: '1'}
+  - {label: !!python/str "\u5C0F\u59D0", value: '2'}
+  prompt: Prefix
+  required: false
+  type: radio
+  validate: []
+- class: ''
+  name: firstname
+  prompt: !!python/str "\u59D3"
+  required: false
+  type: text
+  validate: []
+- name: lastname
+  prompt: !!python/str "\u540D"
+  type: text
+  validate: []
+- class: ''
+  name: gender
+  options:
+  - {label: !!python/str "\u7537", value: '0'}
+  - {label: !!python/str "\u5973", value: '1'}
+  prompt: Gender
+  required: false
+  type: radio
+  validate: []
+- class: ''
+  name: organization
+  prompt: !!python/str "\u5355\u4F4D\u6216\u7EC4\u7EC7"
+  required: false
+  type: textarea
+  validate: []
+- class: ''
+  name: phone
+  prompt: Phone
+  required: false
+  type: text
+  validate: []
+- class: ''
+  name: fax
+  prompt: Fax
+  required: false
+  type: text
+  validate: []
+- class: ''
+  name: aperson
+  options:
+  - {label: '0', value: '0'}
+  - {label: '1', value: '1'}
+  - {label: '2', value: '2'}
+  prompt: Accompany Person
+  required: false
+  type: select
+  validate: []
+- class: ''
+  name: address
+  prompt: Address
+  required: false
+  type: textarea
+  validate: []
+- class: ''
+  name: city
+  prompt: City
+  required: false
+  type: text
+  validate: []
+- class: ''
+  name: country
+  prompt: Country
+  required: false
+  type: text
+  validate: []
+- class: ''
+  name: postcode
+  prompt: Postal Code
+  required: false
+  type: text
+  validate: []

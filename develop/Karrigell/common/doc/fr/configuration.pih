@@ -1,0 +1,273 @@
+<script src="../pf_test.js"></script>
+
+<h1><%= chapter %>. Configuration</h1>
+
+La configuration est définie à trois niveaux :
+<ul>
+<li><b>ligne de commande</b> : quand on utilise le serveur intégré, le répertoire dans
+lequel se trouve le script de configuration du serveur peut être précisé
+<p>
+<div class="verbatim">
+<pre>
+python Karrigell.py [ServerConfigDirectory]
+</pre>
+</div>
+
+<p>Par défaut, le répertoire utilisé est le même que celui dans lequel se trouve
+<span class="file">Karrigell.py</span>
+
+<li><b>script de configuration du serveur</b> : définit les répertoires 
+utilisés par le canevas, et les options qui relèvent du niveau serveur
+(mode de stockage des sessions, nombre maximum de threads, etc). Pour le
+serveur intégré, ces données sont stockées dans le script <span class="file">
+server_config.py</span> dans le répertoire de configuration du serveur 
+défini ci-dessus<p>
+
+<li><b>scripts de configuration d'hôte</b> : définis dans le script
+<span class="file">conf.py</span> dans chaque répertoire de données d'hôte ; 
+pour l'hôte local (localhost), il est situé dans le dossier
+<span class="file">data/www</span>
+
+</ul>
+
+<br>Chaque hôte peut être configuré par un fichier de configuration spécifique.
+La correspondance entre un nom d'hôte et son fichier de configuration est défini
+dans le fichier texte <span class="file">hosts</span>, situé dans le
+répertoire de configuration serveur
+
+<p>Ce script de configuration d'hôte peut être édité par un éditeur de texte,
+ou en ligne depuis le menu d'administration accessible sur la page d'accueil
+
+<h3><%= chapter %>.1 Configuration du serveur</h3>
+
+<p>Ce script définit les valeurs suivantes :
+<blockquote>
+
+    <code>karrigell_dir</code>
+        <blockquote>
+        Le répertoire dans lequel se trouve le coeur du canevas Karrigell : 
+        celui dans lequel se trouvent les dossiers
+        <span class="file">core</span> et <span class="file">package</span>
+        </blockquote>
+
+    <p>
+    <code>host_conf_dir</code>
+        <blockquote>
+        Le répertoire dans lequel se trouve le fichier texte 
+        <span class="file">hosts</span>
+        </blockquote>
+    <p>
+    <code>port</code>
+        <blockquote>
+        Le port sur lequel le serveur tourne
+        </blockquote>
+
+    <code>persistent_sessions</code>
+
+        <BLOCKQUOTE>
+        Dans la plupart des situations, il vaut mieux donner à cette option
+        la valeur <code>True</code>, ce qui signifie que les données de session
+        sont stockées sur disque : les stocker en mémoire n'est pas fiable
+        dans un environnement multi-threads, que ce soit avec le serveur
+        multi-thread intégré ou derrière Apache
+        <p>Ceci limite les données de sessions aux types qui peuvent être
+        sérialisés par le module pickle
+        <p>Au cas où vous auriez besoin de stocker dans l'objet de session 
+        des objets Python impossibles à "pickler", vous pouvez donner à 
+        persistent_sessions la valeur <code>False</code>. Comme indiqué
+        ci-dessus, soyez conscient que ceci ne fonctionnera de manière fiable
+        qu'avec un serveur mono-thread et mono-process tels que les serveurs
+        intégrés
+        <span class="file">Karrigell_monoprocess.py</span> ou
+        <span class="file">Karrigell_async.py</span>
+
+        </BLOCKQUOTE>
+
+    <code>cache</code>
+        <BLOCKQUOTE>
+        Booléen pour indiquer si le cache HTTP est utilisé (avec l'en-tête <CODE>If-Modified-Since</CODE>).
+        Prend la valeur True par défaut</BLOCKQUOTE>
+
+    <code>ipv6</code>
+        <BLOCKQUOTE>
+        Booléen pour indiquer s'il faut utiliser IPv6 au lieu de IPv4.
+        Prend la valeur False par défaut</BLOCKQUOTE>
+
+    <code>max_threads</code>
+        <BLOCKQUOTE>
+        Le nombre maximum de threads qui peuvent être lancés par le serveur
+        intégré multi-threadé
+        </BLOCKQUOTE>
+
+    <code>process_num</code>
+        <BLOCKQUOTE>
+        Le nombre de processus à lancer quand on démarre le serveur intégré multi-process
+        </BLOCKQUOTE>
+
+    <code>silent</code>
+        <BLOCKQUOTE>
+        Une valeur booléenne qui indique si le serveur doit écrire une information
+        de trace sur sys.stderr pour chaque requête
+        </BLOCKQUOTE>
+
+    <code>modules</code>
+        <BLOCKQUOTE>
+        Un dictionnaire qui fait correspondre des étapes du traitement des requêtes
+        avec une liste de modules. Quand l'étape spécifiée est atteinte, la fonction
+        <code>main()</code> de chaque module est appliquée à l'objet gestionnaire
+        de requête (instance de HTTP.HTTP)
+        </BLOCKQUOTE>
+
+
+</blockquote>
+
+<h3><%= chapter %>.2 Configuration d'hôte</h3>
+
+<p>Les valeurs qui peuvent être définies sont :
+<p>
+<blockquote>
+    <code>root_dir</code>
+        <blockquote>
+        On donne à <code>root_dir</code> le nom complet du répertoire racine,
+        celui depuis lequel on veut servir les fichiers. Par défaut il s'agit
+        du dossier <code>www</code> dans le répertoire serveur
+        </blockquote>
+
+    <code>data_dir</code>
+        <blockquote>
+        Le répertoire dans lequel se trouvent les données propres à l'hôte :
+        base de données des utilisateurs, fichier de traduction, données de
+        session...
+        </blockquote>
+
+    <code>cache_dir</code>
+        <blockquote>
+        Le répertoire dans lequel se trouve le cache des scripts. Le cache
+        évite de parser les scripts à chaque fois qu'ils sont exécutés ; il est
+        mis à jour quand le code source d'un script est modifié
+        <br>Si on donne comme valeur <code>None</code>, le cache de scripts est
+        désactivé
+        </blockquote>
+
+    <code>cgi_dir</code>
+        <blockquote>
+        Le répertoire dans lequel se trouvent les scripts CGI
+        </blockquote>
+
+    <code>allow_directory_listing</code>
+        <blockquote>
+        La liste des rôles utilisateurs (voir <%= make_link("authentification",
+        "authentication") %>) qui peuvent voir des listes de répertoires
+        et de fichiers si une url correspond à un répertoire sans fichier
+        d'index.
+        Si <code>None</code> figure dans cette liste, tous les utilisateurs
+        peuvent voir le contenu du répertoire. Si la valeur est 
+        <code>['admin','edit']</code>, seuls les utilisateurs connectés sur
+        un profil 'admin' ou 'visit' pourront le voir ; les autres utilisateurs
+        recevront un message d'erreur
+        <br>La valeur par défaut est <CODE>[None]</CODE>
+        </blockquote>
+
+    <code>hide_extensions</code>
+        <blockquote>
+        Une liste des extensions de fichiers à cacher (renvoie l'erreur 403)
+        </blockquote>
+
+    <code>ignore</code>
+        <blockquote>
+        Une liste des modèles d'expressions régulières qui seront appliquées
+        aux chemins d'urls ; si une correspondance est trouvée, le serveur
+        renvoie une erreur 403
+        <br>Ceci peut être utilisé pour interdire l'accès à un ensemble
+        de répertoires. Par exemple si vous avez un système de gestion de versions
+        qui crée des répertoires appelés <code>cvs</code> vous pouvez en interdire
+        l'accès avec cette ligne :
+        <br><code>ignore = [".*/cvs/.*"]</code>
+        </blockquote>
+
+    <code>logging_file</code>
+        <blockquote>
+        Le chemin du fichier de traces. S'il n'est pas spécifié, aucune trace
+        n'est conservée
+        </blockquote>
+
+    <code>logging_rotate</code>
+        <blockquote>
+        Si <code>logging_file</code> est défini, indique à quelle périodicité
+        le fichier de traces doit être changé. Si la valeur est
+        <CODE>None</CODE>, on utilise toujours le même fichier de trace. Avec la
+        valeur <CODE>"monthly", "daily"</CODE> ou <CODE>"hourly"</CODE>, 
+        le fichier de traces change avec le mois, le jour ou l'heure ; 
+        le nom du fichier est celui défini dans
+        <CODE>loggin_file</CODE>, auquel on ajoute le mois / le jour / l'heure
+        </blockquote>
+
+    <code>output_encoding</code>
+        <blockquote>
+        Chaîne de caractères qui indique l'encodage à utiliser
+        pour envoyer des données à l'utilisateur
+        </blockquote>
+
+    <code>alias</code>
+        <BLOCKQUOTE>
+        Un dictionnaire qui fait correspondre un alias au chemin d'un dossier
+        dans le système de fichiers. Par exemple :
+        <div class="verbatim">
+        <pre>
+        <script>
+        if (pf == 'w')
+        { document.write('alias = {"scripts" : "c:\\\\My&nbsp;Documents\\\\Karrigell&nbsp;scripts"}') }
+        else
+        { document.write('alias = {"scripts" : "home/myprogs/Karrigell_scripts"}') }
+        </script>
+        </pre>
+        </div>
+        l'url <span class="url">
+        htpp://localhost/scripts/index.html</span> servira le fichier <span class="file">
+        <script>
+        if (pf == 'w')
+        { document.write('c:\\My&nbsp;Documents\\Karrigell&nbsp;scripts\\index.html') }
+        else
+        { document.write('home/myprogs/Karrigell_scripts/index.html') }
+        </script>
+        </span>
+        </BLOCKQUOTE>
+
+    <code>debug</code>
+        <BLOCKQUOTE>
+        indique si vous voulez que des informations détaillées,
+        y compris la trace d'erreur Python, soient affichées en cas d'erreur
+        ou d'exception dans l'exécution d'un script. Vaut <CODE>True</CODE>
+        par défaut. Ave la valeur <CODE>False</CODE>, seul un message 
+        du type "Le serveur n'a pas pu exécuter votre requête" sera
+        imprimé, sans aucun autre détail
+        </BLOCKQUOTE>
+
+    <code>gzip</code>
+        <BLOCKQUOTE>
+        Si la valeur est <CODE>True</CODE>, et que l'agent utilisateur
+        supporte la compression gzip (c'est le cas de la plupart des navigateurs),
+        le serveur comprime les données envoyées à l'utilisateur pour les fichiers
+        texte. Ceci réduit la charge réseau, mais ralentit légèrement le serveur
+        </BLOCKQUOTE>
+
+    <code>global_modules</code>
+        <BLOCKQUOTE>
+        Une liste de chemins vers des modules qui doivent être importés dans
+        chaque script exécuté par Karrigell. Si vous avez une ligne comme
+        <blockquote>
+        <div class="verbatim">
+        <pre>global_modules = ["/usr/scripts/myScript.py"]
+        </div></blockquote>
+
+        le nom du module <CODE>myScript</CODE> sera disponible dans l'espace
+        de noms de tous les scripts
+        </BLOCKQUOTE>
+
+    <code>max_sessions</code>
+
+        <BLOCKQUOTE>
+        Le nombre maximum de sessions qui peuvent être stockées. 
+        Vaut 500 par défaut
+        </BLOCKQUOTE>
+</blockquote>

@@ -1,0 +1,123 @@
+<h1><%= chapter %>. RSS stream generator</h1>
+
+<h2><%= chapter %>.1 RSS()</h2>
+
+Karrigell provides a class, <code>RSS()</code>, allowing programmer to easily generate RSS 2.0 streams.<br>
+<br>
+<code>RSS()</code> use is :<br>
+<br>
+<code>
+from k_rss import RSS<br>
+rss = RSS(parameters)<br>
+</code>
+<br>
+<code>RSS()</code> parameters are named arguments in the following list :
+<ul>
+<li><code>title </code> <small>(mandatory)</small>
+<li><code>link </code> <small>(mandatory)</small>
+<li><code>description </code> <small>(mandatory)</small>
+<li><code>language</code> 
+<li><code>copyright</code> 
+<li><code>managingEditor</code> 
+<li><code>webMaster</code> 
+<li><code>pubDate</code> 
+<li><code>lastBuildDate</code> 
+<li><code>category</code> 
+<li><code>generator</code> 
+<li><code>docs</code> 
+<li><code>cloud</code> 
+<li><code>ttl</code> 
+<li><code>image</code> 
+<li><code>rating</code> 
+<li><code>skipHours</code> 
+<li><code>skipDays</code> 
+</ul>
+
+<h2><%= chapter %>.2 AddItem()</h2>
+Once, the Channel is created with <code>RSS()</code>, you can add items with <code>AddItem()</code> method.<br>
+<code>AddItem()</code> use is :<br>
+<br>
+<code>
+rss.AddItem(parameters)<br>
+</code>
+<br>
+<code>AddItem()</code> parameters are named arguments in the following list :
+<ul>
+<li><code>title</code>
+<li><code>link</code>
+<li><code>description</code>
+<li><code>author</code>
+<li><code>category</code> 
+<li><code>comments</code> 
+<li><code>enclosure</code> 
+<li><code>guid</code> 
+<li><code>pubDate</code> 
+<li><code>source</code> 
+</ul>
+Either <code>title</code> or <code>description</code> has to be specified in <code>AddItem()</code> parameters.
+
+<h2><%= chapter %>.3 Parameters type</h2>
+
+Parameters of <code>RSS()</code> and <code>AddItem()</code> can be of the following type :
+<ul>
+<li>text : a string or a unicode string
+<li>date : datetime.datetime converted to text with the correct formatting. Timezone is managed <small>(see note)</small>. 
+<li>image : a dictionnary with the following keys :
+    <ul>
+    <li>url <small>(mandatory)</small>
+    <li>title <small>(mandatory)</small>
+    <li>link  <small>(mandatory)</small>
+    <li>width
+    <li>height
+    <li>description
+    </ul>
+</ul>
+
+Note : If no timezone is
+specified, then local timezone is used. If your server is located in a timezone and the dates you use are in 
+another one, you have to specify the right timezone (see python doc for this).
+
+<h2><%= chapter %>.4 Render() and RenderInFile()</h2>
+
+To generate the stream, you can use <code>Render()</code> or <code>RenderInFile()</code>.
+<p>
+<code>Render()</code> accepts a single parameter : the output encoding (optional). 
+When not specified, default output encoding is <code>iso-8859-1</code>.<br>
+<code>Render()</code> outputs a unicode string correctly formatted.
+<br>
+<p>
+<code>RenderInfile()</code> accepts two parameters : a filename and the output encoding (optional).<br>
+<code>RenderInfile()</code> works like <code>Render()</code> but generates a file and returns nothing.
+
+<h2><%= chapter %>.5 Example</h2>
+
+<p>
+<pre class="verbatim">
+from k_rss import RSS
+import datetime
+ 
+rss = RSS(title="Karrigell", 
+          description="Flexible Python web framework, with a clear and intuitive syntax.", 
+          link="http://www.karrigell.com",
+          webMaster="quentel.pierre@wanadoo.fr (Pierre Quentel)", 
+          language="en",
+          generator="Karrigell RSS generator",
+          image={"url":"http://karrigell.sourceforge.net/images/karrigell_skeudenn.png",
+                 "title":"Karrigell",
+                 "link":"http://www.karrigell.com"}
+          )
+ 
+rss.AddItem (title='Last item', 
+             description='My most recent item.',
+             pubDate = datetime.datetime.now())
+ 
+rss.AddItem (title='First item', 
+             description='My first item.',
+             pubDate = datetime.datetime(year=2009, month=3, day=16, hour=22, minute=34, second=17))
+
+print rss.Render()
+</pre>
+
+<p>In this example, an RSS stream is generated with "Karrigell" as a title. Two items are added.
+
+<p>

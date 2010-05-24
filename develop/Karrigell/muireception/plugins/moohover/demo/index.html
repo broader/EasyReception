@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MooHover - MooTools 1.2 hover buttons</title>
+<script language="javascript" type="text/javascript" src="script/mootools-1.2.1-core.js"></script>
+<script language="javascript" type="text/javascript" src="script/MooHover.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+<script language="javascript" type="text/javascript">
+	window.addEvent('domready', function(){
+			new MooHover({container:'menu-hover',duration:800});
+			new MooHover({container:'form_example',className: 'MooButton', defaultClass:'defaultMooButton', duration:500});
+	});
+</script>
+</head>
+<body>
+<div id="container">
+
+	<h1>MooHover - MooTools 1.2 hover buttons</h1>
+	
+	<p>
+		The class replaces links with a hover effect transition on the background image.<br />
+		To do that, it wraps the element in a div ( the .default class ) that has as background the default position image of your button.<br />
+		On the link or submit button ( the .MooTrans class ) it uses as background image the hover image.<br />
+		 All CSS is external, so you only need to make changes into your stylesheet.
+	</p>
+	
+	<p>
+		<h2>Required</h2>
+		To use this script, download <a href="http://mootools.net/core">MooTools 1.2 Core</a> with these modules:
+		<ul>
+			<li><strong>Core</strong> : <em>all</em></li>
+			<li><strong>Native</strong> : <em>all</em></li>	
+			<li><strong>Class</strong> : <em>all</em></li>
+			<li><strong>Element</strong>: <em>Element, Element.Event, Element.Style</em></li>	
+			<li><strong>Utilities</strong>: <em>Selectors, DomReady</em></li>	
+			<li><strong>Fx</strong>: <em>Fx, Fx.CSS, Fx.Morph, Fx.Transitions</em></li>
+		</ul>
+		<h2>Download</h2>		
+		Download <a href="MooHover.js">MooHover</a>.
+	</p>
+	
+	<p>
+		<h2>Usage</h2>
+		Include both files (MooTools Core and MooHover) into the document head section.<br />
+		Create an instance of MooHover to start using it:<br />
+		<div class="script">
+		window.addEvent('domready', function(){<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;new MooHover();<br />
+		});
+		</div>
+		<strong>MooHover</strong> supported parameters:
+		<ul>
+			<li><strong>container</strong>: the element containing the anchors or buttons replaced (default:document)</li>
+			<li><strong>className</strong>: the hover class (default:MooTrans)</li>
+			<li><strong>defaultClass</strong>: the default button class (default:default)</li>
+			<li><strong>duration</strong>: the hover effect duration in ms (default:400)</li>
+			<li><strong>transition</strong>: the hover effect transition (default:Fx.Transitions.Sine.easeOut)</li>
+		</ul>
+	</p>
+	
+	<p>
+		<h2>Example 1: anchors</h2>
+		<div id="menu-hover">	
+			<a href="#" class="MooTrans">Link 1</a>
+			<a href="#" class="MooTrans" rel="selected">Link 2</a>
+			<a href="#" class="MooTrans">Link 3</a>
+		</div>	
+	</p>
+	
+	<p>
+		<h2>Example 2: submit button</h2>
+		<form method="post" action="" id="form_example">
+			<label>Name:</label> <input type="text" name="name" value="Full name please" /><br />
+			<label>E-mail address:</label> <input type="text" name="email" value="E-mail address" /><br />
+			<input type="submit" value="send message" class="MooButton" />
+		</form>
+	</p>
+		
+</div>	
+</body>
+</html>

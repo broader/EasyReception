@@ -1,0 +1,61 @@
+<h1><%= chapter %>. Debugging</h1>
+
+<h2><%= chapter %>.1 Error or exception trace</h2>
+
+<p>If an error happens when calling an URL, and the option <code>debug</code> was set
+to <code>True</code> in the configuration file, a trace is displayed in the browser
+<p>The information provided consists of :
+<ul>
+<li>the url called
+<li>a table showing the script where the error happened : it may not be the script whose name
+matches the url, in case the error occured in a script included with the <code>Include()</code>
+function. If so, the arborescence of inclusions is shown. The table shows the script name, 
+the exception name, the line number and the line text in the erroneous script
+<li>the raw Python traceback
+<li>a button "Debug" if the user is logged in as administrator
+</ul>
+
+For instance :
+
+<p>
+<div class="verbatim">
+<pre class="verbatim">
+<table style="background-color:#FFFFCC;border-style:solid;border-width:1;"><tr><td><pre>
+<b>Error in /demo/tour/scriptError.py</b><br>
+Line 2    
+<div style="background-color:#D0D0D0">print blah</div>
+NameError: name 'blah' is not defined
+
+</pre></td></tr>
+</table><pre>
+Traceback (most recent call last):
+  File "/home.41/k/a/r/karrigel/www/core/HTTP.py", line 277, in process_request
+    target.run(ns)
+  File "/home.41/k/a/r/karrigel/www/core/k_target.py", line 351, in run
+    exec (self.py_code,namespace)
+  File "<string>", line 2, in ?
+NameError: name 'blah' is not defined
+</pre><table border=1>
+</table>
+<form action="" target="_blank"><input type="hidden" name="script" value="">
+<input type="hidden" name="editable" value="1"><input type="submit" value="Debug"></form>
+</pre>
+</div>
+
+Clicking on the "Debug" button opens an online editor to update the script
+where the exception was found
+
+<h2><%= chapter %>.2 Using <code>SCRIPT_END</code></h2>
+
+<p>When debugging a script it can be useful to use the built-in exception <CODE>SCRIPT_END</CODE> 
+to stop the execution. If you want to know the value of a variable when an exception is raised
+you will write something like
+<p>
+<div class="verbatim">
+<pre>
+(...)
+print "the_value is",the_value
+raise SCRIPT_END
+(... the line where the exception is raised ...)
+</pre>
+</div>

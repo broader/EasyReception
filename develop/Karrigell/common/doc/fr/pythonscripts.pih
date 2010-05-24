@@ -1,0 +1,55 @@
+<h1><%= chapter %>. Les scripts Python</h1>
+<p>Exécuter des scripts Python avec Karrigell, c'est facile. Ouvrez votre éditeur de code Python
+préféré, créez le script suivant :</p>
+<dl><dd><pre class="verbatim">
+print &quot;Bonjour Karrigell !&quot;
+</pre></dl>
+<p>et sauvegardez-le sous le nom <span class="file">bonjour.py</span> dans le <a href="webserveroptions.htm#root">
+Répertoire Racine</a>. Ensuite, tapez <span class="url">http://localhost/bonjour.py</span> et vous
+devriez voir le message apparaître sur votre écran</p>
+<p>Les scripts Python exécutés avec Karrigell sont des scripts Python ordinaires, sauf que les
+instructions <code>print</code> envoient les messages vers le navigateur du client au lieu de la
+fenêtre de la console. Il faut donc écrire du code HTML pour avoir le formattage voulu ; pour une
+table minimum il faudra écrire quelque chose comme</p>
+<dl><dd><pre class="verbatim">
+print &quot;&lt;TABLE&gt;&quot;
+print &quot;&lt;TR&gt;&quot;
+print &quot;&lt;TD&gt;Nom&lt;/TD&gt;&quot;
+print &quot;&lt;TD&gt;Adresse&lt;/TD&gt;&quot;
+print &quot;&lt;/TR&gt;&quot;
+print &quot;&lt;/TABLE&gt;&quot;
+</pre></dl>
+<p>ou, en utilisant la syntaxe de Python sur plusieurs lignes :</p>
+<dl><dd><pre class="verbatim">
+print &quot;&quot;&quot;&lt;TABLE&gt;
+      &lt;TR&gt;
+        &lt;TD&gt;Nom&lt;/TD&gt;
+        &lt;TD&gt;Adresse&lt;/TD&gt;
+      &lt;/TR&gt;
+    &lt;/TABLE&gt;&quot;&quot;&quot;
+</pre></dl>
+ou, si vous voulez utiliser le module <a href="htmltags.htm">HTMLTags</a> :
+<p>
+<dl><dd><pre class="verbatim">
+from HTMLTags import *
+print TABLE(TR(TD("Nom")+TD("Adresse")))
+</pre></dl>
+<p>Si vous écrivez des scripts Python qui ne doivent pas être exécutés dans Karrigell 
+(par exemple parce qu'elles ont une interaction avec l'utilisateur basée sur une
+interface graphique) vous pouvez inclure ce code au début de votre script :
+<p>
+<dl><dd><pre class="verbatim">
+try:
+    SCRIPT_END
+except NameError:
+    pass
+else:
+    print "Vous ne pouvez pas exécuter ce script dans Karrigell"
+    raise SCRIPT_END
+    
+(... reste de votre script ici ...)
+</pre></dl>
+<p>Comme <code>SCRIPT_END</code> est dans l'espace de noms des scripts Python 
+quand ils sont exécutés dans Karrigell, l'exécution s'arrête dans ce cas ; 
+quand ils sont exécutés depuis la ligne de commande, une exception
+<code>NameError</code> est déclenchée, et elle est ignorée par le script

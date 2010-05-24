@@ -1,0 +1,6 @@
+# a collection of html templates
+#from HTMLTags import *
+
+def prompt(**args):	
+	txt = args.get('txt') or ''
+	print '$.prompt("%s")'%txt 

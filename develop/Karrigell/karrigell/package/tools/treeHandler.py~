@@ -1,0 +1,126 @@
+"""
+a module mainly handle the data which is constructted in tree structure.
+"""
+from tree import Node	
+	
+class TreeHandler:
+	"""
+	A class to construct a list to a tree structure.
+	"""
+	
+	def __init__(self,nodesList, idFn, pidFn, rootId=None):
+		""" Parameters:
+		nodesList - the list to be constructed, each row in the nodesList should hold node's id and node's parent id bascally.
+		idFn -  the function to get the node's from each row's data in the list
+		pidFn-  the function to get the parent node's id from each row's data in the list
+		rootId - the id of the root node, if it's gived, the nodesList holds a root node's info.
+		"""
+		self.nodesList = nodesList
+		self.idFn = idFn
+		self.pidFn= pidFn
+		
+		# create a root node first, the root node is the tree in fact.
+		if rootId:
+			self.rootNode = self.make_node(rootId)
+		else:
+			self.rootNode = Node('root')
+			self.rootNode.data = []
+			
+		self.make_tree()
+		return 
+	
+	def make_node(self,nodeId):
+		"""
+		Filters the row from self.nodesList by nodeId,
+		and create a new Node.
+		After node's creation,the row will be removed from the nodesList.
+		"""
+		row = filter( lambda i: self.idFn(i)==nodeId , self.nodesList)[0]
+		#print 'make_node,row is %s, node id is %s'%(row,nodeId)
+		node = Node(nodeId)
+		node.data = row
+		self.nodesList.remove(row)		
+		return node
+		
+	def make_tree(self):
+		"""
+		Constructs the tree by iterating nodesList.
+		"""
+		while self.nodesList:
+			row = self.nodesList.pop(0)
+			nodeId = self.idFn(row)
+			#print 'make_tree,row is %s, node id is %s'%(row,nodeId)
+			
+			try:
+				node = self.rootNode.get_child_by_id(nodeId)
+			except:
+				node = None
+			
+			if not node:
+				node = Node(nodeId)
+				node.data = row
+				#print 'make_tree,created a new node, id is ',node.id
+				parentId = self.pidFn(row)	
+					
+				# creates it's parent node and recursivelly creates the ancestor nodes of this node.
+				self.parent(parentId, node)
+				
+				#print '****make_tree is end, maked branch is ******\n',self.rootNode
+				#print 70*'-'
+		
+		return
+			
+	def parent(self, parentId, child):
+		"""
+		Recursivelly creates all the ancestor nodes of the child.
+		"""
+		#print 'parent,parent node id is %s, child node id is %s, root node id is %s'%(parentId,child.id,self.rootNode.id)
+		if not parentId:
+			# if this node has not parent, it will be appented to the root node
+			parentNode = self.rootNode
+		else:
+			try:
+				parentNode = self.rootNode.get_node_by_id(parentId)
+			except:
+				parentNode = None
+		
+		#print 'parent(),parent node is ',parentNode
+		
+		if parentNode:
+			parentNode.append(child)
+		else:			
+			parentNode = self.make_node(parentId)		
+			parentNode.append(child)			 
+			
+			# recursive constructing this branch in the tree
+			self.parent( self.pidFn(parentNode.data), parentNode)
+			
+		return
+		
+	def flatten(self):
+		"""
+		return the flatten tree nodes 
+		"""
+		return self.rootNode.flatten()
+		
+if __name__ == '__main__':
+	datalist = \
+	[\
+		['3.1.1','3.1','3.1.1 level'],\
+		['1',None,'1 level'],\
+		['1.1.2','1.1','1.1.2 level'],\
+		['2',None,'2 level'],\
+		['2.1','2','2.1 level'],\
+		['2.1.1','2.1','2.1.1 level'],\
+		['1.1','1','1.1 level'],\
+		['2.1.2','2.1','2.1.2 level'],\
+		['3',None,'3 level'],\
+		['3.1','3','3.1 level'],\
+		['1.1.1','1.1','1.1.1 level'],\
+		['3.1.2','3.1','3.1.1 level'],\
+	]
+	
+	tree = TreeHandler(datalist, lambda i:i[0],lambda i:i[1] )
+	#print tree.flatten()
+	#print tree.nodesList
+	print tree.rootNode

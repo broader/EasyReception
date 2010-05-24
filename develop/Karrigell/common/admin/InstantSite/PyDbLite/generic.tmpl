@@ -1,0 +1,26 @@
+import os
+import cPickle
+import cgi
+import urllib
+import datetime
+
+from HTMLTags import *
+import date_formats
+import guess_type
+
+SET_UNICODE_OUT('utf-8')
+
+# uncomment next line with the db declaration, like
+#import PyDblite
+import %(db_engine)s as PyDbLite
+db = PyDbLite.Base(REL(%(db_name)s+".pdl"))
+db.create(%(db_fields)s,mode="open")
+
+class FieldInfo:
+
+	def __init__(self,typ,allow_empty=True,default=''):
+		self.typ = typ
+		self.allow_empty = allow_empty
+		self.default = default
+
+		

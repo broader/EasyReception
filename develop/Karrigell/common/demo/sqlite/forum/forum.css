@@ -1,0 +1,75 @@
+body,textarea {font-family: sans-serif;font-size:12;}
+table.forum {
+	font-family:sans-serif;
+	font-size: 11pt;
+	width: 85%;
+}
+tr.title {background-color:#cecece;}
+tr.even {background-color:#AACCFF; height:18px;}
+tr.odd {background-color:#99BBF0; height:18px;}
+
+table.header {
+	font-family:sans-serif;
+	font-size: 11pt;
+	width: 100%;
+	border-width:1;
+	border-style:solid;
+	border-color:#8080FF;
+	padding:10px;
+	background-color:#f0f0e0;
+}
+
+th { font-weight: bold;
+	font-size:11pt;
+	font-family: sans-serif;
+	border-width: 0 0 1 0;
+	border-color:#000000;
+	border-style:solid;
+	}
+
+td.msg_list_odd {
+	background-color:#f0f0e0;
+	border-width: 0 0 1 0;
+	border-color:#000000;
+	border-style:solid;
+}
+td.msg_list_even {
+	background-color:#FFFFFF;
+	border-width: 0 0 1 0;
+	border-color:#000000;
+	border-style:solid;
+}
+
+td.msg_tree
+{
+	font-family:sans-serif;
+	font-size: 8pt;
+	width:25%;
+	vertical-align:top;
+}
+
+
+div.titles { background-color:#ffffff; 
+	position: absolute;
+	left=0;
+	top = 0}
+div.messages { background-color:#ffffff; 
+	position: absolute;
+	left=250;
+	top = 0}
+div.message { background-color:#ffffff; 
+	position: relative;
+}
+
+dl {margin-left:10}
+
+
+a.msg { text-decoration: none;
+	color:#000000;
+	}
+a.msg:visited { text-decoration: none;
+	color:#000000;
+	}
+a.msg:hover { color:#ffffff;
+	background-color:#000000;
+	}

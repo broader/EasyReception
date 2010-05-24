@@ -1,0 +1,76 @@
+<h1><%= chapter %>. Sessions</h1>
+<p>Les sessions sont une façon pour le serveur de garder en mémoire des informations relatives à un utilisateur particulier pendant qu'il navigue de page en page
+<p>Supposons que vous soyez sur un site sur lequel vous avez trouvé deux CD que vous voudriez commander ; puis sur une autre page vous trouvez un livre. Ensuite on vous posera des questions sur votre adresse, on vous demandera d'écrire un message si c'est pour un cadeau, puis il y aura des questions sur votre numéro de carte bancaire. Après tout cela le site affichera une page récapitulant toute votre commande pour que vous confirmiez l'achat
+<p>Sans les sessions ceci serait difficile à réaliser ; il faudrait passer toutes les informations de page en page par des champs de formulaire cachés, et ce serait compliqué à implémenter
+<p>Avec les sessions tout devient simple ; l'utilisateur est identifié par un "identifiant de session" qui est envoyé avec chaque requête sous la forme d'un cookie. Cet identifiant correspond à un objet sur le serveur, objet à qui on peut ajouter des attributs ou de qui on peut en lire pendant toute la durée de la navigation de l'internaute
+
+<p>Avec Karrigell, sur chaque page dans laquelle vous voulez modifier une information de session ou y accéder, commencez par créer un objet session par :
+<p>
+<div class="verbatim"><pre class="verbatim">
+sessionObj=Session()
+</pre></div>
+
+<p>Si vous êtes au début de la session, Karrigell génèrera un cookie appelé sessionId et le renverra au navigateur web. Pour les requêtes suivantes, le navigateur enverra automatiquement ce cookie et le serveur retrouvera l'objet associé
+
+<p>L'objet session est un objet Python ordinaire, on peut lui affecter des valeurs sous forme d'attributs :
+<p>
+<div class="verbatim"><pre class="verbatim">
+sessionObj.nom="Jean Dupont"
+</pre></div>
+<p>Depuis un autre script on accède à cette valeur par :
+<p>
+<div class="verbatim"><pre class="verbatim">
+nom=sessionObj.nom
+</pre></div>
+<p>
+
+<p>Les objets session prennent en charge une méthode <code>close()</code>, qui a pour effet d'effacer l'information de session
+
+<p>En fait, vous n'êtes pas obligé de clore explicitement une session ; Karrigell s'assure qu'il n'y a jamais plus de 1000 sessions simultanées et efface les plus anciennes quand on arrive à la 1000ème
+
+<p><b>Avertissement</b> : il existe un risque d'incohérence de l'objet session si plusieurs requêtes quasi-simultanées envoyées par le même navigateur modifient cet objet. C'est le cas si une page contient plusieurs frames ou des iframes : comme l'ordre dans lequel les requêtes correspondantes sont traitées n'est pas prévisible, il faut concevoir l'application pour éviter de se trouver dans cette situation
+
+<h2><%= chapter %>.1 Sessions persistentes et en mémoire</h2>
+
+<p>L'objet session peut être stocké soit en mémoire soit sur disque (persistent) : ceci est défini par l'option de configuration du serveur <CODE>persistent_session</CODE>
+
+<p>Pour les sessions en mémoire, on peut affecter n'importe quelle valeur comme attribut de l'objet session, y compris des instances de classes définies par l'utilisateur, des connections à des bases de données, etc.
+<p>Malheureusement, les sessions en mémoire ne fonctionnent que dans un environnement mono process, tel que le serveur intégré monoprocess ; elles ne fonctionnent pas dans un environnement multiprocess ou multithread tel que le serveur multithread intégré, ou derrière Apache. Dans ces configurations, il faut utiliser les sessions persistentes, on ne peut stocker que des types intégrés Python dans l'objet session
+
+<h2><%= chapter %>.2 Exemple</h2>
+Dans un fichier HTML, créez un formulaire et envoyez-le à un script PIH :
+<p>
+<div class="verbatim"><pre class="verbatim">
+&lt;h3&gt;Qui êtes-vous ?&lt;/h3&gt;
+&lt;form action="debutEssaiSession.pih"&gt;
+Nom &lt;input name="monnom"&gt;
+&lt;br&gt;Prénom &lt;input name="prenom"&gt;
+&lt;br&gt;&lt;input type="submit" value="Ok"&gt;
+&lt;/form&gt;
+</pre></div>
+
+<p>Le script reçoit les données d'entrée via QUERY (ou les variables contenant les champs du formulaire), crée un objet session et sauvegarde <var>nom</var> et <var>prenom</var> comme attributs de cet objet :
+<p>
+<div class="verbatim"><pre class="verbatim">
+&lt;h3&gt;Début de session&lt;/h3&gt;
+&lt;%
+sessionObj=Session()
+sessionObj.nom=_monnom
+sessionObj.prenom=_prenom
+print sessionObj.nom
+%&gt;
+&lt;a href="suiteEssaiSession.pih"&gt;Suivant...&lt;/a&gt;
+</pre></div>
+
+<p>Le script suivant est appelé sans chaîne de requête (query string), mais il retrouvera les informations via l'objet session :
+<p>
+<div class="verbatim"><pre class="verbatim">
+&lt;h3&gt;L'essai de session continue&lt;/h3&gt;
+&lt;%
+session=Session()
+print session.prenom
+session.close()
+%&gt;
+</pre></div>
+<p>Du fait que le script a clos la session, si vous revenez à la page précédente avec le navigateur et que vous réessayez le lien Suivant... vous recevrez une superbe trace d'erreur Python vous informant que l'objet session n'a pas d'attribut <var>prenom</var>. Modifiez le script en enlevant ou en mettant en commentaire la ligne <code>session.close()</code> et voyez ce qu'il se passe
+<p>

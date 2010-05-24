@@ -1,0 +1,6 @@
+[]
+# -*- coding: utf_8 -*-
+STDOUT("/* *\nThe call back function for form submit in account.ks/edit\n*/\n$(function() {	\n	$().ajaxError(function(event, xhr, settings) {		\n		//return jFrameSubmitInput(jQuery(\":image,:submit,:button\", this).get(0));\n		throw e;\n	});\n	// start form validation	\n	var v = $(\"#")
+STDOUT(str(_formId))
+STDOUT("\").validate({				\n		onfocusout: false,\n		onkeyup : false,\n		focusCleanup : true,		\n		highlight: function(element, errorClass) {\n					     $(element).fadeOut(function() {\n       							$(element).fadeIn()}) },\n		submitHandler: function(form) {\n			$(form).ajaxSubmit({dataType: \"script\"});		\n		}\n	});\n});\n")
+

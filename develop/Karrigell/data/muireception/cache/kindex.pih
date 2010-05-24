@@ -1,0 +1,14 @@
+[]
+Include ("header.ks/index")
+STDOUT("<body>\n<div id=\"desktop\">\n	<div id=\"desktopHeader\">\n		<div id=\"desktopTitlebarWrapper\">\n			<div id=\"desktopTitlebar\">\n				<h1 class=\"applicationTitle\">EasyReception</h1>\n				<h2 class=\"tagline\">					 \n					<span class=\"taglineEm\">")
+STDOUT(str(_('A Web Portal For Congress Reception Work')))
+STDOUT("</span>\n				</h2>\n				<div id=\"topNav\">\n					<ul class=\"menu-right\">\n						<li><a href=\"#\" >")
+STDOUT(str(_('Login')))
+STDOUT("</a></li>\n						<li><a href=\"#\" >")
+STDOUT(str(_('Register')))
+STDOUT("</a></li>\n					</ul>\n				</div>\n			</div>\n		</div>\n		<div id=\"desktopNavbar\">	\n			<!--\n				This area will be filled corresponding menues after user has been logined.\n				Before user login, that should be a blank area.			\n			-->	\n			<div class=\"toolbox divider\">\n				<div id=\"spinnerWrapper\"><div id=\"spinner\"></div></div>		\n			</div>\n			<div class=\"toolbox divider\">	\n				<select id=\"themeControl\" name=\"themeControl\" size=\"1\" onchange=\"MochaUI.Themes.init(this.options[this.selectedIndex].value)\">\n					<option id=\"chooseTheme\" value=\"\" selected>")
+STDOUT(str(_('Choose Theme')))
+STDOUT("</option>\n					<option value=\"default\">Default</option>\n					<option value=\"Charcoal\">Charcoal</option>\n					<option value=\"Grey\">Grey</option>\n				</select>	\n			</div>		\n		</div><!-- desktopNavbar end -->\n	</div><!-- desktopHeader end -->\n	<div id=\"dockWrapper\">\n		<div id=\"dock\">\n			<div id=\"dockPlacement\"></div>\n			<div id=\"dockAutoHide\"></div>\n			<div id=\"dockSort\"><div id=\"dockClear\" class=\"clear\"></div></div>\n		</div>\n	</div>\n	<div id=\"pageWrapper\"></div>\n	<div id=\"desktopFooterWrapper\">\n		<div id=\"desktopFooter\">			\n			<span>\n				&copy; 2006-2009\n				<a target=\"_blank\" href=\"http://github.com/broader/EasyReception\" class=\"copyright\">Broader.ZHONG</a>\n				 - \n				<a id=\"licenseLink\" href=\"license.html\" class=\"copyright\">MIT License</a>,\n			</span>\n			<span style=\"text-align:center;\">\n")
+STDOUT(str(_('CSS style powered by ')))
+STDOUT("     			<a href=\"http://www.yaml.de/en/home.html\" target=\"YAML\" class=\"copyright\">YAML</a>\n			</span>\n		</div>\n	</div>\n</div><!-- desktop end -->\n</body>\n</html>\n")
+

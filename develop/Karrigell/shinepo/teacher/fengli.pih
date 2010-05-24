@@ -1,0 +1,21 @@
+<div class="subcolumns">
+	<div class="c75l">
+		<div class="subc">
+			<div class="floatbox">				
+				<h4>冯丽老师</h4>
+				<p class="info">
+					<img src="images/home/fengli_1.png" class="float_left" style="border: none">
+					<img src="images/home/fengli_2.png" class="center"><br>					
+					中国舞蹈网研究员,优秀舞蹈老师。<br>					
+				</p>
+			</div><!-- floatbox end -->
+			
+		</div><!-- subcl end -->
+	</div><!-- c75l end -->
+	
+	<div class="c25r">
+		<div class="subcr">			
+		</div>	
+	</div>
+	
+</div><!-- subcolumns end -->			

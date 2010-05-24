@@ -1,0 +1,10 @@
+"""
+a module mainly handle tree
+"""
+
+def makeTree(nodesList, treeInfo=0, withRoot=None):
+	"""
+	"""
+	if not withRoot:
+		rootNode = Node('root')
+	

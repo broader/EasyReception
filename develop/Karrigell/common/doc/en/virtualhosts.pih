@@ -1,0 +1,82 @@
+<script src="../pf_test.js"></script>
+
+<h1><%= chapter %>. Virtual Hosts</h1>
+
+<p>The built-in server supports the notion of Virtual Host, that is, the ability
+to serve different host names on the same server. For instance, the same instance
+of the built-in server can serve requests to <span class="url">www.foo.com</span>
+and <span class="url">www.bar.com</span>, provided these domain names are resolved
+to the IP address of the server. Each of these hosts will have a specific document
+root, configuration file, storage for session data and users, etc
+
+<p>To add a host, you must first make sure that the host name is resolved to the IP 
+address of the server. The mapping can be done in the system hosts file (if you 
+don't know what it is and how to customize it, type "hosts file" in your favourite 
+search engine)
+
+<p>To understand what you have to do next, lets' start by the end : the directory structure
+adapted for this new host (called "foo" in the example)
+
+<pre>
+  Karrigell.py
+  server_config.py
+  default_host_conf.py
+  hosts.py
++ karrigell
+  + core
+  + package
+  + ...
++ data
+  + www
+      + sessions
+      conf.py
+  <b><font color="blue">+ foo
+      + sessions
+      conf.py</font></b>
++ www
+    index.pih
+    ...
+<b><font color="blue">+ foo
+    default.html
+    myscript.py
+    ...</font></b>
++ common
+  + admin
+  + demo
+  + doc
+  + ...
+</font></pre>
+
+<p>The steps you have to follow are :
+<ul>
+<li>create a new root directory for this host : <span class="file">(server dir)/foo</span>
+<li>create a new subdirectory in the Data Directory 
+<span class="file">(server dir)/data/foo</span>
+<li>copy the script <span class="file">default_host_conf.py</span> from the Server 
+Directory to this new subdirectory, and rename it to <span class="file">conf.py</span>
+<li>edit this script <span class="file">conf.py</span>
+to update the values of <code>root_dir</code> and <code>data_dir</code> :
+
+<div class="python">
+<pre>root_dir = os.path.join(server_dir,"foo")
+data_dir = os.path.join(server_dir, "data","foo")
+</pre></div>
+
+<li>edit the plain text file <span class="file">hosts</span> in the Server Configuration 
+Directory and add a new line with the host name and the path to the configuration path : 
+
+<div class="verbatim">
+<pre>
+foo /usr/Karrigell-<%= version %>/data/foo/conf.py
+</pre>
+</div>
+
+</ul>
+
+<p>For the server administrator, a script is provided in the Administration menu to
+create and remove virtual hosts online
+
+<p>In fact this is the simplest possible configuration : you can put the Root
+Directory and Data Directory for a new host anywhere in your file system.
+In this case, you will have to customize the configuration scripts as mentioned
+in the previous section

@@ -1,0 +1,19 @@
+[]
+STDOUT("<!--A tuple includes the menu items  -->\n")
+teachers = (('民族舞－王丽娜老师', '#teacher/wanglina'),\
+    ('舞蹈身韵－李佳慧老师', '#teacher/lijiahui'),\
+    ('拉丁舞－张路老师', '#teacher/zhanglu'),\
+    ('幼儿舞蹈－李小彤老师', '#teacher/lixiaotong'),\
+    ('现代爵士舞－李振华老师', '#teacher/lizhenhua'),\
+    ('瑜珈－宁士维老师', '#teacher/ningshiwei'),\
+    ('民族舞－冯丽老师', '#teacher/fengli'),\
+    ('肚皮舞－卓娜老师', '#teacher/zhuona'),\
+   )
+STDOUT("<div class=\"subcolumns\">\n	<div class=\"c25l\" id=\"left_sider\" style=\"background: #86b50d; width: 25%; float: left;\">\n		<ul id=\"left_menus\">\n")
+for text,link in teachers:
+ #link = '#' + 'stage/' + link
+ PRINT( '<li style="margin: 8px 0px 8px 30px; font-weight: bold; color:#ffffff; ">\
+ <a href="%s"  style="color: #ffffff">%s</a>\
+ </li>'%(link, text))
+STDOUT("            	</ul>\n	</div><!-- c25l end -->\n	<!--<div class=\"c75r\" id=\"content\" style=\"border-left: 2x solid grey\">-->\n	<div class=\"c75r\" id=\"content\" >\n	</div><!-- c75r end -->\n</div>\n<script>\njQuery(function( $ ){\n	/**\n	 * The script to initialize the left sidebar menus.\n	 */\n	var $sections = $(\'#left_menus  a\'),// Links on the left\n		last = null;// Last section\n	$sections.click(function(){\n		if( last != this ){ // let\'s avoid needless requests			\n			//var url = \'html/\' + this.hash.slice(1) + \'.html\';\n			var url = this.hash.slice(1);								\n			$(\'#content\').html( \'<p class=\"loading\">内容载入中，请稍候......</p>\' ).load( url, function(){\n				this.scrollLeft = 0;//scroll back to the left\n			});\n		}\n		last = this;\n		this.blur(); // Remove the awful outline\n		return false;\n	});\n	$sections.eq(0).click(); // Load the first section\n});\n</script>\n<style type=\"text/css\">	\n	#left_sider { background: #86b50d; width: 25%; float: left; }\n	#left_sider ul { list-style-positon: outside;}\n	#left_sider li { margin: 8px 0px 8px 30px; font-weight: bold; color:#ffffff; }\n	#left_sider li a{ color: #ffffff; }	\n	#left_sider li a:visited  { color: #036; }\n	/*#left_sider a:focus, a:hover, a:active { color:#d9dad8; text-decoration:underline; } */\n	#left_sider li a:focus, a:hover, a:active { color:#ffffff; text-decoration:underline; }\n</style>\n")
+

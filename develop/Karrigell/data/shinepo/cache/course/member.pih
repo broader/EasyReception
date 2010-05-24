@@ -1,0 +1,42 @@
+[]
+STDOUT("<div class=\"subcolumns\">\n	<div class=\"c75l\">\n		<div class=\"subc\">\n			<div class=\"floatbox\">\n				<pre>会员课程－“如意会员卡”介绍</pre>\n				<!-- the content of this table -->\n")
+table = {'header' : '以下所有课程持卡会员都可以参与，每晚黄金时段，精彩会员课程，滚动式教学，无需基础。',\
+      'body' : (('民族舞课程', '傣族、维族、彝族、藏族、蒙族、高山族、鲜族、苗族、汉族、秧歌、云南花灯等民族舞蹈'),\
+     ('肚皮舞课程', '中东、阿拉伯、部落及印巴风情等多种风格肚皮舞'),\
+     ('拉丁舞课程', '伦巴、恰恰恰、桑巴、牛仔、斗牛 基础及套路 '),\
+     ('爵士舞课程', '流行爵士、MEW JAZZ、爵士街舞等多种风格'),\
+     ('形体课程', '芭蕾舞组合、舞蹈身韵、中国舞、古典舞、现代舞'),\
+     ('国标舞课程', '华尔兹、平四、维也纳华尔兹、探戈、布鲁斯、快步、狐步'),\
+     ('莎莎（SALSA）课程', ' 纽约salsa、洛杉矶salsa、古巴salsa多种风格'),\
+     ('瑜伽课程', '传统瑜伽、流派瑜伽、理疗瑜伽'),\
+     ('普拉提课程', '有氧健身训练课程，塑形、体能、健身效果显著')\
+           )\
+     }
+STDOUT("				<!-- constructs the table -->\n				<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"full\">					\n          				<thead>\n")
+PRINT( '<tr><th scope="col" colspan="2">%s</th></tr>'%table['header'])
+STDOUT("					</thead>          				\n          				<tbody>\n")
+for i in table['body'] :
+ PRINT( '<tr>')
+ PRINT( '<th scope="row" class="sub">%s</th>'%i[0])
+ PRINT( '<td>%s</td>'%i[1])
+ PRINT( '</tr>')
+STDOUT("          				</tbody>\n          			</table>          				\n				<a name=\"weekly_schule\"/>课程表</a>				\n				<!--the weekly schedule of the courses  -->\n")
+titles = ('时间', '周一', ' 周二', '周三', '周四', '周五', '周六', '周日')
+schedule = {'18:40 ~19:30': ('民族舞','舞蹈身韵', '民族舞', '拉丁舞（两课时）', '肚皮舞', '／', '国际标准交谊舞'),\
+               '19:40 ~20:30': ('流行爵士舞', '肚皮舞', '流行爵士舞', '／', '街舞', '／', '／')}
+STDOUT("				<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"full\">					\n          				<thead>\n")
+PRINT( '	<tr><th scope="col" colspan="%s">2009年3月份会员课程</th></tr>'%len(titles))
+STDOUT("          				</thead>\n          				<tbody>\n          					<!-- constructs table title -->\n          					<tr>          						\n")
+for title in titles :
+  PRINT( '<th scope="col">%s</th>'%title)
+STDOUT("            					</tr>         \n            					<!--constucts the table body  -->\n")
+k = schedule.keys()
+k.sort()
+for i in k:
+ PRINT( '<tr>')
+ PRINT( '<th scope="row" class="sub">%s</th>'%i)
+ for danceType in schedule[i]:
+  PRINT( '<td>%s</td>'%danceType)
+ PRINT( '</tr>')
+STDOUT("            				</tbody>\n            			</table>\n			</div><!-- floatbox end -->\n		</div><!-- subcl end -->\n	</div><!-- c75l end -->\n	<div class=\"c25r\">\n		<div class=\"subcr\">\n			<p class=\"info\">\n				会员课程是指炫点为持有通卡的会员开设的各类舞蹈培训。<br>\n				这些课程分门别类由固定老师教授，每周开课数个课时，通常两、三个月完成一个课程。<br>\n				喜欢舞蹈而且兴趣广泛的朋友可以通过会员课程了解各种舞蹈的品味，并在一个课程结束之后学会该舞蹈的一个表演课目。\n			</p>\n		</div>	\n	</div>\n</div><!-- subcolumns end -->			\n")
+

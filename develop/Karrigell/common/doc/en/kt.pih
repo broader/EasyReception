@@ -1,0 +1,158 @@
+<h1><%= chapter %>. KT - Karrigell Templates</h1>
+
+KT is a simple template engine intended for use with Karrigell Service (.ks) scripts and Python scripts. The goals of KT are to: 
+<ul>
+<li>Provide a simple templating system with no programatic controls (logic and loops etc to be handled in python)</li>
+<li>Support the in-built Karrigell translation system</li>
+<li>Support variable substitutions</li>
+<li>Support the inclusion of other templates</li>
+</ul>
+
+<h2><%= chapter %>.1 KT template language syntax</h2>
+
+<p>KT templates are saved as text files with a .kt extension. The language uses the following tags, which are intermingled with 
+other text, typically HTML.
+
+<h4>Inclusion Tag</h4>
+<p><div class="verbatim"><pre class="verbatim">
+   @[template_url]
+</div>
+<p>Include the template specified by template_url. URLs are processed in the same way they are processed in the 
+<code>Import()</code> function. Relative paths are supported, and are relative to the parent template. 
+Inclusions are processed recursively, so child templates can include other templates.
+
+<h4>Substitution Tag</h4>
+<p><div class="verbatim"><pre class="verbatim">
+   $identifier
+   $object.attribute
+   $dictionary.key
+</div>
+<p>Substitute an identifier with its value. Indentifiers can be either simple variable names, or can be objects or dictionaries. 
+If dictionaries are used, the key must have the form of a valid python identifier.
+
+<h4>Translation Tag</h4>
+<p><div class="verbatim"><pre class="verbatim">
+   _[string to translate]
+</div>
+<p>Translate the string using the in-built Karrigell translation system. This is the equivalent of the
+<code>_()</code> function in .ks and python scripts and the Python Inside HTML <code>&lt;%_ %&gt;</code> syntax.
+
+<h4>Combining Tags</h4>
+<p><div class="verbatim"><pre class="verbatim">
+   @[$identifier]
+   _[$identifier]
+</div>
+<p>Inclusions can be controlled from the calling script by setting the value of identifier 
+to a template URL. The <code>$object.attribute</code> and <code>$dictionary.key</code> styles can also be used. 
+This gives a great deal of flexibility in how templates are included. 
+For example, a master template can hold the basic design of a page, 
+then different child templates included in it under the control of the calling script.
+If a <code>$identifier</code> is not defined, or is a False value, then no inclusion is performed. 
+This allows an inclusion to be "turned-off" by the calling script.
+<p>In theory $identifiers can be placed within translation tags, but is not recommended. It is better
+to perform translations in the calling script using the <code>_()</code> function.
+
+<h2><%= chapter %>.2 Calling KT from within a script</h2>
+Values to be included in templates are passed to the script as named arguments:
+<p><div class="verbatim"><pre class="verbatim">
+   print KT(template_url, var1=var1, var2=var2, data=dict, row=row, this=THIS, ...)  
+</div>
+<p>The template URL points to the KT template file. KT uses the same rules as the Karrigell Import function uses to locate Python scripts. 
+<p>The **dict syntax is also supported:
+<p><div class="verbatim"><pre class="verbatim">
+   print KT(template_url, **dict)
+</div>
+<p>For convenience, the Python built-in locals() function can be assigned to a named argument, 
+making locals available in the template:
+<p><div class="verbatim"><pre class="verbatim">
+   print KT(template_url, data=locals())
+</div>
+
+<h2><%= chapter %>.3 Processing</h2>
+Templates are processed as follows
+<ol>
+<li>All inclusions are processed recursively, building up a consolidated template. <code>$identifiers</code> in <code>@[]</code> tags 
+are expanded first. If the <code>$identifier</code> is not defined or is a False value, no inclusion is performed and 
+no error is raised. This allows the calling script to "turn off" an inclusion. Circular references are 
+checked and a RecursionError is raised if a template tries to include itself, or a 
+child template tries to include its parent.</li>
+<li>All other substitutions are performed on the consolidated template.</li>
+<li>Translations are performed.</li>
+</ol>
+
+<h2><%= chapter %>.4 Managing translations</h2>
+The translation admin tool recognises kt files. It automatically extracts strings to be translated from inside <code>_[]</code> tags in the same way that it 
+extracts translation strings from <code>_()</code> function calls and pih <code>&lt;%_ %&gt;</code> tags.
+
+<h2><%= chapter %>.5 Unicode</h2>
+KT converts all text to Unicode UTF-8, and returns a Unicode value.
+
+<h2><%= chapter %>.6 Example</h2>
+This is an example of a KT template, called <code>template/master.kt</code>:
+<p><div class="python"><pre class="python">&lt;html&gt;
+&lt;head&gt;
+&lt;link rel="stylesheet" href="$this.baseurl/css/my.css"&gt;
+&lt;title&gt;MyApp $data.title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+@[$data.bodytmpl]
+&lt;hr&gt;
+&lt;i&gt;_[Powered by Karrigell]&lt;/i&gt;
+&lt;p /&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</div>
+
+<p>Note how <code>THIS</code> is passed to KT and used to help define URLs to CSS style sheets and the like.
+
+<p>The tag <code>@[$data.bodytmpl]</code> includes another template, the name of which is 
+held by the identifier <code>$data.bodytmpl</code>. In this example, we will set the value of 
+<code>$data.bodytmpl</code> to <code>index.kt</code>. 
+
+<p><code>index.kt</code> contains this code:
+
+<p><div class="browser"><pre>
+&lt;h1&gt;Welcome to $data.who home page!&lt;h1&gt;
+</div>
+
+<p>This code snippet shows how the template would be called from within a ks script called <code>/myapp.ks</code>"
+
+<p><div class="python"><pre class="python">
+def index():
+    SET_UNICODE_OUT("utf-8")
+    title = ' -  home'
+    who = 'my'
+    bodytmpl = 'index.kt'
+    print KT('template/master.kt', data=locals(), this=THIS)
+</div>
+
+<p>If the reader's browser was set to English, calling /myapp.kt/index would produce this html:
+<p><div class="browser"><pre>&lt;html&gt;
+&lt;head&gt;
+&lt;link rel="stylesheet" href="/css/my.css"&gt;
+&lt;title&gt;MyApp - home&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Welcome to my home page!&lt;/h1&gt;
+&lt;hr&gt;
+&lt;i&gt;Powered by Karrigell&lt;/i&gt;
+&lt;p /&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</div>
+
+<p>If the browser's default language is set to French, and the translation is defined in the Karrigell admin tool, the result would be:
+<p><div class="browser"><pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;link rel="stylesheet" href="/css/my.css"&gt;
+&lt;title&gt;MyApp - home&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Welcome to my home page!&lt;/h1&gt;
+&lt;hr&gt;
+&lt;i&gt;Motorisé par Karrigell&lt;/i&gt;
+&lt;p /&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</div>

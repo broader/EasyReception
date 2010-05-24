@@ -1,0 +1,42 @@
+<h1><%= chapter %>. Smart urls</h1>
+
+The normal way to pass parameters to a script is to use query strings in the url, or
+post data. An alternative is to pass parameters as a part of the url, like in <code>
+http://host/path/script.py/foo/bar</code> ; here the parameters to the script are 
+<CODE>foo</CODE> and <CODE>bar</CODE>
+
+<p>In the script you can access these additional parameters as a list ; it is an 
+attribute of THIS, THIS.args :
+
+<p>
+<div class="python"><pre class="verbatim">
+print "The parameters are %s" %THIS.args
+</pre></div>
+<p>
+
+A problem with these urls is that if you want to use <code>Include()</code> or write a 
+relative link or insert an image or a JavaScript, the url must be different if the script 
+was called without a subpath or with any number of parameters in the subpath
+
+<p>For instance if you write this relative url in the script :
+<p>
+<div class="python"><pre class="verbatim">
+print '&lt;IMG SRC="images/pic.png"&gt;'
+</pre></div>
+<p>
+
+and you call the script with <CODE>http://host/path/script.py/foo/bar</CODE>, the browser 
+will compute the absolute url <code>http://host/path/script.py/foo/images/pic.png</code>,
+and execute the same script with the parameters <CODE>foo,images,pic.png</CODE> - not what you
+want !
+
+<p>To get the right url, use function <code>THIS.rel()</code> this way :
+
+<p>
+<div class="python"><pre class="verbatim">
+print '&lt;IMG SRC="%s"&gt;' %THIS.rel("images/pic.png")
+</pre></div>
+<p>
+
+<CODE>THIS.rel</CODE> prepends to the relative url provided as argument as many
+<code>'../'</code> as the number of parameters

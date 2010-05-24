@@ -1,0 +1,25 @@
+body,td,th {font-family:sans-serif;
+    font-size:13}
+
+h2 {font-family: sans-serif;}
+
+th { font-weight: bold; 
+    background-color: #D0D0D0;
+}
+
+a.edit {background-color:#FFFFFF;
+	color:#000000;
+    text-decoration:none;}
+
+a.edit:hover {background-color:#000000;
+    color:#FFFFFF;
+    text-decoration:none;}
+
+a.edit_line {background-color:#D0D0D0;
+	color:#000000;
+    text-decoration:none;}
+
+a.edit_line:hover {background-color:#000000;
+    color:#FFFFFF;
+    text-decoration:none;}
+

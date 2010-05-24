@@ -1,0 +1,24 @@
+[]
+STDOUT("<!-- right lightbox header files \n<link rel=\"stylesheet\" type=\"text/css\" href=\"css/jquery.lightbox-0.5.css\"/> -->\n<script type=\"text/javascript\" src=\"js/jquery.lightbox-0.5.pack.js\"></script>\n<div id=\"gallery\">\n	<ul>\n")
+img_list = (('shinepo_entrance', 72, 72, '炫点健身馆'),\
+    ('midaged', 72, 72, '中老年舞蹈'),\
+    ('children', 72, 72, '少儿舞蹈'),\
+    ('wanglina', 72, 72, '民族舞－王丽娜老师'), \
+    ('lijiahui', 72, 72, '现代舞－李佳慧老师'),\
+    ('ningshiwei', 72, 72, '瑜珈－宁士维老师'), \
+    ('zhanglu', 72, 72, '拉丁舞－张路老师'), \
+    ('caifei', 72, 72, '现代舞－蔡飞老师'))
+for name,width,height, text in img_list :
+ images = []
+ img = '_'.join((name, '1'))
+ img = '.'.join((img, 'png'))
+ img = '/'.join(('images', 'home', img))
+ images.append(img)
+ img = '.'.join((name, 'png'))
+ img = '/'.join(('images', 'home', 'lightbox', img))
+ images.append(img)
+ PRINT( '<li>')
+ PRINT( '<a href="%s" title="%s"><img src="%s" width="%s" height="%s" alt=""/></a>'%(images[1], text,images[0],width, height))
+ PRINT( '</li>')
+STDOUT("	</ul>\n</div><!-- gallery end -->\n<script type=\"text/javascript\" src=\"js/jquery.lightbox.init.js\"></script>\n")
+

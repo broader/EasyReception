@@ -1,0 +1,79 @@
+<h1><%= chapter %>. Localisation and Unicode</h1>
+<p>Karrigell includes a program to facilitate localization of scripts
+
+<h2><%= chapter %>.1 Translation</h2>
+
+<p>In a script, every time you want a message translated into a given 
+language, instead of writing it as a normal string with quotes, 
+it's written using a function called _, this way :
+
+<div class="python"><pre class="verbatim">
+print _("Hello everybody")
+</pre></div>
+
+<p>In Python Inside HTML (PIH) you can use the shortcut &lt;%_ &gt; :
+
+<div class="python"><pre class="verbatim">
+&lt;%_ "Hello everybody" %&gt;
+</pre></div>
+
+<p>The <%= make_link("administration menu","admin") %> provides a simple web 
+interface to create and modify translations of strings
+
+<h2><%= chapter %>.2 Unicode support</h2>
+
+<p>Unicode is a normalized standard used to represent all the writing styles in 
+the world. For each sign (a letter in any alphabet, an ideogram in an Asiatic 
+language) Unicode defines a unique number, called a "code point". Since 
+computers and networks can only manage bytes, a mapping between "code points" 
+and one or several bytes must be defined ; these mappings are called "encodings"
+
+<p>Because there are many different encodings, when a program has to print a 
+sign (a greek letter, a math symbol, a Chinese sign) it must receive <b>two</b> 
+pieces of information : the string representing the sign (a sequence of bytes) 
+<b>and</b> the encoding used. If it receives only a string, the program can try 
+to guess an encoding (this is what a web browser usually does) but with no 
+guarantee of success
+
+<p>The best thing to do when you write a script is to define explicitely the
+encoding used : for this, you can use the built-in function 
+<code>SET_UNICODE_OUT(<i>encoding</i>)</code>, where <i>encoding</i>
+is a string like 'iso-8859-1' or 'utf-8'
+
+<p>If not set, the encoding for the document will be the one defined in the
+host configuration file by <code>output_encoding</code>. The default value is 
+<CODE>None</CODE>, meaning that no encoding is defined : it's much safer
+to define one, usually 'iso-8859-1' for languages using the latin alphabet
+and 'utf-8' for other writings. If not defined, you rely on the browser
+for guessing the encoding used, which can lead to unexpected rendering
+
+<h2><%= chapter %>.3 Example</h2>
+
+<div class="python"><pre class="verbatim">
+from HTMLTags import *
+
+def index():
+
+    SET_UNICODE_OUT("utf-8")
+    print FORM(INPUT(name="foo")+INPUT(Type="submit",value="Ok"),
+        action="bar")
+
+def bar(foo):
+    foo = unicode(foo,"utf-8").encode("iso-8859-1")
+    SET_UNICODE_OUT("iso-8859-1")
+    print foo
+</pre></div>
+
+<p>In <code>index()</code>, we set the encoding to utf-8 ; the browser will send the
+value enteredby the user encoded with this encoding
+<p>The function <code>bar</code> receives the value foo as a bytestring, the utf-8
+encoding of a Unicode string. We want to print it using another encoding, set by the
+line <code>SET_UNICODE_OUT("iso-8859-1")</code> : so we must first encode the
+Unicode string in this encoding, which is done in the first line of <code>bar()</code>.
+We can then print foo, it will be rendered as expected
+
+<h2><%= chapter %>.4 Built-in translations and Unicode</h2>
+
+If no encoding is specified, the built-in function _() returns the utf-8 encoding 
+of Unicode translations. If an encoding is supplied, it will be used by the function
+so that the translated text is encoded the right way

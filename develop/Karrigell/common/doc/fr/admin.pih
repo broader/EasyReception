@@ -1,0 +1,111 @@
+<script src="../pf_test.js"></script>
+
+<h1><%= chapter %>. Administration</h1>
+
+L'interface d'administration permet à l'administrateur du site de mettre à jour
+les paramètres de configuration, d'éditer des scripts en ligne, de donner la
+traduction des termes à traduire, et de créer des programmes de gestion de 
+bases de données.
+
+<p>Pour accéder à l'interface d'administration depuis la page d'accueil, il faut
+d'abord se connecter comme administrateur en cliquant sur le lien <a href="">
+Identification</a>
+
+<h3><%= chapter %>.1 Indentifiant et mot de passe de l'administrateur</h3>
+
+<p>Lors de votre première connection, vous serez invité à entrer un identifiant
+et un mot de passe pour l'administrateur :
+<p>
+
+<BLOCKQUOTE>
+<table style="background-color:#F0F0F0">
+<tr><td>
+<H3>Create a login/password for administrator</H3>
+
+<FORM action="set_admin_info" method="post">
+<TABLE>
+<TR>
+<TD>Login</TD>
+<TD>
+<INPUT name="login"></TD></TR>
+<TR>
+<TD>E-mail</TD>
+<TD>
+<INPUT name="email" size="50"></TD></TR>
+<TR>
+<TD>Password</TD>
+<TD>
+<INPUT Type="password" name="passwd1"></TD></TR>
+<TR>
+<TD>Confirm password</TD>
+
+<TD>
+<INPUT Type="password" name="passwd2"></TD></TR>
+<TR>
+<TD colspan="2">
+<INPUT Type="button" value="Ok"></TD></TR></TABLE></FORM>
+
+</tr></td></table>
+
+</BLOCKQUOTE>
+
+<h3><%= chapter %>.2 Menu d'administration</h3>
+
+<p>Une fois que vous êtes identifié comme administrateur, vous
+obtenez le menu d'administration sur la page d'accueil
+
+<BLOCKQUOTE>
+<table style="background-color:#F0F0F0">
+<tr><td>
+<H2>Administration</H2>
+<A href="../config.ks">Configurer</A>
+<BR><A href="../editor">Editeur de scripts</A>
+<BR><A href="../translation">Traductions</A>
+<BR><A href="../users.ks">Gestion des utilisateurs</A>
+<BR><A href="../vh_manager.ks">Gestion des hôtes virtuels</A>
+</tr></td></table>
+</BLOCKQUOTE>
+
+<h3><%= chapter %>.3 Configuration</h3>
+
+<p>Ce script ouvre un éditeur en ligne pour modifier les 
+<%= make_link("options de configuration de l'hôte","configuration") %>
+
+<h3><%= chapter %>.4 Editeur de scripts</h3>
+
+<p>Ce script ouvre un navigateur dans le système de fichiers sur la
+partie gauche de la fenêtre ; en cliquant sur un fichier on ouvre un éditeur
+en ligne, avec syntaxe colorée, sur la partie droite. Ce programme
+utilise la librairie JavaScript <a href="http://sourceforge.net/projects/editarea">
+editarea</a>
+</a>
+
+<h3><%= chapter %>.5 Traductions</h3>
+
+<p>Cce script ouvre un navigateur dans le système de fichiers sur la partie
+gauche de la fenêtre. Le programme inspecte tous les fichiers dans un répertoire
+pour voir s'il y a des chaînes de caractères à traduire (voir le chapitre
+sur la <%= make_link("localisation","internationalization") %>). 
+En cliquant sur un lien, on ouvre un formulaire sur la partie droite de la 
+fenêtre, où les chaînes à traduire sont présentées en colonnes, une pour
+chacune des langues définies dans les options du navigateur web. La traduction
+des chaînes de caractères peut être éditée, et sauvegardée en cliquant sur
+le bouton "Ok"
+
+<p>
+<img src="../../images/internat.png" border=0>
+<p>Vous pouvez vérifier la prise en compte en appelant le script que vous
+venez de modifier et en changeant l'ordre des langues dans les préférences
+du navigateur
+
+<h3><%= chapter %>.6 Gestion des utilisateurs</h3>
+
+<p>Ce script permet à l'administrateur d'un hôte de gérer la base de données
+des utilisateurs : ajouter ou supprimer des utilisateurs, ajouter de nouveaux
+rôles, etc
+
+<h3><%= chapter %>.7 Gestion des Hôtes Virtuels</h3>
+
+<p>Cet outil permet à l'administrateur du serveur de créer ou de supprimer des
+<%= make_link("hôtes virtuels","virtualhosts") %> en ligne et de définir
+quelques options de configuration basiques

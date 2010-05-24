@@ -1,0 +1,38 @@
+<h1><%= chapter %>. HTML Inside Python</h1>
+<p>HTML Inside Python (HIP) is the mirror of Python Inside HTML ; it makes
+including HTML code inside Python scripts easier than with <code>print</code>
+statements. You can do so using two ways :
+<ul>
+<li>for short chunks of HTML, begin the line with quotes, without a <code>
+print</code> statement : HIP will add the statement for you on execution
+<p>
+<div class="python"><pre>
+import os
+currentDir=os.getcwd()
+"Current directory is &lt;b&gt;"+currentDir+"&lt;/b&gt;"
+</pre></div>
+<p>
+<li>for longer chunks, use the Python multiline string syntax with three
+double quotes :
+<p>
+<div class="python"><pre>
+the_smiths={'vocals':'Morrissey',
+    'guitar':'Johnny Marr',
+    'the bass guitar':'Andy Rourke',
+    'the drums':'Mike Joyce'}
+
+"""
+&lt;table border=1&gt;
+&lt;tr backgroundcolor=green&gt;
+&lt;td&gt;One of the best pop bands ever&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;table&gt;
+"""
+
+for item in the_smiths.keys():
+    "&lt;tr&gt;&lt;td&gt;%s&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;/tr&gt;" %(item,the_smiths[item])
+
+"&lt;/table&gt;"
+</pre></div>
+</ul>

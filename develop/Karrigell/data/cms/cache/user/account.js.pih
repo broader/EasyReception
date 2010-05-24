@@ -1,0 +1,10 @@
+[]
+# -*- coding: utf_8 -*-
+STDOUT("/**\nGet the submit butto in form and reset it\'s click callback function,\nin order to avoid the mask by jquery.jframe.js.\n*/\nfunction loadjFrame(json){	\n	return jFrameSubmitInput($(\".submit\").get(1));	\n};\n/* *\nThe call back function for form submit in account.ks/edit\n*/\n$(function() {	\n	$().ajaxError(function(event, xhr, settings) {		\n		return jFrameSubmitInput(jQuery(\":image,:submit,:button\", this).get(0));\n		//throw e;\n	});\n	// start form validation	\n	var v = $(\"#")
+STDOUT(str(_formId))
+STDOUT("\").validate({		\n		rules:{ \n			oldpwd : {\n				remote: {\n					url:\"user/formActions.ks/existPwd\",\n					type: \'post\',\n					data: {\"username\": function() {return $(\"#username\").val();}}\n				}\n			},			\n			cpwd: {equalTo: \"#pwd\"},			\n		},		\n		messages:{\n			oldpwd: {remote : \"")
+STDOUT(str(_("The old password is not right! Please input it again.")))
+STDOUT("\"},			\n			cpwd: {equalTo: \"")
+STDOUT(str(_("Please input the same password to be confirmed .")))
+STDOUT("\"}			\n		},\n		onfocusout: false,\n		onkeyup : false,\n		focusCleanup : true,		\n		highlight: function(element, errorClass) {\n					     $(element).fadeOut(function() {\n       							$(element).fadeIn()}) },\n		submitHandler: function(form) {\n			$(form).ajaxSubmit({				\n				//success : loadjFrame,\n				dataType: \"script\"\n			});		\n		}\n	});\n});\n")
+

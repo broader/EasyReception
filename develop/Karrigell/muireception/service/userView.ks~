@@ -1,0 +1,72 @@
+"""
+Pages mainly for administration.
+"""
+import copy,tools
+from tools import treeHandler
+
+from HTMLTags import *
+
+# 'THIS.script_url' is a global variable in Karrigell system
+APPATH = THIS.script_url[1:]
+RELPATH = (lambda p : p.split('/')[0])(THIS.baseurl)
+
+model = Import( '/'.join((RELPATH, 'model.py')), REQUEST_HANDLER=REQUEST_HANDLER )
+
+modules = {'pagefn': 'pagefn.py', 'JSON': 'demjson.py', 'formFn':'form.py'}
+[locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items() ]
+
+
+# ********************************************************************************************
+# Page Variables
+# ********************************************************************************************
+
+# get the relative url slice as the application name
+APP = pagefn.getApp(THIS.baseurl,1)
+
+# the session object for this page
+so = Session()
+USER = getattr( so, pagefn.SOINFO['user']).get('username')
+
+# config data object
+#CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
+
+# valid functions for form fields
+#CHKFNS = ('serviceCategoryChk','serviceNameChk')
+
+# the properties to be edit in form
+PROPS =\ 
+[
+	{'name':'category','prompt':_('Category'),'validate':[''.join(('~',CHKFNS[0])),],'required':True},
+	{'name':'subcategory','prompt':_('Subcategory'),'validate':[],'required':True},
+	{'name':'serial','prompt':_('Service Serial'),'validate':[]},
+	{'name':'name','prompt':_('Service Name'),'validate':[''.join(('~',CHKFNS[1])),],'required':True},
+	{'name':'description','prompt':_('Description'),'validate':[],'type':'textarea'},
+	{'name':'price','prompt':_('Unit Price'),'validate':[]},
+	{'name':'amount','prompt':_('Amount'),'validate':[]},
+	{'name':'detail','prompt':_('Supplement'),'validate':[],'type':'textarea'},
+]
+
+#GETPROPSLABEL = lambda name : [item.get('prompt') for item in PROPS if item.get('name')== name ][0]
+
+# the id for category creation form 
+#SERVICEEDITFORM = 'serviceEditForm'
+
+# the properties info that will be shown in columns's title in the tree table to show services' list
+COLUMNMODEL = [
+	{'dataIndex':'name','label':_('Service Name'),'dataType':'string', 'treeColumn':'1', 'properties':{'style':'padding-right:5px;'}},
+	{'dataIndex':'description','label':_('Description'),'dataType':'string'},
+	{'dataIndex':'price','label':_('Unit Price'),'dataType':'string', 'properties':{'align':'center'}},
+	{'dataIndex':'amount','label':_('Total Amount'),'dataType':'number', 'properties':{'align':'center'}},
+	{'dataIndex':'detail','label':_('Memo'),'dataType':'string'},
+	{'dataIndex':'serial','label':_('Serial'),'dataType':'string','hide':'1'},
+	{'dataIndex':'category','label':_('Category'),'dataType':'string','hide':'1'},
+	{'dataIndex':'subcategory','label':_('Subcategory'),'dataType':'string','hide':'1'},
+	{'dataIndex':'id','label':_('ServiceId'),'dataType':'string','hide':'1'}
+]
+
+# End*****************************************************************************************
+
+
+# ********************************************************************************************
+# The page functions begining 
+# ********************************************************************************************

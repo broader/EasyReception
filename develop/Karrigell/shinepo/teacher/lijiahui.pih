@@ -1,0 +1,22 @@
+<div class="subcolumns">
+	<div class="c75l">
+		<div class="subc">
+			<div class="floatbox">				
+				<h4>李佳慧老师</h4>
+				<p class="info">
+					<img src="images/home/lijiahui_2.png" class="float_left" style="border: none">
+					<img src="images/home/lijiahui_3.png" class="center">
+					<br>				
+					
+				</p>
+			</div><!-- floatbox end -->
+			
+		</div><!-- subcl end -->
+	</div><!-- c75l end -->
+	
+	<div class="c25r">
+		<div class="subcr">			
+		</div>	
+	</div>
+	
+</div><!-- subcolumns end -->			

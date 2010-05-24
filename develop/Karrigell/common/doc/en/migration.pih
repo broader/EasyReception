@@ -1,0 +1,108 @@
+<H1><%= chapter %>. Migrating from Karrigell 2.x to 3.y</H1>
+
+<p>Although version 3 is a complete rewriting of Karrigell core modules, it is almost fully compatible with previous versions. The two main changes are the way user-defined modules are imported, by a built-in function <CODE>Import(<I>module_url</I>)</CODE> ; and the resolution of relative paths in the file system
+
+<H3>1 - Configuration</H3>
+
+<p>1.1 The configuration files are Python scripts instead of a single .ini file : one for the server, and one for each host. Most configuration options are the same, except that all names have been normalized : lowercase, with underscore between words. For instance, <CODE>rootDir</CODE> becomes <CODE>root_dir</CODE> - but to reduce incompatibility, "old" names will still be recognized
+
+<p>1.2 The only option that can be configured on the command line is the path of the folder of the server configuration script. All other options like the server port are set in the server or host configuration scripts
+
+<p>1.3 the equivalent of "protected" is not yet implemented
+
+<H3>2 - Syntax</H3>
+
+<p>
+
+<H4>2.1 Relative file names</H4>
+
+<ul>
+<li> <CODE>os.getcwd()</CODE> is NOT modified by the framework as in previous versions, because its value is not stable in a multi-threaded environment : you can't rely on it inside scripts
+<li> the built-in string <CODE>CWD</CODE> is the full path of the current script directory
+<li> the built-in function <CODE>REL(<I>filename</I>)</CODE> converts a relative file name to the absolute file name, based on the current script directory
+<li> for convenience and compatibility with previous versions, the Python built-ins <CODE>open()</CODE> and <CODE>file()</CODE> convert relative path names to absolute path names based on the current script directory
+</ul>
+
+<H4>2.2 Imports</H4>
+<UL>
+<li> to import Python modules located in the standard distribution, use the usual <CODE>import</CODE> statement
+<li> you can also use <CODE>import</CODE> for modules located in the directory <span class="file">karrigell/package</span>
+<li> for user-defined modules inside the application, <CODE>import</CODE> can't work reliably in a multi-threaded environment where the value of <CODE>sys.path</CODE> can be modified by scripts, and because the sharing of <CODE>sys.modules</CODE> at the interpreter level can lead to confusion on module names. Use the built-in function <CODE>Import()</CODE> :
+<p><span class="python">
+    module = Import(<i>url_to_user_defined_module</i>)
+</span>
+<li> to make migration simpler, the command-line script <span class="file">karrigell/core/migrate_2_to_3.py</span> will check scripts and report all the cases when <CODE>import</CODE> is used to import modules outside of the Python distribution currently installed on the computer
+</UL>
+
+<H4>2.3 Include</H4>
+
+<p>In Karrigell 2.x, with <CODE>Include(<I>url</I>)</CODE>, a relative url was resolved relatively to the <U>full</U> url, including function name in ks scripts, arguments etc
+<p>In version 3 the resolution is relative to the <U>script</U> url, regardless of any element following it in the url
+
+<p>For instance, in the script <span class="file">ks_script.ks</span> :
+
+<div class="python">
+<pre>
+Include("header.html")
+
+def myfunc(**kw):
+    Include("info.txt")
+</pre></div>
+
+<p>When the url <span class="url">host/folder/ks_script.ks/myfunc?arg1=val1</span> is called, the resolution is relative to the script url <span class="url">host/folder/ks_script.ks</span>. Thus :
+<ul>
+<li>the relative url <span class="url">header.html</span> is resolved to the absolute url <span class="url">host/folder/header.html</span>
+<li>the relative url <span class="url">info.txt</span> is resolved to the absolute url <span class="url">host/folder/info.txt</span>
+</ul>
+
+<H4>2.4 Outputs</H4>
+<ul>
+<li> when a script is executed, it can give specific values to response headers such as <CODE>Content-type, Set-Cookie</CODE> etc, and it usually returns data to be printed by the user agent. The HTTP response returned by the server consists of the response line, response headers and data
+<li> for this reason, <CODE>sys.stdout</CODE> can't be used directly inside a script to send the response to the user agent, because the result would be sent <U>BEFORE</U> the response line and headers. The built-in function <CODE>print</CODE> can be used for that ; it is internally translated into the built-in function <CODE>PRINT()</CODE> which can also be used directly : <CODE>PRINT(<I>data</I>)</CODE> is the same as <CODE>print data</CODE>
+<li> internally, this function <CODE>PRINT</CODE> accumulates data in a buffer ; when the request is completed, the servers sends the response line, then the response headers, and finally the buffer content
+<li> to avoid whitespace and line breaks introduced by <CODE>print</CODE> or <CODE>PRINT</CODE>, use the built-in function <CODE>STDOUT()</CODE>
+</ul>
+
+<H4>2.5 Environment</H4>
+
+<p>A built-in dictionary, <CODE>ENVIRON</CODE>, holds the same information as <CODE>os.environ</CODE> for CGI scripts
+
+<H4>2.6 User management</H4>
+
+<p>The built-in function <CODE>Logout()</CODE> now erases the session cookies and redirects to the requested page (by default, the script where the function is called). In previous versions it returned a string with a link to the logout script
+
+<p>You must replace all lines like :
+<dt class="python"><pre>if Role():
+    print Logout()</pre></dt>
+
+<p>with something like:
+
+<div class="python"><pre>if Role():
+    print '&lt;a href="logout"&gt;Logout&lt;/a&gt;'</pre>
+    </div>
+<p>and add a function logout() like this
+
+<div class="python"><pre>def logout():
+    Logout()</pre></div>
+<p>
+
+<H3>3 - Implementation</H3>
+
+<p>
+<H4>3.1 Threading server</H4>
+<p>The default web server, launched by <span class="console">python Karrigell.py</span>, is a  multithreaded server, able to serve long-running scripts without blocking other requests
+<p>An alternative, multiprocess server also gives excellent performance
+
+<H4>3.2 Session management</H4>
+<p>Sessions are stored on disk, except if the option <CODE>persistent_session</CODE> is set to <CODE>False</CODE> (this will not work reliably in multi-threaded environments : if you need this feature, use the asynchronous or monoprocess versions of the server). The life duration of a session in the session database can be configured
+
+<H4>3.3 Data types</H4>
+<p><CODE>HEADERS</CODE> and <CODE>RESP_HEADERS</CODE> are instances of <CODE>email.Message</CODE> (behave very much like case-insensitive dictionaries)
+
+<H3>4 - Web 2.0</H3>
+<p>
+<H4>4.1 editarea</H4>
+<p>The Javascript library <a href="http://www.cdolivet.net/editarea/">EditArea</a> is included, to allow on-line script edition. It is used in the Script Editor in the Administration menu, and in case of error or exception in a script, the Debug button gives access to a page where the script can be edited on line
+
+<H4>4.2 jQuery</H4>
+<p>The lightweight JavaScript libraries <a href="http://jquery.com/">jQuery</a> and <a href="http://abeautifulsite.net/notebook/58">jQueryFileTree</a> are also included. They are used in the Script Editor application in the Administration menu, to browse files without having to reload the whole page

@@ -1,0 +1,26 @@
+2010/05/24 08:27:11 - 127.0.0.1 - GET /layout.ks/page_accountValid?name=admin HTTP/1.1 200
+2010/05/24 08:27:11 - 127.0.0.1 - GET /layout.ks/page_accountValid?username=admin&name=990508 HTTP/1.1 200
+2010/05/24 08:27:11 - 127.0.0.1 - GET /layout.ks/page_welcomeInfo HTTP/1.1 200
+2010/05/24 08:27:11 - 127.0.0.1 - GET /layout.ks/page_menu HTTP/1.1 200
+2010/05/24 00:27:14 - 127.0.0.1 - GET /layout.ks/page_sideBarPanels HTTP/1.1 200
+2010/05/24 08:27:11 - 127.0.0.1 - GET /js/adminMenus.js HTTP/1.1 200
+2010/05/24 00:27:14 - 127.0.0.1 - GET /js/adminSidePanels.js.pih HTTP/1.1 200
+2010/05/24 00:27:15 - 127.0.0.1 - GET /themes/default/images/handle-icon.gif HTTP/1.1 200
+2010/05/24 00:27:15 - 127.0.0.1 - GET /themes/default/images/bg-panel-header.gif HTTP/1.1 200
+2010/05/24 00:27:15 - 127.0.0.1 - GET /themes/default/images/collapse-expand.gif HTTP/1.1 200
+2010/05/24 00:27:15 - 127.0.0.1 - GET /portal/portal4admin.ks/page_info HTTP/1.1 200
+2010/05/24 00:27:15 - 127.0.0.1 - GET /themes/default/images/handle-icon-horizontal.gif HTTP/1.1 200
+2010/05/24 00:27:15 - 127.0.0.1 - GET /themes/default/images/bg-handle-horizontal.gif HTTP/1.1 200
+2010/05/24 00:27:15 - 127.0.0.1 - GET /service/service.ks/page_info HTTP/1.1 200
+2010/05/24 00:27:15 - 127.0.0.1 - GET /user/userManagement.ks/page_info HTTP/1.1 200
+2010/05/24 00:27:16 - 127.0.0.1 - GET /service/service.ks/page_info HTTP/1.1 200
+2010/05/24 00:27:16 - 127.0.0.1 - GET /admin/translation/ HTTP/1.1 302 /admin/login.ks/login?valid_in=/&redir_to=%2Fadmin%2Ftranslation%2F&role=admin
+2010/05/24 00:27:16 - 127.0.0.1 - GET /admin/login.ks/login?valid_in=/&redir_to=%2Fadmin%2Ftranslation%2F&role=admin HTTP/1.1 200
+2010/05/24 00:27:16 - 127.0.0.1 - GET /admin/karrigell.css HTTP/1.1 200
+2010/05/24 00:27:16 - 127.0.0.1 - GET /doc/images/karrigell.jpg HTTP/1.1 200
+2010/05/24 00:27:17 - 127.0.0.1 - POST /admin/login.ks/check_login HTTP/1.1 302 /admin/translation/
+2010/05/24 00:27:23 - 127.0.0.1 - GET /admin/translation/ HTTP/1.1 200
+2010/05/24 00:27:23 - 127.0.0.1 - GET /admin/translation/fileMenu.pih HTTP/1.1 200
+2010/05/24 00:27:32 - 127.0.0.1 - GET /admin/jquery-1.2.6.js HTTP/1.1 200
+2010/05/24 00:27:32 - 127.0.0.1 - GET /admin/jQueryFileTree/jQueryFileTree.js HTTP/1.1 200
+2010/05/24 00:27:32 - 127.0.0.1 - POST /admin/translation/jQueryFileTree.py HTTP/1.1 200

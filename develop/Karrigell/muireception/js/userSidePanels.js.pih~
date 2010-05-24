@@ -1,0 +1,137 @@
+/*
+** FUNCTIONS FOR SIDE PANELS EXPAND, THESE SIDEPANELS BELONGS TO NORMAL USER ROLE.
+*/
+
+<% 
+# PYTHON CODE SLICE
+# get meus stored in pagefn.py
+pagefn = Import('/'.join(('', 'pagefn.py')))
+
+# initialize some page variables
+sideBar, mainColumn = pagefn.COLUMNS
+
+portfolio, hotel = [ getattr(pagefn, attr) for attr in ('PORTFOLIO', 'HOTEL')]
+%>
+
+var mainPanelId = MUI.mainPanelId;
+
+/*
+** The public function for side panels collapsing
+*/
+function sidePanelCollapse(panelId){	
+	//alert('panel collapsed');
+};
+
+
+/*
+**	Portal side panel expand function
+*/
+function portalPanel(panelId){
+	MUI.accordionPanels(panelId);
+};
+
+/*
+**	Accommodation side panel expand function
+*/
+function hotelPanel(panelId){		
+	MUI.accordionPanels(panelId);	
+	MUI.clearMainPanel(); 
+		
+	new MUI.Column({
+		container:mainPanelId, id: 'hotelListColumn', placement: 'main', 
+		sortable: false, width: null, resizeLimit: [100,200] 
+	});
+	
+	new MUI.Column({
+		container:mainPanelId, id: 'hotelReserveColumn', placement: 'right',  
+		sortable: false, width: 500, resizeLimit: [400,500] 
+	});
+	
+	// the panel to show hotel list
+	pid = "<%=hotel.get('main')['list']['panelId']%>";
+	new MUI.Panel({
+		id: pid,
+		column: 'hotelListColumn', 
+		title: "<%=hotel.get('main')['list']['panelTitle']%>",
+		contentURL: "<%=hotel.get('main')['list']['contentUrl']%>",
+		onExpand: MUI.accordionPanels.pass(pid)
+	});
+	
+	// the panel to show selected hotel info
+	pid = "<%=hotel.get('main')['info']['panelId']%>";
+	panel = new MUI.Panel({
+		id: pid,
+		column: 'hotelListColumn', 
+		title: "<%=hotel.get('main')['info']['panelTitle']%>",
+		contentURL:'portfolio/portfolio.ks/page_showPortfolio',
+		onExpand: MUI.accordionPanels.pass(pid)
+	});
+	
+	// collapsed this panel
+	panel.toggleExpand();	
+	
+	new MUI.Panel({
+		id: "<%=hotel.get('right')['panelId']%>",
+		title: "<%=hotel.get('right')['panelTitle'] %>",
+		column: 'hotelReserveColumn',
+		contentURL:'portfolio/portfolio.ks/page_showAccount'
+	});
+};
+
+/*
+**	Travel side panel expand function
+*/
+function travelPanel(panelId){	
+	MUI.accordionPanels(panelId);	
+};
+
+/*
+**	Service side panel expand function
+*/
+function servicePanel(panelId){	
+	MUI.accordionPanels(panelId);	
+};
+
+/*
+**	Issue side panel expand function
+*/
+function issuePanel(panelId){
+	MUI.accordionPanels(panelId);	
+};
+
+
+/*
+**	Portfolio side panel expand function
+*/
+function portfolioPanel(panelId){	
+	
+	//MUI.accordionPanels(panelId);
+	
+	//MUI.clearMainPanel();
+	MUI.initPanel(panelId);
+	 
+	
+	new MUI.Column({
+		container:mainPanelId, id: 'portfolioColumn', placement: 'main', 
+		sortable: false, width: null, resizeLimit: [100,200] 
+	});
+	
+	new MUI.Column({
+		container:mainPanelId, id: 'accountColumn', placement: 'right',  
+		sortable: false, width: 500, resizeLimit: [400,500] 
+	});
+	
+	
+	new MUI.Panel({
+		id: '<%=portfolio.get('panelsId')[0]%>', header:false, column: 'portfolioColumn',
+		contentURL:'portfolio/portfolio.ks/page_showPortfolio'
+	});
+	
+	new MUI.Panel({
+		id: '<%=portfolio.get('panelsId')[1]%>', header:false, column: 'accountColumn',
+		contentURL:'portfolio/portfolio.ks/page_showAccount'
+	});
+	
+		
+};
+

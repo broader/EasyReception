@@ -1,0 +1,22 @@
+[]
+# -*- coding: utf_8 -*-
+STDOUT("<div class=\"subcolumns\">\n	<div class=\"c75l\">\n		<div class=\"subc\">\n			<div class=\"floatbox\">\n				<pre>少儿舞蹈基础班</pre>\n				<!-- the content of this table -->\n")
+table = {'header' : '以快乐教学为理念，针对少儿发育制定形体训练，注重孩子综合素质的培养，<br>\
+       通过学习培养小朋友对音乐、舞蹈元素的理解和兴趣，训练身体协调性、合作互助能力、\
+       充分发挥自身潜能，打好艺术基础。',\
+      'body' : (('适合年龄', '4岁—7岁'),\
+     ('授课内容', '少儿形体、舞蹈考级课程、舞蹈基础、舞蹈表演、组合排练'),\
+     ('授课老师', '北京舞蹈学院考级资格优秀教师'),\
+     ('时间安排', '周六  下午15：00－16：30    (每次2课时;每课时45分钟)'),\
+           )\
+     }
+STDOUT("				<!-- constructs the table -->\n				<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"full\">					\n          				<thead>\n")
+PRINT( '<tr><th scope="col" colspan="2">%s</th></tr>'%table['header'])
+STDOUT("					</thead>          				\n          				<tbody>\n")
+for i in table['body'] :
+ PRINT( '<tr>')
+ PRINT( '<th scope="row" class="sub">%s</th>'%i[0])
+ PRINT( '<td>%s</td>'%i[1])
+ PRINT( '</tr>')
+STDOUT("          				</tbody>\n          			</table>   \n          			<img src=\"images/home/children_2.png\" class=\"float_left\">\n				<img src=\"images/home/children_1.png\" class=\"float_left\">\n			</div><!-- floatbox end -->\n		</div><!-- subcl end -->\n	</div><!-- c75l end -->\n	<div class=\"c25r\">\n		<div class=\"subcr\">\n			<p class=\"info\">\n				对幼儿进行一定的体操、舞蹈形体训练有助于幼儿身体的发育、成长，在发达国家已成为幼儿教育的一个共识。<br>\n				很多体态、气质俱佳的人都曾经在少儿时代进行过类似的训练。<br>\n				<h5>在干净、明亮的健身馆，伴着优美的旋律，在温柔、耐心的老师陪伴下，您的小孩会拥有一段温馨难忘的记忆！</h5>\n			</p>\n		</div>	\n	</div>\n</div><!-- subcolumns end -->			\n")
+

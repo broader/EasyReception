@@ -1,0 +1,22 @@
+[]
+# -*- coding: utf_8 -*-
+STDOUT("// add \'click\' callback function for each cell in the service list table\n$(document).ready(function(){\n	var reserveId = \"#\" + \"")
+STDOUT(str(_reserveDiv))
+STDOUT("\";		\n	var serviceId = \"#\" + \"")
+STDOUT(str(_serviceDiv))
+STDOUT("\";\n	var divEdit = \"#\" + \"")
+STDOUT(str(_editDiv))
+STDOUT("\";\n	var editUrl = \"")
+STDOUT(str(_editUrl))
+STDOUT("\"; \n	var action = \'")
+STDOUT(str(_action))
+STDOUT("\';\n	var category = \'.\' + \"")
+STDOUT(str(_categoryTag))
+STDOUT("\";\n	var subcategory = \'.\' + \"")
+STDOUT(str(_subcategoryTag))
+STDOUT("\";\n  	if(action == \'create\'){\n  		divId = serviceId;\n  	}\n  	else{\n  		divId = reserveId\n  	}\n  	// callback function for each service item in the table\n  	$(divId + \" table tbody tr\")\n  	.not(category).not(subcategory) 	\n	.each(function(){	\n		// filter the row whose css style class is \'noused\'\n		/* \n		txt = $(this).attr(\'class\');		 	\n		if (txt.indexOf(\'noused\') >= 0){\n			return true;\n		}\n		*/\n		// get td elements in this tr and filter the first one				\n		var tds = $(this).children();\n		$(tds).click(function(){	\n			var values = [];			\n			$(this).parent().children().each(function(){\n				$(this)\n				.find(\"span[class != expander]\")				\n				.each(function(){		\n					var attrClass = $(this).attr(\"class\");\n					var txt = encodeURIComponent($(this).text());					\n					if (attrClass == \'serial\'){						\n						// For \'create\' action, if the service has been reserved, \n						// propmt user to edit it in reservation list.						\n						if (action == \'create\'){\n							var isReserved = false;\n							// check whether it\'s a reserved service\n							$(reserveId + \' table span\')\n							.filter(\'.service\')\n							.each(function(){\n								if($(this).text() == txt){									\n									isReserved = true;\n									return false\n								}\n							});\n							if(isReserved){\n								var info = \"")
+STDOUT(str(_('Please select in reserve list!')))
+STDOUT("\";\n								$.prompt(info, {prefix: \"cleanblue\", buttons: { ")
+STDOUT(str(_('OK')))
+STDOUT(" : true}});\n								return false\n							}\n						}\n					} 			\n					var a = [ attrClass, txt ].join(\"=\");\n					values.push(a);	\n				});								\n			});		\n			values.push(\"action=\" + action);			\n			// load edit action page to edit div component in the page			\n			var url = editUrl + \'?\' + values.join(\"&\");					\n			$(divEdit).loadJFrame(url);  	 \n		});\n	});\n	$(divId + \" table\").treeTable();\n  	// set css style of the service list table  	 \n  	$(divId + \" .expander\").each(function(){\n  		$(this).css(\'margin-left\', \'0px\');\n  	});\n});\n")
+

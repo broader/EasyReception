@@ -1,0 +1,16 @@
+[]
+# -*- coding: utf_8 -*-
+STDOUT("// A javascript for seting the callback function of service type selection\nvar select_id = \"")
+STDOUT(str(_selectId))
+STDOUT("\";\nvar select = $(\'#\' + select_id);\nselect.bind(\'change\', function(event){\n	var s = $(event.target);\n	var value =s.attr(\'value\');\n	var editUrl = \"")
+STDOUT(str(_editUrl))
+STDOUT("\";\n	var edit_id = \"")
+STDOUT(str(_editDiv))
+STDOUT("\";\n	if(value == \'create\'){		\n		// show service edit form\n		editUrl += \"?action=create\";		\n		$(\'#\' + edit_id).loadJFrame(editUrl);		\n	} \n	else{\n		// change service list table\n		var url = \"")
+STDOUT(str(_listUrl))
+STDOUT("\";\n		url += \'?action=edit&name=\' + value;\n		var page = \"")
+STDOUT(str(_page))
+STDOUT("\";\n		if(page == \'admin\'){\n			url += \'&\' + \'page=\' + page;\n		}\n		// refresh service list\n		var show_id = \"")
+STDOUT(str(_listDiv))
+STDOUT("\";		\n		$(\'#\' + show_id).loadJFrame(url);\n		// show edit form\n		$(\'#\' + edit_id).loadJFrame(editUrl);		\n	}\n}); \n")
+

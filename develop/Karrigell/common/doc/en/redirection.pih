@@ -1,0 +1,4 @@
+<h1><%= chapter %>. Redirection</h1>
+
+<br><code>raise HTTP_REDIRECTION,uri</code> causes Karrigell to redirect the request to the given
+URI

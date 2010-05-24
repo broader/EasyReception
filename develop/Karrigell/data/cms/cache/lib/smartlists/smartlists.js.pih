@@ -1,0 +1,10 @@
+[]
+# -*- coding: utf_8 -*-
+STDOUT("/** ***********************************************************************************\nThe functions for showing mutiful messages of an issue\n*/\n// reset the left variable \'currentPage\' of \'smartlists\' plugin of jQuery in javascirpt interpreter\n$.currentPage = 1;\n$.smartlist({\n	baseName:               \"")
+STDOUT(str(_listId))
+STDOUT("\",\n	itemClass:              \"item\",\n	showFlagCount:          true,\n	itemFlagClass:          \"flags\",\n	itemFlagSeparator:      \" | \",\n	itemChangeEffect:       \"FadeAppear\",\n	pageChangeDuration:     10,\n	pageChangeEffect:       \"FadeAppear\",\n	numItemsPerPage:        ")
+STDOUT(str(_pageItems))
+STDOUT(",\n	paginationLeft:         \"\\u00ab\",\n	paginationRight:        \"\\u00bb\",\n	maxPaginationLinks:     20,\n	defaultDropdownOptText: \"")
+STDOUT(str(_prompt))
+STDOUT("\"\n});\n")
+
