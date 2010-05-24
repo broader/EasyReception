@@ -2474,7 +2474,7 @@
 <node COLOR="#0033ff" CREATED="1270952020458" ID="ID_1804767918" MODIFIED="1274590553730" POSITION="right" TEXT="Develop Evironment">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1262786726152" ID="ID_476877394" MODIFIED="1274590555141" TEXT="Source">
+<node COLOR="#00b439" CREATED="1262786726152" ID="ID_476877394" MODIFIED="1274667031254" TEXT="Source">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1266917069312" ID="ID_30201427" MODIFIED="1273827249936" TEXT="Management">
@@ -2483,7 +2483,7 @@
 <node COLOR="#111111" CREATED="1262786735562" ID="ID_495182632" MODIFIED="1273546962171" TEXT="GitHub">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1262786764185" FOLDED="true" ID="ID_875290458" MODIFIED="1268619406141" TEXT="&#x4f7f;&#x7528;&#x8bf4;&#x660e;">
+<node COLOR="#111111" CREATED="1262786764185" ID="ID_875290458" MODIFIED="1274667035632" TEXT="&#x4f7f;&#x7528;&#x8bf4;&#x660e;">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1262786741353" ID="ID_1161409631" MODIFIED="1262786771419" TEXT="&#x521b;&#x5efa;&#x76ee;&#x5f55;&#x6307;&#x5bfc;&#xff1a;&#xa;http://hi.baidu.com/jspring/blog/item/59f7dfcdce190a560fb345c1.html&#xa;&#xa;&#x4e0a;&#x4f20;&#x540c;&#x6b65;&#x6587;&#x4ef6;&#xff1a;&#xa;#git add &apos;your file or directory name&apos;&#xa;git commit -m &apos;you commit message&apos;&#xa;git push origin master&#xa;&#xa;&#x5220;&#x9664;&#x6587;&#x4ef6;&#xff1a;&#xa;git rm ./develop/Karrigell/muireception/register/tmp/*.jpeg&#xa;git commit -m &apos;you message&apos;&#xa;git push origin master&#xa;">
 <font NAME="SansSerif" SIZE="12"/>
@@ -2496,7 +2496,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1266917080151" ID="ID_370832872" MODIFIED="1274590557735" TEXT="Change">
+<node COLOR="#990000" CREATED="1266917080151" FOLDED="true" ID="ID_370832872" MODIFIED="1274667033524" TEXT="Change">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1183969360528" FOLDED="true" ID="Freemind_Link_1717488379" MODIFIED="1274590705199" TEXT="javascript">
@@ -2651,7 +2651,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1273546965657" FOLDED="true" ID="ID_1612332752" MODIFIED="1274326701023" TEXT="Evironment">
+<node COLOR="#00b439" CREATED="1273546965657" FOLDED="true" ID="ID_1612332752" MODIFIED="1274667027419" TEXT="Evironment">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1167544327073" FOLDED="true" ID="Freemind_Link_1636742661" MODIFIED="1273828346004" TEXT="vi">
@@ -2765,7 +2765,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1272534182417" FOLDED="true" ID="ID_1066410301" MODIFIED="1273546987107" TEXT="Distributed Develop">
+<node COLOR="#990000" CREATED="1272534182417" FOLDED="true" ID="ID_1066410301" MODIFIED="1274667026634" TEXT="Distributed Develop">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1272534194295" ID="ID_1067207855" MODIFIED="1273546979866" TEXT="Enviroment">
