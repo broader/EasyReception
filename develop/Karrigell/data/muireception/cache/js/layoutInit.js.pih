@@ -1,4 +1,5 @@
 []
+# -*- coding: utf_8 -*-
 STDOUT("/*\nINITIALIZE THE USER\'S MENUS\n*/\n")
 # PYTHON CODE SLICE
 # get meus stored in pagefn.py

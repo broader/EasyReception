@@ -166,42 +166,41 @@ def _relationEditJs(**args):
 	var appName='%s', formId='%s', 
 	selects={'%s':'%s', '%s':'%s'},
 	reqUrl='%s';
-
-	$(formId).getElements('select').each(function(select){
-		selectContainer = select.getParent('div');	
-
-		MUI.multiSelect(appName, {
-			'onload': function(){
-				mselectName = selects[select.getProperty('name')];
-				
-				hiddenInput = $(mselectName);
-				// get widget container and set some css style
-				parent = hiddenInput.getParent('div');
-				parent.setProperty('style', 'border: 0.5px solid #DDDDDD;');
-				parent.setProperty('class', '');
-				parent.addClass('type-select');
-
-				// get old value and remove the hidden input from DOM
-				oldValue = hiddenInput.getProperty('value');
-				hiddenInput.dispose();
-				
-				// constructs the multi select widget
-				mtSelectWidget = new MTMultiWidget({
-					container: parent, 
-					dataUrl: setReqUrl(reqUrl, select.getProperty('value'), oldValue), 
-					fieldName:mselectName
-				});
-
-				select.store('mtSelect', mtSelectWidget);
-				select.addEvent('change', setMultiSelect);
-			}
-		});
-	});
 	
+	MUI.multiSelect(appName,{onload: function(){
+		$(formId).getElements('select').each(function(select){
+			mselectName = selects[select.getProperty('name')];
+			hiddenInput = $(mselectName);
+		
+			// get widget container and set some css style
+			parent = hiddenInput.getParent('div');
+			parent.setProperty('style', 'border: 0.5px solid #DDDDDD;');
+			parent.setProperty('class', '');
+			parent.addClass('type-select');
+		
+			// get old value and remove the hidden input from DOM
+			oldValue = hiddenInput.getProperty('value');
+			hiddenInput.dispose();
+		
+			mtSelectWidget = new MTMultiWidget({
+				container: parent, 
+				dataUrl: setReqUrl(reqUrl, select.getProperty('value'), oldValue), 
+				fieldName:mselectName,items_per_page: 8
+			});
+
+			select.store('mtSelect', mtSelectWidget);
+			select.addEvent('change', setMultiSelect);
+		});
+	}});
+
+	
+
+	// constructs the request url by given url, klass, value	
 	function setReqUrl(url, klass, value){
 		return [url, $H({'classname':klass, 'value':value}).toQueryString()].join('?'); 
 	};
-
+	
+	// reset the options of multi select widget
 	function setMultiSelect(event){
 		mtSelect = event.target.retrieve('mtSelect');	
 		mtSelect.reset( setReqUrl(reqUrl,event.target.getProperty('value'), '') );
@@ -732,7 +731,34 @@ def _relationPropHandler(props):
 
 	return newProps
 
-CLASSADAPTOR = {'keyword':_keywordPropHandler, 'relation': _relationPropHandler }
+USERCONFIRMPWD = 'confirmPassword'
+def _userPropHandler(props):
+	chkProps = ['username', 'email']
+	newProps = copy.deepcopy(props)
+
+	# Just add 'password' field only for 'create' action,
+	# because the value of 'password' has been encrypted in MD5 format,
+	# so we couldn't edit 'password' value in normal form.
+	if not filter(lambda p: p.get('name')=='username' and p.get('oldvalue'), props):
+		newProps.extend([
+			{'name':'password','type':'password','prompt':_('Password'), 'validate':[], 'required':True, 'oldvalue':''},
+			{'name':USERCONFIRMPWD,'type':'password','prompt':_('Confirm Password'), 'validate':['confirm[password]'], 'required':True, 'oldvalue':''}
+		])
+		chkProps.append('password') 
+	
+	for prop in newProps:
+		name = prop['name']
+		if name in chkProps:
+			prop['required'] = True
+			if name == 'email':
+				prop['validate'].append('email')
+		elif name == 'roles':
+			prop.update({'type':'select', 'multiple':'multiple'})
+			prop['options'] = [{'label':'test','value':'test'},{'label':'china', 'value':'china'}]
+
+	return newProps 
+
+CLASSADAPTOR = {'keyword':_keywordPropHandler, 'relation': _relationPropHandler, 'user': _userPropHandler}
 ACTIONPROP,ACTIONTYPES = 'action',('create','edit')
 def page_classEdit(**args):
 	klass = args.pop(CLASSPROP)
@@ -900,6 +926,11 @@ def page_classEditAction(**args):
 
 	if ACTIONTYPES.index(action) == 0:
 		# 'create' action
+		
+		# for 'user' class we need to remove the confirm password field
+		if klass == 'user':
+			args.pop(USERCONFIRMPWD)
+
 		[args.pop(key) for key in args.keys() if not args.get(key)]
 		nid = model.create_item(USER, klass, args, autoSerial=False)
 		if nid:
