@@ -586,8 +586,12 @@ def page_colsModel(**args):
 		[{'header':...,'dataIndex':...,'dataType':...},...]
 	"""
 	klass = args.get(CLASSPROP)
-	colsModel = [{'header': prop, 'dataIndex':prop,'dataType':'string'} for prop in _getClassProps(klass)]
-
+	props = _getClassProps(klass)
+	colsModel = [{'header': prop, 'dataIndex':prop,'dataType':'string'} for prop in props]
+	if klass == 'user':
+		index = props.index('username')
+		item = colsModel.pop(index)
+		colsModel.insert(1, item)
 	PRINT( JSON.encode({'data':colsModel}))
 	return
 
@@ -736,28 +740,42 @@ def _relationPropHandler(props):
 
 USERCONFIRMPWD = 'confirmPassword'
 def _userPropHandler(props):
-	chkProps = ['username', 'email']
-	newProps = copy.deepcopy(props)
+	editProps = ['username', 'roles', 'email', 'alt_mails', 'address', 'timezone']
+	newProps = []
+
+	for propName in editProps:
+		prop = filter(lambda p: p.get('name') == propName , props)[0]
+		if propName in ('username', 'email'):
+			prop['required'] = True
+			if propName == 'email':
+				prop['validate'].append('email')
+
+		elif propName == 'roles':
+			prop.update({'type':'textMultiCheckbox'})
+			values = model.get_keyValues(USER,'role')
+			values.sort()
+			prop['options'] = values
+
+		newProps.append(prop)
 
 	# Just add 'password' field only for 'create' action,
 	# because the value of 'password' has been encrypted in MD5 format,
 	# so we couldn't edit 'password' value in normal form.
-	if not filter(lambda p: p.get('name')=='username' and p.get('oldvalue'), props):
+	# Here we judge the 'create' action by checking whether the property 'username' has a 'oldvalue'.
+	if not filter(lambda p: p.get('name')=='username' and p.get('oldvalue'), newProps):
 		newProps.extend([
-			{'name':'password','type':'password','prompt':_('Password'), 'validate':[], 'required':True, 'oldvalue':''},
-			{'name':USERCONFIRMPWD,'type':'password','prompt':_('Confirm Password'), 'validate':['confirm[password]'], 'required':True, 'oldvalue':''}
+			{
+				'name':'password','type':'password',
+				'prompt':_('Password'), 'validate':[],
+				'required':True, 'oldvalue':''
+			},
+			{
+				'name':USERCONFIRMPWD,'type':'password',
+				'prompt':_('Confirm Password'),
+				'validate':['confirm[password]'],
+				'required':True, 'oldvalue':''
+			}
 		])
-		chkProps.append('password')
-
-	for prop in newProps:
-		name = prop['name']
-		if name in chkProps:
-			prop['required'] = True
-			if name == 'email':
-				prop['validate'].append('email')
-		elif name == 'roles':
-			prop.update({'type':'select', 'multiple':'multiple'})
-			prop['options'] = [{'label':'test','value':'test'},{'label':'china', 'value':'china'}]
 
 	return newProps
 

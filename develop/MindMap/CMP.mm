@@ -103,7 +103,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1274668133708" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" ID="Freemind_Link_1929446294" MODIFIED="1274752633677" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -163,7 +163,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1176858964077" FOLDED="true" ID="Freemind_Link_1801314834" MODIFIED="1274668124957" TEXT="Application">
+<node COLOR="#00b439" CREATED="1176858964077" FOLDED="true" ID="Freemind_Link_1801314834" MODIFIED="1274752670189" TEXT="Application">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="button_cancel"/>
@@ -465,7 +465,7 @@
 <node COLOR="#111111" CREATED="1273626838656" ID="ID_595496953" LINK="http://www.phpform.org/" MODIFIED="1273626841344" TEXT="http://www.phpform.org/"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1272202865378" ID="ID_1064712418" MODIFIED="1273626820688" TEXT="Access Control">
+<node COLOR="#00b439" CREATED="1272202865378" FOLDED="true" ID="ID_1064712418" MODIFIED="1274752657592" TEXT="Access Control">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1272202885675" FOLDED="true" ID="ID_1529149116" MODIFIED="1273626824814" TEXT="Examples">
@@ -1754,7 +1754,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1274669670324" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1274752676022" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1273030192723" FOLDED="true" ID="ID_344232506" MODIFIED="1274668144588" TEXT="Idea">
@@ -2365,34 +2365,34 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1271036052099" FOLDED="true" ID="ID_822841815" MODIFIED="1274668170310" TEXT="Widgets">
+<node COLOR="#00b439" CREATED="1271036052099" ID="ID_822841815" MODIFIED="1274752678737" TEXT="Widgets">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1271036057089" FOLDED="true" ID="ID_514524676" MODIFIED="1273547497315" TEXT="Clock">
+<node COLOR="#990000" CREATED="1271036057089" FOLDED="true" ID="ID_514524676" MODIFIED="1274752686472" TEXT="Clock">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1271036076146" ID="ID_1726035646" LINK="http://net.tutsplus.com/tutorials/html-css-techniques/learn-how-to-create-a-retro-animated-flip-down-clock/" MODIFIED="1271036085081" TEXT="http://net.tutsplus.com/tutorials/html-css-techniques/learn-how-to-create-a-retro-animated-flip-down-clock/"/>
 </node>
-<node COLOR="#990000" CREATED="1271576735172" ID="ID_140445075" MODIFIED="1274668156756" TEXT="Layout">
+<node COLOR="#990000" CREATED="1271576735172" FOLDED="true" ID="ID_140445075" MODIFIED="1274752687288" TEXT="Layout">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1271576740831" ID="ID_1251994926" LINK="http://www.crionics.com/products/opensource/mooMasonry/Demos/index.html" MODIFIED="1271576744477" TEXT="http://www.crionics.com/products/opensource/mooMasonry/Demos/index.html"/>
 </node>
-<node COLOR="#990000" CREATED="1271036256688" ID="ID_1858939460" MODIFIED="1271036270003" TEXT="By-Slide-Menu">
+<node COLOR="#990000" CREATED="1271036256688" FOLDED="true" ID="ID_1858939460" MODIFIED="1274752687823" TEXT="By-Slide-Menu">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1271036270993" ID="ID_893758918" LINK="http://www.byscripts.info/scripts/javascript-dynamic-accordion-menu" MODIFIED="1271036279028" TEXT="http://www.byscripts.info/scripts/javascript-dynamic-accordion-menu"/>
 </node>
-<node COLOR="#990000" CREATED="1271036351851" ID="ID_1884716251" MODIFIED="1271036353723" TEXT="Image">
+<node COLOR="#990000" CREATED="1271036351851" FOLDED="true" ID="ID_1884716251" MODIFIED="1274752688536" TEXT="Image">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1271036354650" ID="ID_628653011" MODIFIED="1271036359679" TEXT="zoom">
 <node COLOR="#111111" CREATED="1271036367656" ID="ID_133349293" LINK="http://www.byscripts.info/scripts/javascript-dynamic-image-zoomer" MODIFIED="1271036374703" TEXT="http://www.byscripts.info/scripts/javascript-dynamic-image-zoomer"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1271036506350" ID="ID_665666193" MODIFIED="1271036508299" TEXT="Slide">
+<node COLOR="#990000" CREATED="1271036506350" FOLDED="true" ID="ID_665666193" MODIFIED="1274752689562" TEXT="Slide">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1271036510820" ID="ID_242096481" MODIFIED="1271036519371" TEXT="Artistics">
 <node COLOR="#111111" CREATED="1271036520819" ID="ID_374140516" LINK="http://blog.olicio.us/2009/07/25/floom/" MODIFIED="1271036527791" TEXT="http://blog.olicio.us/2009/07/25/floom/"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1271036680301" ID="ID_1761134389" MODIFIED="1271036696943" TEXT="Modal">
+<node COLOR="#990000" CREATED="1271036680301" FOLDED="true" ID="ID_1761134389" MODIFIED="1274752690496" TEXT="Modal">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1271036698477" ID="ID_441604353" MODIFIED="1271036706134" TEXT="Popup">
 <node COLOR="#111111" CREATED="1271036707171" ID="ID_1322446731" LINK="http://www.artviper.net/website-tools/bumpbox-lightbox.php" MODIFIED="1271036724689" TEXT="http://www.artviper.net/website-tools/bumpbox-lightbox.php">
@@ -2400,21 +2400,21 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1271036857553" ID="ID_580476477" MODIFIED="1271036868953" TEXT="Logo">
+<node COLOR="#990000" CREATED="1271036857553" FOLDED="true" ID="ID_580476477" MODIFIED="1274752691312" TEXT="Logo">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1271036870435" ID="ID_1332305870" MODIFIED="1271036873527" TEXT="Cloud">
 <node COLOR="#111111" CREATED="1271036874845" ID="ID_1437312877" LINK="http://www.artviper.net/website-tools/html-to-flash-tag-cloud.php" MODIFIED="1271036895321" TEXT="http://www.artviper.net/website-tools/html-to-flash-tag-cloud.php"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1271131892792" ID="ID_562315358" MODIFIED="1271131903268" TEXT="Quotes">
+<node COLOR="#990000" CREATED="1271131892792" FOLDED="true" ID="ID_562315358" MODIFIED="1274752680743" TEXT="Quotes">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1271131904519" ID="ID_1543177534" LINK="http://tutorialzine.com/2009/11/fancy-quotes/" MODIFIED="1271131908230" TEXT="http://tutorialzine.com/2009/11/fancy-quotes/"/>
 </node>
-<node COLOR="#990000" CREATED="1271132218776" ID="ID_1729981933" MODIFIED="1271132225930" TEXT="Photo Share">
+<node COLOR="#990000" CREATED="1271132218776" FOLDED="true" ID="ID_1729981933" MODIFIED="1274752682025" TEXT="Photo Share">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1271132267994" ID="ID_725013548" LINK="http://tutorialzine.com/2009/11/hovering-gallery-css3-jquery/" MODIFIED="1271132270962" TEXT="http://tutorialzine.com/2009/11/hovering-gallery-css3-jquery/"/>
 </node>
-<node COLOR="#990000" CREATED="1271296300448" ID="ID_443575109" MODIFIED="1271296316417" TEXT="Date or Time Picker">
+<node COLOR="#990000" CREATED="1271296300448" FOLDED="true" ID="ID_443575109" MODIFIED="1274752683807" TEXT="Date or Time Picker">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1271296317341" ID="ID_785983781" LINK="http://bugsvoice.com/applications/bugsVoice/site/test/calendarPickerDemo.jsp" MODIFIED="1271296320507" TEXT="http://bugsvoice.com/applications/bugsVoice/site/test/calendarPickerDemo.jsp"/>
 </node>
@@ -2447,6 +2447,12 @@
 <node COLOR="#111111" CREATED="1273544923109" ID="ID_1408591615" LINK="http://blog.creonfx.com/javascript/dynamic-increase-decrease-font-size-box-with-javascript" MODIFIED="1273544926940" TEXT="http://blog.creonfx.com/javascript/dynamic-increase-decrease-font-size-box-with-javascript"/>
 </node>
 </node>
+<node COLOR="#990000" CREATED="1274752695073" ID="ID_1147832821" MODIFIED="1274752701003" TEXT="Text Edit">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1274752701825" ID="ID_1565729147" MODIFIED="1274752703406" TEXT="tools">
+<node COLOR="#111111" CREATED="1274752704089" ID="ID_734055070" LINK="http://www.jankoatwarpspeed.com/post/2010/05/23/microsoft-office-minibar-jQuery-CSS3.aspx" MODIFIED="1274752708959" TEXT="http://www.jankoatwarpspeed.com/post/2010/05/23/microsoft-office-minibar-jQuery-CSS3.aspx"/>
+</node>
+</node>
 </node>
 <node COLOR="#00b439" CREATED="1271132646423" FOLDED="true" ID="ID_1347972744" MODIFIED="1274669024686" TEXT="Portal">
 <edge STYLE="bezier" WIDTH="thin"/>
@@ -2475,7 +2481,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1270952020458" ID="ID_1804767918" MODIFIED="1274669671734" POSITION="right" TEXT="Develop Evironment">
+<node COLOR="#0033ff" CREATED="1270952020458" FOLDED="true" ID="ID_1804767918" MODIFIED="1274752631966" POSITION="right" TEXT="Develop Evironment">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1262786726152" FOLDED="true" ID="ID_476877394" MODIFIED="1274669672971" TEXT="Source">

@@ -28,7 +28,7 @@
 .TextMultiSelect .monitor.active div { background: url("img/monitor-right-active.png") top right no-repeat; }
 .TextMultiSelect .monitor.active div div { background: url("img/monitor-center-active.png") top right repeat-x; }
 
-.TextMultiSelect .prompText { color:darkblue; font-size:0.8em;}
+.TextMultiSelect .prompText { color:cadetblue; font-size:0.8em;}
 
 .TextMultiSelect ul {
 	position: absolute;

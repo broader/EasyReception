@@ -1,0 +1,14 @@
+2010/05/25 03:13:14 - 127.0.0.1 - POST /sysadmin/sysadmin.ks/page_classItems HTTP/1.1 200
+2010/05/25 03:13:14 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_classEdit?klass=user HTTP/1.1 200
+2010/05/25 03:13:22 - 127.0.0.1 - POST /sysadmin/sysadmin.ks/page_classItems HTTP/1.1 200
+2010/05/25 03:13:58 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_classEdit?klass=user HTTP/1.1 200
+2010/05/25 03:14:00 - 127.0.0.1 - POST /sysadmin/sysadmin.ks/page_classItems HTTP/1.1 200
+2010/05/25 03:16:10 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_classEdit?klass=user HTTP/1.1 200
+2010/05/25 03:16:11 - 127.0.0.1 - POST /sysadmin/sysadmin.ks/page_classItems HTTP/1.1 200
+2010/05/25 03:16:26 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_classEdit?klass=user&address=&alt_mails=&email=demo%40yahoo.com.cn&id=3&info=42&queries=&roles=User&timezone=&username=demo HTTP/1.1 200
+2010/05/25 03:16:30 - 127.0.0.1 - POST /sysadmin/sysadmin.ks/page_classItems HTTP/1.1 200
+2010/05/25 03:16:35 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_classEdit?klass=user HTTP/1.1 200
+2010/05/25 03:18:56 - 127.0.0.1 - POST /sysadmin/sysadmin.ks/page_classItems HTTP/1.1 200
+2010/05/25 03:22:19 - 127.0.0.1 - GET /images/SexyButtons/images/icons/silk/tick.png HTTP/1.1 200
+2010/05/25 03:22:20 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_classEdit?klass=user&address=&alt_mails=ad%40sohu.com&email=admin%40sina.com&id=1&info=&queries=&roles=Admin&timezone=&username=admin HTTP/1.1 200
+2010/05/25 03:22:22 - 127.0.0.1 - POST /sysadmin/sysadmin.ks/page_classItems HTTP/1.1 200

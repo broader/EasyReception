@@ -8,7 +8,8 @@
 }
 .TextMultiSelect .monitor {
 	background: url("img/monitor-left.png") top left no-repeat;
-	width: 99%;
+	/*width: 99%;*/
+	width: auto;
 	line-height: 18px;
 	padding: 0 0 0 4px;
 	margin: 0;
