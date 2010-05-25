@@ -135,13 +135,14 @@ def _formEditProps4classStatus():
 	props['order'] = {'required':True,'validate':['number',]}
 	return props
 
+OLDVALUEPROP = 'oldvalue'
 def page_getKeyValues(**args):
 	operator = args.get('user') or USER
-	oldValues = args.get('value')
+	oldValues = args.get(OLDVALUEPROP) or []
 	if oldValues :
 		oldValues = oldValues.split(',')
 
-	klass = args.get('classname')
+	klass = args.get(CLASSPROP)
 	if klass :
 		values = model.get_keyValues(operator,klass)
 		values.sort()
@@ -161,12 +162,13 @@ def _relationEditJs(**args):
 	formId = args.get('formId')
 	paras = [ APP, formId, 'klassname','klassvalue', 'relateclass', 'relatevalue']
 	paras.append('/'.join((APPATH,'page_getKeyValues')))
+	paras.extend( [CLASSPROP,OLDVALUEPROP])
 	paras = tuple(paras)
 	js = \
 	"""
 	var appName='%s', formId='%s',
 	selects={'%s':'%s', '%s':'%s'},
-	reqUrl='%s';
+	reqUrl='%s', classTag='%s', oldValueTag='%s';
 
 	MUI.multiSelect(appName,{onload: function(){
 		$(formId).getElements('select').each(function(select){
@@ -198,7 +200,10 @@ def _relationEditJs(**args):
 
 	// constructs the request url by given url, klass, value
 	function setReqUrl(url, klass, value){
-		return [url, $H({'classname':klass, 'value':value}).toQueryString()].join('?');
+		tempQuery = $H();
+		tempQuery[classTag] = klass,
+		tempQuery[oldValueTag] = value;
+		return [url, tempQuery.toQueryString()].join('?');
 	};
 
 	// reset the options of multi select widget
@@ -476,12 +481,16 @@ def _classListJs(klass):
 	// add action buttons
 	var bnContainer = new Element('div',{style: 'text-align:left;padding-top:5px;'});
 	$(container).adopt(bnContainer);
-
-	[
+	var bnsAttrs = [
 		{'type':'add','label':'Add'},
 		{'type':'edit','label':'Edit'},
 		{'type':'delete','label':'Delete'}
-	].each(function(attrs,index){
+	];
+	if (klass == 'user'){
+		bnsAttrs.push({'type':'edit', 'label':'Reset Password'});
+	};
+
+	bnsAttrs.each(function(attrs,index){
 		options = {
 			txt: attrs['label'],
 		   imgType: attrs['type'],
@@ -508,7 +517,15 @@ def _classListJs(klass):
 
 		// specified width for 'relation' class edit modal
 		mwidth=500, mheight=380;
-		if(klass=='relation') mwidth=850,mheight=550;
+		switch (klass){
+			case 'relation':
+				mwidth=850,mheight=550;
+				break;
+			case 'user':
+				mwidth=680,mheight=480;
+				break;
+		};
+
 		var modalOptions = {
 			width:mwidth, height:mheight, modalOverlayClose: false,
 	   		onClose: function(e){
@@ -543,7 +560,6 @@ def _classListJs(klass):
 
 	   delRequest = new Request.JSON({async:false});
 
-	   alert('delete action url is '+delClassItemUrl);
 	   // set some options for Request.JSON instance
 	   delRequest.setOptions({
 	      url: delClassItemUrl,
@@ -670,7 +686,7 @@ def page_classItems(**args):
 	PRINT( JSON.encode(d, encoding='utf8'))
 	return
 
-def _formFieldsConstructor(klass, values, setOldValue=False):
+def _formFieldsConstructor(klass, values, action, setOldValue=False):
 	"""
 	Constructs the form fields.
 	Each form field should has the below propertites.
@@ -694,6 +710,18 @@ def _formFieldsConstructor(klass, values, setOldValue=False):
 		keys = values.keys()
 
 	keys.sort()
+
+	# when it's a edit action, popup key property of this roundup.Class
+	if ACTIONTYPES.index(action) == 1:
+		keyProp = model.get_key(USER, klass)
+		if keyProp:
+			try:
+				kIndex = keys.index(keyProp)
+			except:
+				kIndex = None
+			if kIndex:
+				keys.pop(kIndex)
+
 	newprops = []
 	for key in keys:
 		prop = defaultProps.get(key) or {}
@@ -740,21 +768,42 @@ def _relationPropHandler(props):
 
 USERCONFIRMPWD = 'confirmPassword'
 def _userPropHandler(props):
+	action = filter(lambda p: p.get('name')=='username' and p.get('oldvalue'), props) or 'create'
+
 	editProps = ['username', 'roles', 'email', 'alt_mails', 'address', 'timezone']
+	#if action != 'create':
+		# Because 'username' property is the key property,
+		# so it coludn't be edit again.
+		#editProps.pop(0)
+
 	newProps = []
 
 	for propName in editProps:
-		prop = filter(lambda p: p.get('name') == propName , props)[0]
+		#prop = filter(lambda p: p.get('name') == propName , props)[0]
+		search = filter(lambda p: p.get('name') == propName , props)
+		if not search:
+			continue
+		else:
+			prop = search[0]
+
 		if propName in ('username', 'email'):
+			# add validations to these fields
 			prop['required'] = True
 			if propName == 'email':
 				prop['validate'].append('email')
 
-		elif propName == 'roles':
-			prop.update({'type':'textMultiCheckbox'})
-			values = model.get_keyValues(USER,'role')
-			values.sort()
-			prop['options'] = values
+		elif propName == 'roles':	# set multi select attributes
+			prop.update(\
+				{'type':'mtMultiSelect',
+				'containerStyle':'border: 0.5px solid #DDDDDD;'
+			})
+
+			url = '/'.join((APPATH,'page_getKeyValues'))
+			query = {CLASSPROP: 'role',}
+			query = ['='.join((key, value)) for key,value in query.items()]
+			query = '&'.join(query)
+			url = '?'.join((url, query))
+			prop.update({'dataUrl':url,'fieldName':propName, 'itemsPerPage':3})
 
 		newProps.append(prop)
 
@@ -762,7 +811,7 @@ def _userPropHandler(props):
 	# because the value of 'password' has been encrypted in MD5 format,
 	# so we couldn't edit 'password' value in normal form.
 	# Here we judge the 'create' action by checking whether the property 'username' has a 'oldvalue'.
-	if not filter(lambda p: p.get('name')=='username' and p.get('oldvalue'), newProps):
+	if action == 'create' :
 		newProps.extend([
 			{
 				'name':'password','type':'password',
@@ -799,7 +848,7 @@ def page_classEdit(**args):
 		[hideInput.append({'name':name,'value':value}) \
 		for name,value in {CLASSPROP:klass, 'id':nid, ACTIONPROP:ACTIONTYPES[1]}.items()]
 
-		props = _formFieldsConstructor(klass,props,True)
+		props = _formFieldsConstructor(klass,props,actionType,True)
 	else:	# create action
 		actionType = ACTIONTYPES[0]
 		[hideInput.append({'name':name,'value':value}) \
@@ -807,7 +856,7 @@ def page_classEdit(**args):
 
 		#hideInput.append({'name':ACTIONPROP,'value':ACTIONTYPES[0]})
 		props = _getClassProps(klass, needId=False)
-		props = _formFieldsConstructor(klass,props)
+		props = _formFieldsConstructor(klass,props,actionType)
 
 	propAdaptor = CLASSADAPTOR.get(klass)
 	if propAdaptor:
@@ -898,6 +947,9 @@ def _classEditJs(formId, bnStyle):
 
 	// add action buttons
 	var bnContainer = new Element('div',{style: bnStyle});
+	// get the size of the container and set the corresponding size for the button container
+	size = $(container).getSize();
+	bnContainer.setStyle('margin-left', (size.x/3).toString()+'px');
 	$(container).adopt(bnContainer);
 
 	[
@@ -939,8 +991,6 @@ def page_classEditAction(**args):
 	   # 'delete' action
 	   nid = args.get('id')
 	   model.delete_item( USER, klass, nid, isId=True)
-	   # successTag = 1
-	   #print successTag
 	   info = 'item %s has been deleted!'%nid
 	   PRINT( info)
 	   return
@@ -965,5 +1015,4 @@ def page_classEditAction(**args):
 
 	PRINT( successTag)
 	return
-
 

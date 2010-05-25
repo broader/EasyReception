@@ -158,6 +158,13 @@ def get_items_ByString(operator, klass, search, propnames=None, needId=False,lin
 	client.form = form
 	return action(client)
 
+def get_key(operator, klass):
+	""" Return the key property's name of a roundup.Class."""
+	client = get_client()
+	client.set_user(operator)
+	key = client.db.getclass(klass).getkey()
+	return key
+
 def get_keyValues(operator, klass):
 	"""
 	Return a list  that holds the values of 'key' property of each item in this class instance.

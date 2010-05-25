@@ -109,6 +109,36 @@ def _textMultiCheckbox(field,oldvalue):
 	script = pagefn.script(js,link=False)
 	return Sum((container,script))
 
+def _mtMultiSelect(field, oldvalue):
+	"""
+	Parameters:
+	field - a dictionary object which should include below keys.
+	    'id' - the DIV element 'id'
+	    'dataUrl' - the url to get the values for options of the multi select
+	    'containerStyle' - the css style for the widget container
+	    'fieldName' - the value for the 'name' property of the INPUT element which is hidden
+	    'itemsPerPage' - the number of items that will be shown in each page
+	oldvalue - the old selected values
+	"""
+	containerId, url, containerStyle = [ field.pop(name) for name in ('id', 'dataUrl', 'containerStyle')]
+
+	if oldvalue:
+		url = '&'.join((url, '='.join(('oldvalue', oldvalue))))
+
+	js = \
+	"""
+	var container='%s', url='%s', field='%s', itemsNumber='%s';
+
+	MUI.multiSelect('',{onload: function(){
+		new MTMultiWidget({
+			container: container,
+			dataUrl: url,
+			fieldName: field, items_per_page: itemsNumber
+		});
+	}});
+	"""%(containerId, url, field.pop('fieldName'),field.pop('itemsPerPage'))
+	script = pagefn.script(js, link=False)
+	return Sum( [ DIV(**{'id':containerId, 'style': containerStyle}), script])
 
 def getField(field):
 	"""
@@ -183,6 +213,8 @@ def getField(field):
 			input = _selectField(field,oldvalue)
 		elif fieldType == "textMultiCheckbox":
 			input = _textMultiCheckbox(field,oldvalue)
+		elif fieldType == 'mtMultiSelect':
+			input = _mtMultiSelect(field, oldvalue)
 
 	div.append(input)
 
