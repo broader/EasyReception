@@ -525,9 +525,9 @@ def editcsv(operator, klass, content):
 	client = get_client()
 	client.set_user(operator)
 	form = {'context': klass,
-		     'content' : content,
-		     'action' : 'editcsv'
-		     }
+	     'content' : content,
+	     'action' : 'editcsv'
+	}
 	client.form = form
 	return action(client)
 
@@ -575,6 +575,14 @@ def userCheck(name):
 		userId = None
 	
 	return userId
+
+def passwordReset(operator, username):
+	""" Reset the given user's password."""
+	client = get_client()
+	client.set_user(operator)
+	form = {'username' : username, 'action' : 'passrst'}
+	client.form = form
+	return action(client)
 
 def action(client):
 	""" A encapsulated function for client.main() result.

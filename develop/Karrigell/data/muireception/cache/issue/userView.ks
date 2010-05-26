@@ -338,7 +338,6 @@ def page_createIssueForm(**args):
 		prop['type'] = prop.get('type') or 'input'
 		prop['id'] = prop['name']
 		if prop['name'] == 'keyword':
-			#prop['options'] = ['test','china']
 			options = model.get_items_ByString( USER, 'keyword', {'category':'issue'}, propnames=('name',))
 			prop['options'] = options and [i[0] for i in options] or []
 

@@ -3,7 +3,7 @@
 <node COLOR="#000000" CREATED="1245853581417" ID="Freemind_Link_1611273437" MODIFIED="1273066978631" TEXT="                     CMP&#xa;(Congress Management Portal)">
 <font NAME="SansSerif" SIZE="20"/>
 <hook NAME="accessories/plugins/AutomaticLayout.properties"/>
-<node COLOR="#0033ff" CREATED="1122623322585" FOLDED="true" ID="Freemind_Link_1057722476" MODIFIED="1274841568879" POSITION="left" TEXT="Roundup">
+<node COLOR="#0033ff" CREATED="1122623322585" FOLDED="true" ID="Freemind_Link_1057722476" MODIFIED="1274863378041" POSITION="left" TEXT="Roundup">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <hook NAME="accessories/plugins/AutomaticLayout.properties"/>
@@ -943,7 +943,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1122623322805" FOLDED="true" ID="Freemind_Link_1796982583" MODIFIED="1274841428817" TEXT="&#x7cfb;&#x7edf;&#x8bbe;&#x8ba1;/&#x5206;&#x6790;">
+<node COLOR="#00b439" CREATED="1122623322805" FOLDED="true" ID="Freemind_Link_1796982583" MODIFIED="1274863374402" TEXT="&#x7cfb;&#x7edf;&#x8bbe;&#x8ba1;/&#x5206;&#x6790;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1122623322815" FOLDED="true" ID="Freemind_Link_758406796" MODIFIED="1274839942281" TEXT="&#x7cfb;&#x7edf;&#x65f6;&#x5e8f;&#x903b;&#x8f91;">
@@ -962,7 +962,7 @@
 </node>
 <node COLOR="#111111" CREATED="1161918470701" ID="Freemind_Link_1948631782" MODIFIED="1161918526541" TEXT="RequestHandler&#x5904;&#x7406;request&#x6d41;&#x7a0b;">
 <icon BUILTIN="messagebox_warning"/>
-<node BACKGROUND_COLOR="#ccff66" COLOR="#111111" CREATED="1139744606965" ID="Freemind_Link_738838349" MODIFIED="1194610438654" TEXT="RoundupRequestHandler:WebServer&#x76d1;&#x542c;http&#x8bf7;&#x6c42;&#xff0c;&#x53d1;&#x751f;&#x8bf7;&#x6c42;&#x65f6;&#x89e6;&#x53d1;requeshandler&#xff0c;&#x6839;&#x636e;http&#x4e2d;&#x7684;&#x65b9;&#x6cd5;&#xff08;GET&#x3001;POST&#x3001;PUT&#xff09;&#x8c03;&#x7528;do_GET&#x3001;do_POST&#x3001;do_PUT&#x5904;&#x7406;&#x65b9;&#x6cd5;&#x6b64;&#x4e09;&#x7c7b;&#x65b9;&#x6cd5;&#x90fd;&#x5df2;&#x6620;&#x5c04;&#x4e3a;run_cgi(),do_GET = do_POST = do_HEAD = run_cgi&#x53c2;&#x770b;roundup_server.RoundupRequestHandler.run_cgi()&#x5728;run_cgi()---&gt;inner_cgi()&#x4e2d;&#x8c03;&#x7528;tracker = self.get_tracker(tracker_name)tracker.Client(tracker, self, env).main()">
+<node BACKGROUND_COLOR="#ccff66" COLOR="#111111" CREATED="1139744606965" ID="Freemind_Link_738838349" MODIFIED="1274863331589" TEXT="RoundupRequestHandler:WebServer&#x76d1;&#x542c;http&#x8bf7;&#x6c42;&#xff0c;&#x53d1;&#x751f;&#x8bf7;&#x6c42;&#x65f6;&#x89e6;&#x53d1;requeshandler&#xff0c;&#x6839;&#x636e;http&#x4e2d;&#x7684;&#x65b9;&#x6cd5;&#xff08;GET&#x3001;POST&#x3001;PUT&#xff09;&#x8c03;&#x7528;do_GET&#x3001;do_POST&#x3001;do_PUT&#x5904;&#x7406;&#x65b9;&#x6cd5;&#x6b64;&#x4e09;&#x7c7b;&#x65b9;&#x6cd5;&#x90fd;&#x5df2;&#x6620;&#x5c04;&#x4e3a;run_cgi(),do_GET = do_POST = do_HEAD = run_cgi&#x53c2;&#x770b;roundup_server.RoundupRequestHandler.run_cgi()&#x5728;run_cgi()---&gt;inner_cgi()&#x4e2d;&#x8c03;&#x7528;tracker = self.get_tracker(tracker_name)tracker.Client(tracker, self, env).main()">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 <node COLOR="#111111" CREATED="1139744622247" ID="Freemind_Link_979959612" MODIFIED="1149409322836" TEXT="RoundupRequestHandler.inner_cgi()---&gt;roundup.cgi.client.Client(tracker,request,environ)&#x5176;&#x4e2d;environ&#x4e3a;cgi&#x73af;&#x5883;&#x53d8;&#x91cf;&#x6784;&#x6210;&#x7684;&#x5b57;&#x5178;&#x3002;&#x5728;roundup.cgi.clent.Client()&#x4e2d;&#x67e5;&#x627e;&#x53d1;&#x73b0;&#xff1a;1 &#x8be5;&#x7c7b;&#x5b9e;&#x4f8b;&#x5316;&#x53c2;&#x6570;&#x4e3b;&#x8981;&#x4f9d;&#x8d56;&#x4f20;&#x9012;&#x8fdb;&#x6765;&#x7684;cgi environ&#x53d8;&#x91cf;&#x5b57;&#x5178;&#x3002;2 &#x5728;135&#x884c;&#x4f7f;&#x7528;&#x4ee5;&#x4e0b;&#x6807;&#x51c6;cgi&#x51fd;&#x6570;&#xff0c;self.form = cgi.Fieldstorage(environ=env)&#x521d;&#x59cb;&#x5316;cgi&#x73af;&#x5883;&#x53d8;&#x91cf;&#x4ee5;&#x4e0a;&#x8bf4;&#x660e;roundup.cgi.client&#x6a21;&#x5757;&#xff0c;&#x4e3b;&#x8981;&#x4f9d;&#x8d56;&#x4f20;&#x9012;&#x8fdb;&#x5165;&#x7684;cgi&#x73af;&#x5883;&#x53d8;&#x91cf;&#xff0c;&#x8be5;&#x53d8;&#x91cf;&#x4e3a;&#x4e00;&#x5b57;&#x5178;&#xff0c;&#x5982;&#x679c;&#x4e0d;&#x4f7f;&#x7528;cgi&#xff0c;&#x53ea;&#x8981;&#x5c06;&#x5b57;&#x5178;&#x91cc;&#x7684;&#x53c2;&#x6570;&#x8bbe;&#x7f6e;&#x5b8c;&#x6574;&#xff0c;roundup.cgi.client&#x6a21;&#x5757;&#x5e94;&#x4ecd;&#x53ef;&#x4ee5;&#x6b63;&#x5e38;&#x4f7f;&#x7528;&#xff0c;&#x5982;roundup_server.py&#x6240;&#x793a;&#x3002;"/>
@@ -980,7 +980,7 @@
 </node>
 <node COLOR="#111111" CREATED="1161589583802" FOLDED="true" ID="Freemind_Link_479721373" MODIFIED="1274839942324" TEXT="shell &#x8c03;&#x7528;&#x6d41;&#x7a0b;">
 <font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1161589612964" ID="Freemind_Link_1490669695" MODIFIED="1194610844077" TEXT="2006.10.19import roundupfrom roundup import instancethome = &quot;$demo&quot; //&#x6ce8;&#x610f;windows&#x4e0b;&#x8def;&#x5f84;&#x6dfb;&#x52a0;&#x201c;\\&#x201d;tracker = instance.open(thome)db = tracker.open(&apos;demo&apos;) //&#x6b64;&#x5904;&#x5982;&#x91cd;&#x590d;&#x6253;&#x5f00;db&#xff0c;python&#x8fdb;&#x7a0b;&#x4f1a;&#x6b7b;&#x673a;&#x3002;&#x56e0;&#x4e3a;&#x524d;&#x4e00;&#x4e2a;db&#x6253;&#x5f00;&#x540e;&#x6ca1;&#x6709;&#x5173;&#x95ed;&#xff1f;issue = db.classes[&apos;issue&apos;]node = issue.getnode[&apos;2&apos;] //&#x6b64;&#x5904;node&#x5373;&#x4e3a;issue class&#x4e2d;&#x7684;&#x7b2c;2&#x4e2a;item&#x5b9e;&#x4f8b;"/>
+<node COLOR="#111111" CREATED="1161589612964" ID="Freemind_Link_1490669695" MODIFIED="1274863335558" TEXT="2006.10.19import roundupfrom roundup import instancethome = &quot;$demo&quot; //&#x6ce8;&#x610f;windows&#x4e0b;&#x8def;&#x5f84;&#x6dfb;&#x52a0;&#x201c;\\&#x201d;tracker = instance.open(thome)db = tracker.open(&apos;demo&apos;) //&#x6b64;&#x5904;&#x5982;&#x91cd;&#x590d;&#x6253;&#x5f00;db&#xff0c;python&#x8fdb;&#x7a0b;&#x4f1a;&#x6b7b;&#x673a;&#x3002;&#x56e0;&#x4e3a;&#x524d;&#x4e00;&#x4e2a;db&#x6253;&#x5f00;&#x540e;&#x6ca1;&#x6709;&#x5173;&#x95ed;&#xff1f;issue = db.classes[&apos;issue&apos;]node = issue.getnode[&apos;2&apos;] //&#x6b64;&#x5904;node&#x5373;&#x4e3a;issue class&#x4e2d;&#x7684;&#x7b2c;2&#x4e2a;item&#x5b9e;&#x4f8b;"/>
 <node COLOR="#111111" CREATED="1161589845969" ID="Freemind_Link_1052786283" MODIFIED="1161589911974" TEXT="Tracker&#x7684;&#x4f5c;&#x7528;&#xff1f;">
 <icon BUILTIN="help"/>
 <node COLOR="#111111" CREATED="1161608027274" ID="Freemind_Link_343314190" MODIFIED="1193303271483" TEXT="Tracker&#x5b9e;&#x4f8b;&#x4e3a;&#x4e00;&#x4e2a;&#x6570;&#x636e;&#x5e93;&#xff08;&#x5168;&#x96c6;&#xff09;&#x5305;&#x542b;&#x4e86;&#x4e00;&#x4e2a;issue&#x6570;&#x636e;&#x5e93;&#x4f7f;&#x7528;Tracker.open(username=None)&#x65b9;&#x6cd5;&#xff1a;&#xff0d;&#xff0d;&#xff0d;&#x300b;&#x5982;&#x679c;&#x6709;&#x7528;&#x6237;&#x540d;&#xff0c;&#x5219;&#x6253;&#x5f00;&#x6570;&#x636e;&#x5e93;&#x65f6;&#xff0c;&#x6388;&#x4e88;&#x8be5;&#x7528;&#x6237;&#x5bf9;&#x5e94;&#x7684;&#x6570;&#x636e;&#x5e93;&#x8bbf;&#x95ee;&#x6743;&#x9650;&#x3002;&#xff0d;&#xff0d;&#xff0d;&#x300b;&#x5982;&#x679c;&#x6ca1;&#x6709;&#x6709;&#x7528;&#x6237;&#x540d;&#xff0c;&#x5219;&#x6253;&#x5f00;&#x6570;&#x636e;&#x5e93;&#x65f6;&#xff0c;&#x65e0;&#x6cd5;&#x4fee;&#x6539;class&#xff08;CRUD&#x64cd;&#x4f5c;&#xff09;&#x3002;">
@@ -1154,31 +1154,21 @@
 <node COLOR="#111111" CREATED="1274840448407" ID="ID_651181795" MODIFIED="1274841355645" TEXT="&#x7528;&#x4e8e;&#x90ae;&#x4ef6;&#x786e;&#x8ba4;&#x521b;&#x5efa;&#x65b0;&#x6ce8;&#x518c;&#x7528;&#x6237;&#x673a;&#x5236;&#x3002;&#xa;&#x7528;&#x6237;&#x6ce8;&#x518c;&#x4e2a;&#x4eba;&#x4fe1;&#x606f;&#xa;&#xff0d;&#xff0d;&#xff0d;&#x300b;&#xa;&#x7cfb;&#x7edf;&#x5b58;&#x5165;OTK&#x8868;&#x4e2d;&#xff08;&#x7ed3;&#x6784;&#xff0c; uid, &#x5176;&#x4ed6;properties &#x548c;values&#xff09;,&#x53d1;&#x9001;&#x7ed9;&#x7528;&#x6237;&#x786e;&#x8ba4;&#x90ae;&#x4ef6;&#xa;&#x5bf9;&#x5e94;&#x4ee3;&#x7801;&#xff1a;&#xa;actions.py, RegisterAction, &#x5982;&#x679c; self.db.config[&apos;INSTANT_REGISTRATION&apos;]&#x4e3a;False&#xff0c;&#x6b64;&#x65f6;&#x5148;&#x5c06;&#x7528;&#x6237;&#x6ce8;&#x518c;&#x4fe1;&#x606f;&#x5b58;&#x5165;OTK&#x8868;&#x4e2d;&#xff0c;&#x5e76;&#x53d1;&#x9001;&#x90ae;&#x4ef6;&#x8981;&#x6c42;&#x9884;&#x6ce8;&#x518c;&#x7528;&#x6237;&#x786e;&#x8ba4;&#xa;&#xff0d;&#xff0d;&#xff0d;&#x300b;&#xa;&#x7528;&#x6237;&#x6536;&#x5230;&#x6ce8;&#x518c;&#x4fe1;&#x606f;&#x90ae;&#x4ef6;&#xff0c;&#x70b9;&#x51fb;&#x786e;&#x8ba4;&#x94fe;&#x63a5;&#xa;---&gt;&#xa;&#x670d;&#x52a1;&#x5668;&#x7cfb;&#x7edf;&#x6536;&#x5230;&#x7528;&#x6237;&#x786e;&#x8ba4;Request,&#x751f;&#x6210;&#x7528;&#x6237;&#x5e10;&#x6237;&#xa;&#x5bf9;&#x5e94;&#x4ee3;&#x7801;&#xff1a;&#xa;actions.py,ConfRegoAction, &#x8c03;&#x7528;&#xa;self.userid = self.db.confirm_registration(self.form[&apos;otk&apos;].value)&#xa;------&gt;roundup.Database.confirm_registration(),&#x751f;&#x6210;&#x771f;&#x6b63;&#x7684;&#x7528;&#x6237;&#x6ce8;&#x518c;&#x5e10;&#x6237;"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1137747579607" FOLDED="true" ID="Freemind_Link_408063695" MODIFIED="1274839942768" TEXT="&#x5bf9;&#x8c61;&#x6570;&#x636e;&#x5e93;">
+<node COLOR="#990000" CREATED="1137747579607" FOLDED="true" ID="Freemind_Link_408063695" MODIFIED="1274863368895" TEXT="&#x5bf9;&#x8c61;&#x6570;&#x636e;&#x5e93;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="help"/>
-<node COLOR="#111111" CREATED="1137747596862" FOLDED="true" ID="Freemind_Link_26266064" MODIFIED="1274839942771" TEXT="&#x6587;&#x4ef6;&#x6570;&#x636e;&#x5e93;">
+<node COLOR="#111111" CREATED="1137747596862" FOLDED="true" ID="Freemind_Link_26266064" MODIFIED="1274863234191" TEXT="&#x6587;&#x4ef6;&#x6570;&#x636e;&#x5e93;">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1137747611883" ID="Freemind_Link_300924576" MODIFIED="1137747702674" TEXT="&#x76f8;&#x5173;&#x6587;&#x4ef6;&#xff1a;roundup.instance.pyroudnup.hyperdbroundup.roundupdbroundup.backends.back_anydbm"/>
 </node>
 <node COLOR="#111111" CREATED="1137747601258" ID="Freemind_Link_1232366152" MODIFIED="1274839942778" TEXT="&#x5173;&#x7cfb;&#x6570;&#x636e;&#x5e93;">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
-<node COLOR="#111111" CREATED="1193801700664" FOLDED="true" ID="Freemind_Link_1536157584" MODIFIED="1274839942781" TEXT="&#x6570;&#x636e;&#x5e93;&#x4eba;&#x5458;&#x64cd;&#x4f5c;&#x65e5;&#x5fd7;">
-<font NAME="SansSerif" SIZE="12"/>
-<icon BUILTIN="help"/>
-<node COLOR="#111111" CREATED="1137747706149" ID="Freemind_Link_1476087228" MODIFIED="1194235002022" TEXT="&#x4f7f;&#x7528;&#x6d41;&#x7a0b;&#xff1a;import roundupfrom roundup import instancetracker = instance.open(&apos;$dir&apos;)--&gt;$dir&#x6307;&#x8fd0;&#x884c;&#x5b9e;&#x4f8b;&#x5b89;&#x88c5;&#x8def;&#x5f84;db = tracker.open(&apos;usrname&apos;)--&gt;&#x6b64;&#x5904;usrname&#x4e3a;&#x5bf9;&#x5e94;&#x4e00;&#x4e2a;&#x4eba;&#x5458;&#x7684;&#x5e10;&#x6237;&#xff0c;&#x5982;&#x201c;admin&#x201d;&#x6b64;&#x5904;&#x8c03;&#x7528;&#x7684;&#x4e3a;.backend.Database.__init__(config,journaltag=None),journaltag&#x610f;&#x4e49;&#x4e0d;&#x660e;&#xff1f;&#x5e94;&#x8be5;&#x4e3a;&#x8bb0;&#x5f55;&#x201c;&#x7528;&#x6237;&#x540d;&#x201d;&#xff0c;&#x4ee5;&#x5907;&#x67e5;&#x8be2;&#x662f;&#x4f55;&#x7528;&#x6237;&#x505a;&#x4e86;&#x4ec0;&#x4e48;&#x6570;&#x636e;&#x5e93;&#x6539;&#x53d8;&#x64cd;&#x4f5c;&#xff08;Create/Retire/Update/Delete&#xff09;&#x64cd;&#x4f5c;&#x3002;&#x4f46;&#x73b0;&#x5728;rdbms_common.Database.__init__()&#x4e2d;&#x589e;&#x52a0;&#x7684;journaltag&#x6d4b;&#x8bd5;&#x4ee3;&#x7801;&#x59cb;&#x7ec8;&#x53ea;&#x6709;&#x201c;admin&#x201d;&#x7684;&#x8bb0;&#x5f55;&#xff0c;&#x4f55;&#x6545;&#xff1f;&#x5fc5;&#x987b;&#x901a;&#x8fc7;self.db.setCurrentUser(self,username)&#x65b9;&#x6cd5;&#x8c03;&#x7528;&#x624d;&#x884c;&#x3002;&#x8be5;&#x65b9;&#x6cd5;&#x5185;&#x5bb9;&#x4e3a;&#xff1a;self.journaltag = username">
-<arrowlink DESTINATION="Freemind_Link_1490669695" ENDARROW="Default" ENDINCLINATION="456;0;" ID="Freemind_Arrow_Link_1467001815" STARTARROW="None" STARTINCLINATION="456;0;"/>
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1161918042765" FOLDED="true" ID="Freemind_Link_1487035985" MODIFIED="1274839942788" TEXT="db&#x4f55;&#x65f6;&#x6253;&#x5f00;&#xff1f;">
+<node COLOR="#111111" CREATED="1161918042765" FOLDED="true" ID="Freemind_Link_1487035985" MODIFIED="1274863339072" TEXT="db&#x4f55;&#x65f6;&#x6253;&#x5f00;&#xff1f;">
 <font NAME="SansSerif" SIZE="12"/>
 <icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1161917770854" ID="Freemind_Link_1270027833" MODIFIED="1194610438634" TEXT="&#x5728;client.Client.main()---&gt;inner_main()------&gt;determine_user()---------&gt;opendb()------------&gt;self.db = self.instance.open(username) //&#x5176;&#x4e2d;instance&#x4e3a;&#x4e00;&#x4e2a;Tracker&#x5b9e;&#x4f8b;&#x4f7f;&#x7528;instance.Tracker.open(self, name=None)&#x6253;&#x5f00;&#xff0c;&#x5176;&#x4e2d;&#x201c;name&#x201d;&#x4e3a;&#x7528;&#x6237;&#x767b;&#x5f55;&#x540d;&#xff0c;&#x8fd9;&#x6837;&#x6253;&#x5f00;&#x6570;&#x636e;&#x65f6;&#x4e5f;&#x6709;&#x4e86;&#x5bf9;&#x5e94;&#x7528;&#x6237;&#x7684;&#x8bbf;&#x95ee;&#x6743;&#x9650;&#x3002;&#x5373;&#x6570;&#x636e;&#x5e93;&#x53ea;&#x5728;Client.main()&#x5904;&#x7406;&#x8bbf;&#x95ee;&#x8bf7;&#x6c42;&#x65f6;&#x6253;&#x5f00;&#xff0c;&#x5e76;&#x5728;&#x8bf7;&#x6c42;&#x5904;&#x7406;&#x7ed3;&#x675f;&#x65f6;&#x5173;&#x95ed;&#x3002;">
-<arrowlink COLOR="#ff0000" DESTINATION="Freemind_Link_738838349" ENDARROW="Default" ENDINCLINATION="597;130;" ID="Freemind_Arrow_Link_4318077" STARTARROW="None" STARTINCLINATION="809;0;"/>
-</node>
+<node COLOR="#111111" CREATED="1161917770854" ID="Freemind_Link_1270027833" MODIFIED="1274863331576" TEXT="&#x5728;client.Client.main()&#xa;---&gt;inner_main()&#xa;------&gt;determine_user()&#xa;---------&gt;opendb()&#xa;------------&gt;self.db = self.instance.open(username)&#xa; //&#x5176;&#x4e2d;instance&#x4e3a;&#x4e00;&#x4e2a;Tracker&#x5b9e;&#x4f8b;&#xa;&#x4f7f;&#x7528;instance.Tracker.open(self, name=None)&#x6253;&#x5f00;&#xff0c;&#x5176;&#x4e2d;&#x201c;name&#x201d;&#x4e3a;&#x7528;&#x6237;&#x767b;&#x5f55;&#x540d;&#xff0c;&#xa;&#x8fd9;&#x6837;&#x6253;&#x5f00;&#x6570;&#x636e;&#x65f6;&#x4e5f;&#x6709;&#x4e86;&#x5bf9;&#x5e94;&#x7528;&#x6237;&#x7684;&#x8bbf;&#x95ee;&#x6743;&#x9650;&#x3002;&#xa;&#x5373;&#x6570;&#x636e;&#x5e93;&#x53ea;&#x5728;Client.main()&#x5904;&#x7406;&#x8bbf;&#x95ee;&#x8bf7;&#x6c42;&#x65f6;&#x6253;&#x5f00;&#xff0c;&#x5e76;&#x5728;&#x8bf7;&#x6c42;&#x5904;&#x7406;&#x7ed3;&#x675f;&#x65f6;&#x5173;&#x95ed;&#x3002;"/>
 </node>
 </node>
 <node COLOR="#990000" CREATED="1194956490544" ID="Freemind_Link_142089459" MODIFIED="1274840332700" TEXT="Session">
@@ -1260,7 +1250,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1195098124366" ID="Freemind_Link_1765236589" MODIFIED="1274839942956" TEXT="&#x7528;&#x6237;&#x8ba4;&#x8bc1;">
+<node COLOR="#990000" CREATED="1195098124366" FOLDED="true" ID="Freemind_Link_1765236589" MODIFIED="1274863371671" TEXT="&#x7528;&#x6237;&#x8ba4;&#x8bc1;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="14"/>
@@ -1290,7 +1280,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="help"/>
 </node>
-<node COLOR="#990000" CREATED="1194475217810" FOLDED="true" ID="Freemind_Link_67095027" MODIFIED="1274839943006" TEXT="&#x7cfb;&#x7edf;&#x521d;&#x59cb;&#x5316;&#x6d41;&#x7a0b;">
+<node COLOR="#990000" CREATED="1194475217810" FOLDED="true" ID="Freemind_Link_67095027" MODIFIED="1274860235271" TEXT="&#x7cfb;&#x7edf;&#x521d;&#x59cb;&#x5316;&#x6d41;&#x7a0b;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="14"/>
@@ -1308,7 +1298,7 @@
 </node>
 <node COLOR="#111111" CREATED="1194613047475" ID="Freemind_Link_1061986449" MODIFIED="1194613054636" TEXT="Tracker.MailGW"/>
 </node>
-<node COLOR="#111111" CREATED="1194613504442" FOLDED="true" ID="Freemind_Link_1064492859" MODIFIED="1274839943030" TEXT="&#x5b8c;&#x6574;&#x63cf;&#x8ff0;">
+<node COLOR="#111111" CREATED="1194613504442" FOLDED="true" ID="Freemind_Link_1064492859" MODIFIED="1274860229023" TEXT="&#x5b8c;&#x6574;&#x63cf;&#x8ff0;">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1194577324404" ID="Freemind_Link_1869868011" MODIFIED="1194613519985" TEXT="&#x670d;&#x52a1;&#x5668;&#x7aef;&#x7cfb;&#x7edf;&#x521d;&#x59cb;&#x5316;roundup.instance.Tracker.__init__()------&gt;self.load_interfaces()---------&gt; self.Client = vars.get(&apos;Client&apos;, client.Client)//&#x521b;&#x5efa;Client&#x63a5;&#x53e3;               self.MailGW = vars.get(&apos;MailGW&apos;, mailgw.MailGW)//&#x521b;&#x5efa;MailGW&#x63a5;&#x53e3;&#x5f53;&#x76f8;&#x5e94;CGI&#x8bf7;&#x6c42;&#x65f6;&#x8c03;&#x7528;&#x65f6;&#xff0c;&#x521d;&#x59cb;&#x5316;Tracker.db&#xff08;&#x5982;&#x5176;&#x4ed6;&#x8bf7;&#x6c42;&#xff0c;&#x4f8b;&#x5982;Email&#xff0c;&#x8c03;&#x7528;&#x5bf9;&#x5e94;&#x63a5;&#x53e3;&#xff09;---&gt;Trakcer.Client.main()------&gt;Tracker.Client.determine_user()---------&gt;Tracker.Client.opendb()---&gt;self.db=Tracker.open()------------&gt;var={...&apos;db&apos;: backend.Database(self.config, name)...}//&#x6b64;&#x65f6;&#x521d;&#x59cb;&#x5316;db&#x5b9e;&#x4f8b;&#xff0c;db.__init__()&#x4e2d;&#x521d;&#x59cb;&#x5316;Security&#x5b9e;&#x4f8b;&#x3002;Security&#x5b9e;&#x4f8b;&#x521d;&#x59cb;&#x5316;&#x65f6;&#xff0c;&#x6dfb;&#x52a0;Role&#x3001;Permission&#x548c;&#x5b83;&#x4eec;&#x4e4b;&#x95f4;&#x7684;&#x6620;&#x5c04;&#x5173;&#x7cfb;&#x3002;security.Security.__init__()---&gt;Permission(Create/Edit/View)---&gt;Role(Admin/User/Anonymous)---&gt;self.addPermissionToRole()---&gt;&#x5c06;Permission(Create/Edit/View)&#x5206;&#x914d;&#x7ed9;&apos;Admin&apos;(Role)---&gt;client.initialiseSecurity()------&gt;Permission(Web Role/Web Access)------&gt;Permission(Web Role/Web Role)------&gt;Security.addPermissionToRole(&apos;Admin&apos;,p)---&gt;mailgw.initialiseSecurity()------&gt;Permission(Email Access)------&gt;Security.addPermissionToRole(&apos;Admin&apos;,p)&#x6700;&#x540e;&#x5982;&#x679c;self.optimize=1---&gt;exec(self.schema, vars)//&#x5229;&#x7528;&#x5f53;&#x524d;&#x8fdb;&#x7a0b;&#x4e2d;&#x4fdd;&#x5b58;&#x7684;shcema&#x6587;&#x4ef6;&#x8fdb;&#x884c;&#x6570;&#x636e;&#x7c7b;&#x521d;&#x59cb;&#x5316;self.optimize=0----&gt;self._load_python(&apos;schema.py&apos;, vars)//&#x5229;&#x7528;$roundup/shcema.py&#x6587;&#x4ef6;&#x8fdb;&#x884c;&#x6570;&#x636e;&#x7c7b;&#x521d;&#x59cb;&#x5316;">
 <font NAME="SansSerif" SIZE="12"/>
@@ -1343,7 +1333,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1122623322775" FOLDED="true" ID="Freemind_Link_1604438677" MODIFIED="1274841410529" TEXT="&#x7cfb;&#x7edf;&#x6846;&#x67b6;">
+<node COLOR="#990000" CREATED="1122623322775" FOLDED="true" ID="Freemind_Link_1604438677" MODIFIED="1274860233265" TEXT="&#x7cfb;&#x7edf;&#x6846;&#x67b6;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node BACKGROUND_COLOR="#ffff00" COLOR="#111111" CREATED="1122623322775" FOLDED="true" ID="Freemind_Link_362072849" MODIFIED="1274841407544" TEXT="behaviour">
@@ -1492,6 +1482,14 @@
 <icon BUILTIN="help"/>
 </node>
 </node>
+</node>
+<node COLOR="#990000" CREATED="1193801700664" FOLDED="true" ID="Freemind_Link_1536157584" MODIFIED="1274863357731" TEXT="&#x7cfb;&#x7edf;&#x64cd;&#x4f5c;&#x65e5;&#x5fd7;&#x673a;&#x5236;&#x5206;&#x6790;">
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="help"/>
+<node COLOR="#111111" CREATED="1137747706149" ID="Freemind_Link_1476087228" MODIFIED="1274863335544" TEXT="&#x4f7f;&#x7528;&#x6d41;&#x7a0b;&#xff1a;&#xa;import roundup &#xa;from roundup import instance&#xa;tracker = instance.open(&apos;$dir&apos;)&#xa;--&gt;$dir&#x6307;&#x8fd0;&#x884c;&#x5b9e;&#x4f8b;&#x5b89;&#x88c5;&#x8def;&#x5f84;&#xa;db = tracker.open(&apos;usrname&apos;)&#xa;--&gt;&#x6b64;&#x5904;usrname&#x4e3a;&#x5bf9;&#x5e94;&#x4e00;&#x4e2a;&#x4eba;&#x5458;&#x7684;&#x5e10;&#x6237;&#xff0c;&#x5982;&#x201c;admin&#x201d;.&#xa;&#x6b64;&#x5904;&#x8c03;&#x7528;.backend.Database.__init__(config,journaltag=None),journaltag&#x610f;&#x4e49;&#x4e0d;&#x660e;&#xff1f;&#xa;&#x5e94;&#x8be5;&#x4e3a;&#x8bb0;&#x5f55;&#x201c;&#x7528;&#x6237;&#x540d;&#x201d;&#xff0c;&#x4ee5;&#x5907;&#x67e5;&#x8be2;&#x662f;&#x4f55;&#x7528;&#x6237;&#x505a;&#x4e86;&#x4ec0;&#x4e48;&#x6570;&#x636e;&#x5e93;&#x6539;&#x53d8;&#x64cd;&#x4f5c;&#xff08;Create/Retire/Update/Delete&#xff09;&#x64cd;&#x4f5c;&#x3002;&#x4f46;&#x73b0;&#x5728;rdbms_common.Database.__init__()&#x4e2d;&#x589e;&#x52a0;&#x7684;journaltag&#x6d4b;&#x8bd5;&#x4ee3;&#x7801;&#x59cb;&#x7ec8;&#x53ea;&#x6709;&#x201c;admin&#x201d;&#x7684;&#x8bb0;&#x5f55;&#xff0c;&#x4f55;&#x6545;&#xff1f;&#x5fc5;&#x987b;&#x901a;&#x8fc7;self.db.setCurrentUser(self,username)&#x65b9;&#x6cd5;&#x8c03;&#x7528;&#x624d;&#x884c;&#x3002;&#xa;&#x8be5;&#x65b9;&#x6cd5;&#x5185;&#x5bb9;&#x4e3a;&#xff1a;self.journaltag = username">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1274861832540" ID="ID_1221311602" MODIFIED="1274863168350" TEXT="&#x4e09;&#x7ea7;&#x65e5;&#x5fd7;&#xff1a;&#xa;Database---&gt;__init__, self.journaltag&#x4e3a;&#x5bf9;&#x6570;&#x636e;&#x5e93;&#x8fdb;&#x884c;&#x8bfb;&#x5199;&#x64cd;&#x4f5c;&#x7684;&#x7528;&#x6237;&#x540d;&#xff0c;&#x4f8b;&#x5982;&#x4e3a;&quot;admin&quot;&#xa;&#xa;Class---&gt;hyperdb.Class.__init__, self.do_journal=1&#xa;&#x6267;&#x884c;set&#xff0c;create&#x64cd;&#x4f5c;&#x65f6;&#x6839;&#x636e;Class.do_journal&#x7684;&#x503c;&#x51b3;&#x5b9a;&#x662f;&#x5426;&#x8bb0;&#x5f55;&#x64cd;&#x4f5c;&#xa;&#xa;property(Link, Multilink) ---&gt; hyperdb.Pointer.__init__, self.do_journal = (do_journal == &apos;yes&apos;)&#xa;&#x5bf9;&#x4e8e;Link&#x548c;Multilink&#x4e24;&#x4e2a;&#x5c5e;&#x6027;&#xff0c;&#x9664;&#x4e86;Class.do_journal==1, &#x5c1a;&#x9700; Link/Multilink.do_journal == True,&#xa;&#x6b64;&#x65f6;&#x65b9;&#x80fd;&#x8bb0;&#x5f55;Link&#x548c;Multilinki&#x7684;&#x64cd;&#x4f5c;&#x3002;&#xa;&#xa;&#x4e0e;&#x6b64;&#x5bf9;&#x5e94;&#xff0c;schema.py&#x4e2d;&#xff0c;Class&#x5b9a;&#x4e49;&#x65f6;&#xff0c;&#x4f1a;&#x51fa;&#x73b0;Link(..., do_journal=&quot;no&quot;),&#xa;&#x5982;&#xa;msg = FileClass(db, &quot;msg&quot;,&#xa;    author=Link(&quot;user&quot;, do_journal=&apos;no&apos;),&#xa;    recipients=Multilink(&quot;user&quot;, do_journal=&apos;no&apos;),&#xa;    ...&#xa;)"/>
 </node>
 </node>
 <node COLOR="#00b439" CREATED="1149409308685" FOLDED="true" ID="Freemind_Link_1433820888" MODIFIED="1274841447944" TEXT="ajax&#xff0d;client">
@@ -2051,18 +2049,18 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1274839951385" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1274865717155" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="button_cancel"/>
-<node COLOR="#00b439" CREATED="1251723337068" FOLDED="true" ID="Freemind_Link_1911060026" MODIFIED="1273064632840" TEXT="Admin">
+<node COLOR="#00b439" CREATED="1251723337068" FOLDED="true" ID="Freemind_Link_1911060026" MODIFIED="1274865708672" TEXT="Admin">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="button_cancel"/>
-<node COLOR="#990000" CREATED="1252293820448" ID="Freemind_Link_710266881" MODIFIED="1272202939127" TEXT="Functions">
+<node COLOR="#990000" CREATED="1252293820448" FOLDED="true" ID="Freemind_Link_710266881" MODIFIED="1274863467351" TEXT="Functions">
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1251723419986" ID="Freemind_Link_804190958" MODIFIED="1273064624819" TEXT="Advanced">
+<node COLOR="#111111" CREATED="1251723419986" FOLDED="true" ID="Freemind_Link_804190958" MODIFIED="1274863466711" TEXT="Advanced">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1252051254797" ID="Freemind_Link_1019274429" MODIFIED="1268981567021" TEXT="Service">
 <icon BUILTIN="button_cancel"/>
@@ -2074,7 +2072,16 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1272201926365" FOLDED="true" ID="ID_1040796308" MODIFIED="1272202971241" TEXT="User On-Line">
+<node COLOR="#990000" CREATED="1274863423315" ID="ID_808549124" MODIFIED="1274864513680" TEXT="&#x7ba1;&#x7406;&#x5458;&#x4fee;&#x6539;&#x81ea;&#x5df1;&#x7684;&#x5bc6;&#x7801;">
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="button_cancel"/>
+<node COLOR="#111111" CREATED="1274863450529" ID="ID_939706821" MODIFIED="1274863460279" TEXT="&#x73b0;&#x5728;&#x53ea;&#x80fd;reset"/>
+<node COLOR="#111111" CREATED="1274864515954" ID="ID_1537949774" MODIFIED="1274864562059" TEXT="&#x754c;&#x9762;&#x8bbe;&#x8ba1;">
+<icon BUILTIN="button_cancel"/>
+<node COLOR="#111111" CREATED="1274864521532" ID="ID_433078750" MODIFIED="1274864553983" TEXT="&#x529f;&#x80fd;&#x7f6e;&#x4e8e;nabbar&#x4e2d;&#x7684;&#x201c;&#x8bbe;&#x7f6e;&#x201d;&#x83dc;&#x5355;&#x4e0b;&#xff1f;"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1272201926365" FOLDED="true" ID="ID_1040796308" MODIFIED="1274863413464" TEXT="User On-Line">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1272170127195" ID="ID_684946638" MODIFIED="1272201914048" TEXT="Sessions">
 <node COLOR="#111111" CREATED="1272170133650" ID="ID_1087601400" MODIFIED="1272170153705" TEXT="&#x663e;&#x793a;&#x5f53;&#x524d;session&#x7edf;&#x8ba1;"/>
@@ -2111,7 +2118,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1176858964077" FOLDED="true" ID="Freemind_Link_1801314834" MODIFIED="1274752670189" TEXT="Application">
+<node COLOR="#00b439" CREATED="1176858964077" ID="Freemind_Link_1801314834" MODIFIED="1274865676640" TEXT="Application">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="button_cancel"/>
@@ -2134,7 +2141,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1177129576048" ID="Freemind_Link_255180915" MODIFIED="1273626807137" TEXT="&#x7ad9;&#x70b9;&#x8bbf;&#x95ee;&#x7edf;&#x8ba1;">
+<node COLOR="#990000" CREATED="1177129576048" FOLDED="true" ID="Freemind_Link_255180915" MODIFIED="1274865705799" TEXT="&#x7ad9;&#x70b9;&#x8bbf;&#x95ee;&#x7edf;&#x8ba1;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1177129585271" ID="Freemind_Link_1863538536" MODIFIED="1255507915739" TEXT="Google Analytics">
@@ -2153,7 +2160,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1255507685812" FOLDED="true" ID="Freemind_Link_987975584" MODIFIED="1271337318480" TEXT="Hotel">
+<node COLOR="#990000" CREATED="1255507685812" FOLDED="true" ID="Freemind_Link_987975584" MODIFIED="1274865691161" TEXT="Hotel">
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="yes"/>
 <node COLOR="#111111" CREATED="1255507725364" ID="Freemind_Link_721304315" MODIFIED="1268904048973" TEXT="&#x623f;&#x95f4;&#x7ba1;&#x7406;">
@@ -2348,12 +2355,12 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1257233438846" FOLDED="true" ID="ID_1216660804" MODIFIED="1274407675172" TEXT="Web Map">
+<node COLOR="#990000" CREATED="1257233438846" FOLDED="true" ID="ID_1216660804" MODIFIED="1274865703487" TEXT="Web Map">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="help"/>
 <icon BUILTIN="yes"/>
-<node COLOR="#111111" CREATED="1261378950005" ID="ID_182198775" MODIFIED="1274407557869" TEXT="tools">
+<node COLOR="#111111" CREATED="1261378950005" FOLDED="true" ID="ID_182198775" MODIFIED="1274865699305" TEXT="tools">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1268877109410" ID="ID_148530390" MODIFIED="1274407654443" TEXT="&#x5730;&#x56fe;&#x64cd;&#x4f5c;">
 <node COLOR="#111111" CREATED="1261378609375" ID="ID_658374767" MODIFIED="1268984079193" TEXT="http://www.openlayers.org/">
@@ -2382,11 +2389,11 @@
 <node COLOR="#111111" CREATED="1268877262630" ID="ID_1741632973" MODIFIED="1268877263690" TEXT="http://www.php-help.ro/examples/mootools1.2_image_zoom/"/>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1265254687074" ID="ID_1596824463" MODIFIED="1268981709295" TEXT="examples">
+<node COLOR="#111111" CREATED="1265254687074" FOLDED="true" ID="ID_1596824463" MODIFIED="1274865700247" TEXT="examples">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1265254690217" ID="ID_1048813043" MODIFIED="1265254692340" TEXT="http://joint.alpslab.jp/fisheye/"/>
 </node>
-<node COLOR="#111111" CREATED="1268877202628" FOLDED="true" ID="ID_1355124265" MODIFIED="1269060398678" TEXT="Google">
+<node COLOR="#111111" CREATED="1268877202628" FOLDED="true" ID="ID_1355124265" MODIFIED="1274865701623" TEXT="Google">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1268877205235" ID="ID_1925198755" MODIFIED="1268877206494" TEXT="http://dev.visualdrugs.net/mootools/gmapsoverlay/"/>
 <node COLOR="#111111" CREATED="1268981305866" ID="ID_385937138" MODIFIED="1268981307558" TEXT="http://www.codechina.org/doc/google/gmapapi/"/>
@@ -2432,7 +2439,7 @@
 <node COLOR="#111111" CREATED="1266894475303" ID="ID_1593101468" MODIFIED="1266894485918" TEXT="&#x591a;&#x6b21;&#x9519;&#x8bef;&#x4fe1;&#x606f;&#x63d0;&#x793a;&#xff1f;"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1268981618300" ID="ID_28302171" MODIFIED="1273626587593" TEXT="Test">
+<node COLOR="#00b439" CREATED="1268981618300" FOLDED="true" ID="ID_28302171" MODIFIED="1274863405295" TEXT="Test">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1268981621605" FOLDED="true" ID="ID_1918971197" MODIFIED="1273626762471" TEXT="Tools">

@@ -1679,8 +1679,8 @@ class Class(hyperdb.Class):
                 raise KeyError, '"%s" has no property named "%s"'%(
                     self.classname, propname)
 
-            # if the value's the same as the existing value, no sense in
-            # doing anything
+            # if the value's the same as the existing value, 
+            # no sense in doing anything
             current = node.get(propname, None)
             #print "rdbms_common.Class.set_inner,L1685, current vlaue is %s, input value is %s"%(current, value)
             

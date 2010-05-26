@@ -774,6 +774,8 @@ class PassResetAction(Action):
             
         # change the password
         newpw = password.generatePassword()
+        print 'PassResetAction, new password is %s, user name is %s'%(newpw, user)
+        
         try:
             # set the password
             self.db.user.set(uid, password=password.Password(newpw))            
@@ -783,7 +785,7 @@ class PassResetAction(Action):
             return
         
         self.client.ok_message.append("Password reset successfully!")
-        return
+        return newpw
 
 
 class RegisterAction(EditCommon):

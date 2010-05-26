@@ -54,10 +54,6 @@ class Tracker:
         self.load_interfaces()        
         self.backend = backends.get_backend(self.get_backend_name())
         if self.optimize:
-            #libdir = os.path.join(self.tracker_home, 'lib')
-            #if os.path.isdir(libdir):
-            #    sys.path.insert(1, libdir)
-            #self.templates.precompileTemplates()
             
             # initialize tracker extensions
             for extension in self.get_extensions('extensions'):
@@ -74,9 +70,6 @@ class Tracker:
             # db_open is set to True after first open()
             self.db_open = 0
             
-            #if libdir in sys.path:
-            #    sys.path.remove(libdir)
-
     def get_backend_name(self):
         o = __builtins__['open']
         f = o(os.path.join(self.tracker_home, 'db', 'backend_name'))

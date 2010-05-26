@@ -106,8 +106,8 @@ issue = IssueClass(db, "issue",
 
 # a relationship mapping class
 relation = Class(db, 'relation',
-        classname=String(),
-        classvalue=String(),
+        klassname=String(),
+        klassvalue=String(),
         relateclass=String(),
         relatevalue=String())
 

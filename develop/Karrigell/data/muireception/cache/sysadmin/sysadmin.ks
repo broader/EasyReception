@@ -573,7 +573,8 @@ def _classListJs(klass):
 		resetRequest.setOptions({
 			url: resetPwdUrl,
 			onSuccess: function(resJson, resText){
-				MUI.notification(resText);
+				//MUI.notification(resText);
+				MUI.alert(resText);
 				this.loadData();
 			}.bind(datagrid)
 		});
@@ -613,8 +614,13 @@ def _classListJs(klass):
 def page_resetPwd(**args):
 	""" Reset the user's password to a random generated password.
 	"""
+	operator = args.get('user') or USER
 	username = args.get('username')
-	PRINT( '%s password will be reset?'%username)
+	newPassword = model.passwordReset(operator, username)
+	if newPassword:
+		PRINT( '"%s" password has been reset to "%s" !'%(username, newPassword))
+	else:
+		PRINT( '"%s" password reset failed !'%username)
 	return
 
 def _getClassProps(klass, needId=True):

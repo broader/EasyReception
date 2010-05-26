@@ -337,7 +337,6 @@ def page_createIssueForm(**args):
 		prop['type'] = prop.get('type') or 'input'
 		prop['id'] = prop['name']
 		if prop['name'] == 'keyword':
-			#prop['options'] = ['test','china']
 			options = model.get_items_ByString( USER, 'keyword', {'category':'issue'}, propnames=('name',))
 			prop['options'] = options and [i[0] for i in options] or []
 			
@@ -429,9 +428,8 @@ def _createIssueJs(formId, creator):
 	"""%paras
 	return js
 
-
 def page_createIssueAction(**args):
-	creator, message = [args.pop(name) for name in ('creator','message')]
+	creator, message, title, keyword = [args.get(name) for name in ('creator','message', 'title', 'keyword')]
 	mprops = {'content':message}
 	#model.edit_issue(creator, args, mprops, serial=None)
 	return

@@ -1,4 +1,4 @@
-['valid_dir', 'create_client', 'get_client', 'login', 'get_classes', 'get_item', 'get_items', 'get_items_ByString', 'get_key', 'get_keyValues', 'getUserDossier', 'filterByFunction', 'fuzzyQuery', 'filterByLink', 'get_file', 'edit_item', 'edit_linkcsv', 'edit_user_info', 'get_adminlist', 'get_userlist', 'get_issues', 'get_reservations', 'create_item', 'create_items', 'delete_item', 'edit_issue', 'get_class_props', 'editcsv', 'permissionCheck', 'userCheck', 'action', 'csv2dict', 'serial2id', 'time2local', 'stringFind', 'reserve_detailParser', 'reserveSort', 'getItemId']
+['valid_dir', 'create_client', 'get_client', 'login', 'get_classes', 'get_item', 'get_items', 'get_items_ByString', 'get_key', 'get_keyValues', 'getUserDossier', 'filterByFunction', 'fuzzyQuery', 'filterByLink', 'get_file', 'edit_item', 'edit_linkcsv', 'edit_user_info', 'get_adminlist', 'get_userlist', 'get_issues', 'get_reservations', 'create_item', 'create_items', 'delete_item', 'edit_issue', 'get_class_props', 'editcsv', 'permissionCheck', 'userCheck', 'passwordReset', 'action', 'csv2dict', 'serial2id', 'time2local', 'stringFind', 'reserve_detailParser', 'reserveSort', 'getItemId']
 """ Holds all the interfaces to the roundup tracker model, which  consists of ajaxInstance, ajaxClient and
 ajaxActions.
 """
@@ -526,9 +526,9 @@ def editcsv(operator, klass, content):
 	client = get_client()
 	client.set_user(operator)
 	form = {'context': klass,
-		     'content' : content,
-		     'action' : 'editcsv'
-		     }
+	     'content' : content,
+	     'action' : 'editcsv'
+	}
 	client.form = form
 	return action(client)
 
@@ -576,6 +576,14 @@ def userCheck(name):
 		userId = None
 
 	return userId
+
+def passwordReset(operator, username):
+	""" Reset the given user's password."""
+	client = get_client()
+	client.set_user(operator)
+	form = {'username' : username, 'action' : 'passrst'}
+	client.form = form
+	return action(client)
 
 def action(client):
 	""" A encapsulated function for client.main() result.
