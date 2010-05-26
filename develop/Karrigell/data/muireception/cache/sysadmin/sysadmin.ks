@@ -1,4 +1,4 @@
-['page_statusJunaValid', 'page_getKeyValues', 'index', 'page_showClass', 'page_classInfo', 'page_classList', 'page_colsModel', 'page_classItems', 'page_classEdit', 'page_classEditAction']
+['page_statusJunaValid', 'page_getKeyValues', 'index', 'page_showClass', 'page_classInfo', 'page_classList', 'page_resetPwd', 'page_colsModel', 'page_classItems', 'page_classEdit', 'page_classEditAction']
 """
 Pages mainly for  edit the items of shcema classes.
 """
@@ -408,7 +408,7 @@ def _classListJs(klass):
 	paras.extend([_('Filter'),_('Clear Filter')])
 	# url links
 	[ paras.append('/'.join((APPATH,name)))\
-	  for name in ('page_colsModel', 'page_classItems', 'page_classEdit', 'page_classEditAction')]
+	  for name in ('page_colsModel', 'page_classItems', 'page_classEdit', 'page_classEditAction', 'page_resetPwd')]
 
 	paras = tuple(paras)
 	js = \
@@ -418,7 +418,8 @@ def _classListJs(klass):
 	title='%s', titleStyle='%s',
 	createTitle='%s', ediTitle='%s',
 	filterLabel="%s", clearFilterLabel="%s",
-	colsModelUrl='%s', dataUrl='%s', editUrl='%s', delClassItemUrl='%s';
+	colsModelUrl='%s', dataUrl='%s', editUrl='%s',
+	delClassItemUrl='%s', resetPwdUrl='%s';
 
 	var colsModel=null, datagrid=null;
 
@@ -486,6 +487,8 @@ def _classListJs(klass):
 		{'type':'edit','label':'Edit'},
 		{'type':'delete','label':'Delete'}
 	];
+
+	// for 'user' roundup.Class, add 'Reset Password' button
 	if (klass == 'user'){
 		bnsAttrs.push({'type':'edit', 'label':'Reset Password'});
 	};
@@ -552,35 +555,67 @@ def _classListJs(klass):
 			case 2:	// delete action
 				prompt = 'Delete Class Item : '+datagrid.getDataByRow(datagrid.selected[0])['id'];
 				MUI.confirm( prompt, delClassItem.bind(datagrid), {});
+				break;
+			case 3:	// reset user's password action
+				prompt = 'Reset the password of "{username}" ?';
+				prompt = prompt.substitute({username:datagrid.getDataByRow(datagrid.selected[0])['username']});
+				MUI.confirm( prompt, resetUserPwd.bind(datagrid), {});
+				break;
 		};
 	};
 
+	function resetUserPwd(isConfirm){
+		if(isConfirm.toInt()==1){return};
+
+		resetRequest = new Request.JSON({async:false});
+
+		// set some options for Request.JSON instance
+		resetRequest.setOptions({
+			url: resetPwdUrl,
+			onSuccess: function(resJson, resText){
+				MUI.notification(resText);
+				this.loadData();
+			}.bind(datagrid)
+		});
+
+		// get the 'id' value of the item to be deleted
+		resetQuery = {};
+		resetQuery['username'] = datagrid.getDataByRow(datagrid.selected[0])['username'];
+		resetRequest.get(resetQuery);
+
+	};
+
 	function delClassItem(isConfirm){
-	   if(isConfirm.toInt()==1){return};
+		if(isConfirm.toInt()==1){return};
 
-	   delRequest = new Request.JSON({async:false});
+		delRequest = new Request.JSON({async:false});
 
-	   // set some options for Request.JSON instance
-	   delRequest.setOptions({
-	      url: delClassItemUrl,
-	      onSuccess: function(resJson, resText){
-		 MUI.notification(resText);
-	         this.loadData();
-	      }.bind(datagrid)
-	   });
+		// set some options for Request.JSON instance
+		delRequest.setOptions({
+			url: delClassItemUrl,
+			onSuccess: function(resJson, resText){
+				MUI.notification(resText);
+				this.loadData();
+			}.bind(datagrid)
+		});
 
-	   // get the 'id' value of the item to be deleted
-	   //var nid = datagrid.getDataByRow(datagrid.selected[0])['id'];
-	   //query['id'] = nid;
-	   delQuery = {};
-	   delQuery[klassProp] = klass;
-	   delQuery['id'] = datagrid.getDataByRow(datagrid.selected[0])['id'];
-	   delRequest.get(delQuery);
+		// get the 'id' value of the item to be deleted
+		delQuery = {};
+		delQuery[klassProp] = klass;
+		delQuery['id'] = datagrid.getDataByRow(datagrid.selected[0])['id'];
+		delRequest.get(delQuery);
 
 	};
 
 	"""%paras
 	return js
+
+def page_resetPwd(**args):
+	""" Reset the user's password to a random generated password.
+	"""
+	username = args.get('username')
+	PRINT( '%s password will be reset?'%username)
+	return
 
 def _getClassProps(klass, needId=True):
 	operator = USER
@@ -711,7 +746,8 @@ def _formFieldsConstructor(klass, values, action, setOldValue=False):
 
 	keys.sort()
 
-	# when it's a edit action, popup key property of this roundup.Class
+	# When it's a edit action, the key property coludn't be edit again,
+	# so popup key property of this roundup.Class
 	if ACTIONTYPES.index(action) == 1:
 		keyProp = model.get_key(USER, klass)
 		if keyProp:
@@ -769,17 +805,10 @@ def _relationPropHandler(props):
 USERCONFIRMPWD = 'confirmPassword'
 def _userPropHandler(props):
 	action = filter(lambda p: p.get('name')=='username' and p.get('oldvalue'), props) or 'create'
-
 	editProps = ['username', 'roles', 'email', 'alt_mails', 'address', 'timezone']
-	#if action != 'create':
-		# Because 'username' property is the key property,
-		# so it coludn't be edit again.
-		#editProps.pop(0)
-
 	newProps = []
 
 	for propName in editProps:
-		#prop = filter(lambda p: p.get('name') == propName , props)[0]
 		search = filter(lambda p: p.get('name') == propName , props)
 		if not search:
 			continue

@@ -405,7 +405,7 @@ def _classListJs(klass):
 	paras.extend([_('Filter'),_('Clear Filter')])	
 	# url links
 	[ paras.append('/'.join((APPATH,name)))\ 
-	  for name in ('page_colsModel', 'page_classItems', 'page_classEdit', 'page_classEditAction')]
+	  for name in ('page_colsModel', 'page_classItems', 'page_classEdit', 'page_classEditAction', 'page_resetPwd')]
 	
 	paras = tuple(paras)
 	js = \
@@ -415,7 +415,8 @@ def _classListJs(klass):
 	title='%s', titleStyle='%s',
 	createTitle='%s', ediTitle='%s',
 	filterLabel="%s", clearFilterLabel="%s",
-	colsModelUrl='%s', dataUrl='%s', editUrl='%s', delClassItemUrl='%s';
+	colsModelUrl='%s', dataUrl='%s', editUrl='%s', 
+	delClassItemUrl='%s', resetPwdUrl='%s';
 	
 	var colsModel=null, datagrid=null;
 	
@@ -483,6 +484,8 @@ def _classListJs(klass):
 		{'type':'edit','label':'Edit'},
 		{'type':'delete','label':'Delete'}
 	];
+	
+	// for 'user' roundup.Class, add 'Reset Password' button
 	if (klass == 'user'){ 
 		bnsAttrs.push({'type':'edit', 'label':'Reset Password'});
 	};
@@ -549,35 +552,67 @@ def _classListJs(klass):
 			case 2:	// delete action
 				prompt = 'Delete Class Item : '+datagrid.getDataByRow(datagrid.selected[0])['id'];
 				MUI.confirm( prompt, delClassItem.bind(datagrid), {});
+				break;
+			case 3:	// reset user's password action
+				prompt = 'Reset the password of "{username}" ?';
+				prompt = prompt.substitute({username:datagrid.getDataByRow(datagrid.selected[0])['username']});
+				MUI.confirm( prompt, resetUserPwd.bind(datagrid), {});
+				break;
 		};
 	};
 
-	function delClassItem(isConfirm){
-	   if(isConfirm.toInt()==1){return};
+	function resetUserPwd(isConfirm){
+		if(isConfirm.toInt()==1){return};
 
-	   delRequest = new Request.JSON({async:false});
+		resetRequest = new Request.JSON({async:false});
 
-	   // set some options for Request.JSON instance
-	   delRequest.setOptions({
-	      url: delClassItemUrl,
-	      onSuccess: function(resJson, resText){
-		 MUI.notification(resText);
-	         this.loadData();
-	      }.bind(datagrid)
-	   });
+		// set some options for Request.JSON instance
+		resetRequest.setOptions({
+			url: resetPwdUrl,
+			onSuccess: function(resJson, resText){
+				MUI.notification(resText);
+				this.loadData();
+			}.bind(datagrid)
+		});
 	   
-	   // get the 'id' value of the item to be deleted
-	   //var nid = datagrid.getDataByRow(datagrid.selected[0])['id'];
-	   //query['id'] = nid;
-	   delQuery = {};
-	   delQuery[klassProp] = klass;
-	   delQuery['id'] = datagrid.getDataByRow(datagrid.selected[0])['id'];
-	   delRequest.get(delQuery);
+		// get the 'id' value of the item to be deleted
+		resetQuery = {};
+		resetQuery['username'] = datagrid.getDataByRow(datagrid.selected[0])['username'];
+		resetRequest.get(resetQuery);
+
+	};
+
+	function delClassItem(isConfirm){
+		if(isConfirm.toInt()==1){return};
+
+		delRequest = new Request.JSON({async:false});
+
+		// set some options for Request.JSON instance
+		delRequest.setOptions({
+			url: delClassItemUrl,
+			onSuccess: function(resJson, resText){
+				MUI.notification(resText);
+				this.loadData();
+			}.bind(datagrid)
+		});
+	   
+		// get the 'id' value of the item to be deleted
+		delQuery = {};
+		delQuery[klassProp] = klass;
+		delQuery['id'] = datagrid.getDataByRow(datagrid.selected[0])['id'];
+		delRequest.get(delQuery);
 
 	};
 	
 	"""%paras
 	return js
+
+def page_resetPwd(**args):
+	""" Reset the user's password to a random generated password.
+	"""
+	username = args.get('username')
+	print '%s password will be reset?'%username	
+	return
 
 def _getClassProps(klass, needId=True):
 	operator = USER

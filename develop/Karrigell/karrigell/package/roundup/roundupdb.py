@@ -108,7 +108,7 @@ class Database:
         self.journaltag = 'admin'
 
         # create the new user
-        cl = self.user
+        cl = self.user  # get roundup.db.user Class
 
         props['roles'] = self.config.NEW_WEB_USER_ROLES
         userid = cl.create(**props)

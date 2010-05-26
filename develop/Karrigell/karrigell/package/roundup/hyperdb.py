@@ -578,6 +578,7 @@ class DatabaseError(ValueError):
     """Error to be raised when there is some problem in the database code
     """
     pass
+
 class Database:
     """A database for storing records containing flexible data types.
 

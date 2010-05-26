@@ -42,12 +42,9 @@ class Action:
         self.form = client.form
         self.db = client.db
         self.nodeid = client.nodeid
-        #self.template = client.template
         self.classname = client.classname
         self.userid = client.userid
-        #self.base = client.base
         self.user = client.user
-        #self.context = templating.context(client)               
 
     def handle(self):
         """Action handler procedure"""
@@ -758,106 +755,35 @@ class NewItemAction(EditCommon):
 
 class PassResetAction(Action):
     def handle(self):
-        """Handle password reset requests.
-
-        Presence of either "name" or "address" generates email. Presence of
-        "otk" performs the reset.
-
-        """
-        otks = self.db.getOTKManager()
-        if self.form.has_key('otk'):
-            # pull the rego information out of the otk database
-            otk = self.form['otk'].value
-            uid = otks.get(otk, 'uid', default=None)
-            if uid is None:
-                self.client.error_message.append(
-                    self._("Invalid One Time Key!\n"
-                        "(a Mozilla bug may cause this message "
-                        "to show up erroneously, please check your email)"))
-                return
-
-            # re-open the database as "admin"
-            if self.user != 'admin':
-                self.client.opendb('admin')
-                self.db = self.client.db
-                otks = self.db.getOTKManager()
-
-            # change the password
-            newpw = password.generatePassword()
-
-            cl = self.db.user
-            # XXX we need to make the "default" page be able to display errors!
-            try:
-                # set the password
-                cl.set(uid, password=password.Password(newpw))
-                # clear the props from the otk database
-                otks.destroy(otk)
-                self.db.commit()
-            except (ValueError, KeyError), message:
-                self.client.error_message.append(str(message))
-                return
-
-            # user info
-            address = self.db.user.get(uid, 'address')
-            name = self.db.user.get(uid, 'username')
-
-            # send the email
-            tracker_name = self.db.config.TRACKER_NAME
-            subject = 'Password reset for %s'%tracker_name
-            body = '''The password has been reset for username "%(name)s".\
-                          Your password is now: %(password)s'''%{'name': name, 'password': newpw}
-            if not self.client.standard_message([address], subject, body):
-                return
-
-            self.client.ok_message.append(
-                self._('Password reset and email sent to %s') % address)
+        """Handle password reset requests."""
+        
+        user = self.form.get('username')
+        if not user:
+            self.client.error_message.append(\
+                "Invalid One Time Key!\n"
+                "A Mozilla bug may cause this message to show up erroneously,\n"
+                "please check your email!"
+            )
             return
-
-        # no OTK, so now figure the user
-        if self.form.has_key('username'):
-            name = self.form['username'].value
-            try:
-                uid = self.db.user.lookup(name)
-            except KeyError:
-                self.client.error_message.append(self._('Unknown username'))
-                return
-            address = self.db.user.get(uid, 'address')
-        elif self.form.has_key('address'):
-            address = self.form['address'].value
-            uid = uidFromAddress(self.db, ('', address), create=0)
-            if not uid:
-                self.client.error_message.append(
-                    self._('Unknown email address'))
-                return
-            name = self.db.user.get(uid, 'username')
         else:
-            self.client.error_message.append(
-                self._('You need to specify a username or address'))
+            try:
+                uid = self.db.user.lookup(user)
+            except KeyError:
+                self.client.error_message.append("Unknown username")
+                return
+            
+        # change the password
+        newpw = password.generatePassword()
+        try:
+            # set the password
+            self.db.user.set(uid, password=password.Password(newpw))            
+            self.db.commit()
+        except (ValueError, KeyError), message:
+            self.client.error_message.append(str(message))
             return
-
-        # generate the one-time-key and store the props for later
-        otk = ''.join([random.choice(chars) for x in range(32)])
-        while otks.exists(otk):
-            otk = ''.join([random.choice(chars) for x in range(32)])
-        otks.set(otk, uid=uid)
-        self.db.commit()
-
-        # send the email
-        tracker_name = self.db.config.TRACKER_NAME
-        subject = 'Confirm reset of password for %s'%tracker_name
-        body = '''
-Someone, perhaps you, has requested that the password be changed for your
-username, "%(name)s". If you wish to proceed with the change, please follow
-the link below:
-
-  %(url)suser?@template=forgotten&@action=passrst&otk=%(otk)s
-
-You should then receive another email with the new password.
-'''%{'name': name, 'tracker': tracker_name, 'url': self.base, 'otk': otk}
-        if not self.client.standard_message([address], subject, body):
-            return
-
-        self.client.ok_message.append(self._('Email sent to %s') % address)
+        
+        self.client.ok_message.append("Password reset successfully!")
+        return
 
 
 class RegisterAction(EditCommon):
