@@ -25,7 +25,7 @@ stat.setkey("name")
 
 # Keywords
 # Add two attributes -'category', added by ZG
-keyword = Class(db, "keyword", name=String(), category=String())
+keyword = Class(db, "keyword", name=String())
 keyword.setkey("name")
 
 # User-defined saved searches

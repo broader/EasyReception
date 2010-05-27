@@ -200,11 +200,11 @@ def filterByFunction(operator, klass, props, fn, fnArgs):
 		return None
 
 	#Parameters:
-   # 'context' - the class name
-   # 'propnames' - the properties whose values should be returned
-   # 'filterFn' - a function to filter the item of the class
-   # 'filterArgs' - the properties' names that should be passed to 'filterFn' as arguments.
-   #              Note, 'filterArgs' colud be different with 'propnames'.
+	# 'context' - the class name
+	# 'propnames' - the properties whose values should be returned
+	# 'filterFn' - a function to filter the item of the class
+	# 'filterArgs' - the properties' names that should be passed to 'filterFn' as arguments.
+	#                Note, 'filterArgs' colud be different with 'propnames'.
 
 	client.set_user(operator)
 	form = {	\
@@ -214,13 +214,12 @@ def filterByFunction(operator, klass, props, fn, fnArgs):
 		'filterFn' : fn,\
 		'filterArgs': fnArgs\
 	}
-
 	client.form = form
 	return action(client)
 
 def fuzzyQuery(operator, klass, search, props=None, require=None):
 	"""
-	Filter Class's items by 'conditions' which is a dictionary holding the
+	Filter Class's items by 'require' which is a dictionary holding the
    required values, and return the properties' values specified by 'props'.
 	"""
 	client = get_client()
@@ -342,12 +341,13 @@ def get_adminlist(operator, props, search=None):
 	client = get_client()
 	client.set_user(operator)
 	# action
-	form = { 'context': 'user',
-		      'action': 'getbysql',
-		      'sql_type' : 'LIKE',
-		      'conditions' : search,
-		      'propnames' : props,
-		    }
+	form = {\
+		'context': 'user',
+		'action': 'getbysql',
+		'sql_type' : 'LIKE',
+		'conditions' : search,
+		'propnames' : props,
+	}
 	client.form = form
 	data = action(client)
 	if not data :

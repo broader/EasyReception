@@ -1,4 +1,5 @@
 []
+# -*- coding: utf_8 -*-
 STDOUT("/* \n	In this file, first set the layout of the application, such as desktop and\n	menu dock, etc. Then set the menus\' function in login panel.\n*/\n/*\nINITIALIZE THE TWO MENU \'Login\' AND \'Register\'\n	1. \'Register\' menu clicked function\n	2. \'Login\' menu clicked function	\n-------------------------------------------------------------------- */\n")
 # PYTHON CODE
 # get global variables stored in pagefn.py

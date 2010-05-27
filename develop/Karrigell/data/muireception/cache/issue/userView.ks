@@ -338,8 +338,12 @@ def page_createIssueForm(**args):
 		prop['type'] = prop.get('type') or 'input'
 		prop['id'] = prop['name']
 		if prop['name'] == 'keyword':
-			options = model.get_items_ByString( USER, 'keyword', {'category':'issue'}, propnames=('name',))
-			prop['options'] = options and [i[0] for i in options] or []
+			values = model.get_items_ByString( USER, 'relation', {'klassname':'keyword', 'relateclass':'issue'}, propnames=('klassvalue',))
+			if values:
+				options = values[0][0].split(',')
+			else:
+				options = []
+			prop['options'] = options
 
 	div = DIV(Sum(formFn.yform(props)))
 	form.append(FIELDSET(div))
@@ -429,12 +433,55 @@ def _createIssueJs(formId, creator):
 	"""%paras
 	return js
 
-
 def page_createIssueAction(**args):
-	creator, message = [args.pop(name) for name in ('creator','message')]
+	creator, message, title, keyword = [args.get(name) for name in ('creator','message', 'title', 'keyword')]
+	iprops = {}
+	[ iprops.update({name:args.get(name) or ''}) for name in ('title','keyword')]
+	keyword = iprops.get('keyword')
+	if keyword:
+		users = _getNosy(keyword)
+		#iprops['nosy'] = ','.join(users)
+		iprops['nosy'] = users
+	else:
+		iprops['nosy'] = USER
+	PRINT( iprops)
+
 	mprops = {'content':message}
 	#model.edit_issue(creator, args, mprops, serial=None)
 	return
+
+def _getNosy(keyword):
+	nosy = []
+	rows = model.get_items_ByString( \
+		USER,\
+		'relation',\
+		{'klassname':'keyword', 'relateclass':'role'}, \
+		propnames=('klassvalue','relatevalue')\
+	)
+
+	if rows:
+		PRINT( 'rows is ',rows,', keyword is ',keyword)
+		assignedRoles = [ row[1] for row in rows if set(row[0].split(',')).intersection(keyword.split(',')) ]
+		if assignedRoles:
+			assignedRoles = ','.join(assignedRoles).split(',')
+		else:
+			return nosy
+
+		# a temporary function to filter users by their roles' value
+		def filterUser(roles):
+			isTarget = False
+			PRINT( roles, assignedRoles)
+			if set(roles.split(',')).intersection(set(assignedRoles.split(','))):
+				isTarget = True
+			return isTarget
+
+		PRINT( assignedRoles)
+		conditions = [('roles', role) for role in assignedRoles ]
+		nosy = model.get_adminlist(USER, ('username',), conditions)
+
+	PRINT( nosy)
+	return nosy
+
 
 
 

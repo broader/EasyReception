@@ -1374,12 +1374,11 @@ class FilterByTextAction(Action):
         cl = self.form['context']
         klass = self.db.getclass(cl)
         props = self.form.get('propnames')
-        search = self.form.get('search')
+        search = self.form.get('search') or ''
+            
         # 'require' is a dictionary which holds the required Sring properties and their values;
         # format is {propname: value,......}
-        require = self.form.get('require')
-        if not search:
-            search = ''
+        require = self.form.get('require')        
         
         #print 'ajaxActions.FilterByTextAction,L1433,klass is %s, props are %s, search is %s, require is %s'\
         #            %(klass, props, search,require)
@@ -2302,6 +2301,9 @@ class GetItemsBySqlAction(Action,  GetItemAction):
         cn = self.form['context']
         klass = self.db.getclass(cn)           
         conditions = self.form['conditions']
+        if not conditions:
+            return None
+        
         props = self.form.get('propnames')
         sql_type = self.form['sql_type']
         sql = ''
@@ -2313,7 +2315,7 @@ class GetItemsBySqlAction(Action,  GetItemAction):
                     c.append(' %s '%cond[2] + ''.join(('_'+cond[0],' LIKE ', searchTxt)))                    
                 else:
                     c.append(''.join(('_'+cond[0],' LIKE ','\'%', cond[1],'%\'')))
-                #print 'GetItemsBySqlAction,L2395,sql clause is %s'%c
+                print 'GetItemsBySqlAction,L2318,sql clause is %s'%c
             sql = ' ' .join((sql, ' '.join(c)))
             #print 'GetItemsBySqlAction,L2397,sql clause is %s'%sql
         elif sql_type in ('AND', 'OR'):
@@ -2329,7 +2331,7 @@ class GetItemsBySqlAction(Action,  GetItemAction):
                 
         prefix = ' '.join(('SELECT','id','FROM', '_'+cn, 'WHERE'))        
         sql = ' '.join((prefix,sql))
-        #print 'GetItemsBySqlAction,L2409,Final sql clause is ',sql
+        print 'GetItemsBySqlAction,L2334,Final sql clause is ',sql
         try:
             ids = klass.filter_sql(sql)
         except:

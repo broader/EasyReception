@@ -83,7 +83,7 @@ msg = FileClass(db, "msg",
 file = FileClass(db, "file",name=String())
 
 # the dossier for user, saved in a csv formatted file
-dossier = FileClass(db, "dossier",	name=String())		
+dossier = FileClass(db, "dossier",name=String())		
 		
 # IssueClass automatically gets these properties in addition to the Class ones:
 #   title = String()

@@ -1,0 +1,2 @@
+2010/05/27 02:41:40 - 127.0.0.1 - GET /issue/userView.ks/page_createIssueForm HTTP/1.1 200
+2010/05/27 02:41:40 - 127.0.0.1 - POST /issue/userView.ks/page_createIssueAction HTTP/1.1 200
