@@ -2311,19 +2311,25 @@ class GetItemsBySqlAction(Action,  GetItemAction):
             c = []
             for cond in conditions:                            
                 if len(cond) == 3:
+                    # format like (property name, property value, 'AND' or 'OR')
                     searchTxt = ''.join(('\'%', cond[1], '%\''))
                     c.append(' %s '%cond[2] + ''.join(('_'+cond[0],' LIKE ', searchTxt)))                    
                 else:
+                    # format like (property name, property value), 
+                    # this format is offten used in the first item of "condition" list
                     c.append(''.join(('_'+cond[0],' LIKE ','\'%', cond[1],'%\'')))
-                print 'GetItemsBySqlAction,L2318,sql clause is %s'%c
+                    
+                #print 'GetItemsBySqlAction,L2318,sql clause is %s'%c
             sql = ' ' .join((sql, ' '.join(c)))
             #print 'GetItemsBySqlAction,L2397,sql clause is %s'%sql
         elif sql_type in ('AND', 'OR'):
             c = []
             for k,v in conditions.items():                            
                 if type(v) == type([]):
+                    # one property corresponding to multiful values
                     map(lambda i: c.append(''.join(('_'+k,'=','\'',i,'\''))),v)
                 else:
+                    # one property corresponding to one value
                     c.append(''.join(('_'+k,'=','\'',v,'\'')))
             #print 'GetItemsBySqlAction,L2403,sql_type is %s, clause is %s'%(sql_type,c)            
             prep = ''.join((' ', sql_type, ' '))
@@ -2331,7 +2337,7 @@ class GetItemsBySqlAction(Action,  GetItemAction):
                 
         prefix = ' '.join(('SELECT','id','FROM', '_'+cn, 'WHERE'))        
         sql = ' '.join((prefix,sql))
-        print 'GetItemsBySqlAction,L2334,Final sql clause is ',sql
+        #print 'GetItemsBySqlAction,L2334,Final sql clause is ',sql
         try:
             ids = klass.filter_sql(sql)
         except:

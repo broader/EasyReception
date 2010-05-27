@@ -337,6 +337,10 @@ def edit_user_info(operator, user, actionType, content, filename=None, client=No
 	return edit_linkcsv(client, 'user', userId, 'info', actionType, content, filename)
 	
 def get_adminlist(operator, props, search=None):
+	"""
+	Parameters:
+		search - [[property name, property value], [property name, property value, 'AND' or 'OR'], ...]
+	"""
 	client = get_client()
 	client.set_user(operator)
 	# action
@@ -347,6 +351,7 @@ def get_adminlist(operator, props, search=None):
 		'conditions' : search,
 		'propnames' : props,
 	}
+
 	client.form = form
 	data = action(client)	
 	if not data :		

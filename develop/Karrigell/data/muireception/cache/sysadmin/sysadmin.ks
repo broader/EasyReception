@@ -144,7 +144,16 @@ def page_getKeyValues(**args):
 
 	klass = args.get(CLASSPROP)
 	if klass :
-		values = model.get_keyValues(operator,klass)
+		if klass == 'user':
+			# for 'user' Class, 'User' role is not need
+			search = [['roles', 'User', 'NOT'],]
+			values = model.get_adminlist(operator, ('username',), search)
+			if values:
+				values = [i[0] for i in values ]
+			else:
+				values = []
+		else:
+			values = model.get_keyValues(operator,klass)
 		values.sort()
 		values = [\
 			{\
@@ -783,7 +792,7 @@ def _formFieldsConstructor(klass, values, action, setOldValue=False):
 
 	return newprops
 
-def _keywordPropHandler(props):
+def _keywordPropHandler(props,action):
 	for prop in props:
 		if prop['name'] == 'category':
 			prop['type'] = 'select'
@@ -792,7 +801,7 @@ def _keywordPropHandler(props):
 
 	return props
 
-def _relationPropHandler(props):
+def _relationPropHandler(props,action):
 	newProps = []
 	for prop in props:
 		propname = prop['name']
@@ -809,8 +818,7 @@ def _relationPropHandler(props):
 	return newProps
 
 USERCONFIRMPWD = 'confirmPassword'
-def _userPropHandler(props):
-	action = filter(lambda p: p.get('name')=='username' and p.get('oldvalue'), props) or 'create'
+def _userPropHandler(props,action):
 	editProps = ['username', 'roles', 'email', 'alt_mails', 'address', 'timezone']
 	newProps = []
 
@@ -845,8 +853,7 @@ def _userPropHandler(props):
 	# Just add 'password' field only for 'create' action,
 	# because the value of 'password' has been encrypted in MD5 format,
 	# so we couldn't edit 'password' value in normal form.
-	# Here we judge the 'create' action by checking whether the property 'username' has a 'oldvalue'.
-	if action == 'create' :
+	if ACTIONTYPES.index(action) == 0 :
 		newProps.extend([
 			{
 				'name':'password','type':'password',
@@ -895,7 +902,7 @@ def page_classEdit(**args):
 
 	propAdaptor = CLASSADAPTOR.get(klass)
 	if propAdaptor:
-		props = propAdaptor(props)
+		props = propAdaptor(props, action=actionType)
 
 	# show the fields in 'info' list before html Form Element
 	if info:

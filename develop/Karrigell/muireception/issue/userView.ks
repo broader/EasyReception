@@ -436,50 +436,59 @@ def page_createIssueAction(**args):
 	creator, message, title, keyword = [args.get(name) for name in ('creator','message', 'title', 'keyword')]
 	iprops = {}
 	[ iprops.update({name:args.get(name) or ''}) for name in ('title','keyword')]
+	iprops['nosy'] = USER
+
 	keyword = iprops.get('keyword')
 	if keyword:
 		users = _getNosy(keyword)
-		#iprops['nosy'] = ','.join(users)
-		iprops['nosy'] = users
-	else:
-		iprops['nosy'] = USER
+		if users:
+			iprops['nosy'] = ','.join(users )
+
+		user = _getAssigned(keyword)
+		if user:
+			iprops['assignedto'] = user	
+
 	print iprops
 
 	mprops = {'content':message}
 	#model.edit_issue(creator, args, mprops, serial=None)
 	return
 
+def _getAssigned(keyword):
+	user = None
+	rows = _getRelationValue('keyword', 'user')
+	if rows:
+		rows = filter(lambda row: row[0] == keyword, rows)
+		if rows:
+			user = rows[0][1]
+	return user
+
 def _getNosy(keyword):
-	nosy = []
+	rows = _getRelationValue('keyword', 'role')
+	if not rows:
+		return None 
+
+	# if keyword and 'klassvalue' has intersection, the relatevalue will be selected
+	assignedRoles = [ row[1] for row in rows if set(row[0].split(',')).intersection(keyword.split(',')) ]
+	if assignedRoles:
+		assignedRoles = ','.join(assignedRoles).split(',')
+	else:
+		# no assigned roles 
+		return None 
+
+	conditions = [['roles', role, 'OR'] for role in assignedRoles ]
+	conditions[0].pop(-1)
+	nosy = model.get_adminlist(USER, ('username',), conditions)
+	if nosy:
+		nosy = [ i[0] for i in nosy ]
+	
+	return nosy
+
+def _getRelationValue(klass, relateclass):
 	rows = model.get_items_ByString( \
 		USER,\ 
 		'relation',\ 
-		{'klassname':'keyword', 'relateclass':'role'}, \
+		{'klassname': klass, 'relateclass': relateclass}, \
 		propnames=('klassvalue','relatevalue')\
 	)
-
-	if rows:
-		print 'rows is ',rows,', keyword is ',keyword
-		assignedRoles = [ row[1] for row in rows if set(row[0].split(',')).intersection(keyword.split(',')) ]
-		if assignedRoles:
-			assignedRoles = ','.join(assignedRoles).split(',')
-		else:
-			return nosy	
-
-		# a temporary function to filter users by their roles' value
-		def filterUser(roles):
-			isTarget = False
-			print roles, assignedRoles
-			if set(roles.split(',')).intersection(set(assignedRoles.split(','))):
-				isTarget = True
-			return isTarget
-
-		print assignedRoles
-		conditions = [('roles', role) for role in assignedRoles ]
-		nosy = model.get_adminlist(USER, ('username',), conditions)
-	
-	print nosy	
-	return nosy
-		
-		
-
+	return rows

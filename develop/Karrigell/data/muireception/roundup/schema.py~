@@ -25,7 +25,7 @@ stat.setkey("name")
 
 # Keywords
 # Add two attributes -'category', added by ZG
-keyword = Class(db, "keyword", name=String(), category=String())
+keyword = Class(db, "keyword", name=String())
 keyword.setkey("name")
 
 # User-defined saved searches
@@ -109,7 +109,8 @@ relation = Class(db, 'relation',
         klassname=String(),
         klassvalue=String(),
         relateclass=String(),
-        relatevalue=String())
+        relatevalue=String(),
+        action=String())
 
 # the services provided by Congress secretary
 service = Class(db, "service",
