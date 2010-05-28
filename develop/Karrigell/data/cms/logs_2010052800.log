@@ -1,0 +1,12 @@
+2010/05/28 08:49:56 - 127.0.0.1 - GET /menu.ks/page_validName?user=supervisor HTTP/1.1 200
+2010/05/28 08:49:56 - 127.0.0.1 - GET /menu.ks/page_validPwd?user=supervisor&pwd=990508 HTTP/1.1 200
+2010/05/28 08:49:58 - 127.0.0.1 - GET /menu.ks/page_postValid?_=1275007802724 HTTP/1.1 200
+2010/05/28 08:49:58 - 127.0.0.1 - GET /menu.ks/page_toggleMenu?showMenu=1&_=1275007802820 HTTP/1.1 200
+2010/05/28 00:50:02 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/05/28 00:50:02 - 127.0.0.1 - GET /menu.ks/page_loginSpan?page=0 HTTP/1.1 200
+2010/05/28 00:50:02 - 127.0.0.1 - GET /menu.ks/page_menuList?page=0 HTTP/1.1 200
+2010/05/28 00:50:02 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/05/28 00:50:02 - 127.0.0.1 - GET /navigation.ks/profile?path=sysadmin HTTP/1.1 302 /sysadmin/
+2010/05/28 00:50:03 - 127.0.0.1 - GET /sysadmin/ HTTP/1.1 200
+2010/05/28 00:50:03 - 127.0.0.1 - GET /lib/dataTable/css/demo_table.css HTTP/1.1 200
+2010/05/28 00:50:03 - 127.0.0.1 - GET /lib/treeTable/jquery.treeTable.css HTTP/1.1 200

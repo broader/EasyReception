@@ -804,6 +804,7 @@ class Database(FileStorage, hyperdb.Database, roundupdb.Database):
 
         # determine the column definitions and multilink tables
         cl = self.classes[classname]
+        # 'mls' means multilink table, add by B.Z
         cols, mls = self.determine_columns(cl.properties.items())
 
         # we'll be supplied these props if we're doing an import
@@ -1451,6 +1452,7 @@ class Class(hyperdb.Class):
             elif isinstance(prop, Multilink):
                 if value is None:
                     value = []
+                    
                 if not hasattr(value, '__iter__'):
                     raise TypeError, 'new property "%s" not an iterable of ids'%key
 
@@ -1461,9 +1463,11 @@ class Class(hyperdb.Class):
                     if type(entry) != type(''):
                         raise ValueError, '"%s" multilink value (%r) '\
                             'must contain Strings'%(key, value)
+                    
                     # if it isn't a number, it's a key
                     if not num_re.match(entry):
                         try:
+                            # transform the key value to the link node's id
                             entry = self.db.classes[link_class].lookup(entry)
                         except (TypeError, KeyError):
                             raise IndexError, 'new property "%s": %s not a %s'%(
@@ -1477,6 +1481,7 @@ class Class(hyperdb.Class):
                     if not self.db.getclass(link_class).hasnode(nodeid):
                         raise IndexError, '%s has no node %s'%(link_class,
                             nodeid)
+                            
                     # register the link with the newly linked node
                     if self.do_journal and self.properties[key].do_journal:
                         self.db.addjournal(link_class, nodeid, 'link',
@@ -1641,10 +1646,13 @@ class Class(hyperdb.Class):
 
         if self.db.journaltag is None:
             raise DatabaseError, _('Database open read-only')
-
+        
+        # get a node( a dictionary objec which holds properties and values) 
+        # from the database
         node = self.db.getnode(self.classname, nodeid)
         if self.is_retired(nodeid):
             raise IndexError, 'Requested item is retired'
+        
         num_re = re.compile('^\d+$')
 
         # make a copy of the values dictionary - we'll modify the contents
@@ -1736,6 +1744,7 @@ class Class(hyperdb.Class):
                             'must be a string'%propname
                     if not num_re.match(entry):
                         try:
+                            # transform the key value to the link node's id
                             entry = self.db.classes[link_class].lookup(entry)
                         except (TypeError, KeyError):
                             raise IndexError, 'new property "%s": %s not a %s'%(
@@ -1755,6 +1764,7 @@ class Class(hyperdb.Class):
                     l = node[propname]
                 else:
                     l = []
+                    
                 for id in l[:]:
                     if id in value:
                         continue

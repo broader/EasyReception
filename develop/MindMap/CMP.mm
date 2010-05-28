@@ -3,11 +3,11 @@
 <node COLOR="#000000" CREATED="1245853581417" ID="Freemind_Link_1611273437" MODIFIED="1273066978631" TEXT="                     CMP&#xa;(Congress Management Portal)">
 <font NAME="SansSerif" SIZE="20"/>
 <hook NAME="accessories/plugins/AutomaticLayout.properties"/>
-<node COLOR="#0033ff" CREATED="1122623322585" FOLDED="true" ID="Freemind_Link_1057722476" MODIFIED="1274863378041" POSITION="left" TEXT="Roundup">
+<node COLOR="#0033ff" CREATED="1122623322585" FOLDED="true" ID="Freemind_Link_1057722476" MODIFIED="1275015965410" POSITION="left" TEXT="Roundup">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <hook NAME="accessories/plugins/AutomaticLayout.properties"/>
-<node COLOR="#00b439" CREATED="1122623322595" FOLDED="true" ID="Freemind_Link_1811625972" MODIFIED="1274840275208" TEXT="&#x7cfb;&#x7edf;&#x6269;&#x5c55;&#x9700;&#x6c42;">
+<node COLOR="#00b439" CREATED="1122623322595" FOLDED="true" ID="Freemind_Link_1811625972" MODIFIED="1275011315825" TEXT="&#x7cfb;&#x7edf;&#x6269;&#x5c55;&#x9700;&#x6c42;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1122623322595" FOLDED="true" ID="Freemind_Link_1801754102" MODIFIED="1274839938187" TEXT="&#x7edf;&#x8ba1;&#x5206;&#x6790;">
@@ -208,7 +208,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1122623322685" FOLDED="true" ID="Freemind_Link_421324441" MODIFIED="1274840279112" TEXT="&#x529f;&#x80fd;&#x5b8c;&#x5584;">
+<node COLOR="#00b439" CREATED="1122623322685" FOLDED="true" ID="Freemind_Link_421324441" MODIFIED="1275011385897" TEXT="&#x529f;&#x80fd;&#x5b8c;&#x5584;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1122623322685" FOLDED="true" ID="Freemind_Link_1869797426" MODIFIED="1274839939155" TEXT="session&#x7ba1;&#x7406;">
@@ -255,13 +255,13 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1122623322685" FOLDED="true" ID="Freemind_Link_1951735423" LINK="tutorial.mm" MODIFIED="1274840289904" TEXT="examples">
+<node COLOR="#00b439" CREATED="1122623322685" FOLDED="true" ID="Freemind_Link_1951735423" LINK="tutorial.mm" MODIFIED="1275011384025" TEXT="examples">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1122623322685" FOLDED="true" ID="Freemind_Link_1321821317" MODIFIED="1274840288827" TEXT="Database Changing">
+<node COLOR="#990000" CREATED="1122623322685" FOLDED="true" ID="Freemind_Link_1321821317" MODIFIED="1275011380369" TEXT="Database Changing">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1122623322685" ID="Freemind_Link_816600864" MODIFIED="1274839939254" TEXT="Category">
+<node COLOR="#111111" CREATED="1122623322685" FOLDED="true" ID="Freemind_Link_816600864" MODIFIED="1275011350757" TEXT="Category">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1122623322685" ID="Freemind_Link_726094716" MODIFIED="1122623322685" TEXT="&#x6d41;&#x7a0b;">
 <font NAME="SansSerif" SIZE="12"/>
@@ -327,7 +327,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1122623322695" FOLDED="true" ID="Freemind_Link_1883804254" MODIFIED="1274839939388" TEXT="TimeLog">
+<node COLOR="#111111" CREATED="1122623322695" FOLDED="true" ID="Freemind_Link_1883804254" MODIFIED="1275011349755" TEXT="TimeLog">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1122623322695" ID="Freemind_Link_1899973408" MODIFIED="1122623322695" TEXT="&#x6d41;&#x7a0b;">
 <font NAME="SansSerif" SIZE="12"/>
@@ -395,7 +395,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1122623322705" FOLDED="true" ID="Freemind_Link_1288252840" MODIFIED="1274839939647" TEXT="Tracker Behaviour">
+<node COLOR="#990000" CREATED="1122623322705" FOLDED="true" ID="Freemind_Link_1288252840" MODIFIED="1275011378705" TEXT="Tracker Behaviour">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1122623322705" ID="Freemind_Link_762861427" MODIFIED="1274839939650" TEXT="Transition Status Control">
@@ -590,336 +590,6 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1137329446824" FOLDED="true" ID="Freemind_Link_1018673577" MODIFIED="1274839940078" TEXT="Database Changing">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1137329446824" FOLDED="true" ID="Freemind_Link_246442668" MODIFIED="1274839940081" TEXT="Category">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446824" ID="Freemind_Link_852347417" MODIFIED="1149409322705" TEXT="&#x6d41;&#x7a0b;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446824" ID="Freemind_Link_1153908246" MODIFIED="1137329446824" TEXT="1 &#x6570;&#x636e;">
-<node COLOR="#111111" CREATED="1137329446824" ID="Freemind_Link_585982731" MODIFIED="1137329446824" TEXT="1.1  &#x6dfb;&#x52a0;&#x7c7b;&#x5b9a;&#x4e49;">
-<node COLOR="#111111" CREATED="1137329446824" ID="Freemind_Link_1978410619" MODIFIED="1137329446824" TEXT="shema.py">
-<node COLOR="#111111" CREATED="1137329446824" ID="Freemind_Link_1823724173" MODIFIED="1137329446824" TEXT="&#x8c03;&#x7528;Hhyperdatabase &#x4e2d;class&#x63a5;&#x53e3;&#xff0c;&#x5b9a;&#x4e49;&#x4e00;&#x4e2a;&#x7c7b;&#x3002;"/>
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_1495522879" MODIFIED="1137329446834" TEXT="&#x8c03;&#x7528;db.security.addPermission&#x65b9;&#x6cd5;"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_607012220" MODIFIED="1137329446834" TEXT="1.2 &#x6dfb;&#x52a0;&#x6743;&#x9650;&#x5b9a;&#x4e49;"/>
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_148322450" MODIFIED="1137329446834" TEXT="1.3 &#x7c7b;&#x521d;&#x59cb;&#x5316;">
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_1808503297" MODIFIED="1137329446834" TEXT="initial_data.py">
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_855703208" MODIFIED="1137329446834" TEXT="&#x6ce8;&#xff1a;&#x5728;&#x7cfb;&#x7edf;&#x6570;&#x636e;&#x5e93;&#x5c1a;&#x672a;&#x521d;&#x59cb;&#x5316;&#x4e4b;&#x524d;&#x4f7f;&#x7528;&#x6b64;&#x6587;&#x4ef6;&#x3002;">
-<icon BUILTIN="messagebox_warning"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_1069778223" MODIFIED="1137329446834" TEXT="roudup-admin">
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_1887911950" MODIFIED="1137329446834" TEXT="&#x6ce8;&#xff1a;&#x5728;&#x7cfb;&#x7edf;&#x6570;&#x636e;&#x5e93;&#x521d;&#x59cb;&#x5316;&#x4e4b;&#x540e;&#x4f7f;&#x7528;&#x6b64;&#x63a5;&#x53e3;&#x6dfb;&#x52a0;&#x521d;&#x59cb;&#x5316;&#x529f;&#x80fd;&#x3002;">
-<icon BUILTIN="messagebox_warning"/>
-</node>
-</node>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_1454767666" MODIFIED="1137329446834" TEXT="2 &#x63a7;&#x5236;">
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_1341352696" MODIFIED="1137329446834" TEXT="&#x6b64;&#x6837;&#x4f8b;&#x4e0d;&#x6d89;&#x53ca;&#x63a7;&#x5236;&#x5c42;"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_1911806859" MODIFIED="1137329446834" TEXT="3 &#x89c6;&#x56fe;">
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_1678163263" MODIFIED="1137329446834" TEXT="page.html">
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_1086673789" MODIFIED="1137329446834" TEXT="&#x5de6;&#x8fb9;&#x83dc;&#x5355;&#x6761;&#x6dfb;&#x52a0;category&#x9009;&#x9879;">
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_295204099" MODIFIED="1137329446834" TEXT="&#x5df2;&#x6dfb;&#x52a0;&#x5de6;&#x8fb9;&#x83dc;&#x5355;&#x680f;&#xff0c;&#x4f46;&#x989c;&#x8272;&#x4e0e;&#x5176;&#x5b83;&#x9009;&#x9879;&#x4e0d;&#x4e00;&#x81f4;">
-<font NAME="SansSerif" SIZE="12"/>
-<icon BUILTIN="help"/>
-</node>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_904092999" MODIFIED="1137329446834" TEXT="category.item.html">
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_331975183" MODIFIED="1137329446834" TEXT="&#x5b9a;&#x4e49;category&#x6dfb;&#x52a0;&#x7684;&#x7f16;&#x8f91;&#x529f;&#x80fd;"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_845276483" MODIFIED="1137329446834" TEXT="issue">
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_880835119" MODIFIED="1137329446834" TEXT="issue.item.html">
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_930647176" MODIFIED="1137329446834" TEXT="issue&#x7684;&#x5b9a;&#x4e49;&#x4e2d;&#x6dfb;&#x52a0;category&#x9009;&#x9879;"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_1690441669" MODIFIED="1137329446834" TEXT="issue.search.html">
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_123444667" MODIFIED="1137329446834" TEXT="issue&#x7684;&#x641c;&#x7d22;&#x5b9a;&#x4e49;&#x4e2d;&#x6dfb;&#x52a0;category&#x9009;&#x9879;"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_861906311" MODIFIED="1137329446834" TEXT="issue.index.html">
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_1781107657" MODIFIED="1137329446834" TEXT="issue&#x7684;&#x7d22;&#x5f15;&#x663e;&#x793a;&#x4e2d;&#x6dfb;&#x52a0;category&#x9009;&#x9879;">
-<icon BUILTIN="help"/>
-</node>
-</node>
-</node>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_439349574" MODIFIED="1149409322705" TEXT="&#x95ee;&#x9898;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_969588071" MODIFIED="1137329446834" TEXT="category.item.html&#x8be5;&#x9875;&#x9762;&#x8868;&#x5355;&#x63d0;&#x4ea4;&#x4e4b;&#x540e;&#xff0c;&#x5bf9;&#x5e94;&#x5904;&#x7406;&#x9875;&#x9762;_generic.index.html&#x8fd4;&#x56de;keys() error&#xff0c;&#x63d0;&#x793a;csv&#x9519;&#x8bef;&#x3002;&#x5e94;&#x719f;&#x6089;&#x9875;&#x9762;&#x5904;&#x7406;&#x6d41;&#x7a0b;&#x3002;">
-<font NAME="SansSerif" SIZE="12"/>
-<icon BUILTIN="help"/>
-<icon BUILTIN="messagebox_warning"/>
-</node>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446834" FOLDED="true" ID="Freemind_Link_395712034" MODIFIED="1274839940192" TEXT="TimeLog">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446834" ID="Freemind_Link_1278772989" MODIFIED="1149409322715" TEXT="&#x6d41;&#x7a0b;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_830114485" MODIFIED="1137329446844" TEXT="1 &#x6570;&#x636e;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_989478946" MODIFIED="1137329446844" TEXT="1.1 &#x6dfb;&#x52a0;&#x7c7b;&#x5b9a;&#x4e49;"/>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_166298743" MODIFIED="1137329446844" TEXT="1.2 &#x6dfb;&#x52a0;issue&#x5c5e;&#x6027;"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_346490819" MODIFIED="1137329446844" TEXT="2 &#x63a7;&#x5236;">
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_1819377758" MODIFIED="1137329446844" TEXT="&#x6dfb;&#x52a0;&#x8ba1;&#x7b97;timelog&#x7d2f;&#x8ba1;&#x7684;&#x6a21;&#x5757;">
-<node COLOR="#111111" CREATED="1137329446844" FOLDED="true" ID="Freemind_Link_1182847963" MODIFIED="1137329446844" TEXT="extension/tiemspent.py">
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_482028018" MODIFIED="1137329446844" TEXT="&#x5728;&#x8c03;&#x7528;Interval&#x7c7b;&#x578b;&#x65f6;&#x9700;&#x5bfc;&#x5165;Interval&#x7c7b;&#x578b;&#x3002;&#x8bed;&#x6cd5;&#xff1a; from roundup.date import Interval">
-<icon BUILTIN="messagebox_warning"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_900175616" MODIFIED="1137329446844" TEXT="&#x4f7f;&#x7528; &#x4ee5;&#x4e0b;&#x65b9;&#x6cd5;&#x6ce8;&#x518c;&#xff1a;instance.registerUtil(&apos;totalTimeSpent&apos;,totalTimeSpent) &#x54ea;&#x4e2a;&#x6a21;&#x5757;&#x63d0;&#x4f9b;&#x6b64;&#x529f;&#x80fd;&#xff1f;">
-<icon BUILTIN="help"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_1529519681" MODIFIED="1137329446844" TEXT="init()&#x4e0e;_init_()&#x65b9;&#x6cd5;&#x7684;&#x533a;&#x522b;&#xff1f;">
-<icon BUILTIN="help"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_310282716" MODIFIED="1137329446844" TEXT="&#x9875;&#x9762;&#x8c03;&#x7528;&#xff0d;&#x300b;python:utils.*"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_373508627" MODIFIED="1137329446844" TEXT="3 &#x89c6;&#x56fe;">
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_1580256922" MODIFIED="1137329446844" TEXT="issue.item.html">
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_1164491505" MODIFIED="1137329446844" TEXT=" &#x6dfb;&#x52a0;issue&#x7f16;&#x8f91;&#x8be5;&#x5c5e;&#x6027;&#x5b57;&#x6bb5;"/>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_1954763934" MODIFIED="1137329446844" TEXT="&#x6dfb;&#x52a0;TimeLog&#x8bb0;&#x5f55;&#x663e;&#x793a;&#x680f;"/>
-</node>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_713191331" MODIFIED="1149409322715" TEXT="&#x9700;&#x6c42;&#x6269;&#x5c55;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_685000661" MODIFIED="1137329446844" TEXT="&#x8bb0;&#x5f55;&#x56de;&#x590d;&#x65f6;&#x95f4;&#x95f4;&#x9694;">
-<font NAME="SansSerif" SIZE="12"/>
-<icon BUILTIN="idea"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_1634334670" MODIFIED="1137329446844" TEXT="&#x53ef;&#x6dfb;&#x52a0;&#x5728;&#x6d88;&#x606f;&#x663e;&#x793a;&#x680f;&#x76ee;&#x663e;&#x793a;&#x4e3a;&#xff1a;&#x8ddd;&#x4e8b;&#x4ef6;&#x53d1;&#x751f; 0y 0m 0d 00h&#xff1a;00m&#xff1a;00s &#x540e;">
-<icon BUILTIN="idea"/>
-</node>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446844" FOLDED="true" ID="Freemind_Link_1287869864" MODIFIED="1274839940259" TEXT="spport">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_1089509580" MODIFIED="1149409322715" TEXT="&#x6d41;&#x7a0b;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_601243926" MODIFIED="1137329446844" TEXT="1 &#x6570;&#x636e;">
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_352746776" MODIFIED="1137329446844" TEXT="1.1 &#x6dfb;&#x52a0;&#x7c7b;&#x5b9a;&#x4e49;"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_1595411560" MODIFIED="1137329446844" TEXT="2 &#x63a7;&#x5236;">
-<node COLOR="#111111" CREATED="1137329446844" FOLDED="true" ID="Freemind_Link_601697677" MODIFIED="1137329446844" TEXT="&#x4fee;&#x6539;detectors\statusauditor.py&#x6587;&#x4ef6;&#xff0c;&#x6dfb;&#x52a0;&#x201c;support&#x201d;&#x76f8;&#x5173;&#x9879;.&#x3002;">
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_357505977" MODIFIED="1137329446844" TEXT="support = IssueClass(db, &quot;support&quot;,                  assignedto=Link(&quot;user&quot;), topic=Multilink(&quot;keyword&quot;),                 status=Link(&quot;status&quot;), deadline=Date(),                 affects=Multilink(&quot;system&quot;))&#x5176;&#x4e2d;affects&#x7684;&#x7c7b;&#x578b;&#x66f4;&#x6539;&#x4e3a;&#x201c;system&#x201d;-&gt;&quot;support&quot;,&#x5982;&#x4e0d;&#x66f4;&#x6539;&#xff0c;&#x7f16;&#x8bd1;&#x65e0;&#x6cd5;&#x901a;&#x8fc7;&#x3002;">
-<icon BUILTIN="messagebox_warning"/>
-</node>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_1731136111" MODIFIED="1137329446844" TEXT="3 &#x89c6;&#x56fe;">
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_637892643" MODIFIED="1137329446844" TEXT="&#x6dfb;&#x52a0;&#x4e09;&#x4e2a;&#x6a21;&#x677f;&#x6587;&#x4ef6;&#xff0c;&#x91c7;&#x7528;copyissue.*&#x5bf9;&#x5e94;&#x6587;&#x4ef6;&#x7684;&#x65b9;&#x6cd5;&#x3002;&#x6ce8;&#x610f;&#x8c03;&#x6574;&#x5176;&#x4e2d;support&#x4e0e;issue&#x5c5e;&#x6027;&#x4e0d;&#x4e00;&#x6837;&#x7684;&#x5730;&#x65b9;&#x3002;">
-<icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_781769799" MODIFIED="1137329446844" TEXT="support.item.html"/>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_1113338997" MODIFIED="1137329446844" TEXT="support.search.html"/>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_753455758" MODIFIED="1137329446844" TEXT="support.idex.html"/>
-</node>
-</node>
-</node>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1137329446844" FOLDED="true" ID="Freemind_Link_1114410292" MODIFIED="1274839940426" TEXT="Tracker Behaviour">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_115107149" MODIFIED="1274839940429" TEXT="Transition Status Control">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_1489284442" MODIFIED="1149409322725" TEXT="1 &#x6570;&#x636e;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446844" FOLDED="true" ID="Freemind_Link_671878427" MODIFIED="1137329446844" TEXT="shema.py">
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_1076931124" MODIFIED="1137329446844" TEXT="# Statusesstat = Class(db, &quot;status&quot;,                name=String(),                order=Number(),                transitions=Multilink(&apos;status&apos;))                #add &quot;transitions&quot; by zhong ,20050414stat.setkey(&quot;name&quot;)"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_120465681" MODIFIED="1149409322725" TEXT="2 &#x63a7;&#x5236;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446844" FOLDED="true" ID="Freemind_Link_396955622" MODIFIED="1137329446844" TEXT="checktransition.py">
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_1051163953" MODIFIED="1137329446844" TEXT="# This is a example in the tutorial of roundup documention. #Create by zhong, 20050414 def checktransition(db,cl,nodeid,newvalues): &apos;&apos;&apos;Check that the desired transition is valid for the &quot;status&quot; property.&apos;&apos;&apos;    if not newvalues.has_key(&apos;status&apos;):          return    current = cl.get(nodeid,&apos;status&apos;)     new = newvalues[&apos;status&apos;]    if new == current:    return    ok = db.status.get(currenti,&apos;transitions&apos;)    if new not in ok:          raise ValueError,&apos;Status not allowed to move from &quot;%s&quot; to &quot;%s&quot;&apos;%(                                           db.status.get(current,&apos;name&apos;),db.status.get(new,&apos;name&apos;))  def init(db):    db.issue.audit(&apos;set&apos;,checktransition) ">
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_1194826116" MODIFIED="1137329448606" TEXT="&#x6ce8;&#x610f;&#xff1a;db.issue.audit()&#x65b9;&#x6cd5;&#x5728;&#x6570;&#x636e;&#x5e93;&#x5199;&#x5165;&#x65f6;&#x81ea;&#x52a8;&#x89e6;&#x53d1;&#xff0c;&#x65e0;&#x9700;&#x5728;web&#x9875;&#x9762;&#x8c03;&#x7528;&#x3002;&#x5f88;&#x597d;&#x7684;&#x68c0;&#x6d4b;&#x601d;&#x8def;&#x3002;">
-<icon BUILTIN="messagebox_warning"/>
-</node>
-</node>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_349261980" MODIFIED="1149409322725" TEXT="3 &#x89c6;&#x56fe;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446844" FOLDED="true" ID="Freemind_Link_1964448859" MODIFIED="1137329446844" TEXT="issue.item.html">
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_1236677293" MODIFIED="1137329446844" TEXT=" &lt;input type=&quot;hidden&quot; name=&quot;@required&quot; value=&quot;title,priority,status&quot;&gt;&lt;!--add &quot;status&quot; by zhong, 20050414--"/>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_205693635" MODIFIED="1137329446844" TEXT=" &lt;th i18n:translate=&quot;&quot;&gt;Status&lt;/th&gt;  &lt;td&gt;         &lt;select tal:condition=&quot;context/id&quot; name=&quot;status&quot;&gt;&lt;tal:block tal:define=&quot;ok context/status/transitions&quot;    tal:repeat=&quot;state db/status/list&quot;&gt;&lt;option tal:condition=&quot;python:state.id in ok&quot; tal:attributes=&quot;value state/id; selected python:state.id == context.status.id&quot; tal:content=&quot;state/name&quot;&gt;&lt;/option&gt;&lt;/tal:block&gt;        &lt;/select&gt;        &lt;tal:block tal:condition=&quot;not:context/id&quot;          tal:replace=&quot;structure context/status/menu&quot; /&gt; &lt;/td&gt;"/>
-</node>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446844" FOLDED="true" ID="Freemind_Link_1478881438" MODIFIED="1274839940475" TEXT="Blocking Issues">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_1178540225" MODIFIED="1149409322736" TEXT="1 &#x6570;&#x636e;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_138482551" MODIFIED="1137329446844" TEXT="schema.py">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_417526741" MODIFIED="1137329446844" TEXT="&#x6dfb;&#x52a0;&#x201c;blockers&#x201d;&#x5c5e;&#x6027;issue = IssueClass(db, &quot;issue&quot;,                blockers=Multilink(&quot;issue&quot;),                assignedto=Link(&quot;user&quot;),                topic=Multilink(&quot;keyword&quot;),                priority=Link(&quot;priority&quot;),                status=Link(&quot;status&quot;),                category=Multilink(&quot;category&quot;),                times=Multilink(&quot;timelog&quot;)"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_713614413" MODIFIED="1149409322736" TEXT="2 &#x63a7;&#x5236;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_1139867135" MODIFIED="1137329446844" TEXT="blockers.py">
-<node COLOR="#111111" CREATED="1137329446844" ID="Freemind_Link_411421932" MODIFIED="1137329446844" TEXT="&#x6ce8;&#x610f;&#x4e00;&#x5904;&#x4ee3;&#x7801;&#x6709;&#x9519;&#x8bef;&#xff1a;if newvalues[&apos;status&apos;] != resolved_id:&#x539f;&#x6765;&#x4e3a;&#x201c;==&#x201d;&#xff0c;&#x6b64;&#x5224;&#x65ad;&#x6709;&#x9519;&#x8bef;&#x3002;">
-<icon BUILTIN="messagebox_warning"/>
-</node>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_1285083654" MODIFIED="1149409322746" TEXT="3 &#x89c6;&#x56fe;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_930909022" MODIFIED="1137329446854" TEXT="issue.item.html">
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_69169602" MODIFIED="1137329446854" TEXT="&#x6dfb;&#x52a0;&#x201c;Wating On&#x201d;&#x7f16;&#x8f91;&#x9879;&#x3002;&#x6ce8;&#x610f;&#xff1a;&#x6837;&#x4f8b;&#x4e2d;&#x6709;&#x4e00;&#x4e2a;bug&#xff0c;&#x5fc5;&#x987b;&#x6709;&quot;property&quot;&#x5c5e;&#x6027;&#x3002;&#x5426;&#x5219;&#x7f16;&#x8bd1;&#x65e0;&#x6cd5;&#x901a;&#x8fc7;&#x3002;">
-<icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_1077751229" MODIFIED="1137329446854" TEXT="&lt;tr&gt;   &lt;th i18n:translate=&quot;&quot;&gt;Waiting On&lt;/th&gt;  &lt;td&gt;           &lt;span tal:replace=&quot;structure python:context.blockers.field(showid=1, size=20)&quot; /&gt;          &lt;span tal:replace=&quot;structure python:db.issue.classhelp(&apos;id,title&apos;, property=&apos;blockers&apos;)&quot; /&gt;          &lt;span tal:condition=&quot;context/blockers&quot;        tal:repeat=&quot;blk context/blockers&quot;&gt;              &lt;br&gt;View: &lt;a tal:attributes=&quot;href string:issue${blk/id}&quot;                                       tal:content=&quot;blk/id&quot;&gt;&lt;/a&gt;           &lt;/span&gt;   &lt;/td&gt;&lt;/tr&gt;"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_902459520" MODIFIED="1137329446854" TEXT="page.html">
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_1635727479" MODIFIED="1137329446854" TEXT="&lt;a href=&quot;issue?@sort=-activity&amp;@group=priority&amp;@filter=status,blockers&amp;blockers=-1@columns=id,activity,title,creator,assignedto,status&amp;status=-1,1,2,3,4,5,6,7&quot;     i18n:translate=&quot;&quot;&gt;Show All&lt;/a&gt;"/>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_1292012205" MODIFIED="1137329446854" TEXT="&#x6b64;&#x5904;&#x6837;&#x4f8b;&#x4e2d;&#x7684;&#x8bed;&#x6cd5;&#x53ef;&#x80fd;&#x6709;&#x95ee;&#x9898;&#x3002;&#x6dfb;&#x52a0;&#x6b64;&#x6bb5;&#x4ee3;&#x7801;&#x540e;&#xff0c;issue&#x603b;&#x662f;&#x65e0;&#x6cd5;&#x5168;&#x90e8;&#x5217;&#x793a;&#x3002;">
-<icon BUILTIN="help"/>
-</node>
-</node>
-</node>
-</node>
-</node>
-<node COLOR="#990000" CREATED="1137329446854" FOLDED="true" ID="Freemind_Link_1258106757" MODIFIED="1274839940577" TEXT="Changes to the Web User Interface">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1137329446854" FOLDED="true" ID="Freemind_Link_1050957391" MODIFIED="1274839940580" TEXT="add actiong link to the index page">
-<font NAME="SansSerif" SIZE="12"/>
-<icon BUILTIN="help"/>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_1386376387" MODIFIED="1149409322756" TEXT="1 &#x6570;&#x636e;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_1298352728" MODIFIED="1149409322756" TEXT="2 &#x63a7;&#x5236;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_1718403258" MODIFIED="1149409322756" TEXT="3 &#x89c6;&#x56fe;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_994612299" MODIFIED="1137329446854" TEXT="issue.index.html">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_1400728940" MODIFIED="1137329446854" TEXT=" &lt;th i18n:translate=&quot;&quot;&gt;resolve&lt;/th&gt; &lt;th i18n:translate=&quot;&quot;&gt;take&lt;/th&gt;......&lt;td&gt;&lt;a tal:attributes=&quot;href string:issue${i/id}?:status=resolved&amp;action=edit&quot;&gt;resolve&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a tal:attributes=&quot;href string:issue${i/id}?:assignedto=${request/user/id}&amp;action=edit&quot;&gt;take&lt;/a&gt;&lt;/td&gt;"/>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_532079346" MODIFIED="1137329446854" TEXT="&#x5982;&#x4f55;&#x80fd;&#x76f4;&#x63a5;&#x8fde;&#x63a5;&#x5230;action&#x7684;&#x64cd;&#x4f5c;&#x754c;&#x9762;&#xff0c;&#x73b0;&#x5728;&#x94fe;&#x63a5;&#x7684;&#x662f;issue&#x7684;&#x7f16;&#x8f91;&#x754c;&#x9762;&#x3002;">
-<icon BUILTIN="help"/>
-</node>
-</node>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446854" FOLDED="true" ID="Freemind_Link_1032737304" MODIFIED="1274839940605" TEXT="Colouring the rows in the issues indexaccording to their priority">
-<font NAME="SansSerif" SIZE="12"/>
-<icon BUILTIN="help"/>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_1647999634" MODIFIED="1149409322766" TEXT="1&#x6570;&#x636e;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_1130603627" MODIFIED="1149409322766" TEXT="2 &#x63a7;&#x5236;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_1054938549" MODIFIED="1149409322776" TEXT="3 &#x89c6;&#x56fe;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_1998948725" MODIFIED="1137329446854" TEXT="issue.html">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_1208449000" MODIFIED="1137329446854" TEXT="  &lt;tr tal:attributes=&quot;class string:priority-${i/priority/plain}&quot;        tal:condition=&quot;i/is_view_ok&quot;&gt;"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_105706923" MODIFIED="1137329446854" TEXT="style.css">
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_240147444" MODIFIED="1137329446854" TEXT="tr.priority-critical td {background-color: #afafaf;}tr.priority-unread td {background-color: black;}"/>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_1356465595" MODIFIED="1137329446854" TEXT="&#x95ee;&#x9898;&#xff1a;&#x4e0b;&#x4e00;&#x4e2a;&#x9009;&#x9879;&#x5e76;&#x6ca1;&#x6709;&#x751f;&#x6548;&#xff0c;&#x53ea;&#x6709;&#x7b2c;&#x4e00;&#x4e2a;&#x9009;&#x9879;&#x751f;&#x6548;&#xff0c;&#x800c;&#x4e14;&#x53ea;&#x5bf9;&#x4e00;&#x884c;&#x7b26;&#x5408;&#x6761;&#x4ef6;&#x7684;&#x6570;&#x636e;&#x751f;&#x6548;&#xff0c;&#x4ee5;&#x540e;&#x7b26;&#x5408;&#x6761;&#x4ef6;&#x7684;&#x884c;&#x6570;&#x636e;&#x5e76;&#x672a;&#x751f;&#x6548;&#xff0c;&#x4f55;&#x6545;&#xff1f;">
-<icon BUILTIN="help"/>
-</node>
-</node>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446854" FOLDED="true" ID="Freemind_Link_1167439824" MODIFIED="1274839940637" TEXT="Editing multiple items in an index view">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_379204580" MODIFIED="1149409322776" TEXT="1 &#x6570;&#x636e;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446854" ID="Freemind_Link_1270760106" MODIFIED="1149409322776" TEXT="2 &#x63a7;&#x5236;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446864" ID="Freemind_Link_254058335" MODIFIED="1149409322786" TEXT="3 &#x89c6;&#x56fe;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446864" ID="Freemind_Link_460555849" MODIFIED="1137329446864" TEXT="issue.index.html">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446864" ID="Freemind_Link_515400276" MODIFIED="1137329446864" TEXT="&#x6dfb;&#x52a0;&#x8868;&#x5355;&#x8bf4;&#x660e;&#xff1a;&lt;tal:block tal:repeat=&quot;i batch&quot;&gt;    &lt;!-- The example &quot;editing multiple item in an index view&quot; ,changed by zhong, 20050415--&gt; &lt;form methond=&quot;POST&quot; tal:attributes=&quot;action request/classname&quot; &gt;...... &lt;/form&gt; &lt;!-- The example &quot;editing multiple item in an index view&quot; ,add by zhong, 20050415--&gt;  &lt;/tal:block&gt;&#x6ce8;&#x610f;&#xff1a;tutorial&#x4e2d;&#x6b64;&#x5904;&#x63cf;&#x8ff0;&#x6709;&#x8bef;&#xff0c;&#x4e0d;&#x5e94;&#x7f6e;&#x4e8e;&lt;table&gt;&#x4e4b;&#x524d;&#xff0c;&#x56e0;&#x4e3a;&#x53ea;&#x4fee;&#x6539;&#x8868;&#x683c;&#x4e2d;&#x67d0;&#x4e00;&#x884c;&#x7684;status&#x57df;&#x3002;&#x4e14;&#x7f6e;&#x4e8e;&lt;table&gt;&#x4e4b;&#x524d;&#x65f6;&#xff0c;&#x7f16;&#x8bd1;&#x9519;&#x8bef;&#x63d0;&#x793a;&#x4e3a;list has no attribute &#x201c;value&#x201d;">
-<icon BUILTIN="messagebox_warning"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446864" ID="Freemind_Link_465332712" MODIFIED="1137329446864" TEXT="&#x4fee;&#x6539;status&#x9879;&#x4e3a;&#x53ef;&#x4fee;&#x6539;&#x57df;:  &lt;tr&gt;  &lt;td tal:attributes=&quot;colspan python:len(request.columns)&quot;&gt;  &lt;input type=&quot;submit&quot; value=&quot;Save Changes&quot; &gt;  &lt;input type=&quot;hidden&quot; name=&quot;@action&quot; value=&quot;edit&quot;&gt;  &lt;tal:block tal:replace=&quot;structure request/indexargs_form&quot; /&gt;  &lt;!--&lt;tal:block replace=&quot;structure python:request.indexargs_form&quot; /&gt;--&gt;  &lt;/td&gt;  &lt;/tr&gt;"/>
-<node COLOR="#111111" CREATED="1137329446864" ID="Freemind_Link_1790994256" MODIFIED="1137329446864" TEXT="&#x6dfb;&#x52a0;status&#x8868;&#x5355;&#x63d0;&#x4ea4;&#x6309;&#x94ae;: &lt;td tal:condition=&quot;request/show/status&quot;        tal:content=&quot;structure i/status/field&quot;&gt;&amp;nbsp;&lt;/td&gt;"/>
-</node>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446864" FOLDED="true" ID="Freemind_Link_1640077404" MODIFIED="1274839940666" TEXT="Dispaying only message summaries in the issue display">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446864" ID="Freemind_Link_452198708" MODIFIED="1149409322786" TEXT="1 &#x6570;&#x636e;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446864" ID="Freemind_Link_1488881513" MODIFIED="1149409322786" TEXT="2 &#x63a7;&#x5236;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446864" ID="Freemind_Link_1904947748" MODIFIED="1149409322786" TEXT="3 &#x89c6;&#x56fe;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446864" FOLDED="true" ID="Freemind_Link_1612007869" MODIFIED="1137329446864" TEXT="issue.item.html">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446864" ID="Freemind_Link_883052592" MODIFIED="1137329446864" TEXT="&lt;!-- The example &quot;Displaying only message summaries in the issue display&quot; --&gt;&lt;tr&gt;&lt;th colspan=&quot;5&quot; class=&quot;header&quot;&gt;Messages&lt;/th&gt;&lt;/tr&gt;&lt;tr tal:repeat=&quot;msg context/messages&quot;&gt;  &lt;td&gt;&lt;a tal:attributes=&quot;href string:msg${msg/id}&quot;                tal:content=&quot;string:msg${msg/id}&quot;&gt;&lt;/a&gt;&lt;/td&gt;   &lt;td tal:content=&quot;msg/author&quot;&gt;author&lt;/td&gt;  &lt;td class=&quot;data&quot; tal:content=&quot;msg/date/pretty&quot;&gt;date&lt;/td&gt;  &lt;td tal:content=&quot;msg/summary&quot;&gt;summary&lt;/td&gt;  &lt;td&gt;            &lt;a tal:attributes=&quot;href string:?@remove@messages=${msg/id}&amp;@action=edit&quot;&gt;remove&lt;/a&gt;  &lt;/td&gt;&lt;/tr&gt;"/>
-</node>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446864" FOLDED="true" ID="Freemind_Link_947412683" MODIFIED="1274839940687" TEXT="Enabling display of either messages summaries or the messages">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446864" ID="Freemind_Link_374637520" MODIFIED="1149409322796" TEXT="1 &#x6570;&#x636e;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446864" ID="Freemind_Link_128205451" MODIFIED="1149409322796" TEXT="2 &#x63a7;&#x5236;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446864" ID="Freemind_Link_984389484" MODIFIED="1149409322806" TEXT="3 &#x89c6;&#x56fe;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446864" ID="Freemind_Link_1028112355" MODIFIED="1137329446864" TEXT="issue.item.html">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446864" ID="Freemind_Link_274400182" MODIFIED="1137329446864" TEXT="&lt;!-- The example &quot;Enabling display of either message summaries or the entire messages. --&gt;&lt;table class=&quot;messages&quot; tal:condition=&quot;context/messages&quot;&gt;&lt;tal:block tal:condition=&quot;not:request/form/@whole_messages/value | python:0&quot;&gt;&lt;tr&gt;&lt;th colspan=&quot;3&quot; class=&quot;header&quot;&gt;Messages&lt;/th&gt;&lt;th colspan=&quot;2&quot; class=&quot;header&quot;&gt;&lt;a href=&quot;?@whole_messages=yes&quot;&gt;show entire messages&lt;/a&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr tal:repeat=&quot;msg context/messages&quot;&gt;&lt;td&gt;&lt;a tal:attributes=&quot;href string:msg${msg/id}&quot;       tal:content=&quot;string:msg${msg/id}&quot;&gt;&lt;/a&gt;&lt;/td&gt;&lt;td tal:content=&quot;msg/author&quot;&gt;author&lt;/td&gt;&lt;td class=&quot;data&quot; tal:content=&quot;msg/date/pretty&quot;&gt;date&lt;/td&gt;&lt;td tal:content=&quot;msg/summary&quot;&gt;summary&lt;/td&gt;&lt;td&gt;&lt;a tal:attributes=&quot;href string:?@remove@messages=${msg/id}&amp;actiong=edit&quot;&gt;remove&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tal:block&gt;&lt;tal:block tal:condition=&quot;request/form/@whole_messages/value | python:0&quot;&gt;&lt;tr&gt;&lt;th colspan=&quot;2&quot; class=&quot;header&quot;&gt;Messages&lt;/th&gt;&lt;th class=&quot;header&quot;&gt;    &lt;a href=&quot;?@whole_messages=&quot;&gt;show only summaries&lt;/a&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tal:block tal:repeat=&quot;msg context/messages&quot;&gt;&lt;tr&gt;&lt;th tal:content=&quot;msg/author&quot;&gt;author&lt;/th&gt;&lt;th class=&quot;date&quot; tal:content=&quot;msg/date/pretty&quot;&gt;date&lt;/th&gt;&lt;th style=&quot;text-align: right&quot;&gt;&lt;a tal:attributes=&quot;href string:?@remove@messages=${msg/id}&amp;@action=edit&quot;&gt;remove&lt;/a&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&quot;3&quot; tal:content=&quot;msg/content&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tal:block&gt;&lt;/tal:block&gt;&lt;/table&gt;"/>
-</node>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446874" FOLDED="true" ID="Freemind_Link_181909979" MODIFIED="1274839940708" TEXT="Setting up a &quot;wizard&quot; for controlled adding of issues">
-<font NAME="SansSerif" SIZE="12"/>
-<icon BUILTIN="help"/>
-<node COLOR="#111111" CREATED="1137329446874" ID="Freemind_Link_610343451" MODIFIED="1149409322806" TEXT="1 &#x6570;&#x636e;">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446874" FOLDED="true" ID="Freemind_Link_1315513279" MODIFIED="1149409322806" TEXT="2 &#x63a7;&#x5236;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446874" FOLDED="true" ID="Freemind_Link_422465995" MODIFIED="1137329446874" TEXT="ectension\Page1Submitaction.py">
-<node COLOR="#111111" CREATED="1137329446874" ID="Freemind_Link_1975591258" MODIFIED="1137329446874" TEXT="# The example &quot;Setting up a &quot;wizard&quot; for controlled adding of issues&quot; in the tutorial of roundup documentiong# Add by zhong, 20050417from roundup.cgi.actions import Actionclass Page1SubmitAction(Action):def handle(self):&apos;&apos;&apos;Verify that the user has selected a category,and then move  on to page 2.&apos;&apos;&apos;print &apos;Hi, here is the entry of the category input value judge.&apos;print &apos;---------------------------------------------------------&apos;#raise Myerror,&apos;test&apos;category = self.form[&apos;category&apos;].valueif category == &apos;-1&apos;:self.error_message.append(&apos;You must select a category of your report&apos;)return#everything&apos;s ok,move on to the next pageprint &apos;Hi, the category is rightly input for it\&apos;s not a null value,good work!&apos;print &apos;------------------------------------------------------------------------&apos;self.template = &apos;catcheck2&apos;def init(instance):instance.registerAction(&apos;category_submitcheck&apos;, Page1SubmitAction)"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446874" FOLDED="true" ID="Freemind_Link_846755085" MODIFIED="1149409322816" TEXT="3 &#x89c6;&#x56fe;">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1137329446874" ID="Freemind_Link_747228757" MODIFIED="1137329446874" TEXT="page.html">
-<font NAME="SansSerif" SIZE="12"/>
-</node>
-<node COLOR="#111111" CREATED="1137329446874" ID="Freemind_Link_543709579" MODIFIED="1137329446874" TEXT="issue.catcheck1.html">
-<node COLOR="#111111" CREATED="1137329446874" ID="Freemind_Link_1404773587" MODIFIED="1137329446874" TEXT="&lt;!-- The example &quot;Setting up a &quot;wizard&quot; for controlled adding of issues,in the tutorial of roundup documention, by zhong, 20050416.--&gt;&lt;form method=&quot;POST&quot; onSubmit=&quot;return submit_once()&quot;     enctypes=&quot;multipart/form-data&quot;&gt;&lt;input type=&quot;hidden&quot; name=&quot;@template&quot; value=&quot;catcheck2&quot;&gt;&lt;input type=&quot;hidden&quot; name=&quot;@action&quot; value=&quot;category_submitcheck&quot;&gt;&lt;strong&gt;Category:&lt;/strong&gt;&lt;!-- --&gt;&lt;!-- &lt;tal:block tal:replace=&quot;structure context/category/menu&quot; /&gt; --&gt;&lt;!-- &lt;tal:define=&quot;context python:db.issue&quot; &gt; --&gt;&lt;!--&lt;tal:block tal:replace=&quot;structure context/category/menu&quot; /&gt;--&gt;&lt;p tal:content=&quot;structure context/category/menu&quot;&gt;category &lt;/p&gt;&lt;p tal:content=&quot;structure context/priority/menu&quot;&gt;priority&lt;/p&gt;&lt;br&gt;&lt;!--&lt;tal:block tal:replace=&quot;structure python:db.issue.category.menu&quot; /&gt; --&gt;&lt;input type=&quot;submit&quot; value=&quot;Continue&quot;&gt;&lt;!-- &lt;/form&gt;     --&gt;  &lt;/form&gt;"/>
-<node COLOR="#111111" CREATED="1137329446884" ID="Freemind_Link_1681859852" MODIFIED="1137329446884" TEXT="&#x6ce8;&#x610f;&#xff1a;1 &lt;input type=&quot;hidden&quot; name=&quot;@template&quot; value=&quot;catcheck2&quot;&gt;&#x539f;value&#x9009;&#x9879;&#x4e3a;&#x201c;catcheck1&#x201d;&#xff0c;&#x65e0;&#x6cd5;&#x63d0;&#x4ea4;&#x81f3;catcheck2&#x9875;&#x9762;&#xff0c;&#x540e;&#x6539;&#x4e3a;catcheck2&#x540e;&#x6b63;&#x5e38;&#xff0c;&#x4f55;&#x6545;&#xff1f;2 &lt;input type=&quot;hidden&quot; name=&quot;@action&quot; value=&quot;category_submitcheck&quot;&gt;&#x6b64;&#x5904;action&#x5373;&#x4e3a;&#x8c03;&#x7528;&#x589e;&#x52a0;&#x7684;action&#x6a21;&#x5757;&#x201c;Page1Submition.py&#x201d;,&#x4ee5;&#x6b64;&#x5b9e;&#x73b0;&#x9875;&#x9762;&#x4e4b;&#x95f4;&#x8f6c;&#x6362;&#x7684;&#x63a7;&#x5236;&#x3002;&#x5c1a;&#x672a;&#x6d4b;&#x8bd5;&#x3002;3 &#x4e0b;&#x62c9;&#x83dc;&#x5355;&#x603b;&#x662f;&#x5c55;&#x5f00;&#xff0c;&#x4e14;&#x6ca1;&#x6709;&#x201c;&#x65e0;&#x201d;&#x9009;&#x9879;&#xff0c;&#x4f55;&#x6545;&#xff1f;4 &#x8be5;&#x9875;&#x9762;&#x65e0;&#x6cd5;&#x663e;&#x793a;&#x4e3a;page.html&#x98ce;&#x683c;&#xff0c;&#x5373;&#x5de6;&#x83dc;&#x5355;&#x680f;&#xff0c;&#x53f3;&#x5185;&#x5bb9;&#xff0c;&#x9700;&#x8c03;&#x8bd5;&#xff1f;">
-<icon BUILTIN="help"/>
-<icon BUILTIN="messagebox_warning"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1137329446884" ID="Freemind_Link_159461798" MODIFIED="1137329446884" TEXT="issue.catcheck2.html">
-<node COLOR="#111111" CREATED="1137329446884" ID="Freemind_Link_743278399" MODIFIED="1137329446884" TEXT="&lt;form method=&quot;POST&quot; onSubmit=&quot;return submit_once()&quot;enctypes=&quot;multipart/form-data&quot;tal:condition=&quot;context/is_edit_ok&quot;tal:define=&quot;cat request/form/category/value&quot;&gt;&lt;table class=&quot;form&quot;&gt;...... &lt;input type=&quot;hidden&quot; name=&quot;@template&quot; value=&quot;item&quot;&gt;&lt;input type=&quot;hidden&quot; name=&quot;category&quot; tal:attributes=&quot;value cat&quot;&gt;"/>
-<node COLOR="#111111" CREATED="1137329446884" ID="Freemind_Link_1003002722" MODIFIED="1137329446884" TEXT="&#x6ce8;&#x610f;&#xff1a;1 &lt;form ...... tal:define=&quot;cat request/form/category/value&quot;&gt;&#x201c;cat&#x201d;&#x53d8;&#x91cf;&#x662f;&#x4e3a;&#x4e86;&#x63a7;&#x5236;&#x9875;&#x9762;&#x663e;&#x793a;category&#x7684;&#x79cd;&#x7c7b;&#x3002;2 &lt;input type=&quot;hidden&quot; name=&quot;@template&quot; value=&quot;item&quot;&gt;&#x6b64;&#x5904;&#x201c;value&#x201d;&#x539f;&#x5148;&#x4e3a;&#x201c;add_page2&#x201d;&#xff0c;&#x6539;&#x4e3a;&#x81ea;&#x5df1;&#x5b9a;&#x4e49;&#x6a21;&#x677f;&#x6587;&#x4ef6;&#x540d;&#x4e4b;&#x540e;&#xff0c;&#x603b;&#x662f;&#x51fa;&#x9519;&#xff0c;&#x540e;&#x6539;&#x4e3a;&#x201c;item&#x201d;&#xff08;&#x5373;URI&#x6307;&#x5411; issue.item.html&#xff09;&#x540e;&#x6b63;&#x5e38;&#xff0c;&#x4f55;&#x6545;&#xff1f;3 &#x8be5;&#x9875;&#x9762;&#x65e0;&#x6cd5;&#x663e;&#x793a;&#x4e3a;page.html&#x98ce;&#x683c;&#xff0c;&#x5373;&#x5de6;&#x83dc;&#x5355;&#x680f;&#xff0c;&#x53f3;&#x5185;&#x5bb9;&#xff0c;&#x9700;&#x8c03;&#x8bd5;&#xff1f;">
-<icon BUILTIN="messagebox_warning"/>
-<icon BUILTIN="help"/>
-</node>
-</node>
-</node>
-</node>
-</node>
 </node>
 <node COLOR="#00b439" CREATED="1122623322765" FOLDED="true" ID="Freemind_Link_344179201" MODIFIED="1274840293192" TEXT="&#x7ef4;&#x62a4;&#x5b50;&#x7cfb;&#x7edf;">
 <edge STYLE="bezier" WIDTH="thin"/>
@@ -943,7 +613,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1122623322805" FOLDED="true" ID="Freemind_Link_1796982583" MODIFIED="1274863374402" TEXT="&#x7cfb;&#x7edf;&#x8bbe;&#x8ba1;/&#x5206;&#x6790;">
+<node COLOR="#00b439" CREATED="1122623322805" FOLDED="true" ID="Freemind_Link_1796982583" MODIFIED="1275015960804" TEXT="&#x7cfb;&#x7edf;&#x8bbe;&#x8ba1;/&#x5206;&#x6790;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1122623322815" FOLDED="true" ID="Freemind_Link_758406796" MODIFIED="1274839942281" TEXT="&#x7cfb;&#x7edf;&#x65f6;&#x5e8f;&#x903b;&#x8f91;">
@@ -1154,10 +824,23 @@
 <node COLOR="#111111" CREATED="1274840448407" ID="ID_651181795" MODIFIED="1274841355645" TEXT="&#x7528;&#x4e8e;&#x90ae;&#x4ef6;&#x786e;&#x8ba4;&#x521b;&#x5efa;&#x65b0;&#x6ce8;&#x518c;&#x7528;&#x6237;&#x673a;&#x5236;&#x3002;&#xa;&#x7528;&#x6237;&#x6ce8;&#x518c;&#x4e2a;&#x4eba;&#x4fe1;&#x606f;&#xa;&#xff0d;&#xff0d;&#xff0d;&#x300b;&#xa;&#x7cfb;&#x7edf;&#x5b58;&#x5165;OTK&#x8868;&#x4e2d;&#xff08;&#x7ed3;&#x6784;&#xff0c; uid, &#x5176;&#x4ed6;properties &#x548c;values&#xff09;,&#x53d1;&#x9001;&#x7ed9;&#x7528;&#x6237;&#x786e;&#x8ba4;&#x90ae;&#x4ef6;&#xa;&#x5bf9;&#x5e94;&#x4ee3;&#x7801;&#xff1a;&#xa;actions.py, RegisterAction, &#x5982;&#x679c; self.db.config[&apos;INSTANT_REGISTRATION&apos;]&#x4e3a;False&#xff0c;&#x6b64;&#x65f6;&#x5148;&#x5c06;&#x7528;&#x6237;&#x6ce8;&#x518c;&#x4fe1;&#x606f;&#x5b58;&#x5165;OTK&#x8868;&#x4e2d;&#xff0c;&#x5e76;&#x53d1;&#x9001;&#x90ae;&#x4ef6;&#x8981;&#x6c42;&#x9884;&#x6ce8;&#x518c;&#x7528;&#x6237;&#x786e;&#x8ba4;&#xa;&#xff0d;&#xff0d;&#xff0d;&#x300b;&#xa;&#x7528;&#x6237;&#x6536;&#x5230;&#x6ce8;&#x518c;&#x4fe1;&#x606f;&#x90ae;&#x4ef6;&#xff0c;&#x70b9;&#x51fb;&#x786e;&#x8ba4;&#x94fe;&#x63a5;&#xa;---&gt;&#xa;&#x670d;&#x52a1;&#x5668;&#x7cfb;&#x7edf;&#x6536;&#x5230;&#x7528;&#x6237;&#x786e;&#x8ba4;Request,&#x751f;&#x6210;&#x7528;&#x6237;&#x5e10;&#x6237;&#xa;&#x5bf9;&#x5e94;&#x4ee3;&#x7801;&#xff1a;&#xa;actions.py,ConfRegoAction, &#x8c03;&#x7528;&#xa;self.userid = self.db.confirm_registration(self.form[&apos;otk&apos;].value)&#xa;------&gt;roundup.Database.confirm_registration(),&#x751f;&#x6210;&#x771f;&#x6b63;&#x7684;&#x7528;&#x6237;&#x6ce8;&#x518c;&#x5e10;&#x6237;"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1137747579607" FOLDED="true" ID="Freemind_Link_408063695" MODIFIED="1274863368895" TEXT="&#x5bf9;&#x8c61;&#x6570;&#x636e;&#x5e93;">
+<node COLOR="#990000" CREATED="1137747579607" ID="Freemind_Link_408063695" MODIFIED="1275013157440" TEXT="&#x6570;&#x636e;&#x5e93;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="help"/>
+<node COLOR="#111111" CREATED="1275013162746" ID="ID_1010844685" MODIFIED="1275013175617" TEXT="&#x7c7b;&#x5bf9;&#x8c61;&#x7a7a;&#x95f4;">
+<node COLOR="#111111" CREATED="1275013178186" ID="ID_1261509910" MODIFIED="1275013183473" TEXT="Multilink">
+<node COLOR="#111111" CREATED="1275013325870" ID="ID_1695130220" MODIFIED="1275013336487" TEXT="set(&#x7f16;&#x8f91;&#xff09;">
+<node COLOR="#111111" CREATED="1275014318809" FOLDED="true" ID="ID_327709331" MODIFIED="1275014420632" TEXT="&#x4ee3;&#x7801;&#x8ffd;&#x8e2a;">
+<node COLOR="#111111" CREATED="1275013339470" ID="ID_1739027551" MODIFIED="1275014304656" TEXT="actions.EditCommon._changenode&#xa;&gt;&gt;&gt;rdbms_commons.py, Class.set(nodeid, **props)&#xa;---&gt;Class.set_inner(),&#xa;for propname, value in propvalues.items():&#xa;...&#xa;    elif isinstance(prop, Multilink):&#xa;        ......&#xa;        add = []&#xa;        remove = []&#xa;        ......&#xa;        &#x65b0;&#x65e7; Multilink ids &#x6bd4;&#x8f83;&#xff0c;&#xa;        &#x9996;&#x5148;&#xff0c;&#x65e7; ids &#x4e0e;&#x65b0; ids &#x9010;&#x4e2a;&#x6bd4;&#x8f83;&#xff0c; &#x5982;&#x65e7;id &#x4e0d;&#x5728;&#x65b0;ids&#x4e2d;&#xff0c;&#x89c6;&#x4e3a;&#x5f85;&#x5220;&#x9664;&#xff0c;&#x5c06;&#x8be5;id&#x4fdd;&#x5b58;&#x4e8e;remove&#x4e2d;&#xff1b;&#xa;        &#x5176;&#x6b21;&#xff0c;&#x65b0; ids &#x4e0e; &#x65e7; ids &#x9010;&#x4e2a;&#x6bd4;&#x8f83;&#xff0c; &#x5982;&#x65b0;id &#x4e0d;&#x5728;&#x65e7;ids&#x4e2d;&#xff0c;&#x89c6;&#x4e3a;&#x5f85;&#x6dfb;&#x52a0;&#xff0c;&#x5c06;&#x8be5;id&#x4fdd;&#x5b58;&#x4e8e;add&#x4e2d;&#x3002;&#xa;        ......&#xa;        multilink_changes[propname] = (add, remove)&#xa;&#xa;&gt;&gt;&gt;Database.setnode(classname, nodeid, propvalues, multilink_changes):&#xa;......&#xa;# we have multilink changes to apply&#xa;for col, (add, remove) in multilink_changes.items():&#xa;    tn = &apos;%s_%s&apos;%(classname, col)&#xa;    if add:&#xa;        sql = &apos;insert into %s (nodeid, linkid) values (%s,%s)&apos;%(tn, self.arg, self.arg)        &#xa;        for addid in add:&#xa;            # XXX numeric ids&#xa;            self.sql(sql, (int(nodeid), int(addid)))&#xa;           &#xa;    if remove:&#xa;         s = &apos;,&apos;.join([self.arg]*len(remove))&#xa;         sql = &apos;delete from %s where nodeid=%s and linkid in (%s)&apos;%(tn, self.arg, s)&#xa;         # XXX numeric ids&#xa;         self.sql(sql, [int(nodeid)] + remove)"/>
+</node>
+<node COLOR="#111111" CREATED="1275014328929" FOLDED="true" ID="ID_487683908" MODIFIED="1275014403528" TEXT="&#x95ee;&#x9898;">
+<icon BUILTIN="help"/>
+<node COLOR="#111111" CREATED="1275014333758" ID="ID_77892715" MODIFIED="1275014372712" TEXT="Multilink &#x65b0;&#x65e7;&#x503c;&#x5217;&#x8868;&#x6bd4;&#x8f83;&#x53ef;&#x4ee5;&#x91c7;&#x7528;set&#xff08;&#x96c6;&#x5408;&#xff09;&#x7684;&#x65b9;&#x5f0f;&#xff0c;&#x66f4;&#x6709;&#x6548;&#x7387;&#xff1f;"/>
+</node>
+</node>
+</node>
+</node>
 <node COLOR="#111111" CREATED="1137747596862" FOLDED="true" ID="Freemind_Link_26266064" MODIFIED="1274863234191" TEXT="&#x6587;&#x4ef6;&#x6570;&#x636e;&#x5e93;">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1137747611883" ID="Freemind_Link_300924576" MODIFIED="1137747702674" TEXT="&#x76f8;&#x5173;&#x6587;&#x4ef6;&#xff1a;roundup.instance.pyroudnup.hyperdbroundup.roundupdbroundup.backends.back_anydbm"/>
@@ -1333,7 +1016,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1122623322775" FOLDED="true" ID="Freemind_Link_1604438677" MODIFIED="1274860233265" TEXT="&#x7cfb;&#x7edf;&#x6846;&#x67b6;">
+<node COLOR="#990000" CREATED="1122623322775" FOLDED="true" ID="Freemind_Link_1604438677" MODIFIED="1275011302683" TEXT="&#x7cfb;&#x7edf;&#x6846;&#x67b6;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node BACKGROUND_COLOR="#ffff00" COLOR="#111111" CREATED="1122623322775" FOLDED="true" ID="Freemind_Link_362072849" MODIFIED="1274841407544" TEXT="behaviour">
@@ -1606,27 +1289,27 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1167190896119" FOLDED="true" ID="Freemind_Link_231520980" MODIFIED="1274841459792" TEXT="&#x4ee3;&#x7801;&#x5206;&#x6790;">
+<node COLOR="#00b439" CREATED="1167190896119" FOLDED="true" ID="Freemind_Link_231520980" MODIFIED="1275013136321" TEXT="&#x4ee3;&#x7801;&#x5206;&#x6790;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1198827983376" FOLDED="true" ID="Freemind_Link_1225956032" MODIFIED="1274839943964" TEXT="Backend/Database">
+<node COLOR="#990000" CREATED="1198827983376" FOLDED="true" ID="Freemind_Link_1225956032" MODIFIED="1275011290916" TEXT="Backend/Database">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1197176656252" ID="Freemind_Link_1840490011" MODIFIED="1274839943967" TEXT="rdbms_common.py">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1197176666277" ID="Freemind_Link_96360185" MODIFIED="1198827996865" TEXT="&#x65b9;&#x6cd5;">
 <font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1197176675810" FOLDED="true" ID="Freemind_Link_1005484761" MODIFIED="1197176681108" TEXT="commit()">
+<node COLOR="#111111" CREATED="1197176675810" FOLDED="true" ID="Freemind_Link_1005484761" MODIFIED="1275011270160" TEXT="commit()">
 <node COLOR="#111111" CREATED="1197176685324" ID="Freemind_Link_936321340" MODIFIED="1197176832205" TEXT="&#x4ea4;&#x4e92;&#x4e8b;&#x52a1;&#x5904;&#x7406;&#x673a;&#x5236;&#xff1a;for method, args in self.transactions:            method(*args)self.transactions---&gt;((method,args)...)"/>
 </node>
-<node COLOR="#111111" CREATED="1198828195190" FOLDED="true" ID="Freemind_Link_1560521086" MODIFIED="1198828296426" TEXT="_num_cvt()">
+<node COLOR="#111111" CREATED="1198828195190" FOLDED="true" ID="Freemind_Link_1560521086" MODIFIED="1275011271160" TEXT="_num_cvt()">
 <node COLOR="#111111" CREATED="1198828204384" ID="Freemind_Link_1146980223" MODIFIED="1198828266853" TEXT="&#x5b57;&#x7b26;&#x8f6c;&#x6362;&#x4e3a;&#x6574;&#x6570;&#x6216;&#x6d6e;&#x70b9;&#x6570;"/>
 </node>
 </node>
 </node>
 <node COLOR="#111111" CREATED="1198828013339" ID="Freemind_Link_455998844" MODIFIED="1274839943988" TEXT="back_sqlite.py">
 <font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1198828052205" ID="Freemind_Link_180000063" MODIFIED="1198828066906" TEXT="class Database">
+<node COLOR="#111111" CREATED="1198828052205" FOLDED="true" ID="Freemind_Link_180000063" MODIFIED="1275011272329" TEXT="class Database">
 <node COLOR="#111111" CREATED="1198828103298" ID="Freemind_Link_1817120530" MODIFIED="1198828153781" TEXT="Hyperdb &lt;---&gt; Database">
 <icon BUILTIN="idea"/>
 <node COLOR="#111111" CREATED="1198828093344" ID="Freemind_Link_1284253226" MODIFIED="1198828310987" TEXT="sql_to_hyperdb_value">
@@ -1637,7 +1320,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1122623322815" FOLDED="true" ID="Freemind_Link_280849942" MODIFIED="1274839944008" TEXT="roundupdb.py">
+<node COLOR="#111111" CREATED="1122623322815" FOLDED="true" ID="Freemind_Link_280849942" MODIFIED="1275011275105" TEXT="roundupdb.py">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1122623322815" ID="Freemind_Link_93007241" MODIFIED="1198828362912" TEXT="Database">
 <font NAME="SansSerif" SIZE="12"/>
@@ -1649,7 +1332,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1122623322805" FOLDED="true" ID="Freemind_Link_1093246802" MODIFIED="1274839944021" TEXT="hyperdb.py">
+<node COLOR="#111111" CREATED="1122623322805" FOLDED="true" ID="Freemind_Link_1093246802" MODIFIED="1275011277099" TEXT="hyperdb.py">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1122623322805" ID="Freemind_Link_1163539356" MODIFIED="1198828365535" TEXT="String">
 <font NAME="SansSerif" SIZE="12"/>
@@ -1700,7 +1383,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1197174481655" FOLDED="true" ID="Freemind_Link_1251237119" MODIFIED="1274839944079" TEXT="FileClass">
+<node COLOR="#111111" CREATED="1197174481655" FOLDED="true" ID="Freemind_Link_1251237119" MODIFIED="1275011284225" TEXT="FileClass">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1197174535323" FOLDED="true" ID="Freemind_Link_341956501" MODIFIED="1198828369121" TEXT="roundup.rdbms_common.pyFileClass(hyperdb.FileClass, Class)">
 <font NAME="SansSerif" SIZE="12"/>
@@ -2489,7 +2172,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1176858951119" FOLDED="true" ID="Freemind_Link_55211099" MODIFIED="1274841419065" POSITION="left" TEXT="Roundup &amp; Karrigell Server Config">
+<node COLOR="#0033ff" CREATED="1176858951119" FOLDED="true" ID="Freemind_Link_55211099" MODIFIED="1275011422010" POSITION="left" TEXT="Roundup &amp; Karrigell Server Config">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node BACKGROUND_COLOR="#ccff00" COLOR="#00b439" CREATED="1171026666158" FOLDED="true" ID="Freemind_Link_1327588509" MODIFIED="1254629446562" TEXT="KarrigellRequestHandler mixin Roundup.cgi.ajaxlcient">
@@ -2528,7 +2211,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1172461325875" ID="Freemind_Link_1603201205" MODIFIED="1274840067945" TEXT="cgi.ajaxacitons">
+<node COLOR="#990000" CREATED="1172461325875" FOLDED="true" ID="Freemind_Link_1603201205" MODIFIED="1275011417881" TEXT="cgi.ajaxacitons">
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="full-2"/>
 <node COLOR="#111111" CREATED="1172461344132" ID="Freemind_Link_997514054" MODIFIED="1176858981502" TEXT="&#x5bf9;&#x5404;&#x7c7b;acitons&#x8fd4;&#x56de;&#x503c;&#x7684;&#x5904;&#x7406;&#xff1a;&#x6709;&#x4ee5;&#x4e0b;&#x4e24;&#x7c7b;&#x6570;&#x636e;&#xff1a;data&#xff08;&#x666e;&#x901a;&#x6570;&#x636e;&#x3001;Redirect URL&#xff09;&#x3001;html&#x6709;&#x4ee5;&#x4e0b;&#x4e24;&#x7c7b;&#x5904;&#x7406;&#xff1a;&#x9875;&#x9762;&#x5c55;&#x793a;&#x6216;&#x8fd4;&#x56de;&#x6570;&#x636e;&#x8ba1;&#x5212;&#x5904;&#x7406;&#x65b9;&#x6cd5;&#xff1a;&#x5728;ajaxclient.inner_main()&#x4e2d;&#x5c01;&#x88c5;&#x8fd4;&#x56de;&#x6570;&#x636e;&#x5305;&#xff0c;&#x91c7;&#x7528;dictionary,&#x6dfb;&#x52a0;&#x6570;&#x636e;&#x683c;&#x5f0f;key&#xff0d;&#x300b;&quot;format&quot;,&#x5bf9;&#x5e94;&#x5404;&#x7c7b;&#x8fd4;&#x56de;&#x6570;&#x636e;&#x5982;&#xff0c;data&#x3001;html&#x3001;URL&#x6700;&#x540e;&#x5c01;&#x88c5;&#x4e3a;JSON&#x683c;&#x5f0f;&#x8fd4;&#x56de;&#x7ed9;&#x5ba2;&#x6237;&#x7aef;ajax&#x7a0b;&#x5e8f;">
@@ -2555,7 +2238,7 @@
 <node COLOR="#990000" CREATED="1253759829734" ID="Freemind_Link_1205320232" MODIFIED="1274840134809" TEXT="Database">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1253759999044" FOLDED="true" ID="Freemind_Link_969867590" MODIFIED="1274840196543" TEXT="self.db.arg">
+<node COLOR="#111111" CREATED="1253759999044" FOLDED="true" ID="Freemind_Link_969867590" MODIFIED="1275011412296" TEXT="self.db.arg">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1253759843090" ID="Freemind_Link_1478416999" MODIFIED="1274840194326" TEXT="self.db.arg&#x5728;backup_?.py &#x4e2d;&#x8bbe;&#x5b9a;&#x4e3a;&#x5168;&#x5c40;&#x53d8;&#x91cf;&#xff0c;&#xa;&#x4f8b;&#x5982;&#x5728;backup_sqlite.py.Database&#x4e2d;&#xff1a;&#xa;# char to use for positional arguments    &#xa;if sqlite_version in (2,3): &#xa;    arg = &apos;?&apos;    &#xa;else:&#xa;    arg = &apos;%s&apos;">
 <font NAME="SansSerif" SIZE="12"/>

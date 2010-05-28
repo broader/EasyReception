@@ -435,15 +435,18 @@ def _createIssueJs(formId, creator):
 def page_createIssueAction(**args):
 	creator, message, title, keyword = [args.get(name) for name in ('creator','message', 'title', 'keyword')]
 	iprops = {}
-	[ iprops.update({name:args.get(name) or ''}) for name in ('title','keyword')]
+	iprops['title'] = title
 	iprops['nosy'] = USER
-
-	keyword = iprops.get('keyword')
-	if keyword:
+	
+	# set 'keyword' and 'assignedto' properties
+	if keyword and type(keyword) == type(''):
+		iprops['keyword'] = keyword.split(',')
+		# get nosy list
 		users = _getNosy(keyword)
 		if users:
 			iprops['nosy'] = ','.join(users )
-
+		
+		# get 'assigned' user for this issue
 		user = _getAssigned(keyword)
 		if user:
 			iprops['assignedto'] = user	
@@ -451,14 +454,17 @@ def page_createIssueAction(**args):
 	print iprops
 
 	mprops = {'content':message}
-	#model.edit_issue(creator, args, mprops, serial=None)
+	issueId, msgId = model.edit_issue(creator, iprops, mprops)
+	print issueId,',',msgId
 	return
 
 def _getAssigned(keyword):
 	user = None
 	rows = _getRelationValue('keyword', 'user')
 	if rows:
-		rows = filter(lambda row: row[0] == keyword, rows)
+		rows = filter(\
+			lambda row: set(row[0].split(',')).intersection(set(keyword.split(','))),\
+			rows)
 		if rows:
 			user = rows[0][1]
 	return user
