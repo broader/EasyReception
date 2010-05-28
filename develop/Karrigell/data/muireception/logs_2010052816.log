@@ -1,0 +1,4 @@
+2010/05/28 16:42:45 - 127.0.0.1 - GET /service/userHotelsView.ks/page_hotelsList HTTP/1.1 200
+2010/05/28 16:42:46 - 127.0.0.1 - GET /service/userHotelsView.ks/page_hotelInfo HTTP/1.1 200
+2010/05/28 16:42:46 - 127.0.0.1 - GET /service/userHotelsView.ks/page_colsModel HTTP/1.1 200
+2010/05/28 16:42:46 - 127.0.0.1 - GET /service/userHotelsView.ks/page_roomReservation HTTP/1.1 200

@@ -41,26 +41,30 @@ def page_issueList(**args):
 	print DIV(**{'id': userViewIssueList})
 	print pagefn.script( _issueListJs( userViewIssueList), link=False)
 	return
+
 ACTIONTAG, ACTIONS, ACTIONLABELS = 'action', ['create','edit'],[_('Create'), _('Edit')]
+ISSUEGRIDNAME = 'issueGrid'
 def _issueListJs(container):
-	paras = [ APP, container, _('Your Issues List'),ACTIONTAG]
+	paras = [ APP, container, _('Your Issues List'), ISSUEGRIDNAME, ACTIONTAG]
 	# filter labels
 	paras.extend([pagefn.JSLIB['dataGrid']['filter']['labels'][name] for name in ('action', 'clear')])
 	# edit action buttons' labels
 	[ paras.extend(item) for item in (ACTIONS, ACTIONLABELS) ]
 
-	paras.extend([ '/'.join((APPATH,name)) for name in ( 'page_colsModel', 'page_createIssueForm')])
+	paras.extend([ '/'.join((APPATH,name)) for name in ( 'page_colsModel', 'page_issuesData', 'page_createIssueForm')])
 	paras.append(_('Create a new issue'))
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName='%s', container=$('%s'), appTitle='%s', actionTag='%s',
+	var appName='%s', container=$('%s'), appTitle='%s', issueGrid='%s', actionTag='%s',
 	// labels for filter buttons
 	filterBnLabels=['%s', '%s'],	
 	// actions and labels for actions
 	actions=['%s', '%s'], bnLabels=['%s', '%s'],
 	// column model for issue grid
 	colsModelUrl='%s',
+	// grid data source url
+	issueGriDataUrl='%s',
 	// create action url
 	createUrl='%s';
 	createTitle='%s';
@@ -138,6 +142,9 @@ def _issueListJs(container):
          		width: 450, height: 320, y: 80, title: createTitle,
          		contentURL: createUrl,
          		modalOverlayClose: false,
+			onClose: function(e){
+      				datagrid.loadData();
+      			}
          	});
 	};
 
@@ -159,8 +166,8 @@ def _issueListJs(container):
     			}
 		}).get();
 
-		issueGrid = new omniGrid( issueGridContainer, {
-			columnModel: colsModel,	url: '', accordion: true,
+		window[issueGrid] = new omniGrid( issueGridContainer, {
+			columnModel: colsModel,	url: issueGriDataUrl, accordion: true,
 			accordionRenderer: issueGridAccordion,
 			autoSectionToggle: true,
 			perPageOptions: [15,25,50,100],
@@ -170,7 +177,7 @@ def _issueListJs(container):
 			width:720, height: 280
 		});
 		
-		issueGrid.addEvent('dblclick', issueGridRowAction);
+		window[issueGrid].addEvent('dblclick', issueGridRowAction);
 	};
 	
 	function issueGridAccordion(obj){
@@ -227,7 +234,7 @@ def page_colsModel(**args):
 def page_issuesData(**args):
 	# paging arguments
 	showPage, pageNumber = [ int(args.get(name)) for name in ('page', 'perpage') ]
-	search = args.get('filter')
+	search = args.get('filter') or ''
 	
 	# arguments for sort action
 	sortby,sorton = [ pagefn.JSLIB['dataGrid']['sorTag'][name] for name in ('sortOn', 'sortBy')] 
@@ -237,7 +244,7 @@ def page_issuesData(**args):
 	
 	# column's property name
 	showProps = [item.get('name') for item in ISSUELISTCOLUMNS]
-	total, data = model.get_userlist(USER, showProps, search)
+	total, data = model.get_issues(USER, showProps, search)
 	
 	d['total'] = total
 	
@@ -269,16 +276,6 @@ def page_issuesData(**args):
 		
 		# constructs each row to be a dict object that key is a property.
 		encoded = [dict([(prop,value) for prop,value in zip(showProps,row)]) for row in rslice]
-		
-		# some properties need to be transformated
-		transProps = [{'name':'gender','function':(lambda i: pagefn.GENDER[int(i)] )},]
-		names = [prop.get('name') for prop in transProps]
-		
-		for row in encoded :
-			for prop in transProps:
-				old = row[prop.get('name')]
-				new = prop.get('function')(old)
-				row[prop.get('name')] = new
 			
 		d['data'] = encoded
 	
@@ -338,7 +335,7 @@ def page_createIssueForm(**args):
 		prop['id'] = prop['name']
 		if prop['name'] == 'keyword':
 			values = model.get_items_ByString( USER, 'relation', {'klassname':'keyword', 'relateclass':'issue'}, propnames=('klassvalue',))
-			if values:
+			if values and type(values) != type(''):
 				options = values[0][0].split(',')
 			else:
 				options = []
@@ -365,12 +362,12 @@ def page_createIssueForm(**args):
 	return
 
 def _createIssueJs(formId, creator):
-	paras = [ APP, formId, 'position:absolute;margin-left:15em;']
+	paras = [ APP, ISSUEGRIDNAME, formId, 'position:absolute;margin-left:15em;']
 	paras.extend( [ pagefn.BUTTONLABELS.get('confirmWindow').get(key) for key in ('confirm','cancel')] )
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName='%s', formId='%s', bnStyle='%s',
+	var appName='%s', issueGrid='%s', formId='%s', bnStyle='%s',
 	confirmBnLabel='%s',cancelBnLabel='%s';
 	
 	var issueCreationFormChk;
@@ -380,11 +377,12 @@ def _createIssueJs(formId, creator):
 		issueCreationFormChk = new FormCheck(formId,{
 		    submitByAjax: true,
 		    onAjaxSuccess: function(response){
-			if(response == 1){ 
-				MUI.closeModalDialog(); 
-				// rfresh the issue grid
-			}
-			else{ MUI.notification('Action Failed');};               
+			// close modal
+			MUI.closeModalDialog(); 
+			// show result
+			MUI.notification(response);
+			// reload grid
+			//window[issueGrid].loadData();
 		    },            
 		    
  		    display:{
@@ -451,11 +449,11 @@ def page_createIssueAction(**args):
 		if user:
 			iprops['assignedto'] = user	
 
-	print iprops
-
 	mprops = {'content':message}
+	
+	# create this issue and corresponding msg 
 	issueId, msgId = model.edit_issue(creator, iprops, mprops)
-	print issueId,',',msgId
+	print _('New issue node id is %s, the id of the new message of this issue is %s.')%(issueId, msgId)
 	return
 
 def _getAssigned(keyword):
@@ -463,7 +461,7 @@ def _getAssigned(keyword):
 	rows = _getRelationValue('keyword', 'user')
 	if rows:
 		rows = filter(\
-			lambda row: set(row[0].split(',')).intersection(set(keyword.split(','))),\
+			lambda row: set(row[0].split(',')) == set(keyword.split(',')),\
 			rows)
 		if rows:
 			user = rows[0][1]
@@ -474,8 +472,8 @@ def _getNosy(keyword):
 	if not rows:
 		return None 
 
-	# if keyword and 'klassvalue' has intersection, the relatevalue will be selected
-	assignedRoles = [ row[1] for row in rows if set(row[0].split(',')).intersection(keyword.split(',')) ]
+	# if keyword is a subset of 'klassvalue', the relatevalue will be selected
+	assignedRoles = [ row[1] for row in rows if  set(keyword.split(',')).issubset(set(row[0].split(','))) ]
 	if assignedRoles:
 		assignedRoles = ','.join(assignedRoles).split(',')
 	else:

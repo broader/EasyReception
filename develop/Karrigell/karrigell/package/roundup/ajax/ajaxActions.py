@@ -1380,8 +1380,8 @@ class FilterByTextAction(Action):
         # format is {propname: value,......}
         require = self.form.get('require')        
         
-        #print 'ajaxActions.FilterByTextAction,L1433,klass is %s, props are %s, search is %s, require is %s'\
-        #            %(klass, props, search,require)
+        print 'ajaxActions.FilterByTextAction,L1433,klass is %s, props are %s, search is %s, require is %s'\
+                    %(klass, props, search,require)
         
         # get  the required nodes' ids of this class
         if require:
@@ -1390,7 +1390,7 @@ class FilterByTextAction(Action):
             ids = klass.list()
         self.form['total'] = len(ids)
         
-        #print 'FilterByTextAction,L1442, propnames are %s, search value is %s, item ids are %s'%(props, search, ids)
+        print 'FilterByTextAction,L1442, propnames are %s, search value is %s, item ids are %s'%(props, search, ids)
         
         rows = []
         for id in ids:
@@ -1398,7 +1398,7 @@ class FilterByTextAction(Action):
             if row:
                 rows.append(row)                               
         
-        #print 'FilterByTextAction,L1448, searched values are ', rows
+        print 'FilterByTextAction,L1448, searched values are ', rows
         
         return rows
  
@@ -2470,12 +2470,12 @@ def write2csv(filename,content, mode='ab'):
     writer.writerows(content)
     f.close()  
 
-def searchString(klass, nodeid, props, search=''):
+def searchString(klass, nodeid, props, search='', linkContent=False):
     ''' Get properties values of a class, if the property is linked to a FileClass,
        return file content.
     '''
-    #print 'ajaxActions.searchString, L2541, class is %s, nodeid is %s, props are %s, search is %s'\
-    #            %(klass,nodeid, props, search)
+    print 'ajaxActions.searchString, L2541, class is %s, nodeid is %s, props are %s, search is %s'\
+          %(klass,nodeid, props, search)
     row = []          
     properties = klass.getprops()  
     for prop in props:
@@ -2487,13 +2487,25 @@ def searchString(klass, nodeid, props, search=''):
             lklass = klass.db.getclass(cn)            
             # get the linked node id of this item
             linkid = klass.get(nodeid, prop)
-            #print 'ajaxAction,L2558, link class name is %s, link class is %s, link ids are %s '%(cn, lklass, linkid)
+            print 'ajaxAction,L2490, link class name is %s, link class is %s, link ids are %s '%(cn, lklass, linkid)
             if not linkid:
                 # no linked file, set the content to null
-                content = ''
-            elif cn in ('msg', 'file', 'dossier'):
+                content = '' or linkid
+            elif not linkContent:
+                if type(linkid) in (type(()), type([])):
+                    content = ','.join(linkid)
+                else:
+                    content = linkid
+            #elif cn in ('msg', 'file', 'dossier'):
+            elif lklass.properties.has_key('content'):
                 # for FileClass, append the 'content' of the file
-                content = lklass.get(linkid, 'content')
+                if type(linkid) in ( type([]), type(())):
+                    content = [lklass.get(i, 'content') for i in linkid ]
+                    content = '\n'.join(content)
+                elif type(linkid) == type(''):                    
+                    content = lklass.get(linkid, 'content')
+                else:
+                    content = ''
             else:
                 keyprop = lklass.getkey()
                 if type(linkid) != type([]):
@@ -2503,22 +2515,22 @@ def searchString(klass, nodeid, props, search=''):
                 content = [lklass.get(id, keyprop) for id in ids ]
                 content = ','.join(content)                                   
             row.append(content)
-            #print 'ajaxAction,L2564, searched row value is ', row            
+            print 'ajaxAction,L2506, searched row value is ', row            
         elif classtype == 'String' :
             row.append(klass.get(nodeid,prop))
-            #print 'ajaxAction,L2566, searched row value is ', row
+            print 'ajaxAction,L2509, searched row value is ', row
         else:
             try:
                 row.append(str(klass.get(nodeid,prop)))
             except:
                 row.append('')
-    #print 'ajaxAction,L2583, searched row value is ', row
+    print 'ajaxAction,L2515, searched row value is ', row
     
     # search the text in the item of this row
     # join all the item in this row to a string for judging handyly
     row = [i or '' for i in row]
     target = ''.join(row)
-    #print 'ajaxAction,L2585, searched value is %s, target is %s'%(target, search)
+    print 'ajaxAction,L2521, searched value is %s, target is %s'%(target, search)
     if not target:
         row = []
     elif search not in target:
