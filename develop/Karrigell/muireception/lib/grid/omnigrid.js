@@ -339,7 +339,9 @@ var omniGrid = new Class({
 		if ( this.container.getElement('.gBlock') )
 			this.container.getElement('.gBlock').dispose();
 			
-		var gBlock = new Element('div', {style:'top: 0px; left: 0px;   background: white none repeat scroll 0% 0%;  -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; position: absolute; z-index: 999; opacity: 0.5; filter: alpha(opacity=50'} ) ;
+		var gBlock = new Element('div', 
+			{style:'top: 0px; left: 0px;   background: white none repeat scroll 0% 0%;  -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; position: absolute; z-index: 999; opacity: 0.5; filter: alpha(opacity=50'} ) ;
+
 		var bDiv = this.container.getElement('.bDiv');
 		
 		var top = 1;

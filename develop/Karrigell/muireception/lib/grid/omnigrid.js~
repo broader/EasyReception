@@ -414,7 +414,7 @@ var omniGrid = new Class({
 	},
 	
 	// API, return a cell value by its column 'dataIndex'. Added by B.Z 
-	getCellByProp: function(row,prop){
+	getRowCellByProp: function(row,prop){
 		return this.getDataByRow(row)[prop]
 	},
 	

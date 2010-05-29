@@ -44,9 +44,8 @@ def page_issueList(**args):
 	return
 
 ACTIONTAG, ACTIONS, ACTIONLABELS = 'action', ['create','edit'],[_('Create'), _('Edit')]
-ISSUEGRIDNAME = 'issueGrid'
 def _issueListJs(container):
-	paras = [ APP, container, _('Your Issues List'), ISSUEGRIDNAME, ACTIONTAG]
+	paras = [ APP, container, _('Your Issues List'), ACTIONTAG]
 	# filter labels
 	paras.extend([pagefn.JSLIB['dataGrid']['filter']['labels'][name] for name in ('action', 'clear')])
 	# edit action buttons' labels
@@ -57,7 +56,7 @@ def _issueListJs(container):
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName='%s', container=$('%s'), appTitle='%s', issueGrid='%s', actionTag='%s',
+	var appName='%s', container=$('%s'), appTitle='%s', actionTag='%s',
 
 	// labels for filter buttons
 	filterBnLabels=['%s', '%s'],
@@ -77,7 +76,7 @@ def _issueListJs(container):
 	var createTitle='%s';
 
 	// global name for datagrid
-	window[issueGrid] = null;
+	var issueGrid = null;
 
 	// title for this app
 	container.adopt( new Element('h2',{html:appTitle}), new Element('hr',{style:'padding-bottom:0.1em;'}));
@@ -150,7 +149,7 @@ def _issueListJs(container):
          		contentURL: createUrl,
          		modalOverlayClose: false,
 			onClose: function(e){
-      				window[issueGrid].loadData();
+      				ti.loadData();
       			}
          	});
 	};
@@ -173,7 +172,7 @@ def _issueListJs(container):
     			}
 		}).get();
 
-		window[issueGrid] = new omniGrid( issueGridContainer, {
+		issueGrid = new omniGrid( issueGridContainer, {
 			columnModel: colsModel,	url: issueGriDataUrl, accordion: true,
 			accordionRenderer: issueGridAccordion,
 			autoSectionToggle: true,
@@ -184,7 +183,7 @@ def _issueListJs(container):
 			width:750, height: 400
 		});
 
-		window[issueGrid].addEvent('dblclick', issueGridRowAction);
+		issueGrid.addEvent('dblclick', issueGridRowAction);
 	};
 
 	function issueGridAccordion(obj){
@@ -238,6 +237,7 @@ def page_colsModel(**args):
 	PRINT( JSON.encode({'data':colsModel}, encoding='utf8'))
 	return
 
+DEFAULTSORTON, DEFAULTSORTBY = 'activity', 'DESC'
 def page_issuesData(**args):
 	# paging arguments
 	showPage, pageNumber = [ int(args.get(name)) for name in ('page', 'perpage') ]
@@ -249,20 +249,32 @@ def page_issuesData(**args):
 	# column's property name
 	showProps = [item.get('name') for item in ISSUELISTCOLUMNS]
 	total, data = model.get_issues(USER, showProps, search)
-
 	d['total'] = total
 
 	if data:
 		# sort data
 		# arguments for sort action
-		sorton,sortby = [ args.get(name) or '' for name in
-			[ pagefn.JSLIB['dataGrid']['sorTag'][name] for name in ('sortOn', 'sortBy')]
+		tags = [ pagefn.JSLIB['dataGrid']['sorTag'][name] for name in ('sortOn', 'sortBy')]
+		sorton,sortby = [ args.get(name) or defaultValue for name,defaultValue in zip(
+			tags,
+			[ DEFAULTSORTON, DEFAULTSORTBY])
 		]
 
-		if sortby :
-			data.sort(key=lambda row:row[showProps.index(sortby)])
+		if sorton in ('creation', 'activity'):
+			import datetime
+			# a temporary function to construct a datetime.datetime object from 'activity' data
+			def _cmpActivity(d):
+				src = [l.split(sep) for l,sep in zip(d.split('.'), ('-',':'))]
+				res = []
+				[ [ res.append(int(i)) for i in l] for l in src]
+				return datetime.datetime(*res)
 
-		if sorton == 'DESC':
+			data.sort(key=lambda row: _cmpActivity(row[showProps.index(sorton)]))
+			data.reverse()
+		else:
+			data.sort(key=lambda row: row[showProps.index(sorton)])
+
+		if sortby == 'DESC':
 			data.reverse()
 
 		# get the data of the displayed page
@@ -376,16 +388,17 @@ def page_createIssueForm(**args):
 	return
 
 def _createIssueJs(formId, creator):
-	paras = [ APP, ISSUEGRIDNAME, formId, 'position:absolute;margin-left:15em;']
+	paras = [ APP, formId, 'position:absolute;margin-left:15em;']
 	paras.extend( [ pagefn.BUTTONLABELS.get('confirmWindow').get(key) for key in ('confirm','cancel')] )
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName='%s', issueGrid='%s', formId='%s', bnStyle='%s',
+	var appName='%s', formId='%s', bnStyle='%s',
 	confirmBnLabel='%s',cancelBnLabel='%s';
 
 	var issueCreationFormChk;
 	// Load the form validation plugin script
+	var grid = window[issueGrid];
 	var issueOptions = {
 	    onload:function(){
 		issueCreationFormChk = new FormCheck(formId,{
@@ -395,8 +408,6 @@ def _createIssueJs(formId, creator):
 			MUI.closeModalDialog();
 			// show result
 			MUI.notification(response);
-			// reload grid
-			//window[issueGrid].loadData();
 		    },
 
  		    display:{

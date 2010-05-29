@@ -36,7 +36,7 @@ JSLIB['dataGrid'] = \
 {
 	'files':['/'.join(('lib','grid',name)) for name in ('omnigrid.css','gridSupplement.css', 'omnigrid.js')],
 	'filter': {'labels':{'action':_('Filter'), 'clear': _('Clear')}},
-	'sorTag': {'sortOn':'SORTON', 'sortBy':'SORTBY'}
+	'sorTag': {'sortOn':'sorton', 'sortBy':'sortby'}
 }
 
 # textMultiCheckbox
