@@ -366,12 +366,15 @@ def get_userlist(operator, props, search=None):
 	propnames = [prop for prop in props if prop in user_props]
 	propnames.append('info')
 	# action
-	form = { 'context': 'user',
-		      'action': 'filtertext',
-		      'search' : search,
-		      'require': {'roles':'User'},
-		      'propnames' : propnames,
-		    }
+	form = {\
+		'context': 'user',
+		'action': 'filtertext',
+		'search' : search,
+		'require': {'roles':'User'},
+		'propnames' : propnames,
+		'link2contentProps' : ['info',]
+	}
+
 	client.form = form
 	data = action(client)
 	if not data :
@@ -407,6 +410,7 @@ def get_issues(operator, props, search=None):
 		'action': 'filtertext',
 		'search' : search,
 		'propnames' : props,
+		'link2contentProps': ['keyword', 'status']
 	}
 
 	client.form = form

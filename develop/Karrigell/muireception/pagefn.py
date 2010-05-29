@@ -57,9 +57,9 @@ JSLIB['multiSelect'] = \
 ##
 # Datagrid Plugin Files
 #--------------------------------------------------------------------------------------
-GRIDFILES = \
-['/'.join(( 'lib', 'grid', name )) \
-for name in ('omnigrid.css', 'gridSupplement.css','omnigrid.js')]
+#GRIDFILES = \
+#['/'.join(( 'lib', 'grid', name )) \
+#for name in ('omnigrid.css', 'gridSupplement.css','omnigrid.js')]
 #---End--------------------------------------------------------------------------------
 
  

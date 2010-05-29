@@ -1375,13 +1375,14 @@ class FilterByTextAction(Action):
         klass = self.db.getclass(cl)
         props = self.form.get('propnames')
         search = self.form.get('search') or ''
+        link2contentProps =self.form.get('link2contentProps') or []
             
         # 'require' is a dictionary which holds the required Sring properties and their values;
         # format is {propname: value,......}
         require = self.form.get('require')        
         
-        print 'ajaxActions.FilterByTextAction,L1433,klass is %s, props are %s, search is %s, require is %s'\
-                    %(klass, props, search,require)
+        #print 'ajaxActions.FilterByTextAction,L1433,klass is %s, props are %s, search is %s, require is %s'\
+        #            %(klass, props, search,require)
         
         # get  the required nodes' ids of this class
         if require:
@@ -1394,11 +1395,11 @@ class FilterByTextAction(Action):
         
         rows = []
         for id in ids:
-            row = searchString(klass, id, props, search)
+            row = searchString(klass, id, props, search, link2contentProps)
             if row:
                 rows.append(row)                               
         
-        print 'FilterByTextAction,L1448, searched values are ', rows
+        print 'FilterByTextAction,L1448, searched result values are ', rows
         
         return rows
  
@@ -2470,7 +2471,7 @@ def write2csv(filename,content, mode='ab'):
     writer.writerows(content)
     f.close()  
 
-def searchString(klass, nodeid, props, search='', linkContent=False):
+def searchString(klass, nodeid, props, search='', link2contentProps=[]):
     ''' Get properties values of a class, if the property is linked to a FileClass,
        return file content.
     '''
@@ -2491,12 +2492,11 @@ def searchString(klass, nodeid, props, search='', linkContent=False):
             if not linkid:
                 # no linked file, set the content to null
                 content = '' or linkid
-            elif not linkContent:
+            elif not prop in link2contentProps:
                 if type(linkid) in (type(()), type([])):
                     content = ','.join(linkid)
                 else:
                     content = linkid
-            #elif cn in ('msg', 'file', 'dossier'):
             elif lklass.properties.has_key('content'):
                 # for FileClass, append the 'content' of the file
                 if type(linkid) in ( type([]), type(())):

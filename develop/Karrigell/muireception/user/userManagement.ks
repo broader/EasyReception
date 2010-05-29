@@ -216,9 +216,8 @@ def page_usersData(**args):
 	search = args.get('filter')
 	
 	# arguments for sort action
-	sortby,sorton = [ args.get(name) or '' for name in (GRIDSORTONTAG,GRIDSORTBYTAG)]
-	
-	
+	sortby,sorton = [ args.get(name) or '' for name in (GRIDSORTONTAG,GRIDSORTBYTAG)] 
+
 	# returned data object
 	d = {'page':showPage,'data':[],'search':search}
 	

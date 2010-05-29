@@ -58,20 +58,26 @@ def _issueListJs(container):
 	js = \
 	"""
 	var appName='%s', container=$('%s'), appTitle='%s', issueGrid='%s', actionTag='%s',
+
 	// labels for filter buttons
 	filterBnLabels=['%s', '%s'],
+
 	// actions and labels for actions
 	actions=['%s', '%s'], bnLabels=['%s', '%s'],
+
 	// column model for issue grid
 	colsModelUrl='%s',
+
 	// grid data source url
 	issueGriDataUrl='%s',
+
 	// create action url
 	createUrl='%s';
-	createTitle='%s';
 
-	// global variable for datagrid
-	var issueGrid = null;
+	var createTitle='%s';
+
+	// global name for datagrid
+	window[issueGrid] = null;
 
 	// title for this app
 	container.adopt( new Element('h2',{html:appTitle}), new Element('hr',{style:'padding-bottom:0.1em;'}));
@@ -144,7 +150,7 @@ def _issueListJs(container):
          		contentURL: createUrl,
          		modalOverlayClose: false,
 			onClose: function(e){
-      				datagrid.loadData();
+      				window[issueGrid].loadData();
       			}
          	});
 	};
@@ -175,7 +181,7 @@ def _issueListJs(container):
 			perPage:10, page:1, pagination:true, serverSort:true,
 			showHeader: true, sortHeader: true, alternaterows: true,
 			resizeColumns: true, multipleSelection:true,
-			width:720, height: 280
+			width:750, height: 400
 		});
 
 		window[issueGrid].addEvent('dblclick', issueGridRowAction);
@@ -235,10 +241,7 @@ def page_colsModel(**args):
 def page_issuesData(**args):
 	# paging arguments
 	showPage, pageNumber = [ int(args.get(name)) for name in ('page', 'perpage') ]
-	search = args.get('filter')
-
-	# arguments for sort action
-	sortby,sorton = [ pagefn.JSLIB['dataGrid']['sorTag'][name] for name in ('sortOn', 'sortBy')]
+	search = args.get('filter') or ''
 
 	# returned data object
 	d = {'page':showPage,'data':[],'search':search}
@@ -251,6 +254,11 @@ def page_issuesData(**args):
 
 	if data:
 		# sort data
+		# arguments for sort action
+		sorton,sortby = [ args.get(name) or '' for name in
+			[ pagefn.JSLIB['dataGrid']['sorTag'][name] for name in ('sortOn', 'sortBy')]
+		]
+
 		if sortby :
 			data.sort(key=lambda row:row[showProps.index(sortby)])
 
@@ -273,6 +281,11 @@ def page_issuesData(**args):
 
 		for row in rslice:
 			for i,s in enumerate(row) :
+				# get 'messages' index
+				mindex = [ item.get('name') for item in ISSUELISTCOLUMNS].index('messages')
+				if i == mindex:
+					s = str(len(s.split(',')))
+
 				row[i] = s.decode('utf8')
 
 		# constructs each row to be a dict object that key is a property.
