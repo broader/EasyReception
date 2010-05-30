@@ -23,8 +23,11 @@ function sidePanelCollapse(panelId){
 ** Before open a panel, do some initial works.
 */
 function initPanel(panelId){
+	// remove validation left errors
 	MUI.removeErr();
+	// other panels accordion
 	MUI.accordionPanels(panelId);
+	// clear content in main panel
 	MUI.clearMainPanel();
 };
 

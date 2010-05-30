@@ -237,6 +237,18 @@ HOTEL = \
 ##
 ISSUE = \
 {
+	'userView': {\
+		'mainColumn':{
+			'panelId': 'issueList', 'panelTitle': _('Your  Issues'),
+			'contentUrl': '/'.join(('issue','userView.ks', 'page_issueList'))
+		},
+		'rightColumn':{
+			'panelId':'issueDetail','panelTitle':_('Issue Detail'),
+			'contentUrl': '/'.join(('issue','userView.ks', 'page_issueDetail'))
+		}
+	},
+
+	'manageView':{}
 }
 
 #---End--------------------------------------------------------------------------------

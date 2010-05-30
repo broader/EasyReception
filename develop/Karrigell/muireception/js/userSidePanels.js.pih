@@ -10,7 +10,7 @@ pagefn = Import('/'.join(('', 'pagefn.py')))
 # initialize some page variables
 sideBar, mainColumn = pagefn.COLUMNS
 
-portfolio, hotel = [ getattr(pagefn, attr) for attr in ('PORTFOLIO', 'HOTEL')]
+portfolio, hotel, issue = [ getattr(pagefn, attr) for attr in ('PORTFOLIO', 'HOTEL', 'ISSUE')]
 %>
 
 var mainPanelId = MUI.mainPanelId;
@@ -98,17 +98,36 @@ function servicePanel(panelId){
 */
 function issuePanel(panelId){
 	MUI.initPanel(panelId);
-	
-	var cid = 'userViewIssueColumn'; 
+
+	// add main column	
+	var issueMainColumn = 'issueListColumn';
 	new MUI.Column({
-		container:mainPanelId, id: cid, placement: 'main', 
+		container:mainPanelId, id: issueMainColumn, placement: 'main', 
 		sortable: false, width: null, resizeLimit: [100,200] 
 	});
+
+	// add right column	
+	var issueRightColumn = 'issueDetailColumn';
+	new MUI.Column({
+		container:mainPanelId, id: issueRightColumn, placement: 'right',  
+		sortable: false, width: 500, resizeLimit: [400,500] 
+	});
 	
+	// the panel to show issue list on main column
 	new MUI.Panel({
-		id: 'userViewIssuePanel', header:false, column: cid,
-		contentURL:'issue/userView.ks/page_issueList'
-	});	
+		column: issueMainColumn, 
+		id: "<%=issue.get('userView')['mainColumn']['panelId']%>",
+		title: "<%=issue.get('userView')['mainColumn']['panelTitle']%>",
+		contentURL: "<%=issue.get('userView')['mainColumn']['contentUrl']%>"
+	});
+		
+	// the panel to show the detail information of a issue item in right column
+	new MUI.Panel({
+		column: issueRightColumn,
+		id: "<%=issue.get('userView')['rightColumn']['panelId']%>",
+		title: "<%=issue.get('userView')['rightColumn']['panelTitle'] %>",
+		contentURL: "<%=issue.get('userView')['rightColumn']['contentUrl']%>"
+	});
 };
 
 
