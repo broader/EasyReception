@@ -1,0 +1,23 @@
+2010/05/30 15:33:48 - 127.0.0.1 - GET /service/service.ks/page_reserveList?init=1 HTTP/1.1 200
+2010/05/30 15:33:48 - 127.0.0.1 - GET /service/service.ks/index HTTP/1.1 200
+2010/05/30 15:33:48 - 127.0.0.1 - GET /service/service.ks/page_reserveEdit HTTP/1.1 200
+2010/05/30 07:33:50 - 127.0.0.1 - GET /lib/treeTable/jquery.treeTable.js?_=1275204830166 HTTP/1.1 200
+2010/05/30 07:33:50 - 127.0.0.1 - GET /service/reserveList.js.pih?categoryTag=noUsed&serviceDiv=serviceList&editDiv=reserveEdit&editUrl=service/service.ks/page_reserveEdit&subcategoryTag=hasChildren&reserveDiv=reserveList&action=edit&_=1275204830316 HTTP/1.1 200
+2010/05/30 07:33:50 - 127.0.0.1 - GET /lib/treeTable/toggle-expand-dark.png HTTP/1.1 200
+2010/05/30 07:33:50 - 127.0.0.1 - GET /service/serviceChange.js.pih?listUrl=service/service.ks/page_serviceList&listDiv=serviceList&editUrl=service/service.ks/page_reserveEdit&editDiv=reserveEdit&page=&selectId=stype&_=1275204830463 HTTP/1.1 200
+2010/05/30 07:33:50 - 127.0.0.1 - GET /navigation.ks/profile?path=issue HTTP/1.1 302 /issue/
+2010/05/30 07:33:50 - 127.0.0.1 - GET /issue/ HTTP/1.1 200
+2010/05/30 07:33:50 - 127.0.0.1 - GET /lib/dataTable/css/demo_table.css HTTP/1.1 200
+2010/05/30 07:33:50 - 127.0.0.1 - GET /lib/multiselect/style.css HTTP/1.1 200
+2010/05/30 07:33:51 - 127.0.0.1 - GET /lib/asmselect/jquery.asmselect.css HTTP/1.1 200
+2010/05/30 07:33:51 - 127.0.0.1 - GET /js/jquery.form.js?_=1275204831227 HTTP/1.1 200
+2010/05/30 07:33:51 - 127.0.0.1 - GET /issue/issue.ks/index HTTP/1.1 200
+2010/05/30 07:33:51 - 127.0.0.1 - GET /issue/issue.ks/page_editIssue HTTP/1.1 200
+2010/05/30 07:33:51 - 127.0.0.1 - GET /issue/issue.ks/show HTTP/1.1 200
+2010/05/30 07:33:51 - 127.0.0.1 - GET /lib/dataTable/js/jquery.dataTables.js?_=1275204831636 HTTP/1.1 200
+2010/05/30 07:33:51 - 127.0.0.1 - GET /lib/dataTable/i18n/cn_CN.txt HTTP/1.1 200
+2010/05/30 07:33:51 - 127.0.0.1 - GET /issue/issue.ks/page_getData?iColumns=5&sColumns=&iDisplayLength=10&iDisplayStart=0&sSearch=&bEscapeRegex=true&sSearch_0=&bEscapeRegex_0=true&sSearch_1=&bEscapeRegex_1=true&sSearch_2=&bEscapeRegex_2=true&sSearch_3=&bEscapeRegex_3=true&sSearch_4=&bEscapeRegex_4=true&iSortingCols=1&iSortCol_0=0&iSortDir_0=desc HTTP/1.1 200
+2010/05/30 07:33:51 - 127.0.0.1 - GET /lib/dataTable/images/sort_desc.jpg HTTP/1.1 200
+2010/05/30 07:33:51 - 127.0.0.1 - GET /lib/dataTable/images/sort_both.jpg HTTP/1.1 200
+2010/05/30 07:33:51 - 127.0.0.1 - GET /issue/issue.ks/page_showIssueInPage?serial=I20091021023246 HTTP/1.1 200
+2010/05/30 07:33:52 - 127.0.0.1 - GET /lib/smartlists/smartlists.js.pih?listId=sl&prompt=All%20Message%27s%20Writers&pageItems=3&_=1275204833753 HTTP/1.1 200

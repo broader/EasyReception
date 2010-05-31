@@ -159,7 +159,6 @@ var TreeTable = new Class({
 			onSuccess: function(data){
 				this.options.data= data;
 				this.setData();
-				
 			}.bind(this)
 		});
 		request.get();
@@ -449,8 +448,6 @@ var TreeTable = new Class({
 		},this);		
 	}
 	
-	
 });
-
 
 /*************************************************************/

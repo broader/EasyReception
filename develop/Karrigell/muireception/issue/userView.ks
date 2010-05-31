@@ -44,7 +44,7 @@ def page_issueList(**args):
 
 ACTIONTAG, ACTIONS, ACTIONLABELS = 'action', ['create','edit'],[_('Create'), _('Edit')]
 def _issueListJs(container):
-	paras = [ APP, container, _('Your Issues List'), ACTIONTAG]
+	paras = [ APP, container, ACTIONTAG]
 	# filter labels
 	paras.extend([pagefn.JSLIB['dataGrid']['filter']['labels'][name] for name in ('action', 'clear')])
 	# edit action buttons' labels
@@ -55,7 +55,7 @@ def _issueListJs(container):
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName='%s', container=$('%s'), appTitle='%s', actionTag='%s',
+	var appName='%s', container=$('%s'), actionTag='%s',
 
 	// labels for filter buttons
 	filterBnLabels=['%s', '%s'],	
@@ -77,9 +77,6 @@ def _issueListJs(container):
 	// global name for datagrid
 	var issueGrid = null;
 	
-	// title for this app
-	container.adopt( new Element('h2',{html:appTitle}), new Element('hr',{style:'padding-bottom:0.1em;'}));	
-
 	// Action area
 	var actionArea = new Element('div', {style:'padding-bottom:0.3em;'});
 	
@@ -175,11 +172,11 @@ def _issueListJs(container):
 			columnModel: colsModel,	url: issueGriDataUrl, accordion: true,
 			accordionRenderer: issueGridAccordion,
 			autoSectionToggle: true,
-			perPageOptions: [15,25,50,100],
-			perPage:10, page:1, pagination:true, serverSort:true,
+			perPageOptions: [15,25,40,60],
+			perPage:15, page:1, pagination:true, serverSort:true,
 			showHeader: true, sortHeader: true, alternaterows: true,
 			resizeColumns: true, multipleSelection:true,
-			width:750, height: 400 
+			width:650, height: 400 
 		});
 		
 		issueGrid.addEvent('dblclick', issueGridRowAction);
@@ -221,7 +218,7 @@ ISSUELISTCOLUMNS = \
   {'name':'title','header':_('Title'),'dataType':'string'}, \
   {'name':'keyword','header':_('Key Words'),'dataType':'string'},\ 
   {'name':'messages','header':_('Messages Number'),'dataType':'string'},\ 
-  {'name':'creation','header':_('Creation'),'dataType':'string'}, \
+  #{'name':'creation','header':_('Creation'),'dataType':'string'}, \
   {'name':'activity','header':_('Activity'),'dataType':'string'}, \
   {'name':'status','header':_('Status'),'dataType':'string'}\
 ]

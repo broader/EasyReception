@@ -238,7 +238,7 @@ ISSUE = \
 {
 	'userView': {\
 		'mainColumn':{ 
-			'panelId': 'issueList', 'panelTitle': _('Your  Issues'), 
+			'panelId': 'issueList', 'panelTitle': _('Your  Issues List'), 
 			'contentUrl': '/'.join(('issue','userView.ks', 'page_issueList'))
 		},
 		'rightColumn':{

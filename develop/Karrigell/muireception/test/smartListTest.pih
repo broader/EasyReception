@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src="../lib/mootools/mootools-1.2.4-core.js"></script>
+	<script type="text/javascript" src="../lib/mootools/mootools-1.2.4.2-more.js"></script>
+	<script type="text/javascript" src="../lib/smartList/mtSmartList.js"></script>
+	<script type="text/javascript">
+		smartList = new SmartList($('smartList', {'dataUrl': 'testData.ks'}));
+	</script>
+	<title>Smart List Demo</title>
+</head>
+<body>
+	<h1>Smart List Demo</h1>
+	
+	<div id="smartList" class="">
+	</div>
+	
+</body>
+</html>

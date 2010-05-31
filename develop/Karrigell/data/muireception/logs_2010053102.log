@@ -1,0 +1,5 @@
+2010/05/31 02:22:10 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_classEdit?klass=relation HTTP/1.1 200
+2010/05/31 02:22:10 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_getKeyValues?klass=&oldvalue= HTTP/1.1 200
+2010/05/31 02:22:10 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_getKeyValues?klass=&oldvalue= HTTP/1.1 200
+2010/05/31 02:22:11 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_getKeyValues?klass=keyword&oldvalue= HTTP/1.1 200
+2010/05/31 02:22:14 - 127.0.0.1 - GET /sysadmin/sysadmin.ks/page_getKeyValues?klass=role&oldvalue= HTTP/1.1 200
