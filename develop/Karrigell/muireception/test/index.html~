@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--
+	<link rel="stylesheet" href="demo.css" type="text/css" />
+	<script type="text/javascript" src="../mootools.js"></script>
+	-->
+	<link rel="stylesheet" href="demo.css" type="text/css" />
+	
+	<script type="text/javascript" src="../lib/mootools/mootools-1.2.4-core.js"></script>
+	<script type="text/javascript" src="../lib/mootools/mootools-1.2.4.2-more.js"></script>
+	<script type="text/javascript" >
+	window.addEvent('domready', function(){
+		
+		var updateColor = function(value){
+			// Sets the color of the output text and its text to the current color
+			//el.setStyle('color', color).set('text', color.rgbToHex());
+			$('setColor').set('text', value);
+		};
+	
+		// We call that function to initially set the color output
+		updateColor(1);
+	
+		$$('div.slider.advanced').each(function(el, i){
+			knob = el.getElement('.knob');
+			var slider = new Slider(el, knob, {
+				steps: 21,  // Steps from 0 to 255
+				range: [1],
+				wheel: true, // Using the mousewheel is possible too
+				onChange: function(value){				
+					// Based on the Slider values set an RGB value in the color array
+					//color[i] = this.step;
+					// and update the output to the new value
+					updateColor(value);
+				}
+			}).set(1);
+		});
+	});
+	</script>
+	<title>Slider Demo</title>
+</head>
+<body>
+	
+	<div id="blue" class="slider advanced">
+		<div class="knob">
+		</div>
+	</div>
+	<span class="b">Selected color: </span>
+	<span id="setColor"></span>
+</body>
+</html>

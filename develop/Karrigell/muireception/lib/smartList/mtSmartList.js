@@ -33,21 +33,28 @@ var SmartList = new Class({
 		// add filter input element
 		this.filterInput = new Element('input',{value:'test'});
 		this.filterInput.addEvent('change', this.filter.bind(this));
-	
+		
+		/*
 		// add slider element for pagination
 		var slider = new Element('div', {'class': this.options.sliderClass});
 		var knob = new Element('div', {'class': this.options.knobClass});
-		slider.adopt(knob);
-		// add filter input and slider to filterBox element
-		this.filterBox.adopt(this.filterInput, slider);
-
 		slider.grab(knob);
+		//var input = this.filterInput;
+		var container = this.container;
+		
 		this.slider = new Slider(slider,knob, {
-			steps: 10, wheel: true,
-			onChange: function(){
+			steps: 10, range:[1], //wheel: true, 
+			onChange: function(value){
+				//input.setProperty('value',value);
+				e = new Element('span', {html:value});
+				e.inject(container, 'top');				
 			}
 		});
+		*/
+		slider = options.slider;
 		
+		this.filterBox.adopt(this.filterInput, slider);
+
 		// add the container to hold li elements
 		this.content = new Element('div', {style:'border-top: 1px solid grey;'});
 		

@@ -1,0 +1,28 @@
+window.addEvent('domready', function(){
+	// Second Example
+	//var el = $('setColor'), color = [0, 0, 0];
+	
+	var updateColor = function(value){
+		// Sets the color of the output text and its text to the current color
+		//el.setStyle('color', color).set('text', color.rgbToHex());
+		$('setColor').set('text', value);
+	};
+	
+	// We call that function to initially set the color output
+	updateColor(1);
+	
+	$$('div.slider.advanced').each(function(el, i){
+		knob = el.getElement('.knob');
+		var slider = new Slider(el, knob, {
+			steps: 20,  // Steps from 0 to 255
+			range: [1],
+			wheel: true, // Using the mousewheel is possible too
+			onChange: function(value){				
+				// Based on the Slider values set an RGB value in the color array
+				//color[i] = this.step;
+				// and update the output to the new value
+				updateColor(value);
+			}
+		}).set(0);
+	});
+});
