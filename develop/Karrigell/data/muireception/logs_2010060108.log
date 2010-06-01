@@ -1,0 +1,6 @@
+2010/06/01 08:17:02 - 127.0.0.1 - GET /test/smartListTest.pih HTTP/1.1 200
+2010/06/01 08:17:03 - 127.0.0.1 - GET /lib/mootools/mootools-1.2.4-core.js HTTP/1.1 200
+2010/06/01 08:17:03 - 127.0.0.1 - GET /lib/mootools/mootools-1.2.4.2-more.js HTTP/1.1 200
+2010/06/01 08:17:03 - 127.0.0.1 - GET /lib/smartList/mtSmartList.js HTTP/1.1 200
+2010/06/01 08:17:03 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found
+2010/06/01 08:17:03 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found

@@ -2,11 +2,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="smartList.css" type="text/css" />
 	<script type="text/javascript" src="../lib/mootools/mootools-1.2.4-core.js"></script>
 	<script type="text/javascript" src="../lib/mootools/mootools-1.2.4.2-more.js"></script>
 	<script type="text/javascript" src="../lib/smartList/mtSmartList.js"></script>
 	<script type="text/javascript">
-		smartList = new SmartList($('smartList', {'dataUrl': 'testData.ks'}));
+		window.addEvent('domready', function(){	
+			smartList = new SmartList($('smartList'), {
+				'dataUrl': 'data.ks',
+				'liRender': render
+			});
+		});
+		
+		function render(liData){
+			data = $H(liData);
+			data.each(function(value,key){
+				row = [key,value].join(' : ');	
+				this.content.grab(new Element('div',{html:row}));
+			}.bind(this));
+
+			this.content.grab(new Element('hr'));
+		};
 	</script>
 	<title>Smart List Demo</title>
 </head>

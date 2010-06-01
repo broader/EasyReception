@@ -1,0 +1,16 @@
+div.mtSmartListSlider {
+    width: 400px;
+    margin: 5px 0;
+    background: url(images/slider.png) 0 center repeat-x;
+    height: 1em;
+}
+
+div.mtSmartListSlider div.mtSmartListKnob {
+    background: no-repeat center center;
+    cursor: pointer;
+    background-image: url(images/blue.png);
+    position: relative;
+    left: 0px;
+    height: 1em;
+}
+

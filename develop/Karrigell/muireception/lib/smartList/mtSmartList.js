@@ -31,19 +31,28 @@ var SmartList = new Class({
 		// add filterBox element
 		this.filterBox = new Element('div');
 		// add filter input element
-		this.filterInput = new Element('input',{html:'test'});
+		this.filterInput = new Element('input',{value:'test'});
 		this.filterInput.addEvent('change', this.filter.bind(this));
 	
 		// add slider element for pagination
 		var slider = new Element('div', {'class': this.options.sliderClass});
 		var knob = new Element('div', {'class': this.options.knobClass});
-		slider.grab(knob);
-		this.slider = new Slider(slider,knob);
+		slider.adopt(knob);
 		// add filter input and slider to filterBox element
-		this.filterBox.adopt(this.filterInput, this.slider);
+		this.filterBox.adopt(this.filterInput, slider);
 
+		slider.grab(knob);
+		this.slider = new Slider(slider,knob, {
+			steps: 10, wheel: true,
+			onChange: function(){
+			}
+		});
+		
 		// add the container to hold li elements
-		this.content = new Element('div');
+		this.content = new Element('div', {style:'border-top: 1px solid grey;'});
+		
+		this.container.adopt(new Element('br'), this.content);
+		this.filterBox.inject(this.container, this.options.filterBoxPosition);
 		
 		// pagination options
 		this.pageData = { total: null, current: 1};
@@ -58,7 +67,6 @@ var SmartList = new Class({
 	},
 
 	load: function(){
-		alert('load data');
 		dataUrl = this.options.dataUrl;
 		if(!dataUrl){
 			alert('Please set data url link first!');
@@ -80,10 +88,16 @@ var SmartList = new Class({
 			return;
 		};
 		
-		this.refresh(data);
+		this.refresh(lisData);
 	},
 	
 	refresh: function(data){
-		alert(data);
+		if($type(data) != $type([])){
+			alert('Please return array object');
+			return;
+		};
+
+		data.each(this.options.liRender.bind(this));
+			
 	}
 });
