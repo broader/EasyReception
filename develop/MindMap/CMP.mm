@@ -4522,7 +4522,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1275355793892" POSITION="right" TEXT="Company Web Site">
+<node COLOR="#0033ff" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1275453490361" POSITION="right" TEXT="Company Web Site">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="full-1"/>
@@ -4672,7 +4672,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1272874077641" FOLDED="true" ID="ID_181569051" MODIFIED="1274662593616" TEXT="Virtual Web Server">
+<node COLOR="#00b439" CREATED="1272874077641" FOLDED="true" ID="ID_181569051" MODIFIED="1275453487888" TEXT="Virtual Web Server">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1272874094829" ID="ID_1247499914" LINK="http://www.net.cn/static/hosting/" MODIFIED="1272874098141" TEXT="http://www.net.cn/static/hosting/">
@@ -4680,6 +4680,10 @@
 </node>
 <node COLOR="#990000" CREATED="1272874115755" ID="ID_25769405" LINK="http://www.hetu.cn/" MODIFIED="1272874119174" TEXT="http://www.hetu.cn/">
 <font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1275452983362" ID="ID_778058392" LINK="http://www.hosting.czm.cn/contact.php" MODIFIED="1275452991220" TEXT="http://www.hosting.czm.cn/contact.php">
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="full-1"/>
 </node>
 </node>
 <node COLOR="#00b439" CREATED="1273025792594" FOLDED="true" ID="ID_284843413" MODIFIED="1275214542640" TEXT="SEO">
