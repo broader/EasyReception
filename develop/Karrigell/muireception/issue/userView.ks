@@ -222,6 +222,7 @@ ISSUELISTCOLUMNS = \
   {'name':'activity','header':_('Activity'),'dataType':'string'}, \
   {'name':'status','header':_('Status'),'dataType':'string'}\
 ]
+
 def page_colsModel(**args):
 	""" 
 	Return the columns' model of the grid on the client side, which is used to show users' issues.
@@ -233,7 +234,8 @@ def page_colsModel(**args):
 	print JSON.encode({'data':colsModel}, encoding='utf8')
 	return
 
-DEFAULTSORTON, DEFAULTSORTBY = 'activity', 'DESC'  def page_issuesData(**args):
+DEFAULTSORTON, DEFAULTSORTBY = 'activity', 'DESC'  
+def page_issuesData(**args):
 	# paging arguments
 	showPage, pageNumber = [ int(args.get(name)) for name in ('page', 'perpage') ]
 	search = args.get('filter') or ''

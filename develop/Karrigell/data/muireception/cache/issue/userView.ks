@@ -223,6 +223,7 @@ ISSUELISTCOLUMNS = \
   {'name':'activity','header':_('Activity'),'dataType':'string'}, \
   {'name':'status','header':_('Status'),'dataType':'string'}\
 ]
+
 def page_colsModel(**args):
 	"""
 	Return the columns' model of the grid on the client side, which is used to show users' issues.
