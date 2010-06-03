@@ -18,6 +18,8 @@ var SmartList = new Class({
 		container: null,	// the container for this widget
 		dataUrl: null,		// the data url for the li elements shown in this widget
 		liRender: null,		// the render function for each li element
+		
+		contentClass: 'mtSmartListContent',	// the css class for li content
 
 		// filter options
 		filterBoxPosition: 'top',	// the position of filter box which holds a input element and a slider for pagination
@@ -26,17 +28,24 @@ var SmartList = new Class({
 		
 		// paginator options
 		itemsPerPage: 3,	// the number of showing items in one page
+		paginatorPosition: 'top',	// the position of the paginator on widget container
+
 		// slider options
 		sliderClass: 'mtSmartListSlider',
 		knobClass: 'mtSmartListKnob',
-		pageInfo: 'Page <span class="currentPage">{currentPage}</span> of {total}'
+		pageInfoTmpls: {
+			'total': 'Total {total} items', 
+			'page': "Page <span class='{pageInfoClass}'>{currentPage}</span> of {pageNumber}"
+		},
+		pageInfoClass: 'currentPage'
+
 	},
 	
 	initialize: function(container, options){		
 		this.setOptions(options);	
 		// pagination data
-		this.pageData = $H({total: null, current: 1, data: [], itemsPerPage: this.options.itemsPerPage});
-		this.urlQuery = {};
+		this.pageData = $H({total: null, currentPage: 1, data: [], itemsPerPage: this.options.itemsPerPage});
+		this.urlQuery = {'currentPage':1};
 		// load data first
 		this.load();
 		// widget layout initialization	
@@ -46,28 +55,30 @@ var SmartList = new Class({
 		filterBox = new Element('div');
 
 		// add filter input element and button
-		var input = new Element('input',{value:'test'});
+		var input = new Element('input',{value:'test', style: 'width:120px;'});
 		var button = new Element('button',{html: this.options.filterBnLabel});
 		button.store('input', input);
 		button.addEvent('click', function(e){
 			new Event(e).stop();
 			// add input value to url query object
-			this.urlQuery[this.options.filterField] = e.target.retrieve('input').getProperty('value');			
+			this.urlQuery[this.options.filterField] = e.target.retrieve('input').getProperty('value');
 			this.reset();
 		}.bind(this));
+
 		var span = new Element('span');
 		span.adopt(input, button);
 		filterBox.grab(span);
 		
 		// add the container to hold a slider for pagination
 		this.paginator = new Element('div', {style:'line-height: 23px; font-size: 12px;'});
-		filterBox.grab(this.paginator);
+		//filterBox.grab(this.paginator);
 		
 		// add the container to hold li elements
-		this.content = new Element('div', {style:'border-top: 1px solid grey;'});
+		this.content = new Element('div', {'class': this.options.contentClass});
 		this.container.adopt(new Element('br'), this.content);
 
 		// inject the filter box to the container
+		this.paginator.inject(this.container, this.options.paginatorPosition);
 		filterBox.inject(this.container, this.options.filterBoxPosition);
 
 		this.setPaginator();	
@@ -99,59 +110,50 @@ var SmartList = new Class({
 			this.content.set('text', 'No data!');
 			return;
 		};
-		var total = this.pageData.total.toInt();
-		
-		/*
-
-		// add slider element for pagination
-		//var slider = new Element('div', {'class': this.options.sliderClass});
-		var slider = new Element('div', {'class': 'mtSmartListSlider'});
-		//var knob = new Element('div', {'class': this.options.knobClass});
-		var knob = new Element('div', {'class': 'mtSmartListKnob'});
-		slider.grab(knob);
-		this.paginator.grab(slider);
+		var pageNumber = this.pageData.pageNumber.toInt();
 		
 		// add paging info element
-		var templ = this.options.pageInfo.substitute({total: total, currentPage:1});
-		pageInfo = new Element('span', {html:templ});
-		this.paginator.store('pageInfo', pageInfo);
+		pageInfo = new Element('span', {style:'float:left; width:100%;'});
+		pageInfo.set('text', this.options.pageInfoTmpls.total.substitute({'total': this.pageData.total}));
 		this.paginator.grab(pageInfo);
 
-		var sliderInstance = new Slider(slider,knob, {
-			steps: 20, range:[1], //wheel: true, 
-			onChange: function(value){	// page dragging
-				//this.onPageDrag(value);
-				//alert('slider on drag value is '+value);
-				//var templ = this.options.pageInfo.substitute({total: this.pageData.total, currentPage:value});
-				//this.paginator.retrieve('pageInfo').set('html', templ); 
-				alert(value);
-			}	
-		}).set(4);
-		//this.paginator.store('slider', sliderInstance);
-		*/
-		
+		// add slider element for pagination
 		var slider = new Element('div', {'class': this.options.sliderClass});
 		var knob = new Element('div', {'class': this.options.knobClass});
 		slider.grab(knob);
 		this.paginator.grab(slider);
-		//slider.inject(this.container, 'top');
-		var sliderObject = new Slider(slider, knob, {
-			steps: 20,  // Steps from 0 to 255
-			range: [1],
-			//wheel: true, // Using the mousewheel is possible too
-			onChange: function(value){				
-				alert(value);
-			}
-		}).set(1);
+		
+		var templ = this.options.pageInfoTmpls.page.substitute({
+			pageInfoClass: this.options.pageInfoClass, 
+			currentPage: 1, 
+			pageNumber: this.pageData.pageNumber
+		});
+		slider.grab( new Element('span', {html: templ, style:'float:right;'}));
+	
+		var sliderInstance = new Slider(slider,knob, {
+			steps: 20, range:[1, pageNumber], //wheel: true, 
+			onChange: function(value){	// page dragging
+				this.onPageDrag(value);
+			}.bind(this)	
+		});
 
-
+	},
+	
+	setInfo: function(){
+		
 	},
 
 	onPageDrag: function(value){
-		alert('page drag value is '+value);
+		//alert('page drag value is '+value);
+		this.paginator.getElement('.'+this.options.pageInfoClass).set('text', value);
+		/*
 		// set page information first
-		templ = this.options.pageInfo.substitute({total: this.pageData.total, currentPage: value});
+		templ = this.options.pageInfo.substitute(
+			{total: this.pageData.total, pageNumber: this.pageData.pageNumber, currentPage: value}
+		);
 		this.paginator.retrieve('pageInfo').set('html', templ);
+		*/
+
 		// refresh content
 		this.urlQuery['currentPage'] = value;
 		this.load();
@@ -160,7 +162,8 @@ var SmartList = new Class({
 	
 	// for filter event
 	reset: function(){
-		alert('serach text');
+		//alert(this.urlQuery.search);
+		this.urlQuery['currentPage'] = 1;
 		this.load();	// load data
 		this.setPaginator();	// reset paginator
 		this.renderContent();	// refresh content
@@ -181,6 +184,8 @@ var SmartList = new Class({
 				lisData= data;
 			}
 		});
+		this.urlQuery['itemsPerPage'] = this.pageData['itemsPerPage'];
+		//this.urlQuery['currentPage'] = this.pageData['currentPage'];
 		request.get(this.urlQuery);
 		if(!lisData){
 			alert('No data returned from the data url!');

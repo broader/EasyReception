@@ -4532,7 +4532,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1275453490361" POSITION="right" TEXT="Company Web Site">
+<node COLOR="#0033ff" CREATED="1261017385572" ID="ID_1594767766" MODIFIED="1275537203643" POSITION="right" TEXT="Company Web Site">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="full-1"/>
@@ -4682,7 +4682,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1272874077641" FOLDED="true" ID="ID_181569051" MODIFIED="1275453487888" TEXT="Virtual Web Server">
+<node COLOR="#00b439" CREATED="1272874077641" FOLDED="true" ID="ID_181569051" MODIFIED="1275538284042" TEXT="Virtual Web Server">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1272874094829" ID="ID_1247499914" LINK="http://www.net.cn/static/hosting/" MODIFIED="1272874098141" TEXT="http://www.net.cn/static/hosting/">

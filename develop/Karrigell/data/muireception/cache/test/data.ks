@@ -27,12 +27,21 @@ TESTDATA = [\
 
 
 def index(**args):
-	perPage = args.get('itemsPerPage') or 3
-	page = args.get('currentPage') or 1
-	begin = int(perPage)*int(page)-1
-	end = begin + int(perPage)
-	data = { 'currentPage': 1, 'data': TESTDATA[begin:end] }
-	data['total'] = len(TESTDATA)
+	perPage, page = [\
+		int(args.get(name) or number) \
+		for name, number in zip(('itemsPerPage','currentPage'),(3,1))]
+
+	search = args.get('search')
+	items = TESTDATA
+	if search:
+		items = filter(lambda i: search in ','.join(i.values()), items)
+		#page = 1
+
+	data = {'total': len(items)}
+	data['pageNumber'] = (lambda x,y: x/y + (x%y != 0 and 1 or 0) )(data['total'], perPage)
+	begin = perPage*(page-1)
+	end = begin + perPage
+	data.update( {'currentPage': page, 'data': items[begin:end] })
 	PRINT( JSON.encode(data, encoding='utf8'))
 	return
 

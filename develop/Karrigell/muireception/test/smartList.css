@@ -5,12 +5,12 @@ div.sliderContainer{
 }
 
 div.mtSmartListSlider {
-	width: 180px;
+	width: 120px;
 	height: 22px;
 	float: left;
 	margin: 2px 5px;
 	cursor: pointer;
-	background: url('images/Slider.png') center center no-repeat;
+	background: url('images/Slider.png') 0 center no-repeat;
 }
 
 div.mtSmartListKnob {
@@ -26,4 +26,8 @@ div.mtSmartListKnob:hover {
 
 span.currentPage {
 	font-weight: bold;
+}
+
+.mtSmartListContent {
+	background: gainsboro;
 }

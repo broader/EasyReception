@@ -78,3 +78,4 @@
 2010/06/03 11:07:28 - 127.0.0.1 - GET /test/data.ks/index HTTP/1.1 200
 2010/06/03 11:07:28 - 127.0.0.1 - GET /test/images/Slider.png HTTP/1.1 200
 2010/06/03 11:07:28 - 127.0.0.1 - GET /test/images/Knob.png HTTP/1.1 200
+2010/06/03 11:14:50 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found
