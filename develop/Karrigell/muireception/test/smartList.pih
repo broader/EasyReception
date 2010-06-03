@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="smartList.css" type="text/css" />
+	<script type="text/javascript" src="../lib/mootools/mootools-1.2.4-core.js"></script>
+	<script type="text/javascript" src="../lib/mootools/mootools-1.2.4.2-more.js"></script>
+	<script type="text/javascript" src="../lib/smartList/mtSmartList.js"></script>
+	<script type="text/javascript">
+	window.addEvent('domready', function(){	
+		
+		var smartList = new SmartList('smartList',{dataUrl: 'data.ks/index', liRender:render}); 
+
+		//-------------------------------------------------------------------------
+		var sliderSet = function(value){
+			$('pageNumber').set('text', value);
+		};
+	
+		// We call that function to initially set the color output
+		sliderSet(1);
+		
+		var slider = new Element('div', {'class': 'mtSmartListSlider'});
+		var knob = new Element('div', {'class': 'mtSmartListKnob'});
+		slider.grab(knob);
+		
+		slider.inject($('sliderContainer'), 'top');
+		
+		var sliderObject = new Slider(slider, knob, {
+			steps: 20,  // Steps from 0 to 255
+			range: [1],
+			wheel: true, // Using the mousewheel is possible too
+			onChange: function(value){				
+				sliderSet(value);
+			}
+		}).set(1);
+		//-----------------------------------------------------------------------------
+	});
+		
+	function render(liData){
+		var container = new Element('div', {style:'border-bottom: 1px solid grey;'});
+		
+		data = $H(liData);
+		data.each(function(value,key){
+			row = [key,value].join(' : ');	
+			container.grab(new Element('div',{html:row}));
+		});
+		return container
+	};
+	</script>
+	<title>Smart List Demo</title>
+</head>
+<body>
+	<h1>Smart List Demo</h1>
+	<div id='smartList' style="width:300px;"></div>
+	
+	<div id='sliderContainer' class='sliderContainer'>	
+		<span class="">Page <span id="pageNumber" style="font-weight:bold;" ></span> of 20 </span>
+	</div>
+	
+</body>
+</html>
