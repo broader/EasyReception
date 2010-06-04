@@ -7,7 +7,7 @@ div.sliderContainer{
 div.mtSmartListSlider {
 	width: 120px;
 	height: 22px;
-	float: left;
+	float: right;
 	margin: 2px 5px;
 	cursor: pointer;
 	background: url('images/Slider.png') 0 center no-repeat;

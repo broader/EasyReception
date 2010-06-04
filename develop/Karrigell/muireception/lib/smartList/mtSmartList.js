@@ -34,7 +34,7 @@ var SmartList = new Class({
 		sliderClass: 'mtSmartListSlider',
 		knobClass: 'mtSmartListKnob',
 		pageInfoTmpls: {
-			'total': 'Total {total} items', 
+			'total': 'Total {total} items.', 
 			'page': "Page <span class='{pageInfoClass}'>{currentPage}</span> of {pageNumber}"
 		},
 		pageInfoClass: 'currentPage'
@@ -46,16 +46,16 @@ var SmartList = new Class({
 		// pagination data
 		this.pageData = $H({total: null, currentPage: 1, data: [], itemsPerPage: this.options.itemsPerPage});
 		this.urlQuery = {'currentPage':1};
-		// load data first
-		this.load();
 		// widget layout initialization	
 		this.container = $(container);
+		// load data first
+		this.load();
 
 		// add filterBox element which hlods the filter and pagination elements
 		filterBox = new Element('div');
 
 		// add filter input element and button
-		var input = new Element('input',{value:'test', style: 'width:120px;'});
+		var input = new Element('input',{style: 'width:120px;'});
 		var button = new Element('button',{html: this.options.filterBnLabel});
 		button.store('input', input);
 		button.addEvent('click', function(e){
@@ -71,19 +71,19 @@ var SmartList = new Class({
 		
 		// add the container to hold a slider for pagination
 		this.paginator = new Element('div', {style:'line-height: 23px; font-size: 12px;'});
-		//filterBox.grab(this.paginator);
+		// inject the filter box to the container
+		this.paginator.inject(this.container, this.options.paginatorPosition);
+		this.setPaginator();	
+		filterBox.inject(this.container, this.options.filterBoxPosition);
+
 		
 		// add the container to hold li elements
 		this.content = new Element('div', {'class': this.options.contentClass});
-		this.container.adopt(new Element('br'), this.content);
-
-		// inject the filter box to the container
-		this.paginator.inject(this.container, this.options.paginatorPosition);
-		filterBox.inject(this.container, this.options.filterBoxPosition);
-
-		this.setPaginator();	
 		// At end, render lists to content
 		this.renderContent();
+		this.container.adopt(this.content);
+
+		
 	},
 	
 	// for page changing
@@ -113,8 +113,19 @@ var SmartList = new Class({
 		var pageNumber = this.pageData.pageNumber.toInt();
 		
 		// add paging info element
-		pageInfo = new Element('span', {style:'float:left; width:100%;'});
-		pageInfo.set('text', this.options.pageInfoTmpls.total.substitute({'total': this.pageData.total}));
+		pageInfo = new Element('span', {style:'width:100%;'});
+		var tmpl = this.options.pageInfoTmpls.page.substitute({
+			pageInfoClass: this.options.pageInfoClass, 
+			currentPage: 1, 
+			pageNumber: this.pageData.pageNumber
+		});
+		tmpl = [
+			this.options.pageInfoTmpls.total.substitute({'total': this.pageData.total}), 
+			'<br>',
+			tmpl
+		].join('');
+
+		pageInfo.set('html',tmpl);
 		this.paginator.grab(pageInfo);
 
 		// add slider element for pagination
@@ -122,14 +133,6 @@ var SmartList = new Class({
 		var knob = new Element('div', {'class': this.options.knobClass});
 		slider.grab(knob);
 		this.paginator.grab(slider);
-		
-		var templ = this.options.pageInfoTmpls.page.substitute({
-			pageInfoClass: this.options.pageInfoClass, 
-			currentPage: 1, 
-			pageNumber: this.pageData.pageNumber
-		});
-		slider.grab( new Element('span', {html: templ, style:'float:right;'}));
-	
 		var sliderInstance = new Slider(slider,knob, {
 			steps: 20, range:[1, pageNumber], //wheel: true, 
 			onChange: function(value){	// page dragging
@@ -144,25 +147,17 @@ var SmartList = new Class({
 	},
 
 	onPageDrag: function(value){
-		//alert('page drag value is '+value);
 		this.paginator.getElement('.'+this.options.pageInfoClass).set('text', value);
-		/*
-		// set page information first
-		templ = this.options.pageInfo.substitute(
-			{total: this.pageData.total, pageNumber: this.pageData.pageNumber, currentPage: value}
-		);
-		this.paginator.retrieve('pageInfo').set('html', templ);
-		*/
-
 		// refresh content
 		this.urlQuery['currentPage'] = value;
 		this.load();
+		// set currentpage info in the pageInfo 
+		this.container.getElements('.'+this.options.pageInfoClass)[0].set('text', this.pageData[this.options.pageInfoClass]);
 		this.renderContent();
 	},
 	
 	// for filter event
 	reset: function(){
-		//alert(this.urlQuery.search);
 		this.urlQuery['currentPage'] = 1;
 		this.load();	// load data
 		this.setPaginator();	// reset paginator
@@ -185,13 +180,13 @@ var SmartList = new Class({
 			}
 		});
 		this.urlQuery['itemsPerPage'] = this.pageData['itemsPerPage'];
-		//this.urlQuery['currentPage'] = this.pageData['currentPage'];
 		request.get(this.urlQuery);
 		if(!lisData){
 			alert('No data returned from the data url!');
 			return;
 		}
 		this.pageData.extend(lisData);
+
 	}
 					
 });

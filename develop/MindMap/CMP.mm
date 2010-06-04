@@ -2649,11 +2649,11 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1275534861770" POSITION="right" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1275616959469" POSITION="right" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
-<node COLOR="#00b439" CREATED="1252499786714" FOLDED="true" ID="Freemind_Link_774228154" MODIFIED="1275534860817" TEXT="URL  &#x7f16;&#x7801;">
+<node COLOR="#00b439" CREATED="1252499786714" FOLDED="true" ID="Freemind_Link_774228154" MODIFIED="1275613939203" TEXT="URL  &#x7f16;&#x7801;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -2795,7 +2795,7 @@
 <node COLOR="#111111" CREATED="1270272374006" ID="ID_1440362744" MODIFIED="1270272624879" TEXT="Create Action&#xa;---&gt;&#x68c0;&#x67e5;&#x662f;&#x5426;&#x4e0e; existed key values &#x503c;&#x91cd;&#x590d;&#x5373;&#x53ef;&#xa;&#xa;Edit Action&#xa;---&gt;1, &#x901a;&#x8fc7; node id &#x83b7;&#x5f97; old key value;&#xa;---&gt;2, &#x5982;&#x679c; &#xa;------&gt;input value == old key value---&gt; valid input&#xa;------&gt;&#x6216;&#x8005; input value &#x6ca1;&#x6709;&#x4e0e; existed key values &#x91cd;&#x590d; ---&gt; valid input"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1275534493067" TEXT="Karrigell">
+<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1275614137437" TEXT="Karrigell">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1250824602428" FOLDED="true" ID="Freemind_Link_1774893402" MODIFIED="1274274708400" TEXT="_()---i18n">
@@ -2805,7 +2805,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1170422421911" FOLDED="true" ID="Freemind_Link_61090711" MODIFIED="1274274726304" TEXT="&#x6587;&#x4ef6;&#x7f16;&#x7801;&#x8bbe;&#x5b9a;">
+<node COLOR="#990000" CREATED="1170422421911" FOLDED="true" ID="Freemind_Link_61090711" MODIFIED="1275613950948" TEXT="&#x6587;&#x4ef6;&#x7f16;&#x7801;&#x8bbe;&#x5b9a;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1174877413413" ID="Freemind_Link_42008706" MODIFIED="1260243705160" TEXT="karrigell.ini&#x4fee;&#x6539;&#xff1a;outputEncoding = utf-8">
@@ -2827,13 +2827,17 @@
 <node COLOR="#111111" CREATED="1260451690651" ID="ID_1486718180" MODIFIED="1260451819616" TEXT="{,  [ ,  &apos;&apos;&apos; ,  &quot;&quot;&quot; &#x7f3a;&#x5c11;&#x5bf9;&#x5e94;&#x7684;&#x7ed3;&#x675f;&#x7b26;&#x53f7;&#xff0c;&#xa;&#x6216;&#x662f;&#x6587;&#x4ef6;&#x6700;&#x540e;&#x4e00;&#x884c; &#x4ee5; &apos;\&apos; &#x7ed3;&#x675f;&#xa;"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1265166162729" FOLDED="true" ID="ID_1537892475" MODIFIED="1274590387759" TEXT="Unicode &amp; UTF8">
+<node COLOR="#990000" CREATED="1265166162729" FOLDED="true" ID="ID_1537892475" MODIFIED="1275614016452" TEXT="Unicode &amp; UTF8">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1265166193364" ID="ID_669740718" MODIFIED="1274589392411" TEXT="&#x89e3;&#x51b3;&#x4ee5;&#x4e0b;&#x9519;&#x8bef;&#xff1a;&#xa;UnicodeDecodeError: &apos;utf8&apos; codec can&apos;t decode byte 0xbc in position 0: unexpected code byte">
+<node COLOR="#111111" CREATED="1265166193364" FOLDED="true" ID="ID_669740718" MODIFIED="1275614015035" TEXT="&#x89e3;&#x51b3;&#x4ee5;&#x4e0b;&#x9519;&#x8bef;&#xff1a;&#xa;UnicodeDecodeError:&#xa; &apos;utf8&apos; codec can&apos;t decode byte 0xbc in position 0: unexpected code byte">
 <icon BUILTIN="yes"/>
 <node COLOR="#111111" CREATED="1267145167676" ID="ID_568421079" MODIFIED="1267145167677" TEXT="&#xa;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xa;reload(sys)&#xa;sys.setdefaultencoding(&apos;utf8&apos;)&#x9; &#xa;&#xa;# &#x91c7;&#x7528;&#x5217;&#x8868;&#x9012;&#x5f52;&#x65b9;&#x5f0f;&#x6709;&#x65f6;&#x4f1a;&#x5f15;&#x53d1;&#x9519;&#x8bef;&#xff0c;&#x6b64;&#x65f6;&#x9700;&#x5bf9;&#x6bcf;&#x4e2a;&#x5b57;&#x7b26;&#x4e32;&#x8fdb;&#x884c;utf8&#x89e3;&#x7801;&#xa;#encoded = [[i.decode(&apos;utf8&apos;) for i in row] for row in rslice]&#xa;&#xa;for row in rslice:&#xa;  for i,s in enumerate(row) :&#xa;    row[i] = s.decode(&apos;utf8&apos;)&#xa;&#xa;&#x9875;&#x9762;&#x8fd4;&#x56de;&#x5ba2;&#x6237;&#x7aef;json&#x683c;&#x5f0f;&#x6570;&#x636e;&#x65f6;&#xff0c;&#xa;JSON.encode(data,encoding=&apos;utf8&apos;)"/>
+</node>
+<node COLOR="#111111" CREATED="1275613964116" FOLDED="true" ID="ID_1486124067" MODIFIED="1275614003734" TEXT="&#x8f6c;&#x7801;&#x6458;&#x8981;">
+<icon BUILTIN="yes"/>
+<node COLOR="#111111" CREATED="1275613975243" ID="ID_476568328" LINK="http://www.iwanna.cn/archives/2010/06/04/3670/" MODIFIED="1275613994830" TEXT="   1. python&#x811a;&#x672c;&#x4e2d;&#x7684;#coding=utf-8&#x5e76;&#x4e0d;&#x662f;&#x51b3;&#x5b9a;&#x6700;&#x7ec8;&#x8f93;&#x51fa;&#x7684;&#x7f16;&#x7801;&#xff0c;&#x800c;&#x662f;&#x6307;&#x5b9a;python&#x811a;&#x672c;&#x672c;&#x8eab;&#x4f7f;&#x7528;&#x7684;&#x7f16;&#x7801;&#xff1b;&#x5982;&#x679c;&#x4f60;&#x7684;&#x811a;&#x672c;&#x672c;&#x8eab;&#x5185;&#x90e8;&#x6709;&#x975e; ASCII&#x7801;&#xff0c;&#x90a3;&#x5c31;&#x5e94;&#x8be5;&#x6307;&#x5b9a;&#x7f16;&#x7801;#coding=gbk&#xa;   2. &#x5982;&#x679c;&#x6587;&#x4ef6;&#x7684;&#x7f16;&#x7801;&#x662f;GBK&#xff0c;&#x4f60;&#x64cd;&#x4f5c;&#x7684;&#x7ec8;&#x7aef;&#x4e5f;&#x662f;&#x652f;&#x6301;GBK&#x7684;&#xff0c;&#x90a3;&#x5c31;&#x4e0d;&#x9700;&#x8981;&#x7f16;&#x7801;&#xff0c;&#x76f4;&#x63a5;&#x8f93;&#x51fa;&#x5373;&#x53ef;&#x3002;&#xa;   3. &#x5982;&#x679c;&#x6587;&#x4ef6;&#x7684;&#x7f16;&#x7801;&#x4e0d;&#x662f;GBK&#xff0c;&#x4f46;&#x4f60;&#x7684;&#x64cd;&#x4f5c;&#x7ec8;&#x7aef;&#x53ea;&#x652f;&#x6301;GBK&#xff0c;&#x4e0d;&#x652f;&#x6301;UTF-8&#xff0c;&#x90a3;&#x4e48;&#xff0c;&#x4f60;&#x5c31;&#x9700;&#x8981;&#x5bf9;&#x8fd9;&#x4e9b;&#x5b57;&#x7b26;&#x505a;&#x8f6c;&#x7801;&#x64cd;&#x4f5c;&#x3002;&#x5982;&#x6587;&#x4ef6;&#x7f16;&#x7801;&#x662f;UTF-8&#xff0c;&#x5c31;&#x9700; &#x8981;&#x5148;decode&#x6210;UNICODE&#x7f16;&#x7801;&#x518d;encode&#x6210;GBK&#xa;"/>
 </node>
 </node>
 <node COLOR="#990000" CREATED="1273633468014" FOLDED="true" ID="ID_43622976" MODIFIED="1273634501592" TEXT="Import">
@@ -4532,11 +4536,11 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1261017385572" ID="ID_1594767766" MODIFIED="1275537203643" POSITION="right" TEXT="Company Web Site">
+<node COLOR="#0033ff" CREATED="1261017385572" ID="ID_1594767766" MODIFIED="1275614140377" POSITION="right" TEXT="Company Web Site">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="full-1"/>
-<node COLOR="#00b439" CREATED="1272874065001" FOLDED="true" ID="ID_1315424594" MODIFIED="1275216538095" TEXT="Layout">
+<node COLOR="#00b439" CREATED="1272874065001" FOLDED="true" ID="ID_1315424594" MODIFIED="1275614143579" TEXT="Layout">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1261559251111" FOLDED="true" ID="ID_648549467" MODIFIED="1275216536822" TEXT="nav bar">
@@ -4726,10 +4730,10 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1275214302951" FOLDED="true" ID="ID_1090736761" MODIFIED="1275354323358" TEXT="formal Design">
+<node COLOR="#00b439" CREATED="1275214302951" ID="ID_1090736761" MODIFIED="1275616929527" TEXT="formal Design">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1275214310664" FOLDED="true" ID="ID_43047817" MODIFIED="1275354031308" TEXT="layout">
+<node COLOR="#990000" CREATED="1275214310664" FOLDED="true" ID="ID_43047817" MODIFIED="1275616931038" TEXT="layout">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1275214820850" FOLDED="true" ID="ID_232517929" MODIFIED="1275217861255" TEXT="Frame">
 <node COLOR="#111111" CREATED="1275214323806" ID="ID_743991606" LINK="http://clandrei.de/" MODIFIED="1275214327102" TEXT="http://clandrei.de/"/>
@@ -4740,7 +4744,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1275214359097" ID="ID_1965932528" LINK="http://www.opendesigns.org/design/galaxy-explorer-dark/" MODIFIED="1275214362841" TEXT="http://www.opendesigns.org/design/galaxy-explorer-dark/"/>
 </node>
-<node COLOR="#111111" CREATED="1275214406789" FOLDED="true" ID="ID_1457917899" MODIFIED="1275354030476" TEXT="scheme">
+<node COLOR="#111111" CREATED="1275214406789" ID="ID_1457917899" MODIFIED="1275614153197" TEXT="scheme">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1275216292017" ID="ID_1272060325" MODIFIED="1275216294110" TEXT="yellow">
 <node COLOR="#111111" CREATED="1275216295032" ID="ID_342294793" LINK="http://www.opendesigns.org/design/flyers-design2/" MODIFIED="1275216298267" TEXT="http://www.opendesigns.org/design/flyers-design2/"/>
@@ -4750,6 +4754,9 @@
 </node>
 <node COLOR="#111111" CREATED="1275214486684" ID="ID_966977112" MODIFIED="1275214490141" TEXT="purple">
 <node COLOR="#111111" CREATED="1275214491039" ID="ID_1273422730" LINK="http://demo.tutorialzine.com/2010/02/html5-css3-website-template/template.html" MODIFIED="1275214494097" TEXT="http://demo.tutorialzine.com/2010/02/html5-css3-website-template/template.html"/>
+</node>
+<node COLOR="#111111" CREATED="1275614155977" ID="ID_610769751" MODIFIED="1275614157289" TEXT="blue">
+<node COLOR="#111111" CREATED="1275614159755" ID="ID_1302908547" LINK="http://www.opendesigns.org/design/metamorph_glowing/" MODIFIED="1275614162532" TEXT="http://www.opendesigns.org/design/metamorph_glowing/"/>
 </node>
 </node>
 <node COLOR="#111111" CREATED="1275217868226" ID="ID_1896167067" MODIFIED="1275217874747" TEXT="Preformal">
@@ -4764,7 +4771,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1273547545544" ID="ID_44830356" MODIFIED="1275214841083" TEXT="App">
+<node COLOR="#990000" CREATED="1273547545544" ID="ID_44830356" MODIFIED="1275616933268" TEXT="App">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1273547548387" FOLDED="true" ID="ID_393031848" MODIFIED="1275216318550" TEXT="Guest Book">
@@ -4791,8 +4798,12 @@
 <node COLOR="#111111" CREATED="1275266634283" ID="ID_1481612716" MODIFIED="1275266638387" TEXT="Online Edit">
 <node COLOR="#111111" CREATED="1275266639266" ID="ID_1144830270" LINK="http://ckeditor.com/" MODIFIED="1275266642134" TEXT="http://ckeditor.com/"/>
 </node>
+<node COLOR="#111111" CREATED="1275616965584" ID="ID_230760801" MODIFIED="1275616979861" TEXT="InlineReport">
+<icon BUILTIN="info"/>
+<node COLOR="#111111" CREATED="1275616970595" ID="ID_1924286122" LINK="http://inlinereport.com/" MODIFIED="1275616973449" TEXT="http://inlinereport.com/"/>
 </node>
-<node COLOR="#990000" CREATED="1275214798059" ID="ID_1246116707" MODIFIED="1275214800600" TEXT="Content">
+</node>
+<node COLOR="#990000" CREATED="1275214798059" FOLDED="true" ID="ID_1246116707" MODIFIED="1275616932349" TEXT="Content">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1275214855579" ID="ID_680229734" MODIFIED="1275214859232" TEXT="Home"/>
 <node COLOR="#111111" CREATED="1275214860185" ID="ID_908819858" MODIFIED="1275214864831" TEXT="About"/>
@@ -4814,7 +4825,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1273293789336" FOLDED="true" ID="ID_1705404438" MODIFIED="1274538084242" POSITION="right" TEXT="Web Site Analize Tools">
+<node COLOR="#0033ff" CREATED="1273293789336" FOLDED="true" ID="ID_1705404438" MODIFIED="1275613929581" POSITION="right" TEXT="Web Site Analize Tools">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1273293872148" ID="ID_291748799" LINK="http://www.iwanna.cn/archives/2010/05/07/2966/" MODIFIED="1273293895552" TEXT="&#x7528;&#x6237;&#x884c;&#x4e3a;&#x70b9;&#x51fb;&#x70ed;&#x533a;&#x8ddf;&#x8e2a;&#x91c7;&#x96c6;">
