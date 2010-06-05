@@ -1,0 +1,27 @@
+div.paginate {
+	line-height: 23px;
+}
+
+div.slider {
+	width: 180px;
+	height: 22px;
+	float: left;
+	margin: 2px 5px;
+	cursor: pointer;
+	background: url('Slider.png') center center no-repeat;
+}
+
+div.knob {
+	width: 22px;
+	height: 22px;
+	cursor: pointer;
+	background: url('Knob.png') no-repeat;
+}
+
+div.knob:hover {
+	background-position: 0 -22px;
+}
+
+span.current {
+	font-weight: bold;
+}

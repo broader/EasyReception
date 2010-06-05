@@ -54,6 +54,11 @@ JSLIB['multiSelect'] = \
 {'files':['/'.join(('lib','multiSelect',name)) for name in ('MTMultiSelect.css','MTMultiSelect.js')],
 }
 
+# smart list
+JSLIB['smartList'] = \
+{'files':['/'.join(('lib','smartList',name)) for name in ('mtSmartList.css','mtSmartList..js')],
+}
+
 #--------------------------------------------------------------------------------------
 ##
 # Datagrid Plugin Files

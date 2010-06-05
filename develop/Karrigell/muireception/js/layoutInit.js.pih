@@ -454,6 +454,19 @@ MUI.extend({
 		
 		MUI.import(appName,urls,options);
 
+	},
+
+	/**********************************************************************
+	Import smartList plugin files and initialize corresponding Elements.
+	***********************************************************************/
+	smartList: function(appName, options){
+		// get lib files
+		var urls = [];
+		<% for url in pagefn.JSLIB['smartList']['files'] : %>
+			urls.push('<%=url%>');
+		<% end %>
+		
+		MUI.import(appName,urls,options);
 	}
 	
 });

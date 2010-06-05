@@ -1,0 +1,41 @@
+/*div.paginator {*/
+div.sliderContainer{
+	line-height: 23px;
+	font-size: 12px;
+}
+
+div .paginator {
+	border-top: 2px solid white;
+	border-bottom: 1px solid white;
+	line-height: 23px; 
+	/*font-size: 12px;*/
+}
+
+div.paginator div.mtSmartListSlider {
+	width: 120px;
+	height: 22px;
+	float: right;
+	margin: 2px 5px;
+	cursor: pointer;
+	background: url('images/Slider.png') 0 center no-repeat;
+}
+
+div.paginator div.mtSmartListKnob {
+	width: 22px;
+	height: 22px;
+	cursor: pointer;
+	background: url('images/Knob.png') no-repeat;
+}
+
+div.paginator div.mtSmartListKnob:hover {
+	background-position: 0 -22px;
+}
+
+div.paginator span.currentPage {
+	font-weight: bold;
+}
+
+.mtSmartListContent {
+/*	background: white;*/
+	background: #BBC7D1;
+}

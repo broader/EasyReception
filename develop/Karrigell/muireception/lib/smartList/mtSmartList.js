@@ -23,11 +23,12 @@ var SmartList = new Class({
 
 		// filter options
 		filterBoxPosition: 'top',	// the position of filter box which holds a input element and a slider for pagination
-		filterField: 'search',	// the filed name of filter value that will be send to server side 
+		filterField: 'search',		// the filed name of filter value that will be send to server side 
 		filterBnLabel: 'filter',	// the label for the filter button
 		
 		// paginator options
-		itemsPerPage: 3,	// the number of showing items in one page
+		paginatorClass: 'paginator',	// the css class name for paginator container
+		itemsPerPage: 3,		// the number of showing items in one page
 		paginatorPosition: 'top',	// the position of the paginator on widget container
 
 		// slider options
@@ -70,7 +71,7 @@ var SmartList = new Class({
 		filterBox.grab(span);
 		
 		// add the container to hold a slider for pagination
-		this.paginator = new Element('div', {style:'line-height: 23px; font-size: 12px;'});
+		this.paginator = new Element('div', {'class': this.options.paginatorClass});
 		// inject the filter box to the container
 		this.paginator.inject(this.container, this.options.paginatorPosition);
 		this.setPaginator();	
@@ -107,7 +108,7 @@ var SmartList = new Class({
 		this.paginator.empty();
 		if(!this.pageData.total){
 			this.paginator.set('text', 'No page data load!');
-			this.content.set('text', 'No data!');
+			//this.content.set('text', 'No data!');
 			return;
 		};
 		var pageNumber = this.pageData.pageNumber.toInt();
@@ -167,7 +168,6 @@ var SmartList = new Class({
 	load: function(){
 		var dataUrl = this.options.dataUrl;
 		if(!dataUrl){
-			alert('Please set data url link first!');
 			return;
 		};
 		
@@ -181,10 +181,7 @@ var SmartList = new Class({
 		});
 		this.urlQuery['itemsPerPage'] = this.pageData['itemsPerPage'];
 		request.get(this.urlQuery);
-		if(!lisData){
-			alert('No data returned from the data url!');
-			return;
-		}
+		if(!lisData){ return;};
 		this.pageData.extend(lisData);
 
 	}

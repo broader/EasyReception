@@ -36,6 +36,10 @@ USER = getattr( so, pagefn.SOINFO['user']).get('username')
 # The page functions begining 
 # ********************************************************************************************
 
+def page_issueDetail(**args):
+	print 'China'
+	return
+
 def page_issueList(**args):
 	userViewIssueList = 'userViewIssueList'
 	print DIV(**{'id': userViewIssueList})
@@ -130,6 +134,7 @@ def _issueListJs(container):
 				break;
 			case 1 :// 'edit' action
 				alert('edit action');
+				alert(issueGrid.getSelectedIndices().length);
 				break;
 			case 2:
 				alert('delete action');

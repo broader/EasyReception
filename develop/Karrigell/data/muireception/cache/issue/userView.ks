@@ -1,4 +1,4 @@
-['page_issueList', 'page_colsModel', 'page_issuesData', 'page_info', 'page_createIssueForm', 'page_createIssueAction']
+['page_issueDetail', 'page_issueList', 'page_colsModel', 'page_issuesData', 'page_info', 'page_createIssueForm', 'page_createIssueAction']
 """
 Pages mainly for administration.
 """
@@ -36,6 +36,10 @@ USER = getattr( so, pagefn.SOINFO['user']).get('username')
 # ********************************************************************************************
 # The page functions begining
 # ********************************************************************************************
+
+def page_issueDetail(**args):
+	PRINT( 'China')
+	return
 
 def page_issueList(**args):
 	userViewIssueList = 'userViewIssueList'
@@ -131,6 +135,7 @@ def _issueListJs(container):
 				break;
 			case 1 :// 'edit' action
 				alert('edit action');
+				alert(issueGrid.getSelectedIndices().length);
 				break;
 			case 2:
 				alert('delete action');

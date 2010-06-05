@@ -75,5 +75,10 @@ for url in pagefn.JSLIB['multiSelect']['files'] :
  STDOUT("			urls.push(\'")
  STDOUT(str(url))
  STDOUT("\');\n")
+STDOUT("		MUI.import(appName,urls,options);\n	},\n	/**********************************************************************\n	Import smartList plugin files and initialize corresponding Elements.\n	***********************************************************************/\n	smartList: function(appName, options){\n		// get lib files\n		var urls = [];\n")
+for url in pagefn.JSLIB['smartList']['files'] :
+ STDOUT("			urls.push(\'")
+ STDOUT(str(url))
+ STDOUT("\');\n")
 STDOUT("		MUI.import(appName,urls,options);\n	}\n});\n")
 
