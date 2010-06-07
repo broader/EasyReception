@@ -2649,7 +2649,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1275616959469" POSITION="right" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1275916069304" POSITION="right" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -2730,17 +2730,6 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1270439732311" FOLDED="true" ID="ID_449452072" MODIFIED="1271041884425" TEXT="model.py">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1270439738188" FOLDED="true" ID="ID_1310020106" MODIFIED="1270952142056" TEXT="action()">
-<font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1270439747910" ID="ID_499599883" MODIFIED="1270439939673" TEXT="&#x8fd4;&#x56de;&#x503c;&#xff1a;&#xa;data &#x4e3a;&#x7a7a;&#x65f6;&#xff0c;&#x8fd4;&#x56de;&#x7684;&#x662f;&apos;ok&apos;&#x4e2d;&#x7684;message &#x4fe1;&#x606f;">
-<icon BUILTIN="messagebox_warning"/>
-<icon BUILTIN="help"/>
-</node>
-</node>
-</node>
 <node COLOR="#00b439" CREATED="1271041886921" FOLDED="true" ID="ID_1542591351" MODIFIED="1271332122301" TEXT="MochaUI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
@@ -2786,7 +2775,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1270272352642" FOLDED="true" ID="ID_197103914" MODIFIED="1270952085448" TEXT="Roundup">
+<node COLOR="#00b439" CREATED="1270272352642" FOLDED="true" ID="ID_197103914" MODIFIED="1275916065814" TEXT="Roundup">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1270272356643" ID="ID_1920960786" MODIFIED="1270272648512" TEXT="Key value &#x6821;&#x9a8c;">
@@ -2962,8 +2951,19 @@
 <node COLOR="#111111" CREATED="1274064123331" ID="ID_1526996899" MODIFIED="1274064237395" TEXT="&#x5fc5;&#x987b;&#x4f7f;&#x7528;&#x53cc;&#x5f15;&#x53f7;&quot;&#xff0c;&#xa;&#x5426;&#x5219;&#x65e0;&#x6cd5;Request.JSON&#x65e0;&#x6cd5;&#x8bc6;&#x522b;&#x670d;&#x52a1;&#x5668;&#x7aef;&#x8fd4;&#x56de;&#x7684;json&#x5bf9;&#x8c61;&#xa;&#xa;&#x8c03;&#x8bd5;MTMultiSelect.js&#x65f6;&#x53d1;&#x73b0;&#x6b64;&#x95ee;&#x9898;"/>
 </node>
 </node>
+<node COLOR="#00b439" CREATED="1270439732311" FOLDED="true" ID="ID_449452072" MODIFIED="1275916064162" TEXT="model.py">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1270439738188" ID="ID_1310020106" MODIFIED="1275916064164" TEXT="action()">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1270439747910" ID="ID_499599883" MODIFIED="1270439939673" TEXT="&#x8fd4;&#x56de;&#x503c;&#xff1a;&#xa;data &#x4e3a;&#x7a7a;&#x65f6;&#xff0c;&#x8fd4;&#x56de;&#x7684;&#x662f;&apos;ok&apos;&#x4e2d;&#x7684;message &#x4fe1;&#x606f;">
+<icon BUILTIN="messagebox_warning"/>
+<icon BUILTIN="help"/>
 </node>
-<node COLOR="#0033ff" CREATED="1254629537711" FOLDED="true" ID="Freemind_Link_673015721" MODIFIED="1266917027904" POSITION="right" TEXT="Install">
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1254629537711" FOLDED="true" ID="Freemind_Link_673015721" MODIFIED="1275916034910" POSITION="right" TEXT="Install">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1254629542874" ID="Freemind_Link_523276706" MODIFIED="1265093972098" TEXT="Including Packages">
@@ -3465,7 +3465,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1275217967392" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1275916085616" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1273030192723" ID="ID_344232506" MODIFIED="1275216639998" TEXT="Idea">
@@ -4027,7 +4027,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1261723681347" FOLDED="true" ID="ID_1526994899" MODIFIED="1275216732214" TEXT="Site Package">
+<node COLOR="#00b439" CREATED="1261723681347" FOLDED="true" ID="ID_1526994899" MODIFIED="1275916084702" TEXT="Site Package">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1261723699899" ID="ID_1334746923" MODIFIED="1262920294585" TEXT="Rules">
@@ -4192,16 +4192,16 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1270952020458" FOLDED="true" ID="ID_1804767918" MODIFIED="1274752631966" POSITION="right" TEXT="Develop Evironment">
+<node COLOR="#0033ff" CREATED="1270952020458" ID="ID_1804767918" MODIFIED="1275915998780" POSITION="right" TEXT="Develop Evironment">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1262786726152" FOLDED="true" ID="ID_476877394" MODIFIED="1274669672971" TEXT="Source">
+<node COLOR="#00b439" CREATED="1262786726152" ID="ID_476877394" MODIFIED="1275916088364" TEXT="Source">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1266917069312" ID="ID_30201427" MODIFIED="1273827249936" TEXT="Management">
+<node COLOR="#990000" CREATED="1266917069312" ID="ID_30201427" MODIFIED="1275916143426" TEXT="Management">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1262786735562" ID="ID_495182632" MODIFIED="1273546962171" TEXT="GitHub">
+<node COLOR="#111111" CREATED="1262786735562" FOLDED="true" ID="ID_495182632" MODIFIED="1275916145270" TEXT="GitHub">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1262786764185" ID="ID_875290458" MODIFIED="1274667035632" TEXT="&#x4f7f;&#x7528;&#x8bf4;&#x660e;">
@@ -4211,16 +4211,16 @@
 </node>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1273827253895" FOLDED="true" ID="ID_1062125826" MODIFIED="1273827310499" TEXT="bitbucket">
+<node COLOR="#111111" CREATED="1273827253895" FOLDED="true" ID="ID_1062125826" MODIFIED="1275916149326" TEXT="bitbucket">
 <node COLOR="#111111" CREATED="1273827263329" ID="ID_938586333" MODIFIED="1273827266050" TEXT="account">
 <node COLOR="#111111" CREATED="1273827267739" ID="ID_68923380" MODIFIED="1273827306451" TEXT="user:broader&#xa;pwd:990508&#xa;mail:broader.zhong@yahoo.com.cn&#xa;&#xa;link:&#xa;http://bitbucket.org/broader/easyreception/admin"/>
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1266917080151" FOLDED="true" ID="ID_370832872" MODIFIED="1274667033524" TEXT="Change">
+<node COLOR="#990000" CREATED="1266917080151" ID="ID_370832872" MODIFIED="1275916142527" TEXT="Change">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1183969360528" FOLDED="true" ID="Freemind_Link_1717488379" MODIFIED="1274590705199" TEXT="javascript">
+<node COLOR="#111111" CREATED="1183969360528" FOLDED="true" ID="Freemind_Link_1717488379" MODIFIED="1275916155783" TEXT="javascript">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1260329913465" ID="ID_484061448" MODIFIED="1266917101003" TEXT="jQuery">
@@ -4322,60 +4322,12 @@
 </node>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1266917223325" ID="ID_320623265" MODIFIED="1273546962348" TEXT="Karrigell">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1274590572356" ID="ID_1239765131" MODIFIED="1274590576369" TEXT="K3.0">
-<node COLOR="#111111" CREATED="1266917274150" FOLDED="true" ID="ID_1171070791" MODIFIED="1274590688815" TEXT="k_sessions.py">
-<icon BUILTIN="messagebox_warning"/>
-<icon BUILTIN="button_cancel"/>
-<node COLOR="#111111" CREATED="1266917310958" ID="ID_88625123" MODIFIED="1266917515335" TEXT="&#x95ee;&#x9898;&#xff1a;session&#x6570;&#x91cf;&#x8d85;&#x8fc7;&#x8bbe;&#x5b9a;&#x503c;&#x65f6;&#xff0c;&#x5220;&#x9664;&#x65e7;session&#x65f6;&#x62a5;KeyError&#x9519;&#x8bef;&#xff0c;&#x5bfc;&#x81f4;&#x670d;&#x52a1;&#x5668;&#x5d29;&#x6e83;&#x3002;&#xa;&#xa;class LimitedDict(dict):&#xa;---&gt;__setitem__()&#xa;------&gt;L35&#xa;*********************old**********************************&#xa;first = self.keys.pop(0)&#xa;del self[first]&#xa;--------------------------------------------------&#xa;&#xa;*********************new**********************************&#xa;try:&#xa;  first = self.keys.pop(0)&#xa;  del self[first]&#xa;except:&#xa;  print &apos;The session key %s is not existed !&apos;%first&#xa;---------------------------------------------------"/>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1274590581648" ID="ID_457520891" MODIFIED="1274666816734" TEXT="K3.1">
-<arrowlink DESTINATION="ID_1348534102" ENDARROW="Default" ENDINCLINATION="394;0;" ID="Arrow_ID_904810897" STARTARROW="None" STARTINCLINATION="268;51;"/>
-<node COLOR="#111111" CREATED="1274590615452" FOLDED="true" ID="ID_558859582" MODIFIED="1274666772622" TEXT="Unicode Error">
-<icon BUILTIN="button_ok"/>
-<node COLOR="#111111" CREATED="1274603100632" FOLDED="true" ID="ID_643411685" MODIFIED="1274603447103" TEXT="&#x95ee;&#x9898;&#x8ffd;&#x8e2a;">
-<icon BUILTIN="yes"/>
-<node COLOR="#111111" CREATED="1274589705326" ID="ID_672101580" MODIFIED="1274603321478" TEXT="k_target.py, _import(),L476&#xa;---&gt;L497&#xa;try:&#xa;    module.run(ns,included=True) ---&gt;module : Target instance&#xa;except:&#xa;     tb = cStringIO.StringIO()&#xa;     traceback.print_exc(file=tb)&#xa;     raise K_ImportError,(module,url,sys.exc_info())&#xa;&#xa;---&gt;import error,&#x63a8;&#x6d4b;&#x4e3a; self._()&#x51fa;&#x9519;&#xa;---&gt;L512, self.translation()&#xa;------&gt;l520, &#xa;encoding = self.handler.output_encoding&#xa;&#xa;&gt;&gt; HTTP.py, Class HTTP()&#xa;---&gt;L130, self. process_request()&#xa;------&gt;&#xa;*******************************************************&#xa;# defaults&#xa;self.output_encoding = sys.getdefaultencoding() # is &quot;ascii&quot; encoding&#xa;# &#x5982;&#x679c;$Karrigell/data/application/config.py &#x4e2d; output-encoding = None,&#xa;# &#x5219;&#x4f7f;&#x7528;sys.getdefaultencoding()---&gt;&quot;ascii&quot;&#xff0c;&#x5bfc;&#x81f4;UnicodeError&#xa;&#xa;*******************************************************&#xa;"/>
-</node>
-<node COLOR="#111111" CREATED="1274603332654" ID="ID_1985781230" MODIFIED="1274603335269" TEXT="Solution">
-<node COLOR="#111111" CREATED="1274603064349" ID="ID_62714375" MODIFIED="1274603442911" TEXT="&#x65b9;&#x6cd5;&#x4e00;">
-<icon BUILTIN="full-1"/>
-<icon BUILTIN="button_ok"/>
-<node COLOR="#111111" CREATED="1274589705326" ID="ID_165474520" MODIFIED="1274603431375" TEXT="&#x5982;&#x679c;$Karrigell/data/application/config.py &#x4e2d; output-encoding = None,&#xa;&#x5219;&#x4f7f;&#x7528;sys.getdefaultencoding()---&gt;&quot;ascii&quot;&#xff0c;&#x5bfc;&#x81f4;UnicodeError&#xa;&#xa;&#x73b0;&#x8bbe;&#x7f6e;&#xa;$Karrigell/data/application/config.py &#xa;---&gt; output-encoding = &quot;utf-8&quot;&#xa;"/>
-</node>
-<node COLOR="#111111" CREATED="1274603069337" FOLDED="true" ID="ID_1087942253" MODIFIED="1274603351111" TEXT="&#x65b9;&#x6cd5;&#x4e8c;">
-<node COLOR="#111111" CREATED="1274590585920" ID="ID_1117555551" MODIFIED="1274602470695" TEXT="HTTP.py">
-<icon BUILTIN="yes"/>
-<icon BUILTIN="button_ok"/>
-<node COLOR="#111111" CREATED="1274589705326" ID="ID_1326703464" MODIFIED="1274590338059" TEXT="k_target.py, _import(),L476&#xa;---&gt;L497&#xa;try:&#xa;    module.run(ns,included=True) ---&gt;module : Target instance&#xa;except:&#xa;     tb = cStringIO.StringIO()&#xa;     traceback.print_exc(file=tb)&#xa;     raise K_ImportError,(module,url,sys.exc_info())&#xa;&#xa;---&gt;import error,&#x63a8;&#x6d4b;&#x4e3a; self._()&#x51fa;&#x9519;&#xa;---&gt;L512, self.translation()&#xa;------&gt;l520, &#xa;encoding = self.handler.output_encoding&#xa;&#xa;&gt;&gt; HTTP.py, Class HTTP()&#xa;---&gt;L130, self. process_request()&#xa;------&gt;&#xa;*******************************************************&#xa;# defaults&#xa;self.output_encoding = sys.getdefaultencoding()&#xa;*******************************************************&#xa;Change to &#xa;******************************************************************&#xa;# defaults&#xa;reload(sys)&#xa;sys.setdefaultencoding(&apos;utf8&apos;)  # &#x6b64;&#x5904;&#x5c06;python &#x89e3;&#x91ca;&#x5668;&#x7f3a;&#x7701;&#x8bbe;&#x7f6e;&#x4e3a;&apos;utf8&apos;&#xa;self.output_encoding = sys.getdefaultencoding()&#xa;******************************************************************&#xa;"/>
-</node>
-</node>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1274666464332" FOLDED="true" ID="ID_136270889" MODIFIED="1274666995210" TEXT="CMS &#x79fb;&#x690d; Error">
-<node COLOR="#111111" CREATED="1274666496921" FOLDED="true" ID="ID_1313577766" MODIFIED="1274666758241" TEXT="Import admin_config.py &#x9519;&#x8bef;">
-<icon BUILTIN="button_ok"/>
-<node COLOR="#111111" CREATED="1274666516650" ID="ID_544460559" MODIFIED="1274666729050" TEXT="&#x539f;&#x56e0;&#xff1a;&#xa;k_target.py, Target.__init__, L170&#xa;---&gt;mo = re.match(&apos;^/(%s)&apos; %alias,path)    # &#x6b64;&#x52a0;&#x67e5;&#x4e3a;&#x65b0;&#x6dfb;&#x52a0;&#xff0c;&#x5bfc;&#x81f4;&#x5305;&#x542b;&quot;admin$.py&quot;&#x7684;&#x6587;&#x4ef6;&#x90fd;&#x4f1a;&#x88ab;&#x8bc6;&#x522b;&#x4e3a;admin&#x76ee;&#x5f55;&#x3002;&#xa; &#xa;&#x5c06;admin_config.py&#x66f4;&#x540d;&#x4e3a;backgroundConfig.py, &#x5e76;&#x5c06;&#x6240;&#x6709;&#x8c03;&#x7528;&#x6b64;&#x6587;&#x4ef6;&#x540d;&#x5904;&#x66f4;&#x6362;&#xff0c;&#x7cfb;&#x7edf;&#x6b63;&#x5e38;"/>
-<node COLOR="#111111" CREATED="1274666517844" ID="ID_461325000" MODIFIED="1274666517845" TEXT=""/>
-</node>
-<node COLOR="#111111" CREATED="1274666741393" ID="ID_1707138762" MODIFIED="1274666763857" TEXT="sysadmin &#x9519;&#x8bef;">
-<icon BUILTIN="button_cancel"/>
-</node>
-</node>
-<node COLOR="#111111" CREATED="1274666825320" FOLDED="true" ID="ID_133001798" MODIFIED="1274666994482" TEXT="shinepo &#x79fb;&#x690d; Error">
-<node COLOR="#111111" CREATED="1274666839573" ID="ID_310940613" MODIFIED="1274666967798" TEXT="/etc/hosts &#x672a;&#x6dfb;&#x52a0;&#xa;127.0.0.1&#x9;shinepo&#xa;&#xa;&#x5bfc;&#x81f4;&#x6d4f;&#x89c8;&#x5668;&#x4e2d;&#x8f93;&#x5165;shinepo:8080&#x6ca1;&#x6709;&#x53cd;&#x5e94;"/>
-<node COLOR="#111111" CREATED="1274666865805" ID="ID_1784040253" MODIFIED="1274666990684" TEXT="$Karrigell/data/cms/conf.py&#xa;output-encoding = &quot;utf-8&quot;&#xa;&#xa;&#x5ba2;&#x6237;&#x7aef;&#x9875;&#x9762;&#x8fd4;&#x56de;&#x4e71;&#x7801;  "/>
-</node>
-</node>
-</node>
-</node>
-</node>
-<node COLOR="#00b439" CREATED="1273546965657" ID="ID_1612332752" MODIFIED="1274669673975" TEXT="Evironment">
+<node COLOR="#00b439" CREATED="1273546965657" ID="ID_1612332752" MODIFIED="1275916110723" TEXT="Evironment">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1167544327073" ID="Freemind_Link_1636742661" MODIFIED="1274669675150" TEXT="vi">
+<node COLOR="#990000" CREATED="1167544327073" FOLDED="true" ID="Freemind_Link_1636742661" MODIFIED="1275916003711" TEXT="vi">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1270127748720" FOLDED="true" ID="ID_897263369" MODIFIED="1273546974545" TEXT="Config">
@@ -4464,7 +4416,7 @@
 <node COLOR="#111111" CREATED="1254023363423" ID="Freemind_Link_1101343072" MODIFIED="1254023401189" TEXT="Error with time.strptime()Things to try:(1) Is it possible that your interactive session and your &quot;bash&quot; are using different locales? Put print time.strftime(some known struct_time) into your script and see if the day and month come out in a different language.(2) Put print repr(date) in your script to show unambiguously what you are getting from the latest.GetCreatedAt() call."/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1260243754255" FOLDED="true" ID="ID_1224555425" MODIFIED="1273546978090" TEXT="Ubuntu">
+<node COLOR="#990000" CREATED="1260243754255" FOLDED="true" ID="ID_1224555425" MODIFIED="1275916009111" TEXT="Ubuntu">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1260243759074" FOLDED="true" ID="ID_243453629" MODIFIED="1273546978092" TEXT="Web Server Port">
@@ -4486,7 +4438,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1272534182417" FOLDED="true" ID="ID_1066410301" MODIFIED="1274667026634" TEXT="Distributed Develop">
+<node COLOR="#990000" CREATED="1272534182417" FOLDED="true" ID="ID_1066410301" MODIFIED="1275916006662" TEXT="Distributed Develop">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1272534194295" ID="ID_1067207855" MODIFIED="1273546979866" TEXT="Enviroment">
@@ -4513,9 +4465,57 @@
 <node COLOR="#111111" CREATED="1273828365032" ID="ID_1924376507" MODIFIED="1273828443363" TEXT="Tools-&gt;Options-&gt;OpenOffice.org-&gt;Appearance-&gt;Document Background"/>
 </node>
 </node>
+<node COLOR="#990000" CREATED="1266917223325" ID="ID_320623265" MODIFIED="1275916124975" TEXT="Karrigell">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1274590572356" ID="ID_1239765131" MODIFIED="1274590576369" TEXT="K3.0">
+<node COLOR="#111111" CREATED="1266917274150" FOLDED="true" ID="ID_1171070791" MODIFIED="1274590688815" TEXT="k_sessions.py">
+<icon BUILTIN="messagebox_warning"/>
+<icon BUILTIN="button_cancel"/>
+<node COLOR="#111111" CREATED="1266917310958" ID="ID_88625123" MODIFIED="1266917515335" TEXT="&#x95ee;&#x9898;&#xff1a;session&#x6570;&#x91cf;&#x8d85;&#x8fc7;&#x8bbe;&#x5b9a;&#x503c;&#x65f6;&#xff0c;&#x5220;&#x9664;&#x65e7;session&#x65f6;&#x62a5;KeyError&#x9519;&#x8bef;&#xff0c;&#x5bfc;&#x81f4;&#x670d;&#x52a1;&#x5668;&#x5d29;&#x6e83;&#x3002;&#xa;&#xa;class LimitedDict(dict):&#xa;---&gt;__setitem__()&#xa;------&gt;L35&#xa;*********************old**********************************&#xa;first = self.keys.pop(0)&#xa;del self[first]&#xa;--------------------------------------------------&#xa;&#xa;*********************new**********************************&#xa;try:&#xa;  first = self.keys.pop(0)&#xa;  del self[first]&#xa;except:&#xa;  print &apos;The session key %s is not existed !&apos;%first&#xa;---------------------------------------------------"/>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1272776984902" FOLDED="true" ID="ID_59646309" MODIFIED="1275216570767" POSITION="right" TEXT="Compatiable">
+<node COLOR="#111111" CREATED="1274590581648" ID="ID_457520891" MODIFIED="1274666816734" TEXT="K3.1">
+<arrowlink DESTINATION="ID_1348534102" ENDARROW="Default" ENDINCLINATION="394;0;" ID="Arrow_ID_904810897" STARTARROW="None" STARTINCLINATION="268;51;"/>
+<node COLOR="#111111" CREATED="1274590615452" FOLDED="true" ID="ID_558859582" MODIFIED="1275916140231" TEXT="Unicode Error">
+<icon BUILTIN="button_ok"/>
+<node COLOR="#111111" CREATED="1274603100632" FOLDED="true" ID="ID_643411685" MODIFIED="1274603447103" TEXT="&#x95ee;&#x9898;&#x8ffd;&#x8e2a;">
+<icon BUILTIN="yes"/>
+<node COLOR="#111111" CREATED="1274589705326" ID="ID_672101580" MODIFIED="1274603321478" TEXT="k_target.py, _import(),L476&#xa;---&gt;L497&#xa;try:&#xa;    module.run(ns,included=True) ---&gt;module : Target instance&#xa;except:&#xa;     tb = cStringIO.StringIO()&#xa;     traceback.print_exc(file=tb)&#xa;     raise K_ImportError,(module,url,sys.exc_info())&#xa;&#xa;---&gt;import error,&#x63a8;&#x6d4b;&#x4e3a; self._()&#x51fa;&#x9519;&#xa;---&gt;L512, self.translation()&#xa;------&gt;l520, &#xa;encoding = self.handler.output_encoding&#xa;&#xa;&gt;&gt; HTTP.py, Class HTTP()&#xa;---&gt;L130, self. process_request()&#xa;------&gt;&#xa;*******************************************************&#xa;# defaults&#xa;self.output_encoding = sys.getdefaultencoding() # is &quot;ascii&quot; encoding&#xa;# &#x5982;&#x679c;$Karrigell/data/application/config.py &#x4e2d; output-encoding = None,&#xa;# &#x5219;&#x4f7f;&#x7528;sys.getdefaultencoding()---&gt;&quot;ascii&quot;&#xff0c;&#x5bfc;&#x81f4;UnicodeError&#xa;&#xa;*******************************************************&#xa;"/>
+</node>
+<node COLOR="#111111" CREATED="1274603332654" ID="ID_1985781230" MODIFIED="1274603335269" TEXT="Solution">
+<node COLOR="#111111" CREATED="1274603064349" ID="ID_62714375" MODIFIED="1274603442911" TEXT="&#x65b9;&#x6cd5;&#x4e00;">
+<icon BUILTIN="full-1"/>
+<icon BUILTIN="button_ok"/>
+<node COLOR="#111111" CREATED="1274589705326" ID="ID_165474520" MODIFIED="1274603431375" TEXT="&#x5982;&#x679c;$Karrigell/data/application/config.py &#x4e2d; output-encoding = None,&#xa;&#x5219;&#x4f7f;&#x7528;sys.getdefaultencoding()---&gt;&quot;ascii&quot;&#xff0c;&#x5bfc;&#x81f4;UnicodeError&#xa;&#xa;&#x73b0;&#x8bbe;&#x7f6e;&#xa;$Karrigell/data/application/config.py &#xa;---&gt; output-encoding = &quot;utf-8&quot;&#xa;"/>
+</node>
+<node COLOR="#111111" CREATED="1274603069337" FOLDED="true" ID="ID_1087942253" MODIFIED="1274603351111" TEXT="&#x65b9;&#x6cd5;&#x4e8c;">
+<node COLOR="#111111" CREATED="1274590585920" ID="ID_1117555551" MODIFIED="1274602470695" TEXT="HTTP.py">
+<icon BUILTIN="yes"/>
+<icon BUILTIN="button_ok"/>
+<node COLOR="#111111" CREATED="1274589705326" ID="ID_1326703464" MODIFIED="1274590338059" TEXT="k_target.py, _import(),L476&#xa;---&gt;L497&#xa;try:&#xa;    module.run(ns,included=True) ---&gt;module : Target instance&#xa;except:&#xa;     tb = cStringIO.StringIO()&#xa;     traceback.print_exc(file=tb)&#xa;     raise K_ImportError,(module,url,sys.exc_info())&#xa;&#xa;---&gt;import error,&#x63a8;&#x6d4b;&#x4e3a; self._()&#x51fa;&#x9519;&#xa;---&gt;L512, self.translation()&#xa;------&gt;l520, &#xa;encoding = self.handler.output_encoding&#xa;&#xa;&gt;&gt; HTTP.py, Class HTTP()&#xa;---&gt;L130, self. process_request()&#xa;------&gt;&#xa;*******************************************************&#xa;# defaults&#xa;self.output_encoding = sys.getdefaultencoding()&#xa;*******************************************************&#xa;Change to &#xa;******************************************************************&#xa;# defaults&#xa;reload(sys)&#xa;sys.setdefaultencoding(&apos;utf8&apos;)  # &#x6b64;&#x5904;&#x5c06;python &#x89e3;&#x91ca;&#x5668;&#x7f3a;&#x7701;&#x8bbe;&#x7f6e;&#x4e3a;&apos;utf8&apos;&#xa;self.output_encoding = sys.getdefaultencoding()&#xa;******************************************************************&#xa;"/>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1274666464332" ID="ID_136270889" MODIFIED="1275916134714" TEXT="CMS &#x79fb;&#x690d; Error">
+<node COLOR="#111111" CREATED="1274666496921" FOLDED="true" ID="ID_1313577766" MODIFIED="1274666758241" TEXT="Import admin_config.py &#x9519;&#x8bef;">
+<icon BUILTIN="button_ok"/>
+<node COLOR="#111111" CREATED="1274666516650" ID="ID_544460559" MODIFIED="1274666729050" TEXT="&#x539f;&#x56e0;&#xff1a;&#xa;k_target.py, Target.__init__, L170&#xa;---&gt;mo = re.match(&apos;^/(%s)&apos; %alias,path)    # &#x6b64;&#x52a0;&#x67e5;&#x4e3a;&#x65b0;&#x6dfb;&#x52a0;&#xff0c;&#x5bfc;&#x81f4;&#x5305;&#x542b;&quot;admin$.py&quot;&#x7684;&#x6587;&#x4ef6;&#x90fd;&#x4f1a;&#x88ab;&#x8bc6;&#x522b;&#x4e3a;admin&#x76ee;&#x5f55;&#x3002;&#xa; &#xa;&#x5c06;admin_config.py&#x66f4;&#x540d;&#x4e3a;backgroundConfig.py, &#x5e76;&#x5c06;&#x6240;&#x6709;&#x8c03;&#x7528;&#x6b64;&#x6587;&#x4ef6;&#x540d;&#x5904;&#x66f4;&#x6362;&#xff0c;&#x7cfb;&#x7edf;&#x6b63;&#x5e38;"/>
+<node COLOR="#111111" CREATED="1274666517844" ID="ID_461325000" MODIFIED="1274666517845" TEXT=""/>
+</node>
+<node COLOR="#111111" CREATED="1274666741393" ID="ID_1707138762" MODIFIED="1274666763857" TEXT="sysadmin &#x9519;&#x8bef;">
+<icon BUILTIN="button_cancel"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1274666825320" ID="ID_133001798" MODIFIED="1275916132874" TEXT="shinepo &#x79fb;&#x690d; Error">
+<node COLOR="#111111" CREATED="1274666839573" ID="ID_310940613" MODIFIED="1274666967798" TEXT="/etc/hosts &#x672a;&#x6dfb;&#x52a0;&#xa;127.0.0.1&#x9;shinepo&#xa;&#xa;&#x5bfc;&#x81f4;&#x6d4f;&#x89c8;&#x5668;&#x4e2d;&#x8f93;&#x5165;shinepo:8080&#x6ca1;&#x6709;&#x53cd;&#x5e94;"/>
+<node COLOR="#111111" CREATED="1274666865805" ID="ID_1784040253" MODIFIED="1274666990684" TEXT="$Karrigell/data/cms/conf.py&#xa;output-encoding = &quot;utf-8&quot;&#xa;&#xa;&#x5ba2;&#x6237;&#x7aef;&#x9875;&#x9762;&#x8fd4;&#x56de;&#x4e71;&#x7801;  "/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1272776984902" FOLDED="true" ID="ID_59646309" MODIFIED="1275916022394" POSITION="right" TEXT="Compatiable">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1272776993504" ID="ID_1516237877" MODIFIED="1272777034788" TEXT="IE">
@@ -4536,7 +4536,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1275644411027" POSITION="right" TEXT="Company Web Site">
+<node COLOR="#0033ff" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1275915996175" POSITION="right" TEXT="Company Web Site">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="full-1"/>
@@ -4730,12 +4730,12 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1275214302951" ID="ID_1090736761" MODIFIED="1275638442269" TEXT="formal Design">
+<node COLOR="#00b439" CREATED="1275214302951" FOLDED="true" ID="ID_1090736761" MODIFIED="1275915995141" TEXT="formal Design">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1275214310664" FOLDED="true" ID="ID_43047817" MODIFIED="1275616931038" TEXT="layout">
+<node COLOR="#990000" CREATED="1275214310664" ID="ID_43047817" MODIFIED="1275914272951" TEXT="layout">
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1275214820850" FOLDED="true" ID="ID_232517929" MODIFIED="1275217861255" TEXT="Frame">
+<node COLOR="#111111" CREATED="1275214820850" ID="ID_232517929" MODIFIED="1275914278131" TEXT="Frame">
 <node COLOR="#111111" CREATED="1275214323806" ID="ID_743991606" LINK="http://clandrei.de/" MODIFIED="1275214327102" TEXT="http://clandrei.de/"/>
 <node COLOR="#111111" CREATED="1275214391096" ID="ID_1201041616" LINK="http://www.opendesigns.org/design/gallerize/" MODIFIED="1275214394235" TEXT="http://www.opendesigns.org/design/gallerize/"/>
 <node COLOR="#111111" CREATED="1275216391599" ID="ID_1446744501" LINK="http://www.loewydesign.com/" MODIFIED="1275216397341" TEXT="http://www.loewydesign.com/"/>
