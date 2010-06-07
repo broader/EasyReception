@@ -36,9 +36,24 @@ USER = getattr( so, pagefn.SOINFO['user']).get('username')
 # ********************************************************************************************
 # The page functions begining
 # ********************************************************************************************
+ISSUELISTCOLUMNS = \
+[\
+  {'name':'serial','header':_('Serial'),'dataType':'string'},\
+  {'name':'title','header':_('Title'),'dataType':'string'}, \
+  {'name':'keyword','header':_('Key Words'),'dataType':'string'},\
+  {'name':'messages','header':_('Messages Number'),'dataType':'string'},\
+  #{'name':'creation','header':_('Creation'),'dataType':'string'}, \
+  {'name':'activity','header':_('Activity'),'dataType':'string'}, \
+  {'name':'status','header':_('Status'),'dataType':'string'}\
+]
 
+SERIALPROP = ISSUELISTCOLUMNS[0].get('name')
 def page_issueDetail(**args):
-	PRINT( 'China')
+	serial = args.get(SERIALPROP)
+	if not serial:
+		PRINT( _('Please select a issue by clicking one row on the left table!'))
+		return
+	PRINT( serial)
 	return
 
 def page_issueList(**args):
@@ -55,8 +70,14 @@ def _issueListJs(container):
 	# edit action buttons' labels
 	[ paras.extend(item) for item in (ACTIONS, ACTIONLABELS) ]
 
-	paras.extend([ '/'.join((APPATH,name)) for name in ( 'page_colsModel', 'page_issuesData', 'page_createIssueForm')])
+	paras.extend([ \
+		'/'.join((APPATH,name)) \
+		for name in ( 'page_colsModel', 'page_issuesData', 'page_createIssueForm', 'page_issueDetail')\
+	])
+
 	paras.append(_('Create a new issue'))
+	paras.append(pagefn.ISSUE['userView']['rightColumn']['panelId'])
+	paras.append(SERIALPROP)
 	paras = tuple(paras)
 	js = \
 	"""
@@ -75,9 +96,9 @@ def _issueListJs(container):
 	issueGriDataUrl='%s',
 
 	// create action url
-	createUrl='%s';
+	createUrl='%s', editUrl='%s',
 
-	var createTitle='%s';
+	createTitle='%s', detailPanel='%s', serialProp='%s';
 
 	// global name for datagrid
 	var issueGrid = null;
@@ -175,9 +196,7 @@ def _issueListJs(container):
 		}).get();
 
 		issueGrid = new omniGrid( issueGridContainer, {
-			columnModel: colsModel,	url: issueGriDataUrl, accordion: true,
-			accordionRenderer: issueGridAccordion,
-			autoSectionToggle: true,
+			columnModel: colsModel,	url: issueGriDataUrl,
 			perPageOptions: [15,25,40,60],
 			perPage:15, page:1, pagination:true, serverSort:true,
 			showHeader: true, sortHeader: true, alternaterows: true,
@@ -186,23 +205,22 @@ def _issueListJs(container):
 		});
 
 		issueGrid.addEvent('dblclick', issueGridRowAction);
+		issueGrid.addEvent('click', issueGridShow);
 	};
 
-	function issueGridAccordion(obj){
+	function issueGridShow(event){
 		/* Parameters
-   		obj :
-   		{
-   			parent: Li element which holds the content for accordion,
-   			row: the index for the row in the grid,
-   			grid: table grid instance
-   		}
-   		*/
-		/*
-   		row = obj.grid.getDataByRow(obj.row);
-   		name = row['username'];
-   		url = userInfoUrl+'?username='+name;
-   		obj.parent.load(url);
+   		evt.target:the grid object
+   		evt.indices:the multi selected rows' indexes
+   		evt.row: the index of the row in the grid
 		*/
+		var data = event.target.getDataByRow(event.row);
+		var q = $H();
+		q[serialProp] = data[serialProp];
+		var url = [ editUrl, q.toQueryString()].join('?');
+		var panel = MUI.getPanel(detailPanel);
+		panel.options.contentURL = url;
+		panel.newPanel();
 	};
 
 	function issueGridRowAction(event){
@@ -218,16 +236,7 @@ def _issueListJs(container):
 	"""%paras
 	return js
 
-ISSUELISTCOLUMNS = \
-[\
-  {'name':'serial','header':_('Serial'),'dataType':'string'},\
-  {'name':'title','header':_('Title'),'dataType':'string'}, \
-  {'name':'keyword','header':_('Key Words'),'dataType':'string'},\
-  {'name':'messages','header':_('Messages Number'),'dataType':'string'},\
-  #{'name':'creation','header':_('Creation'),'dataType':'string'}, \
-  {'name':'activity','header':_('Activity'),'dataType':'string'}, \
-  {'name':'status','header':_('Status'),'dataType':'string'}\
-]
+
 
 def page_colsModel(**args):
 	"""

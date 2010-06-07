@@ -34,6 +34,19 @@ registerAppName = pagefn.getApp(iniTabUrl,0)
 Add some assistant tools to MUI
 *****************************************************************************************/
 MUI.extend({
+	// a function to find a panel by its id
+	getPanel: function(panelId){
+		var search = MUI.Panels.instances.filter(function(panel,key){
+			if( key == panelId){return true;}
+			else{return false;}
+		});
+		
+		var keys = search.getKeys();	
+		if (keys.length == 1) return search[keys[0]];
+
+		return null;
+	},
+
 	// add a inner object to MUI for managing mootools.Assets importing action 
 	assetsManager: new AssetsManager(),
 	
@@ -42,7 +55,6 @@ MUI.extend({
 	Close old session of this application.
 	***********************************************************************************/
 	appInit: function(){
-		
 		//** to be removed
 		
 		// remove old cookie		
@@ -52,7 +64,6 @@ MUI.extend({
 		};
 		// close old session object
 		new Request.HTML().get('<%=pagefn.LAYOUTURLS[-1] %>');
-		
 	},
 	
 	// a plugin to close single popup dialog window, such as login or register dialog 
@@ -88,7 +99,6 @@ MUI.extend({
 				'imgType', the predefined type determined what image to be shown on the button, such as 'ok'
 				'bnSize', optional,it should be one of 'sexysmall','sexymedium','sexylarge'
 				'bnSkin', optionsal,the background color for the button 
-				 
 	**************************************************************************************************************/
 	styledButton: function(options){
 		var bnClass = ['sexybutton','sexysimple'];	
@@ -177,7 +187,6 @@ MUI.extend({
 			'onContentLoaded': null,
 			'require': {}			
 		});
-					
 	},
 	
 	// Create a customed window for show alert information.
@@ -237,9 +246,7 @@ MUI.extend({
 			'onContentLoaded': null,
 			'require': {}			
 		});
-			
 	}
-	
 });
 
 
@@ -247,7 +254,6 @@ MUI.extend({
 var fNames = [ 'login', 'register' ];
 // a object holds two functions for prelogin 
 var loginFns = {
-
 	/* The 'click' callback function for the 'login' menu. */
 	'login': function(event){
 		new Event(event).stop();

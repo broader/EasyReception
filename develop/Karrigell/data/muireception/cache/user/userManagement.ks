@@ -131,7 +131,6 @@ def _usersGridJs(**args):
    			urls.push([key,value].join('='));
    		});
    		url = [editUrl,urls.join('&')].join('?');
-   		//url = editUrl + '?'+'user='+row['username'];
 
    		// the dialog to edit portfolio
    		new MUI.Modal({
