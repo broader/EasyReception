@@ -45,3 +45,11 @@
 2010/06/07 08:43:10 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found
 2010/06/07 08:43:10 - 127.0.0.1 - GET /lib/smartList/images/Slider.png HTTP/1.1 200
 2010/06/07 08:43:10 - 127.0.0.1 - GET /lib/smartList/images/Knob.png HTTP/1.1 200
+2010/06/07 08:13:10 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529084625 HTTP/1.1 200
+2010/06/07 08:13:10 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529085527 HTTP/1.1 200
+2010/06/07 08:13:11 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529084926 HTTP/1.1 200
+2010/06/07 08:58:23 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529084625 HTTP/1.1 200
+2010/06/07 08:58:23 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529084124 HTTP/1.1 200
+2010/06/07 08:58:24 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529041721 HTTP/1.1 200
+2010/06/07 08:58:25 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529084926 HTTP/1.1 200
+2010/06/07 08:58:26 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529085928 HTTP/1.1 200

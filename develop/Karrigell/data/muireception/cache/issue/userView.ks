@@ -53,7 +53,17 @@ def page_issueDetail(**args):
 	if not serial:
 		PRINT( _('Please select a issue by clicking one row on the left table!'))
 		return
-	PRINT( serial)
+	title = _('Serial: ') + str(B(serial))
+	title = SPAN(title)
+	buttons = [\
+		pagefn.sexyButton(txt,{'class': 'sexyblue', 'style':'margin-left:10px;'},bnType, 'sexysmall')\
+		for txt,bnType in zip(\
+			(_('Edit'), _('Delete')),
+			('edit', 'delete')
+		)
+	]
+	buttons = SPAN(Sum(buttons),style='margin-left:2em;')
+	PRINT( DIV(Sum((title, buttons)), style='border-bottom:1px solid grey;'))
 	return
 
 def page_issueList(**args):

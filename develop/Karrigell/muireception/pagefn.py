@@ -362,7 +362,7 @@ def sexyButton(txt,bnAttrs={},bnType='',size='sexymedium',skin='sexysimple'):
 	"""
 	bnClass = ['sexybutton', size, skin]
 	bnClass = ' '.join(bnClass)
-	bnAttrs['class'] = bnClass
+	bnAttrs['class'] = ' '.join((bnClass, bnAttrs.get('class') or ''))
 	return BUTTON(SPAN(txt,**{'class':bnType}),**bnAttrs)
 
 def getConfig(appName):
