@@ -7,9 +7,21 @@
 	<!-- (en) Add your meta data here -->
 	<link href="css/layout_2col_advanced.css" rel="stylesheet" type="text/css"/>
 	<link href="css/ramblingSoul.css" rel="stylesheet" type="text/css"/>
+	<link href="css/MenuMatic.css" rel="stylesheet" type="text/css" media="screen" charset="utf-8"/>
+
 	<!--[if lte IE 7]>
 	<link href="css/patches/patch_2col_advanced.css" rel="stylesheet" type="text/css" />
+	<link href="css/MenuMatic-ie6.css" rel="stylesheet" type="text/css" media="screen" charset="utf-8"/>
 	<![endif]-->
+	
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	<script>google.load("mootools", "1.2.4");</script>
+	<script type="text/javascript" src="js/MenuMatic_0.68.3-source.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		window.addEvent('domready', function(){
+			var menu = new MenuMatic();
+		});
+	</script>
 </head>
 <body>
 	<!-- skip link navigation -->
@@ -29,8 +41,8 @@
 				<div class='subcolumns'>
 					<div class='c40l'>
 						<div id="logo">
-							<h1 id="sitename">胜算之<span class="green">道</span></h1>
-							<h2 class="description">“多算胜，少算不胜，而况于无算乎？”<br>此间提供“多算”之法！</h2>
+							<h1 id="sitename">Easy<span class="green">Reception</span></h1>
+							<h2 class="description">简捷、高效的会务管理系统</h2>
 						</div>
 					</div>
 
@@ -38,17 +50,23 @@
 						<div class='subcolumns'>
 							<div class='c40l'>
 								<div id="sitecption">
-									Put a Nice Little
-									<span class="bigger">Description</span> Here
+									众多实用功能<br>							
+									<span class="bigger">
+										会务流程、事务监控与处理、动态收益与支出分析......<br>
+									</span>									
+									引导会议有条不紊进行！
 								</div>
 							</div>
 							<div class='c60r'>
 								<div id="headercontent">
-									<h2>Put Some Contents Here</h2>
+									<h2>繁杂的会务管理如何理出头绪?</h2>
 									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+										我们为您提供专业的会议咨询与实施服务，全方位覆盖会议各期间之工作。
+										用我们的专业经验辅助您构思会议的组织思路；
+										用我们的成熟系统为您实时监控会议的工作进程；
+										会议所需各项服务（注册、住宿、旅游、文档管理、赞助商合作等等）皆由专业人士提供，仅需您提供需求......
 										<img src="images/bullet.png" alt="Bullet" width="10" height="10" />
-										<a href="#">Read More</a>
+										<a href="#">更多</a>
 									</p>
 									<p>&nbsp;</p>
 								</div>
@@ -61,6 +79,7 @@
 								
 			</div>
 			<!-- begin: main navigation #nav -->
+			<!--
 			<div id="nav" role="navigation">
 				<div class="hlist">
 					<ul>
@@ -69,6 +88,17 @@
 					<li><a href="../05_navigation/menu_vertical_listnav.html">Previous Example</a></li>
 					</ul>
 				</div>
+			</div>
+			-->
+			<div id="nav">
+				<ul id="navmenu" class="hlist" >
+					<li><a href="index.html">首页</a></li>
+					<li><a href="index.html">产品介绍</a></li>
+					<li><a href="index.html">服务介绍</a></li>
+					<li><a href="index.html">联盟合作</a></li>
+					<li><a href="index.html">公司介绍</a></li>
+					<li><a href="index.html">联系我们</a></li>
+				</ul>
 			</div>
 			<!-- end: main navigation -->
 			<!-- begin: main content area #main -->
