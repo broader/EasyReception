@@ -45,12 +45,16 @@
   /* (en) Centering layout in old IE-versions */
   /* (de) Zentrierung des Layouts in alten IE-versionen */
   body { text-align: center; }
-  .page_margins { text-align:left; margin: 0 auto; }
+  /*.page_margins { text-align:left; margin: 0 auto; }*/
+  .page_margins { text-align:left; margin: 35px auto; }
 
   /* (en) Layout: width, background, borders */
   /* (de) Layout: Breite, Hintergrund, Rahmen */
+  /*
   .page_margins { min-width: 740px; max-width: 80em; background: #fff; }
   .page { padding: 10px; }
+  */
+  .page_margins { min-width: 740px; max-width: 954px; background: #fff; }
 
   /* (en) Designing main layout elements */
   /* (de) Gestaltung der Hauptelemente des Layouts */
@@ -60,7 +64,7 @@
     color: #000;
     background: #fff repeat-x top left;
     */
-    background: transparent url(../../images/header.png) repeat scroll 0 0;
+    background: transparent url(../../images/header-1.png) no-repeat scroll 0 0;
     height: 207px;
     padding: 45px 2em 1em 20px;
   }

@@ -1,0 +1,75 @@
+#header {
+	background:url(../../images/header.png) no-repeat; 
+	height:217px;
+}
+
+#logo #sitename {
+	font-size: 36px;
+	color: #000000;
+	display: block;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #C6C6C6;
+}
+
+#headercontent h2 {
+	font-size: 18px;
+	color: #5B920A;
+}
+
+/*#wrap #header #logo .description {*/
+#header #logo .description {
+	display: block;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	padding-top: 10px;
+}
+
+/*#wrap #header #headercontent p {*/
+#header #headercontent p {
+	color: #666666;
+}
+
+/*#wrap #header #sitecption {*/
+#header #sitecption {
+	/*
+	margin-right: 380px;
+	margin-left: 380px;
+	*/
+	padding-top: 85px;
+	color: #FFFFFF;
+	font: bold 16px "Trebuchet MS", halvetica, Verdana, sans-serif;
+}
+.bigger {
+	font: 18px "Trebuchet MS", halvetica, Verdana, sans-serif;
+	color: #C0EC15;
+}
+
+#header h1, h2, h3, h4 { 
+	font-family:"Trebuchet MS", halvetica, Verdana, sans-serif;
+	color: #333333;
+}
+
+#header .green {
+	color: #5B920A;
+}
+
+/*#wrap #header #logo {*/
+#header #logo {
+	width: 260px;
+	padding-top: 50px;
+	padding-left: 50px;
+	height: 150px;
+	float: left;
+}
+
+/*#wrap #header #headercontent {*/
+#header #headercontent {
+	width: 300px;
+	float: right;
+	padding-right: 55px;
+	padding-top: 60px;
+	height: 125px;
+}
