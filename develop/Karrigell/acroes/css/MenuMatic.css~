@@ -13,8 +13,16 @@
 	/*background-color:#fff ;*/
 	color: #5B920A;
 	/*height: 40px;*/
+	height: 20px;
+	font-size: 12px;
+	font-weight: bold;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
+}
+
+#subMenusContainer a{
+	color: #ffffff;
+	padding: 10px 10px;
 }
 
 /* Just main menu links --[for non-javascript users this applies to submenu links as well]*/
@@ -29,7 +37,7 @@
 }
 
 /* All menu links on hover or focus */
-#navmenu a:hover, #navmenu a:focus, #subMenusContainer a:hover, #subMenusContainer a:focus, #navmenu a.mainMenuParentBtnFocused, #subMenusContainer a.subMenuParentBtnFocused{
+#navmenu a:active, #navmenu a:hover, #navmenu a:focus, #subMenusContainer a:hover, #subMenusContainer a:focus, #navmenu a.mainMenuParentBtnFocused, #subMenusContainer a.subMenuParentBtnFocused{
 	/*background-color:#F6C739 ;*/
 	color:#FFF;
 	background: transparent url(../images/menuactive.gif) no-repeat scroll center top;
@@ -41,7 +49,8 @@
 #navmenu a.mainMenuParentBtnFocused, 
 #subMenusContainer a.subMenuParentBtnFocused,
 #navmenu li a:hover,
-#navmenu li a:focus{
+#navmenu li a:focus,
+#navmenu li a:active {
 	/*background-color:#F6C739 ;*/
 	color:#FFF;
 	background: transparent url(../images/menuactive.gif) no-repeat scroll center top;
@@ -94,7 +103,8 @@
 	/*border around submenu goes here*/	 
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
-	background:#fff;	
+	/*background:#fff;*/
+	background: #67676B;	
 	border:1px solid #C3D46A;
 	left:0;
 }
