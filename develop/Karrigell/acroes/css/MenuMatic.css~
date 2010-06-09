@@ -6,41 +6,45 @@
 /* ----[ LINKS ]----*/
 
 /* all menu links */
-#nav a, #subMenusContainer a{
+#navmenu a, #subMenusContainer a{
 	text-decoration:none;
 	display:block;
 	padding:10px 20px;
-	background-color:#fff ;
+	/*background-color:#fff ;*/
+	color: #5B920A;
+	/*height: 40px;*/
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
 }
 
 /* Just main menu links --[for non-javascript users this applies to submenu links as well]*/
-#nav a{
+#navmenu a{
 	margin:0;
 	float:left;	
 }
 
 /* Just sub menu links */
-#subMenusContainer a, #nav li li a{
+#subMenusContainer a, #navmenu li li a{
 	text-align:left;
 }
 
 /* All menu links on hover or focus */
-#nav a:hover, #nav a:focus, #subMenusContainer a:hover, #subMenusContainer a:focus, #nav a.mainMenuParentBtnFocused, #subMenusContainer a.subMenuParentBtnFocused{
-	background-color:#F6C739 ;
+#navmenu a:hover, #navmenu a:focus, #subMenusContainer a:hover, #subMenusContainer a:focus, #navmenu a.mainMenuParentBtnFocused, #subMenusContainer a.subMenuParentBtnFocused{
+	/*background-color:#F6C739 ;*/
 	color:#FFF;
+	background: transparent url(../images/menuactive.gif) no-repeat scroll center top;
 }
 
 /* sub menu links on hover or focus */
 #subMenusContainer a:hover, 
 #subMenusContainer a:focus, 
-#nav a.mainMenuParentBtnFocused, 
+#navmenu a.mainMenuParentBtnFocused, 
 #subMenusContainer a.subMenuParentBtnFocused,
-#nav li a:hover,
-#nav li a:focus{
-	background-color:#F6C739 ;
+#navmenu li a:hover,
+#navmenu li a:focus{
+	/*background-color:#F6C739 ;*/
 	color:#FFF;
+	background: transparent url(../images/menuactive.gif) no-repeat scroll center top;
 }
 
 /* Parent Sub Menu Links ---[javascript users only]*/
@@ -78,7 +82,7 @@
 
 
 /* All ULs and OLs */
-#nav, #nav ul, #nav ol, #subMenusContainer ul, #subMenusContainer ol { 
+#navmenu, #navmenu ul, #navmenu ol, #subMenusContainer ul, #subMenusContainer ol { 
 	padding: 0;
 	margin: 0;
 	list-style: none;
@@ -86,7 +90,7 @@
 }
 
 /* All submenu OLs and ULs */
-#nav ol, #nav ul, #subMenusContainer ul, #subMenusContainer ol {	
+#navmenu ol, #navmenu ul, #subMenusContainer ul, #subMenusContainer ol {	
 	/*border around submenu goes here*/	 
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
@@ -97,12 +101,15 @@
 
 
 /* List items in main menu --[for non-javascript users this applies to submenus as well]  */
-#nav li { 
+#navmenu li { 
 	/*great place to use a background image as a divider*/
-	display:block;
+	/*display:block;*/
+	display: inline;
 	list-style:none;
 	position:relative;
 	float:left;
+	font-weight: bold;
+	font-size: 1.2em;
 }
 
 #subMenusContainer li{
@@ -110,7 +117,7 @@
 }
 
 /* main menu ul or ol elment */
-#nav{
+#navmenu{
 	display:block;
 	list-style:none;
 	margin:0 0 0 0;
@@ -129,14 +136,14 @@
 
 
 /* --------------------------[ The below is just for non-javscript users ]--------------------------*/
-#nav li li{	float:none; }
+#navmenu li li{	float:none; }
 
-#nav li li a{ /* Just submenu links*/	
+#navmenu li li a{ /* Just submenu links*/	
 	position:relative;
 	float:none;
 }
 
-#nav li ul { /* second-level lists */
+#navmenu li ul { /* second-level lists */
 	position: absolute;
 	width: 10em;
 	margin-left: -1000em; /* using left instead of display to hide menus because display: none isn't read by screen readers */
@@ -144,17 +151,17 @@
 }
 
 /* third-and-above-level lists */
-#nav li ul ul { margin: -1em 0 0 -1000em; }
-#nav li:hover ul ul {	margin-left: -1000em; }
+#navmenu li ul ul { margin: -1em 0 0 -1000em; }
+#navmenu li:hover ul ul {	margin-left: -1000em; }
 
  /* lists nested under hovered list items */
-#nav li:hover ul{	margin-left: 0; }
-#nav li li:hover ul {	margin-left: 10em; margin-top:-2.5em;}
+#navmenu li:hover ul{	margin-left: 0; }
+#navmenu li li:hover ul {	margin-left: 10em; margin-top:-2.5em;}
 
 /* extra positioning rules for limited noscript keyboard accessibility */
-#nav li a:focus + ul {  margin-left: 0; margin-top:2.2em; }
-#nav li li a:focus + ul { left:0; margin-left: 1010em; margin-top:-2.2em;}
-#nav li li a:focus {left:0;  margin-left:1000em; width:10em;  margin-top:0;}
-#nav li li li a:focus {left:0; margin-left: 2010em; width: 10em;  margin-top:-1em;}
-#nav li:hover a:focus{ margin-left: 0; }
-#nav li li:hover a:focus + ul { margin-left: 10em; }
+#navmenu li a:focus + ul {  margin-left: 0; margin-top:2.2em; }
+#navmenu li li a:focus + ul { left:0; margin-left: 1010em; margin-top:-2.2em;}
+#navmenu li li a:focus {left:0;  margin-left:1000em; width:10em;  margin-top:0;}
+#navmenu li li li a:focus {left:0; margin-left: 2010em; width: 10em;  margin-top:-1em;}
+#navmenu li:hover a:focus{ margin-left: 0; }
+#navmenu li li:hover a:focus + ul { margin-left: 10em; }

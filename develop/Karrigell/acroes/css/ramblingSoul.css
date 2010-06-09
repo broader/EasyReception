@@ -85,4 +85,7 @@
 }
 
 #nav ul { margin-left: 10px;}
-.hlist { width: 98%;}
+#nav .hlist { 
+	width: 98%;
+	background: #333333;
+}

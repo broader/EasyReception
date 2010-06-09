@@ -84,5 +84,8 @@
 	text-decoration: none;
 }
 
-#nav ul { margin-left: 5px;}
-.hlist { width: 98%;}
+#nav ul { margin-left: 10px;}
+.hlist { 
+	width: 98%;
+	background: #333333;
+}
