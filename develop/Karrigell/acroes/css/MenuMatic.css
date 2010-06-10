@@ -43,6 +43,11 @@
 	background: transparent url(../images/menuactive.gif) no-repeat scroll center top;
 }
 
+#navmenu .active {
+	color:#FFF;
+	background: transparent url(../images/menuactive.gif) no-repeat scroll center top;
+}
+
 /* sub menu links on hover or focus */
 #subMenusContainer a:hover, 
 #subMenusContainer a:focus, 

@@ -124,8 +124,8 @@
 var MenuMatic = new Class({
 	Implements: Options,
 	options: {
-        id: 'navmenu',//the id of the main menu (ul or ol)
-        subMenusContainerId:'subMenusContainer',//id of the container div that will be generated to hold the submenus 
+		id: 'navmenu',//the id of the main menu (ul or ol)
+		subMenusContainerId:'subMenusContainer',//id of the container div that will be generated to hold the submenus 
 		
 		//subMenu behavior
 		effect: 'slide & fade',// 'slide', 'fade', 'slide & fade', or  null
@@ -156,7 +156,7 @@ var MenuMatic = new Class({
 		onInit_begin: (function(){}),
 		onInit_complete: (function(){})		
 
-    },
+	},
 	
 	hideAllMenusTimeout:null,
 	allSubMenus:[],
@@ -164,7 +164,7 @@ var MenuMatic = new Class({
 	
 	initialize: function(options){		
 		//if(Browser.Engine.webkit419){return;}		
-        this.setOptions(options);
+		this.setOptions(options);
 		this.options.onInit_begin();
 		if(this.options.opacity > 99){this.options.opacity = 99.9;}
 		this.options.opacity = this.options.opacity /100;
@@ -172,7 +172,7 @@ var MenuMatic = new Class({
 		Element.implement({
 		    getId: function(){
 				//If this element does not have an id, give it a unique one
-		        if(!this.id){ 
+				if(!this.id){ 
 					var uniqueId = this.get('tag') + "-" + $time();
 					while($(uniqueId)){
 						//make sure it is absolutely unique
@@ -253,12 +253,26 @@ var MenuMatic = new Class({
 			var aSubMenu = new MenuMaticSubMenu(this.options,this, item);
 
 		}.bind(this));
-			
+		
+		// add 'active' class to entering item, add by B.Z
+		//------------------------------------------------------------------------
+		var topMenus = $(this.options.id).getElements('a');
+		topMenus.each(function(item,index){
+			item.addEvent('mouseenter', function(e){
+				topMenus
+				.filter(function(a){return a.hasClass('active')})
+				.each(function(a){a.removeClass('active');});
+
+				$(e.target).addClass('active');
+			});
+		});
+		//------------------------------------------------------------------------
+
 		//attach event handlers to non-parent main menu buttons
 		var nonParentBtns = $(this.options.id).getElements('a').filter(function(item, index){ return !item.retrieve('childMenu'); });
 		nonParentBtns.each(function(item, index){
 			item.addEvents({
-				'mouseenter': function(e){					
+				'mouseenter': function(e){	
 					//e = new Event(e).stop();
 					this.hideAllSubMenusNow();	
 					if(this.options.mmbClassName && this.options.mmbFocusedClassName){
