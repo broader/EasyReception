@@ -1,6 +1,24 @@
+.page_margins {
+	margin: 15px auto;
+}
+
+/*
+.page{
+	border-left: 10px solid gainsboro;
+	border-right: 10px solid gainsboro;
+}
+*/
+
+#main {
+	border-top: 4px solid gainsboro;
+	border-left: 4px solid gainsboro;
+	border-right: 4px solid gainsboro;
+}
+
+
 #header {
-	background:url(../../images/header.png) no-repeat; 
-	height:217px;
+	background:url(../../images/header-195.png) no-repeat scroll center center; 
+	height: auto;
 }
 
 #logo #sitename {
@@ -85,7 +103,11 @@
 }
 
 #nav ul { margin-left: 10px;}
-.hlist { 
+#nav .hlist { 
 	width: 98%;
+	background: #333333;
+}
+
+#footer {
 	background: #333333;
 }
