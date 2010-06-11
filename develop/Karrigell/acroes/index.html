@@ -8,6 +8,7 @@
 	<link href="css/layout_2col_advanced.css" rel="stylesheet" type="text/css"/>
 	<link href="css/ramblingSoul.css" rel="stylesheet" type="text/css"/>
 	<link href="css/MenuMatic.css" rel="stylesheet" type="text/css" media="screen" charset="utf-8"/>
+	<link href="css/complementary.css" rel="stylesheet" type="text/css"/>
 
 	<!--[if lte IE 7]>
 	<link href="css/patches/patch_2col_advanced.css" rel="stylesheet" type="text/css" />
@@ -30,7 +31,7 @@
 				item.addEvent('click', function(event){
 					var href = $(event.target).getProperty('rel');	
 					alert(href);
-					$('main').load(href);				
+					$('main').load(href);		
 				});
 				// load the default site page, that usually means the 'home' page
 				if(index==0) $('main').load('home.html');
@@ -122,7 +123,7 @@
 								<a href="javascript:;" rel="rent.html">设备租赁</a>
 							</li>
 							<li>
-								<a href="javascript:;" rel="elearning.html">学习型组织构建服务</a>
+								<a href="javascript:;" rel="elearning.html">知识管理系统构建咨询服务</a>
 							</li>
 						</ul>
 					</li>
