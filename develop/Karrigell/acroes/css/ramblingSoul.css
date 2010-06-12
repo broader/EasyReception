@@ -33,7 +33,8 @@
 
 #headercontent h2 {
 	font-size: 18px;
-	color: #5B920A;
+	font-weight: bold;
+	color: #C0EC15;
 }
 
 /*#wrap #header #logo .description {*/
@@ -116,4 +117,21 @@
 	background: #333333;
 	color: #FFFFFF;
 	font-weight: bold;
+}
+
+.productlist {
+	list-style: none;
+	height: 100px;
+}
+#productlist li {
+	display: block;
+	padding: 3px;
+	border-bottom: 1px solid #eee;
+}
+.productimage {
+	float: left;
+}
+
+.homeright h3 {
+ color:#5B920A;
 }

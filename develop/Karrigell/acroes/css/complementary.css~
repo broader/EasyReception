@@ -1,0 +1,18 @@
+/*
+/*
+yaml/examples/06_layout_advanced/css/screen/basemod_grids2.css
+*/
+
+.subcolumns {
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.subc {
+	border-left: 1px solid #DDDDDD;
+	border-right: 1px solid #DDDDDD;
+	padding: 0 24px;
+}
+
+.subcl{
+	padding: 0 24px 0 0 ;
+}

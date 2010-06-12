@@ -4,7 +4,7 @@ yaml/examples/06_layout_advanced/css/screen/basemod_grids2.css
 */
 
 .subcolumns {
-	border-bottom: 1px solid #DDDDDD;
+	/*border-bottom: 1px solid #DDDDDD;*/
 }
 
 .subc {
