@@ -4557,7 +4557,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1276306118087" POSITION="right" TEXT="Company Web Site">
+<node COLOR="#0033ff" CREATED="1261017385572" ID="ID_1594767766" MODIFIED="1276394834067" POSITION="right" TEXT="Company Web Site">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="full-1"/>
@@ -4829,16 +4829,23 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1275214798059" FOLDED="true" ID="ID_1246116707" MODIFIED="1276306115665" TEXT="Content">
+<node COLOR="#00b439" CREATED="1275214798059" ID="ID_1246116707" MODIFIED="1276394839018" TEXT="Content">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1275214855579" ID="ID_680229734" MODIFIED="1276134204498" TEXT="Home">
 <font NAME="SansSerif" SIZE="14"/>
 </node>
-<node COLOR="#990000" CREATED="1275214860185" ID="ID_908819858" MODIFIED="1276226587770" TEXT="About">
+<node COLOR="#990000" CREATED="1275214860185" FOLDED="true" ID="ID_908819858" MODIFIED="1276400304391" TEXT="About">
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1276134215749" ID="ID_1573902175" MODIFIED="1276134228792" TEXT="scheton">
+<node COLOR="#111111" CREATED="1276134215749" FOLDED="true" ID="ID_1573902175" MODIFIED="1276400303569" TEXT="scheton">
 <node COLOR="#111111" CREATED="1276134244416" ID="ID_339704372" LINK="http://www.uxbooth.com/blog/about-pages-good-bad-and-missing/" MODIFIED="1276134327950" TEXT="    * Who are you?&#xa;    * Where are you?&#xa;    * What do you do?&#xa;    * How are you doing it?&#xa;    * When did you start?&#xa;&#xa;A good About page answers these questions directly by providing contact information (including a physical address), displaying photos of real people, and explaining what the organization is currently doing. About pages help users put our heretofore anonymous organization into perspective."/>
+<node COLOR="#111111" CREATED="1276394855152" ID="ID_1475273280" MODIFIED="1276394863196" TEXT="&#x56e2;&#x961f;&#x4ecb;&#x7ecd;"/>
+<node COLOR="#111111" CREATED="1276394863827" ID="ID_970901212" MODIFIED="1276394894421" TEXT="&#x64c5;&#x957f;&#x9886;&#x57df;"/>
+<node COLOR="#111111" CREATED="1276394895261" ID="ID_620589234" MODIFIED="1276394913222" TEXT="&#x516c;&#x53f8;&#x5730;&#x70b9;"/>
+<node COLOR="#111111" CREATED="1276394915200" ID="ID_679590825" MODIFIED="1276394934990" TEXT="&#x94f6;&#x884c;&#x4e0e;&#x5e10;&#x6237;&#x8d44;&#x6599;"/>
+<node COLOR="#111111" CREATED="1276394939562" ID="ID_1764517127" MODIFIED="1276394947897" TEXT="&#x53c2;&#x8003;&#x7ad9;&#x70b9;">
+<node COLOR="#111111" CREATED="1276394957425" ID="ID_384628602" LINK="http://www.comsharp.com/GetKnowledge/zh-CN/Official_doc.aspx" MODIFIED="1276394960619" TEXT="http://www.comsharp.com/GetKnowledge/zh-CN/Official_doc.aspx"/>
+</node>
 </node>
 </node>
 <node COLOR="#990000" CREATED="1275214865436" ID="ID_769299225" MODIFIED="1276135987303" TEXT="Products">
@@ -4874,7 +4881,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1273293789336" FOLDED="true" ID="ID_1705404438" MODIFIED="1276313571423" POSITION="right" TEXT="Web Site Analize Tools">
+<node COLOR="#0033ff" CREATED="1273293789336" FOLDED="true" ID="ID_1705404438" MODIFIED="1276394833279" POSITION="right" TEXT="Web Site Analize Tools">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1273293872148" ID="ID_291748799" LINK="http://www.iwanna.cn/archives/2010/05/07/2966/" MODIFIED="1273293895552" TEXT="&#x7528;&#x6237;&#x884c;&#x4e3a;&#x70b9;&#x51fb;&#x70ed;&#x533a;&#x8ddf;&#x8e2a;&#x91c7;&#x96c6;">

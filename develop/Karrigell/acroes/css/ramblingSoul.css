@@ -15,6 +15,13 @@
 	border-right: 4px solid gainsboro;
 }
 
+#main a {
+	color: #5B920A;
+}
+
+#main a:hover {
+	color: #BDEB16;
+}
 
 #header {
 	background:url(../images/header-195.png) no-repeat scroll center center; 
@@ -111,6 +118,10 @@
 #nav .hlist { 
 	width: 98%;
 	background: #333333;
+	float: left;
+	overflow: hidden;
+	border-top: 1px solid #DDDDDD;
+	border-bottom: 1px solid #DDDDDD;
 }
 
 #footer {
@@ -134,4 +145,8 @@
 
 .homeright h3 {
  color:#5B920A;
+}
+
+#main .info{
+	padding: 0px;
 }
