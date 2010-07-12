@@ -1,0 +1,35 @@
+<div id="homeleft">
+	<h2><span class="green">典型案例</span></h2>
+	<p>
+		<img class="productimage" src="images/cospar2006.jpg" alt="COSPAR2006" />
+	</p>
+	<u><b>COSPAR2006</b></u>
+	为国际空间科学领域顶极盛会，每两年召开一次。
+	我公司作为COSPAR2006信息技术服务提供商，为该会议量身定制了以下方案：<br/>
+	<i>基于internet的广域信息网，多用户、多角色、多维索引的文件提交与管理系统，由服务器集群组成的动态备份链</i>
+	<img src="images/bullet.png" alt="r" width="10" height="10" /> <a href="javascript:;" class="bumpbox">更多内容......</a>
+	<br/><br/>
+
+	<h2>公司<span class="green">产品</span></h2>
+	<ul id="productlist">
+		<li style="height:100px;">
+			<img src="images/product2.gif" alt="Product" width="101" height="97" class="productimage" />
+			<h3>EasyReception会务管理系统</h3>
+			<p>
+				经历国际大型会议锤炼，集中多项使用功能。<br />
+				<img src="images/bullet.png" alt="r" width="10" height="10" /> 
+				<a href="#">更多内容......</a>
+			</p>
+		</li>
+		<li style="height:100px;">
+			<img src="images/product3.gif" alt="Product" width="101" height="97" class="productimage" />
+			<h3>eTracker客户服务支持系统</h3>
+			<p>
+				经历国际大型会议锤炼，集中多项使用功能。<br />
+				<img src="images/bullet.png" alt="r" width="10" height="10" /> <a href="#">更多内容......</a>
+			</p>
+		</li>
+	</ul>
+
+</div>
+

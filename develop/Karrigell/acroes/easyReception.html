@@ -1,0 +1,33 @@
+<hr>
+<div id="slideshow">    
+	<span id="loading">Loading</span>
+    
+	<ul id="pictures">
+		<li><img src="images/easyReception/portal.png" alt="Portal" title="Portal" /></li>
+		<li><img src="images/easyReception/register_587.png" alt="Register" title="Register" /></li>
+		<li><img src="images/easyReception/hotel_587.png" alt="Hotel" title="Hotel" /></li>
+		<li><img src="images/easyReception/travel_587.png" alt="Travel" title="Travel" /></li>
+		<li><img src="images/easyReception/issue_587.png" alt="Issue" title="Issue" /></li>
+	</ul>
+      
+	<ul id="menu">
+		<li><a href="images/easyReception/portal.png">各类风格的个人门户</a></li>
+		<li><a href="images/easyReception/register_587.png">在线注册</a></li>
+		<li><a href="images/easyReception/hotel_587.png">酒店预订</a></li>
+		<li><a href="images/easyReception/travel_587.png">旅游预订</a></li>
+		<li><a href="images/easyReception/issue_587.png">事务处理</a></li>
+	</ul>
+	
+</div>
+  
+<script type="text/javascript">
+	var slideshow = new BarackSlideshow('menu', 'pictures', 'loading', {
+			auto: true,
+			autostart: true,
+			onClick: function(item){
+				this.options.auto = false;
+			}
+	});
+
+
+</script> 

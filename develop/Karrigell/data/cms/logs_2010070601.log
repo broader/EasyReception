@@ -1,0 +1,22 @@
+2010/07/06 09:59:39 - 127.0.0.1 - GET /menu.ks/page_validName?user=supervisor HTTP/1.1 200
+2010/07/06 09:59:39 - 127.0.0.1 - GET /menu.ks/page_validPwd?user=supervisor&pwd=990508 HTTP/1.1 200
+2010/07/06 09:59:39 - 127.0.0.1 - GET /menu.ks/page_postValid?_=1278381586722 HTTP/1.1 200
+2010/07/06 09:59:39 - 127.0.0.1 - GET /menu.ks/page_toggleMenu?showMenu=1&_=1278381586812 HTTP/1.1 200
+2010/07/06 09:59:41 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/07/06 09:59:41 - 127.0.0.1 - GET /menu.ks/page_loginSpan?page=0 HTTP/1.1 200
+2010/07/06 01:59:46 - 127.0.0.1 - GET /menu.ks/page_menuList?page=0 HTTP/1.1 200
+2010/07/06 01:59:46 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/07/06 01:59:46 - 127.0.0.1 - GET /navigation.ks/profile?path=issue HTTP/1.1 302 /issue/
+2010/07/06 01:59:46 - 127.0.0.1 - GET /issue/ HTTP/1.1 200
+2010/07/06 01:59:47 - 127.0.0.1 - GET /lib/asmselect/jquery.asmselect.css HTTP/1.1 200
+2010/07/06 01:59:47 - 127.0.0.1 - GET /lib/multiselect/style.css HTTP/1.1 200
+2010/07/06 01:59:46 - 127.0.0.1 - GET /lib/dataTable/css/demo_table.css HTTP/1.1 200
+2010/07/06 01:59:47 - 127.0.0.1 - GET /js/jquery.form.js?_=1278381589163 HTTP/1.1 200
+2010/07/06 01:59:49 - 127.0.0.1 - GET /issue/issue.ks/show HTTP/1.1 200
+2010/07/06 01:59:49 - 127.0.0.1 - GET /issue/issue.ks/index HTTP/1.1 200
+2010/07/06 01:59:49 - 127.0.0.1 - GET /issue/issue.ks/page_editIssue HTTP/1.1 200
+2010/07/06 01:59:49 - 127.0.0.1 - GET /lib/dataTable/js/jquery.dataTables.js?_=1278381589558 HTTP/1.1 200
+2010/07/06 01:59:49 - 127.0.0.1 - GET /lib/dataTable/i18n/cn_CN.txt HTTP/1.1 200
+2010/07/06 01:59:49 - 127.0.0.1 - GET /lib/dataTable/images/sort_desc.jpg HTTP/1.1 200
+2010/07/06 01:59:49 - 127.0.0.1 - GET /lib/dataTable/images/sort_both.jpg HTTP/1.1 200
+2010/07/06 01:59:49 - 127.0.0.1 - GET /issue/issue.ks/page_getData?iColumns=5&sColumns=&iDisplayLength=10&iDisplayStart=0&sSearch=&bEscapeRegex=true&sSearch_0=&bEscapeRegex_0=true&sSearch_1=&bEscapeRegex_1=true&sSearch_2=&bEscapeRegex_2=true&sSearch_3=&bEscapeRegex_3=true&sSearch_4=&bEscapeRegex_4=true&iSortingCols=1&iSortCol_0=0&iSortDir_0=desc HTTP/1.1 200

@@ -1,0 +1,38 @@
+Element.implement({
+center : function(relative){
+if($(relative)){
+relative = $(relative);
+}else{
+relative = window;
+}
+var windSize = relative.getSize();
+var elSize = this.getSize();
+var top,left,marginTop,marginLeft;
+if(windSize.x < elSize.x){
+left = 0;
+marginLeft = 0;
+}else{
+left = '50%';
+marginLeft = -(elSize.x/2).toInt();
+}
+if(windSize.y < elSize.y ) {
+top = 0;
+marginTop = 0;
+}else{
+top = '50%';
+marginTop = -(elSize.y/2).toInt();
+marginTop = -(elSize.y/2).toInt();
+}
+if(relative != window && relative.getStyle('position')=='static'){
+relative.setStyle('position','relative');
+}
+this.setStyles({
+position:'absolute',
+top:top,
+left:left,
+marginLeft:marginLeft,
+marginTop:marginTop
+}).inject((relative==window?$(document.body):relative));
+return this;
+}
+}); 

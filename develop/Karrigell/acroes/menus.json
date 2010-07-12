@@ -1,0 +1,38 @@
+[
+{"label":"首页", "submenu":"home.html"},
+{
+	"label": "产品", 
+	"submenu": [
+		{"label": "会务管理系统（EasyReception）", "ref": "easyReception.html"},
+		{"label": "服务支持系统（eTracker）", "ref": "eTracker.html"}]
+},
+{
+	"label":"服务",
+	"submenu": [
+		{"label": "设备租赁", "ref": "rentService.html"},
+		{"label": "互联网办公环境构建", "ref": "officeNet.html"},
+		{"label": "知识管理", "ref": "eLearning.html"}]
+},
+{
+	"label":"联盟合作",
+	"submenu": [
+		{"label": "合作机构", "ref": "cooperator.html"},
+		{"label": "方案整合", "ref": "solution.html"},
+		{"label": "OEM合作", "ref": "oem.html"},
+		{"label": "销售代理", "ref": "agent.html"}]
+},
+{
+	"label":"公司介绍",
+	"submenu": [
+		{"label": "公司历史", "ref": "history.html"},
+		{"label": "企业文化", "ref": "culture.html"},
+		{"label": "发展方向", "ref": "orientation.html"}]
+},
+{
+	"label":"人员招聘",
+	"submenu": [
+		{"label": "销售", "ref": "sales.html"},
+		{"label": "开发", "ref": "development.html"}]
+},
+{"label":"联系我们", "submenu":"contact.html"}
+]

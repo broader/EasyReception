@@ -1,0 +1,48 @@
+.modal-window
+{
+    width: 800px;
+    height: 450px;
+    background: transparent url('background.png') scroll left top;
+}
+.modal-window .model-content
+{
+    width: 780px;
+    height: 400px;
+    left: 10px;
+    top: 10px;
+    position: absolute;
+}
+.modal-close
+{
+float: right;
+margin: 0;
+position: relative;
+height: 30px;
+width: 30px;
+margin-top: 3px;
+margin-right: 5px;
+z-index: 5000;
+background-image: url(close.png);
+}
+
+.modal-window .button
+{
+    position: absolute;
+    bottom: 10px;
+    text-indent: -1000000px;
+    outline: none;
+}
+.modal-window .button.ok
+{
+    background-image: url(ok.gif);
+    width: 40px;
+    height: 12px;
+    right: 10px;
+}
+.modal-window .button.cancel
+{
+    background-image: url(cancel.gif);
+    width: 62px;
+    height: 13px;
+    right: 60px;
+}

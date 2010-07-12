@@ -1,0 +1,58 @@
+/*
+Here we select some css style definit from css framework YAML(http://www.yaml.de)
+*/
+.subcolumns {
+	border-bottom: 1px solid #DDDDDD;
+	overflow: hidden;
+	width: 100%;
+}
+
+.c30l, .c30r {
+	width: 30%;
+}
+
+.c40l, .c40r {
+	width: 40%;
+}
+
+.c33l, .c33r {
+	width: 33.333%;
+}
+
+.c50l, .c50r {
+	width: 50%;
+}
+
+.c60l, .c60r {
+	width: 60%;
+}
+
+.c70l, .c70r {
+	width: 70%;
+}
+
+.c30l, .c33l, .c50l, .c60l, .c70l {
+	float: left;
+}
+
+.c30r, .c33r, .c40r, .c50r, .c60r, .c70r {
+	float: right;
+	margin-left: -5px;
+}
+
+.subc {
+	border-left: 1px solid #DDDDDD;
+	border-right: 1px solid #DDDDDD;
+}
+
+.subcl {
+	padding: 0 24px;
+}
+
+.subcr {
+	padding: 0 0 0 24px;
+}
+
+.active a {
+	color: #BDEB16;
+}

@@ -1,0 +1,31 @@
+<hr>
+<div id="slideshow">    
+	<span id="loading">Loading</span>
+    
+	<ul id="pictures">
+		<li><img src="images/rent/equipment.jpg" alt="Equipments" title="Equipment" /></li>
+		<li><img src="images/rent/pricelist_587.png" alt="Pricelist" title="Pricelist" /></li>
+		<li><img src="images/rent/preferential_587.png" alt="Preferential" title="Preferential" /></li>
+		<li><img src="images/rent/distributor_587.png" alt="Distributors" title="Distributors" /></li>
+	</ul>
+      
+	<ul id="menu">
+		<li><a href="images/rent/equipment.jpg">提供租赁的各类IT设备</a></li>
+		<li><a href="images/rent/pricelist_587.png">租赁价格列表</a></li>
+		<li><a href="images/rent/preferential_587.png">多项优惠条款回馈用户</a></li>
+		<li><a href="images/rent/distributor_587.png">众多城市皆可提供服务</a></li>
+	</ul>
+	
+</div>
+  
+<script type="text/javascript">
+	var slideshow = new BarackSlideshow('menu', 'pictures', 'loading', 
+		{
+			auto: true,
+			autostart: true,
+			onClick: function(item){
+				this.options.auto = false;
+			}
+	});
+
+</script> 

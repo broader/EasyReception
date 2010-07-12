@@ -1,0 +1,60 @@
+<div>
+	<h2 style="margin-left:2em">COSPAR2006 IT 服务整体解决方案</h2>
+	<hr>
+	<div class="subcolumns">
+		<div class="c30l">
+			<ul class="slideMenu" style="padding: 1em 2em 2em 2em; font-size:14px; font-weight:bold;">
+				<li><a href="javascript:;" ref="images/cospar2006/info.jpg">会议背景简介</a></li>
+				<li><a href="javascript:;" ref="images/cospar2006/siteDesign.jpg">网站设计</a></li>
+				<li><a href="javascript:;" ref="images/cospar2006/networks.jpg">网络设计</a></li>
+				<li>
+					会务服务系统设计
+					<ul style="padding-left:10px">
+						<li><a href="javascript:;" ref="images/cospar2006/register.jpg">注册管理</a></li>
+						<li><a href="javascript:;" ref="images/cospar2006/issue.jpg">事务追踪与处理</a></li>
+						<li><a href="javascript:;" ref="images/cospar2006/hotel.jpg">酒店预订</a></li>
+						<li><a href="javascript:;" ref="images/cospar2006/travel.jpg">旅游服务</a></li>
+					</ul>
+			</ul>
+		</div>
+		<div class="c70r">
+			<div class="slideContent" style="padding: 1em 2em 2em 0em;"><img src="" alt="Graph"/></div>
+		</div>
+		
+	</div>
+</div>
+
+<script type="text/javascript">
+	var content = $$('.slideContent')[0].getChildren()[0];
+	
+	var alinks = $$('.slideMenu')[0].getElements('a');
+
+	alinks.each(function(item,index){
+		item.addEvent('click', function(e){
+			new Event(e).stop();
+			href = $(e.target).getProperty('ref');
+			content.setProperty('src', href);
+			showCaseActive(e.target);	
+		});
+		if(index==0){ 
+			content.setProperty('src',item.getProperty('ref'));
+			item.getParent('li').addClass('active');
+		};
+	});	
+
+	function showCaseActive(item){
+		alinks.each(function(a){
+			var liParent = a.getParent('li');
+			if(a==item && !liParent.hasClass('active')){
+				liParent.addClass('active');
+			}
+			else if ( a != item && liParent.hasClass('active')){
+				liParent.removeClass('active');
+			}
+			else{};
+		});
+	};
+</script>
+
+
+

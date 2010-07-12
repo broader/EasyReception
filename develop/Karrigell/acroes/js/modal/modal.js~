@@ -1,0 +1,113 @@
+/*
+---
+description: Simple modal class (with overlay) for MooTools.
+
+license: MIT-style
+
+authors:
+- Christopher Pitt
+
+requires:
+- Overlay (sixtyseconds)/0.1: Overlay
+
+provides: [Modal]
+
+...
+*/
+
+var Modal = new Class({
+    'Implements': [Options, Events],
+
+    'options': {    
+        /*
+        'onLoad': $empty,
+        'onPosition': $empty,
+        'onShow': $empty,
+        'onHide': $empty,
+        'onButton': $empty,
+        */
+        'z-index': 1,
+        'buttons': 'ok|cancel',
+        'container': document.body,
+        'duration': 100,
+        'color': '#000',
+        'opacity': 0.7
+    },
+    
+    'initialize': function(options)
+    {
+        this.setOptions(options);
+        
+        var self = this,
+            buttons = self.options.buttons.split('|'),
+            
+            overlay = new Overlay($extend(self.options, {
+                'onPosition': self.position.bind(self)
+            })),
+            
+            window = new Element('div', {
+                'class': 'modal-window',
+                'styles': {
+                    'z-index': self.options['z-index'] + 10,
+                    'position': 'absolute',
+                    'display': 'none'
+                }
+            }).inject(document.body),
+            
+            content = document.id(self.options['content']) || new Element('div', {'class': 'modal-content'});
+            
+            content.setStyles({
+                'z-index': self.options['z-index'] + 11
+            }).inject(window);            
+            
+            Array.each(buttons, function(button) {
+                new Element('a', {
+                    'class': 'button ' + button,
+                    'text': button,
+                    'href': '#',
+                    'events': {
+                        'click': function(e)
+                        {
+                            self.fireEvent('onButton', [e, button]);
+                        }
+                    }
+                }).inject(window);
+            });
+            
+        self.overlay = overlay;
+        self.window = window;
+        self.content = content;
+        
+        this.fireEvent('onLoad');
+    },
+    
+    'show': function()
+    {
+        this.overlay.show();
+        this.window.setStyle('display', 'block');
+        this.fireEvent('onShow');
+    },
+    
+    'hide': function()
+    {
+        this.overlay.hide();
+        this.window.setStyle('display', 'none');
+        this.fireEvent('onHide');
+    },
+    
+    'position': function()
+    {
+        var self = this,
+            size = window.getSize(),
+            coords = self.window
+                .setStyle('display', 'block')
+                .getCoordinates();
+            
+        self.window.setStyles({
+            'top': Math.floor((size.y - coords.height) / 2),
+            'left': Math.floor((size.x - coords.width) / 2)
+        });
+        
+        self.fireEvent('onPosition');
+    }
+});

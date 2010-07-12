@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>北京昊鹏星辰科技有限责任公司</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<link href="js/modal/modal.css" rel="stylesheet" type="text/css" />
+	<!--[if lt IE 9]>
+		<script type="text/javascript" src="js/ie7/IE9.js"></script>
+		<script type="text/javascript" src="js/ie7/ie7-squish.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	<script type="text/javascript">google.load("mootools", "1.2.4");</script>
+	<script type="text/javascript" src="js/modal/modal.js"></script>
+	<script type="text/javascript" src="js/init.js"></script>
+
+</head>
+
+<body>
+<div id="wrap">
+	<div id="header">
+		<div id="logo">
+			<h1 id="sitename">Easy<span class="green">Reception</span></h1>
+			<h2 class="description">简捷、高效的会务管理</h2>
+
+		</div>
+
+		<div id="headercontent">
+			<h2>繁杂的事务如何理出头绪？</h2>
+			<p style="color:#FFFFFF; font-weight:bold;">
+				为您提供专业会议咨询与实施服务，全方位覆盖会议服务期间各项工作。专业经验辅助您组织会议，专业系统为您实时监控会议各项进程。会议所需各项服务（注册、住宿、旅游、文档管理、赞助商合作等等）皆由专业人士提供，仅需您提供需求......	
+				<img src="images/bullet.png" alt="Bullet" width="10" height="10" /> <a href="#">更多内容</a>
+			</p>
+			<p>&nbsp;</p>
+		</div>
+
+		<div id="sitecption">
+			众多实用功能<br/>
+			<span class="bigger">
+				会务流程、事务监控与处理、动态收益与支出分析......
+			</span><br/>
+			引导会议有条不紊进行！
+		</div>
+	</div>
+	
+	<div id="main">
+		<div id="menus">
+			<div id="mainmenu">
+				<!--
+				<ul>
+					<li class="active"><a href="#" rel="home.html">首页</a></li>
+					<li><a href="javascript:;" rel="">产品</a></li>
+					<li><a href="javascript:;" rel="">服务</a></li>
+					<li><a href="javascript:;" rel="">联盟合作</a></li>
+					<li><a href="javascript:;" rel="">关于我们</a></li>
+					<li><a href="javascript:;" rel="">人员招聘</a></li>
+					<li><a href="javascript:;" rel="">联系我们</a></li>
+				</ul>-->
+			</div>
+			<!-- sub menus -->
+			<div id="submenu">
+			</div>
+		</div><!-- menus end -->
+
+		<div id="content">
+		</div>
+	</div><!--main end -->
+
+	<div id="footer">
+		<span style="color:#FFFFFF; font-weight:bold;">
+		北京昊鹏星辰科技有限责任公司(<a href="http://www.miibeian.gov.cn/CX/main.jsp">京ICP备10052501</a>),
+		网站CSS 设计(<a href="http://ramblingsoul.com/preview/rs14/index.html">RamblingSoul.com</a>),
+		<a href="http://jigsaw.w3.org/css-validator/check/referer">
+			<img style="border:0;width:88px;height:18px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!" />
+		</a>
+		<a href="http://tools.digitalpoint.com/geovisitors.php">
+			<img src="http://geo.digitalpoint.com/a.png" alt="Geo Visitors Map" style="border:0"/>
+		</a>
+	</span>
+
+	</div><!-- footer end -->
+
+</div><!-- wrap end-->
+
+</body>
+</html>

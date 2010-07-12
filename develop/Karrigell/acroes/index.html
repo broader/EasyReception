@@ -1,208 +1,87 @@
-<!DOCTYPE html PUBLIC "-//W4C//DTD XHTML 1.0 Transitional//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>北京昊鹏星辰科技有限责任公司</title>
-	<!-- (en) Add your meta data here -->
-	<link href="css/layout_2col_advanced.css" rel="stylesheet" type="text/css"/>
-	<link href="css/ramblingSoul.css" rel="stylesheet" type="text/css"/>
-	<link href="css/MenuMatic.css" rel="stylesheet" type="text/css" media="screen" charset="utf-8"/>
-	<link href="css/complementary.css" rel="stylesheet" type="text/css"/>
-
-	<!--[if lte IE 7]>
-	<link href="css/patches/patch_2col_advanced.css" rel="stylesheet" type="text/css" />
-	<link href="css/MenuMatic-ie6.css" rel="stylesheet" type="text/css" media="screen" charset="utf-8"/>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<link href="yaml.css" rel="stylesheet" type="text/css" />
+	<link href="js/modal/modal.css" rel="stylesheet" type="text/css" />
+	<link href="js/BarackSlideshow/Source/bStyle.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="js/BarackSlideshow/BarackSlideshow.css" type="text/css" media="screen" title="Stylesheet" charset="utf-8" />
+	<!--[if lt IE 9]>
+		<script type="text/javascript" src="js/ie7/IE9.js"></script>
+		<script type="text/javascript" src="js/ie7/ie7-squish.js"></script>
 	<![endif]-->
-	
+	<!--
 	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-	<script>google.load("mootools", "1.2.4");</script>
-	<script type="text/javascript" src="js/MenuMatic_0.68.3-source.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
-		window.addEvent('domready', function(){
-			var menu = new MenuMatic({center:true, onInit_complete: loadPage});
-		});
-		
-		function loadPage(){
-			$('navmenu')
-			.getElements('a')
-			.extend($('subMenusContainer').getElements('a'))
-			.each(function(item,index){
-				item.addEvent('click', function(event){
-					var href = $(event.target).getProperty('rel');	
-					alert(href);
-					$('main').load(href);		
-				});
-				// load the default site page, that usually means the 'home' page
-				if(index==0) $('main').load('home.html');
-			});
-		};
-	</script>
+	<script type="text/javascript">google.load("mootools", "1.2.4");</script>
+	-->
+	<script type="text/javascript" src="js/mootools/mootools-1.2.4-core.js"></script>
+	<script type="text/javascript" src="js/mootools/mootools-1.2.4.2-more.js"></script>
+	<script type="text/javascript" src="js/modal/modal.js"></script>
+
+	<script type="text/javascript" src="js/tools.js"></script>
+	<script type="text/javascript" src="js/init.js"></script>
+
+    	<script type="text/javascript" charset="utf-8" src="js/BarackSlideshow/BarackSlideshow.js"></script>    
 </head>
+
 <body>
-	<!-- skip link navigation -->
-	<ul id="skiplinks">
-		<li><a class="skip" href="#nav">Skip to navigation (Press Enter).</a></li>
-		<li><a class="skip" href="#col3">Skip to main content (Press Enter).</a></li>
-	</ul>
+<div id="wrap">
+	<div id="header">
+		<div id="logo">
+			<h1 id="sitename">Easy<span class="green">Reception</span></h1>
+			<h2 class="description">简捷、高效的会务管理</h2>
 
-	<div class="page_margins">
-		<div class="page">
-			<div id="header" role="banner">
-				<!--
-				<div id="topnav" role="contentinfo">
-					<span><a href="#">Login</a> | <a href="#">Contact</a> | <a href="#">Imprint</a></span>
-				</div>
-				-->
-				<div class='subcolumns'>
-					<div class='c40l'>
-						<div id="logo">
-							<h1 id="sitename">Easy<span class="green">Reception</span></h1>
-							<h2 class="description">简捷、高效的会务管理系统</h2>
-						</div>
-					</div>
+		</div>
 
-					<div class='c60r'>
-						<div class='subcolumns'>
-							<div class='c40l'>
-								<div id="sitecption">
-									众多实用功能<br>							
-									<span class="bigger">
-										会务流程、事务监控与处理、动态收益与支出分析......<br>
-									</span>									
-									引导会议有条不紊进行！
-								</div>
-							</div>
-							<div class='c60r'>
-								<div id="headercontent">
-									<h2>繁杂的事务如何理出头绪<span style="color:red;font-size:25px">?</span></h2>
-									<p>
-										为您提供专业的会议咨询与实施服务，全方位覆盖会议各期间之工作。
-										用专业经验辅助您构思会议的组织思路,
-										成熟系统为您实时监控会议的工作进程,
-										会议所需各项服务（注册、住宿、旅游、文档管理、赞助商合作等等）皆由专业人士提供，仅需您提供需求......
-										<img src="images/bullet.png" alt="Bullet" width="10" height="10" />
-										<a href="#">更多</a>
-									</p>
-									<p>&nbsp;</p>
-								</div>
+		<div id="headercontent">
+			<h2>繁杂的事务如何理出头绪？</h2>
+			<p style="color:#FFFFFF; font-weight:bold;">
+				为您提供专业会议咨询与实施服务，全方位覆盖会议服务期间各项工作。专业经验辅助您组织会议，专业系统为您实时监控会议各项进程。会议所需各项服务（注册、住宿、旅游、文档管理、赞助商合作等等）皆由专业人士提供，仅需您提供需求......	
+				<img src="images/bullet.png" alt="Bullet" width="10" height="10" /> <a href="#">更多内容</a>
+			</p>
+			<p>&nbsp;</p>
+		</div>
 
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="nav">
-				<ul id="navmenu" class="hlist" >
-					<li >
-						<a href="javascript:;" rel="home.html" class='active'>首页</a>
-					</li>
-					<li>
-						<a href="javascript:;">产品介绍</a>
-						<ul>
-							<li>
-								<a href="javascript:;" rel="easyReception.html">会务管理系统(EasyReception)</a>
-								<ul>
-									<li><a href="#">sublink</a></li>
-									<li><a href="#">sublink</a></li>
-									<li><a href="#">sublink</a></li>
-								</ul>
-							</li>
-							<li>
-								<a href="javascript:;" rel="eSupport.html">客户服务支持系统(eTracker)</a>
-							</li>
-							<li>
-								<a href="javascript:;" rel="sposors.html">赞助商管理系统(Funrush)</a>
-							</li>
-
-						</ul>
-					</li>
-					<li>
-						<a href="javascript:;">服务介绍</a>
-						<ul>
-							<li>
-								<a href="javascript:;" rel="rent.html">设备租赁</a>
-							</li>
-							<li>
-								<a href="javascript:;" rel="elearning.html">知识管理咨询</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="javascript:;">联盟与合作</a>
-						<ul>
-							<li>
-								<a href="javascript:;" rel="alliance.html">合作机构</a>
-							</li>
-							<li>
-								<a href="javascript:;" rel="alliance.html">产品OEM(广告公司等)</a>
-							</li>
-							<li>
-								<a href="javascript:;" rel="alliance.html">方案整合</a>
-							</li>
-							<li>
-								<a href="javascript:;" rel="alliance.html">销售代理</a>
-							</li>
-
-						</ul>
-					</li>
-					<li>
-						<a href="javascript:;">公司介绍</a>
-						<ul>
-							<li>
-								<a href="javascript:;" rel="alliance.html">公司历史</a>
-							</li>
-							<li>
-								<a href="javascript:;" rel="alliance.html">企业文化</a>
-							</li>
-							<li>
-								<a href="javascript:;" rel="alliance.html">发展方向</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="javascript:;">人员招聘</a>
-						<ul>
-							<li>
-								<a href="javascript:;" rel="alliance.html">基本要求</a>
-							</li>
-							<li>
-								<a href="javascript:;" rel="alliance.html">销售</a>
-							</li>
-							<li>
-								<a href="javascript:;" rel="alliance.html">研发</a>
-							</li>
-						</ul>
-					</li>
-					<li><a href="index.html">联系我们</a></li>
-				</ul>
-			</div>
-			<!-- end: main navigation -->
-			<!-- begin: main content area #main -->
-			<div id="main">
-			</div>
-			<!-- end: #main -->
-			<!-- begin: #footer -->
-			<div id="footer" role="contentinfo">
-				<div style="text-align:left;">
-					北京昊鹏科技有限责任公司,
-					网站CSS 参考设计(
-					<a href="http://www.yaml.de/" target="_blank">YAML</a>,
-					<a href="http://ramblingsoul.com/preview/rs14/index.html" target="_blank">
-						RamblingSoul.com
-					</a>)
-					<div style='text-align:right;">
-						<a href="http://www.miibeian.gov.cn/CX/main.jsp">京ICP备10052501</a>
-						<a href="http://tools.digitalpoint.com/geovisitors.php" target="_blank">
-							<img src="http://geo.digitalpoint.com/a.png" alt="Geo Visitors Map" style="border:0">
-						</a>
-					</div>
-				</div>
-			</div>
-			<!-- end: #footer -->
+		<div id="sitecption">
+			众多实用功能<br/>
+			<span class="bigger">
+				会务流程、事务监控与处理、动态收益与支出分析......
+			</span><br/>
+			引导会议有条不紊进行！
 		</div>
 	</div>
-	<!-- full skiplink functionality in webkit browsers -->
-	<script src="js/webkit-focusfix.js" type="text/javascript"></script>
+	
+	<div id="main">
+		<div id="menus">
+			<div id="mainmenu">
+			</div>
+			<!-- sub menus -->
+			<div id="submenu">
+			</div>
+		</div><!-- menus end -->
+
+		<div id="content">
+			<!-- the main content -->
+		</div>
+	</div><!--main end -->
+
+	<div id="footer">
+		<span style="color:#FFFFFF; font-weight:bold;">
+		北京昊鹏星辰科技有限责任公司(<a href="http://www.miibeian.gov.cn/CX/main.jsp">京ICP备10052501</a>),
+		Web Site CSS Design(<a href="http://ramblingsoul.com/preview/rs14/index.html">RamblingSoul.com</a>)
+		<a href="http://jigsaw.w3.org/css-validator/check/referer">
+			<img style="border:0;width:88px;height:18px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!" />
+		</a>
+		<a href="http://tools.digitalpoint.com/geovisitors.php">
+			<img src="http://geo.digitalpoint.com/a.png" alt="Geo Visitors Map" style="border:0"/>
+		</a>
+	</span>
+
+	</div><!-- footer end -->
+
+</div><!-- wrap end-->
+
 </body>
 </html>
