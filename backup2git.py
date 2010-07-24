@@ -19,7 +19,6 @@ import logging, os, sys
 
 RSYNC = 'rsync'
 RSYNCOPTIONS = ( '-avzur', '--delete', '--progress' )
-#GIT = 'git --git-dir=/home/broader/develop/EasyReception/.git'
 GIT = 'git'
 LOGFILE = '%s'%os.path.sep.join((os.path.abspath(os.path.curdir), 'backup2git.log'))
 KARRIGELLSRC = '/home/broader/develop/R@K/CMS/Karrigell/'
@@ -56,7 +55,6 @@ def run(test):
 	git = GIT
 	  
    	# delete nousing captcha images
-	print KARRIGELLSRC,' deleting no using capatcha images'
 	cmd = ['rm', '-f', ''.join((KARRIGELLSRC, 'registration/tmp/*.jpeg'))]
 	cmd = ' '.join(cmd)
 	logger.info('Delete nousing captcha images')

@@ -4296,19 +4296,109 @@
 <node COLOR="#0033ff" CREATED="1270952020458" ID="ID_1804767918" MODIFIED="1279184825324" POSITION="right" TEXT="Develop Evironment">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1262786726152" FOLDED="true" ID="ID_476877394" MODIFIED="1276306109943" TEXT="Source">
+<node COLOR="#00b439" CREATED="1262786726152" ID="ID_476877394" MODIFIED="1279962626940" TEXT="Source">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1266917069312" ID="ID_30201427" MODIFIED="1275916143426" TEXT="Management">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1262786735562" FOLDED="true" ID="ID_495182632" MODIFIED="1275916145270" TEXT="GitHub">
+<node COLOR="#111111" CREATED="1262786735562" FOLDED="true" ID="ID_495182632" MODIFIED="1279963147035" TEXT="GitHub">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1262786764185" ID="ID_875290458" MODIFIED="1274667035632" TEXT="&#x4f7f;&#x7528;&#x8bf4;&#x660e;">
+<node COLOR="#111111" CREATED="1262786764185" FOLDED="true" ID="ID_875290458" MODIFIED="1279963146229" TEXT="&#x547d;&#x4ee4;&#x4f7f;&#x7528;&#x8bf4;&#x660e;">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1262786741353" ID="ID_1161409631" MODIFIED="1262786771419" TEXT="&#x521b;&#x5efa;&#x76ee;&#x5f55;&#x6307;&#x5bfc;&#xff1a;&#xa;http://hi.baidu.com/jspring/blog/item/59f7dfcdce190a560fb345c1.html&#xa;&#xa;&#x4e0a;&#x4f20;&#x540c;&#x6b65;&#x6587;&#x4ef6;&#xff1a;&#xa;#git add &apos;your file or directory name&apos;&#xa;git commit -m &apos;you commit message&apos;&#xa;git push origin master&#xa;&#xa;&#x5220;&#x9664;&#x6587;&#x4ef6;&#xff1a;&#xa;git rm ./develop/Karrigell/muireception/register/tmp/*.jpeg&#xa;git commit -m &apos;you message&apos;&#xa;git push origin master&#xa;">
 <font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1279962701674" FOLDED="true" ID="ID_1204511053" MODIFIED="1279963145187" TEXT="&#x521b;&#x5efa;&#x65b0;SSH&#x8fde;&#x63a5;">
+<node COLOR="#111111" CREATED="1279962723928" ID="ID_817389947" MODIFIED="1279963123419">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # -C &quot;...&quot; &#20135;&#29983;&#27880;&#37322;
+    </p>
+    <p>
+      $ ssh-keygen -t dsa -C &quot;broader.zhong@yahoo.com.cn&quot;
+    </p>
+    <p>
+      Generating public/private rsa key pair.
+    </p>
+    <p>
+      Enter file in which to save the key (/home/tekkub/.ssh/id_rsa):(&#30452;&#25509;&#22238;&#36710;)
+    </p>
+    <p>
+      Enter passphrase (empty for no passphrase):(&#30452;&#25509;&#22238;&#36710;)
+    </p>
+    <p>
+      Enter same passphrase again:(&#30452;&#25509;&#22238;&#36710;)
+    </p>
+    <p>
+      Your identification has been saved in /home/tekkub/.ssh/id_rsa.
+    </p>
+    <p>
+      Your public key has been saved in /home/tekkub/.ssh/id_rsa.pub.
+    </p>
+    <p>
+      The key fingerprint is:
+    </p>
+    <p>
+      01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db tekkub@gmail.com
+    </p>
+    <p>
+      apt-get
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      # &#25335;&#36125;dsa&#20844;&#24320;&#23494;&#38053;&#33267;&#21098;&#36148;&#26495;
+    </p>
+    <p>
+      $ sudo apt-get install xclip
+    </p>
+    <p>
+      $ cat ~/.ssh/id_rsa.pub | xclip -sel clip
+    </p>
+    <p>
+      &#36827;&#20837;&#39029;&#38754;---&gt;https://github.com/account---&gt;SSH Public Keys, &#22686;&#21152;&#26032;ssh &#23494;&#38053;
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      # &#27979;&#35797;
+    </p>
+    <p>
+      $ ssh git@github.com
+    </p>
+    <p>
+      The authenticity of host 'github.com (207.97.227.239)' can't be established.
+    </p>
+    <p>
+      RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+    </p>
+    <p>
+      Are you sure you want to continue connecting (yes/no)? yes
+    </p>
+    <p>
+      Warning: Permanently added 'github.com,207.97.227.239' (RSA) to the list of known hosts.
+    </p>
+    <p>
+      ERROR: Hi<i><b>&#160;broader</b></i>! You've successfully authenticated, but GitHub does not provide shell access
+    </p>
+    <p>
+      Connection to github.com closed.
+    </p>
+    <p>
+      
+    </p>
+  </body>
+</html>
+</richcontent>
 </node>
 </node>
 </node>
@@ -4428,7 +4518,7 @@
 <node COLOR="#00b439" CREATED="1273546965657" ID="ID_1612332752" MODIFIED="1279507779440" TEXT="Evironment">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1167544327073" ID="Freemind_Link_1636742661" MODIFIED="1279184826858" TEXT="vi">
+<node COLOR="#990000" CREATED="1167544327073" FOLDED="true" ID="Freemind_Link_1636742661" MODIFIED="1279962625973" TEXT="vi">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1270127748720" FOLDED="true" ID="ID_897263369" MODIFIED="1279508229886" TEXT="Config">
@@ -4577,8 +4667,7 @@
       ' a, &#20809;&#26631;&#31227;&#33267;&#26631;&#31614;'a'&#22788;
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -4739,10 +4828,10 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1272534182417" FOLDED="true" ID="ID_1066410301" MODIFIED="1275916006662" TEXT="Distributed Develop">
+<node COLOR="#990000" CREATED="1272534182417" ID="ID_1066410301" MODIFIED="1279962615772" TEXT="Distributed Develop">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1272534194295" ID="ID_1067207855" MODIFIED="1273546979866" TEXT="Enviroment">
+<node COLOR="#111111" CREATED="1272534194295" FOLDED="true" ID="ID_1067207855" MODIFIED="1279963148747" TEXT="Enviroment">
 <font NAME="SansSerif" SIZE="12"/>
 <icon BUILTIN="messagebox_warning"/>
 <node COLOR="#111111" CREATED="1272534212331" ID="ID_923383412" MODIFIED="1272534250773" TEXT="$Karrigell/muireception&#xa;$Karrigell/data/muireception"/>
