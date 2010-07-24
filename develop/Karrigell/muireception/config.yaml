@@ -1,4 +1,5 @@
 ---
+appdirs: [issue, portal, portfolio, register, service, sysadmin, user]
 service:
   hotel:
     categoryInService: Hotel
@@ -7,9 +8,9 @@ service:
       value: ''}
 superAdmin: admin
 userAccountInfo:
-- {name: username, prompt: Login Name, type: text}
+- {name: username, prompt: !!python/str "\u7528\u6237\u540D", type: text}
 - {name: email, prompt: Email address, type: text}
-- {name: password, prompt: Password, type: password}
+- {name: password, prompt: !!python/str "\u53E3\u4EE4", type: password}
 userBaseInfo:
 - class: ''
   name: prefix

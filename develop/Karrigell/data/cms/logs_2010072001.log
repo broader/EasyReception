@@ -1,0 +1,20 @@
+2010/07/20 09:38:29 - 127.0.0.1 - GET /menu.ks/page_validName?user=demo HTTP/1.1 200
+2010/07/20 01:38:33 - 127.0.0.1 - GET /menu.ks/page_validPwd?user=demo&pwd=990508 HTTP/1.1 200
+2010/07/20 01:38:33 - 127.0.0.1 - GET /menu.ks/page_postValid?_=1279589913507 HTTP/1.1 200
+2010/07/20 01:38:33 - 127.0.0.1 - GET /menu.ks/page_toggleMenu?showMenu=1&_=1279589913607 HTTP/1.1 200
+2010/07/20 01:38:33 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/07/20 01:38:33 - 127.0.0.1 - GET /menu.ks/page_loginSpan?page=0 HTTP/1.1 200
+2010/07/20 01:38:33 - 127.0.0.1 - GET /menu.ks/page_menuList?page=0 HTTP/1.1 200
+2010/07/20 01:38:33 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/07/20 01:38:34 - 127.0.0.1 - GET /navigation.ks/profile?path=issue HTTP/1.1 302 /issue/
+2010/07/20 01:38:34 - 127.0.0.1 - GET /issue/ HTTP/1.1 200
+2010/07/20 01:38:34 - 127.0.0.1 - GET /js/jquery.form.js?_=1279589944154 HTTP/1.1 200
+2010/07/20 01:39:04 - 127.0.0.1 - GET /issue/issue.ks/index HTTP/1.1 200
+2010/07/20 01:39:04 - 127.0.0.1 - GET /issue/issue.ks/show HTTP/1.1 200
+2010/07/20 01:39:04 - 127.0.0.1 - GET /issue/issue.ks/page_editIssue HTTP/1.1 200
+2010/07/20 01:39:04 - 127.0.0.1 - GET /lib/dataTable/js/jquery.dataTables.js?_=1279589944394 HTTP/1.1 200
+2010/07/20 01:39:04 - 127.0.0.1 - GET /issue/issue.ks/page_getData?iColumns=5&sColumns=&iDisplayLength=10&iDisplayStart=0&sSearch=&bEscapeRegex=true&sSearch_0=&bEscapeRegex_0=true&sSearch_1=&bEscapeRegex_1=true&sSearch_2=&bEscapeRegex_2=true&sSearch_3=&bEscapeRegex_3=true&sSearch_4=&bEscapeRegex_4=true&iSortingCols=1&iSortCol_0=0&iSortDir_0=desc HTTP/1.1 200
+2010/07/20 01:39:04 - 127.0.0.1 - GET /issue/issue.ks/page_showIssueInPage?serial=I20091014022545 HTTP/1.1 200
+2010/07/20 01:39:04 - 127.0.0.1 - GET /lib/smartlists/smartlists.js.pih?listId=sl&prompt=All%20Message%27s%20Writers&pageItems=3&_=1279589947101 HTTP/1.1 200
+2010/07/20 01:39:04 - 127.0.0.1 - GET /issue/issue.ks/page_showIssueInPage?serial=I20091010025543 HTTP/1.1 200
+2010/07/20 01:39:07 - 127.0.0.1 - GET /lib/smartlists/smartlists.js.pih?listId=sl&prompt=All%20Message%27s%20Writers&pageItems=3&_=1279589952113 HTTP/1.1 200

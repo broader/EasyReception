@@ -11,6 +11,10 @@ Here we select some css style definit from css framework YAML(http://www.yaml.de
 	width: 30%;
 }
 
+.c40l, .c40r {
+	width: 40%;
+}
+
 .c33l, .c33r {
 	width: 33.333%;
 }
@@ -19,15 +23,19 @@ Here we select some css style definit from css framework YAML(http://www.yaml.de
 	width: 50%;
 }
 
-.c30l, .c33l, .c50l, .c70l {
-	float: left;
+.c60l, .c60r {
+	width: 60%;
 }
 
 .c70l, .c70r {
 	width: 70%;
 }
 
-.c30r, .c33r, .c50r, .c70r {
+.c30l, .c33l, .c50l, .c60l, .c70l {
+	float: left;
+}
+
+.c30r, .c33r, .c40r, .c50r, .c60r, .c70r {
 	float: right;
 	margin-left: -5px;
 }

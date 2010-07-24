@@ -102,8 +102,8 @@ def get_item(operator, klass, key, props=None, keyIsId=False):
 	else:
 		form['context'] = klass
 		form['keyvalue'] = key
-      	
-        client.form = form
+        
+	client.form = form
         res = client.main()	
         if res['success']:
         	data = res.get('data')        	
@@ -495,7 +495,28 @@ def delete_item(operator, klass, key, isId=True):
 	finally:		
 		client.db.close()
 	return	
+
+def delete_items(operator, klass, keys, isId=True):
+	""" Retires some items of a roundup.Class by their key values or ids. """
+	client = get_client()
+	if not client:
+		return False
 	
+	client.set_user(operator)
+	klass = client.db.getclass(klass)
+	actionRes = False
+	try:
+		for key in keys:
+			nodeid = isId and key or klass.lookup(key)	
+			klass.retire(nodeid)
+		client.db.commit()
+		actionRes = True
+	except:
+		pass
+	finally:
+		client.db.close()
+	return  actionRes
+
 def edit_issue(operator, iprops, mprops, serial=None):
 	""" A function to do 'CRUD' actions for issue class.
 	  Parameters:
@@ -549,12 +570,15 @@ def permissionCheck(user, roles, path):
 	
 	if user == operator:
 		return True	
+
 	client.set_user(operator)
 	
 	# get the webactions linked to these rols	
-	#txt = 'model.permissionCheck, user is %s, path is %s, roles are %s'%(user,path, roles)	
+	print 'model.permissionCheck, user is %s, path is %s, roles are %s'%(user,path, roles)	
+ 
 	for name in roles:
-		webperm = get_item(operator, 'role', name, props=('webperm',))		
+		webperm = get_item(operator, 'role', name, props=('webperm',))
+		print 'model.permissionCheck, role is %s, permissions are %s'%(name, webperm)		
 		if webperm and webperm.get('webperm'):
 			webperm = webperm.get('webperm').split(',')						
 			if path in webperm :

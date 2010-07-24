@@ -1,8 +1,7 @@
 """
 Pages mainly for administration.
 """
-#import copy,tools
-#from tools import treeHandler
+import copy
 
 from HTMLTags import *
 
@@ -62,8 +61,50 @@ def page_issueDetail(**args):
 		)
 	]
 	buttons = SPAN(Sum(buttons),style='margin-left:2em;')
-	print DIV(Sum((title, buttons)), style='border-bottom:1px solid grey;')
+	
+	# issue information, such as title, key words, nosy, edit history
+	nodeId = model.serial2id(serial)
+	props = ('title', 'keyword', 'nosy', 'creation', 'creator', 'activity', 'actor', 'messages', 'assignedto')
+	values = model.get_item(USER, 'issue', nodeId, props, keyIsId=True)
+	# set the properties to be checked whether the viewer has a valid permission
+	toCheck = copy.deepcopy(values)
+	if not values:
+		return
+	elif values.get('nosy'):
+		toCheck['nosy'] = values['nosy'].split(',')
+	
+	# add 'serial' which is a key of 'args' to 'toCheck'
+	toCheck.update(args)
+	# Permission check
+	# First, check whether arguments has 'pageaction' field,
+	# if there is no 'pageaction' in arguments,
+	# then using this page url and remove the first '/' symbol
+	perms = _permissionCheck(**toCheck)
+	pageAction = args.get('pageaction') or THIS.url.split('?')[0][1:]
+	userRoles = getattr( so, pagefn.SOINFO['user']).get('roles').split(',')
+	if not model.permissionCheck(USER, userRoles, pageAction) or not perms.get('pageaction'):
+		print _('You have no permission for this action!')
+		return
+
+	print DIV(Sum((title, buttons,HR(style="padding:0px;height:0.5px;"))))
+
+	# js slice
+	print pagefn.script(_issueDetailJs(),link=False)
 	return
+
+def _issueDetailJs():
+	paras = [ APP, ]
+	paras = tuple(paras)
+	js = \
+	"""
+	var appName="%s";
+	function issueDetail(){
+		alert('show issue detail');
+	};
+
+	MUI.smartList(appName, {'onload': issueDetail});
+	"""%paras
+	return js	
 
 def page_issueList(**args):
 	userViewIssueList = 'userViewIssueList'
@@ -542,3 +583,45 @@ def _getRelationValue(klass, relateclass):
 		propnames=('klassvalue','relatevalue')\
 	)
 	return rows
+
+def _permissionCheck(**args):
+	'''
+	Check detailed access permission to 'issue' class.
+	The relation between user role and actions:
+	--------------------------------------------------------------
+	role/action	view	edit	detailEditFields
+	admin		OK	OK
+	creator		OK	OK	'title','keyword'
+	assignedto	OK	OK	'nosy', 'assignedto'
+	nosy		OK	X
+	--------------------------------------------------------------
+	'''
+		
+	perms = {}
+	user = args.get('user') or USER
+	# super user 'admin' has all of the permissions
+	if user == 'admin':
+		[perms.update({key: True}) for key in args.keys()]
+		perms['pageaction'] = True
+		return perms
+
+	if args.get('nosy') and user in args['nosy']:
+		perms['pageaction'] = True
+	else:
+		perms['pageaction'] = False
+		return perms
+	
+	if user in [args.get(name) for name in ('assignedto', 'creator')]:
+		hasperm = True
+	else:
+		hasperm = False
+	[ perms.update({key:hasperm}) for key in ('title', 'keyword')]
+
+	# only the assignedto person could edit 'nosy' and 'assignedto' fields
+	if user == args.get('assignedto'):
+		hasperm = True
+	else:
+		hasperm = False
+
+	[perms.update({key:hasperm}) for key in ('nosy', 'assignedto')]
+	return perms 

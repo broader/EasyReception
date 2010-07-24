@@ -56,3 +56,7 @@ Here we select some css style definit from css framework YAML(http://www.yaml.de
 .active a {
 	color: #BDEB16;
 }
+
+.clearfix {
+	display: block;
+}

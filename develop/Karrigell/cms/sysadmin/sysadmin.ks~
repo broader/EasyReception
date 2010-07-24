@@ -3,7 +3,7 @@ import os, sys, cStringIO
 
 model = Import("../model.py", REQUEST_HANDLER=REQUEST_HANDLER)
 
-modules = {'config' : 'admin_config.py', 'JSON' : 'demjson.py', 'formRender' : 'formRender.py', 'pagefn' : 'pagefn.py'}
+modules = {'config' : 'backgroundConfig.py', 'JSON' : 'demjson.py', 'formRender' : 'formRender.py', 'pagefn' : 'pagefn.py'}
 [locals().update({k : Import('/'.join(('..', v)))}) for k,v in modules.items() ]
 
 so = Session()

@@ -36,14 +36,18 @@ def getLogger(logfile, loggerName=None):
 	return logger
 
 def action(cmd, test=True, logger=None):
-	#print 'Command: \n%s\n'%cmd
+	
+	print 'action function, Command: \n%s\n'%cmd
+
 	if test:
 		res = [0,'Test']
 	else:
 		res = commands.getstatusoutput(cmd)	
 	
 	if logger:
-		logger.info('Command: \n%s\nrunning result is :%s'%(cmd,res[1]))
+		info = 'Command: \n%s\nrunning result is :%s'%(cmd,res[1])
+		print 'action function,',info
+		logger.info(info)
 	return res
 
 def run(test):
@@ -51,7 +55,8 @@ def run(test):
 	rsync = RSYNC
 	git = GIT
 	  
-   # delete nousing captcha images
+   	# delete nousing captcha images
+	print KARRIGELLSRC,' deleting no using capatcha images'
 	cmd = ['rm', '-f', ''.join((KARRIGELLSRC, 'registration/tmp/*.jpeg'))]
 	cmd = ' '.join(cmd)
 	logger.info('Delete nousing captcha images')

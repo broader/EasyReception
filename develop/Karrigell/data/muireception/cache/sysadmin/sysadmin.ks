@@ -248,6 +248,8 @@ FORMPROPS4CLASS = [\
 WEB_EDIT_CLASS = [item.get('name') for item in FORMPROPS4CLASS]
 
 def _getTabs(panelId):
+	''' Return the tabs of the classed to be edit. '''
+
 	# get service catrgory
 	klasses = WEB_EDIT_CLASS
 
@@ -255,9 +257,12 @@ def _getTabs(panelId):
 	tabs = []
 	for klass in klasses:
 		query = '&'.join(['%s=%s'%(k,v) for k,v in {'panel':panelId,'klass':klass}.items()])
-		d = { 'text':klass,\
-				'id':''.join((klass,'Tab')),\
-				'url':'/'.join((APPATH, '?'.join(('page_showClass', query))))}
+		d = {
+			'text': klass,\
+			'id': ''.join((klass,'Tab')),\
+			'url': '/'.join((APPATH, '?'.join(('page_showClass', query))))\
+		}
+
 		tabs.append(d)
 
 	return tabs
@@ -316,6 +321,11 @@ def _indexJs(panelId,tabsId):
 
 CONTAINER_PREFIX = 'klass'
 def page_showClass(**args):
+	'''
+	Show main content in the main MUI.Panel.
+	Including two MUI.Columns, the left one is for showing the list of the items of specified roundup.Class,
+	the right one is for showing the detail information of the specified roundup.Class.
+	'''
 	klass,panel = [args.get(name) for name in (CLASSPROP,'panel')]
 	container = '-'.join((CONTAINER_PREFIX,klass))
 	PRINT( DIV(**{'id': container}))
@@ -325,6 +335,7 @@ def page_showClass(**args):
 CLASSPROP = 'klass'
 def _showClassJs(klass,panel):
 	paras = [USER,klass,panel,CLASSPROP]
+	# set the content urls for the two MUI.Panels
 	paras.extend(['/'.join((APPATH,page)) for page in ('page_classInfo','page_classList')])
 	paras = tuple(paras)
 	js = \
@@ -665,6 +676,8 @@ GRIDSORTONTAG, GRIDSORTBYTAG = ('sorton', 'sortby')
 def page_classItems(**args):
 	klass = args.get(CLASSPROP)
 
+
+
 	# paging arguments
 	showPage, pageNumber = [ int(args.get(name)) for name in ('page', 'perpage') ]
 	search = args.get('filter')
@@ -678,10 +691,18 @@ def page_classItems(**args):
 
 	# column's property name
 	showProps = _getClassProps(klass)
+
+	if klass == 'webaction':
+		# For 'webaction' Class, we need to check whether there are existed web actions.
+		# If there is no items of 'webaction' Class, check the existed directory and
+		# construct the web actions to database first.
+		Import('webaction.py',REQUEST_HANDLER=REQUEST_HANDLER, THIS=THIS, CONFIG=CONFIG).checkNewActions(USER, showProps)
+
 	if search:
 		data = model.fuzzyQuery( USER, klass, search, showProps, require=None)
 	else:
-		data = model.get_items( USER, klass, _getClassProps(klass))
+		#data = model.get_items( USER, klass, _getClassProps(klass))
+		data = model.get_items( USER, klass, showProps)
 
 	if not data or (type(data) != type([])):
 		PRINT( JSON.encode(d, encoding='utf8'))
@@ -719,6 +740,7 @@ def page_classItems(**args):
 
 	# if ascii chars mixins with non-ascii chars will result
 	# JSON.encode error, so decode all the data items to utf8.
+
 	# set python default encoding to 'utf8'
 	reload(sys)
 	sys.setdefaultencoding('utf8')
@@ -1057,4 +1079,7 @@ def page_classEditAction(**args):
 
 	PRINT( successTag)
 	return
+
+#def page_test_journal():
+#	pass
 

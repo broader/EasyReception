@@ -85,6 +85,7 @@ def _filter_ks(kslist, dirname, files):
 	[kslist.append(os.sep.join((dirname, f))) for f in files if os.path.splitext(f)[-1] == '.ks']
 
 def _getNewActions(oldactions):
+	# import two Karrigell modules that are placed in $Karrigell/karrigell/package 
 	from k_target import translate_func
 	from transform_script import transform
 	

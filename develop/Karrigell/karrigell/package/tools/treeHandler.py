@@ -121,6 +121,6 @@ if __name__ == '__main__':
 	]
 	
 	tree = TreeHandler(datalist, lambda i:i[0],lambda i:i[1] )
-	#print tree.flatten()
+	print tree.flatten()
 	#print tree.nodesList
 	print tree.rootNode

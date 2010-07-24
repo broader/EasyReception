@@ -21,13 +21,12 @@
 </div>
   
 <script type="text/javascript">
-	var slideshow = new BarackSlideshow('menu', 'pictures', 'loading', {
+	barackSlide = new BarackSlideshow($('menu'), 'pictures', 'loading', {
 			auto: true,
 			autostart: true,
 			onClick: function(item){
 				this.options.auto = false;
 			}
 	});
-
 
 </script> 

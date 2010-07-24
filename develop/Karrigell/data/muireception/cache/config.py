@@ -2,7 +2,7 @@
 import os
 import yaml
 
-INICONFIG = os.sep.join((rootdir, 'config.yaml'))
+CONFIGFILE = os.sep.join((rootdir, 'config.yaml'))
 
 # the dictionary object which holds the default values for initial config file
 INIDATA = {}
@@ -101,10 +101,13 @@ INIDATA['service'] = \
 
 INIDATA['superAdmin'] = 'admin'
 
+# these directories will be scaned in 'sysadmin/webaction.py' to add new web actions to database
+INIDATA['appdirs'] = ['issue', 'portal', 'portfolio', 'register', 'service', 'sysadmin', 'user']
+
 # i18n information
 
 def _init(value=None):
-	stream = open(INICONFIG, 'wb')
+	stream = open(CONFIGFILE, 'wb')
 	if value:
 		yaml.dump(value,stream,explicit_start=True)
 	else:
@@ -114,7 +117,7 @@ def _init(value=None):
 	return
 
 def _openStream():
-	stream = open(INICONFIG, 'rb')
+	stream = open(CONFIGFILE, 'rb')
 	config = yaml.load(stream)
 	stream.close()
 	return config

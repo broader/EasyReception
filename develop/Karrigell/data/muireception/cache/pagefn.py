@@ -3,8 +3,6 @@
 from HTMLTags import *
 
 # config data object
-#RELPATH = (lambda p : p.split('/')[0])(THIS.baseurl)
-#INITCONFIG = Import('./config.py', rootdir=CONFIG.root_dir)
 INITCONFIG = Import( '/'.join(('', 'config.py')), rootdir=CONFIG.root_dir)
 
 # session object config
@@ -56,7 +54,7 @@ JSLIB['multiSelect'] = \
 
 # smart list
 JSLIB['smartList'] = \
-{'files':['/'.join(('lib','smartList',name)) for name in ('mtSmartList.css','mtSmartList..js')],
+{'files':['/'.join(('lib','smartList',name)) for name in ('mtSmartList.css','mtSmartList.js')],
 }
 
 #--------------------------------------------------------------------------------------

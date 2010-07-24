@@ -251,7 +251,7 @@ def page_accountValid(**args):
 	one is to check whether the input user name is existed;
 	second is to check whether the password is valid.
 	Because this action url could be called by two javascript function,
-	so according to the arguments to determine which function is needed.
+	so according to the arguments to determine which function is callback.
 	"""
 	res = {'valid':0}
 	# check validation type
@@ -263,9 +263,9 @@ def page_accountValid(**args):
 		data = model.login(*account)
 
 		# There are three validation results,
-	   # (0, "Invalid password")
-	   # (1, "Valid user name and password", roles)
-	   # (2, "Invalid user name")
+		# (0, "Invalid password")
+		# (1, "Valid user name and password", roles)
+		# (2, "Invalid user name")
 		if data[0] == 1:
 			res['valid'] = 1
 			# valid user name and password, save them to session object

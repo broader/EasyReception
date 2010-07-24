@@ -1063,7 +1063,7 @@ class GetItemAction(Action):
         id = self.client.nodeid
         # get the properties        
         props = self.client.form.get('propnames')
-        #print 'GetItemAction,L1131, id is %s,props is %s'%(id,props)
+        #print 'GetItemAction,L1066, id is %s,props is %s'%(id,props)
         # Default,get all the properties of this class
         if not props :
             props = klass.getprops(protected=0).keys()
@@ -1086,7 +1086,7 @@ class GetItemAction(Action):
         else :
             result = values                
         
-        #print 'GetItemAction,L1154, result is ',result
+        #print 'GetItemAction,L1089, result is ',result
         return result
         
     def getitem(self,klass,id,props,link2key=False):
@@ -1113,11 +1113,11 @@ class GetItemAction(Action):
             link = filter(None,link)
         else:
             link = None
-        #print 'ajaxActions.GetItemAction,L1180, props is ',props
+        #print 'ajaxActions.GetItemAction,L1116, props is ',props
         for prop in props :            
             try :                
                 propvalue = klass.get(id,prop)              
-                #print 'ajaxActions.GetItemAction.getitem,L1184,prop is %s,value is %s'%(prop,propvalue)                   
+                #print 'ajaxActions.GetItemAction.getitem,L1120,prop is %s,value is %s'%(prop,propvalue)                   
                 # if it's a Link property, change the value from id 
                 # to link property key value.                                
                 if link and (prop in link) and propvalue :                     
@@ -1149,7 +1149,7 @@ class GetItemAction(Action):
                 self.client.error_message.append(message)
                 raise FormError(str(message))
             row.append(propvalue)
-        #print 'ajaxActions.GetItemAction,L1216, row value is ',row
+        #print 'ajaxActions.GetItemAction,L1152, row value is ',row
         return row
        
 
@@ -1450,9 +1450,8 @@ class FilterByPropValueAction(GetItemAction):
     permissionType = ''
     
     def handle(self):
-        ''' Get the items' values by the specified properties' vlaues.
-        '''
-        #'condition' format is :{'propname': value,...}        
+        ''' Get the items' values by the specified properties' vlaues.'''
+        #'filter' format is :{'propname': value,...}        
         condition = self.form.get('filter')
         cl = self.form['context']
         klass = self.db.getclass(cl)
