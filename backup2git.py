@@ -55,7 +55,7 @@ def run(test):
 	git = GIT
 	  
    	# delete nousing captcha images
-	cmd = ['rm', '-f', ''.join((KARRIGELLSRC, 'registration/tmp/*.jpeg'))]
+	cmd = ['rm', '-f', ''.join((KARRIGELLSRC, 'muireception/register/tmp/*.jpeg'))]
 	cmd = ' '.join(cmd)
 	logger.info('Delete nousing captcha images')
 	res = action(cmd,test,logger)
