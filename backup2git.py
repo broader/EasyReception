@@ -74,7 +74,7 @@ def run(test):
 			
 	logger.info('End backup loacl karrigell diretory to local git.')
    
-   # synchronize 'EasyReception' to remote github host
+   	# synchronize 'EasyReception' to remote github host
 	logger.info('Begin to backup local github to remote github host.')    
    
    # get current date info

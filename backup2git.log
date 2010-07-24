@@ -1,20 +1,20 @@
-2010-07-24 17:29:28,306 INFO Delete nousing captcha images
-2010-07-24 17:29:28,308 INFO Command: 
+2010-07-24 17:32:27,325 INFO Delete nousing captcha images
+2010-07-24 17:32:27,327 INFO Command: 
 rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
 running result is :
-2010-07-24 17:29:28,309 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+2010-07-24 17:32:27,328 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
 
-2010-07-24 17:29:28,512 INFO Command: 
+2010-07-24 17:32:27,544 INFO Command: 
 rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
 running result is :sending incremental file list
 
 sent 177442 bytes  received 1182 bytes  357248.00 bytes/sec
 total size is 55296941  speedup is 309.57
-2010-07-24 17:29:28,543 INFO Command: 
+2010-07-24 17:32:27,595 INFO Command: 
 rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
 running result is :sending incremental file list
 
 sent 85 bytes  received 12 bytes  194.00 bytes/sec
 total size is 919796  speedup is 9482.43
-2010-07-24 17:29:28,543 INFO End backup loacl karrigell diretory to local git.
-2010-07-24 17:29:28,543 INFO Begin to backup local github to remote github host.
+2010-07-24 17:32:27,596 INFO End backup loacl karrigell diretory to local git.
+2010-07-24 17:32:27,596 INFO Begin to backup local github to remote github host.
