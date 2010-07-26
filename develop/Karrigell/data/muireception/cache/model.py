@@ -1,4 +1,4 @@
-['valid_dir', 'create_client', 'get_client', 'login', 'get_classes', 'get_item', 'get_items', 'get_items_ByString', 'get_key', 'get_keyValues', 'getUserDossier', 'filterByFunction', 'fuzzyQuery', 'filterByLink', 'get_file', 'edit_item', 'edit_linkcsv', 'edit_user_info', 'get_adminlist', 'get_userlist', 'get_issues', 'get_reservations', 'create_item', 'create_items', 'delete_item', 'delete_items', 'edit_issue', 'get_class_props', 'editcsv', 'permissionCheck', 'userCheck', 'passwordReset', 'action', 'csv2dict', 'serial2id', 'time2local', 'stringFind', 'reserve_detailParser', 'reserveSort', 'getItemId']
+['valid_dir', 'create_client', 'get_client', 'login', 'get_classes', 'get_item', 'get_items', 'get_items_ByString', 'get_key', 'get_keyValues', 'getUserDossier', 'filterByFunction', 'fuzzyQuery', 'filterByLink', 'filterByPropValues', 'get_file', 'edit_item', 'edit_linkcsv', 'edit_user_info', 'get_adminlist', 'get_userlist', 'get_issues', 'get_reservations', 'create_item', 'create_items', 'delete_item', 'delete_items', 'edit_issue', 'get_class_props', 'editcsv', 'permissionCheck', 'userCheck', 'passwordReset', 'action', 'csv2dict', 'serial2id', 'time2local', 'stringFind', 'reserve_detailParser', 'reserveSort', 'getItemId']
 """ Holds all the interfaces to the roundup tracker model, which  consists of ajaxInstance, ajaxClient and
 ajaxActions.
 """
@@ -262,6 +262,28 @@ def filterByLink(operator, klass, linkclass, linkvalue,propnames,linkprop=None):
 
 	client.form = form
 	return action(client)
+
+def filterByPropValues(operator, klass, propnames, conditions):
+	"""
+	Get the items by filtering conditons.
+	Parameters:
+	    conditions - {'propname': 'value',...}
+	"""
+	client = get_client()
+	if not client:
+		return None
+
+	client.set_user(operator)
+	form = {\
+		'action': 'filterbyprop',\
+		'context': klass,\
+		'propnames': propnames,\
+		'filter' : conditions\
+	}
+
+	client.form = form
+	return action(client)
+
 
 def get_file(operator, klass, id):
 	""" Get the content of a FileClass in database.
@@ -570,21 +592,19 @@ def permissionCheck(user, roles, path):
 	operator = _getSuperAdmin()
 
 	if user == operator:
+		# super administrator colud do anything
 		return True
 
-	client.set_user(operator)
+	permission = False
+	# get all the related definitions in database that have been stored as items of 'relation' roundup.Class
+	items = filterByPropValues(user, 'relation', ('klassvalue','relatevalue'), {'klassname':'role','relateclass':'webaction'})
+	if items :
+		for item in items:
+			if set(roles).intersection(item[0].split(',')) and path in item[1].split(','):
+				permission = True
+				break
 
-	# get the webactions linked to these rols
-	PRINT( 'model.permissionCheck, user is %s, path is %s, roles are %s'%(user,path, roles))
-
-	for name in roles:
-		webperm = get_item(operator, 'role', name, props=('webperm',))
-		PRINT( 'model.permissionCheck, role is %s, permissions are %s'%(name, webperm))
-		if webperm and webperm.get('webperm'):
-			webperm = webperm.get('webperm').split(',')
-			if path in webperm :
-				return True
-	return False
+	return permission
 
 def userCheck(name):
 	"""

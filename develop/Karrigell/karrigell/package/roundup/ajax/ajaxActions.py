@@ -1450,13 +1450,12 @@ class FilterByPropValueAction(GetItemAction):
     permissionType = ''
     
     def handle(self):
-        ''' Get the items' values by the specified properties' vlaues.'''
-        #'filter' format is :{'propname': value,...}        
-        condition = self.form.get('filter')
+        ''' Get the items' values by the specified properties' vlaues.'''   
         cl = self.form['context']
         klass = self.db.getclass(cl)
-        # get items' ids that filtered by 'condition'
-        ids = klass.filter(None,condition)        
+        # Get items' ids that 'filter' value, 
+        # whose format is :{'propname': value,...}        
+        ids = klass.filter(None,self.form.get('filter'))        
         if ids == [] :            
             raise exceptions.NotFound, _("Warning,there is no item of class '%s'.")%cl
             return

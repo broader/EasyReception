@@ -102,8 +102,9 @@
         initialize: function(options){            
             this.setOptions(options);
             // Hide the original data source and create a new div for the widget
-            // and inect this new widget into the Dom.
+            // and inect this new widget into the DOM.
 	    this.container = $(options.container);
+
             var view = new Element('div', {'class': this.options.widgetcls});
 	    this.container.grab(view);
 	    this.view = view;

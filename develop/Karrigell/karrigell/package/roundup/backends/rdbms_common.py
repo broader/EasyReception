@@ -1161,9 +1161,6 @@ class Database(FileStorage, hyperdb.Database, roundupdb.Database):
         dc = self.to_sql_value(hyperdb.Date)
         journaldate = dc(journaldate)
         
-        print 'rdbms_common.DatabaseClass.add_journal,L1164, classname is %s, \
-                journaltag is %s, action is %s'%(classname, journaltag, action)
-        
         self.save_journal(classname, cols, nodeid, journaldate,
             journaltag, action, params)
 
@@ -1250,7 +1247,8 @@ class Database(FileStorage, hyperdb.Database, roundupdb.Database):
         """ Save the journal entry to the database
         """
         entry = (nodeid, journaldate, journaltag, action, params)
-        print 'rdbms_common.DatabaseClass.save_journal,L1250, entry to be saved is',entry
+        
+        #print 'rdbms_common.DatabaseClass.save_journal,L1250, entry to be saved is',entry
 
         # do the insert
         a = self.arg
@@ -1897,7 +1895,7 @@ class Class(hyperdb.Class):
             self.db.arg, self.db.arg)
         self.db.sql(sql, (nodeid, nodeid))
         
-        print 'rdbms_common.Class.retire, L1895, do_journal is ',self.do_journal
+        #print 'rdbms_common.Class.retire, L1895, do_journal is ',self.do_journal
         
         if self.do_journal:
             self.db.addjournal(self.classname, nodeid, ''"retired", None)

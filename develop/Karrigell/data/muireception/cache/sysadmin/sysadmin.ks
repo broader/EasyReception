@@ -900,7 +900,6 @@ def page_classEdit(**args):
 	info,hideInput = [],[]
 
 	props = copy.deepcopy(args)
-
 	if props.has_key('id'):		# edit action
 		actionType = ACTIONTYPES[1]
 		nid = props.pop('id')
@@ -922,6 +921,7 @@ def page_classEdit(**args):
 		props = _getClassProps(klass, needId=False)
 		props = _formFieldsConstructor(klass,props,actionType)
 
+	# some special widgets or functions for special properties of each categroy of roundup.Class
 	propAdaptor = CLASSADAPTOR.get(klass)
 	if propAdaptor:
 		props = propAdaptor(props, action=actionType)
@@ -1080,6 +1080,4 @@ def page_classEditAction(**args):
 	PRINT( successTag)
 	return
 
-#def page_test_journal():
-#	pass
 

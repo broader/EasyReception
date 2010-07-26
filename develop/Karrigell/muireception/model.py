@@ -261,6 +261,28 @@ def filterByLink(operator, klass, linkclass, linkvalue,propnames,linkprop=None):
 	
 	client.form = form
 	return action(client)
+
+def filterByPropValues(operator, klass, propnames, conditions):
+	""" 
+	Get the items by filtering conditons.	
+	Parameters:
+	    conditions - {'propname': 'value',...}
+	"""
+	client = get_client()
+	if not client:
+		return None
+	
+	client.set_user(operator)		
+	form = {\
+		'action': 'filterbyprop',\			
+		'context': klass,\                
+		'propnames': propnames,\
+		'filter' : conditions\
+	}      
+	
+	client.form = form
+	return action(client)
+
 	
 def get_file(operator, klass, id):
 	""" Get the content of a FileClass in database.
@@ -569,21 +591,19 @@ def permissionCheck(user, roles, path):
 	operator = _getSuperAdmin()
 	
 	if user == operator:
+		# super administrator colud do anything
 		return True	
 
-	client.set_user(operator)
+	permission = False	
+	# get all the related definitions in database that have been stored as items of 'relation' roundup.Class
+	items = filterByPropValues(user, 'relation', ('klassvalue','relatevalue'), {'klassname':'role','relateclass':'webaction'})
+	if items :
+		for item in items:
+			if set(roles).intersection(item[0].split(',')) and path in item[1].split(','):
+				permission = True
+				break
 	
-	# get the webactions linked to these rols	
-	print 'model.permissionCheck, user is %s, path is %s, roles are %s'%(user,path, roles)	
- 
-	for name in roles:
-		webperm = get_item(operator, 'role', name, props=('webperm',))
-		print 'model.permissionCheck, role is %s, permissions are %s'%(name, webperm)		
-		if webperm and webperm.get('webperm'):
-			webperm = webperm.get('webperm').split(',')						
-			if path in webperm :
-				return True				
-	return False
+	return permission
 
 def userCheck(name):
 	""" 

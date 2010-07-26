@@ -1,5 +1,5 @@
 """
-Functions for handling 'webaction' roundup.Class
+Module for auto scaning applications' directories and creating items of 'webaction' roundup.Class.
 """
 import os, cStringIO
 # import two Karrigell modules for filtering functions' names from ks files
@@ -78,17 +78,16 @@ def _iterDirectory(oldActions, propnames):
 	flattenTree = tree.flatten()
 
 	# add 'serial' attribute to each node	
-	if oldActions :
-		actionIndex, serialIndex = [propnames.index(prop) for prop in ('action', 'serial')]	
-		for node in flattenTree:
-			node.serial = None
-			action = node.id
-			isExisted = None
-			for oldAction in oldActions :
-				if oldAction[actionIndex] == action :
-					node.serial = oldAction[serialIndex]
-					oldActions.remove(oldAction)
-					break
+	actionIndex, serialIndex = [propnames.index(prop) for prop in ('actionpage', 'serial')]	
+	for node in flattenTree:
+		node.serial = None
+		action = node.id
+		isExisted = None
+		for oldAction in oldActions :
+			if oldAction[actionIndex] == action :
+				node.serial = oldAction[serialIndex]
+				oldActions.remove(oldAction)
+				break
 	
 		
 	newActions = []	
@@ -151,10 +150,9 @@ def checkNewActions(user, props):
 	# 'REQUEST_HANDLER' is a variable trnasfered to this module file
 	model = Import( '/'.join((RELPATH, 'model.py')), REQUEST_HANDLER=REQUEST_HANDLER )
 	oldActions = model.get_items(user, 'webaction', props)
-	oldActions = type(oldActions)==type('') and [] or oldActions
-	print 'checkNewActions',oldActions
+	if type(oldActions)==type(''):
+		oldActions = []
 
-	"""
 	# constructs a tree by iterating the application modules' directory 
 	newActions, oldActions = _iterDirectory(oldActions, props)
 
@@ -164,8 +162,7 @@ def checkNewActions(user, props):
 		model.delete_items(user, 'webaction', nodeIds)
 
 	if newActions:
-		model.create_items(user, 'webaction',('action', 'serial'), newActions)
-	"""
+		model.create_items(user, 'webaction',('actionpage', 'serial'), newActions)
 
 	return 
 

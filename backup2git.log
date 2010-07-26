@@ -18,3 +18,325 @@ sent 85 bytes  received 12 bytes  194.00 bytes/sec
 total size is 919796  speedup is 9482.43
 2010-07-24 17:32:27,596 INFO End backup loacl karrigell diretory to local git.
 2010-07-24 17:32:27,596 INFO Begin to backup local github to remote github host.
+2010-07-24 17:32:27,685 INFO Command: 
+git add .
+running result is :
+2010-07-24 17:32:27,798 INFO Command: 
+git commit -m 'Update time:2010-07-24T17:32:27.596277'
+running result is :[master 9fb9e2a] Update time:2010-07-24T17:32:27.596277
+ Committer: Broader ZHONG <broader@laptop-ubuntu.10.04>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+If the identity used for this commit is wrong, you can fix it with:
+
+    git commit --amend --author='Your Name <you@example.com>'
+
+ 2 files changed, 8 insertions(+), 8 deletions(-)
+2010-07-24 17:32:33,516 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   702135c..9fb9e2a  master -> master
+2010-07-24 17:32:33,516 INFO End backup local github to remote github host.
+2010-07-26 10:58:06,638 INFO Delete nousing captcha images
+2010-07-26 10:58:06,675 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-07-26 10:58:06,676 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-07-26 10:58:09,626 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010072602.log
+        5454 100%    0.00kB/s    0:00:00          5454 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1029/3986)
+data/cms/sessions/
+data/cms/sessions/lOg3jJpsQlkwujUT
+         235 100%    3.53kB/s    0:00:00           235 100%    3.48kB/s    0:00:00 (xfer#2, to-check=1042/4271)
+data/muireception/
+deleting data/muireception/logs_2010072416.log
+deleting data/muireception/logs_2010072413.log
+deleting data/muireception/logs_2010072412.log
+deleting data/muireception/logs_2010072409.log
+deleting data/muireception/logs_2010072405.log
+deleting data/muireception/logs_2010072404.log
+deleting data/muireception/logs_2010072402.log
+deleting data/muireception/logs_2010072314.log
+deleting data/muireception/logs_2010072313.log
+deleting data/muireception/logs_2010072309.log
+deleting data/muireception/logs_2010072308.log
+deleting data/muireception/logs_2010072307.log
+deleting data/muireception/logs_2010072306.log
+deleting data/muireception/logs_2010072303.log
+deleting data/muireception/logs_2010072302.log
+deleting data/muireception/logs_2010072301.log
+deleting data/muireception/logs_2010072217.log
+deleting data/muireception/logs_2010072215.log
+deleting data/muireception/logs_2010072214.log
+deleting data/muireception/logs_2010072207.log
+deleting data/muireception/logs_2010072114.log
+deleting data/muireception/logs_2010072109.log
+deleting data/muireception/logs_2010072107.log
+deleting data/muireception/logs_2010072106.log
+deleting data/muireception/logs_2010072102.log
+deleting data/muireception/logs_2010072101.log
+deleting data/muireception/logs_2010072010.log
+deleting data/muireception/logs_2010072009.log
+deleting data/muireception/logs_2010072003.log
+deleting data/muireception/logs_2010072002.log
+deleting data/muireception/logs_2010072001.log
+deleting data/muireception/logs_2010071916.log
+deleting data/muireception/logs_2010071908.log
+deleting data/muireception/logs_2010071902.log
+deleting data/muireception/logs_2010071901.log
+deleting data/muireception/logs_2010071900.log
+deleting data/muireception/logs_2010071222.log
+deleting data/muireception/logs_2010071214.log
+deleting data/muireception/logs_2010071021.log
+deleting data/muireception/logs_2010070915.log
+deleting data/muireception/logs_2010070910.log
+deleting data/muireception/logs_2010070908.log
+deleting data/muireception/logs_2010070819.log
+deleting data/muireception/logs_2010070814.log
+deleting data/muireception/logs_2010070808.log
+deleting data/muireception/logs_2010070719.log
+deleting data/muireception/logs_2010070714.log
+deleting data/muireception/logs_2010070710.log
+deleting data/muireception/logs_2010070709.log
+deleting data/muireception/logs_2010070621.log
+deleting data/muireception/logs_2010070614.log
+deleting data/muireception/logs_2010070609.log
+deleting data/muireception/logs_2010070520.log
+deleting data/muireception/logs_2010070516.log
+deleting data/muireception/logs_2010070514.log
+deleting data/muireception/logs_2010070510.log
+deleting data/muireception/logs_2010070508.log
+deleting data/muireception/logs_2010070507.log
+deleting data/muireception/logs_2010070411.log
+deleting data/muireception/logs_2010070309.log
+deleting data/muireception/logs_2010070209.log
+deleting data/muireception/logs_2010070114.log
+deleting data/muireception/logs_2010070108.log
+deleting data/muireception/logs_2010062509.log
+deleting data/muireception/logs_2010062414.log
+deleting data/muireception/logs_2010062409.log
+deleting data/muireception/logs_2010062314.log
+deleting data/muireception/logs_2010062307.log
+deleting data/muireception/logs_2010062306.log
+deleting data/muireception/logs_2010061916.log
+deleting data/muireception/logs_2010061515.log
+deleting data/muireception/logs_2010061417.log
+deleting data/muireception/logs_2010061415.log
+deleting data/muireception/logs_2010061220.log
+deleting data/muireception/logs_2010061214.log
+deleting data/muireception/logs_2010061209.log
+deleting data/muireception/logs_2010061121.log
+deleting data/muireception/logs_2010061116.log
+deleting data/muireception/logs_2010061014.log
+deleting data/muireception/logs_2010060921.log
+deleting data/muireception/logs_2010060809.log
+deleting data/muireception/logs_2010060721.log
+deleting data/muireception/logs_2010060720.log
+deleting data/muireception/logs_2010060715.log
+deleting data/muireception/logs_2010060713.log
+deleting data/muireception/logs_2010060709.log
+deleting data/muireception/logs_2010060708.log
+deleting data/muireception/logs_2010060707.log
+deleting data/muireception/logs_2010060702.log
+deleting data/muireception/logs_2010060701.log
+deleting data/muireception/logs_2010060618.log
+deleting data/muireception/logs_2010060512.log
+deleting data/muireception/logs_2010060509.log
+deleting data/muireception/logs_2010060508.log
+deleting data/muireception/logs_2010060503.log
+deleting data/muireception/logs_2010060502.log
+deleting data/muireception/logs_2010060501.log
+deleting data/muireception/logs_2010060416.log
+deleting data/muireception/logs_2010060412.log
+deleting data/muireception/logs_2010060411.log
+deleting data/muireception/logs_2010060410.log
+deleting data/muireception/logs_2010060408.log
+deleting data/muireception/logs_2010060317.log
+deleting data/muireception/logs_2010060316.log
+deleting data/muireception/logs_2010060315.log
+deleting data/muireception/logs_2010060314.log
+deleting data/muireception/logs_2010060313.log
+deleting data/muireception/logs_2010060311.log
+deleting data/muireception/logs_2010060310.log
+deleting data/muireception/logs_2010060309.log
+deleting data/muireception/logs_2010060308.log
+deleting data/muireception/logs_2010060217.log
+deleting data/muireception/logs_2010060215.log
+deleting data/muireception/logs_2010060211.log
+deleting data/muireception/logs_2010060210.log
+deleting data/muireception/logs_2010060209.log
+deleting data/muireception/logs_2010060208.log
+deleting data/muireception/logs_2010060203.log
+deleting data/muireception/logs_2010060115.log
+deleting data/muireception/logs_2010060114.log
+deleting data/muireception/logs_2010060113.log
+deleting data/muireception/logs_2010060111.log
+deleting data/muireception/logs_2010060110.log
+deleting data/muireception/logs_2010060109.log
+deleting data/muireception/logs_2010060108.log
+deleting data/muireception/logs_2010053117.log
+deleting data/muireception/logs_2010053116.log
+deleting data/muireception/logs_2010053108.log
+deleting data/muireception/logs_2010053102.log
+deleting data/muireception/logs_2010053101.log
+deleting data/muireception/logs_2010053100.log
+deleting data/muireception/logs_2010053017.log
+deleting data/muireception/logs_2010053015.log
+deleting data/muireception/logs_2010053010.log
+deleting data/muireception/logs_2010053009.log
+deleting data/muireception/logs_2010053007.log
+deleting data/muireception/logs_2010053003.log
+deleting data/muireception/logs_2010053002.log
+deleting data/muireception/logs_2010052916.log
+deleting data/muireception/logs_2010052912.log
+deleting data/muireception/logs_2010052911.log
+deleting data/muireception/logs_2010052910.log
+deleting data/muireception/logs_2010052909.log
+deleting data/muireception/logs_2010052908.log
+deleting data/muireception/logs_2010052904.log
+deleting data/muireception/logs_2010052903.log
+deleting data/muireception/logs_2010052902.log
+deleting data/muireception/logs_2010052817.log
+deleting data/muireception/logs_2010052816.log
+deleting data/muireception/logs_2010052815.log
+deleting data/muireception/logs_2010052809.log
+deleting data/muireception/logs_2010052808.log
+data/muireception/logs_2010072410.log
+       13584 100%   62.87kB/s    0:00:00         13584 100%   62.87kB/s    0:00:00 (xfer#3, to-check=1033/4271)
+data/muireception/logs_2010072418.log
+       10890 100%   47.69kB/s    0:00:00         10890 100%   47.69kB/s    0:00:00 (xfer#4, to-check=1032/4271)
+data/muireception/logs_2010072510.log
+        4849 100%   20.15kB/s    0:00:00          4849 100%   20.15kB/s    0:00:00 (xfer#5, to-check=1031/4271)
+data/muireception/logs_2010072515.log
+        3917 100%   16.21kB/s    0:00:00          3917 100%   16.21kB/s    0:00:00 (xfer#6, to-check=1030/4271)
+data/muireception/logs_2010072518.log
+         851 100%    3.52kB/s    0:00:00           851 100%    3.52kB/s    0:00:00 (xfer#7, to-check=1029/4271)
+data/muireception/logs_2010072523.log
+        2566 100%   10.57kB/s    0:00:00          2566 100%   10.57kB/s    0:00:00 (xfer#8, to-check=1028/4271)
+data/muireception/logs_2010072600.log
+       32768  28%  108.11kB/s    0:00:00        113686 100%  366.41kB/s    0:00:00 (xfer#9, to-check=1027/4271)
+data/muireception/logs_2010072601.log
+       16754 100%   53.47kB/s    0:00:00         16754 100%   53.47kB/s    0:00:00 (xfer#10, to-check=1026/4271)
+data/muireception/logs_2010072602.log
+        4300 100%   13.68kB/s    0:00:00          4300 100%   13.68kB/s    0:00:00 (xfer#11, to-check=1025/4271)
+data/muireception/logs_2010072607.log
+         155 100%    0.49kB/s    0:00:00           155 100%    0.49kB/s    0:00:00 (xfer#12, to-check=1024/4271)
+data/muireception/cache/form.py
+        8347 100%   26.21kB/s    0:00:00          8347 100%   26.21kB/s    0:00:00 (xfer#13, to-check=1019/4276)
+data/muireception/cache/model.py
+       20537 100%   63.67kB/s    0:00:00         20537 100%   63.67kB/s    0:00:00 (xfer#14, to-check=1015/4276)
+data/muireception/cache/issue/userView.ks
+       18626 100%   56.31kB/s    0:00:00         18626 100%   56.31kB/s    0:00:00 (xfer#15, to-check=1007/4288)
+data/muireception/cache/sysadmin/sysadmin.ks
+       30399 100%   79.59kB/s    0:00:00         30399 100%   79.59kB/s    0:00:00 (xfer#16, to-check=1007/4309)
+data/muireception/cache/sysadmin/webaction.py
+        5357 100%   13.38kB/s    0:00:00          5357 100%   13.38kB/s    0:00:00 (xfer#17, to-check=1006/4309)
+data/muireception/roundup/
+data/muireception/roundup/schema.py
+        9044 100%   22.03kB/s    0:00:00          9044 100%   22.03kB/s    0:00:00 (xfer#18, to-check=1008/4320)
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%   75.65kB/s    0:00:04        362496 100%  790.18kB/s    0:00:00 (xfer#19, to-check=1002/4320)
+data/muireception/sessions/
+data/muireception/sessions/0rKgtKDgxvYPD3wF
+         274 100%    0.40kB/s    0:00:00           274 100%    0.40kB/s    0:00:00 (xfer#20, to-check=2427/5854)
+data/muireception/sessions/3vmSmg6qu2vSJhu3
+         274 100%    0.40kB/s    0:00:00           274 100%    0.40kB/s    0:00:00 (xfer#21, to-check=2421/5854)
+data/muireception/sessions/5BYaEzzdghbsE6bu
+         274 100%    0.40kB/s    0:00:00           274 100%    0.40kB/s    0:00:00 (xfer#22, to-check=2414/5854)
+data/muireception/sessions/8ebycCB0ccTVzzuM
+         274 100%    0.39kB/s    0:00:00           274 100%    0.39kB/s    0:00:00 (xfer#23, to-check=2403/5854)
+data/muireception/sessions/AvRV7sz3AEhQE9xG
+         274 100%    0.39kB/s    0:00:00           274 100%    0.39kB/s    0:00:00 (xfer#24, to-check=2396/5854)
+data/muireception/sessions/IW4TrYNC41K20pSe
+         274 100%    0.38kB/s    0:00:00           274 100%    0.38kB/s    0:00:00 (xfer#25, to-check=2371/5854)
+data/muireception/sessions/LComqR57HvpsyE60
+         307 100%    0.42kB/s    0:00:00           307 100%    0.42kB/s    0:00:00 (xfer#26, to-check=2359/5854)
+data/muireception/sessions/PjAj0OI6wTxZKlsw
+         274 100%    0.38kB/s    0:00:00           274 100%    0.38kB/s    0:00:00 (xfer#27, to-check=2340/5854)
+data/muireception/sessions/QeuTV9qwIY7eoyD9
+         274 100%    0.37kB/s    0:00:00           274 100%    0.37kB/s    0:00:00 (xfer#28, to-check=2337/5854)
+data/muireception/sessions/VjtK6xAMB4bAxLYT
+         274 100%    0.37kB/s    0:00:00           274 100%    0.37kB/s    0:00:00 (xfer#29, to-check=2324/5854)
+data/muireception/sessions/ZN4Kp4KQRFNN5Z6b
+         274 100%    0.37kB/s    0:00:00           274 100%    0.37kB/s    0:00:00 (xfer#30, to-check=2309/5854)
+data/muireception/sessions/cSaoUCcF4z9XOMOv
+         249 100%    0.33kB/s    0:00:00           249 100%    0.33kB/s    0:00:00 (xfer#31, to-check=2303/5854)
+data/muireception/sessions/gaEgIcB3lLK5t3V6
+         249 100%    0.33kB/s    0:00:00           249 100%    0.33kB/s    0:00:00 (xfer#32, to-check=2295/5854)
+data/muireception/sessions/oWn7M8eU8kLk8bhz
+         274 100%    0.37kB/s    0:00:00           274 100%    0.37kB/s    0:00:00 (xfer#33, to-check=2266/5854)
+data/muireception/sessions/qNtDZf5sMkqyaWmV
+         274 100%    0.37kB/s    0:00:00           274 100%    0.37kB/s    0:00:00 (xfer#34, to-check=2259/5854)
+data/muireception/sessions/rCUivGdkumT3GCPh
+         274 100%    0.37kB/s    0:00:00           274 100%    0.37kB/s    0:00:00 (xfer#35, to-check=2253/5854)
+data/muireception/sessions/szjc3j3Wh9guogQJ
+         307 100%    0.40kB/s    0:00:00           307 100%    0.40kB/s    0:00:00 (xfer#36, to-check=2247/5854)
+data/muireception/sessions/uYfwQGtWUMPv36rA
+         274 100%    0.36kB/s    0:00:00           274 100%    0.36kB/s    0:00:00 (xfer#37, to-check=2243/5854)
+data/muireception/sessions/w24KOMafxvaR42qS
+         274 100%    0.34kB/s    0:00:00           274 100%    0.34kB/s    0:00:00 (xfer#38, to-check=2239/5854)
+data/muireception/sessions/xFhl8jlWVV8p6nyk
+         274 100%    0.34kB/s    0:00:00           274 100%    0.34kB/s    0:00:00 (xfer#39, to-check=2236/5854)
+data/muireception/sessions/yEmiBnkmTT7lXvfl
+         274 100%    0.34kB/s    0:00:00           274 100%    0.34kB/s    0:00:00 (xfer#40, to-check=2233/5854)
+data/muireception/sessions/ybzn95vvWYVqLqSY
+         274 100%    0.34kB/s    0:00:00           274 100%    0.34kB/s    0:00:00 (xfer#41, to-check=2231/5854)
+karrigell/package/roundup/ajax/
+karrigell/package/roundup/ajax/ajaxActions.py
+       32768  29%   40.76kB/s    0:00:01        110787 100%  136.78kB/s    0:00:00 (xfer#42, to-check=1945/5854)
+karrigell/package/roundup/ajax/ajaxClient.py
+       16630 100%   19.26kB/s    0:00:00         16630 100%   19.26kB/s    0:00:00 (xfer#43, to-check=1943/5854)
+karrigell/package/roundup/ajax/ajaxClient.pyc
+       12450 100%   14.19kB/s    0:00:00         12450 100%   14.19kB/s    0:00:00 (xfer#44, to-check=1942/5854)
+karrigell/package/roundup/backends/
+karrigell/package/roundup/backends/rdbms_common.py
+       32768  29%   36.61kB/s    0:00:02        109580 100%  120.24kB/s    0:00:00 (xfer#45, to-check=1904/5854)
+karrigell/package/roundup/backends/rdbms_common.pyc
+       32768  37%   34.41kB/s    0:00:01         86344 100%   89.42kB/s    0:00:00 (xfer#46, to-check=1903/5854)
+muireception/
+muireception/.model.py.swp
+       32768  80%   33.90kB/s    0:00:00         40960 100%   42.33kB/s    0:00:00 (xfer#47, to-check=1631/5854)
+muireception/form.py
+        8417 100%    8.69kB/s    0:00:00          8417 100%    8.69kB/s    0:00:00 (xfer#48, to-check=1622/5854)
+muireception/model.py
+       20402 100%   21.02kB/s    0:00:00         20402 100%   21.02kB/s    0:00:00 (xfer#49, to-check=1608/5854)
+muireception/issue/
+muireception/issue/.userView.ks.swp
+       32768  80%   26.67kB/s    0:00:00         40960 100%   33.31kB/s    0:00:00         40960 100%   33.31kB/s    0:00:01 (xfer#50, to-check=1014/6986)
+muireception/issue/userView.ks
+       18724 100%   17.86MB/s    0:00:00         18724 100%   17.86MB/s    0:00:00 (xfer#51, to-check=1013/6986)
+muireception/lib/multiSelect/
+muireception/lib/multiSelect/MTMultiSelect.js
+       19436 100%  213.26kB/s    0:00:00         19436 100%  213.26kB/s    0:00:00 (xfer#52, to-check=1004/7541)
+muireception/sysadmin/
+muireception/sysadmin/.sysadmin.ks.swp
+       32768  66%   77.48kB/s    0:00:00         49152 100%  115.66kB/s    0:00:00 (xfer#53, to-check=700/8319)
+muireception/sysadmin/.webaction.py.swp
+       20480 100%   42.02kB/s    0:00:00         20480 100%   42.02kB/s    0:00:00 (xfer#54, to-check=699/8319)
+muireception/sysadmin/sysadmin.ks
+       30520 100%   61.58kB/s    0:00:00         30520 100%   61.58kB/s    0:00:00 (xfer#55, to-check=698/8319)
+muireception/sysadmin/webaction.py
+        5405 100%   10.86kB/s    0:00:00          5405 100%   10.86kB/s    0:00:00 (xfer#56, to-check=696/8319)
+
+sent 444652 bytes  received 2296 bytes  127699.43 bytes/sec
+total size is 54648297  speedup is 122.27
+2010-07-26 10:58:09,737 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768   5%    0.00kB/s    0:00:00        609406 100%   13.09MB/s    0:00:00 (xfer#1, to-check=1/3)
+
+sent 134034 bytes  received 31 bytes  268130.00 bytes/sec
+total size is 921102  speedup is 6.87
+2010-07-26 10:58:09,737 INFO End backup loacl karrigell diretory to local git.
+2010-07-26 10:58:09,738 INFO Begin to backup local github to remote github host.

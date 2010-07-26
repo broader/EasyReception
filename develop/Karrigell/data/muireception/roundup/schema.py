@@ -52,10 +52,10 @@ user.setkey("username")
 # Web Action
 webaction = Class(db, "webaction",
 			name=String(),	# the name of this action
-			action=String(),	# the page path of this action
+			actionpage=String(),	# the page path of this action
 			description=String(),
 			serial=String())
-webaction.setkey("action")
+webaction.setkey("actionpage")
 
 # User's role
 role = Class(db, "role",

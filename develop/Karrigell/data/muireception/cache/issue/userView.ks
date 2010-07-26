@@ -56,10 +56,7 @@ def page_issueDetail(**args):
 	title = SPAN(title)
 	buttons = [\
 		pagefn.sexyButton(txt,{'class': 'sexyblue', 'style':'margin-left:10px;'},bnType, 'sexysmall')\
-		for txt,bnType in zip(\
-			(_('Edit'), _('Delete')),
-			('edit', 'delete')
-		)
+		for txt,bnType in zip( (_('Edit'), ), ('edit', ))\
 	]
 	buttons = SPAN(Sum(buttons),style='margin-left:2em;')
 
@@ -113,7 +110,7 @@ def page_issueList(**args):
 	PRINT( pagefn.script( _issueListJs( userViewIssueList), link=False))
 	return
 
-ACTIONTAG, ACTIONS, ACTIONLABELS = 'action', ['create','edit'],[_('Create'), _('Edit')]
+ACTIONTAG, ACTIONS, ACTIONLABELS = 'action', ['create','delete'],[_('Create'), _('delete')]
 def _issueListJs(container):
 	paras = [ APP, container, ACTIONTAG]
 	# filter labels
@@ -176,7 +173,7 @@ def _issueListJs(container):
 	function issueEditButtons(){
 		bnAttributes = [
 			{'type':'add','label': bnLabels[0], 'bnSize':'sexysmall', 'bnSkin': 'sexyblue', 'action':actions[0]},
-			{'type':'edit','label': bnLabels[1], 'bnSize':'sexysmall', 'bnSkin': 'sexyblue', 'action':actions[1]}
+			{'type':'delete','label': bnLabels[1], 'bnSize':'sexysmall', 'bnSkin': 'sexyblue', 'action':actions[1]}
 		];
 
 		bnContainer = new Element('span',{style: 'margin-left:10em;'});
@@ -597,7 +594,6 @@ def _permissionCheck(**args):
 	nosy		OK	X
 	--------------------------------------------------------------
 	'''
-
 	perms = {}
 	user = args.get('user') or USER
 	# super user 'admin' has all of the permissions

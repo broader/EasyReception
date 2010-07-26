@@ -120,25 +120,25 @@ def _mtMultiSelect(field, oldvalue):
 	    'itemsPerPage' - the number of items that will be shown in each page
 	oldvalue - the old selected values
 	"""
-	containerId, url, containerStyle = [ field.pop(name) for name in ('id', 'dataUrl', 'containerStyle')]
+	msContainerId, url, containerStyle = [ field.pop(name) for name in ('id', 'dataUrl', 'containerStyle')]
 
 	if oldvalue:
 		url = '&'.join((url, '='.join(('oldvalue', oldvalue))))
 
 	js = \
 	"""
-	var container='%s', url='%s', field='%s', itemsNumber='%s';
+	var multiSelectContainer='%s', multiSelectUrl='%s', field='%s', itemsNumber='%s';
 
 	MUI.multiSelect('',{onload: function(){
 		new MTMultiWidget({
-			container: container,
-			dataUrl: url,
+			container: multiSelectContainer,
+			dataUrl: multiSelectUrl,
 			fieldName: field, items_per_page: itemsNumber
 		});
 	}});
-	"""%(containerId, url, field.pop('fieldName'),field.pop('itemsPerPage'))
+	"""%(msContainerId, url, field.pop('fieldName'),field.pop('itemsPerPage'))
 	script = pagefn.script(js, link=False)
-	return Sum( [ DIV(**{'id':containerId, 'style': containerStyle}), script])
+	return Sum( [ DIV(**{'id':msContainerId, 'style': containerStyle}), script])
 
 def getField(field):
 	"""
