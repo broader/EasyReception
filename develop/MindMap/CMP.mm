@@ -2707,11 +2707,11 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1277366345088" POSITION="right" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1280216754178" POSITION="right" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
-<node COLOR="#00b439" CREATED="1252499786714" FOLDED="true" ID="Freemind_Link_774228154" MODIFIED="1275613939203" TEXT="URL  &#x7f16;&#x7801;">
+<node COLOR="#00b439" CREATED="1252499786714" FOLDED="true" ID="Freemind_Link_774228154" MODIFIED="1280216046816" TEXT="URL  &#x7f16;&#x7801;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -2719,25 +2719,25 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1252027856832" FOLDED="true" ID="Freemind_Link_1618511399" MODIFIED="1275534859587" TEXT="Javascript">
+<node COLOR="#00b439" CREATED="1252027856832" FOLDED="true" ID="Freemind_Link_1618511399" MODIFIED="1280216125650" TEXT="Javascript">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1250147399215" ID="Freemind_Link_404010672" MODIFIED="1272459193903" TEXT="JSON">
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1250147412778" ID="Freemind_Link_1534617843" MODIFIED="1253415164734" TEXT="KS">
+<node COLOR="#111111" CREATED="1250147412778" FOLDED="true" ID="Freemind_Link_1534617843" MODIFIED="1280216111311" TEXT="KS">
 <font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1250147426811" ID="Freemind_Link_162074145" MODIFIED="1252027867397" TEXT="&#x4f7f;&#x7528;ks&#x811a;&#x6b65;&#x4e2d;print&#x8bed;&#x53e5;&#x8fd4;&#x56de;json&#x683c;&#x5f0f;&#x6570;&#x636e;&#x65f6;&#xff0c;&#x91c7;&#x7528;&#x4ee5;&#x4e0b;&#x65b9;&#x5f0f;&#x624d;&#x80fd;&#x6b63;&#x5e38;&#x8fd4;&#x56de;utf8 &#x7f16;&#x7801;&#x6587;&#x672c; reload(sys) sys.setdefaultencoding(&apos;utf8&apos;) print JSON.encode(res)&#x6ce8;&#x610f;&#xff1a;&#x5982;&#x679c;&#x76f4;&#x63a5;import sys &#x800c;&#x6ca1;&#x6709;reload(sys)&#xff0c;python&#x89e3;&#x91ca;&#x5668;&#x4f1a;&#x62a5;&#x9519;&#x3002;">
+<node COLOR="#111111" CREATED="1250147426811" ID="Freemind_Link_162074145" MODIFIED="1280216107168" TEXT="&#x4f7f;&#x7528;ks&#x811a;&#x6b65;&#x4e2d;print&#x8bed;&#x53e5;&#x8fd4;&#x56de;json&#x683c;&#x5f0f;&#x6570;&#x636e;&#x65f6;&#xff0c;&#x91c7;&#x7528;&#x4ee5;&#x4e0b;&#x65b9;&#x5f0f;&#x624d;&#x80fd;&#x6b63;&#x5e38;&#x8fd4;&#x56de;utf8 &#x7f16;&#x7801;&#x6587;&#x672c;&#xa;&#xa;reload(sys) &#xa;sys.setdefaultencoding(&apos;utf8&apos;) &#xa;print JSON.encode(res)&#xa;&#x6ce8;&#x610f;&#xff1a;&#x5982;&#x679c;&#x76f4;&#x63a5;import sys &#x800c;&#x6ca1;&#x6709;reload(sys)&#xff0c;python&#x89e3;&#x91ca;&#x5668;&#x4f1a;&#x62a5;&#x9519;&#x3002;">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1252027871028" ID="Freemind_Link_480373011" MODIFIED="1257254487236" TEXT="js.pih">
+<node COLOR="#990000" CREATED="1252027871028" FOLDED="true" ID="Freemind_Link_480373011" MODIFIED="1280216115095" TEXT="js.pih">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1252027891333" ID="Freemind_Link_1250845998" MODIFIED="1253415164741" TEXT="&#x65b9;&#x4fbf;i18n">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1253864901492" FOLDED="true" ID="Freemind_Link_679377757" MODIFIED="1257254486323" TEXT="string.replace()">
+<node COLOR="#990000" CREATED="1253864901492" FOLDED="true" ID="Freemind_Link_679377757" MODIFIED="1280216122391" TEXT="string.replace()">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1253864935653" ID="Freemind_Link_1818950425" MODIFIED="1253865042057" TEXT="javascript&#x4e2d;replace() &#x65b9;&#x6cd5;&#x5982;&#x679c;&#x76f4;&#x63a5;&#x7528;str.replace(&quot;apples&quot;,&quot;oranges&quot;) &#x53ea;&#x4f1a;&#x66ff;&#x6362;&#x7b2c;&#x4e00;&#x4e2a;&#x5339;&#x914d;&#x7684;&#x5b57;&#x7b26;&#x3002;&#x4f7f;&#x7528; /g &#x66ff;&#x6362;&#x6240;&#x6709;&#x5339;&#x914d;&#x7684;&#x5b57;&#x7b26;&#xff0c; /i &#x5ffd;&#x7565;&#x5927;&#x5c0f;&#x5199;"/>
 </node>
@@ -2762,7 +2762,7 @@
 <node COLOR="#111111" CREATED="1264043198565" ID="ID_1409686944" MODIFIED="1264043205226" TEXT="&#x4f7f;&#x7528;&#x6837;&#x5f0f; cursor:pointer;&#xa;&#x5373;&#x4f7f;&#x662f;&#x4e00;&#x4e2a;div&#xa;&lt;div style=&quot;cursor:pointer;&quot;&gt;111&lt;/div&gt;&#xa;&#x4e5f;&#x662f;&#x53ef;&#x4ee5;&#x5b9e;&#x73b0;&#x9f20;&#x6807;&#x653e;&#x4e0a;&#x53bb;&#x53d8;&#x6210;&#x4e00;&#x53ea;&#x624b;&#xa;&#x8fdb;&#x9636;&#xa;&lt;style&gt;&#xa;.hover{font-width:blod;}&#xa;&lt;/style&gt;&#xa;&lt;div style=&quot;cursor:pointer;&quot; onmouseover=&quot;this.className=&apos;hover&apos;&quot; onmouseout=&quot;this.class=&apos;&apos;&quot;&gt;111&lt;/div&gt;&#xa;"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1260845370499" FOLDED="true" ID="ID_1337577665" MODIFIED="1264043301080" TEXT="&#x5bfc;&#x5165;&#x9519;&#x8bef;">
+<node COLOR="#990000" CREATED="1260845370499" FOLDED="true" ID="ID_1337577665" MODIFIED="1280216124831" TEXT="&#x5bfc;&#x5165;&#x9519;&#x8bef;">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1260845378421" ID="ID_163739786" MODIFIED="1260845458885" TEXT="missing : before statement&#xa;&#x68c0;&#x67e5;&#x53d1;&#x73b0;&#xff0c;js&#x6587;&#x4ef6;&#x76f8;&#x5bf9;&#x8def;&#x5f84;&#x4e3a;/js/lib/...&#xff0c;&#x66f4;&#x6539;&#x4e3a;js/lib/...&#x5373;&#x6b63;&#x5e38;"/>
 </node>
@@ -2848,7 +2848,7 @@
 <node COLOR="#111111" CREATED="1270272374006" ID="ID_1440362744" MODIFIED="1270272624879" TEXT="Create Action&#xa;---&gt;&#x68c0;&#x67e5;&#x662f;&#x5426;&#x4e0e; existed key values &#x503c;&#x91cd;&#x590d;&#x5373;&#x53ef;&#xa;&#xa;Edit Action&#xa;---&gt;1, &#x901a;&#x8fc7; node id &#x83b7;&#x5f97; old key value;&#xa;---&gt;2, &#x5982;&#x679c; &#xa;------&gt;input value == old key value---&gt; valid input&#xa;------&gt;&#x6216;&#x8005; input value &#x6ca1;&#x6709;&#x4e0e; existed key values &#x91cd;&#x590d; ---&gt; valid input"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1275614137437" TEXT="Karrigell">
+<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1280216752721" TEXT="Karrigell">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1250824602428" FOLDED="true" ID="Freemind_Link_1774893402" MODIFIED="1274274708400" TEXT="_()---i18n">
@@ -2880,11 +2880,11 @@
 <node COLOR="#111111" CREATED="1260451690651" ID="ID_1486718180" MODIFIED="1260451819616" TEXT="{,  [ ,  &apos;&apos;&apos; ,  &quot;&quot;&quot; &#x7f3a;&#x5c11;&#x5bf9;&#x5e94;&#x7684;&#x7ed3;&#x675f;&#x7b26;&#x53f7;&#xff0c;&#xa;&#x6216;&#x662f;&#x6587;&#x4ef6;&#x6700;&#x540e;&#x4e00;&#x884c; &#x4ee5; &apos;\&apos; &#x7ed3;&#x675f;&#xa;"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1265166162729" FOLDED="true" ID="ID_1537892475" MODIFIED="1275614016452" TEXT="Unicode &amp; UTF8">
+<node COLOR="#990000" CREATED="1265166162729" ID="ID_1537892475" MODIFIED="1280216139623" TEXT="Unicode &amp; UTF8">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1265166193364" FOLDED="true" ID="ID_669740718" MODIFIED="1275614015035" TEXT="&#x89e3;&#x51b3;&#x4ee5;&#x4e0b;&#x9519;&#x8bef;&#xff1a;&#xa;UnicodeDecodeError:&#xa; &apos;utf8&apos; codec can&apos;t decode byte 0xbc in position 0: unexpected code byte">
+<node COLOR="#111111" CREATED="1265166193364" ID="ID_669740718" MODIFIED="1280216143875" TEXT="&#x89e3;&#x51b3;&#x4ee5;&#x4e0b;&#x9519;&#x8bef;&#xff1a;&#xa;UnicodeDecodeError:&#xa; &apos;utf8&apos; codec can&apos;t decode byte 0xbc in position 0: unexpected code byte">
 <icon BUILTIN="yes"/>
 <node COLOR="#111111" CREATED="1267145167676" ID="ID_568421079" MODIFIED="1267145167677" TEXT="&#xa;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xff0a;&#xa;reload(sys)&#xa;sys.setdefaultencoding(&apos;utf8&apos;)&#x9; &#xa;&#xa;# &#x91c7;&#x7528;&#x5217;&#x8868;&#x9012;&#x5f52;&#x65b9;&#x5f0f;&#x6709;&#x65f6;&#x4f1a;&#x5f15;&#x53d1;&#x9519;&#x8bef;&#xff0c;&#x6b64;&#x65f6;&#x9700;&#x5bf9;&#x6bcf;&#x4e2a;&#x5b57;&#x7b26;&#x4e32;&#x8fdb;&#x884c;utf8&#x89e3;&#x7801;&#xa;#encoded = [[i.decode(&apos;utf8&apos;) for i in row] for row in rslice]&#xa;&#xa;for row in rslice:&#xa;  for i,s in enumerate(row) :&#xa;    row[i] = s.decode(&apos;utf8&apos;)&#xa;&#xa;&#x9875;&#x9762;&#x8fd4;&#x56de;&#x5ba2;&#x6237;&#x7aef;json&#x683c;&#x5f0f;&#x6570;&#x636e;&#x65f6;&#xff0c;&#xa;JSON.encode(data,encoding=&apos;utf8&apos;)"/>
 </node>
@@ -3006,7 +3006,7 @@
 <node COLOR="#111111" CREATED="1272437287423" ID="ID_209915944" LINK="http://www.javaeye.com/topic/651763" MODIFIED="1272437315328" TEXT="&#x6700;&#x5e38;&#x7528;&#x7684; 8 &#x79cd;CSS BUG&#x89e3;&#x51b3;&#x65b9;&#x6cd5;&#x4e0e;&#x6280;&#x5de7;"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1274064102900" FOLDED="true" ID="ID_248841588" MODIFIED="1274274686032" TEXT="JSON">
+<node COLOR="#00b439" CREATED="1274064102900" FOLDED="true" ID="ID_248841588" MODIFIED="1280216043368" TEXT="JSON">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1274064106461" ID="ID_959197964" MODIFIED="1274064187795" TEXT="&#x6587;&#x4ef6;&#x683c;&#x5f0f;">
@@ -4299,7 +4299,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1270952020458" ID="ID_1804767918" MODIFIED="1280107815667" POSITION="right" TEXT="Develop Evironment">
+<node COLOR="#0033ff" CREATED="1270952020458" FOLDED="true" ID="ID_1804767918" MODIFIED="1280221448568" POSITION="right" TEXT="Develop Evironment">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1262786726152" FOLDED="true" ID="ID_476877394" MODIFIED="1280107856843" TEXT="Source">

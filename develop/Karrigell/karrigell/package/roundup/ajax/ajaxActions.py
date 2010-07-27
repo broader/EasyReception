@@ -1374,6 +1374,7 @@ class FilterByTextAction(Action):
         cl = self.form['context']
         klass = self.db.getclass(cl)
         props = self.form.get('propnames')
+        # a string value to be search
         search = self.form.get('search') or ''
         link2contentProps =self.form.get('link2contentProps') or []
             

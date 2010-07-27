@@ -420,8 +420,7 @@ def get_userlist(operator, props, search=None):
 	return total,data
 
 def get_issues(operator, props, search=None):
-	""" Get the issues that related with 'user'
-	"""
+	""" Get the issues that related with 'operator'. """
 	client = get_client()
 	client.set_user(operator)
 
@@ -431,6 +430,7 @@ def get_issues(operator, props, search=None):
 		'action': 'filtertext',
 		'search' : search,		      
 		'propnames' : props,
+		# these properties will be converted from link class item's id to its key value
 		'link2contentProps': ['keyword', 'status']
 	}
 
