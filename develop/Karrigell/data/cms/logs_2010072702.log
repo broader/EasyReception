@@ -1,0 +1,8 @@
+2010/07/27 02:54:44 - 127.0.0.1 - GET /issue/issue.ks/page_editIssue?assignedto=demo&keyword=%E6%97%85%E6%B8%B8%E6%9C%8D%E5%8A%A1&title=%E4%BD%95%E5%A4%84%E5%8F%91%E8%BD%A6%EF%BC%9F&nosy=demo%2C%E4%BD%99%E5%88%99%E6%88%90%2Csupervisor&serial=I20091021023246&creator=demo HTTP/1.1 200
+2010/07/27 02:54:44 - 127.0.0.1 - GET /yaml/screen/images/button_blue.png HTTP/1.1 200
+2010/07/27 02:54:44 - 127.0.0.1 - GET /issue/multiSelect.js.pih?kbutton=%E6%9B%B4%E6%94%B9%E5%85%B3%E9%94%AE%E8%AF%8D&pbn_enable=1&ok=%E7%A1%AE%E5%AE%9A&klabel=%E9%80%89%E6%8B%A9%E5%85%B3%E9%94%AE%E8%AF%8D&keywords=%E9%85%92%E5%BA%97,Registration,%E6%97%85%E6%B8%B8%E6%9C%8D%E5%8A%A1&pbutton=%E6%9B%B4%E6%94%B9%E7%9B%B8%E5%85%B3%E4%BA%BA%E5%91%98&plabel=%E9%80%89%E6%8B%A9%E4%BA%BA%E5%91%98&cancel=%E5%8F%96%E6%B6%88&kbn_enable=1&_=1280199284507 HTTP/1.1 200
+2010/07/27 02:54:44 - 127.0.0.1 - GET /issue/jframe.js.pih?formId=issue_edit_form&_=1280199284514 HTTP/1.1 200
+2010/07/27 02:54:44 - 127.0.0.1 - GET /lib/asmselect/jquery.asmselect.js?_=1280199284647 HTTP/1.1 200
+2010/07/27 02:54:44 - 127.0.0.1 - GET /lib/asmselect/jquery.ui.js?_=1280199284656 HTTP/1.1 200
+2010/07/27 02:54:44 - 127.0.0.1 - GET /lib/asmselect/jquery.color.js?_=1280199284651 HTTP/1.1 200
+2010/07/27 02:54:44 - 127.0.0.1 - GET /lib/multiselect/jquery.fcbkcomplete.js?_=1280199284661 HTTP/1.1 200

@@ -1,6 +1,6 @@
 ['checkNewActions']
 """
-Functions for handling 'webaction' roundup.Class
+Module for auto scaning applications' directories and creating items of 'webaction' roundup.Class.
 """
 import os, cStringIO
 # import two Karrigell modules for filtering functions' names from ks files

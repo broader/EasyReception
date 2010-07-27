@@ -45,7 +45,8 @@ ISSUELISTCOLUMNS = \
   {'name':'status','header':_('Status'),'dataType':'string'}\
 ]
 
-SUPPLEMENTLABELS = {'assignedto':_('Assignedto'), 'actor':_('Actor'), 'history': _('History'), 'nosy': _('Nosy')}
+SUPPLEMENTLABELS = {'assignedto':_('Assignedto'), 'actor':_('Actor'), 'nosy': _('Nosy')}
+
 SERIALPROP = ISSUELISTCOLUMNS[0].get('name')
 def page_issueDetail(**args):
 	serial = args.get(SERIALPROP)
@@ -56,7 +57,7 @@ def page_issueDetail(**args):
 	title = SPAN(title)
 	buttons = [\
 		pagefn.sexyButton(txt,{'class': 'sexyblue', 'style':'margin-left:10px;'},bnType, 'sexysmall')\
-		for txt,bnType in zip( (_('Edit'), ), ('edit', ))\
+		for txt,bnType in zip( (_('Edit'), _('Add Message')), ('edit', 'add'))\
 	]
 	buttons = SPAN(Sum(buttons),style='margin-left:2em;')
 	
@@ -84,25 +85,139 @@ def page_issueDetail(**args):
 		print _('You have no permission for this action!')
 		return
 
-	print DIV(Sum((title, buttons,HR(style="padding:0px;height:0.5px;"))))
+	#print DIV(Sum((title, buttons,HR(style="padding:0px;height:0.5px;"))))
+	print DIV(Sum((title, buttons)))
+	
+	# some detail information fields of this issue 
+	labels = copy.deepcopy(SUPPLEMENTLABELS)
+	[labels.update({item['name']:item['header']}) for item in ISSUELISTCOLUMNS]
+	tableFields = []
+	for field in ('title', 'keyword', 'nosy', 'activity'):
+		if field != 'activity':
+			value = {'prompt': labels.get(field) or '', 'value':values.get(field) or ''}
+		else:
+			value = {'prompt': _('Edit History')}
+			value['value'] = _('Created by %s at %s, last edit by "%s" at %s.')\
+				%tuple([values.get(name) for name in ('creator', 'creation', 'actor', 'activity')])
 
-	# js slice
-	print pagefn.script(_issueDetailJs(),link=False)
+		tableFields.append(value)
+
+	trs = formFn.render_table_fields(\
+		tableFields, 
+		cols=1, 
+		labelStyle={'label': 'color:#86B50D;font-weight:bold;font-size:12px;'},
+		valueStyle={'label': 'margin-left:10px'}\
+	)
+
+	print TABLE(TBODY(trs))
+	
+	# list messages of this issue
+	messages = values.get('messages')
+	number = messages and len(messages) or '0'
+	print _("Messages of this issue"),HR(style="padding:0px;height:0.5px;")
+	msgListContainer = '-'.join(('issue', nodeId, 'msgList'))
+	print DIV(**{'id': msgListContainer})
+
+	# js slice for show multiful messages in smart list format
+	print pagefn.script(_showMessagesJs(nodeId,msgListContainer, messages),link=False)
 	return
 
-def _issueDetailJs():
-	paras = [ APP, ]
+def _showMessagesJs(nodeId, msgListContainer, msgIds):
+	''' Shwo the messages in a smarlt lists format of each issue. '''
+	page = '/'.join((APPATH, 'page_issueMessages'))
+	page = '?'.join((page, '='.join(('ids', ','.join(msgIds)))))
+	paras = [ APP, msgListContainer, page ]
+	msgCounts = _('Total {total} items.')
+	msgPageInfo = _("Page <span class='{pageInfoClass}' >{currentPage}</span> of {pageNumber}")
+	paras.extend([ msgCounts, msgPageInfo, ','.join(MSGPROPS) ])
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName="%s";
+	var appName="%s", listContainer="%s", msgUrl="%s", 
+	    countInfo="%s", pageInfo="%s", fields="%s";
+
+	var msgFields = fields.split(',');
+	function msgRender(liData){
+		var container = new Element('div', {style:'border-bottom: 1px solid grey;'});
+		
+		data = $H(liData);
+		msgFields.each(function(field){
+			rowData = data.get(field);
+			if(field!='content'){
+				label = new Element('span', {style:'font-weight:bold;', html:rowData.label});
+				seperator = new Element('span', {html: ' : '});
+				value = new Element('span', {html: rowData.value});
+				row = new Element('div');
+				row.adopt(label, seperator, value);
+			}
+			else{
+				value = new Element('span', {html: rowData.value});
+				row = new Element('div', {'class':'note'});
+				row.adopt(value);
+				
+			};
+			container.grab(row);
+
+		});
+		return container
+	};
+
 	function issueDetail(){
-		alert('show issue detail');
+		var smartList = new SmartList(listContainer, {
+			dataUrl: msgUrl, 
+			liRender: msgRender,
+			pageInfoTmpls: {
+				'total': countInfo, 
+				'page': pageInfo
+			},
+			contentClass: '' 
+		}); 
 	};
 
 	MUI.smartList(appName, {'onload': issueDetail});
 	"""%paras
 	return js	
+
+MSGNUMBERPERPAGE = 3
+MSGPROPS = ('serial', 'date', 'author', 'content') 
+def page_issueMessages(**args):
+	''' Return a JSON object which holds the contents of messages of specified issue.'''
+	perPage, page = [\
+		int(args.get(name) or number) \
+		for name, number in zip(('itemsPerPage','currentPage'),(MSGNUMBERPERPAGE,1))]
+	
+	# get messages
+	msgIds = args.get('ids')
+	if not msgIds or not msgIds.split(','):
+		print JSON.encode([], encoding='utf8')
+		return
+	msgIds = msgIds.split(',')
+	
+	mprops = MSGPROPS
+	labels = (_('Serial'), _('Author'), _('Date'), _('Content'))
+	messages = model.get_items(args.get('user'), 'msg', mprops, link2key=True, ids=msgIds)
+	items = []
+	if messages:
+		for msg in messages :
+			#items.append(dict([(prop,str(value)) for prop,value in zip(mprops,msg)]))
+			items.append([str(x) for x in msg])
+	
+	search = args.get('search')
+	if search:
+		items = filter(lambda i: search in ','.join(i.values()), items)
+	
+	data = {'total': len(items)}
+	data['pageNumber'] = (lambda x,y: x/y + (x%y != 0 and 1 or 0) )(data['total'], perPage) 
+	begin = perPage*(page-1)
+	end = begin + perPage
+	items = items[begin:end]
+	msgData = [] 
+	for item in items:
+		msgData.append(dict([(prop,{'value':str(value),'label':label}) for prop,value,label in zip(mprops,msg,labels)]))
+
+	data.update( {'currentPage': page, 'data': msgData })
+	print JSON.encode(data, encoding='utf8')
+	return
 
 def page_issueList(**args):
 	userViewIssueList = 'userViewIssueList'
@@ -110,7 +225,7 @@ def page_issueList(**args):
 	print pagefn.script( _issueListJs( userViewIssueList), link=False)
 	return
 
-ACTIONTAG, ACTIONS, ACTIONLABELS = 'action', ['create','delete'],[_('Create'), _('delete')]
+ACTIONTAG, ACTIONS, ACTIONLABELS = 'action', ['create','delete'],[_('Create'), _('Delete')]
 def _issueListJs(container):
 	paras = [ APP, container, ACTIONTAG]
 	# filter labels

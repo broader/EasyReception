@@ -1,0 +1,86 @@
+2010/07/27 09:02:05 - 127.0.0.1 - GET /layout.ks/page_accountValid?name=demo HTTP/1.1 200
+2010/07/27 01:02:09 - 127.0.0.1 - GET /layout.ks/page_accountValid?username=demo&name=990508 HTTP/1.1 200
+2010/07/27 01:02:09 - 127.0.0.1 - GET /layout.ks/page_welcomeInfo HTTP/1.1 200
+2010/07/27 01:02:09 - 127.0.0.1 - GET /layout.ks/page_menu HTTP/1.1 200
+2010/07/27 01:02:09 - 127.0.0.1 - GET /layout.ks/page_sideBarPanels HTTP/1.1 200
+2010/07/27 01:02:10 - 127.0.0.1 - GET /js/userSidePanels.js.pih HTTP/1.1 200
+2010/07/27 01:02:10 - 127.0.0.1 - GET /portal/portal.ks/page_info HTTP/1.1 200
+2010/07/27 01:02:10 - 127.0.0.1 - GET /issue/userView.ks/page_info HTTP/1.1 200
+2010/07/27 01:02:10 - 127.0.0.1 - GET /portfolio/portfolio.ks/page_info HTTP/1.1 200
+2010/07/27 01:02:11 - 127.0.0.1 - GET /issue/userView.ks/page_issueList HTTP/1.1 200
+2010/07/27 01:02:11 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail HTTP/1.1 200
+2010/07/27 01:02:11 - 127.0.0.1 - GET /issue/userView.ks/page_colsModel HTTP/1.1 200
+2010/07/27 01:02:14 - 127.0.0.1 - POST /issue/userView.ks/page_issuesData HTTP/1.1 200
+2010/07/27 01:02:14 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529090629 HTTP/1.1 200
+2010/07/27 01:02:14 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=29&currentPage=1&itemsPerPage=3 HTTP/1.1 200
+2010/07/27 01:02:15 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=29&itemsPerPage=3 HTTP/1.1 200
+2010/07/27 01:02:17 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=29&itemsPerPage=3 HTTP/1.1 200
+2010/07/27 01:02:18 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=29&itemsPerPage=3 HTTP/1.1 200
+2010/07/27 01:02:40 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=29&itemsPerPage=3 HTTP/1.1 200
+2010/07/27 01:02:41 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=29&itemsPerPage=3 HTTP/1.1 200
+2010/07/27 01:02:41 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=29&itemsPerPage=3 HTTP/1.1 200
+2010/07/27 01:02:43 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=29&itemsPerPage=3 HTTP/1.1 200
+2010/07/27 01:02:44 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=29&itemsPerPage=3 HTTP/1.1 200
+2010/07/27 01:27:14 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529085928 HTTP/1.1 200
+2010/07/27 01:27:14 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=28&currentPage=1&itemsPerPage=3 HTTP/1.1 200
+2010/07/27 01:27:15 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529112130 HTTP/1.1 200
+2010/07/27 01:27:17 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=30&currentPage=1&itemsPerPage=3 HTTP/1.1 200
+2010/07/27 01:35:58 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529085928 HTTP/1.1 200
+2010/07/27 01:35:58 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529090629 HTTP/1.1 200
+2010/07/27 01:36:04 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529112130 HTTP/1.1 200
+2010/07/27 01:37:55 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=30&currentPage=1&itemsPerPage=3 HTTP/1.1 200
+2010/07/27 01:37:55 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529090629 HTTP/1.1 200
+2010/07/27 01:38:01 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=29&currentPage=1&itemsPerPage=3 HTTP/1.1 200
+2010/07/27 01:38:01 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529085928 HTTP/1.1 200
+2010/07/27 01:38:03 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=28&currentPage=1&itemsPerPage=3 HTTP/1.1 200
+2010/07/27 01:38:04 - 127.0.0.1 - GET /admin HTTP/1.1 200
+2010/07/27 01:38:28 - 127.0.0.1 - GET /karrigell.css HTTP/1.1 404 /karrigell.css File not found
+2010/07/27 01:38:41 - 127.0.0.1 - GET /admin/translation/ HTTP/1.1 302 /admin/login.ks/login?valid_in=/&redir_to=%2Fadmin%2Ftranslation%2F&role=admin
+2010/07/27 01:38:41 - 127.0.0.1 - GET /admin/translation/ HTTP/1.1 302 /admin/login.ks/login?valid_in=/&redir_to=%2Fadmin%2Ftranslation%2F&role=admin
+2010/07/27 01:38:41 - 127.0.0.1 - GET /admin/login.ks/login?valid_in=/&redir_to=%2Fadmin%2Ftranslation%2F&role=admin HTTP/1.1 200
+2010/07/27 01:38:41 - 127.0.0.1 - GET /admin/karrigell.css HTTP/1.1 200
+2010/07/27 01:38:41 - 127.0.0.1 - GET /doc/images/karrigell.jpg HTTP/1.1 200
+2010/07/27 01:38:41 - 127.0.0.1 - POST /admin/login.ks/check_login HTTP/1.1 302 /admin/translation/
+2010/07/27 01:38:41 - 127.0.0.1 - GET /admin/translation/ HTTP/1.1 200
+2010/07/27 01:38:48 - 127.0.0.1 - GET /admin/translation/fileMenu.pih HTTP/1.1 200
+2010/07/27 01:38:48 - 127.0.0.1 - GET /admin/jquery-1.2.6.js HTTP/1.1 200
+2010/07/27 01:38:48 - 127.0.0.1 - GET /admin/jQueryFileTree/jQueryFileTree.js HTTP/1.1 200
+2010/07/27 01:38:48 - 127.0.0.1 - POST /admin/translation/jQueryFileTree.py HTTP/1.1 200
+2010/07/27 01:38:48 - 127.0.0.1 - POST /admin/translation/jQueryFileTree.py HTTP/1.1 200
+2010/07/27 01:38:49 - 127.0.0.1 - GET /admin/translation/translator.ks/index?script=%2Fhome%2Fbroader%2Fdevelop%2FR%40K%2FCMS%2FKarrigell%2Fmuireception%2Fissue%2FuserView.ks HTTP/1.1 200
+2010/07/27 01:38:55 - 127.0.0.1 - GET /admin/admin.css HTTP/1.1 200
+2010/07/27 01:38:56 - 127.0.0.1 - POST /admin/translation/translator.ks/update HTTP/1.1 200
+2010/07/27 01:38:56 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529090629 HTTP/1.1 200
+2010/07/27 01:39:36 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=29&currentPage=1&itemsPerPage=3 HTTP/1.1 200
+2010/07/27 01:39:40 - 127.0.0.1 - GET /admin/translation/translator.ks/index?script=%2Fhome%2Fbroader%2Fdevelop%2FR%40K%2FCMS%2FKarrigell%2Fmuireception%2Fissue%2FuserView.ks HTTP/1.1 200
+2010/07/27 01:39:41 - 127.0.0.1 - POST /admin/translation/translator.ks/update HTTP/1.1 200
+2010/07/27 01:39:50 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529112130 HTTP/1.1 200
+2010/07/27 01:41:20 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=30&currentPage=1&itemsPerPage=3 HTTP/1.1 200
+2010/07/27 01:41:23 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529112130 HTTP/1.1 200
+2010/07/27 01:41:23 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=30&currentPage=1&itemsPerPage=3 HTTP/1.1 200
+2010/07/27 01:41:44 - 127.0.0.1 - GET /layout.ks/page_closeSession HTTP/1.1 200
+2010/07/27 01:41:44 - 127.0.0.1 - POST /admin/translation/jQueryFileTree.py HTTP/1.1 200
+2010/07/27 01:41:45 - 127.0.0.1 - GET /layout.ks/page_loginForm HTTP/1.1 200
+2010/07/27 01:41:47 - 127.0.0.1 - GET /lib/formcheck/lang.js.pih HTTP/1.1 200
+2010/07/27 01:41:47 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found
+2010/07/27 01:41:47 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found
+2010/07/27 01:41:47 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found
+2010/07/27 01:41:50 - 127.0.0.1 - GET /layout.ks/page_accountValid?name=demo HTTP/1.1 200
+2010/07/27 01:41:50 - 127.0.0.1 - GET /layout.ks/page_accountValid?username=demo&name=990508 HTTP/1.1 200
+2010/07/27 01:41:51 - 127.0.0.1 - GET /layout.ks/page_welcomeInfo HTTP/1.1 200
+2010/07/27 01:41:51 - 127.0.0.1 - GET /layout.ks/page_menu HTTP/1.1 200
+2010/07/27 01:41:51 - 127.0.0.1 - GET /layout.ks/page_sideBarPanels HTTP/1.1 200
+2010/07/27 01:41:51 - 127.0.0.1 - GET /js/userSidePanels.js.pih HTTP/1.1 200
+2010/07/27 01:41:51 - 127.0.0.1 - GET /portal/portal.ks/page_info HTTP/1.1 200
+2010/07/27 01:41:51 - 127.0.0.1 - GET /issue/userView.ks/page_info HTTP/1.1 200
+2010/07/27 01:41:52 - 127.0.0.1 - GET /portfolio/portfolio.ks/page_info HTTP/1.1 200
+2010/07/27 01:41:52 - 127.0.0.1 - GET /issue/userView.ks/page_issueList HTTP/1.1 200
+2010/07/27 01:41:52 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail HTTP/1.1 200
+2010/07/27 01:41:52 - 127.0.0.1 - GET /issue/userView.ks/page_colsModel HTTP/1.1 200
+2010/07/27 01:41:57 - 127.0.0.1 - POST /issue/userView.ks/page_issuesData HTTP/1.1 200
+2010/07/27 01:41:57 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529112130 HTTP/1.1 200
+2010/07/27 01:41:58 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=30&currentPage=1&itemsPerPage=3 HTTP/1.1 200
+2010/07/27 01:41:58 - 127.0.0.1 - POST /admin/translation/jQueryFileTree.py HTTP/1.1 200
+2010/07/27 01:42:00 - 127.0.0.1 - GET /admin/translation/translator.ks/index?script=%2Fhome%2Fbroader%2Fdevelop%2FR%40K%2FCMS%2FKarrigell%2Fmuireception%2Fissue%2FuserView.ks HTTP/1.1 200
+2010/07/27 01:45:27 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529085928 HTTP/1.1 200
+2010/07/27 01:45:28 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=28&currentPage=1&itemsPerPage=3 HTTP/1.1 200

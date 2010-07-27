@@ -259,11 +259,11 @@ def render_table_fields( fields, cols=1, labelStyle={}, valueStyle={}):
 	  		   each column contains a label for showing field's name and 
 	  		   a label for showning field's value;
 	  	labelStyle - A dictionary object that has two keyes('label' and 'td'). 
-	  					 The values of these two keyes holds the styles of <td> and 
-	  					 <div> for showing field's label;
-	  	valueStyle - A dictionary object that has two keyes('label' and 'td'). 
-	  					 The values of these two keyes holds the styles of <td> and 
-	  					 <div> for showing field's values;
+			 The values of these two keyes holds the styles of <td> and 
+			 <div> for showing field's label;
+		valueStyle - A dictionary object that has two keyes('label' and 'td'). 
+			 The values of these two keyes holds the styles of <td> and 
+			 <div> for showing field's values;
 	"""	
 	fieldsNumber = cols
 
@@ -279,12 +279,12 @@ def render_table_fields( fields, cols=1, labelStyle={}, valueStyle={}):
 		for i in range(fieldsNumber):
 			try:				
 				field = fields.pop(0)
-				name, value, type = [ field.get(prop) for prop in ('prompt', 'value', 'type') ]	
-				if not type:
-					type = 'text'
+				name, value, fieldType = [ field.get(prop) for prop in ('prompt', 'value', 'type') ]	
+				if not fieldType:
+					fieldType = 'text'
 											 
 				attrdiv = DIV(name, style=labelStyle.get('label') or '')
-				if type !='textarea':
+				if fieldType !='textarea':
 					valuelabel = LABEL(value,style=valueStyle.get('label') or '')
 				else:
 					valuelabel = TEXTAREA(value,style=valueStyle.get('textarea') or '', disabled='')

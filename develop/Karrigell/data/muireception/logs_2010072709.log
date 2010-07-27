@@ -1,0 +1,5 @@
+2010/07/27 09:01:54 - 127.0.0.1 - GET /layout.ks/page_closeSession HTTP/1.1 200
+2010/07/27 09:01:55 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found
+2010/07/27 09:01:57 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found
+2010/07/27 09:02:05 - 127.0.0.1 - GET /layout.ks/page_loginForm HTTP/1.1 200
+2010/07/27 09:02:05 - 127.0.0.1 - GET /lib/formcheck/lang.js.pih HTTP/1.1 200
