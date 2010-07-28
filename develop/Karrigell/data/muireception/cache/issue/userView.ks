@@ -1,4 +1,4 @@
-['page_issueDetail', 'page_issueMessages', 'page_issueList', 'page_colsModel', 'page_issuesData', 'page_info']
+['page_info', 'page_issueDetail', 'page_issueMessages', 'page_issueList', 'page_colsModel', 'page_issuesData']
 """
 Pages mainly for administration.
 """
@@ -35,6 +35,11 @@ USER = getattr( so, pagefn.SOINFO['user']).get('username')
 # ********************************************************************************************
 # The page functions begining
 # ********************************************************************************************
+
+def page_info(**args):
+	PRINT( DIV(_('Ask help from the staff of the congress!'), **{'class':'info'}))
+	return
+
 ISSUELISTCOLUMNS = \
 [\
   {'name':'serial','header':_('Serial'),'dataType':'string'},\
@@ -47,7 +52,6 @@ ISSUELISTCOLUMNS = \
 ]
 
 SUPPLEMENTLABELS = {'assignedto':_('Assignedto'), 'actor':_('Actor'), 'nosy': _('Nosy')}
-
 SERIALPROP = ISSUELISTCOLUMNS[0].get('name')
 def page_issueDetail(**args):
 	serial = args.get(SERIALPROP)
@@ -418,6 +422,8 @@ def page_colsModel(**args):
 
 DEFAULTSORTON, DEFAULTSORTBY = 'activity', 'DESC'
 def page_issuesData(**args):
+	user = args.get('user') or USER
+
 	# paging arguments
 	showPage, pageNumber = [ int(args.get(name)) for name in ('page', 'perpage') ]
 	search = args.get('filter') or ''
@@ -425,9 +431,17 @@ def page_issuesData(**args):
 	# returned data object
 	d = {'page':showPage,'data':[],'search':search}
 
+	# a temporary inner function to filter issues
+	def _issueFilter(_nosy):
+		_viewPermission = False
+		#userId = model.getItemId('user',user)
+		if user in _nosy:
+			_viewPermission = True
+		return _viewPermission
+
 	# column's property name
 	showProps = [item.get('name') for item in ISSUELISTCOLUMNS]
-	total, data = model.get_issues(USER, showProps, search)
+	total, data = model.get_issues(user, showProps, search, filterFn=_issueFilter, filterArgs=['nosy',])
 	d['total'] = total
 
 	if data:
@@ -443,7 +457,7 @@ def page_issuesData(**args):
 			import datetime
 			# a temporary function to construct a datetime.datetime object from 'activity' data
 			def _cmpActivity(d):
-				src = [l.split(sep) for l,sep in zip(d.split('.'), ('-',':'))]
+				src = [ l.split(sep) for l,sep in zip(str(d).split('.'), ('-',':')) ]
 				res = []
 				[ [ res.append(int(i)) for i in l] for l in src]
 				return datetime.datetime(*res)
@@ -475,9 +489,10 @@ def page_issuesData(**args):
 				# get 'messages' index
 				mindex = [ item.get('name') for item in ISSUELISTCOLUMNS].index('messages')
 				if i == mindex:
-					s = str(len(s.split(',')))
+					#s = str(len(s.split(',')))
+					s = ','.join(s)
 
-				row[i] = s.decode('utf8')
+				row[i] = str(s).decode('utf8')
 
 		# constructs each row to be a dict object that key is a property.
 		encoded = [dict([(prop,value) for prop,value in zip(showProps,row)]) for row in rslice]
@@ -485,10 +500,6 @@ def page_issuesData(**args):
 		d['data'] = encoded
 
 	PRINT( JSON.encode(d, encoding='utf8'))
-	return
-
-def page_info(**args):
-	PRINT( DIV(_('Ask help from the staff of the congress!'), **{'class':'info'}))
 	return
 
 def _permissionCheck(**args):

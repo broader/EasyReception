@@ -1732,7 +1732,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1280046965511" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1280286208145" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -1824,7 +1824,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1176858964077" ID="Freemind_Link_1801314834" MODIFIED="1280046174474" TEXT="Application">
+<node COLOR="#00b439" CREATED="1176858964077" FOLDED="true" ID="Freemind_Link_1801314834" MODIFIED="1280286155305" TEXT="Application">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="button_cancel"/>
@@ -3551,7 +3551,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1278550897431" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1280286195297" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1273030192723" FOLDED="true" ID="ID_344232506" MODIFIED="1278550879062" TEXT="Idea">
@@ -4121,7 +4121,7 @@
 <node COLOR="#111111" CREATED="1261723706816" ID="ID_1757088788" MODIFIED="1261723768592" TEXT="Karrigell_root_dir&#xa;--&gt;/lib,&#x4fdd;&#x5b58;&#x7b2c;&#x4e09;&#x65b9;javascript&#x5e93;&#x6587;&#x4ef6;"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1268185424069" FOLDED="true" ID="ID_628193831" MODIFIED="1275216749256" TEXT="Tools">
+<node COLOR="#00b439" CREATED="1268185424069" FOLDED="true" ID="ID_628193831" MODIFIED="1280286174494" TEXT="Tools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1268185427929" ID="ID_171358267" MODIFIED="1268185439700" TEXT="Browser Test">
@@ -4148,14 +4148,14 @@
 <node COLOR="#111111" CREATED="1271381989421" ID="ID_1057799521" LINK="http://www.stevenmccullagh.com/code/microformats.html" MODIFIED="1271381993108" TEXT="http://www.stevenmccullagh.com/code/microformats.html"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1269055925188" FOLDED="true" ID="ID_541017206" MODIFIED="1275216742078" TEXT="Tutorials">
+<node COLOR="#00b439" CREATED="1269055925188" FOLDED="true" ID="ID_541017206" MODIFIED="1280286170816" TEXT="Tutorials">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1268099503091" ID="ID_507979814" MODIFIED="1269056873756" TEXT="http://designingwebinterfaces.com/designing-web-interfaces-12-screen-patterns">
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1269221727192" FOLDED="true" ID="ID_1898107076" MODIFIED="1273544916043" TEXT="Blutprint">
+<node COLOR="#00b439" CREATED="1269221727192" ID="ID_1898107076" MODIFIED="1280286191407" TEXT="Blutprint Tools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1269221731233" ID="ID_897924523" LINK="http://www.evolus.vn/pencil/" MODIFIED="1273032696200" TEXT="http://www.evolus.vn/pencil/">
@@ -5369,6 +5369,26 @@
 <node COLOR="#990000" CREATED="1273293803290" ID="ID_1430244519" LINK="http://userfly.com/" MODIFIED="1273293900859" TEXT="http://userfly.com/">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1280286221408" ID="ID_767321368" MODIFIED="1280286227126" POSITION="right" TEXT="Expand Direction">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1280286228167" ID="ID_1157419451" MODIFIED="1280286241194" TEXT="Intelligence Search">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1280286242429" ID="ID_243290723" MODIFIED="1280286261834" TEXT="Prefered Projects">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1280286262662" ID="ID_1672911610" LINK="http://flamenco.berkeley.edu/index.html" MODIFIED="1280286266021" TEXT="http://flamenco.berkeley.edu/index.html"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1280286426024" ID="ID_1355169867" MODIFIED="1280286438861" TEXT="View for Discussion">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1280286440471" ID="ID_1384253965" MODIFIED="1280286446390" TEXT="Prefered Projects">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1280286447738" ID="ID_985152092" LINK="http://zesty.ca/zest/" MODIFIED="1280286451394" TEXT="http://zesty.ca/zest/"/>
 </node>
 </node>
 </node>

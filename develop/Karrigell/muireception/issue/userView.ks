@@ -431,13 +431,16 @@ def page_issuesData(**args):
 	d = {'page':showPage,'data':[],'search':search}
 	
 	# a temporary inner function to filter issues
-	def _issueFilter(_nosy, _assignedto):
-		return True
+	def _issueFilter(_nosy):
+		_viewPermission = False
+		#userId = model.getItemId('user',user)
+		if user in _nosy:
+			_viewPermission = True
+		return _viewPermission
 	
 	# column's property name
 	showProps = [item.get('name') for item in ISSUELISTCOLUMNS]
-	#total, data = model.get_issues(user, showProps, search)
-	total, data = model.get_issues(user, showProps, search, filterfn=_issuesFilter, fiterlProps=[])
+	total, data = model.get_issues(user, showProps, search, filterFn=_issueFilter, filterArgs=['nosy',])
 	d['total'] = total
 	
 	if data:			
@@ -453,7 +456,7 @@ def page_issuesData(**args):
 			import datetime
 			# a temporary function to construct a datetime.datetime object from 'activity' data
 			def _cmpActivity(d):
-				src = [l.split(sep) for l,sep in zip(d.split('.'), ('-',':'))]
+				src = [ l.split(sep) for l,sep in zip(str(d).split('.'), ('-',':')) ]
 				res = [] 
 				[ [ res.append(int(i)) for i in l] for l in src]
 				return datetime.datetime(*res) 
@@ -485,9 +488,10 @@ def page_issuesData(**args):
 				# get 'messages' index
 				mindex = [ item.get('name') for item in ISSUELISTCOLUMNS].index('messages')
 				if i == mindex:
-					s = str(len(s.split(',')))
+					#s = str(len(s.split(',')))
+					s = ','.join(s)
 
-				row[i] = s.decode('utf8')		
+				row[i] = str(s).decode('utf8')		
 		
 		# constructs each row to be a dict object that key is a property.
 		encoded = [dict([(prop,value) for prop,value in zip(showProps,row)]) for row in rslice]

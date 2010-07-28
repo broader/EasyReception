@@ -420,19 +420,26 @@ def get_userlist(operator, props, search=None):
 			data[rowindex] = new
 	return total,data
 
-def get_issues(operator, props, search=None):
-	""" Get the issues that related with 'user'
+def get_issues(operator, props, search=None, filterFn=None, filterArgs=None):
+	"""
+	Get the issues that related with 'operator'.
 	"""
 	client = get_client()
 	client.set_user(operator)
 
 	# action
+	# Here using 'filterfunction' action is just for filtering specified issues
+	# for special 'user'
 	form = {
 		'context': 'issue',
-		'action': 'filtertext',
-		'search' : search,
+		'action': 'filterfunction',
 		'propnames' : props,
-		'link2contentProps': ['keyword', 'status']
+		'link2key': True,
+		'search' : search,
+		# these properties will be converted from link class item's id to its key value
+		'link2contentProps': ['keyword', 'status'],
+		'filterFn' : filterFn,
+		'filterArgs': filterArgs
 	}
 
 	client.form = form
@@ -441,7 +448,7 @@ def get_issues(operator, props, search=None):
 		total = 0
 		data = []
 	else:
-		total = client.form.get('total')
+		total = len(data)
 	return total,data
 
 def get_reservations(operator, booker, props=None):

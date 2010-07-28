@@ -93,7 +93,7 @@ INIDATA['service'] = \
 				'name': 'reservePermission',
 				'prompt': 'status that could be reserved',
 				'property': 'status',
-				'value': ''
+				'value': ['toBeReserve',]
 			},
 		],
 	}

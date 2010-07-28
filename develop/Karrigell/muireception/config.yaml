@@ -4,8 +4,10 @@ service:
   hotel:
     categoryInService: Hotel
     configProperty:
-    - {name: reservePermission, prompt: status that could be reserved, property: status,
-      value: ''}
+    - name: reservePermission
+      prompt: status that could be reserved
+      property: status
+      value: [toBeReserve]
 superAdmin: admin
 userAccountInfo:
 - {name: username, prompt: !!python/str "\u7528\u6237\u540D", type: text}

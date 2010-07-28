@@ -1400,10 +1400,8 @@ class FilterByTextAction(Action):
             if row:
                 rows.append(row)                               
         
-        print 'FilterByTextAction,L1448, searched result values are ', rows
-        
+        print 'FilterByTextAction,L1448, searched result values are ', rows        
         return rows
- 
  
 class FilterByFunctionAction(GetItemAction):   
     name = ''
@@ -1419,30 +1417,63 @@ class FilterByFunctionAction(GetItemAction):
                'filterFn' - a function to filter the item of the class 
                'filterArgs' - the properties' names that should be passed to 'filterFn' as arguments.
                               Note, 'filterArgs' colud be different with 'propnames'.
+               'search' - a string that should be in the values of properties of items.
+               'link2cotentProps' - prop value should be transformated from 'id' to its linked content,
+                                    when prop in 'link2contentprops'.
            returned value is a list, whose sequence is as the argument properties' list sequence.           
         '''        
         cl = self.form['context']
         klass = self.db.getclass(cl)
         props = self.form.get('propnames')
+        link2key = self.form.get('link2key')
         filterFn = self.form.get('filterFn')
         filterArgs = self.form.get('filterArgs')
-        #print "FilterByFunctionAction, L1467, props are %s, filterArgs are %s"%(props, filterArgs)
-        result = filter( None, \
-                    [ self.judge(klass, nodeid, props, filterFn, filterArgs) for nodeid in klass.list() ]\
-                 )
+        search = self.form.get('search')
+        
+        if search:
+            filterProps = ['id']
+        else:
+            filterProps = props
+        
+        #print "FilterByFunctionAction, L1440, props are %s, filterArgs are %s"%(props, filterArgs)
+        
+        result = filter( 
+            None, \
+            [ self.judge(klass, nodeid, filterProps, filterFn, filterArgs, link2key) \
+              for nodeid in klass.list() ]\
+        )
+        
+        #print "FilterByFunctionAction, L1445, filter data are %s, cost time is %s"%(result, time.time()-start)
+        
+        # now find search target items
+        if search and result:
+            rows = []
+            link2contentProps = self.form.get('link2contentProps') or []
+            for id in ids:
+                row = searchString(klass, id, props, search, link2contentProps)
+                if row:
+                    rows.append(row) 
+            result = rows
+            #print "FilterByFunctionAction, L1454, search result is ",result
+        
         return result
     
-    def judge(self, klass, nodeid, props, filterFn, filterArgs):
+    def judge(self, klass, nodeid, props, filterFn, filterArgs, link2key=False):
         # confirm the properties to inlud filter arguments
         allProps = tuple(set(props).union(set(filterArgs)))
         
-        values = self.getitem(klass, nodeid, allProps)
+        values = self.getitem(klass, nodeid, allProps, link2key)
         values = dict(zip(allProps, values))
         args = tuple([values.get(prop) for prop in filterArgs ])
         row = None
+        
+        #print "FilterByFunctionAction.judge, L1469, filter arguments are ",args
+        
         if filterFn(*args):
             row = [values.get(prop) for prop in props ]
-        #print "FilterByFunctionAction.judge, L1481"
+        
+        #print "FilterByFunctionAction.judge, L1470, row data is ",row
+        
         return row        
         
         
@@ -2476,6 +2507,7 @@ def searchString(klass, nodeid, props, search='', link2contentProps=[]):
     '''
     print 'ajaxActions.searchString, L2541, class is %s, nodeid is %s, props are %s, search is %s'\
           %(klass,nodeid, props, search)
+          
     row = []          
     properties = klass.getprops()  
     for prop in props:
@@ -2507,6 +2539,8 @@ def searchString(klass, nodeid, props, search='', link2contentProps=[]):
                     content = ''
             else:
                 keyprop = lklass.getkey()
+                # for 'Link', transformat the string 'id' to a list such as 
+                # ['id',]
                 if type(linkid) != type([]):
                     ids = linkid.split(',')
                 else:

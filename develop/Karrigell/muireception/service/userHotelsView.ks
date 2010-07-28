@@ -577,6 +577,7 @@ def page_capableReserve(**args):
 	# get the status that could be reserved
 	status = INITCONFIG.getData('service')['hotel']['configProperty'][0]['value'] 
 	validStatus = (not status2chk in (None,'')) and (status2chk in status) and 1 or 0
+	
 	if not validStatus:
 		info.append(_('Selected hotel could not be reserved!'))
 	
