@@ -218,4 +218,54 @@ def _getRelationValue(klass, relateclass):
 	)
 	return rows
 
+ISSUEPROPS =\ 
+[
+	{'name': 'nosy','prompt': _('Nosy'),'validate': [],'required': False, 'type':''},
+	{'name': 'assignedto','prompt': _('Assinged Person'), 'validate': [],'required': True},
+]
+def page_editIssueForm(**args):
+	''' The form page to edit the properties of a roundup.issue class item. '''
+	print 'China'
+	
+	editor = args.get('user') or USER
+
+	# get old values of the properties to be edit
+	issueId = args.get('id')
+	props = ('title', 'keyword', 'assignedto', 'nosy')
+	values = model.get_item(editor, 'issue', issueId, props, keyIsId=True)
+
+	form = []
+	props = ISSUEPROPS
+	for prop in props:
+		prop['oldvalue'] = values.get(prop) or '' 
+		prop['type'] = prop.get('type') or 'input'
+		prop['id'] = prop['name']
+		if prop['name'] == 'keyword':
+			values = model.get_items_ByString(USER, 'relation', {'klassname':'keyword', 'relateclass':'issue'}, propnames=('klassvalue',))
+			if values and type(values) != type(''):
+				options = values[0][0].split(',')
+			else:
+				options = []
+			prop['options'] = options 
+			
+	div = DIV(Sum(formFn.yform(props)))
+	form.append(FIELDSET(div))
+	
+	# append hidden field that points out the action type
+	[item.update({'type':'hidden'}) for item in hideInput]
+	[ form.append(INPUT(**item)) for item in hideInput ]
+
+	formId = 'issueCreation'
+	form = \
+	FORM( 
+		Sum(form), 
+		**{'action': '/'.join((APPATH,'page_createIssueAction')), 'id': formId, 'method':'post','class':'yform'}
+	)
+	
+	print form
+	# import js slice
+	print pagefn.script(_createIssueJs(formId, creator),link=False)
+	"""
+
+	return
 

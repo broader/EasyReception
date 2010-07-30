@@ -1,0 +1,7 @@
+2010/07/28 14:48:31 - 127.0.0.1 - GET /navigation.ks/profile?path=issue HTTP/1.1 302 /issue/
+2010/07/28 14:48:31 - 127.0.0.1 - GET /issue/ HTTP/1.1 200
+2010/07/28 14:48:31 - 127.0.0.1 - GET /js/jquery.form.js?_=1280299711367 HTTP/1.1 200
+2010/07/28 14:48:31 - 127.0.0.1 - GET /issue/issue.ks/index HTTP/1.1 200
+2010/07/28 14:48:32 - 127.0.0.1 - GET /issue/issue.ks/show HTTP/1.1 200
+2010/07/28 14:48:32 - 127.0.0.1 - GET /lib/dataTable/js/jquery.dataTables.js?_=1280299712074 HTTP/1.1 200
+2010/07/28 14:48:32 - 127.0.0.1 - GET /issue/issue.ks/page_editIssue HTTP/1.1 200

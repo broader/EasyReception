@@ -3551,6 +3551,19 @@
 </node>
 </node>
 </node>
+<node COLOR="#0033ff" CREATED="1280286973713" ID="ID_1197115616" MODIFIED="1280287071861" POSITION="left" TEXT="Project History">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<icon BUILTIN="messagebox_warning"/>
+<node COLOR="#00b439" CREATED="1280286980284" FOLDED="true" ID="ID_1397177840" MODIFIED="1280287063535" TEXT="Roundup">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1280286986286" ID="ID_311454109" MODIFIED="1280286990571" TEXT="Authors">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1280286991904" ID="ID_1246803444" LINK="http://zesty.ca/" MODIFIED="1280287049295" TEXT="Ka-Ping Yee"/>
+</node>
+</node>
+</node>
 <node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1280286195297" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -5372,7 +5385,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1280286221408" ID="ID_767321368" MODIFIED="1280286227126" POSITION="right" TEXT="Expand Direction">
+<node COLOR="#0033ff" CREATED="1280286221408" FOLDED="true" ID="ID_767321368" MODIFIED="1280288169072" POSITION="right" TEXT="Expand Direction">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1280286228167" ID="ID_1157419451" MODIFIED="1280286241194" TEXT="Intelligence Search">
@@ -5389,6 +5402,16 @@
 <node COLOR="#990000" CREATED="1280286440471" ID="ID_1384253965" MODIFIED="1280286446390" TEXT="Prefered Projects">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1280286447738" ID="ID_985152092" LINK="http://zesty.ca/zest/" MODIFIED="1280286451394" TEXT="http://zesty.ca/zest/"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1280287147003" ID="ID_1892691742" MODIFIED="1280287153571" TEXT="Chat">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1280286440471" ID="ID_549088982" MODIFIED="1280286446390" TEXT="Prefered Projects">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1280287158181" ID="ID_715994856" LINK="http://zesty.ca/chat/chat.cgi?handle=testChat" MODIFIED="1280287171417" TEXT="http://zesty.ca/chat/chat.cgi?handle=testChat">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
 </node>
 </node>
 </node>

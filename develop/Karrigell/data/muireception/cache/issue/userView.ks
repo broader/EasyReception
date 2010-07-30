@@ -64,7 +64,8 @@ def page_issueDetail(**args):
 		pagefn.sexyButton(txt,{'class': 'sexyblue', 'style':'margin-left:10px;'},bnType, 'sexysmall')\
 		for txt,bnType in zip( (_('Edit Issue'), _('Add Message')), ('edit', 'add'))\
 	]
-	buttons = SPAN(Sum(buttons),style='margin-left:2em;')
+	bnContainerId = 'issueEditBns'
+	buttons = SPAN(Sum(buttons),**{ 'style':'margin-left:2em;','id':bnContainerId})
 
 	# issue information, such as title, key words, nosy, edit history
 	nodeId = model.serial2id(serial)
@@ -124,21 +125,28 @@ def page_issueDetail(**args):
 	PRINT( DIV(**{'id': msgListContainer}))
 
 	# js slice for show multiful messages in smart list format
-	PRINT( pagefn.script(_showMessagesJs(nodeId,msgListContainer, messages),link=False))
+	PRINT( pagefn.script(_showMessagesJs(nodeId, bnContainerId, msgListContainer, messages),link=False))
 	return
 
-def _showMessagesJs(nodeId, msgListContainer, msgIds):
-	''' Shwo the messages in a smarlt lists format of each issue. '''
+def _showMessagesJs(nodeId, bnsContainer, msgListContainer, msgIds):
+	''' Add callback functions for buttons, and show the messages in a smarlt lists format of each issue. '''
+	paras = [ APP, nodeId, bnsContainer]
+	actions = [ '/'.join(('/'.join(THIS.script_url.split('/')[:-1]), 'action.ks', name)) for name in ('page_editIssueForm','page_addMessageForm')]
+	paras.extend(actions)
+
 	page = '/'.join((APPATH, 'page_issueMessages'))
 	page = '?'.join((page, '='.join(('ids', ','.join(msgIds)))))
-	paras = [ APP, msgListContainer, page ]
+	paras.extend([msgListContainer, page ])
+
 	msgCounts = _('Total {total} items.')
 	msgPageInfo = _("Page <span class='{pageInfoClass}' >{currentPage}</span> of {pageNumber}")
 	paras.extend([ msgCounts, msgPageInfo, ','.join(MSGPROPS) ])
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName="%s", listContainer="%s", msgUrl="%s",
+	var appName="%s", issueId="%s", bnsContainer="%s",
+	    editIssueUrl="%s", addMessageUrl="%s",
+	    listContainer="%s", msgUrl="%s",
 	    countInfo="%s", pageInfo="%s", fields="%s";
 
 	var msgFields = fields.split(',');
@@ -180,6 +188,38 @@ def _showMessagesJs(nodeId, msgListContainer, msgIds):
 	};
 
 	MUI.smartList(appName, {'onload': issueDetail});
+
+	// add bns callback functions
+	$(bnsContainer).getChildren().each(function(bn,index){
+		bn.addEvent('click', function(e){
+			new Event(e).stop();
+			bnActionsAdapter(index);
+		});
+	});
+
+	function bnActionsAdapter(index){
+		switch (index){
+			case 0 :
+				// edit issue action
+				query = $H();
+				query.combine({'id': issueId});
+				url = [editIssueUrl, query.toQueryString()].join('?');
+				new MUI.Modal({
+					width: 450, height: 320, y: 80, title: createTitle,
+					contentURL: url,
+					modalOverlayClose: false,
+					onClose: function(e){
+						alert('issue edit completed');
+					}
+				});
+				break;
+			case 1 :
+				// create messae action
+				alert(1);
+				break;
+		};
+	};
+
 	"""%paras
 	return js
 
@@ -406,8 +446,6 @@ def _issueListJs(container):
 
 	"""%paras
 	return js
-
-
 
 def page_colsModel(**args):
 	"""

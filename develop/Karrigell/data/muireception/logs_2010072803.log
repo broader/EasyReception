@@ -10,3 +10,9 @@
 2010/07/28 03:33:46 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail HTTP/1.1 200
 2010/07/28 03:35:17 - 127.0.0.1 - GET /issue/userView.ks/page_colsModel HTTP/1.1 200
 2010/07/28 03:35:17 - 127.0.0.1 - POST /issue/userView.ks/page_issuesData HTTP/1.1 200
+2010/07/28 03:35:18 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529112130 HTTP/1.1 200
+2010/07/28 03:35:18 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100727082231 HTTP/1.1 200
+2010/07/28 03:36:01 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=30&currentPage=1&itemsPerPage=3 HTTP/1.1 200
+2010/07/28 03:36:01 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=31&currentPage=1&itemsPerPage=3 HTTP/1.1 200
+2010/07/28 03:36:02 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100529112130 HTTP/1.1 200
+2010/07/28 03:36:02 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=30&currentPage=1&itemsPerPage=3 HTTP/1.1 200

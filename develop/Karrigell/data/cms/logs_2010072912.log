@@ -1,0 +1,50 @@
+2010/07/29 12:21:17 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found
+2010/07/29 12:22:48 - 127.0.0.1 - GET /favicon.ico HTTP/1.1 404 /favicon.ico File not found
+2010/07/29 12:23:00 - 127.0.0.1 - GET /images/ajax_loading.gif HTTP/1.1 200
+2010/07/29 12:23:00 - 127.0.0.1 - GET /navigation.ks/profile?path=service/travel/app.ks/index HTTP/1.1 200
+2010/07/29 12:23:00 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/07/29 12:23:00 - 127.0.0.1 - GET /menu.ks/page_toggleMenu?showMenu=0&_=1280406186427 HTTP/1.1 200
+2010/07/29 12:23:00 - 127.0.0.1 - GET /menu.ks/page_loginSpan?page=0 HTTP/1.1 200
+2010/07/29 12:23:06 - 127.0.0.1 - GET /menu.ks/page_menuList?page=0 HTTP/1.1 200
+2010/07/29 12:23:06 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/07/29 12:23:06 - 127.0.0.1 - GET /menu.ks/page_validForm HTTP/1.1 200
+2010/07/29 12:23:06 - 127.0.0.1 - GET /menu.ks/page_validName?user=demo HTTP/1.1 200
+2010/07/29 12:23:06 - 127.0.0.1 - GET /menu.ks/page_validPwd?user=demo&pwd=990508 HTTP/1.1 200
+2010/07/29 12:23:08 - 127.0.0.1 - GET /menu.ks/page_postValid?_=1280406193380 HTTP/1.1 200
+2010/07/29 12:23:13 - 127.0.0.1 - GET /menu.ks/page_toggleMenu?showMenu=1&_=1280406193478 HTTP/1.1 200
+2010/07/29 12:23:13 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/07/29 12:23:13 - 127.0.0.1 - GET /menu.ks/page_loginSpan?page=0 HTTP/1.1 200
+2010/07/29 12:23:13 - 127.0.0.1 - GET /home.pih HTTP/1.1 200
+2010/07/29 12:23:13 - 127.0.0.1 - GET /menu.ks/page_menuList?page=0 HTTP/1.1 200
+2010/07/29 12:23:13 - 127.0.0.1 - GET /navigation.ks/profile?path=issue HTTP/1.1 302 /issue/
+2010/07/29 12:23:13 - 127.0.0.1 - GET /issue/ HTTP/1.1 200
+2010/07/29 12:23:13 - 127.0.0.1 - GET /lib/dataTable/css/demo_table.css HTTP/1.1 200
+2010/07/29 12:23:16 - 127.0.0.1 - GET /lib/multiselect/style.css HTTP/1.1 200
+2010/07/29 12:23:16 - 127.0.0.1 - GET /lib/asmselect/jquery.asmselect.css HTTP/1.1 200
+2010/07/29 12:23:16 - 127.0.0.1 - GET /js/jquery.form.js?_=1280406196486 HTTP/1.1 200
+2010/07/29 12:23:16 - 127.0.0.1 - GET /issue/issue.ks/index HTTP/1.1 200
+2010/07/29 12:23:16 - 127.0.0.1 - GET /issue/issue.ks/show HTTP/1.1 200
+2010/07/29 12:23:16 - 127.0.0.1 - GET /issue/issue.ks/page_editIssue HTTP/1.1 200
+2010/07/29 12:23:16 - 127.0.0.1 - GET /lib/dataTable/js/jquery.dataTables.js?_=1280406196933 HTTP/1.1 200
+2010/07/29 12:23:16 - 127.0.0.1 - GET /lib/dataTable/i18n/cn_CN.txt HTTP/1.1 200
+2010/07/29 12:23:16 - 127.0.0.1 - GET /issue/issue.ks/page_getData?iColumns=5&sColumns=&iDisplayLength=10&iDisplayStart=0&sSearch=&bEscapeRegex=true&sSearch_0=&bEscapeRegex_0=true&sSearch_1=&bEscapeRegex_1=true&sSearch_2=&bEscapeRegex_2=true&sSearch_3=&bEscapeRegex_3=true&sSearch_4=&bEscapeRegex_4=true&iSortingCols=1&iSortCol_0=0&iSortDir_0=desc HTTP/1.1 200
+2010/07/29 12:23:16 - 127.0.0.1 - GET /lib/dataTable/images/sort_both.jpg HTTP/1.1 200
+2010/07/29 12:23:16 - 127.0.0.1 - GET /lib/dataTable/images/sort_desc.jpg HTTP/1.1 200
+2010/07/29 12:23:17 - 127.0.0.1 - GET /issue/issue.ks/page_showIssueInPage?serial=I20091013011644 HTTP/1.1 200
+2010/07/29 12:23:17 - 127.0.0.1 - GET /lib/smartlists/smartlists.js.pih?listId=sl&prompt=All%20Message%27s%20Writers&pageItems=3&_=1280406199567 HTTP/1.1 200
+2010/07/29 12:23:17 - 127.0.0.1 - GET /navigation.ks/profile?path=service HTTP/1.1 302 /service/
+2010/07/29 12:23:17 - 127.0.0.1 - GET /service/ HTTP/1.1 200
+2010/07/29 12:23:19 - 127.0.0.1 - GET /lib/treeTable/jquery.treeTable.css HTTP/1.1 200
+2010/07/29 12:23:21 - 127.0.0.1 - GET /service/service.ks/page_reserveList?init=1 HTTP/1.1 200
+2010/07/29 12:23:19 - 127.0.0.1 - GET /service/service.ks/index HTTP/1.1 200
+2010/07/29 12:23:21 - 127.0.0.1 - GET /service/service.ks/page_reserveEdit HTTP/1.1 200
+2010/07/29 12:23:22 - 127.0.0.1 - GET /service/serviceChange.js.pih?listUrl=service/service.ks/page_serviceList&listDiv=serviceList&editUrl=service/service.ks/page_reserveEdit&editDiv=reserveEdit&page=&selectId=stype&_=1280406202808 HTTP/1.1 200
+2010/07/29 12:23:22 - 127.0.0.1 - GET /lib/treeTable/jquery.treeTable.js?_=1280406202915 HTTP/1.1 200
+2010/07/29 12:23:22 - 127.0.0.1 - GET /service/reserveList.js.pih?categoryTag=noUsed&serviceDiv=serviceList&editDiv=reserveEdit&editUrl=service/service.ks/page_reserveEdit&subcategoryTag=hasChildren&reserveDiv=reserveList&action=edit&_=1280406202950 HTTP/1.1 200
+2010/07/29 12:23:22 - 127.0.0.1 - GET /lib/treeTable/toggle-expand-dark.png HTTP/1.1 200
+2010/07/29 12:23:22 - 127.0.0.1 - GET /service/service.ks/page_serviceList?action=edit&name=Hotel HTTP/1.1 200
+2010/07/29 12:23:22 - 127.0.0.1 - GET /service/service.ks/page_reserveEdit HTTP/1.1 200
+2010/07/29 12:23:22 - 127.0.0.1 - GET /lib/treeTable/jquery.treeTable.js?_=1280406207480 HTTP/1.1 200
+2010/07/29 12:23:23 - 127.0.0.1 - GET /service/reserveList.js.pih?categoryTag=noUsed&serviceDiv=serviceList&editDiv=reserveEdit&editUrl=service/service.ks/page_reserveEdit&subcategoryTag=hasChildren&reserveDiv=reserveList&action=create&_=1280406207503 HTTP/1.1 200
+2010/07/29 12:23:27 - 127.0.0.1 - GET /lib/treeTable/toggle-collapse-dark.png HTTP/1.1 200
+2010/07/29 12:23:27 - 127.0.0.1 - GET /service/service.ks/page_reserveEdit?alias=%E6%A0%87%E5%87%86%E9%97%B4&parent=s0000000000001&description=%E4%B8%A4%E5%BC%A0%E5%8D%95%E4%BA%BA%E5%BA%8A%EF%BC%8C%E7%94%B5%E8%A7%86%E3%80%81%E7%A9%BA%E8%B0%83%E3%80%81%E6%B4%97%E6%B5%B4%E9%97%B4&price=500.0&amount=40&action=create HTTP/1.1 200
