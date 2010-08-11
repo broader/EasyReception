@@ -129,7 +129,7 @@ def page_issueDetail(**args):
 
 def _showMessagesJs(nodeId, bnsContainer, msgListContainer, msgIds):
 	''' Add callback functions for buttons, and show the messages in a smarlt lists format of each issue. '''
-	paras = [ APP, nodeId, bnsContainer]
+	paras = [ APP, nodeId, bnsContainer, _('Edit Issue')]
 	actions = [ '/'.join(('/'.join(THIS.script_url.split('/')[:-1]), 'action.ks', name)) for name in ('page_editIssueForm','page_addMessageForm')]
 	paras.extend(actions)
 	
@@ -143,7 +143,7 @@ def _showMessagesJs(nodeId, bnsContainer, msgListContainer, msgIds):
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName="%s", issueId="%s", bnsContainer="%s",
+	var appName="%s", issueId="%s", bnsContainer="%s", ediTitle="%s",
 	    editIssueUrl="%s", addMessageUrl="%s", 
 	    listContainer="%s", msgUrl="%s", 
 	    countInfo="%s", pageInfo="%s", fields="%s";
@@ -204,7 +204,7 @@ def _showMessagesJs(nodeId, bnsContainer, msgListContainer, msgIds):
 				query.combine({'id': issueId});
 				url = [editIssueUrl, query.toQueryString()].join('?');
 				new MUI.Modal({
-					width: 450, height: 320, y: 80, title: createTitle,
+					width: 550, height: 400, y: 80, title: ediTitle,
 					contentURL: url,
 					modalOverlayClose: false,
 					onClose: function(e){

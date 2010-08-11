@@ -209,10 +209,13 @@ def getField(field):
 		elif fieldType == "radio":
 			input = _radioField(field,oldvalue)
 		elif fieldType == "select":
+			# normal html form 'select' component
 			input = _selectField(field,oldvalue)
 		elif fieldType == "textMultiCheckbox":
+			# select multiful text 
 			input = _textMultiCheckbox(field,oldvalue)
 		elif fieldType == 'mtMultiSelect':
+			# select multiful values in multiful pages 
 			input = _mtMultiSelect(field, oldvalue)
 		
 	div.append(input)

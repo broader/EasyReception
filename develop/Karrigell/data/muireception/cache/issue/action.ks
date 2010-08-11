@@ -1,4 +1,4 @@
-['page_createIssueForm', 'page_createIssueAction', 'page_editIssueForm']
+['page_createIssueForm', 'page_createIssueAction', 'page_editIssueForm', 'page_getNosy4issue']
 """
 Pages mainly for actions on 'issue'.
 """
@@ -194,8 +194,13 @@ def _getNosy(keyword):
 	if not rows:
 		return None
 
-	# if keyword is a subset of 'klassvalue', the relatevalue will be selected
-	assignedRoles = [ row[1] for row in rows if  set(keyword.split(',')).issubset(set(row[0].split(','))) ]
+	if keyword:
+		# if keyword is a subset of 'klassvalue', the relatevalue will be selected
+		assignedRoles = [ row[1] for row in rows if  set(keyword.split(',')).issubset(set(row[0].split(','))) ]
+	else:
+		# in this condition, all the administration roles will be returned
+		assignedRoles = [ row[1] for row in rows ]
+
 	if assignedRoles:
 		assignedRoles = ','.join(assignedRoles).split(',')
 	else:
@@ -221,27 +226,24 @@ def _getRelationValue(klass, relateclass):
 
 ISSUEPROPS =\
 [
-	{'name': 'nosy','prompt': _('Nosy'),'validate': [],'required': False, 'type':''},
-	{'name': 'assignedto','prompt': _('Assinged Person'), 'validate': [],'required': True},
+	{'name': 'title','prompt': _('Title'),'validate': [],'required': True, 'type':'input'},
+	{'name': 'keyword','prompt': _('Keywords'),'validate': [],'required': True, 'type':'textMultiCheckbox'},
+	{'name': 'nosy','prompt': _('Nosy'),'validate': [],'required': True, 'type':'mtMultiSelect', 'containerStyle':'border: 0.5px solid #DDDDDD;'},
+	{'name': 'assignedto','prompt': _('Assinged Person'), 'validate': [],'required': True, 'type':'select'},
 ]
 def page_editIssueForm(**args):
 	''' The form page to edit the properties of a roundup.issue class item. '''
-	PRINT( 'China')
 
 	editor = args.get('user') or USER
 
 	# get old values of the properties to be edit
 	issueId = args.get('id')
-	props = ('title', 'keyword', 'assignedto', 'nosy')
-	values = model.get_item(editor, 'issue', issueId, props, keyIsId=True)
-	PRINT( values)
+	props = [ attr.get('name') for attr in ISSUEPROPS ]
 
-	"""
+	oldValues = model.get_item(editor, 'issue', issueId, props, keyIsId=True)
 	form = []
-	props = ISSUEPROPS
-	for prop in props:
-		prop['oldvalue'] = ''
-		prop['type'] = prop.get('type') or 'input'
+	for prop in ISSUEPROPS:
+		prop['oldvalue'] = oldValues.get(prop['name']) or ''
 		prop['id'] = prop['name']
 		if prop['name'] == 'keyword':
 			values = model.get_items_ByString(USER, 'relation', {'klassname':'keyword', 'relateclass':'issue'}, propnames=('klassvalue',))
@@ -250,26 +252,55 @@ def page_editIssueForm(**args):
 			else:
 				options = []
 			prop['options'] = options
+		elif prop['name'] == 'nosy':
+			url = '/'.join((APPATH,'page_getNosy4issue'))
+			query = {NOSYOLD: prop['oldvalue'],}
+			query = ['='.join((key, value)) for key,value in query.items()]
+			query = '&'.join(query)
+			url = '?'.join((url, query))
+			prop.update({'dataUrl':url,'fieldName':prop['name'], 'itemsPerPage':3})
+		elif prop['name'] == 'assignedto':
+			prop['options'] = [{'label': str(item), 'value': str(item)} for item in _getNosy('') ]
 
-	div = DIV(Sum(formFn.yform(props)))
+
+	div = DIV(Sum(formFn.yform(ISSUEPROPS)))
 	form.append(FIELDSET(div))
 
 	# append hidden field that points out the action type
-	[item.update({'type':'hidden'}) for item in hideInput]
-	[ form.append(INPUT(**item)) for item in hideInput ]
+	#[item.update({'type':'hidden'}) for item in hideInput]
+	#[ form.append(INPUT(**item)) for item in hideInput ]
 
-	formId = 'issueCreation'
+	formId = 'issueEdit'
 	form = \
 	FORM(
 		Sum(form),
-		**{'action': '/'.join((APPATH,'page_createIssueAction')), 'id': formId, 'method':'post','class':'yform'}
+		**{'action': '/'.join((APPATH,'page_editIssueAction')), 'id': formId, 'method':'post','class':'yform'}
 	)
 
-	print form
+	PRINT( form)
 	# import js slice
-	print pagefn.script(_createIssueJs(formId, creator),link=False)
-	"""
+	#print pagefn.script(_createIssueJs(formId, creator),link=False)
 
+	return
+
+NOSYOLD = 'oldvalue'
+def page_getNosy4issue(**args):
+	''' Return the nosy list for each issue. '''
+	operator = args.get('user') or USER
+	oldValues = args.get(NOSYOLD) or []
+	if oldValues :
+		oldValues = oldValues.split(',')
+
+	values = _getNosy('')
+	values.sort()
+	values = [\
+		{\
+		'text':i.decode('utf8'), \
+		'selected': i in oldValues and 'true' or 'false'\
+		}\
+		for i in values\
+	]
+	PRINT( JSON.encode(values, encoding='utf8'))
 	return
 
 
