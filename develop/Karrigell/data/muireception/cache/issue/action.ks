@@ -95,7 +95,6 @@ def _createIssueJs(formId, creator):
 
 	var issueCreationFormChk;
 	// Load the form validation plugin script
-	var grid = window[issueGrid];
 	var issueOptions = {
 	    onload:function(){
 		issueCreationFormChk = new FormCheck(formId,{
@@ -271,15 +270,14 @@ def page_editIssueForm(**args):
 	#[ form.append(INPUT(**item)) for item in hideInput ]
 
 	formId = 'issueEdit'
-	form = \
-	FORM(
-		Sum(form),
-		**{'action': '/'.join((APPATH,'page_editIssueAction')), 'id': formId, 'method':'post','class':'yform'}
+	form = FORM( \
+		Sum(form),\
+		**{'action': '/'.join((APPATH,'page_editIssueAction')), 'id': formId, 'method':'post','class':'yform'}\
 	)
 
 	PRINT( form)
 	# import js slice
-	#print pagefn.script(_createIssueJs(formId, creator),link=False)
+	PRINT( pagefn.script(_editIssueJs(formId, editor),link=False))
 
 	return
 
@@ -303,4 +301,70 @@ def page_getNosy4issue(**args):
 	PRINT( JSON.encode(values, encoding='utf8'))
 	return
 
+def _editIssueJs(formId, editor):
+	paras = [ APP, formId, 'position:absolute;margin-left:15em;']
+	paras.extend( [ pagefn.BUTTONLABELS.get('confirmWindow').get(key) for key in ('confirm','cancel')] )
+	paras = tuple(paras)
+	js = \
+	"""
+	var appName='%s', formId='%s', bnStyle='%s',
+	confirmBnLabel='%s',cancelBnLabel='%s';
+
+	var issueEditFormChk;
+	// Load the form validation plugin script
+	var issueOptions = {
+	    onload:function(){
+		issuEditFormChk = new FormCheck(formId,{
+		    submitByAjax: true,
+		    onAjaxSuccess: function(response){
+			// close modal
+			MUI.closeModalDialog();
+			// show result
+			MUI.notification(response);
+		    },
+
+ 		    display:{
+			errorsLocation : 1,
+			keepFocusOnError : 0,
+			scrollToFirst : false
+		    }
+		});// the end for 'issueCreationFormChk' definition
+
+	    }// the end for 'onload' definition
+	};// the end for 'options' definition
+
+   	MUI.formValidLib(appName,issueOptions);
+
+	// add action buttons
+	var bnContainer = new Element('div',{style: bnStyle});
+	$(formId).adopt(bnContainer);
+
+	[
+	    {'type':'accept','label': confirmBnLabel},
+	    {'type':'cancel','label': cancelBnLabel}
+	].each(function(attrs,index){
+	    options = {
+		txt: attrs['label'],
+		imgType: attrs['type'],
+		bnAttrs: {'style':'margin-right:1em;'}
+	    };
+	    button = MUI.styledButton(options);
+	    button.addEvent('click',actionAdapter);
+	    bnContainer.grab(button);
+	});
+
+	function actionAdapter(e){
+		var button = e.target;
+		var label = button.get('text');
+
+		if(label == confirmBnLabel){
+			issuEditFormChk.onSubmit(e);
+		}
+		else{
+			new Event(e).stop();
+			MUI.closeModalDialog();
+		};
+	};
+	"""%paras
+	return js
 

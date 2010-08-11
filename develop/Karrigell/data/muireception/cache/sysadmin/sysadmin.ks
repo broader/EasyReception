@@ -858,8 +858,8 @@ def _userPropHandler(props,action):
 				prop['validate'].append('email')
 
 		elif propName == 'roles':	# set multi select attributes
-			prop.update(\
-				{'type':'mtMultiSelect',
+			prop.update({
+				'type':'mtMultiSelect',
 				'containerStyle':'border: 0.5px solid #DDDDDD;'
 			})
 

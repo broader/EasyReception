@@ -98,7 +98,7 @@ def page_issueDetail(**args):
 	labels = copy.deepcopy(SUPPLEMENTLABELS)
 	[labels.update({item['name']:item['header']}) for item in ISSUELISTCOLUMNS]
 	tableFields = []
-	for field in ('title', 'keyword', 'nosy', 'activity'):
+	for field in ('title', 'keyword', 'nosy', 'assignedto', 'activity'):
 		if field != 'activity':
 			value = {'prompt': labels.get(field) or '', 'value':values.get(field) or ''}
 		else:
@@ -109,9 +109,9 @@ def page_issueDetail(**args):
 		tableFields.append(value)
 
 	trs = formFn.render_table_fields(\
-		tableFields,
-		cols=1,
-		labelStyle={'label': 'color:#86B50D;font-weight:bold;font-size:12px;'},
+		tableFields,\
+		cols=1,\
+		labelStyle={'label': 'color:#86B50D;font-weight:bold;font-size:12px;'},\
 		valueStyle={'label': 'margin-left:10px'}\
 	)
 
@@ -175,7 +175,7 @@ def _showMessagesJs(nodeId, bnsContainer, msgListContainer, msgIds):
 		return container
 	};
 
-	function issueDetail(){
+	function messagesList(){
 		var smartList = new SmartList(listContainer, {
 			dataUrl: msgUrl,
 			liRender: msgRender,
@@ -187,7 +187,7 @@ def _showMessagesJs(nodeId, bnsContainer, msgListContainer, msgIds):
 		});
 	};
 
-	MUI.smartList(appName, {'onload': issueDetail});
+	MUI.smartList(appName, {'onload': messagesList});
 
 	// add bns callback functions
 	$(bnsContainer).getChildren().each(function(bn,index){
@@ -205,7 +205,7 @@ def _showMessagesJs(nodeId, bnsContainer, msgListContainer, msgIds):
 				query.combine({'id': issueId});
 				url = [editIssueUrl, query.toQueryString()].join('?');
 				new MUI.Modal({
-					width: 550, height: 400, y: 80, title: ediTitle,
+					width: 600, height: 450, y: 80, title: ediTitle,
 					contentURL: url,
 					modalOverlayClose: false,
 					onClose: function(e){
@@ -239,7 +239,7 @@ def page_issueMessages(**args):
 	msgIds = msgIds.split(',')
 
 	mprops = MSGPROPS
-	labels = (_('Serial'), _('Author'), _('Date'), _('Content'))
+	labels = (_('Serial'), _('Date'), _('Author'), _('Content'))
 	messages = model.get_items(args.get('user'), 'msg', mprops, link2key=True, ids=msgIds)
 
 	items = []
@@ -383,6 +383,7 @@ def _issueListJs(container):
          		contentURL: createUrl,
          		modalOverlayClose: false,
 			onClose: function(e){
+				// reload grid data
       				ti.loadData();
       			}
          	});
@@ -406,7 +407,7 @@ def _issueListJs(container):
     			}
 		}).get();
 
-		issueGrid = new omniGrid( issueGridContainer, {
+		var issueGrid = new omniGrid( issueGridContainer, {
 			columnModel: colsModel,	url: issueGriDataUrl,
 			perPageOptions: [15,25,40,60],
 			perPage:15, page:1, pagination:true, serverSort:true,
@@ -470,16 +471,16 @@ def page_issuesData(**args):
 	d = {'page':showPage,'data':[],'search':search}
 
 	# a temporary inner function to filter issues
-	def _issueFilter(_nosy):
+	def _issueFilter(_nosy, _creator):
 		_viewPermission = False
 		#userId = model.getItemId('user',user)
-		if user in _nosy:
+		if user==_creator or user in _nosy:
 			_viewPermission = True
 		return _viewPermission
 
 	# column's property name
 	showProps = [item.get('name') for item in ISSUELISTCOLUMNS]
-	total, data = model.get_issues(user, showProps, search, filterFn=_issueFilter, filterArgs=['nosy',])
+	total, data = model.get_issues(user, showProps, search, filterFn=_issueFilter, filterArgs=['nosy','creator'])
 	d['total'] = total
 
 	if data:
@@ -561,6 +562,8 @@ def _permissionCheck(**args):
 		return perms
 
 	if args.get('nosy') and user in args['nosy']:
+		perms['pageaction'] = True
+	elif args.get('creator') and user == args['creator']:
 		perms['pageaction'] = True
 	else:
 		perms['pageaction'] = False
