@@ -1,0 +1,33 @@
+2010/08/12 09:44:49 - 127.0.0.1 - GET /layout.ks/page_accountValid?name=demo HTTP/1.1 200
+2010/08/12 01:44:53 - 127.0.0.1 - GET /layout.ks/page_accountValid?username=demo&name=990508 HTTP/1.1 200
+2010/08/12 01:44:53 - 127.0.0.1 - GET /layout.ks/page_welcomeInfo HTTP/1.1 200
+2010/08/12 01:44:53 - 127.0.0.1 - GET /layout.ks/page_menu HTTP/1.1 200
+2010/08/12 01:44:53 - 127.0.0.1 - GET /layout.ks/page_sideBarPanels HTTP/1.1 200
+2010/08/12 01:44:53 - 127.0.0.1 - GET /js/userSidePanels.js.pih HTTP/1.1 200
+2010/08/12 01:44:54 - 127.0.0.1 - GET /portal/portal.ks/page_info HTTP/1.1 200
+2010/08/12 01:44:54 - 127.0.0.1 - GET /issue/userView.ks/page_info HTTP/1.1 200
+2010/08/12 01:44:54 - 127.0.0.1 - GET /portfolio/portfolio.ks/page_info HTTP/1.1 200
+2010/08/12 01:44:55 - 127.0.0.1 - GET /issue/userView.ks/page_issueList HTTP/1.1 200
+2010/08/12 01:44:55 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail HTTP/1.1 200
+2010/08/12 01:44:55 - 127.0.0.1 - GET /issue/userView.ks/page_colsModel HTTP/1.1 200
+2010/08/12 01:44:57 - 127.0.0.1 - POST /issue/userView.ks/page_issuesData HTTP/1.1 200
+2010/08/12 01:44:57 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100811124832 HTTP/1.1 200
+2010/08/12 01:44:57 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=32&currentPage=1&itemsPerPage=3 HTTP/1.1 200
+2010/08/12 01:44:57 - 127.0.0.1 - GET /issue/action.ks/page_editIssueForm?id=32 HTTP/1.1 200
+2010/08/12 01:44:59 - 127.0.0.1 - GET /lib/formcheck/lang.js.pih HTTP/1.1 200
+2010/08/12 01:44:59 - 127.0.0.1 - GET /issue/action.ks/page_getNosy4issue?oldvalue=admin,%E5%88%98%E5%A4%87,%E5%BC%A0%E9%A3%9E,supervisor&oldvalue=admin,%E5%88%98%E5%A4%87,%E5%BC%A0%E9%A3%9E,supervisor HTTP/1.1 200
+2010/08/12 01:59:16 - 127.0.0.1 - GET /admin HTTP/1.1 200
+2010/08/12 01:59:16 - 127.0.0.1 - GET /karrigell.css HTTP/1.1 404 /karrigell.css File not found
+2010/08/12 01:59:19 - 127.0.0.1 - GET /admin/translation/ HTTP/1.1 302 /admin/login.ks/login?valid_in=/&redir_to=%2Fadmin%2Ftranslation%2F&role=admin
+2010/08/12 01:59:19 - 127.0.0.1 - GET /admin/login.ks/login?valid_in=/&redir_to=%2Fadmin%2Ftranslation%2F&role=admin HTTP/1.1 200
+2010/08/12 01:59:19 - 127.0.0.1 - GET /admin/karrigell.css HTTP/1.1 200
+2010/08/12 01:59:19 - 127.0.0.1 - GET /doc/images/karrigell.jpg HTTP/1.1 200
+2010/08/12 01:59:19 - 127.0.0.1 - POST /admin/login.ks/check_login HTTP/1.1 302 /admin/translation/
+2010/08/12 01:59:19 - 127.0.0.1 - GET /admin/translation/ HTTP/1.1 200
+2010/08/12 01:59:27 - 127.0.0.1 - GET /admin/translation/fileMenu.pih HTTP/1.1 200
+2010/08/12 01:59:27 - 127.0.0.1 - GET /admin/jquery-1.2.6.js HTTP/1.1 200
+2010/08/12 01:59:27 - 127.0.0.1 - GET /admin/jQueryFileTree/jQueryFileTree.js HTTP/1.1 200
+2010/08/12 01:59:27 - 127.0.0.1 - POST /admin/translation/jQueryFileTree.py HTTP/1.1 200
+2010/08/12 01:59:27 - 127.0.0.1 - POST /admin/translation/jQueryFileTree.py HTTP/1.1 200
+2010/08/12 01:59:27 - 127.0.0.1 - GET /admin/translation/translator.ks/index?script=%2Fhome%2Fbroader%2Fdevelop%2FR%40K%2FCMS%2FKarrigell%2Fmuireception%2Fissue%2FuserView.ks HTTP/1.1 200
+2010/08/12 01:59:35 - 127.0.0.1 - GET /admin/admin.css HTTP/1.1 200

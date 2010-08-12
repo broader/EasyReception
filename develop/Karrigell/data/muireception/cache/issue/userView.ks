@@ -115,7 +115,8 @@ def page_issueDetail(**args):
 		valueStyle={'label': 'margin-left:10px'}\
 	)
 
-	PRINT( TABLE(TBODY(trs)))
+	tableId = "issue-%s-info"%serial
+	PRINT( TABLE(TBODY(trs), **{'id':tableId}))
 
 	# list messages of this issue
 	messages = values.get('messages')
@@ -125,12 +126,15 @@ def page_issueDetail(**args):
 	PRINT( DIV(**{'id': msgListContainer}))
 
 	# js slice for show multiful messages in smart list format
-	PRINT( pagefn.script(_showMessagesJs(nodeId, bnContainerId, msgListContainer, messages),link=False))
+	PRINT( pagefn.script(_showMessagesJs(nodeId, bnContainerId, tableId, msgListContainer, messages),link=False))
 	return
 
-def _showMessagesJs(nodeId, bnsContainer, msgListContainer, msgIds):
+def _showMessagesJs(nodeId, bnsContainer, tableId, msgListContainer, msgIds):
 	''' Add callback functions for buttons, and show the messages in a smarlt lists format of each issue. '''
-	paras = [ APP, nodeId, bnsContainer, _('Edit Issue')]
+	paras = [ APP, nodeId, bnsContainer]
+	issueEdit = [tableId, '/'.join((RELPATH, 'images/icons/16x16/comment_edit.png'))]
+	paras.extend(issueEdit)
+	paras.append( _('Edit Issue'))
 	actions = [ '/'.join(('/'.join(THIS.script_url.split('/')[:-1]), 'action.ks', name)) for name in ('page_editIssueForm','page_addMessageForm')]
 	paras.extend(actions)
 
@@ -144,10 +148,35 @@ def _showMessagesJs(nodeId, bnsContainer, msgListContainer, msgIds):
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName="%s", issueId="%s", bnsContainer="%s", ediTitle="%s",
-	    editIssueUrl="%s", addMessageUrl="%s",
+	var appName="%s", issueId="%s", bnsContainer="%s",
+	    tableId="%s", editIssueImg="%s",
+	    ediTitle="%s", editIssueUrl="%s",
+	    addMessageUrl="%s",
 	    listContainer="%s", msgUrl="%s",
 	    countInfo="%s", pageInfo="%s", fields="%s";
+
+	// add edit button to the table component which holds the fields of issue
+	function addButton(index){
+		options = {
+			txt: 'Edit',
+			imgType: 'edit',
+			bnAttrs: {'style':'margin-right:1em;'},
+			bnSize: 'sexysmall',
+			bnSkin: 'sexygreen'
+		};
+		button = MUI.styledButton(options);
+		//button.store('formData', {'action':attrs['action']});
+		//button.addEvent('click', issueActionAdapter);
+		return button
+	};
+
+	$(tableId).getElements('tr').each(function(tr,index){
+		$(tr).setStyle('height', '40px');
+		if(index==4) return;
+		td = new Element('td');
+		td.grab(addButton(index));
+		tr.grab(td);
+	});
 
 	var msgFields = fields.split(',');
 	function msgRender(liData){

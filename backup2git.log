@@ -1391,3 +1391,86 @@ sent 85 bytes  received 12 bytes  194.00 bytes/sec
 total size is 926373  speedup is 9550.24
 2010-08-11 21:56:02,093 INFO End backup loacl karrigell diretory to local git.
 2010-08-11 21:56:02,094 INFO Begin to backup local github to remote github host.
+2010-08-11 21:56:02,748 INFO Command: 
+git add .
+running result is :
+2010-08-11 21:56:13,263 INFO Command: 
+git commit -m 'Update time:2010-08-11T21:56:02.094316'
+running result is :[master 21437f5] Update time:2010-08-11T21:56:02.094316
+ Committer: Broader ZHONG <broader@laptop-ubuntu.10.04>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+If the identity used for this commit is wrong, you can fix it with:
+
+    git commit --amend --author='Your Name <you@example.com>'
+
+ 34 files changed, 625 insertions(+), 38 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010081113.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010081112.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010081113.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010081120.log
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/msg/0/msg32
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/msg/0/msg33
+ create mode 100644 develop/Karrigell/data/muireception/sessions/C9lLpOPFxheUvkbr
+ create mode 100644 develop/Karrigell/data/muireception/sessions/UGH14WmMHJylfwy5
+ create mode 100644 develop/Karrigell/data/muireception/sessions/sCiV8yiuYg1yIjVz
+2010-08-11 21:56:33,303 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   9750da8..21437f5  master -> master
+2010-08-11 21:56:33,303 INFO End backup local github to remote github host.
+2010-08-12 11:40:13,049 INFO Delete nousing captcha images
+2010-08-12 11:40:13,091 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-08-12 11:40:13,091 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-08-12 11:40:14,458 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/muireception/
+data/muireception/logs_2010081201.log
+        3150 100%    0.00kB/s    0:00:00          3150 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1023/4365)
+data/muireception/logs_2010081202.log
+        2897 100%    2.76MB/s    0:00:00          2897 100%    2.76MB/s    0:00:00 (xfer#2, to-check=1022/4365)
+data/muireception/logs_2010081203.log
+        4132 100%    3.94MB/s    0:00:00          4132 100%    3.94MB/s    0:00:00 (xfer#3, to-check=1021/4365)
+data/muireception/logs_2010081209.log
+         155 100%  151.37kB/s    0:00:00           155 100%  151.37kB/s    0:00:00 (xfer#4, to-check=1020/4365)
+data/muireception/translations.dat
+        8380 100%    7.99MB/s    0:00:00          8380 100%    7.99MB/s    0:00:00 (xfer#5, to-check=1019/4365)
+data/muireception/users.sqlite
+        2048 100%    1.95MB/s    0:00:00          2048 100%    1.95MB/s    0:00:00 (xfer#6, to-check=1017/4365)
+data/muireception/cache/issue/action.ks
+       10614 100%    5.06MB/s    0:00:00         10614 100%    5.06MB/s    0:00:00 (xfer#7, to-check=1045/4424)
+data/muireception/cache/issue/userView.ks
+       19572 100%    6.22MB/s    0:00:00         19572 100%    6.22MB/s    0:00:00 (xfer#8, to-check=1044/4424)
+data/muireception/sessions/
+data/muireception/sessions/eeO1qHLFSzA0zxNZ
+         249 100%    6.08kB/s    0:00:00           249 100%    6.08kB/s    0:00:00 (xfer#9, to-check=2326/6007)
+muireception/images/icons/16x16/
+muireception/images/icons/16x16/comment_edit.png
+         644 100%    1.56kB/s    0:00:00           644 100%    1.56kB/s    0:00:00 (xfer#10, to-check=1006/7054)
+muireception/issue/
+deleting muireception/issue/.userView.ks.swp
+deleting muireception/issue/.action.ks.swp
+muireception/issue/action.ks
+       10623 100%   25.49kB/s    0:00:00         10623 100%   25.49kB/s    0:00:00 (xfer#11, to-check=1016/7142)
+muireception/issue/userView.ks
+       19537 100%   45.86kB/s    0:00:00         19537 100%   45.86kB/s    0:00:00 (xfer#12, to-check=1014/7142)
+
+sent 205990 bytes  received 1426 bytes  138277.33 bytes/sec
+total size is 54991348  speedup is 265.13
+2010-08-12 11:40:14,507 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 85 bytes  received 12 bytes  194.00 bytes/sec
+total size is 926373  speedup is 9550.24
+2010-08-12 11:40:14,507 INFO End backup loacl karrigell diretory to local git.
+2010-08-12 11:40:14,507 INFO Begin to backup local github to remote github host.
