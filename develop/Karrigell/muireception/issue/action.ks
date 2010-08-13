@@ -1,7 +1,7 @@
 """
 Pages mainly for actions on 'issue'.
 """
-#import copy
+import copy
 
 from HTMLTags import *
 
@@ -366,3 +366,105 @@ def _editIssueJs(formId, editor):
 	};
 	"""%paras
 	return js
+
+def _editIssueTitle(issueId, oldValue):
+	editor = USER
+
+	# get old values of the properties to be edit
+	form = copy.deepcopy(ISSUEPROPS)[:1]
+	form[0]['oldvalue'] = oldValue
+	form[0]['id'] = form[0]['name']
+	div = DIV(Sum(formFn.yform(form)))
+	forms = [FIELDSET(div),]
+	
+	# append hidden field that points out the action type
+	#[item.update({'type':'hidden'}) for item in hideInput]
+	#[ form.append(INPUT(**item)) for item in hideInput ]
+
+	formId = 'editIssueTitle'
+	form = FORM( \
+		Sum(forms),\ 
+		**{'action': '/'.join((APPATH,'page_editTitleAction')), 'id': formId, 'method':'post','class':'yform'}\
+	)
+	
+	print form
+	# import js slice
+	print pagefn.script(_editTitleJs(formId, editor),link=False)
+	return
+
+def _editTitleJs(formId, editor):
+	paras = [ APP, formId, 'position:absolute;margin-left:15em;']
+	paras.extend( [ pagefn.BUTTONLABELS.get('confirmWindow').get(key) for key in ('confirm','cancel')] )
+	paras = tuple(paras)
+	js = \
+	"""
+	var appName='%s', formId='%s', bnStyle='%s',
+	confirmBnLabel='%s',cancelBnLabel='%s';
+	
+	var titleEditFormChk;
+	// Load the form validation plugin script
+	var titleEditOptions = {
+	    onload:function(){ 
+		titleEditFormChk = new FormCheck(formId,{
+		    submitByAjax: true,
+		    onAjaxSuccess: function(response){
+			// close modal
+			MUI.closeModalDialog(); 
+			// show result
+			MUI.notification(response);
+		    },            
+		    
+ 		    display:{
+			errorsLocation : 1,
+			keepFocusOnError : 0, 
+			scrollToFirst : false
+		    }
+		});// the end for 'issueCreationFormChk' definition
+			
+	    }// the end for 'onload' definition
+	};// the end for 'options' definition
+ 
+   	MUI.formValidLib(appName,titleEditOptions);
+	
+	// add action buttons	
+	var bnContainer = new Element('div',{style: bnStyle});
+	$(formId).adopt(bnContainer);
+	
+	[
+	    {'type':'accept','label': confirmBnLabel},
+	    {'type':'cancel','label': cancelBnLabel}
+	].each(function(attrs,index){
+	    options = {
+		txt: attrs['label'],
+		imgType: attrs['type'],
+		bnAttrs: {'style':'margin-right:1em;'}	
+	    };
+	    button = MUI.styledButton(options);		
+	    button.addEvent('click',actionAdapter);
+	    bnContainer.grab(button);
+	});
+	
+	function actionAdapter(e){
+		var button = e.target;
+		var label = button.get('text');
+		
+		if(label == confirmBnLabel){
+			issuEditFormChk.onSubmit(e);
+		}
+		else{
+			new Event(e).stop();
+			MUI.closeModalDialog();
+		}; 
+	};
+	"""%paras
+	return js
+
+def page_editIssueAttrForm(**args):
+	''' Edit the value of a specified attribute of a issue item. '''
+	issueId, oldValue, prop, preferProp, preferValue = \
+		[args.get(name) for name in ('issueId', 'oldValue', 'prop', 'preferProp', 'preferValue')]
+	
+	if prop == 'title':
+		 _editIssueTitle(issueId, oldValue)
+
+	return

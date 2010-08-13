@@ -134,8 +134,15 @@ def _showMessagesJs(nodeId, bnsContainer, tableId, msgListContainer, msgIds):
 	issueEdit = [tableId, '/'.join((RELPATH, 'images/icons/16x16/comment_edit.png'))]
 	paras.extend(issueEdit)
 	paras.append( _('Edit Issue'))
-	actions = [ '/'.join(('/'.join(THIS.script_url.split('/')[:-1]), 'action.ks', name)) for name in ('page_editIssueForm','page_addMessageForm')]
+	actions = [ \
+		'/'.join(('/'.join(THIS.script_url.split('/')[:-1]), 'action.ks', name)) \
+		for name in ('page_editIssueForm','page_addMessageForm', 'page_editIssueAttrForm')\
+	]
+
 	paras.extend(actions)
+	
+	paras.extend([_('Edit Title'), _('Edit Keywords'), _('Edit Nosy'), _('Edit Assignedto')])
+	paras.extend(['title', 'keyword', 'nosy', 'assignedto'])
 	
 	page = '/'.join((APPATH, 'page_issueMessages'))
 	page = '?'.join((page, '='.join(('ids', ','.join(msgIds)))))
@@ -149,12 +156,49 @@ def _showMessagesJs(nodeId, bnsContainer, tableId, msgListContainer, msgIds):
 	"""
 	var appName="%s", issueId="%s", bnsContainer="%s", 
 	    tableId="%s", editIssueImg="%s",
-	    ediTitle="%s", editIssueUrl="%s", 
-	    addMessageUrl="%s", 
+	    editDlgTitle="%s", 
+	    editIssueUrl="%s", addMessageUrl="%s", editIssueAttrUrl="%s",
+	    propNames = ["%s", "%s", "%s", "%s" ],
+	    props = ["%s", "%s", "%s", "%s" ],
 	    listContainer="%s", msgUrl="%s", 
 	    countInfo="%s", pageInfo="%s", fields="%s";
 
+	// a handy function to get value from the td component in a tr
+	function _getTdValue(table, index,tag){
+		tr = $(table).getElements('tr')[index];
+		return tr.getElements(tag)[0].get('text')
+	};
+
 	// add edit button to the table component which holds the fields of issue
+	function editIssueAttr(event){
+		new Event(event).stop();
+		bn = event.target;
+		data = bn.retrieve('formData');
+		
+		query = $H(); 
+		query.combine({ 'issueId': issueId, 'prop':props[data.propIndex] });
+		// get old value of this property
+		query['oldValue'] = _getTdValue(tableId,data.propIndex, 'label');
+		// get the value of the preferable property
+		if(data.propIndex-1 > 0){
+			query.combine({
+				'preferValue': _getTdValue(tableId, data.propIndex-1, 'label'),
+				'preferProp': props[data.propIndex-1]
+			});
+		};
+
+		url = [editIssueAttrUrl, query.toQueryString()].join('?');
+		new MUI.Modal({
+			width: 600, height: 450, y: 80, 
+			title: propNames[data.propIndex],
+			contentURL: url,
+			modalOverlayClose: false,
+			onClose: function(e){
+				alert('issue edit completed');
+			}
+		});
+	};
+
 	function addButton(index){
 		options = {
 			txt: 'Edit',
@@ -164,8 +208,8 @@ def _showMessagesJs(nodeId, bnsContainer, tableId, msgListContainer, msgIds):
 			bnSkin: 'sexygreen'
 		};
 		button = MUI.styledButton(options);
-		//button.store('formData', {'action':attrs['action']});
-		//button.addEvent('click', issueActionAdapter);
+		button.store('formData', {'propIndex':index});
+		button.addEvent('click', editIssueAttr);
 		return button
 	};
 
@@ -233,7 +277,7 @@ def _showMessagesJs(nodeId, bnsContainer, tableId, msgListContainer, msgIds):
 				query.combine({'id': issueId});
 				url = [editIssueUrl, query.toQueryString()].join('?');
 				new MUI.Modal({
-					width: 600, height: 450, y: 80, title: ediTitle,
+					width: 600, height: 450, y: 80, title: editDlgTitle,
 					contentURL: url,
 					modalOverlayClose: false,
 					onClose: function(e){
@@ -434,8 +478,9 @@ def _issueListJs(container):
     				colsModel = json['data'];
     			}
 		}).get();
-
-		var issueGrid = new omniGrid( issueGridContainer, {
+		
+		// create a 'omniGrid' instance and assign it to the global variable 'issueGrid'
+		issueGrid = new omniGrid( issueGridContainer, {
 			columnModel: colsModel,	url: issueGriDataUrl,
 			perPageOptions: [15,25,40,60],
 			perPage:15, page:1, pagination:true, serverSort:true,

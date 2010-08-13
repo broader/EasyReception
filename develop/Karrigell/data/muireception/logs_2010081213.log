@@ -1,0 +1,20 @@
+2010/08/12 21:10:09 - 127.0.0.1 - GET /layout.ks/page_accountValid?name=demo HTTP/1.1 200
+2010/08/12 13:10:13 - 127.0.0.1 - GET /layout.ks/page_accountValid?username=demo&name=990508 HTTP/1.1 200
+2010/08/12 13:10:13 - 127.0.0.1 - GET /layout.ks/page_welcomeInfo HTTP/1.1 200
+2010/08/12 13:10:13 - 127.0.0.1 - GET /layout.ks/page_menu HTTP/1.1 200
+2010/08/12 13:10:13 - 127.0.0.1 - GET /layout.ks/page_sideBarPanels HTTP/1.1 200
+2010/08/12 13:10:14 - 127.0.0.1 - GET /js/userSidePanels.js.pih HTTP/1.1 200
+2010/08/12 13:10:14 - 127.0.0.1 - GET /portal/portal.ks/page_info HTTP/1.1 200
+2010/08/12 13:10:14 - 127.0.0.1 - GET /issue/userView.ks/page_info HTTP/1.1 200
+2010/08/12 13:10:14 - 127.0.0.1 - GET /portfolio/portfolio.ks/page_info HTTP/1.1 200
+2010/08/12 13:10:15 - 127.0.0.1 - GET /issue/userView.ks/page_issueList HTTP/1.1 200
+2010/08/12 13:10:15 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail HTTP/1.1 200
+2010/08/12 13:10:15 - 127.0.0.1 - GET /issue/userView.ks/page_colsModel HTTP/1.1 200
+2010/08/12 13:10:19 - 127.0.0.1 - POST /issue/userView.ks/page_issuesData HTTP/1.1 200
+2010/08/12 13:10:19 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100811131233 HTTP/1.1 200
+2010/08/12 13:10:20 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=33&currentPage=1&itemsPerPage=3 HTTP/1.1 200
+2010/08/12 13:24:53 - 127.0.0.1 - GET /issue/userView.ks/page_issueDetail?serial=I20100811124832 HTTP/1.1 200
+2010/08/12 13:24:53 - 127.0.0.1 - GET /issue/userView.ks/page_issueMessages?ids=32&currentPage=1&itemsPerPage=3 HTTP/1.1 200
+2010/08/12 13:24:53 - 127.0.0.1 - GET /issue/action.ks/page_editIssueAttrForm? HTTP/1.1 404 /issue/action.ks/page_editIssueAttrForm? File not found
+2010/08/12 13:25:02 - 127.0.0.1 - GET /issue/action.ks/page_editIssueAttrForm? HTTP/1.1 404 /issue/action.ks/page_editIssueAttrForm? File not found
+2010/08/12 13:25:37 - 127.0.0.1 - GET /issue/action.ks/page_editIssueAttrForm? HTTP/1.1 200
