@@ -1,4 +1,4 @@
-['page_createIssueForm', 'page_createIssueAction', 'page_editIssueForm', 'page_getNosy4issue', 'page_editIssueAttrForm']
+['page_createIssueForm', 'page_createIssueAction', 'page_editIssueForm', 'page_getNosy4issue', 'page_editIssuePropForm', 'page_editIssuePropAction']
 """
 Pages mainly for actions on 'issue'.
 """
@@ -368,32 +368,39 @@ def _editIssueJs(formId, editor):
 	"""%paras
 	return js
 
-def _editIssueTitle(issueId, oldValue):
-	editor = USER
 
+def page_editIssuePropForm(**args):
+	''' print the html form for editing the value of a specified attribute of a issue item. '''
+	issueId, oldValue, prop, preferProp, preferValue = \
+		[args.get(name) for name in ('issueId', 'oldValue', 'prop', 'preferProp', 'preferValue')]
+
+
+	editor = USER
 	# get old values of the properties to be edit
-	form = copy.deepcopy(ISSUEPROPS)[:1]
+	form = [item for item in ISSUEPROPS if item['name'] == prop ]
 	form[0]['oldvalue'] = oldValue
-	form[0]['id'] = form[0]['name']
+	form[0]['id'] = prop
 	div = DIV(Sum(formFn.yform(form)))
 	forms = [FIELDSET(div),]
 
 	# append hidden field that points out the action type
-	#[item.update({'type':'hidden'}) for item in hideInput]
-	#[ form.append(INPUT(**item)) for item in hideInput ]
+	hideInput = [{'value':editor, 'name':'editor'}, {'value':issueId, 'name':'issueId'},]
+	[item.update({'type':'hidden'}) for item in hideInput]
+	[ forms.append(INPUT(**item)) for item in hideInput ]
 
-	formId = 'editIssueTitle'
+	formId = 'editIssueProp-%s'%prop
 	form = FORM( \
 		Sum(forms),\
-		**{'action': '/'.join((APPATH,'page_editTitleAction')), 'id': formId, 'method':'post','class':'yform'}\
+		**{'action': '/'.join((APPATH,'page_editIssuePropAction')), 'id': formId, 'method':'post','class':'yform'}\
 	)
 
 	PRINT( form)
 	# import js slice
-	PRINT( pagefn.script(_editTitleJs(formId, editor),link=False))
+	PRINT( pagefn.script(_editIssuePropJs(formId),link=False))
+
 	return
 
-def _editTitleJs(formId, editor):
+def _editIssuePropJs(formId):
 	paras = [ APP, formId, 'position:absolute;margin-left:15em;']
 	paras.extend( [ pagefn.BUTTONLABELS.get('confirmWindow').get(key) for key in ('confirm','cancel')] )
 	paras = tuple(paras)
@@ -413,6 +420,8 @@ def _editTitleJs(formId, editor):
 			MUI.closeModalDialog();
 			// show result
 			MUI.notification(response);
+			// refresh table grid
+			$$('.omnigrid')[0].retrieve('tableInstance').loadData();
 		    },
 
  		    display:{
@@ -450,7 +459,7 @@ def _editTitleJs(formId, editor):
 		var label = button.get('text');
 
 		if(label == confirmBnLabel){
-			issuEditFormChk.onSubmit(e);
+			titleEditFormChk.onSubmit(e);
 		}
 		else{
 			new Event(e).stop();
@@ -460,13 +469,14 @@ def _editTitleJs(formId, editor):
 	"""%paras
 	return js
 
-def page_editIssueAttrForm(**args):
-	''' Edit the value of a specified attribute of a issue item. '''
-	issueId, oldValue, prop, preferProp, preferValue = \
-		[args.get(name) for name in ('issueId', 'oldValue', 'prop', 'preferProp', 'preferValue')]
+def page_editIssuePropAction(**args):
+	''' Edit the value of the property of issue and save the result to database. '''
+	PRINT( 'Success')
+	editor, issueId = [args.pop(name) for name in ('editor','issueId')]
+	iprops = copy.deepcopy(args)
+	mprops = {}
 
-	if prop == 'title':
-		 _editIssueTitle(issueId, oldValue)
-
+	# edit the value of the property of this issue
+	issueId, msgId = model.edit_issue(editor, iprops, mprops, issueId, True)
 	return
 

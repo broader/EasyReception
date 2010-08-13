@@ -59,12 +59,14 @@ def page_issueDetail(**args):
 		return
 	title = _('Serial: ') + str(B(serial))
 	title = SPAN(title)
+	"""
 	buttons = [\
 		pagefn.sexyButton(txt,{'class': 'sexyblue', 'style':'margin-left:10px;'},bnType, 'sexysmall')\
 		for txt,bnType in zip( (_('Edit Issue'), _('Add Message')), ('edit', 'add'))\
 	]
 	bnContainerId = 'issueEditBns'
 	buttons = SPAN(Sum(buttons),**{ 'style':'margin-left:2em;','id':bnContainerId})
+	"""
 	
 	# issue information, such as title, key words, nosy, edit history
 	nodeId = model.serial2id(serial)
@@ -90,8 +92,8 @@ def page_issueDetail(**args):
 		print _('You have no permission for this action!')
 		return
 
-	#print DIV(Sum((title, buttons,HR(style="padding:0px;height:0.5px;"))))
-	print DIV(Sum((title, buttons)))
+	#print DIV(Sum((title, buttons)))
+	print DIV(title)
 	
 	# some detail information fields of this issue 
 	labels = copy.deepcopy(SUPPLEMENTLABELS)
@@ -120,23 +122,34 @@ def page_issueDetail(**args):
 	# list messages of this issue
 	messages = values.get('messages')
 	number = messages and len(messages) or '0'
-	print _("Messages of this issue"),HR(style="padding:0px;height:0.5px;")
+	print _("Messages of this issue"),
+
+	# add message button
+	msgBnId = 'addMessage'
+	button = pagefn.sexyButton( \
+		_('Add Message'), \
+		{'id':msgBnId, 'class': 'sexyblue', 'style':'margin-left:10px;'},\
+		'add',\
+		'sexysmall'\
+	)
+	print button,HR(style="padding:0px;height:0.5px;")
+
 	msgListContainer = '-'.join(('issue', nodeId, 'msgList'))
 	print DIV(**{'id': msgListContainer})
 
 	# js slice for show multiful messages in smart list format
-	print pagefn.script(_showMessagesJs(nodeId, bnContainerId, tableId, msgListContainer, messages),link=False)
+	print pagefn.script(_showMessagesJs(nodeId, msgBnId, tableId, msgListContainer, messages),link=False)
 	return
 
-def _showMessagesJs(nodeId, bnsContainer, tableId, msgListContainer, msgIds):
+def _showMessagesJs(nodeId, msgBnId, tableId, msgListContainer, msgIds):
 	''' Add callback functions for buttons, and show the messages in a smarlt lists format of each issue. '''
-	paras = [ APP, nodeId, bnsContainer]
+	paras = [ APP, nodeId, msgBnId]
 	issueEdit = [tableId, '/'.join((RELPATH, 'images/icons/16x16/comment_edit.png'))]
 	paras.extend(issueEdit)
 	paras.append( _('Edit Issue'))
 	actions = [ \
 		'/'.join(('/'.join(THIS.script_url.split('/')[:-1]), 'action.ks', name)) \
-		for name in ('page_editIssueForm','page_addMessageForm', 'page_editIssueAttrForm')\
+		for name in ('page_editIssueForm','page_addMessageForm', 'page_editIssuePropForm')\
 	]
 
 	paras.extend(actions)
@@ -154,7 +167,7 @@ def _showMessagesJs(nodeId, bnsContainer, tableId, msgListContainer, msgIds):
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName="%s", issueId="%s", bnsContainer="%s", 
+	var appName="%s", issueId="%s", addMsgBn="%s", 
 	    tableId="%s", editIssueImg="%s",
 	    editDlgTitle="%s", 
 	    editIssueUrl="%s", addMessageUrl="%s", editIssueAttrUrl="%s",
@@ -192,14 +205,11 @@ def _showMessagesJs(nodeId, bnsContainer, tableId, msgListContainer, msgIds):
 			width: 600, height: 450, y: 80, 
 			title: propNames[data.propIndex],
 			contentURL: url,
-			modalOverlayClose: false,
-			onClose: function(e){
-				alert('issue edit completed');
-			}
+			modalOverlayClose: false			
 		});
 	};
 
-	function addButton(index){
+	function editButton(index){
 		options = {
 			txt: 'Edit',
 			imgType: 'edit',
@@ -217,7 +227,7 @@ def _showMessagesJs(nodeId, bnsContainer, tableId, msgListContainer, msgIds):
 		$(tr).setStyle('height', '40px');
 		if(index==4) return;
 		td = new Element('td');
-		td.grab(addButton(index));
+		td.grab(editButton(index));
 		tr.grab(td);
 	});
 	
@@ -261,36 +271,10 @@ def _showMessagesJs(nodeId, bnsContainer, tableId, msgListContainer, msgIds):
 
 	MUI.smartList(appName, {'onload': messagesList});
 
-	// add bns callback functions
-	$(bnsContainer).getChildren().each(function(bn,index){
-		bn.addEvent('click', function(e){
-			new Event(e).stop();
-			bnActionsAdapter(index);
-		});
+	// callback function for add message button
+	$(addMsgBn).addEvent('click', function(e){
+		alert('add message');
 	});
-	
-	function bnActionsAdapter(index){
-		switch (index){
-			case 0 :
-				// edit issue action
-				query = $H(); 
-				query.combine({'id': issueId});
-				url = [editIssueUrl, query.toQueryString()].join('?');
-				new MUI.Modal({
-					width: 600, height: 450, y: 80, title: editDlgTitle,
-					contentURL: url,
-					modalOverlayClose: false,
-					onClose: function(e){
-						alert('issue edit completed');
-					}
-				});
-				break;
-			case 1 :
-				// create messae action
-				alert(1);
-				break;
-		};
-	};
 
 	"""%paras
 	return js	
@@ -357,7 +341,10 @@ def _issueListJs(container):
 	
 	paras.append('/'.join(('/'.join(THIS.script_url.split('/')[:-1]), 'action.ks', 'page_createIssueForm')))
 	paras.append(_('Create a new issue'))
+
+	# set the right panel id
 	paras.append(pagefn.ISSUE['userView']['rightColumn']['panelId'])
+
 	paras.append(SERIALPROP)
 	paras = tuple(paras)
 	js = \
@@ -437,11 +424,7 @@ def _issueListJs(container):
 			case 0 :	// 'create' action
 				createIssue(issueGrid, data.action);
 				break;
-			case 1 :// 'edit' action
-				alert('edit action');
-				alert(issueGrid.getSelectedIndices().length);
-				break;
-			case 2:
+			case 1 :
 				alert('delete action');
 				break;
 		};
@@ -491,6 +474,8 @@ def _issueListJs(container):
 		
 		issueGrid.addEvent('dblclick', issueGridRowAction);
 		issueGrid.addEvent('click', issueGridShow);
+		// save the omniGrid instance
+		$$('.omnigrid')[0].store('tableInstance',issueGrid);
 	};
 	
 	function issueGridShow(event){

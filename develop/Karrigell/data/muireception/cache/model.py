@@ -547,7 +547,7 @@ def delete_items(operator, klass, keys, isId=True):
 		client.db.close()
 	return  actionRes
 
-def edit_issue(operator, iprops, mprops, serial=None):
+def edit_issue(operator, iprops, mprops, serial=None, isId=False):
 	""" A function to do 'CRUD' actions for issue class.
 	  Parameters:
 	  	operator-operator name
@@ -557,7 +557,10 @@ def edit_issue(operator, iprops, mprops, serial=None):
 	  	serial-the value of 'serial' property of this issue
 	"""
 	if serial:
-		issueId = serial2id(serial)
+		if not isId:
+			issueId = serial2id(serial)
+		else:
+			issueId = serial
 		edit_item(operator, 'issue', issueId, iprops, keyIsId=True)
 	else:
 		# create a new issue
