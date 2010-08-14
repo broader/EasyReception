@@ -1,4 +1,4 @@
-['page_createIssueForm', 'page_createIssueAction', 'page_editIssueForm', 'page_getNosy4issue', 'page_editIssuePropForm', 'page_editIssuePropAction']
+['page_createIssueForm', 'page_createIssueAction', 'page_getNosy4issue', 'page_editIssuePropForm', 'page_editIssuePropAction']
 """
 Pages mainly for actions on 'issue'.
 """
@@ -41,6 +41,14 @@ PROPS =\
 	{'name': 'message','prompt': _('Content'), 'type': 'textarea', 'validate': [],'required': True},
 ]
 
+def _getKeywords():
+	values = model.get_items_ByString(USER, 'relation', {'klassname':'keyword', 'relateclass':'issue'}, propnames=('klassvalue',))
+	if values and type(values) != type(''):
+		options = values[0][0].split(',')
+	else:
+		options = []
+	return options
+
 def page_createIssueForm(**args):
 	creator = args.get('creator') or USER
 
@@ -57,12 +65,7 @@ def page_createIssueForm(**args):
 		prop['type'] = prop.get('type') or 'input'
 		prop['id'] = prop['name']
 		if prop['name'] == 'keyword':
-			values = model.get_items_ByString(USER, 'relation', {'klassname':'keyword', 'relateclass':'issue'}, propnames=('klassvalue',))
-			if values and type(values) != type(''):
-				options = values[0][0].split(',')
-			else:
-				options = []
-			prop['options'] = options
+			prop['options'] = _getKeywords()
 
 	div = DIV(Sum(formFn.yform(props)))
 	form.append(FIELDSET(div))
@@ -234,56 +237,6 @@ ISSUEPROPS =\
 	{'name': 'nosy','prompt': _('Nosy'),'validate': [],'required': True, 'type':'mtMultiSelect', 'containerStyle':'border: 0.5px solid #DDDDDD;'},
 	{'name': 'assignedto','prompt': _('Assinged Person'), 'validate': [],'required': True, 'type':'select'},
 ]
-def page_editIssueForm(**args):
-	''' The form page to edit the properties of a roundup.issue class item. '''
-
-	editor = args.get('user') or USER
-
-	# get old values of the properties to be edit
-	issueId = args.get('id')
-	props = [ attr.get('name') for attr in ISSUEPROPS ]
-
-	oldValues = model.get_item(editor, 'issue', issueId, props, keyIsId=True)
-	form = []
-	for prop in ISSUEPROPS:
-		prop['oldvalue'] = oldValues.get(prop['name']) or ''
-		prop['id'] = prop['name']
-		if prop['name'] == 'keyword':
-			values = model.get_items_ByString(USER, 'relation', {'klassname':'keyword', 'relateclass':'issue'}, propnames=('klassvalue',))
-			if values and type(values) != type(''):
-				options = values[0][0].split(',')
-			else:
-				options = []
-			prop['options'] = options
-		elif prop['name'] == 'nosy':
-			url = '/'.join((APPATH,'page_getNosy4issue'))
-			query = {NOSYOLD: prop['oldvalue'],}
-			query = ['='.join((key, value)) for key,value in query.items()]
-			query = '&'.join(query)
-			url = '?'.join((url, query))
-			prop.update({'dataUrl':url,'fieldName':prop['name'], 'itemsPerPage':3})
-		elif prop['name'] == 'assignedto':
-			prop['options'] = [{'label': str(item), 'value': str(item)} for item in _getNosy('') ]
-
-
-	div = DIV(Sum(formFn.yform(ISSUEPROPS)))
-	form.append(FIELDSET(div))
-
-	# append hidden field that points out the action type
-	#[item.update({'type':'hidden'}) for item in hideInput]
-	#[ form.append(INPUT(**item)) for item in hideInput ]
-
-	formId = 'issueEdit'
-	form = FORM( \
-		Sum(form),\
-		**{'action': '/'.join((APPATH,'page_editIssueAction')), 'id': formId, 'method':'post','class':'yform'}\
-	)
-
-	PRINT( form)
-	# import js slice
-	PRINT( pagefn.script(_editIssueJs(formId, editor),link=False))
-
-	return
 
 NOSYOLD = 'oldvalue'
 def page_getNosy4issue(**args):
@@ -305,73 +258,6 @@ def page_getNosy4issue(**args):
 	PRINT( JSON.encode(values, encoding='utf8'))
 	return
 
-def _editIssueJs(formId, editor):
-	paras = [ APP, formId, 'position:absolute;margin-left:15em;']
-	paras.extend( [ pagefn.BUTTONLABELS.get('confirmWindow').get(key) for key in ('confirm','cancel')] )
-	paras = tuple(paras)
-	js = \
-	"""
-	var appName='%s', formId='%s', bnStyle='%s',
-	confirmBnLabel='%s',cancelBnLabel='%s';
-
-	var issueEditFormChk;
-	// Load the form validation plugin script
-	var issueOptions = {
-	    onload:function(){
-		issuEditFormChk = new FormCheck(formId,{
-		    submitByAjax: true,
-		    onAjaxSuccess: function(response){
-			// close modal
-			MUI.closeModalDialog();
-			// show result
-			MUI.notification(response);
-		    },
-
- 		    display:{
-			errorsLocation : 1,
-			keepFocusOnError : 0,
-			scrollToFirst : false
-		    }
-		});// the end for 'issueCreationFormChk' definition
-
-	    }// the end for 'onload' definition
-	};// the end for 'options' definition
-
-   	MUI.formValidLib(appName,issueOptions);
-
-	// add action buttons
-	var bnContainer = new Element('div',{style: bnStyle});
-	$(formId).adopt(bnContainer);
-
-	[
-	    {'type':'accept','label': confirmBnLabel},
-	    {'type':'cancel','label': cancelBnLabel}
-	].each(function(attrs,index){
-	    options = {
-		txt: attrs['label'],
-		imgType: attrs['type'],
-		bnAttrs: {'style':'margin-right:1em;'}
-	    };
-	    button = MUI.styledButton(options);
-	    button.addEvent('click',actionAdapter);
-	    bnContainer.grab(button);
-	});
-
-	function actionAdapter(e){
-		var button = e.target;
-		var label = button.get('text');
-
-		if(label == confirmBnLabel){
-			issuEditFormChk.onSubmit(e);
-		}
-		else{
-			new Event(e).stop();
-			MUI.closeModalDialog();
-		};
-	};
-	"""%paras
-	return js
-
 def _propFormAdapter(**args):
 	''' Construct filed's values corresponding to the property name. '''
 	oldValue, prop, preferProp, preferValue = \
@@ -382,7 +268,9 @@ def _propFormAdapter(**args):
 	form[0]['oldvalue'] = oldValue
 	form[0]['id'] = prop
 	if prop == 'keyword':
-		pass
+		form[0]['type'] = 'check'
+		form[0]['name'] = prop
+		form[0]['options'] = [{'label':keyword, 'value':keyword} for keyword in _getKeywords()]
 	elif prop == 'nosy':
 		pass
 	elif prop == 'assignedto':
@@ -502,6 +390,15 @@ def page_editIssuePropAction(**args):
 	''' Edit the value of the property of issue and save the result to database. '''
 	editor, issueId = [args.pop(name) for name in ('editor','issueId')]
 	iprops = copy.deepcopy(args)
+
+	# judge whether the argument includes multiful values of checkboxes
+	if len(iprops.keys()) > 1:
+		key, value = iprops.popitem()
+		key = key.split('-')[0]
+		values = iprops.values()
+		values.append(value)
+		iprops = {key: ','.join(values)}
+
 	mprops = {}
 
 	# edit the value of the property of this issue

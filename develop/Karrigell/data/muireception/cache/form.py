@@ -140,6 +140,37 @@ def _mtMultiSelect(field, oldvalue):
 	script = pagefn.script(js, link=False)
 	return Sum( [ DIV(**{'id':msContainerId, 'style': containerStyle}), script])
 
+def _check(field, oldValue) :
+	'''
+	Return a group of checkboxes components.
+	Parameters:
+	  field - {'name':..., 'prompt':..., 'options':[{'label':..., 'value':...},...]}
+	  oldValue - the old checked values
+	'''
+
+	options = field.pop("options")
+	if not oldValue:
+		oldValue = ''
+
+	tags = []
+
+	_labels, _values = [ [option.get(name) for option in options] for name in ('label', 'value')]
+	#chkBoxes = CHECKBOX(_labels, _values, **{'name': field.get("name") or ''})
+	chkBoxes = CHECKBOX(_labels, _values)
+	prefix = field.get('name') or ''
+	for index, (label, tag) in enumerate(chkBoxes):
+		tag.attrs['name'] = '-'.join((prefix, str(index)))
+
+	# set checked value
+	checked = [ label for label,value in chkBoxes if label in oldValue ]
+	chkBoxes.check(content=checked)
+
+	# construct html tags
+	[ tags.append(DIV(Sum((tag, LABEL(label))), **{'class':'type-check'})) \
+	  for label,tag in chkBoxes ]
+
+	return Sum(tags)
+
 def getField(field):
 	"""
 	Render YAML formats form field.
@@ -218,12 +249,15 @@ def getField(field):
 		elif fieldType == 'mtMultiSelect':
 			# select multiful values in multiful pages
 			input = _mtMultiSelect(field, oldvalue)
+		elif fieldType == 'check':
+			# a group of checkboxes
+			input = _check(field, oldvalue)
 
 	div.append(input)
 
 	if fieldType in ("text", "textarea", "input", "password"):
 		ctype = "-".join(("type", "text"))
-	elif fieldType in ( "radio", "multiselect" ):
+	elif fieldType in ( "radio", "multiselect"):
 		ctype = "-".join(("type", "check"))
 	else:
 		ctype = "-".join(("type", fieldType))

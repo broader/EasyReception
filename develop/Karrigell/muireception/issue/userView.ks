@@ -461,7 +461,7 @@ def _issueListJs(container):
 			perPage:15, page:1, pagination:true, serverSort:true,
 			showHeader: true, sortHeader: true, alternaterows: true,
 			resizeColumns: true, multipleSelection:true,
-			width:650, height: 400 
+			width:700, height: 400 
 		});
 		
 		issueGrid.addEvent('dblclick', issueGridRowAction);

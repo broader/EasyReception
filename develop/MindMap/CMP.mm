@@ -1732,7 +1732,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1281666048838" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1281767228045" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -2219,7 +2219,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1257233438846" ID="ID_1216660804" MODIFIED="1281665127326" TEXT="Web Map">
+<node COLOR="#00b439" CREATED="1257233438846" FOLDED="true" ID="ID_1216660804" MODIFIED="1281767195868" TEXT="Web Map">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="help"/>
@@ -3610,7 +3610,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1281753823793" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1281767186612" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1273030192723" FOLDED="true" ID="ID_344232506" MODIFIED="1278550879062" TEXT="Idea">
@@ -3644,7 +3644,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1265252373668" ID="ID_1883535158" MODIFIED="1281666055963" TEXT="Layout">
+<node COLOR="#00b439" CREATED="1265252373668" FOLDED="true" ID="ID_1883535158" MODIFIED="1281753881666" TEXT="Layout">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1269055913285" ID="ID_718060145" MODIFIED="1277366427294" TEXT="Examples">
@@ -4215,7 +4215,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1269221727192" ID="ID_1898107076" MODIFIED="1280286191407" TEXT="Blutprint Tools">
+<node COLOR="#00b439" CREATED="1269221727192" FOLDED="true" ID="ID_1898107076" MODIFIED="1281753885000" TEXT="Blutprint Tools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1269221731233" ID="ID_897924523" LINK="http://www.evolus.vn/pencil/" MODIFIED="1273032696200" TEXT="http://www.evolus.vn/pencil/">
@@ -4311,7 +4311,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1271132646423" ID="ID_1347972744" MODIFIED="1281753846098" TEXT="Portal">
+<node COLOR="#00b439" CREATED="1271132646423" FOLDED="true" ID="ID_1347972744" MODIFIED="1281753883493" TEXT="Portal">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -5433,7 +5433,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1280286221408" FOLDED="true" ID="ID_767321368" MODIFIED="1280288169072" POSITION="right" TEXT="Expand Direction">
+<node COLOR="#0033ff" CREATED="1280286221408" ID="ID_767321368" MODIFIED="1281767238866" POSITION="right" TEXT="Expand Direction">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1280286228167" ID="ID_1157419451" MODIFIED="1280286241194" TEXT="Intelligence Search">
@@ -5459,6 +5459,16 @@
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1280287158181" ID="ID_715994856" LINK="http://zesty.ca/chat/chat.cgi?handle=testChat" MODIFIED="1280287171417" TEXT="http://zesty.ca/chat/chat.cgi?handle=testChat">
 <font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1281767249608" ID="ID_92462856" MODIFIED="1281767254013" TEXT="Schedule">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1281767256063" ID="ID_1699152031" MODIFIED="1281767263895" TEXT="Prefered Projects">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1281767276364" ID="ID_765573581" LINK="http://plan.mathieusavard.info/" MODIFIED="1281767280679" TEXT="http://plan.mathieusavard.info/">
+<node COLOR="#111111" CREATED="1281767294858" ID="ID_902946735" MODIFIED="1281767304490" TEXT="user:t_fan, pwd:test42"/>
 </node>
 </node>
 </node>
