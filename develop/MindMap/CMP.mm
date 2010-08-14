@@ -3610,7 +3610,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1281668566477" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1281753823793" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1273030192723" FOLDED="true" ID="ID_344232506" MODIFIED="1278550879062" TEXT="Idea">
@@ -4311,12 +4311,12 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1271132646423" FOLDED="true" ID="ID_1347972744" MODIFIED="1278550881063" TEXT="Portal">
+<node COLOR="#00b439" CREATED="1271132646423" ID="ID_1347972744" MODIFIED="1281753846098" TEXT="Portal">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="messagebox_warning"/>
 <icon BUILTIN="desktop_new"/>
-<node COLOR="#990000" CREATED="1271132736979" ID="ID_629760276" MODIFIED="1271132739612" TEXT="Login">
+<node COLOR="#990000" CREATED="1271132736979" FOLDED="true" ID="ID_629760276" MODIFIED="1281753850873" TEXT="Login">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1274668675233" ID="ID_551567135" MODIFIED="1274668689256" TEXT="Slide down login panel">
 <node COLOR="#111111" CREATED="1271132650043" ID="ID_1001020435" LINK="http://tutorialzine.com/2009/10/cool-login-system-php-jquery/" MODIFIED="1271132742622" TEXT="http://tutorialzine.com/2009/10/cool-login-system-php-jquery/">
@@ -4332,7 +4332,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1271132864013" ID="ID_1793446708" LINK="http://tutorialzine.com/2009/09/shopping-cart-php-jquery/" MODIFIED="1271132881765" TEXT="http://tutorialzine.com/2009/09/shopping-cart-php-jquery/"/>
 </node>
-<node COLOR="#990000" CREATED="1271132935825" FOLDED="true" ID="ID_33291924" MODIFIED="1278423087009" TEXT="Layout">
+<node COLOR="#990000" CREATED="1271132935825" ID="ID_33291924" MODIFIED="1281753852280" TEXT="Layout">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1277253175871" ID="ID_1732694012" MODIFIED="1277253177965" TEXT="Client">
 <node COLOR="#111111" CREATED="1271132939957" ID="ID_332530851" LINK="http://tutorialzine.com/2009/09/simple-ajax-website-jquery/" MODIFIED="1271132943262" TEXT="http://tutorialzine.com/2009/09/simple-ajax-website-jquery/"/>
@@ -4345,9 +4345,10 @@
 <node COLOR="#111111" CREATED="1277253255978" ID="ID_1241024751" MODIFIED="1277253266766" TEXT="login style">
 <node COLOR="#111111" CREATED="1277253267685" ID="ID_373089280" LINK="http://www.opendesigns.org/od/wp-content/designs/2/2004/?KeepThis=true&amp;TB_iframe=true" MODIFIED="1277253271026" TEXT="http://www.opendesigns.org/od/wp-content/designs/2/2004/?KeepThis=true&amp;TB_iframe=true"/>
 </node>
-<node COLOR="#111111" CREATED="1277282775330" ID="ID_866011761" MODIFIED="1277282780349" TEXT="portalet">
+<node COLOR="#111111" CREATED="1277282775330" ID="ID_866011761" MODIFIED="1281753867922" TEXT="portalet">
 <node COLOR="#111111" CREATED="1277282782639" ID="ID_1170964119" LINK="http://pupunzi.com/#mb.components/mb.containerPlus/containerPlus.html" MODIFIED="1277282786020" TEXT="http://pupunzi.com/#mb.components/mb.containerPlus/containerPlus.html"/>
 </node>
+<node COLOR="#111111" CREATED="1281753830824" ID="ID_719639680" LINK="http://moodle.org/" MODIFIED="1281753834240" TEXT="http://moodle.org/"/>
 </node>
 </node>
 </node>

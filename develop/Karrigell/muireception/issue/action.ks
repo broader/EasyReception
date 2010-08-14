@@ -101,8 +101,12 @@ def _createIssueJs(formId, creator):
 		    onAjaxSuccess: function(response){
 			// close modal
 			MUI.closeModalDialog(); 
-			// show result
-			MUI.notification(response);
+
+			if(response==0) return;
+
+			// refresh table grid
+			$$('.omnigrid')[0].retrieve('tableInstance').loadData();
+
 		    },            
 		    
  		    display:{
@@ -367,18 +371,32 @@ def _editIssueJs(formId, editor):
 	"""%paras
 	return js
 
+def _propFormAdapter(**args):
+	''' Construct filed's values corresponding to the property name. '''
+	oldValue, prop, preferProp, preferValue = \
+		[args.get(name) for name in ('oldValue', 'prop', 'preferProp', 'preferValue')]
 
-def page_editIssuePropForm(**args):
-	''' print the html form for editing the value of a specified attribute of a issue item. '''
-	issueId, oldValue, prop, preferProp, preferValue = \
-		[args.get(name) for name in ('issueId', 'oldValue', 'prop', 'preferProp', 'preferValue')]
-	
-	
-	editor = USER
 	# get old values of the properties to be edit
 	form = [item for item in ISSUEPROPS if item['name'] == prop ]
 	form[0]['oldvalue'] = oldValue
 	form[0]['id'] = prop
+	if prop == 'keyword':
+		pass
+	elif prop == 'nosy':
+		pass
+	elif prop == 'assignedto':
+		pass
+
+	return form
+
+def page_editIssuePropForm(**args):
+	''' print the html form for editing the value of a specified attribute of a issue item. '''
+	issueId, prop =	[args.get(name) for name in ('issueId', 'prop')]
+	
+	editor = USER
+	# get old values of the properties to be edit
+	form = _propFormAdapter(**args)
+	
 	div = DIV(Sum(formFn.yform(form)))
 	forms = [FIELDSET(div),]
 	
@@ -395,35 +413,43 @@ def page_editIssuePropForm(**args):
 	
 	print form
 	# import js slice
-	print pagefn.script(_editIssuePropJs(formId),link=False)
+	print pagefn.script(_editIssuePropJs(formId, issueId),link=False)
 
 	return
 
-def _editIssuePropJs(formId):
-	paras = [ APP, formId, 'position:absolute;margin-left:15em;']
+def _editIssuePropJs(formId, issueId):
+	paras = [ APP, pagefn.ISSUE['userView']['rightColumn']['panelId'], issueId, formId, 'position:absolute;margin-left:15em;']
 	paras.extend( [ pagefn.BUTTONLABELS.get('confirmWindow').get(key) for key in ('confirm','cancel')] )
+	paras.append('/'.join(('/'.join(THIS.script_url.split('/')[:-1]), 'userView.ks', 'page_issueDetail')))
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName='%s', formId='%s', bnStyle='%s',
-	confirmBnLabel='%s',cancelBnLabel='%s';
+	var appName="%s", infoPanel="%s", issueId="%s", formId="%s", 
+	    bnStyle="%s", confirmBnLabel="%s",cancelBnLabel="%s",
+	    infoUrl="%s";
 	
-	var titleEditFormChk;
+	var propEditFormChk;
 	// Load the form validation plugin script
-	var titleEditOptions = {
+	var propEditOptions = {
 	    onload:function(){ 
-		titleEditFormChk = new FormCheck(formId,{
+		propEditFormChk = new FormCheck(formId,{
 		    submitByAjax: true,
 		    onAjaxSuccess: function(response){
 			// close modal
 			MUI.closeModalDialog(); 
-			// show result
-			MUI.notification(response);
-			if(response!='1') return;
+			
+			if(response!=1) return;
+
 			// refresh table grid
 			$$('.omnigrid')[0].retrieve('tableInstance').loadData();
+
 			// refresh the detail information of this issue
-			
+			var q = $H();
+			q['issueId'] = issueId;
+			var url = [ infoUrl, q.toQueryString()].join('?');
+			var panel = MUI.getPanel(infoPanel);
+			panel.options.contentURL = url;
+			panel.newPanel();
 		    },            
 		    
  		    display:{
@@ -436,7 +462,7 @@ def _editIssuePropJs(formId):
 	    }// the end for 'onload' definition
 	};// the end for 'options' definition
  
-   	MUI.formValidLib(appName,titleEditOptions);
+   	MUI.formValidLib(appName,propEditOptions);
 	
 	// add action buttons	
 	var bnContainer = new Element('div',{style: bnStyle});
@@ -461,7 +487,7 @@ def _editIssuePropJs(formId):
 		var label = button.get('text');
 		
 		if(label == confirmBnLabel){
-			titleEditFormChk.onSubmit(e);
+			propEditFormChk.onSubmit(e);
 		}
 		else{
 			new Event(e).stop();
@@ -473,11 +499,11 @@ def _editIssuePropJs(formId):
 
 def page_editIssuePropAction(**args):
 	''' Edit the value of the property of issue and save the result to database. '''
-	print 'Success'
 	editor, issueId = [args.pop(name) for name in ('editor','issueId')]
 	iprops = copy.deepcopy(args) 
 	mprops = {}
 	
 	# edit the value of the property of this issue  
 	issueId, msgId = model.edit_issue(editor, iprops, mprops, issueId, True)
+	print '1'
 	return

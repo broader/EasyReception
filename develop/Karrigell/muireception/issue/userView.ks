@@ -53,21 +53,17 @@ ISSUELISTCOLUMNS = \
 SUPPLEMENTLABELS = {'assignedto':_('Assignedto'), 'actor':_('Actor'), 'nosy': _('Nosy')}
 SERIALPROP = ISSUELISTCOLUMNS[0].get('name')
 def page_issueDetail(**args):
-	serial = args.get(SERIALPROP)
-	if not serial:
+	serial,issueId = [ args.get(name) for name in (SERIALPROP, 'issueId')]
+	if serial:
+		pass
+	elif issueId:
+		serial = model.get_item(USER, 'issue', issueId, props=('serial',), keyIsId=True)['serial']	
+	else:
 		print _('Please select a issue by clicking one row on the left table!')
 		return
 	title = _('Serial: ') + str(B(serial))
 	title = SPAN(title)
-	"""
-	buttons = [\
-		pagefn.sexyButton(txt,{'class': 'sexyblue', 'style':'margin-left:10px;'},bnType, 'sexysmall')\
-		for txt,bnType in zip( (_('Edit Issue'), _('Add Message')), ('edit', 'add'))\
-	]
-	bnContainerId = 'issueEditBns'
-	buttons = SPAN(Sum(buttons),**{ 'style':'margin-left:2em;','id':bnContainerId})
-	"""
-	
+		
 	# issue information, such as title, key words, nosy, edit history
 	nodeId = model.serial2id(serial)
 	props = ('title', 'keyword', 'nosy', 'creation', 'creator', 'activity', 'actor', 'messages', 'assignedto')
@@ -436,11 +432,7 @@ def _issueListJs(container):
 		new MUI.Modal({
          		width: 450, height: 320, y: 80, title: createTitle,
          		contentURL: createUrl,
-         		modalOverlayClose: false,
-			onClose: function(e){
-				// reload grid data
-      				ti.loadData();
-      			}
+         		modalOverlayClose: false
          	});
 	};
 
