@@ -2039,3 +2039,446 @@ sent 135790 bytes  received 31 bytes  271642.00 bytes/sec
 total size is 929787  speedup is 6.85
 2010-08-14 17:40:53,616 INFO End backup loacl karrigell diretory to local git.
 2010-08-14 17:40:53,616 INFO Begin to backup local github to remote github host.
+2010-08-14 17:40:54,287 INFO Command: 
+git add .
+running result is :
+2010-08-14 17:41:04,834 INFO Command: 
+git commit -m 'Update time:2010-08-14T17:40:53.616296'
+running result is :[master 8fdc9ea] Update time:2010-08-14T17:40:53.616296
+ Committer: Broader ZHONG <broader@laptop-ubuntu.10.04>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+If the identity used for this commit is wrong, you can fix it with:
+
+    git commit --amend --author='Your Name <you@example.com>'
+
+ 27 files changed, 695 insertions(+), 262 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010081407.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010081406.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010081407.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010081409.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010081414.log
+ create mode 100644 develop/Karrigell/data/muireception/sessions/T924B19sCuxZjtDW
+ create mode 100644 develop/Karrigell/data/muireception/sessions/wvtoSi9wmX61G6Op
+2010-08-14 17:41:15,492 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   b08e3fc..8fdc9ea  master -> master
+2010-08-14 17:41:15,492 INFO End backup local github to remote github host.
+2010-08-14 21:37:32,841 INFO Delete nousing captcha images
+2010-08-14 21:37:32,887 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-08-14 21:37:32,887 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-08-14 21:37:34,860 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010081420.log
+        2364 100%    0.00kB/s    0:00:00          2364 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1008/3997)
+data/cms/sessions/KKkAfHGCTdmSx23h
+         204 100%    2.21kB/s    0:00:00           204 100%    2.21kB/s    0:00:00 (xfer#2, to-check=2435/5682)
+data/muireception/
+deleting data/muireception/logs_2010081414.log
+deleting data/muireception/logs_2010081409.log
+deleting data/muireception/logs_2010081408.log
+deleting data/muireception/logs_2010081407.log
+deleting data/muireception/logs_2010081406.log
+deleting data/muireception/logs_2010081402.log
+deleting data/muireception/logs_2010081401.log
+deleting data/muireception/logs_2010081400.log
+deleting data/muireception/logs_2010081314.log
+deleting data/muireception/logs_2010081309.log
+deleting data/muireception/logs_2010081308.log
+deleting data/muireception/logs_2010081306.log
+deleting data/muireception/logs_2010081303.log
+deleting data/muireception/logs_2010081302.log
+deleting data/muireception/logs_2010081301.log
+deleting data/muireception/logs_2010081300.log
+deleting data/muireception/logs_2010081221.log
+deleting data/muireception/logs_2010081215.log
+deleting data/muireception/logs_2010081213.log
+deleting data/muireception/logs_2010081209.log
+deleting data/muireception/logs_2010081207.log
+deleting data/muireception/logs_2010081203.log
+deleting data/muireception/logs_2010081202.log
+deleting data/muireception/logs_2010081201.log
+deleting data/muireception/logs_2010081120.log
+deleting data/muireception/logs_2010081114.log
+deleting data/muireception/logs_2010081113.log
+deleting data/muireception/logs_2010081112.log
+deleting data/muireception/logs_2010081109.log
+deleting data/muireception/logs_2010081108.log
+deleting data/muireception/logs_2010081107.log
+deleting data/muireception/logs_2010081106.log
+deleting data/muireception/logs_2010081009.log
+deleting data/muireception/logs_2010081003.log
+deleting data/muireception/logs_2010081002.log
+deleting data/muireception/logs_2010081001.log
+deleting data/muireception/logs_2010080811.log
+deleting data/muireception/logs_2010080803.log
+deleting data/muireception/logs_2010080714.log
+deleting data/muireception/logs_2010080713.log
+deleting data/muireception/logs_2010080709.log
+deleting data/muireception/logs_2010080702.log
+deleting data/muireception/logs_2010080701.log
+deleting data/muireception/logs_2010080615.log
+deleting data/muireception/logs_2010080609.log
+deleting data/muireception/logs_2010080607.log
+deleting data/muireception/logs_2010080603.log
+deleting data/muireception/logs_2010080602.log
+deleting data/muireception/logs_2010080601.log
+deleting data/muireception/logs_2010080416.log
+deleting data/muireception/logs_2010080410.log
+deleting data/muireception/logs_2010080408.log
+deleting data/muireception/logs_2010080402.log
+deleting data/muireception/logs_2010073116.log
+deleting data/muireception/logs_2010073111.log
+deleting data/muireception/logs_2010073108.log
+deleting data/muireception/logs_2010073103.log
+deleting data/muireception/logs_2010073015.log
+deleting data/muireception/logs_2010073014.log
+deleting data/muireception/logs_2010073008.log
+deleting data/muireception/logs_2010073007.log
+deleting data/muireception/logs_2010073002.log
+deleting data/muireception/logs_2010073001.log
+deleting data/muireception/logs_2010073000.log
+deleting data/muireception/logs_2010072920.log
+deleting data/muireception/logs_2010072912.log
+deleting data/muireception/logs_2010072809.log
+deleting data/muireception/logs_2010072803.log
+deleting data/muireception/logs_2010072802.log
+deleting data/muireception/logs_2010072801.log
+deleting data/muireception/logs_2010072722.log
+deleting data/muireception/logs_2010072721.log
+deleting data/muireception/logs_2010072720.log
+deleting data/muireception/logs_2010072715.log
+deleting data/muireception/logs_2010072714.log
+deleting data/muireception/logs_2010072713.log
+deleting data/muireception/logs_2010072712.log
+deleting data/muireception/logs_2010072709.log
+deleting data/muireception/logs_2010072708.log
+deleting data/muireception/logs_2010072707.log
+deleting data/muireception/logs_2010072703.log
+deleting data/muireception/logs_2010072702.log
+deleting data/muireception/logs_2010072701.log
+deleting data/muireception/logs_2010072621.log
+deleting data/muireception/logs_2010072614.log
+deleting data/muireception/logs_2010072613.log
+deleting data/muireception/logs_2010072609.log
+deleting data/muireception/logs_2010072608.log
+deleting data/muireception/logs_2010072607.log
+deleting data/muireception/logs_2010072606.log
+deleting data/muireception/logs_2010072602.log
+deleting data/muireception/logs_2010072601.log
+deleting data/muireception/logs_2010072600.log
+deleting data/muireception/logs_2010072523.log
+deleting data/muireception/logs_2010072518.log
+deleting data/muireception/logs_2010072515.log
+deleting data/muireception/logs_2010072510.log
+deleting data/muireception/logs_2010072418.log
+deleting data/muireception/logs_2010072410.log
+data/muireception/cache/form.py
+        9444 100%   55.23kB/s    0:00:00          9444 100%   55.23kB/s    0:00:00 (xfer#3, to-check=2401/5682)
+data/muireception/cache/issue/action.ks
+       12343 100%   71.32kB/s    0:00:00         12343 100%   70.90kB/s    0:00:00 (xfer#4, to-check=2375/5682)
+data/muireception/cache/issue/userView.ks
+       20209 100%  114.08kB/s    0:00:00         20209 100%  113.42kB/s    0:00:00 (xfer#5, to-check=2374/5682)
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%  179.78kB/s    0:00:01        362496 100%    1.77MB/s    0:00:00 (xfer#6, to-check=2337/5682)
+data/muireception/sessions/
+deleting data/muireception/sessions/zj7c3SPskIkDtoFn
+deleting data/muireception/sessions/zfvXdIIKIz46kUjD
+deleting data/muireception/sessions/zd2ntL6SN7xblZIA
+deleting data/muireception/sessions/ybzn95vvWYVqLqSY
+deleting data/muireception/sessions/ybCTQQKKBnHlQzdX
+deleting data/muireception/sessions/yWdPIlZI7BlqRXMk
+deleting data/muireception/sessions/yN4nTOTgkVDfYCzh
+deleting data/muireception/sessions/yEmiBnkmTT7lXvfl
+deleting data/muireception/sessions/yDFIBsJtKMJf9DOA
+deleting data/muireception/sessions/xdOd8DxT1YKblPRE
+deleting data/muireception/sessions/xGoDAnvulsUsJCIm
+deleting data/muireception/sessions/xFhl8jlWVV8p6nyk
+deleting data/muireception/sessions/wvtoSi9wmX61G6Op
+deleting data/muireception/sessions/wo1ktyMwwL2aoIzJ
+deleting data/muireception/sessions/wdn6NIoISS42ekdk
+deleting data/muireception/sessions/wZi6Se5sBsIzbW54
+deleting data/muireception/sessions/wFWf26iBen2zlp1B
+deleting data/muireception/sessions/w7TGFDYJ03hJ62OP
+deleting data/muireception/sessions/w24KOMafxvaR42qS
+deleting data/muireception/sessions/vrNAjbSonCJWPPd9
+deleting data/muireception/sessions/vmGIBj5Yz6F0YBRW
+deleting data/muireception/sessions/vTOT9Rima31FDHmk
+deleting data/muireception/sessions/uasXMDEIM0O3UJqq
+deleting data/muireception/sessions/uYfwQGtWUMPv36rA
+deleting data/muireception/sessions/u4xamUKIImn26fGA
+deleting data/muireception/sessions/u3NzFq7KWN9LYtn9
+deleting data/muireception/sessions/twDg9LmEOcBiEHlb
+deleting data/muireception/sessions/tm0HYrEDnaIpRDt8
+deleting data/muireception/sessions/tUmj5FjxEX7fNY2j
+deleting data/muireception/sessions/tOwEgGy4eLKD0GeZ
+deleting data/muireception/sessions/tNLyXmomvY1IjUAl
+deleting data/muireception/sessions/tIsA1ImJqRL9j7kY
+deleting data/muireception/sessions/t2wpODeuiDJWp0OE
+deleting data/muireception/sessions/szjc3j3Wh9guogQJ
+deleting data/muireception/sessions/sUlYFomOAEfCithk
+deleting data/muireception/sessions/sFt3uUAkjbtddTTi
+deleting data/muireception/sessions/sCiV8yiuYg1yIjVz
+deleting data/muireception/sessions/ruswPtnbL6XmDh8i
+deleting data/muireception/sessions/rag2PssXRrIWx9Ne
+deleting data/muireception/sessions/rJ2Pae4hU6lzZcCo
+deleting data/muireception/sessions/rCUivGdkumT3GCPh
+deleting data/muireception/sessions/r88TRjnNblgl8TBE
+deleting data/muireception/sessions/r07s2IYQEYFyujmW
+deleting data/muireception/sessions/qyBElK9x0yYr4bkX
+deleting data/muireception/sessions/qpkmr31rsVB5HgtK
+deleting data/muireception/sessions/qTDaVZhfB98qblFh
+deleting data/muireception/sessions/qNtDZf5sMkqyaWmV
+deleting data/muireception/sessions/qAKkXnJmNOBbvPrI
+deleting data/muireception/sessions/q6SuwYs1jqMoWBZG
+deleting data/muireception/sessions/q0RUdECasP1BlxYz
+deleting data/muireception/sessions/pKsMCZ560waLgWwj
+deleting data/muireception/sessions/p1dxoUdwDed0lS3V
+deleting data/muireception/sessions/ofynqah9t8MbyjcT
+deleting data/muireception/sessions/oWn7M8eU8kLk8bhz
+deleting data/muireception/sessions/o894ydfshA8QGIwD
+deleting data/muireception/sessions/o5CTTgv6vYZpAwNS
+deleting data/muireception/sessions/nnUKJp623Sfqeypr
+deleting data/muireception/sessions/nN2BYRGQ6labsSTt
+deleting data/muireception/sessions/mXVq5gktLvnkRVsK
+deleting data/muireception/sessions/mT1fxcP0uHU3Wj7d
+deleting data/muireception/sessions/mRamLM5KoSpQy30D
+deleting data/muireception/sessions/m4DlHYXawCwiCzl0
+deleting data/muireception/sessions/lyuxFDmnTVNYQB96
+deleting data/muireception/sessions/lvsum9GSvQ3SaZpR
+deleting data/muireception/sessions/llmpWaX5BNaeCxfq
+deleting data/muireception/sessions/lgAQfHIyt0F0Dzpo
+deleting data/muireception/sessions/ldjR5se8X243FFrq
+deleting data/muireception/sessions/lcofDJP9DTg2tgVX
+deleting data/muireception/sessions/lOIP98NQLZrO2AEv
+deleting data/muireception/sessions/l4h7NniwZKUF3qA7
+deleting data/muireception/sessions/kuJhPLCR7uHTvSZu
+deleting data/muireception/sessions/kuE2kb4XwBt3pxNy
+deleting data/muireception/sessions/krV0CB9MoDJmvo2r
+deleting data/muireception/sessions/kn5WJNdYaPVY7ijU
+deleting data/muireception/sessions/khPWSIYGUY06VmzD
+deleting data/muireception/sessions/jynu0NyKmHbUa4QD
+deleting data/muireception/sessions/jo9ZlLGywr0RK2yj
+deleting data/muireception/sessions/jYG3YweiYHdIurQh
+deleting data/muireception/sessions/jPRGwu5jvN3ESEi7
+deleting data/muireception/sessions/jChivpZ0Hn0oqOzH
+deleting data/muireception/sessions/j9JGMnfGDz6nRhCV
+deleting data/muireception/sessions/j0Xt61K5HpaQVED1
+deleting data/muireception/sessions/irfcXsvZDJ216nJ1
+deleting data/muireception/sessions/ilRKUAX6qRzrCuTQ
+deleting data/muireception/sessions/ieyAL4dCTBU0H7vs
+deleting data/muireception/sessions/ia7ay4YwBp110kbW
+deleting data/muireception/sessions/iWqc7ug8BPJXEo37
+deleting data/muireception/sessions/iQok6cHhxGgjQLsg
+deleting data/muireception/sessions/iPOlnPMfI38ouWbS
+deleting data/muireception/sessions/iI87vGDMraEqo5Sg
+deleting data/muireception/sessions/i52WZkDTWj94k1RI
+deleting data/muireception/sessions/hVJsTFi20oixYvsO
+deleting data/muireception/sessions/hPJFId8zNjweFCVa
+deleting data/muireception/sessions/h3OznLPxpql42DMj
+deleting data/muireception/sessions/gaEgIcB3lLK5t3V6
+deleting data/muireception/sessions/gTMPden2dga46E58
+deleting data/muireception/sessions/g7sHyhn8DOA59weF
+deleting data/muireception/sessions/g7QmveK8AZ5j9JKp
+deleting data/muireception/sessions/fkcEQvJxoJhU9qWx
+deleting data/muireception/sessions/fMy2dWFGrGeKI8gv
+deleting data/muireception/sessions/epSK17dbtqz3U97D
+deleting data/muireception/sessions/eeO1qHLFSzA0zxNZ
+deleting data/muireception/sessions/dUnhph8p4aEDnIOK
+deleting data/muireception/sessions/dFpMICHZx5CsmDqW
+deleting data/muireception/sessions/csc9EQne7NcrZvhV
+deleting data/muireception/sessions/csHEZrT8SSWCH7im
+deleting data/muireception/sessions/cSaoUCcF4z9XOMOv
+deleting data/muireception/sessions/bTkNLrtZt1QLEOsk
+deleting data/muireception/sessions/bPBsozRnS3MpBEg5
+deleting data/muireception/sessions/bHU6P0iHym7IhpDY
+deleting data/muireception/sessions/av4FsaXNAiajnZqq
+deleting data/muireception/sessions/aaIYQfyFqKqxD6kU
+deleting data/muireception/sessions/aRfEDKdBPN93NAhj
+deleting data/muireception/sessions/ZvQDcNypGKfpqmMn
+deleting data/muireception/sessions/ZN4Kp4KQRFNN5Z6b
+deleting data/muireception/sessions/ZIOKEgiCNBJzmDYg
+deleting data/muireception/sessions/ZBUwtrtDTE8uvMME
+deleting data/muireception/sessions/Z1v0dElcHAQJQZ82
+deleting data/muireception/sessions/YJEfs8KRf2MAfiyB
+deleting data/muireception/sessions/XmIGDsY0FU8HOoF4
+deleting data/muireception/sessions/XhMa1d3w7qAh7qoM
+deleting data/muireception/sessions/XgkxaCfRfNdCvJj2
+deleting data/muireception/sessions/XF7GzblD1oc5ikO9
+deleting data/muireception/sessions/X96SqkjqnIpqynSp
+deleting data/muireception/sessions/WvVLTXaSJTsUfNVi
+deleting data/muireception/sessions/Wodg50ynSddaFytI
+deleting data/muireception/sessions/WlQ8DRusGJfFNGZP
+deleting data/muireception/sessions/WLXEsmCG5Pi0ZjIm
+deleting data/muireception/sessions/WFyzSO3qDsaJs18h
+deleting data/muireception/sessions/Vnffset0ZSFlYlne
+deleting data/muireception/sessions/VjtK6xAMB4bAxLYT
+deleting data/muireception/sessions/VP7OaJy40sko8fic
+deleting data/muireception/sessions/V7sNPgrpOZrhgrCO
+deleting data/muireception/sessions/UhL9C8XrasCepxYd
+deleting data/muireception/sessions/UGH14WmMHJylfwy5
+deleting data/muireception/sessions/UCYiyDbs7v4Xitn1
+deleting data/muireception/sessions/Th8prs7oBq4x24jU
+deleting data/muireception/sessions/TD4sddofXOCEimQt
+deleting data/muireception/sessions/T9sXnu2QLj7HDZZY
+deleting data/muireception/sessions/T924B19sCuxZjtDW
+deleting data/muireception/sessions/Ry9NCSofTwij1738
+deleting data/muireception/sessions/Rvh3mF7a6dQQBKkz
+deleting data/muireception/sessions/RqGp2YXarAJ5c9DG
+deleting data/muireception/sessions/RNZ880dbSMYOjGyQ
+deleting data/muireception/sessions/QyytCfdFbZseOCwZ
+deleting data/muireception/sessions/QmfJO8fUvJqA08Xi
+deleting data/muireception/sessions/QitlWvB2M7OAU2ze
+deleting data/muireception/sessions/QeuTV9qwIY7eoyD9
+deleting data/muireception/sessions/QSouZaUdzTfREMuv
+deleting data/muireception/sessions/QBCW54QDv1xH8TSW
+deleting data/muireception/sessions/Pjeb6o4odR53DvDm
+deleting data/muireception/sessions/PjAj0OI6wTxZKlsw
+deleting data/muireception/sessions/PfP24Ec3KoPQXgjC
+deleting data/muireception/sessions/PSsePvvdmm8YZQjt
+deleting data/muireception/sessions/PRr7HO7wODn6Cw8Q
+deleting data/muireception/sessions/PJEOfQ9n1xZpP4sF
+deleting data/muireception/sessions/PIH2keQ3mwdLCbj0
+deleting data/muireception/sessions/PCtlp6Qwml87wazl
+deleting data/muireception/sessions/OdkUHGe19yc385xA
+deleting data/muireception/sessions/OPDo85MVnX8Z9XdY
+deleting data/muireception/sessions/Nr9Bd0TJkG6H8QQN
+deleting data/muireception/sessions/NdtopdCAQuDV3zwt
+deleting data/muireception/sessions/NGJm3Jld9qoFV7yk
+deleting data/muireception/sessions/N5jrOz9qeGl1AlyB
+deleting data/muireception/sessions/MwrS20IIy0eDHVqT
+deleting data/muireception/sessions/M5wysKtfsPrecrCn
+deleting data/muireception/sessions/M1h3y05Z7NBmzXil
+deleting data/muireception/sessions/Lx2XXPr9esh2eyQY
+deleting data/muireception/sessions/Lillc5hzEWARtltP
+deleting data/muireception/sessions/Lef5zrOt4P4IB7M6
+deleting data/muireception/sessions/LComqR57HvpsyE60
+deleting data/muireception/sessions/L8cGfJUKeytlDHv9
+deleting data/muireception/sessions/L8En1RPuPorvnEsX
+deleting data/muireception/sessions/KzVunGHP3lxOa2BS
+deleting data/muireception/sessions/KtVP9uEmbR3hG8I5
+deleting data/muireception/sessions/JoXdj3e3ZDFqhpWI
+deleting data/muireception/sessions/JnKefHXRrR1UE6hD
+deleting data/muireception/sessions/JVMEtTVaqw2fzm0C
+deleting data/muireception/sessions/JMTBbUOr3w2Ppkmd
+deleting data/muireception/sessions/IlJtnLN50T1H9WTR
+deleting data/muireception/sessions/IbkLl4YUFJTz44un
+deleting data/muireception/sessions/IWehRBFi8Y3m9nys
+deleting data/muireception/sessions/IW4TrYNC41K20pSe
+deleting data/muireception/sessions/IRaOIx4pndfpDJ5Q
+deleting data/muireception/sessions/INSsqsNejgHYyZfA
+deleting data/muireception/sessions/IBPEEJ8x7T02gU9E
+deleting data/muireception/sessions/I4k1KOY7bbq0xavl
+deleting data/muireception/sessions/I3Q5LTY9lHTxWb3V
+deleting data/muireception/sessions/Hzs9IxZkiT7bX6Yf
+deleting data/muireception/sessions/HvnkxREVhOxQQ451
+deleting data/muireception/sessions/HvKYruT1H4FP9J5e
+deleting data/muireception/sessions/HN0COHIhXBA661NX
+deleting data/muireception/sessions/HGmJ4Sfr0iFyTZtA
+deleting data/muireception/sessions/HCuhZZCWXEnPCuSj
+deleting data/muireception/sessions/HCuFv6f9YPbYXbnO
+deleting data/muireception/sessions/Gmc95bZuU6ksf2e8
+deleting data/muireception/sessions/GjWyiY3xhqP5C3Ev
+deleting data/muireception/sessions/Gd74OM4YH1aFvjHe
+deleting data/muireception/sessions/GLXXOjnA6tZ2b8o0
+deleting data/muireception/sessions/GEkmI5SJkZnKRpI2
+deleting data/muireception/sessions/GEMn2PaqeP987IdR
+deleting data/muireception/sessions/GARPiMBxke2SCVWj
+deleting data/muireception/sessions/G8pV91OzYQYU3Smp
+deleting data/muireception/sessions/FScT5ioXfsS5tU1s
+deleting data/muireception/sessions/FH1cUqFGJYccDbeN
+deleting data/muireception/sessions/EjXowyyOqHohg3qb
+deleting data/muireception/sessions/EdnvKucKksL0A1yc
+deleting data/muireception/sessions/EQu5wW9M7lNQeyQ7
+deleting data/muireception/sessions/E6x4UqoXKVwHxtQB
+deleting data/muireception/sessions/DtmmfPYrXH7kDAcY
+deleting data/muireception/sessions/DPtUJySBm92tVW4b
+deleting data/muireception/sessions/D6lx3AN9qGlywHX6
+deleting data/muireception/sessions/CxbqYeDtJtI4taqf
+deleting data/muireception/sessions/CSIK1QlnikJDuyZl
+deleting data/muireception/sessions/C9lLpOPFxheUvkbr
+deleting data/muireception/sessions/BgOa86w7HnTQIlqp
+deleting data/muireception/sessions/BfbL8WI3AILakE9u
+deleting data/muireception/sessions/BeJYLIIHwv6CZAGJ
+deleting data/muireception/sessions/B6uVocmyyMlMecj6
+deleting data/muireception/sessions/B40wkreiLnZb8J0y
+deleting data/muireception/sessions/B13hoZV2J666LONL
+deleting data/muireception/sessions/AvRV7sz3AEhQE9xG
+deleting data/muireception/sessions/AVPpxyRvnNEjuz9w
+deleting data/muireception/sessions/ATnzQNRhOCTkxAK6
+deleting data/muireception/sessions/ABYnBn0hjozHYLq4
+deleting data/muireception/sessions/9SM5R63PyKan4HjN
+deleting data/muireception/sessions/94efPViSldCKtmxK
+deleting data/muireception/sessions/93mGd7kyLm8vIu63
+deleting data/muireception/sessions/8yc4QBq0oHxdk3VH
+deleting data/muireception/sessions/8quKlDQpUWfxPgWc
+deleting data/muireception/sessions/8oHcNfzJefOd2o8k
+deleting data/muireception/sessions/8h69n32OKJztnYCc
+deleting data/muireception/sessions/8ebycCB0ccTVzzuM
+deleting data/muireception/sessions/8FRWINmYr5ChMama
+deleting data/muireception/sessions/86SGfhOJnc5zIKZr
+deleting data/muireception/sessions/82Qnr7lsq0kybhe9
+deleting data/muireception/sessions/7qJ2OqJd16IjrVWb
+deleting data/muireception/sessions/7FguQ55uoK0rmEqW
+deleting data/muireception/sessions/6qil8lzHE98QmUzR
+deleting data/muireception/sessions/6X5yRiOdEDBtXDzy
+deleting data/muireception/sessions/63mzj3KTIkJH2uc4
+deleting data/muireception/sessions/5pEeupKO3mt3lhOt
+deleting data/muireception/sessions/5ka4MNk316m2I9DV
+deleting data/muireception/sessions/5Moac1KJNxTWLJKj
+deleting data/muireception/sessions/5BYaEzzdghbsE6bu
+deleting data/muireception/sessions/5A2E3qN1Zupkfb7S
+deleting data/muireception/sessions/4uF9piGG6IxERGgr
+deleting data/muireception/sessions/4t8oVGGOy8Ii4G9p
+deleting data/muireception/sessions/4rrrg9srMr7FTEuf
+deleting data/muireception/sessions/4eEWVHuaHsCoyTXk
+deleting data/muireception/sessions/44A12UCxUcE4Knbx
+deleting data/muireception/sessions/40Ag5F52ATeD7jN3
+deleting data/muireception/sessions/3vmSmg6qu2vSJhu3
+deleting data/muireception/sessions/3rD0o27ykFJHjQge
+deleting data/muireception/sessions/3TES3cXzFA5arINq
+deleting data/muireception/sessions/2ujf3BQEgcvJ19GL
+deleting data/muireception/sessions/2sUlS6JxAcm0cNUl
+deleting data/muireception/sessions/2S9S5MPuE7QmAOAb
+deleting data/muireception/sessions/26PaKnwFkBCmoBAK
+deleting data/muireception/sessions/16LiDYkWp73dQzjQ
+deleting data/muireception/sessions/15MlCM8VIo8KYOML
+deleting data/muireception/sessions/0rKgtKDgxvYPD3wF
+deleting data/muireception/sessions/0nEJ4p2gqhCPetfM
+deleting data/muireception/sessions/0TOeBQEOyhyTZqy8
+deleting data/muireception/sessions/0NvbSTrOefdQRlwm
+deleting data/muireception/sessions/079AUbRNFuUihvOC
+muireception/
+muireception/form.py
+        9514 100%   22.44kB/s    0:00:00          9514 100%   22.44kB/s    0:00:00 (xfer#7, to-check=1622/5682)
+muireception/issue/
+muireception/issue/action.ks
+       12324 100%   19.38kB/s    0:00:00         12324 100%   19.38kB/s    0:00:00 (xfer#8, to-check=1016/6817)
+muireception/issue/userView.ks
+       20181 100%   31.53kB/s    0:00:00         20181 100%   31.53kB/s    0:00:00 (xfer#9, to-check=1014/6817)
+muireception/sysadmin/
+muireception/sysadmin/sysadmin.ks
+       30519 100%   29.28kB/s    0:00:00         30519 100%   29.28kB/s    0:00:01 (xfer#10, to-check=698/8148)
+
+sent 273993 bytes  received 1404 bytes  110158.80 bytes/sec
+total size is 54402333  speedup is 197.54
+2010-08-14 21:37:34,927 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 85 bytes  received 12 bytes  194.00 bytes/sec
+total size is 929787  speedup is 9585.43
+2010-08-14 21:37:34,928 INFO End backup loacl karrigell diretory to local git.
+2010-08-14 21:37:34,928 INFO Begin to backup local github to remote github host.

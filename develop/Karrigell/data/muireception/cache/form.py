@@ -35,26 +35,26 @@ def _getValidClass(field, required):
 
 	return validClass
 
-def _radioField(field,oldvalue):
+def _radio(field, oldvalue):
 	options = field.pop("options")
 	if not oldvalue:
 		oldvalue = 0
 
-	radioes = [BR(),]
-	name = field.get("name")
+	tags = [BR(),]
 
-	for option in options:
-		if str(option.get("value")) == str(oldvalue) :
-			option["checked"] = ""
+	_labels, _values = [ [option.get(name) or '' for option in options] for name in ('label', 'value')]
+	radioes = RADIO(_labels, _values,**{'name':field.get('name') or ''})
 
-		option["name"] = name
-		option["type"] = "radio"
-		text = _( option.pop("label") )
-		input = INPUT(**option)
-		text = TEXT("".join(( text, "&nbsp;&nbsp;")))
-		radioes.append( Sum(( input, text)) )
+	# set checked value
+	for label,tag in radioes:
+		if str(tag.attrs['value']) == str(oldvalue) :
+			radioes.check(content=label)
+			break
 
-	return Sum(radioes)
+	# construct html tags
+	[ tags.append(Sum((tag, LABEL(label)))) for label,tag in radioes ]
+
+	return Sum(tags)
 
 def _selectField(field,oldvalue):
 	options = field.pop("options")
@@ -155,14 +155,13 @@ def _check(field, oldValue) :
 	tags = []
 
 	_labels, _values = [ [option.get(name) for option in options] for name in ('label', 'value')]
-	#chkBoxes = CHECKBOX(_labels, _values, **{'name': field.get("name") or ''})
 	chkBoxes = CHECKBOX(_labels, _values)
 	prefix = field.get('name') or ''
 	for index, (label, tag) in enumerate(chkBoxes):
 		tag.attrs['name'] = '-'.join((prefix, str(index)))
 
 	# set checked value
-	checked = [ label for label,value in chkBoxes if label in oldValue ]
+	checked = [ label for label,tag in chkBoxes if label in oldValue ]
 	chkBoxes.check(content=checked)
 
 	# construct html tags
@@ -239,7 +238,7 @@ def getField(field):
 		elif fieldType == "textarea":
 			input = TEXTAREA(oldvalue, **field)
 		elif fieldType == "radio":
-			input = _radioField(field,oldvalue)
+			input = _radio(field,oldvalue)
 		elif fieldType == "select":
 			# normal html form 'select' component
 			input = _selectField(field,oldvalue)
@@ -263,7 +262,6 @@ def getField(field):
 		ctype = "-".join(("type", fieldType))
 
 	return DIV(Sum(div), **{"class":ctype})
-
 
 def filterProps(fields,values):
 	""" Filter the needed properties of fields for render_table_fields function."""

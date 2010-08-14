@@ -196,23 +196,25 @@ def _getAssigned(keyword):
 
 def _getNosy(keyword):
 	rows = _getRelationValue('keyword', 'role')
+
 	if not rows:
-		return None 
+		return [] 
 
 	if keyword:
 		# if keyword is a subset of 'klassvalue', the relatevalue will be selected
-		assignedRoles = [ row[1] for row in rows if  set(keyword.split(',')).issubset(set(row[0].split(','))) ]
+		assignedRoles = [ row[1] for row in rows if  len(set(keyword.split(',')).intersection(set(row[0].split(',')))) > 0 ]
 	else:
 		# in this condition, all the administration roles will be returned
 		assignedRoles = [ row[1] for row in rows ]
-		
+	
 	if assignedRoles:
 		assignedRoles = ','.join(assignedRoles).split(',')
 	else:
 		# no assigned roles 
-		return None 
+		return [] 
 
 	conditions = [['roles', role, 'OR'] for role in assignedRoles ]
+	# the first item need not 'OR' operator symbol
 	conditions[0].pop(-1)
 	nosy = model.get_adminlist(USER, ('username',), conditions)
 	if nosy:
@@ -245,7 +247,10 @@ def page_getNosy4issue(**args):
 	if oldValues :
 		oldValues = oldValues.split(',')
 	
-	values = _getNosy('')
+	keywords = args.get('keyword') or ''
+	
+	values = _getNosy(keywords)
+	
 	values.sort()
 	values = [\
 		{\
@@ -260,7 +265,7 @@ def page_getNosy4issue(**args):
 def _propFormAdapter(**args):
 	''' Construct filed's values corresponding to the property name. '''
 	oldValue, prop, preferProp, preferValue = \
-		[args.get(name) for name in ('oldValue', 'prop', 'preferProp', 'preferValue')]
+		[args.get(name) or '' for name in ('oldValue', 'prop', 'preferProp', 'preferValue')]
 
 	# get old values of the properties to be edit
 	form = [item for item in ISSUEPROPS if item['name'] == prop ]
@@ -271,9 +276,22 @@ def _propFormAdapter(**args):
 		form[0]['name'] = prop
 		form[0]['options'] = [{'label':keyword, 'value':keyword} for keyword in _getKeywords()]
 	elif prop == 'nosy':
-		pass
+		form[0].update({
+			'type':'mtMultiSelect', 
+			'containerStyle':'border: 0.5px solid #DDDDDD;'
+		})
+
+		url = '/'.join((APPATH,'page_getNosy4issue'))
+		query = {preferProp: preferValue}
+		query = ['='.join((key, value)) for key,value in query.items()]
+		query = '&'.join(query)
+		url = '?'.join((url, query))
+		form[0].update({'dataUrl':url,'fieldName':prop, 'itemsPerPage':5})
+		
 	elif prop == 'assignedto':
-		pass
+		form[0]['type'] = 'radio'
+		form[0]['name'] = prop
+		form[0]['options'] = [{'label': person, 'value': person} for person in preferValue.split(',')]
 
 	return form
 
