@@ -2482,3 +2482,78 @@ sent 85 bytes  received 12 bytes  194.00 bytes/sec
 total size is 929787  speedup is 9585.43
 2010-08-14 21:37:34,928 INFO End backup loacl karrigell diretory to local git.
 2010-08-14 21:37:34,928 INFO Begin to backup local github to remote github host.
+2010-08-14 21:37:35,409 INFO Command: 
+git add .
+running result is :
+2010-08-14 21:37:46,674 INFO Command: 
+git commit -m 'Update time:2010-08-14T21:37:34.928515'
+running result is :[master 2e048cb] Update time:2010-08-14T21:37:34.928515
+ Committer: Broader ZHONG <broader@laptop-ubuntu.10.04>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+If the identity used for this commit is wrong, you can fix it with:
+
+    git commit --amend --author='Your Name <you@example.com>'
+
+ 8 files changed, 557 insertions(+), 52 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010081420.log
+2010-08-14 21:37:54,718 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   8fdc9ea..2e048cb  master -> master
+2010-08-14 21:37:54,718 INFO End backup local github to remote github host.
+2010-08-15 11:57:12,263 INFO Delete nousing captcha images
+2010-08-15 11:57:12,306 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-08-15 11:57:12,307 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-08-15 11:57:13,656 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010081501.log
+        2364 100%    0.00kB/s    0:00:00          2364 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1013/4003)
+data/cms/sessions/KKkAfHGCTdmSx23h
+         204 100%    2.26kB/s    0:00:00           204 100%    2.26kB/s    0:00:00 (xfer#2, to-check=2440/5688)
+data/muireception/
+data/muireception/logs_2010081501.log
+       17492 100%  194.11kB/s    0:00:00         17492 100%  194.11kB/s    0:00:00 (xfer#3, to-check=2415/5688)
+data/muireception/logs_2010081509.log
+        4068 100%   45.14kB/s    0:00:00          4068 100%   45.14kB/s    0:00:00 (xfer#4, to-check=2414/5688)
+data/muireception/cache/form.py
+        9444 100%  103.63kB/s    0:00:00          9444 100%  103.63kB/s    0:00:00 (xfer#5, to-check=2404/5688)
+data/muireception/cache/issue/action.ks
+       12343 100%  133.93kB/s    0:00:00         12343 100%  133.93kB/s    0:00:00 (xfer#6, to-check=2378/5688)
+data/muireception/cache/issue/userView.ks
+       20209 100%  216.87kB/s    0:00:00         20209 100%  216.87kB/s    0:00:00 (xfer#7, to-check=2377/5688)
+data/muireception/cache/sysadmin/sysadmin.ks
+       30398 100%  315.80kB/s    0:00:00         30398 100%  315.80kB/s    0:00:00 (xfer#8, to-check=2356/5688)
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%  273.50kB/s    0:00:01        362496 100%    1.86MB/s    0:00:00 (xfer#9, to-check=2340/5688)
+data/muireception/sessions/
+data/muireception/sessions/aWpXiHTG3QdFrtys
+         249 100%    1.31kB/s    0:00:00           249 100%    1.31kB/s    0:00:00 (xfer#10, to-check=2230/5688)
+data/muireception/sessions/oRQejltRmZ0Yzk6D
+         249 100%    1.30kB/s    0:00:00           249 100%    1.30kB/s    0:00:00 (xfer#11, to-check=2229/5688)
+data/muireception/sessions/oWpenKj5jWcc6LWy
+         274 100%    1.43kB/s    0:00:00           274 100%    1.43kB/s    0:00:00 (xfer#12, to-check=2228/5688)
+
+sent 263363 bytes  received 1427 bytes  176526.67 bytes/sec
+total size is 54427029  speedup is 205.55
+2010-08-15 11:57:13,776 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768   5%    0.00kB/s    0:00:00        619650 100%   13.33MB/s    0:00:00 (xfer#1, to-check=1/3)
+
+sent 136143 bytes  received 31 bytes  272348.00 bytes/sec
+total size is 931346  speedup is 6.84
+2010-08-15 11:57:13,776 INFO End backup loacl karrigell diretory to local git.
+2010-08-15 11:57:13,777 INFO Begin to backup local github to remote github host.
