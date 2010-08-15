@@ -2557,3 +2557,157 @@ sent 136143 bytes  received 31 bytes  272348.00 bytes/sec
 total size is 931346  speedup is 6.84
 2010-08-15 11:57:13,776 INFO End backup loacl karrigell diretory to local git.
 2010-08-15 11:57:13,777 INFO Begin to backup local github to remote github host.
+2010-08-15 11:57:14,294 INFO Command: 
+git add .
+running result is :
+2010-08-15 11:57:23,871 INFO Command: 
+git commit -m 'Update time:2010-08-15T11:57:13.777485'
+running result is :[master 20423cf] Update time:2010-08-15T11:57:13.777485
+ Committer: Broader ZHONG <broader@laptop-ubuntu.10.04>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+If the identity used for this commit is wrong, you can fix it with:
+
+    git commit --amend --author='Your Name <you@example.com>'
+
+ 10 files changed, 338 insertions(+), 4 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010081501.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010081501.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010081509.log
+ create mode 100644 develop/Karrigell/data/muireception/sessions/aWpXiHTG3QdFrtys
+ create mode 100644 develop/Karrigell/data/muireception/sessions/oRQejltRmZ0Yzk6D
+ create mode 100644 develop/Karrigell/data/muireception/sessions/oWpenKj5jWcc6LWy
+2010-08-15 11:57:31,865 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   2e048cb..20423cf  master -> master
+2010-08-15 11:57:31,865 INFO End backup local github to remote github host.
+2010-08-15 17:50:03,745 INFO Delete nousing captcha images
+2010-08-15 17:50:03,786 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-08-15 17:50:03,786 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-08-15 17:50:05,901 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010081508.log
+        6095 100%    0.00kB/s    0:00:00          6095 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1033/4024)
+data/cms/sessions/KKkAfHGCTdmSx23h
+         235 100%    1.70kB/s    0:00:00           235 100%    1.70kB/s    0:00:00 (xfer#2, to-check=2460/5709)
+data/muireception/
+data/muireception/logs_2010081507.log
+       32768  96%  195.12kB/s    0:00:00         33920 100%  200.76kB/s    0:00:00 (xfer#3, to-check=2434/5709)
+data/muireception/logs_2010081508.log
+       19502 100%  115.42kB/s    0:00:00         19502 100%  115.42kB/s    0:00:00 (xfer#4, to-check=2433/5709)
+data/muireception/logs_2010081509.log
+       24326 100%  143.11kB/s    0:00:00         24326 100%  143.11kB/s    0:00:00 (xfer#5, to-check=2432/5709)
+data/muireception/logs_2010081515.log
+        4068 100%   23.93kB/s    0:00:00          4068 100%   23.93kB/s    0:00:00 (xfer#6, to-check=2431/5709)
+data/muireception/cache/model.py
+       20888 100%  122.15kB/s    0:00:00         20888 100%  122.15kB/s    0:00:00 (xfer#7, to-check=2417/5709)
+data/muireception/cache/issue/action.ks
+       16249 100%   94.45kB/s    0:00:00         16249 100%   94.45kB/s    0:00:00 (xfer#8, to-check=2395/5709)
+data/muireception/cache/issue/userView.ks
+       20565 100%  118.14kB/s    0:00:00         20565 100%  118.14kB/s    0:00:00 (xfer#9, to-check=2394/5709)
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%  135.02kB/s    0:00:02        362496 100%    1.31MB/s    0:00:00 (xfer#10, to-check=2357/5709)
+data/muireception/roundup/db/files/msg/0/
+data/muireception/roundup/db/files/msg/0/msg34
+          42 100%    0.16kB/s    0:00:00            42 100%    0.16kB/s    0:00:00 (xfer#11, to-check=2275/5709)
+data/muireception/roundup/db/files/msg/0/msg35
+          24 100%    0.09kB/s    0:00:00            24 100%    0.09kB/s    0:00:00 (xfer#12, to-check=2274/5709)
+data/muireception/roundup/db/files/msg/0/msg36
+          27 100%    0.10kB/s    0:00:00            27 100%    0.10kB/s    0:00:00 (xfer#13, to-check=2273/5709)
+data/muireception/roundup/db/files/msg/0/msg37
+          18 100%    0.07kB/s    0:00:00            18 100%    0.07kB/s    0:00:00 (xfer#14, to-check=2272/5709)
+data/muireception/roundup/db/files/msg/0/msg38
+          22 100%    0.08kB/s    0:00:00            22 100%    0.08kB/s    0:00:00 (xfer#15, to-check=2271/5709)
+data/muireception/roundup/db/files/msg/0/msg39
+          12 100%    0.04kB/s    0:00:00            12 100%    0.04kB/s    0:00:00 (xfer#16, to-check=2270/5709)
+data/muireception/roundup/db/files/msg/0/msg40
+          35 100%    0.13kB/s    0:00:00            35 100%    0.13kB/s    0:00:00 (xfer#17, to-check=2268/5709)
+data/muireception/roundup/db/files/msg/0/msg41
+          65 100%    0.24kB/s    0:00:00            65 100%    0.24kB/s    0:00:00 (xfer#18, to-check=2267/5709)
+data/muireception/roundup/db/files/msg/0/msg42
+          24 100%    0.09kB/s    0:00:00            24 100%    0.09kB/s    0:00:00 (xfer#19, to-check=2266/5709)
+data/muireception/roundup/db/files/msg/0/msg43
+          65 100%    0.24kB/s    0:00:00            65 100%    0.24kB/s    0:00:00 (xfer#20, to-check=2265/5709)
+data/muireception/roundup/db/files/msg/0/msg44
+          18 100%    0.07kB/s    0:00:00            18 100%    0.07kB/s    0:00:00 (xfer#21, to-check=2264/5709)
+data/muireception/roundup/db/text-index/
+data/muireception/roundup/db/text-index/flintlock
+           0 100%    0.00kB/s    0:00:00 (xfer#22, to-check=2258/5709)
+data/muireception/roundup/db/text-index/position.DB
+       16384 100%   59.93kB/s    0:00:00         16384 100%   59.93kB/s    0:00:00 (xfer#23, to-check=2256/5709)
+data/muireception/roundup/db/text-index/position.baseA
+          14 100%    0.05kB/s    0:00:00            14 100%    0.05kB/s    0:00:00 (xfer#24, to-check=2255/5709)
+data/muireception/roundup/db/text-index/position.baseB
+          14 100%    0.05kB/s    0:00:00            14 100%    0.05kB/s    0:00:00 (xfer#25, to-check=2254/5709)
+data/muireception/roundup/db/text-index/postlist.DB
+       16384 100%   59.93kB/s    0:00:00         16384 100%   59.93kB/s    0:00:00 (xfer#26, to-check=2253/5709)
+data/muireception/roundup/db/text-index/postlist.baseA
+          14 100%    0.05kB/s    0:00:00            14 100%    0.05kB/s    0:00:00 (xfer#27, to-check=2252/5709)
+data/muireception/roundup/db/text-index/postlist.baseB
+          14 100%    0.05kB/s    0:00:00            14 100%    0.05kB/s    0:00:00 (xfer#28, to-check=2251/5709)
+data/muireception/roundup/db/text-index/record.DB
+       16384 100%   59.70kB/s    0:00:00         16384 100%   59.70kB/s    0:00:00 (xfer#29, to-check=2250/5709)
+data/muireception/roundup/db/text-index/record.baseA
+          14 100%    0.05kB/s    0:00:00            14 100%    0.05kB/s    0:00:00 (xfer#30, to-check=2249/5709)
+data/muireception/roundup/db/text-index/record.baseB
+          14 100%    0.05kB/s    0:00:00            14 100%    0.05kB/s    0:00:00 (xfer#31, to-check=2248/5709)
+data/muireception/roundup/db/text-index/termlist.DB
+       16384 100%   59.70kB/s    0:00:00         16384 100%   59.70kB/s    0:00:00 (xfer#32, to-check=2247/5709)
+data/muireception/roundup/db/text-index/termlist.baseA
+          14 100%    0.05kB/s    0:00:00            14 100%    0.05kB/s    0:00:00 (xfer#33, to-check=2246/5709)
+data/muireception/roundup/db/text-index/termlist.baseB
+          14 100%    0.05kB/s    0:00:00            14 100%    0.05kB/s    0:00:00 (xfer#34, to-check=2245/5709)
+data/muireception/roundup/db/text-index/value.DB
+       16384 100%   59.48kB/s    0:00:00         16384 100%   59.48kB/s    0:00:00 (xfer#35, to-check=2244/5709)
+data/muireception/roundup/db/text-index/value.baseA
+          14 100%    0.05kB/s    0:00:00            14 100%    0.05kB/s    0:00:00 (xfer#36, to-check=2243/5709)
+data/muireception/roundup/db/text-index/value.baseB
+          14 100%    0.05kB/s    0:00:00            14 100%    0.05kB/s    0:00:00 (xfer#37, to-check=2242/5709)
+data/muireception/sessions/
+data/muireception/sessions/46RpVPILaXK5W5Lz
+         249 100%    0.90kB/s    0:00:00           249 100%    0.90kB/s    0:00:00 (xfer#38, to-check=2236/5709)
+data/muireception/sessions/7gC9Br1U8B9btgfg
+         249 100%    0.90kB/s    0:00:00           249 100%    0.90kB/s    0:00:00 (xfer#39, to-check=2235/5709)
+data/muireception/sessions/NNdUPTdJQrx1TGqK
+         274 100%    0.99kB/s    0:00:00           274 100%    0.99kB/s    0:00:00 (xfer#40, to-check=2234/5709)
+data/muireception/sessions/QszIoRkcWH8UCbW5
+         249 100%    0.90kB/s    0:00:00           249 100%    0.90kB/s    0:00:00 (xfer#41, to-check=2233/5709)
+data/muireception/sessions/TAHCcQcPBaJPHOl6
+         249 100%    0.90kB/s    0:00:00           249 100%    0.90kB/s    0:00:00 (xfer#42, to-check=2232/5709)
+data/muireception/sessions/gGCnFUg4xr129H9I
+         249 100%    0.88kB/s    0:00:00           249 100%    0.88kB/s    0:00:00 (xfer#43, to-check=2230/5709)
+muireception/
+muireception/form.py
+        9514 100%   33.54kB/s    0:00:00          9514 100%   33.42kB/s    0:00:00 (xfer#44, to-check=1622/5709)
+muireception/model.py
+       20758 100%   72.66kB/s    0:00:00         20758 100%   72.66kB/s    0:00:00 (xfer#45, to-check=1608/5709)
+muireception/issue/
+muireception/issue/action.ks
+       16226 100%   19.98kB/s    0:00:00         16226 100%   19.98kB/s    0:00:00 (xfer#46, to-check=1016/6844)
+muireception/issue/userView.ks
+       20543 100%   25.23kB/s    0:00:00         20543 100%   25.23kB/s    0:00:00 (xfer#47, to-check=1014/6844)
+
+sent 292149 bytes  received 2108 bytes  117702.80 bytes/sec
+total size is 54521328  speedup is 185.28
+2010-08-15 17:50:05,980 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768   5%    0.00kB/s    0:00:00        621801 100%   11.23MB/s    0:00:00 (xfer#1, to-check=1/3)
+
+sent 136596 bytes  received 31 bytes  273254.00 bytes/sec
+total size is 933497  speedup is 6.83
+2010-08-15 17:50:05,980 INFO End backup loacl karrigell diretory to local git.
+2010-08-15 17:50:05,980 INFO Begin to backup local github to remote github host.

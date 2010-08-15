@@ -560,7 +560,8 @@ def edit_issue(operator, iprops, mprops, serial=None, isId=False):
 			issueId = serial2id(serial)
 		else:
 			issueId = serial
-		edit_item(operator, 'issue', issueId, iprops, keyIsId=True)			
+		if iprops:
+			edit_item(operator, 'issue', issueId, iprops, keyIsId=True)			
 	else:
 		# create a new issue
 		issueId = str(create_item(operator, 'issue', iprops))

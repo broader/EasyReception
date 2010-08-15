@@ -26,9 +26,6 @@ APP = pagefn.getApp(THIS.baseurl,1)
 so = Session()
 USER = getattr( so, pagefn.SOINFO['user']).get('username')
 
-# config data object
-#INITCONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
-
 # *********************************End********************************************************
 
 # ********************************************************************************************
@@ -140,19 +137,24 @@ def page_issueDetail(**args):
 def _showMessagesJs(nodeId, msgBnId, tableId, msgListContainer, msgIds):
 	''' Add callback functions for buttons, and show the messages in a smarlt lists format of each issue. '''
 	paras = [ APP, nodeId, msgBnId]
+	
+	# add edit buttons to each row of the table which shows the properties' values of the issue
 	issueEdit = [tableId, '/'.join((RELPATH, 'images/icons/16x16/comment_edit.png'))]
 	paras.extend(issueEdit)
 	paras.append( _('Edit Issue'))
+
 	actions = [ \
 		'/'.join(('/'.join(THIS.script_url.split('/')[:-1]), 'action.ks', name)) \
 		for name in ('page_editIssueForm','page_addMessageForm', 'page_editIssuePropForm')\
 	]
 
 	paras.extend(actions)
+	paras.append(_('Add New Message'))
 	
 	paras.extend([_('Edit Title'), _('Edit Keywords'), _('Edit Nosy'), _('Edit Assignedto')])
 	paras.extend(['title', 'keyword', 'nosy', 'assignedto'])
-	
+
+	# the url to load the messages of this issue	
 	page = '/'.join((APPATH, 'page_issueMessages'))
 	page = '?'.join((page, '='.join(('ids', ','.join(msgIds)))))
 	paras.extend([msgListContainer, page ])
@@ -166,8 +168,9 @@ def _showMessagesJs(nodeId, msgBnId, tableId, msgListContainer, msgIds):
 	var appName="%s", issueId="%s", addMsgBn="%s", 
 	    tableId="%s", editIssueImg="%s",
 	    editDlgTitle="%s", 
-	    editIssueUrl="%s", addMessageUrl="%s", editIssueAttrUrl="%s",
-	    propNames = ["%s", "%s", "%s", "%s" ],
+	    editIssueUrl="%s", addMessageUrl="%s", editIssuePropUrl="%s",
+	    addMessageTitle="%s",
+	    propTitles = ["%s", "%s", "%s", "%s" ],
 	    props = ["%s", "%s", "%s", "%s" ],
 	    listContainer="%s", msgUrl="%s", 
 	    countInfo="%s", pageInfo="%s", fields="%s";
@@ -179,7 +182,7 @@ def _showMessagesJs(nodeId, msgBnId, tableId, msgListContainer, msgIds):
 	};
 
 	// add edit button to the table component which holds the fields of issue
-	function editIssueAttr(event){
+	function editIssueProp(event){
 		new Event(event).stop();
 		bn = event.target;
 		data = bn.retrieve('formData');
@@ -196,10 +199,10 @@ def _showMessagesJs(nodeId, msgBnId, tableId, msgListContainer, msgIds):
 			});
 		};
 
-		url = [editIssueAttrUrl, query.toQueryString()].join('?');
+		url = [editIssuePropUrl, query.toQueryString()].join('?');
 		new MUI.Modal({
-			width: 600, height: 450, y: 80, 
-			title: propNames[data.propIndex],
+			width: 400, height: 360, y: 80, 
+			title: propTitles[data.propIndex],
 			contentURL: url,
 			modalOverlayClose: false			
 		});
@@ -215,7 +218,7 @@ def _showMessagesJs(nodeId, msgBnId, tableId, msgListContainer, msgIds):
 		};
 		button = MUI.styledButton(options);
 		button.store('formData', {'propIndex':index});
-		button.addEvent('click', editIssueAttr);
+		button.addEvent('click', editIssueProp);
 		return button
 	};
 
@@ -263,13 +266,26 @@ def _showMessagesJs(nodeId, msgBnId, tableId, msgListContainer, msgIds):
 			},
 			contentClass: '' 
 		}); 
+		$(listContainer).store('smartListInstance',smartList);
 	};
 
 	MUI.smartList(appName, {'onload': messagesList});
 
 	// callback function for add message button
-	$(addMsgBn).addEvent('click', function(e){
-		alert('add message');
+	$(addMsgBn).store('issueId', issueId);
+	$(addMsgBn).addEvent('click', function (event){
+		new Event(event).stop();
+		
+		query = $H(); 
+		query.combine({ 'issueId': event.target.retrieve('issueId')});
+
+		url = [addMessageUrl, query.toQueryString()].join('?');
+		new MUI.Modal({
+			width: 400, height: 250, y: 80, 
+			title: addMessageTitle,
+			contentURL: url,
+			modalOverlayClose: false			
+		});
 	});
 
 	"""%paras
@@ -302,15 +318,17 @@ def page_issueMessages(**args):
 	search = args.get('search')
 	if search:
 		items = filter(lambda i: search in ','.join(i.values()), items)
-	
+
 	data = {'total': len(items)}
 	data['pageNumber'] = (lambda x,y: x/y + (x%y != 0 and 1 or 0) )(data['total'], perPage) 
 	begin = perPage*(page-1)
 	end = begin + perPage
 	items = items[begin:end]
+	
 	msgData = [] 
 	for item in items:
-		msgData.append(dict([(prop,{'value':str(value).decode('utf8'),'label':label}) for prop,value,label in zip(mprops,msg,labels)]))
+		#msgData.append(dict([(prop,{'value':str(value).decode('utf8'),'label':label}) for prop,value,label in zip(mprops,msg,labels)]))
+		msgData.append(dict([(prop,{'value':str(value).decode('utf8'),'label':label}) for prop,value,label in zip(mprops, item,labels)]))
 
 	data.update( {'currentPage': page, 'data': msgData })
 	print JSON.encode(data, encoding='utf8')
@@ -463,8 +481,6 @@ def _issueListJs(container):
 			resizeColumns: true, multipleSelection:true,
 			width:700, height: 400 
 		});
-		
-		issueGrid.addEvent('dblclick', issueGridRowAction);
 		issueGrid.addEvent('click', issueGridShow);
 		// save the omniGrid instance
 		$$('.omnigrid')[0].store('tableInstance',issueGrid);
@@ -483,14 +499,6 @@ def _issueListJs(container):
 		var panel = MUI.getPanel(detailPanel);
 		panel.options.contentURL = url;
 		panel.newPanel();		
-	};
-
-	function issueGridRowAction(event){
-		/* Parameters
-   		evt.target:the grid object
-   		evt.indices:the multi selected rows' indexes
-   		evt.row: the index of the row in the grid
-   		*/
 	};
 	
 	MUI.dataGrid(appName, {'onload':renderIssueGrid});
@@ -578,8 +586,8 @@ def page_issuesData(**args):
 				# get 'messages' index
 				mindex = [ item.get('name') for item in ISSUELISTCOLUMNS].index('messages')
 				if i == mindex:
-					#s = str(len(s.split(',')))
-					s = ','.join(s)
+					s = str(len(s))
+					#s = ','.join(s)
 
 				row[i] = str(s).decode('utf8')		
 		

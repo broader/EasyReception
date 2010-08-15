@@ -1,4 +1,4 @@
-['page_createIssueForm', 'page_createIssueAction', 'page_getNosy4issue', 'page_editIssuePropForm', 'page_editIssuePropAction']
+['page_createIssueForm', 'page_createIssueAction', 'page_getNosy4issue', 'page_editIssuePropForm', 'page_editIssuePropAction', 'page_addMessageForm', 'page_addMessageAction']
 """
 Pages mainly for actions on 'issue'.
 """
@@ -410,7 +410,14 @@ def page_editIssuePropAction(**args):
 	iprops = copy.deepcopy(args)
 
 	# judge whether the argument includes multiful values of checkboxes
-	if len(iprops.keys()) > 1:
+	if len(iprops.keys()) == 1:
+		key = iprops.keys()[0]
+		# filter the checkbox value and restore the property name
+		if '-' in key :
+			key,value = iprops.popitem()
+			iprops[key.split('-')[0]] = value
+
+	elif len(iprops.keys()) > 1:
 		key, value = iprops.popitem()
 		key = key.split('-')[0]
 		values = iprops.values()
@@ -418,6 +425,132 @@ def page_editIssuePropAction(**args):
 		iprops = {key: ','.join(values)}
 
 	mprops = {}
+
+	# edit the value of the property of this issue
+	issueId, msgId = model.edit_issue(editor, iprops, mprops, issueId, True)
+	PRINT( '1')
+	return
+
+def page_addMessageForm(**args):
+	''' Return a form to add new message to a issue item. '''
+	issueId = args.get('issueId')
+
+	editor = USER
+	# get old values of the properties to be edit
+	form = [{\
+		'name': 'messages','id': 'messages', 'prompt': _('New Message'),
+		'validate': [],'required': True, 'type':'textarea', 'oldvalue':'',
+		'style': 'width:90.5%; height:9em;'
+	},]
+
+	div = DIV(Sum(formFn.yform(form)))
+	forms = [FIELDSET(div),]
+
+	# append hidden field that points out the action type
+	hideInput = [{'value':editor, 'name':'editor'}, {'value':issueId, 'name':'issueId'},]
+	[item.update({'type':'hidden'}) for item in hideInput]
+	[ forms.append(INPUT(**item)) for item in hideInput ]
+
+	formId = 'addMessage-issue-%s'%issueId
+	form = FORM( \
+		Sum(forms),\
+		**{'action': '/'.join((APPATH,'page_addMessageAction')), 'id': formId, 'method':'post','class':'yform'}\
+	)
+
+	PRINT( form)
+	# import js slice
+	PRINT( pagefn.script(_addMessageJs(formId, issueId),link=False))
+
+	return
+
+def _addMessageJs(formId, issueId):
+	paras = [ APP, pagefn.ISSUE['userView']['rightColumn']['panelId'], issueId, formId, 'position:absolute;margin-left:15em;']
+	paras.extend( [ pagefn.BUTTONLABELS.get('confirmWindow').get(key) for key in ('confirm','cancel')] )
+	paras.append('/'.join(('/'.join(THIS.script_url.split('/')[:-1]), 'userView.ks', 'page_issueDetail')))
+	paras = tuple(paras)
+	js = \
+	"""
+	var appName="%s", infoPanel="%s", issueId="%s", formId="%s",
+	    bnStyle="%s", confirmBnLabel="%s",cancelBnLabel="%s",
+	    infoUrl="%s";
+
+	var addMsgFormChk;
+	// Load the form validation plugin script
+	var addMsgOptions = {
+	    onload:function(){
+		addMsgFormChk = new FormCheck(formId,{
+		    submitByAjax: true,
+		    onAjaxSuccess: function(response){
+			// close modal
+			MUI.closeModalDialog();
+
+			if(response!=1) return;
+
+			// refresh table grid
+			$$('.omnigrid')[0].retrieve('tableInstance').loadData();
+
+			// refresh the detail information of this issue
+			/*
+			var q = $H();
+			q['issueId'] = issueId;
+			var url = [ infoUrl, q.toQueryString()].join('?');
+			var panel = MUI.getPanel(infoPanel);
+			panel.options.contentURL = url;
+			panel.newPanel();
+			*/
+			$(['issue',issueId, 'msgList'].join('-')).retrieve('smartListInstance').reset();
+		    },
+
+ 		    display:{
+			errorsLocation : 1,
+			keepFocusOnError : 0,
+			scrollToFirst : false
+		    }
+		});// the end for 'issueCreationFormChk' definition
+
+	    }// the end for 'onload' definition
+	};// the end for 'options' definition
+
+   	MUI.formValidLib(appName,addMsgOptions);
+
+	// add action buttons
+	var bnContainer = new Element('div',{style: bnStyle});
+	$(formId).adopt(bnContainer);
+
+	[
+	    {'type':'accept','label': confirmBnLabel},
+	    {'type':'cancel','label': cancelBnLabel}
+	].each(function(attrs,index){
+	    options = {
+		txt: attrs['label'],
+		imgType: attrs['type'],
+		bnAttrs: {'style':'margin-right:1em;'}
+	    };
+	    button = MUI.styledButton(options);
+	    button.addEvent('click',actionAdapter);
+	    bnContainer.grab(button);
+	});
+
+	function actionAdapter(e){
+		var button = e.target;
+		var label = button.get('text');
+
+		if(label == confirmBnLabel){
+			addMsgFormChk.onSubmit(e);
+		}
+		else{
+			new Event(e).stop();
+			MUI.closeModalDialog();
+		};
+	};
+	"""%paras
+	return js
+
+def page_addMessageAction(**args):
+	''' Add a new message to the specified issue and save the result to database. '''
+	editor, issueId, message = [args.pop(name) for name in ('editor','issueId', 'messages')]
+	iprops = {}
+	mprops = {'content':message}
 
 	# edit the value of the property of this issue
 	issueId, msgId = model.edit_issue(editor, iprops, mprops, issueId, True)
