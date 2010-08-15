@@ -2724,7 +2724,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1190364615306" ID="Freemind_Link_701613096" MODIFIED="1281839997482" POSITION="left" TEXT="&#x56fe;&#x6807;&#x5e93;&#xff08;icon&#xff09;">
+<node COLOR="#0033ff" CREATED="1190364615306" FOLDED="true" ID="Freemind_Link_701613096" MODIFIED="1281877267763" POSITION="left" TEXT="&#x56fe;&#x6807;&#x5e93;&#xff08;icon&#xff09;">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1184293139392" FOLDED="true" ID="Freemind_Link_411057413" MODIFIED="1261561636783" TEXT="Loader&#x7b49;&#x5f85;&#x72b6;&#x56fe;&#x6807;">
@@ -3624,7 +3624,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1280286973713" ID="ID_1197115616" MODIFIED="1280287071861" POSITION="left" TEXT="Project History">
+<node COLOR="#0033ff" CREATED="1280286973713" FOLDED="true" ID="ID_1197115616" MODIFIED="1281877276744" POSITION="left" TEXT="Project History">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -5042,9 +5042,10 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1276659071183" FOLDED="true" ID="ID_961184065" MODIFIED="1278731771243" POSITION="right" TEXT="Optimize">
+<node COLOR="#0033ff" CREATED="1276659071183" FOLDED="true" ID="ID_961184065" MODIFIED="1281877205267" POSITION="right" TEXT="Optimize">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
+<icon BUILTIN="messagebox_warning"/>
 <node COLOR="#00b439" CREATED="1276659076768" ID="ID_883728496" MODIFIED="1276659078591" TEXT="Css">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
@@ -5067,6 +5068,15 @@
 </node>
 <node COLOR="#990000" CREATED="1273296177230" ID="ID_1036471816" LINK="http://www.iwanna.cn/archives/2010/05/07/2957/" MODIFIED="1273296180324" TEXT="http://www.iwanna.cn/archives/2010/05/07/2957/">
 <font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1281877069384" ID="ID_1829982721" MODIFIED="1281877136218" TEXT="Functions">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<icon BUILTIN="button_cancel"/>
+<node COLOR="#990000" CREATED="1281877079534" ID="ID_1822096349" MODIFIED="1281877087377" TEXT="omnigrid">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1281877088437" ID="ID_189275971" MODIFIED="1281877119194" TEXT="&#x670d;&#x52a1;&#x5668;&#x7aef;&#x6309;&#x65f6;&#x95f4;&#x5148;&#x540e;&#x53ea;&#x8fd4;&#x56de;&#x6700;&#x540e;&#x6570;&#x884c;&#x6570;&#x636e;&#xff1f;"/>
 </node>
 </node>
 </node>
@@ -5460,10 +5470,10 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1280286221408" ID="ID_767321368" MODIFIED="1281843327291" POSITION="right" TEXT="Expand Direction">
+<node COLOR="#0033ff" CREATED="1280286221408" FOLDED="true" ID="ID_767321368" MODIFIED="1281877064418" POSITION="right" TEXT="Expand Direction">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1280286228167" ID="ID_1157419451" MODIFIED="1280286241194" TEXT="Intelligence Search">
+<node COLOR="#00b439" CREATED="1280286228167" FOLDED="true" ID="ID_1157419451" MODIFIED="1281877061233" TEXT="Intelligence Search">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1280286242429" ID="ID_243290723" MODIFIED="1280286261834" TEXT="Prefered Projects">
@@ -5471,7 +5481,7 @@
 <node COLOR="#111111" CREATED="1280286262662" ID="ID_1672911610" LINK="http://flamenco.berkeley.edu/index.html" MODIFIED="1280286266021" TEXT="http://flamenco.berkeley.edu/index.html"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1280286426024" ID="ID_1355169867" MODIFIED="1280286438861" TEXT="View for Discussion">
+<node COLOR="#00b439" CREATED="1280286426024" FOLDED="true" ID="ID_1355169867" MODIFIED="1281877061745" TEXT="View for Discussion">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1280286440471" ID="ID_1384253965" MODIFIED="1280286446390" TEXT="Prefered Projects">
@@ -5479,10 +5489,10 @@
 <node COLOR="#111111" CREATED="1280286447738" ID="ID_985152092" LINK="http://zesty.ca/zest/" MODIFIED="1280286451394" TEXT="http://zesty.ca/zest/"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1280287147003" ID="ID_1892691742" MODIFIED="1280287153571" TEXT="Chat">
+<node COLOR="#00b439" CREATED="1280287147003" FOLDED="true" ID="ID_1892691742" MODIFIED="1281877057777" TEXT="Chat">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1280286440471" ID="ID_549088982" MODIFIED="1280286446390" TEXT="Prefered Projects">
+<node COLOR="#990000" CREATED="1280286440471" FOLDED="true" ID="ID_549088982" MODIFIED="1281877056373" TEXT="Prefered Projects">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1280287158181" ID="ID_715994856" LINK="http://zesty.ca/chat/chat.cgi?handle=testChat" MODIFIED="1280287171417" TEXT="http://zesty.ca/chat/chat.cgi?handle=testChat">
 <font NAME="SansSerif" SIZE="12"/>
@@ -5500,7 +5510,7 @@
 <node COLOR="#111111" CREATED="1281843335156" ID="ID_555374251" LINK="http://www.fedena.com/" MODIFIED="1281843338752" TEXT="http://www.fedena.com/"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1281855718646" ID="ID_1263150647" MODIFIED="1281855726396" TEXT="Conent Manage">
+<node COLOR="#00b439" CREATED="1281855718646" FOLDED="true" ID="ID_1263150647" MODIFIED="1281877060449" TEXT="Conent Manage">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1281855728295" ID="ID_404201649" MODIFIED="1281855733798" TEXT="Prefered Projects">

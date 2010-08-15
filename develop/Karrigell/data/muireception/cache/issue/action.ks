@@ -484,21 +484,19 @@ def _addMessageJs(formId, issueId):
 			// close modal
 			MUI.closeModalDialog();
 
-			if(response!=1) return;
+			if(response==0) return;
 
 			// refresh table grid
 			$$('.omnigrid')[0].retrieve('tableInstance').loadData();
 
 			// refresh the detail information of this issue
-			/*
-			var q = $H();
-			q['issueId'] = issueId;
-			var url = [ infoUrl, q.toQueryString()].join('?');
-			var panel = MUI.getPanel(infoPanel);
-			panel.options.contentURL = url;
-			panel.newPanel();
-			*/
-			$(['issue',issueId, 'msgList'].join('-')).retrieve('smartListInstance').reset();
+			var msgList = $(['issue',issueId, 'msgList'].join('-')).retrieve('smartListInstance');
+			var url = msgList.options.dataUrl;
+			var urlArgs = url.split('?');
+			var ids = urlArgs[1].parseQueryString()['ids'];
+			ids = [ids,response.toInt().toString()].join(',');
+			msgList.options.dataUrl = [urlArgs[0], $H({'ids':ids}).toQueryString()].join('?');
+			msgList.reset();
 		    },
 
  		    display:{
@@ -554,6 +552,6 @@ def page_addMessageAction(**args):
 
 	# edit the value of the property of this issue
 	issueId, msgId = model.edit_issue(editor, iprops, mprops, issueId, True)
-	PRINT( '1')
+	PRINT( msgId)
 	return
 

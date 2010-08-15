@@ -489,15 +489,13 @@ def _addMessageJs(formId, issueId):
 			$$('.omnigrid')[0].retrieve('tableInstance').loadData();
 
 			// refresh the detail information of this issue
-			/*
-			var q = $H();
-			q['issueId'] = issueId;
-			var url = [ infoUrl, q.toQueryString()].join('?');
-			var panel = MUI.getPanel(infoPanel);
-			panel.options.contentURL = url;
-			panel.newPanel();
-			*/
-			$(['issue',issueId, 'msgList'].join('-')).retrieve('smartListInstance').reset();
+			var msgList = $(['issue',issueId, 'msgList'].join('-')).retrieve('smartListInstance');
+			var url = msgList.options.dataUrl;
+			var urlArgs = url.split('?');
+			var ids = urlArgs[1].parseQueryString()['ids'];				
+			ids = [ids,response.toInt().toString()].join(',');
+			msgList.options.dataUrl = [urlArgs[0], $H({'ids':ids}).toQueryString()].join('?');
+			msgList.reset();
 		    },            
 		    
  		    display:{
