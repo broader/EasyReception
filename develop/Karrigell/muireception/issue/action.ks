@@ -357,7 +357,7 @@ def _editIssuePropJs(formId, issueId):
 	    bnStyle="%s", confirmBnLabel="%s",cancelBnLabel="%s",
 	    infoUrl="%s", infoTableId = "%s",
 	    editProps = ["%s", "%s", "%s", "%s", "%s" ];
-	
+
 	var propEditFormChk;
 	// Load the form validation plugin script
 	var propEditOptions = {
@@ -373,20 +373,12 @@ def _editIssuePropJs(formId, issueId):
 			// refresh table grid
 			$$('.omnigrid')[0].retrieve('tableInstance').loadData();
 
-			// refresh the detail information of this issue
-			/*
-			var q = $H();
-			q['issueId'] = issueId;
-			var url = [ infoUrl, q.toQueryString()].join('?');
-			var panel = MUI.getPanel(infoPanel);
-			panel.options.contentURL = url;
-			panel.newPanel();
-			*/
-			//set value from the td component in a tr
+			// refresh the showing value of the property in the cell of the table component 
 			res = response.split(':');
-			$(infoTableId)
-			.getElements('tr')[editProps.indexOf(res[0])]
-			.getElements('label')[0].set('text', res[1]);
+			var propIndex = editProps.indexOf(res[0]);
+			$(infoTableId).getElements('tr')[propIndex]
+			.getElements('label')[0]
+			.set('text', res[1]);
 		    },            
 		    
  		    display:{

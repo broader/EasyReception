@@ -1732,7 +1732,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" ID="Freemind_Link_1929446294" MODIFIED="1281929772202" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1281969485022" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -2787,7 +2787,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1280216754178" POSITION="right" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1281969699171" POSITION="right" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -2799,7 +2799,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1252027856832" FOLDED="true" ID="Freemind_Link_1618511399" MODIFIED="1280216125650" TEXT="Javascript">
+<node COLOR="#00b439" CREATED="1252027856832" ID="Freemind_Link_1618511399" MODIFIED="1281969498161" TEXT="Javascript">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1250147399215" ID="Freemind_Link_404010672" MODIFIED="1272459193903" TEXT="JSON">
@@ -2821,7 +2821,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1253864935653" ID="Freemind_Link_1818950425" MODIFIED="1253865042057" TEXT="javascript&#x4e2d;replace() &#x65b9;&#x6cd5;&#x5982;&#x679c;&#x76f4;&#x63a5;&#x7528;str.replace(&quot;apples&quot;,&quot;oranges&quot;) &#x53ea;&#x4f1a;&#x66ff;&#x6362;&#x7b2c;&#x4e00;&#x4e2a;&#x5339;&#x914d;&#x7684;&#x5b57;&#x7b26;&#x3002;&#x4f7f;&#x7528; /g &#x66ff;&#x6362;&#x6240;&#x6709;&#x5339;&#x914d;&#x7684;&#x5b57;&#x7b26;&#xff0c; /i &#x5ffd;&#x7565;&#x5927;&#x5c0f;&#x5199;"/>
 </node>
-<node COLOR="#990000" CREATED="1179127402994" ID="Freemind_Link_509194556" MODIFIED="1264043095443" TEXT="&#x901a;&#x75c5;">
+<node COLOR="#990000" CREATED="1179127402994" FOLDED="true" ID="Freemind_Link_509194556" MODIFIED="1281969545998" TEXT="&#x901a;&#x75c5;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="idea"/>
@@ -2831,7 +2831,7 @@
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1257254497599" FOLDED="true" ID="ID_1317034118" MODIFIED="1264043113134" TEXT="&#x5168;&#x5c40;&#x53d8;&#x91cf;">
+<node COLOR="#111111" CREATED="1257254497599" FOLDED="true" ID="ID_1317034118" MODIFIED="1281969543078" TEXT="&#x5168;&#x5c40;&#x53d8;&#x91cf;">
 <icon BUILTIN="messagebox_warning"/>
 <node COLOR="#111111" CREATED="1257254522312" ID="ID_1903159480" MODIFIED="1257254635090" TEXT="&#x5728;&#x51fd;&#x6570;&#x4e2d;&#x8c03;&#x7528;&#x65f6;undefined&#xa;&#x51fd;&#x6570;&#x4e2d;&#x4e0d;&#x80fd;&#x6709;&#x4e0e;&#x5168;&#x5c40;&#x53d8;&#x91cf;&#x540c;&#x540d;&#x7684;&#x53d8;&#x91cf;&#xff0c;&#x5426;&#x5219;&#x5728;&#x51fd;&#x6570;&#x5185;&#x90e8;&#xff0c;&#x53ea;&#x8981;&#x5728;&#x6b64;&#x53d8;&#x91cf;&#x58f0;&#x660e;&#x4e4b;&#x524d;&#x8c03;&#x7528;&#x6b64;&#x53d8;&#x91cf;&#xff0c;&#x5373;&#x4f7f;&#x4e3a;&#x5168;&#x5c40;&#x53d8;&#x91cf;&#xff0c;&#x4e5f;&#x4f1a;&#x662f;undefined"/>
 <node COLOR="#111111" CREATED="1257254641263" ID="ID_1159819468" MODIFIED="1257254653858" TEXT="var &#x58f0;&#x660e;&#x7528;&#x4e8e;&#x5168;&#x5c40;&#x53d8;&#x91cf;"/>
@@ -2842,9 +2842,30 @@
 <node COLOR="#111111" CREATED="1264043198565" ID="ID_1409686944" MODIFIED="1264043205226" TEXT="&#x4f7f;&#x7528;&#x6837;&#x5f0f; cursor:pointer;&#xa;&#x5373;&#x4f7f;&#x662f;&#x4e00;&#x4e2a;div&#xa;&lt;div style=&quot;cursor:pointer;&quot;&gt;111&lt;/div&gt;&#xa;&#x4e5f;&#x662f;&#x53ef;&#x4ee5;&#x5b9e;&#x73b0;&#x9f20;&#x6807;&#x653e;&#x4e0a;&#x53bb;&#x53d8;&#x6210;&#x4e00;&#x53ea;&#x624b;&#xa;&#x8fdb;&#x9636;&#xa;&lt;style&gt;&#xa;.hover{font-width:blod;}&#xa;&lt;/style&gt;&#xa;&lt;div style=&quot;cursor:pointer;&quot; onmouseover=&quot;this.className=&apos;hover&apos;&quot; onmouseout=&quot;this.class=&apos;&apos;&quot;&gt;111&lt;/div&gt;&#xa;"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1260845370499" FOLDED="true" ID="ID_1337577665" MODIFIED="1280216124831" TEXT="&#x5bfc;&#x5165;&#x9519;&#x8bef;">
+<node COLOR="#990000" CREATED="1260845370499" ID="ID_1337577665" MODIFIED="1281969683161" TEXT="&#x5bfc;&#x5165;&#x9519;&#x8bef;">
 <font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="messagebox_warning"/>
 <node COLOR="#111111" CREATED="1260845378421" ID="ID_163739786" MODIFIED="1260845458885" TEXT="missing : before statement&#xa;&#x68c0;&#x67e5;&#x53d1;&#x73b0;&#xff0c;js&#x6587;&#x4ef6;&#x76f8;&#x5bf9;&#x8def;&#x5f84;&#x4e3a;/js/lib/...&#xff0c;&#x66f4;&#x6539;&#x4e3a;js/lib/...&#x5373;&#x6b63;&#x5e38;"/>
+<node COLOR="#111111" CREATED="1281969555566" ID="ID_15060912" MODIFIED="1281969694164" TEXT="&#x9875;&#x9762;&#x4e2d;&lt;script &gt;&#x4e2d;&#x7684;&#x8bed;&#x53e5;&#x4e0d;&#x6267;&#x884c;">
+<icon BUILTIN="yes"/>
+<node COLOR="#111111" CREATED="1281969603088" ID="ID_1399714155" MODIFIED="1281969677465">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      javascript&#35821;&#21477;&#20013;&#26377;&#38169;&#35823;
+    </p>
+    <p>
+      &#36825;&#31181;&#24773;&#20917;&#24120;&#35265;&#65292;&#38656;&#20180;&#32454;&#25490;&#26597;js&#35821;&#21477;&#20013;&#30340;&#38169;&#35823;&#65281;
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node COLOR="#111111" CREATED="1281969619974" ID="ID_1504639582" MODIFIED="1281969640542" TEXT="evalScript &#x9009;&#x9879;&#x5173;&#x95ed;"/>
+</node>
 </node>
 <node COLOR="#990000" CREATED="1268277743403" FOLDED="true" ID="ID_1486552047" MODIFIED="1275534517377" TEXT="Events">
 <font NAME="SansSerif" SIZE="14"/>
@@ -2858,7 +2879,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1275534519734" ID="ID_64771622" MODIFIED="1277113968709" TEXT="Mootools">
+<node COLOR="#00b439" CREATED="1275534519734" FOLDED="true" ID="ID_64771622" MODIFIED="1281969494430" TEXT="Mootools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1275534524901" FOLDED="true" ID="ID_623447683" MODIFIED="1277113978747" TEXT="Slider.js">
@@ -5050,7 +5071,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1276659071183" ID="ID_961184065" MODIFIED="1281944654519" POSITION="right" TEXT="Optimize">
+<node COLOR="#0033ff" CREATED="1276659071183" FOLDED="true" ID="ID_961184065" MODIFIED="1281969488721" POSITION="right" TEXT="Optimize">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>

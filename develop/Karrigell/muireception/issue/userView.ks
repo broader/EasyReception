@@ -84,7 +84,6 @@ def page_issueDetail(**args):
 		print _('You have no permission for this action!')
 		return
 
-	#print DIV(Sum((title, buttons)))
 	print DIV(title)
 	
 	# some detail information fields of this issue 
@@ -187,7 +186,7 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 	// a handy function to get value from the td component in a tr
 	function _getTdValue(table, index,tag){
 		tr = $(table).getElements('tr')[index];
-		return tr.getElements(tag)[0].get('text')
+		return tr.getElements(tag)[0].get('text').trim();
 	};
 
 	// add edit button to the table component which holds the fields of issue
@@ -209,7 +208,7 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 			});
 		};
 
-		url = [editIssuePropUrl, query.toQueryString()].join('?');
+		var url = [editIssuePropUrl, query.toQueryString()].join('?');
 		new MUI.Modal({
 			width: 400, height: 360, y: 80, 
 			title: propTitles[data.propIndex],

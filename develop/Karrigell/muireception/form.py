@@ -126,10 +126,12 @@ def _mtMultiSelect(field, oldvalue):
 	
 	js = \
 	"""
-	var multiSelectContainer='%s', multiSelectUrl='%s', field='%s', itemsNumber='%s';
+	var multiSelectContainer='%s', 
+	    multiSelectUrl='%s', 
+	    field='%s', 
+   	    itemsNumber='%s';
 	
 	MUI.multiSelect('',{onload: function(){
-		alert('MTMultiWidget running');
 		new MTMultiWidget({
 			container: multiSelectContainer, 
 			dataUrl: multiSelectUrl, 
