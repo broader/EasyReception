@@ -3042,3 +3042,58 @@ sent 137099 bytes  received 31 bytes  274260.00 bytes/sec
 total size is 935690  speedup is 6.82
 2010-08-16 11:27:48,873 INFO End backup loacl karrigell diretory to local git.
 2010-08-16 11:27:48,873 INFO Begin to backup local github to remote github host.
+2010-08-16 11:27:49,492 INFO Command: 
+git add .
+running result is :
+2010-08-16 11:27:59,033 INFO Command: 
+git commit -m 'Update time:2010-08-16T11:27:48.874005'
+running result is :[master 2e27430] Update time:2010-08-16T11:27:48.874005
+ Committer: Broader ZHONG <broader@laptop-ubuntu.10.04>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+If the identity used for this commit is wrong, you can fix it with:
+
+    git commit --amend --author='Your Name <you@example.com>'
+
+ 31 files changed, 812 insertions(+), 79 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010081608.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010081600.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010081601.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010081602.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010081603.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010081608.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010081611.log
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/msg/0/msg61
+ create mode 100644 develop/Karrigell/data/muireception/sessions/0yUQrjNMCaKqSrby
+ create mode 100644 develop/Karrigell/data/muireception/sessions/BAzoiOGa3m4bWvsy
+ create mode 100644 develop/Karrigell/data/muireception/sessions/GwEdlbd5JxK1ttqC
+2010-08-16 11:28:08,366 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   499bdc7..2e27430  master -> master
+2010-08-16 11:28:08,367 INFO End backup local github to remote github host.
+2010-08-16 11:28:20,947 INFO Delete nousing captcha images
+2010-08-16 11:28:20,949 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-08-16 11:28:20,950 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-08-16 11:28:21,215 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+
+sent 171454 bytes  received 1183 bytes  115091.33 bytes/sec
+total size is 54432647  speedup is 315.30
+2010-08-16 11:28:21,271 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 85 bytes  received 12 bytes  194.00 bytes/sec
+total size is 935690  speedup is 9646.29
+2010-08-16 11:28:21,271 INFO End backup loacl karrigell diretory to local git.
+2010-08-16 11:28:21,271 INFO Begin to backup local github to remote github host.
