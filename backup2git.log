@@ -3097,3 +3097,102 @@ sent 85 bytes  received 12 bytes  194.00 bytes/sec
 total size is 935690  speedup is 9646.29
 2010-08-16 11:28:21,271 INFO End backup loacl karrigell diretory to local git.
 2010-08-16 11:28:21,271 INFO Begin to backup local github to remote github host.
+2010-08-16 11:28:21,362 INFO Command: 
+git add .
+running result is :
+2010-08-16 11:28:21,496 INFO Command: 
+git commit -m 'Update time:2010-08-16T11:28:21.271964'
+running result is :[master 5477fe5] Update time:2010-08-16T11:28:21.271964
+ Committer: Broader ZHONG <broader@laptop-ubuntu.10.04>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+If the identity used for this commit is wrong, you can fix it with:
+
+    git commit --amend --author='Your Name <you@example.com>'
+
+ 1 files changed, 55 insertions(+), 0 deletions(-)
+2010-08-16 11:28:26,928 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   2e27430..5477fe5  master -> master
+2010-08-16 11:28:26,928 INFO End backup local github to remote github host.
+2010-08-16 17:31:49,624 INFO Delete nousing captcha images
+2010-08-16 17:31:49,670 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-08-16 17:31:49,670 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-08-16 17:31:51,719 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010081606.log
+        2364 100%    0.00kB/s    0:00:00          2364 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1036/4029)
+data/cms/logs_2010081607.log
+        3125 100%    2.98MB/s    0:00:00          3125 100%    2.98MB/s    0:00:00 (xfer#2, to-check=1035/4029)
+data/cms/sessions/KKkAfHGCTdmSx23h
+         235 100%    4.25kB/s    0:00:00           235 100%    4.25kB/s    0:00:00 (xfer#3, to-check=1024/4277)
+data/muireception/
+data/muireception/logs_2010081606.log
+        3553 100%   30.17kB/s    0:00:00          3553 100%   30.17kB/s    0:00:00 (xfer#4, to-check=2463/5752)
+data/muireception/logs_2010081607.log
+        8041 100%   54.16kB/s    0:00:00          8041 100%   54.16kB/s    0:00:00 (xfer#5, to-check=2462/5752)
+data/muireception/logs_2010081608.log
+       21273 100%  140.37kB/s    0:00:00         21273 100%  138.50kB/s    0:00:00 (xfer#6, to-check=2461/5752)
+data/muireception/logs_2010081609.log
+        8540 100%   55.23kB/s    0:00:00          8540 100%   54.87kB/s    0:00:00 (xfer#7, to-check=2460/5752)
+data/muireception/logs_2010081614.log
+        4068 100%   25.97kB/s    0:00:00          4068 100%   25.80kB/s    0:00:00 (xfer#8, to-check=2458/5752)
+data/muireception/cache/form.py
+        9478 100%   59.33kB/s    0:00:00          9478 100%   58.21kB/s    0:00:00 (xfer#9, to-check=2448/5752)
+data/muireception/cache/model.py
+       20971 100%  127.20kB/s    0:00:00         20971 100%  124.87kB/s    0:00:00 (xfer#10, to-check=2444/5752)
+data/muireception/cache/issue/action.ks
+       17567 100%  103.97kB/s    0:00:00         17567 100%  103.97kB/s    0:00:00 (xfer#11, to-check=2422/5752)
+data/muireception/cache/issue/userView.ks
+       21479 100%  125.60kB/s    0:00:00         21479 100%  125.60kB/s    0:00:00 (xfer#12, to-check=2421/5752)
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%  140.35kB/s    0:00:02        362496 100%    1.37MB/s    0:00:00 (xfer#13, to-check=2384/5752)
+data/muireception/sessions/
+data/muireception/sessions/1LnIUpsIolhJCvPe
+         249 100%    0.96kB/s    0:00:00           249 100%    0.96kB/s    0:00:00 (xfer#14, to-check=2244/5752)
+data/muireception/sessions/5q8aZdeiRVG1GjfZ
+         249 100%    0.96kB/s    0:00:00           249 100%    0.96kB/s    0:00:00 (xfer#15, to-check=2242/5752)
+data/muireception/sessions/SwAJPcXh2vYwhiKv
+         249 100%    0.96kB/s    0:00:00           249 100%    0.96kB/s    0:00:00 (xfer#16, to-check=2236/5752)
+data/muireception/sessions/yHk4fnfdZQIzcCmh
+         274 100%    1.06kB/s    0:00:00           274 100%    1.06kB/s    0:00:00 (xfer#17, to-check=2229/5752)
+data/muireception/sessions/ylbE3M4LJzSseRox
+         274 100%    1.06kB/s    0:00:00           274 100%    1.06kB/s    0:00:00 (xfer#18, to-check=2228/5752)
+karrigell/package/roundup/ajax/
+karrigell/package/roundup/ajax/ajaxActions.pyc
+       32768  37%  125.00kB/s    0:00:00         86995 100%  319.38kB/s    0:00:00 (xfer#19, to-check=1943/5752)
+muireception/
+muireception/form.py
+        9548 100%   34.79kB/s    0:00:00          9548 100%   34.79kB/s    0:00:00 (xfer#20, to-check=1622/5752)
+muireception/model.py
+       20841 100%   75.10kB/s    0:00:00         20841 100%   75.10kB/s    0:00:00 (xfer#21, to-check=1608/5752)
+muireception/issue/
+muireception/issue/action.ks
+       17548 100%   31.68kB/s    0:00:00         17548 100%   31.62kB/s    0:00:00 (xfer#22, to-check=1014/6885)
+muireception/issue/userView.ks
+       21458 100%   38.52kB/s    0:00:00         21458 100%   38.52kB/s    0:00:00 (xfer#23, to-check=1013/6885)
+
+sent 320626 bytes  received 1651 bytes  128910.80 bytes/sec
+total size is 54483809  speedup is 169.06
+2010-08-16 17:31:51,812 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768   5%    0.00kB/s    0:00:00        624845 100%   10.86MB/s    0:00:00 (xfer#1, to-check=1/3)
+
+sent 137306 bytes  received 31 bytes  274674.00 bytes/sec
+total size is 936541  speedup is 6.82
+2010-08-16 17:31:51,812 INFO End backup loacl karrigell diretory to local git.
+2010-08-16 17:31:51,812 INFO Begin to backup local github to remote github host.

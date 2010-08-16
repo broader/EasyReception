@@ -62,7 +62,7 @@ def page_issueDetail(**args):
 		
 	# issue information, such as title, key words, nosy, edit history
 	nodeId = model.serial2id(serial)
-	props = ('title', 'keyword', 'nosy', 'creation', 'creator', 'activity', 'actor', 'messages', 'assignedto')
+	props = ('title', 'keyword', 'nosy', 'creation', 'creator', 'activity', 'actor', 'messages', 'assignedto','status')
 	values = model.get_item(USER, 'issue', nodeId, props, keyIsId=True)
 	# set the properties to be checked whether the viewer has a valid permission
 	toCheck = copy.deepcopy(values)
@@ -91,7 +91,7 @@ def page_issueDetail(**args):
 	labels = copy.deepcopy(SUPPLEMENTLABELS)
 	[labels.update({item['name']:item['header']}) for item in ISSUELISTCOLUMNS]
 	tableFields = []
-	showFields = ('title', 'keyword', 'nosy', 'assignedto', 'activity')
+	showFields = ('title', 'keyword', 'nosy', 'assignedto', 'status', 'activity')
 	for field in showFields:
 		if field != 'activity':
 			value = {'prompt': labels.get(field) or '', 'value':values.get(field) or ''}
@@ -109,7 +109,7 @@ def page_issueDetail(**args):
 		valueStyle={'label': 'margin-left:10px'}\
 	)
 
-	tableId = "issue-%s-info"%serial
+	tableId = "issue-%s-info"%(issueId or model.serial2id(serial))
 	print TABLE(TBODY(trs), **{'id':tableId})
 	
 	# list messages of this issue
@@ -131,7 +131,7 @@ def page_issueDetail(**args):
 	print DIV(**{'id': msgListContainer})
 
 	# js slice for show multiful messages in smart list format
-	perms = ','.join([str(perms.get(prop)) for prop in showFields[:-1]])
+	perms = ','.join([str(perms.get(prop)) for prop in showFields[:5]])
 	print pagefn.script(_showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, messages),link=False)
 	return
 
@@ -152,8 +152,8 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 	paras.extend(actions)
 	paras.append(_('Add New Message'))
 	
-	paras.extend([_('Edit Title'), _('Edit Keywords'), _('Edit Nosy'), _('Edit Assignedto')])
-	paras.extend(['title', 'keyword', 'nosy', 'assignedto'])
+	paras.extend([_('Edit Title'), _('Edit Keywords'), _('Edit Nosy'), _('Edit Assignedto'), _('Edit Status')])
+	paras.extend(['title', 'keyword', 'nosy', 'assignedto', 'status'])
 
 	# the url to load the messages of this issue	
 	page = '/'.join((APPATH, 'page_issueMessages'))
@@ -178,8 +178,8 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 	    addMessageUrl="%s", addMessageTitle="%s",
 
 	    // the properties' information of the issue
-	    propTitles = ["%s", "%s", "%s", "%s" ],
-	    props = ["%s", "%s", "%s", "%s" ],
+	    propTitles = ["%s", "%s", "%s", "%s", "%s" ],
+	    props = ["%s", "%s", "%s", "%s", "%s" ],
 
 	    listContainer="%s", msgUrl="%s", 
 	    countInfo="%s", pageInfo="%s", filterBnLabel="%s", fields="%s";
@@ -201,10 +201,11 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 		// get old value of this property
 		query['oldValue'] = _getTdValue(tableId,data.propIndex, 'label');
 		// get the value of the preferable property
-		if(data.propIndex-1 > 0){
+		preferIndex = data.propIndex-1; 
+		if( preferIndex > 0 && preferIndex < 3){
 			query.combine({
-				'preferValue': _getTdValue(tableId, data.propIndex-1, 'label'),
-				'preferProp': props[data.propIndex-1]
+				'preferValue': _getTdValue(tableId, preferIndex, 'label'),
+				'preferProp': props[preferIndex]
 			});
 		};
 
@@ -235,7 +236,7 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 	perms = perms.split(',');
 	$(tableId).getElements('tr').each(function(tr,index){
 		$(tr).setStyle('height', '35px');
-		if(index==4 || perms[index] == '0') return;
+		if(index==5 || perms[index] == '0') return;
 		td = new Element('td');
 		td.grab(editButton(index));
 		tr.grab(td);
@@ -641,7 +642,7 @@ def _permissionCheck(**args):
 	role/action	view	edit	detailEditFields
 	admin		OK	OK
 	creator		OK	OK	'title','keyword'
-	assignedto	OK	OK	'nosy', 'assignedto'
+	assignedto	OK	OK	'nosy', 'assignedto','status'
 	nosy		OK	X
 	--------------------------------------------------------------
 	'''
@@ -673,6 +674,7 @@ def _permissionCheck(**args):
 	else:
 		hasperm = 0
 
-	[perms.update({key:hasperm}) for key in ('nosy', 'assignedto')]
+	#[perms.update({key:hasperm}) for key in ('nosy', 'assignedto', 'status')]
+	[perms.update({key:1}) for key in ('nosy', 'assignedto', 'status')]
 	return perms 
 

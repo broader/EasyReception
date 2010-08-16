@@ -1732,7 +1732,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" ID="Freemind_Link_1929446294" MODIFIED="1281923702777" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" ID="Freemind_Link_1929446294" MODIFIED="1281929772202" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -1776,7 +1776,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1251723352369" FOLDED="true" ID="Freemind_Link_1621143709" MODIFIED="1281604368368" TEXT="User">
+<node COLOR="#00b439" CREATED="1251723352369" ID="Freemind_Link_1621143709" MODIFIED="1281929778124" TEXT="User">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1252293882135" FOLDED="true" ID="Freemind_Link_771989817" MODIFIED="1273064602504" TEXT="Functions">
@@ -1788,9 +1788,7 @@
 </node>
 <node COLOR="#990000" CREATED="1252293904733" ID="Freemind_Link_1278450273" MODIFIED="1281599770464" TEXT="UI Design">
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1252293915875" FOLDED="true" ID="Freemind_Link_1696049106" MODIFIED="1281604367330" TEXT="Portal">
-<node COLOR="#111111" CREATED="1278333951052" ID="ID_426105643" LINK="http://www.opendesigns.org/design/simple/" MODIFIED="1278333954646" TEXT="http://www.opendesigns.org/design/simple/"/>
-<node COLOR="#111111" CREATED="1278333963312" ID="ID_713018700" LINK="http://www.opendesigns.org/design/company-name-2/" MODIFIED="1278333965805" TEXT="http://www.opendesigns.org/design/company-name-2/"/>
+<node COLOR="#111111" CREATED="1252293915875" ID="Freemind_Link_1696049106" MODIFIED="1281929779788" TEXT="Portal">
 <node COLOR="#111111" CREATED="1278550765458" ID="ID_114080679" MODIFIED="1281599164877" TEXT="scheme">
 <node COLOR="#111111" CREATED="1278550772570" FOLDED="true" ID="ID_1810258934" MODIFIED="1281604011776" TEXT="blue">
 <node COLOR="#111111" CREATED="1278550775195" ID="ID_738780480" LINK="http://justfreetemplates.com/preview/web-templates/1676.html" MODIFIED="1278550778471" TEXT="http://justfreetemplates.com/preview/web-templates/1676.html"/>
@@ -1829,6 +1827,13 @@
 <node COLOR="#111111" CREATED="1281057895923" ID="ID_43234651" MODIFIED="1281057900541" TEXT="Functions">
 <node COLOR="#111111" CREATED="1281057902232" ID="ID_1796014615" LINK="http://codecanyon.net/item/clientive-client-manager/full_screen_preview/115727" MODIFIED="1281057906022" TEXT="http://codecanyon.net/item/clientive-client-manager/full_screen_preview/115727"/>
 </node>
+<node COLOR="#111111" CREATED="1281929784408" ID="ID_1628511612" MODIFIED="1281929786425" TEXT="Layout">
+<node COLOR="#111111" CREATED="1281929787528" ID="ID_1477879378" LINK="http://www.webappers.com/2009/09/18/20-professional-web-admin-templates-on-themeforest/" MODIFIED="1281929794620" TEXT="http://www.webappers.com/2009/09/18/20-professional-web-admin-templates-on-themeforest/">
+<icon BUILTIN="full-1"/>
+</node>
+<node COLOR="#111111" CREATED="1278333951052" ID="ID_426105643" LINK="http://www.opendesigns.org/design/simple/" MODIFIED="1278333954646" TEXT="http://www.opendesigns.org/design/simple/"/>
+<node COLOR="#111111" CREATED="1278333963312" ID="ID_713018700" LINK="http://www.opendesigns.org/design/company-name-2/" MODIFIED="1278333965805" TEXT="http://www.opendesigns.org/design/company-name-2/"/>
+</node>
 </node>
 </node>
 </node>
@@ -1843,7 +1848,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1176858964077" ID="Freemind_Link_1801314834" MODIFIED="1281856427552" TEXT="Application">
+<node COLOR="#00b439" CREATED="1176858964077" FOLDED="true" ID="Freemind_Link_1801314834" MODIFIED="1281929640224" TEXT="Application">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="button_cancel"/>
@@ -5045,7 +5050,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1276659071183" FOLDED="true" ID="ID_961184065" MODIFIED="1281923700977" POSITION="right" TEXT="Optimize">
+<node COLOR="#0033ff" CREATED="1276659071183" ID="ID_961184065" MODIFIED="1281944654519" POSITION="right" TEXT="Optimize">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -5090,6 +5095,11 @@
 <node COLOR="#990000" CREATED="1281877079534" ID="ID_1822096349" MODIFIED="1281877087377" TEXT="omnigrid">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1281877088437" ID="ID_189275971" MODIFIED="1281877119194" TEXT="&#x670d;&#x52a1;&#x5668;&#x7aef;&#x6309;&#x65f6;&#x95f4;&#x5148;&#x540e;&#x53ea;&#x8fd4;&#x56de;&#x6700;&#x540e;&#x6570;&#x884c;&#x6570;&#x636e;&#xff1f;"/>
+</node>
+<node COLOR="#990000" CREATED="1281944671013" ID="ID_911157219" MODIFIED="1281944742196" TEXT="issue &#x67e5;&#x8be2;">
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="button_cancel"/>
+<node COLOR="#111111" CREATED="1281944686304" ID="ID_359653351" MODIFIED="1281944708475" TEXT="&#x662f;&#x5426;&#x53ef;&#x4ee5;&#x6309;&#x7167;&#x6392;&#x5e8f;&#x53ea;&#x8fd4;&#x56de;&#x5f53;&#x524d;&#x4e00;&#x9875;&#x6570;&#x636e;&#xff1f;"/>
 </node>
 </node>
 </node>
@@ -5483,7 +5493,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1280286221408" ID="ID_767321368" MODIFIED="1281923849139" POSITION="right" TEXT="Expand Direction">
+<node COLOR="#0033ff" CREATED="1280286221408" FOLDED="true" ID="ID_767321368" MODIFIED="1281929770720" POSITION="right" TEXT="Expand Direction">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1280286228167" FOLDED="true" ID="ID_1157419451" MODIFIED="1281877061233" TEXT="Intelligence Search">

@@ -235,9 +235,10 @@ def _getRelationValue(klass, relateclass):
 ISSUEPROPS =\
 [
 	{'name': 'title','prompt': _('Title'),'validate': [],'required': True, 'type':'input'},
-	{'name': 'keyword','prompt': _('Keywords'),'validate': [],'required': True, 'type':'textMultiCheckbox'},
-	{'name': 'nosy','prompt': _('Nosy'),'validate': [],'required': True, 'type':'mtMultiSelect', 'containerStyle':'border: 0.5px solid #DDDDDD;'},
-	{'name': 'assignedto','prompt': _('Assinged Person'), 'validate': [],'required': True, 'type':'select'},
+	{'name': 'keyword','prompt': _('Keywords'),'validate': [],'required': True},
+	{'name': 'nosy','prompt': _('Nosy'),'validate': [],'required': True, 'containerStyle':'border: 0.5px solid #DDDDDD;'},
+	{'name': 'assignedto','prompt': _('Assinged Person'), 'validate': [],'required': True},
+	{'name': 'status','prompt': _('Status'), 'validate': [],'required': True},
 ]
 
 NOSYOLD = 'oldvalue'
@@ -262,6 +263,17 @@ def page_getNosy4issue(**args):
 	]
 	PRINT( JSON.encode(values, encoding='utf8'))
 	return
+
+def _getIssueStatus():
+	''' Return a list containing all the values of the 'status' items whose 'category' property is 'issue'. '''
+	props = ('category','name','order')
+	status = model.filterByPropValues( USER, 'status', props, {'category':'issue'})
+	if status:
+		nameIndex = props.index('name')
+		status = [item[nameIndex] for item in status ]
+	else:
+		status = []
+	return status
 
 def _propFormAdapter(**args):
 	''' Construct filed's values corresponding to the property name. '''
@@ -293,6 +305,10 @@ def _propFormAdapter(**args):
 		form[0]['type'] = 'radio'
 		form[0]['name'] = prop
 		form[0]['options'] = [{'label': person, 'value': person} for person in preferValue.split(',')]
+	elif prop == 'status':
+		form[0]['type'] = 'radio'
+		form[0]['name'] = prop
+		form[0]['options'] = [{'label': status, 'value': status} for status in _getIssueStatus()]
 
 	return form
 
@@ -328,12 +344,20 @@ def _editIssuePropJs(formId, issueId):
 	paras = [ APP, pagefn.ISSUE['userView']['rightColumn']['panelId'], issueId, formId, 'position:absolute;margin-left:15em;']
 	paras.extend( [ pagefn.BUTTONLABELS.get('confirmWindow').get(key) for key in ('confirm','cancel')] )
 	paras.append('/'.join(('/'.join(THIS.script_url.split('/')[:-1]), 'userView.ks', 'page_issueDetail')))
+
+	# the tables' id which shows detail information of the issue in the page
+	paras.append('-'.join(('issue',issueId,'info')))
+
+	# the properties of the issue that could be edit
+	paras.extend(['title', 'keyword', 'nosy', 'assignedto', 'status'])
+
 	paras = tuple(paras)
 	js = \
 	"""
 	var appName="%s", infoPanel="%s", issueId="%s", formId="%s",
 	    bnStyle="%s", confirmBnLabel="%s",cancelBnLabel="%s",
-	    infoUrl="%s";
+	    infoUrl="%s", infoTableId = "%s",
+	    editProps = ["%s", "%s", "%s", "%s", "%s" ];
 
 	var propEditFormChk;
 	// Load the form validation plugin script
@@ -345,18 +369,25 @@ def _editIssuePropJs(formId, issueId):
 			// close modal
 			MUI.closeModalDialog();
 
-			if(response!=1) return;
+			if(response==0) return;
 
 			// refresh table grid
 			$$('.omnigrid')[0].retrieve('tableInstance').loadData();
 
 			// refresh the detail information of this issue
+			/*
 			var q = $H();
 			q['issueId'] = issueId;
 			var url = [ infoUrl, q.toQueryString()].join('?');
 			var panel = MUI.getPanel(infoPanel);
 			panel.options.contentURL = url;
 			panel.newPanel();
+			*/
+			//set value from the td component in a tr
+			res = response.split(':');
+			$(infoTableId)
+			.getElements('tr')[editProps.indexOf(res[0])]
+			.getElements('label')[0].set('text', res[1]);
 		    },
 
  		    display:{
@@ -364,7 +395,7 @@ def _editIssuePropJs(formId, issueId):
 			keepFocusOnError : 0,
 			scrollToFirst : false
 		    }
-		});// the end for 'issueCreationFormChk' definition
+		});// the end for 'propEditFormChk' definition
 
 	    }// the end for 'onload' definition
 	};// the end for 'options' definition
@@ -424,11 +455,14 @@ def page_editIssuePropAction(**args):
 		values.append(value)
 		iprops = {key: ','.join(values)}
 
+	# this action doesn't edit message of this issue
 	mprops = {}
 
+	# save the prop and new value to be saved to database
+	prop, newValue = iprops.items()[0]
 	# edit the value of the property of this issue
 	issueId, msgId = model.edit_issue(editor, iprops, mprops, issueId, True)
-	PRINT( '1')
+	PRINT( ':'.join((prop,newValue)))
 	return
 
 def page_addMessageForm(**args):
