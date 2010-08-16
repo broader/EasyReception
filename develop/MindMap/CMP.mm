@@ -1732,7 +1732,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1281859478671" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" ID="Freemind_Link_1929446294" MODIFIED="1281923702777" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -1945,9 +1945,12 @@
 <node COLOR="#111111" CREATED="1281856659029" ID="ID_1911300668" LINK="http://blog.egorkhmelev.com/2009/11/jquery-slider-safari-style/" MODIFIED="1281856661770" TEXT="http://blog.egorkhmelev.com/2009/11/jquery-slider-safari-style/"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1262920540396" FOLDED="true" ID="ID_1121366219" MODIFIED="1268816572367" TEXT="Notification">
+<node COLOR="#990000" CREATED="1262920540396" ID="ID_1121366219" MODIFIED="1281923716566" TEXT="Notification">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1262920545243" ID="ID_1738387294" MODIFIED="1262920546806" TEXT="http://www.paquitosoft.com/notimoo/"/>
+<node COLOR="#111111" CREATED="1281923719585" ID="ID_901611913" MODIFIED="1281923727114" TEXT="Alert">
+<node COLOR="#111111" CREATED="1281923728367" ID="ID_557516395" LINK="http://www.gayadesign.com/diy/puffing-smoke-effect-in-jquery/" MODIFIED="1281923731735" TEXT="http://www.gayadesign.com/diy/puffing-smoke-effect-in-jquery/"/>
+</node>
 </node>
 <node COLOR="#990000" CREATED="1266645792168" FOLDED="true" ID="ID_1171666777" MODIFIED="1281856619371" TEXT="Statistic">
 <font NAME="SansSerif" SIZE="14"/>
@@ -2092,7 +2095,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1272170991485" FOLDED="true" ID="ID_1140667830" MODIFIED="1272171125360" TEXT="Newsletter">
+<node COLOR="#990000" CREATED="1272170991485" FOLDED="true" ID="ID_1140667830" MODIFIED="1281923715518" TEXT="Newsletter">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1272170997066" ID="ID_1185378275" LINK="http://codecanyon.net/item/newsletter-system/full_screen_preview/52667" MODIFIED="1272171001063" TEXT="http://codecanyon.net/item/newsletter-system/full_screen_preview/52667"/>
 </node>
@@ -5042,7 +5045,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1276659071183" FOLDED="true" ID="ID_961184065" MODIFIED="1281877205267" POSITION="right" TEXT="Optimize">
+<node COLOR="#0033ff" CREATED="1276659071183" FOLDED="true" ID="ID_961184065" MODIFIED="1281923700977" POSITION="right" TEXT="Optimize">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -5056,8 +5059,18 @@
 <node COLOR="#00b439" CREATED="1276659098328" ID="ID_1617910351" MODIFIED="1276659099923" TEXT="Image">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1276659101132" ID="ID_1287072872" LINK="http://developer.yahoo.com/yslow/smushit/" MODIFIED="1276659104331" TEXT="http://developer.yahoo.com/yslow/smushit/">
+<node COLOR="#990000" CREATED="1281923445836" ID="ID_1882058385" MODIFIED="1281923447346" TEXT="Size">
 <font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1276659101132" ID="ID_1287072872" LINK="http://developer.yahoo.com/yslow/smushit/" MODIFIED="1281923458983" TEXT="http://developer.yahoo.com/yslow/smushit/">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+<node COLOR="#111111" CREATED="1281923233003" ID="ID_1381801352" LINK="http://www.punypng.com/" MODIFIED="1281923458985" TEXT="http://www.punypng.com/">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1281923447972" ID="ID_1182310436" MODIFIED="1281923451354" TEXT="Preloader">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1281923452211" ID="ID_1221182611" LINK="http://www.gayadesign.com/diy/queryloader-preload-your-website-in-style/" MODIFIED="1281923454346" TEXT="http://www.gayadesign.com/diy/queryloader-preload-your-website-in-style/"/>
 </node>
 </node>
 <node COLOR="#00b439" CREATED="1272252903314" ID="ID_1602324824" MODIFIED="1273296164828" TEXT="articles">
@@ -5470,7 +5483,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1280286221408" FOLDED="true" ID="ID_767321368" MODIFIED="1281877064418" POSITION="right" TEXT="Expand Direction">
+<node COLOR="#0033ff" CREATED="1280286221408" ID="ID_767321368" MODIFIED="1281923849139" POSITION="right" TEXT="Expand Direction">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1280286228167" FOLDED="true" ID="ID_1157419451" MODIFIED="1281877061233" TEXT="Intelligence Search">
@@ -5510,12 +5523,16 @@
 <node COLOR="#111111" CREATED="1281843335156" ID="ID_555374251" LINK="http://www.fedena.com/" MODIFIED="1281843338752" TEXT="http://www.fedena.com/"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1281855718646" FOLDED="true" ID="ID_1263150647" MODIFIED="1281877060449" TEXT="Conent Manage">
+<node COLOR="#00b439" CREATED="1281855718646" ID="ID_1263150647" MODIFIED="1281923850912" TEXT="Conent Manage">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1281855728295" ID="ID_404201649" MODIFIED="1281855733798" TEXT="Prefered Projects">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1281855734914" ID="ID_83425186" LINK="http://www.webappers.com/2010/01/22/the-best-open-source-cms-mainly-used-for-blogging/" MODIFIED="1281855737150" TEXT="http://www.webappers.com/2010/01/22/the-best-open-source-cms-mainly-used-for-blogging/"/>
+</node>
+<node COLOR="#990000" CREATED="1281923855096" ID="ID_1023868872" MODIFIED="1281923863882" TEXT="Tabbed Content">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1281923864989" ID="ID_197424613" LINK="http://www.gayadesign.com/diy/animated-tabbed-content-with-jquery/" MODIFIED="1281923867128" TEXT="http://www.gayadesign.com/diy/animated-tabbed-content-with-jquery/"/>
 </node>
 </node>
 </node>

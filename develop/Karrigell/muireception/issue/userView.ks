@@ -42,7 +42,6 @@ ISSUELISTCOLUMNS = \
   {'name':'title','header':_('Title'),'dataType':'string'}, \
   {'name':'keyword','header':_('Key Words'),'dataType':'string'},\ 
   {'name':'messages','header':_('Messages Number'),'dataType':'string'},\ 
-  #{'name':'creation','header':_('Creation'),'dataType':'string'}, \
   {'name':'activity','header':_('Activity'),'dataType':'string'}, \
   {'name':'status','header':_('Status'),'dataType':'string'}\
 ]
@@ -92,7 +91,8 @@ def page_issueDetail(**args):
 	labels = copy.deepcopy(SUPPLEMENTLABELS)
 	[labels.update({item['name']:item['header']}) for item in ISSUELISTCOLUMNS]
 	tableFields = []
-	for field in ('title', 'keyword', 'nosy', 'assignedto', 'activity'):
+	showFields = ('title', 'keyword', 'nosy', 'assignedto', 'activity')
+	for field in showFields:
 		if field != 'activity':
 			value = {'prompt': labels.get(field) or '', 'value':values.get(field) or ''}
 		else:
@@ -131,21 +131,22 @@ def page_issueDetail(**args):
 	print DIV(**{'id': msgListContainer})
 
 	# js slice for show multiful messages in smart list format
-	print pagefn.script(_showMessagesJs(nodeId, msgBnId, tableId, msgListContainer, messages),link=False)
+	perms = ','.join([str(perms.get(prop)) for prop in showFields[:-1]])
+	print pagefn.script(_showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, messages),link=False)
 	return
 
-def _showMessagesJs(nodeId, msgBnId, tableId, msgListContainer, msgIds):
+def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 	''' Add callback functions for buttons, and show the messages in a smarlt lists format of each issue. '''
 	paras = [ APP, nodeId, msgBnId]
 	
 	# add edit buttons to each row of the table which shows the properties' values of the issue
-	issueEdit = [tableId, '/'.join((RELPATH, 'images/icons/16x16/comment_edit.png'))]
+	issueEdit = [tableId, perms, _('Edit')]
 	paras.extend(issueEdit)
 	paras.append( _('Edit Issue'))
 
 	actions = [ \
 		'/'.join(('/'.join(THIS.script_url.split('/')[:-1]), 'action.ks', name)) \
-		for name in ('page_editIssueForm','page_addMessageForm', 'page_editIssuePropForm')\
+		for name in ('page_editIssuePropForm', 'page_addMessageForm')\
 	]
 
 	paras.extend(actions)
@@ -161,19 +162,27 @@ def _showMessagesJs(nodeId, msgBnId, tableId, msgListContainer, msgIds):
 	
 	msgCounts = _('Total {total} items.')
 	msgPageInfo = _("Page <span class='{pageInfoClass}' >{currentPage}</span> of {pageNumber}")
-	paras.extend([ msgCounts, msgPageInfo, ','.join(MSGPROPS) ])
+	filterBnLabel = _('Filter')
+	paras.extend([ msgCounts, msgPageInfo, filterBnLabel, ','.join(MSGPROPS) ])
 	paras = tuple(paras)
 	js = \
 	"""
 	var appName="%s", issueId="%s", addMsgBn="%s", 
-	    tableId="%s", editIssueImg="%s",
-	    editDlgTitle="%s", 
-	    editIssueUrl="%s", addMessageUrl="%s", editIssuePropUrl="%s",
-	    addMessageTitle="%s",
+	    tableId="%s", 
+
+	    // edit issue's properties config
+	    perms="%s",	editIssueBnTxt="%s", editDlgTitle="%s", 
+	    editIssuePropUrl="%s",
+
+	    // the config for adding new message
+	    addMessageUrl="%s", addMessageTitle="%s",
+
+	    // the properties' information of the issue
 	    propTitles = ["%s", "%s", "%s", "%s" ],
 	    props = ["%s", "%s", "%s", "%s" ],
+
 	    listContainer="%s", msgUrl="%s", 
-	    countInfo="%s", pageInfo="%s", fields="%s";
+	    countInfo="%s", pageInfo="%s", filterBnLabel="%s", fields="%s";
 
 	// a handy function to get value from the td component in a tr
 	function _getTdValue(table, index,tag){
@@ -210,7 +219,7 @@ def _showMessagesJs(nodeId, msgBnId, tableId, msgListContainer, msgIds):
 
 	function editButton(index){
 		options = {
-			txt: 'Edit',
+			txt: editIssueBnTxt,
 			imgType: 'edit',
 			bnAttrs: {'style':'margin-right:1em;'},	
 			bnSize: 'sexysmall',
@@ -222,9 +231,11 @@ def _showMessagesJs(nodeId, msgBnId, tableId, msgListContainer, msgIds):
 		return button
 	};
 
+	// permission to edit this property
+	perms = perms.split(',');
 	$(tableId).getElements('tr').each(function(tr,index){
-		$(tr).setStyle('height', '40px');
-		if(index==4) return;
+		$(tr).setStyle('height', '35px');
+		if(index==4 || perms[index] == '0') return;
 		td = new Element('td');
 		td.grab(editButton(index));
 		tr.grab(td);
@@ -260,6 +271,7 @@ def _showMessagesJs(nodeId, msgBnId, tableId, msgListContainer, msgIds):
 		var smartList = new SmartList(listContainer, {
 			dataUrl: msgUrl, 
 			liRender: msgRender,
+			filterBnLabel: filterBnLabel,
 			pageInfoTmpls: {
 				'total': countInfo, 
 				'page': pageInfo
@@ -292,7 +304,7 @@ def _showMessagesJs(nodeId, msgBnId, tableId, msgListContainer, msgIds):
 	return js	
 
 MSGNUMBERPERPAGE = 3
-MSGPROPS = ('serial', 'date', 'author', 'content') 
+MSGPROPS = ['serial', 'date', 'author', 'content']
 def page_issueMessages(**args):
 	''' Return a JSON object which holds the contents of messages of specified issue.'''
 	perPage, page = [\
@@ -304,20 +316,20 @@ def page_issueMessages(**args):
 	if not msgIds or not msgIds.split(','):
 		print JSON.encode([], encoding='utf8')
 		return
+
 	msgIds = msgIds.split(',')
-	
 	mprops = MSGPROPS
 	labels = (_('Serial'), _('Date'), _('Author'), _('Content'))
 	messages = model.get_items(args.get('user'), 'msg', mprops, link2key=True, ids=msgIds)
-
+	
 	items = []
 	if messages:
 		for msg in messages :
 			items.append([str(x) for x in msg])
-	
+
 	search = args.get('search')
 	if search:
-		items = filter(lambda i: search in ','.join(i.values()), items)
+		items = filter(lambda i: search in ','.join([str(v) for v in i]), items)
 
 	data = {'total': len(items)}
 	data['pageNumber'] = (lambda x,y: x/y + (x%y != 0 and 1 or 0) )(data['total'], perPage) 
@@ -327,8 +339,13 @@ def page_issueMessages(**args):
 	
 	msgData = [] 
 	for item in items:
-		#msgData.append(dict([(prop,{'value':str(value).decode('utf8'),'label':label}) for prop,value,label in zip(mprops,msg,labels)]))
-		msgData.append(dict([(prop,{'value':str(value).decode('utf8'),'label':label}) for prop,value,label in zip(mprops, item,labels)]))
+		msgData.append(\
+			dict(\
+				[ (prop,{'value':str(value).decode('utf8'),'label':label}) \
+				  for prop,value,label in zip(mprops, item,labels)\
+				]\
+			)\
+		)
 
 	data.update( {'currentPage': page, 'data': msgData })
 	print JSON.encode(data, encoding='utf8')
@@ -396,11 +413,20 @@ def _issueListJs(container):
 	filterBnLabels.each(function(label,index){
 		var filterBn = new Element('a', {html:label, href:'javascript:;'});
 		filterBn.addEvent('click', function(event){
-			alert('china');
+			var search = '';
+			if(index == 0){
+				search = filterInput.get('value');
+			}
+			else filterInput.set('value','');
+			// refresh table grid
+			var grid = $$('.omnigrid')[0].retrieve('tableInstance');
+			grid.options.urlData = {'filter':search};
+			grid.loadData();
 		});
 
 		filterContainer.push(filterBn);
 	});
+	// insert a seperator symbol to the container array
 	filterContainer.splice(filterContainer.length-1, 0, new Element('span',{html:' | '}));
 	
 	/**********************************************************************************
@@ -529,18 +555,26 @@ def page_issuesData(**args):
 	d = {'page':showPage,'data':[],'search':search}
 	
 	# a temporary inner function to filter issues
-	def _issueFilter(_nosy, _creator):
+	#def _issueFilter(_nosy, _creator):
+	def _issueFilter(*_props):
 		_viewPermission = False
-		#userId = model.getItemId('user',user)
-		if user==_creator or user in _nosy:
+		_values = ','.join([ str(i) for i in _props])
+		if user in _values and search in _values:
 			_viewPermission = True
+		
 		return _viewPermission
 	
 	# column's property name
 	showProps = [item.get('name') for item in ISSUELISTCOLUMNS]
-	total, data = model.get_issues(user, showProps, search, filterFn=_issueFilter, filterArgs=['nosy','creator'])
+
+	# constructs the arguments for filtering function
+	fargs = copy.deepcopy(showProps)
+	if not set(['nosy','creator']).issubset(set(fargs)) :
+		fargs.extend(['nosy','creator'])
+
+	total, data = model.get_issues(user, showProps, search, filterFn=_issueFilter, filterArgs=fargs)
+
 	d['total'] = total
-	
 	if data:			
 		# sort data
 		# arguments for sort action
@@ -620,24 +654,24 @@ def _permissionCheck(**args):
 		return perms
 
 	if args.get('nosy') and user in args['nosy']:
-		perms['pageaction'] = True
+		perms['pageaction'] = 1
 	elif args.get('creator') and user == args['creator']:
-		perms['pageaction'] = True	
+		perms['pageaction'] = 1	
 	else:
-		perms['pageaction'] = False
+		perms['pageaction'] = 0
 		return perms
 	
 	if user in [args.get(name) for name in ('assignedto', 'creator')]:
-		hasperm = True
+		hasperm = 1
 	else:
-		hasperm = False
+		hasperm = 0
 	[ perms.update({key:hasperm}) for key in ('title', 'keyword')]
 
 	# only the assignedto person could edit 'nosy' and 'assignedto' fields
 	if user == args.get('assignedto'):
-		hasperm = True
+		hasperm = 1
 	else:
-		hasperm = False
+		hasperm = 0
 
 	[perms.update({key:hasperm}) for key in ('nosy', 'assignedto')]
 	return perms 

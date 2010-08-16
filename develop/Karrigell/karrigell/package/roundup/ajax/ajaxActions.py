@@ -1449,6 +1449,8 @@ class FilterByFunctionAction(GetItemAction):
         if search and result:
             rows = []
             link2contentProps = self.form.get('link2contentProps') or []
+            # now each row of result only holds one id value
+            ids = [i[0] for i in result ]
             for id in ids:
                 row = searchString(klass, id, props, search, link2contentProps)
                 if row:

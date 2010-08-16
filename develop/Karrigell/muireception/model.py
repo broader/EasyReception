@@ -434,11 +434,11 @@ def get_issues(operator, props, search=None, filterFn=None, filterArgs=None):
 		'action': 'filterfunction',
 		'propnames' : props,
 		'link2key': True,
-		'search' : search,
+		'search' : search,	# search is a string to be find
 		# these properties will be converted from link class item's id to its key value
 		'link2contentProps': ['keyword', 'status'],		      
 		'filterFn' : filterFn,
-		'filterArgs': filterArgs		
+		'filterArgs': filterArgs	# a list holds the properties' names to be checked		
 	}
 
 	client.form = form
