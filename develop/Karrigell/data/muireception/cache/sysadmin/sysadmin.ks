@@ -172,12 +172,17 @@ def _relationEditJs(**args):
 	paras = [ APP, formId, 'klassname','klassvalue', 'relateclass', 'relatevalue']
 	paras.append('/'.join((APPATH,'page_getKeyValues')))
 	paras.extend( [CLASSPROP,OLDVALUEPROP])
+	selectLabels = pagefn.JSLIB['multiSelect']['labels']
+	paras.extend([selectLabels.get(name) for name in ('prev', 'next', 'total', 'selected', 'unselected')])
+
 	paras = tuple(paras)
 	js = \
 	"""
 	var appName='%s', formId='%s',
 	selects={'%s':'%s', '%s':'%s'},
-	reqUrl='%s', classTag='%s', oldValueTag='%s';
+	reqUrl='%s', classTag='%s', oldValueTag='%s'
+	// MTMultiSelect labels
+	prev="%s", next="%s", total="%s", selected="%s", unselected="%s";
 
 	MUI.multiSelect(appName,{onload: function(){
 		$(formId).getElements('select').each(function(select){
@@ -197,7 +202,9 @@ def _relationEditJs(**args):
 			mtSelectWidget = new MTMultiWidget({
 				container: parent,
 				dataUrl: setReqUrl(reqUrl, select.getProperty('value'), oldValue),
-				fieldName:mselectName,items_per_page: 8
+				fieldName:mselectName,items_per_page: 8,
+				prevLabel: prev, nextLabel:next,
+				labels: {'total':total, 'selected':selected, 'unselected': unselected}
 			});
 
 			select.store('mtSelect', mtSelectWidget);
@@ -868,7 +875,7 @@ def _userPropHandler(props,action):
 			query = ['='.join((key, value)) for key,value in query.items()]
 			query = '&'.join(query)
 			url = '?'.join((url, query))
-			prop.update({'dataUrl':url,'fieldName':propName, 'itemsPerPage':3})
+			prop.update({ 'dataUrl':url,'fieldName':propName, 'itemsPerPage':5 })
 
 		newProps.append(prop)
 

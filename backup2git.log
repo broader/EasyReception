@@ -3519,3 +3519,125 @@ sent 137705 bytes  received 31 bytes  275472.00 bytes/sec
 total size is 937829  speedup is 6.81
 2010-08-17 16:24:59,478 INFO End backup loacl karrigell diretory to local git.
 2010-08-17 16:24:59,478 INFO Begin to backup local github to remote github host.
+2010-08-17 16:25:00,516 INFO Command: 
+git add .
+running result is :
+2010-08-17 16:25:11,566 INFO Command: 
+git commit -m 'Update time:2010-08-17T16:24:59.478931'
+running result is :[master 1789747] Update time:2010-08-17T16:24:59.478931
+ Committer: Broader ZHONG <broader@laptop-ubuntu.10.04>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+If the identity used for this commit is wrong, you can fix it with:
+
+    git commit --amend --author='Your Name <you@example.com>'
+
+ 45 files changed, 4144 insertions(+), 1130 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010081705.log
+ create mode 100644 develop/Karrigell/data/cms/logs_2010081708.log
+ create mode 100644 develop/Karrigell/data/muireception/cache/issue/adminView.ks
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/msg/0/msg62
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/msg/0/msg63
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/msg/0/msg64
+ create mode 100644 develop/Karrigell/data/muireception/roundup/db/files/msg/0/msg65
+ create mode 100644 develop/Karrigell/muireception/issue/adminView.ks
+ mode change 100644 => 100755 develop/Karrigell/muireception/js/init.js.pih~
+ rewrite develop/Karrigell/muireception/lib/multiSelect/MTMultiSelect.js (82%)
+ rename develop/Karrigell/muireception/lib/multiSelect/{MTMultiSelect.js => MTMultiSelect.js.bak} (92%)
+ rewrite develop/Karrigell/muireception/lib/multiSelect/MTMultiSelect.js~ (82%)
+2010-08-17 16:25:20,359 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   a2dee05..1789747  master -> master
+2010-08-17 16:25:20,360 INFO End backup local github to remote github host.
+2010-08-17 21:57:35,089 INFO Delete nousing captcha images
+2010-08-17 21:57:35,117 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-08-17 21:57:35,118 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-08-17 21:57:37,211 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010081719.log
+        2364 100%    0.00kB/s    0:00:00          2364 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1017/4016)
+data/cms/sessions/KKkAfHGCTdmSx23h
+         235 100%    3.64kB/s    0:00:00           235 100%    3.64kB/s    0:00:00 (xfer#2, to-check=2482/5739)
+data/muireception/
+data/muireception/logs_2010081712.log
+       32768  64%  500.00kB/s    0:00:00         50644 100%  772.77kB/s    0:00:00 (xfer#3, to-check=2457/5739)
+data/muireception/logs_2010081713.log
+       32768  59%  492.31kB/s    0:00:00         54627 100%  808.28kB/s    0:00:00 (xfer#4, to-check=2456/5739)
+data/muireception/logs_2010081719.log
+        3217 100%   47.60kB/s    0:00:00          3217 100%   47.60kB/s    0:00:00 (xfer#5, to-check=2455/5739)
+data/muireception/logs_2010081720.log
+         851 100%   12.59kB/s    0:00:00           851 100%   12.59kB/s    0:00:00 (xfer#6, to-check=2454/5739)
+data/muireception/translations.dat
+        8579 100%  125.04kB/s    0:00:00          8579 100%  125.04kB/s    0:00:00 (xfer#7, to-check=2453/5739)
+data/muireception/users.sqlite
+        2048 100%   29.85kB/s    0:00:00          2048 100%   29.85kB/s    0:00:00 (xfer#8, to-check=2451/5739)
+data/muireception/cache/form.py
+        9893 100%  142.08kB/s    0:00:00          9893 100%  142.08kB/s    0:00:00 (xfer#9, to-check=2444/5739)
+data/muireception/cache/pagefn.py
+       12772 100%  180.76kB/s    0:00:00         12772 100%  180.76kB/s    0:00:00 (xfer#10, to-check=2439/5739)
+data/muireception/cache/js/adminSidePanels.js.pih
+        4162 100%   58.91kB/s    0:00:00          4162 100%   58.91kB/s    0:00:00 (xfer#11, to-check=2415/5739)
+data/muireception/cache/sysadmin/sysadmin.ks
+       30763 100%  268.23kB/s    0:00:00         30763 100%  268.23kB/s    0:00:00 (xfer#12, to-check=2395/5739)
+data/muireception/cache/user/userManagement.ks
+        8755 100%   76.34kB/s    0:00:00          8755 100%   76.34kB/s    0:00:00 (xfer#13, to-check=2388/5739)
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%  280.70kB/s    0:00:01        362496 100%    2.26MB/s    0:00:00 (xfer#14, to-check=2379/5739)
+data/muireception/sessions/
+data/muireception/sessions/7AFtmHafKE2mpvzO
+         285 100%    1.80kB/s    0:00:00           285 100%    1.80kB/s    0:00:00 (xfer#15, to-check=2237/5739)
+data/muireception/sessions/CFvVBMsIM7XSkFm4
+         285 100%    1.80kB/s    0:00:00           285 100%    1.80kB/s    0:00:00 (xfer#16, to-check=2236/5739)
+data/muireception/sessions/T47Vu3o5zn7hy8Wk
+         285 100%    1.80kB/s    0:00:00           285 100%    1.80kB/s    0:00:00 (xfer#17, to-check=2235/5739)
+data/muireception/sessions/eaTvweurK8shR2nK
+         285 100%    1.80kB/s    0:00:00           285 100%    1.80kB/s    0:00:00 (xfer#18, to-check=2234/5739)
+data/muireception/sessions/j2CqO3f2mIeUM63c
+         285 100%    1.80kB/s    0:00:00           285 100%    1.80kB/s    0:00:00 (xfer#19, to-check=2233/5739)
+data/muireception/sessions/jV205yM4wuT8L5j4
+         285 100%    1.80kB/s    0:00:00           285 100%    1.80kB/s    0:00:00 (xfer#20, to-check=2232/5739)
+data/muireception/sessions/nkJkzz2zyxB8bf2C
+         285 100%    1.80kB/s    0:00:00           285 100%    1.80kB/s    0:00:00 (xfer#21, to-check=2231/5739)
+data/muireception/sessions/q0mlm0rEQMAcXqxu
+         285 100%    1.80kB/s    0:00:00           285 100%    1.80kB/s    0:00:00 (xfer#22, to-check=2230/5739)
+data/muireception/sessions/tbapJwT4VYNJx3t7
+         285 100%    1.78kB/s    0:00:00           285 100%    1.78kB/s    0:00:00 (xfer#23, to-check=2229/5739)
+data/muireception/sessions/z4DovPRJH12BJeNU
+         285 100%    1.77kB/s    0:00:00           285 100%    1.77kB/s    0:00:00 (xfer#24, to-check=2228/5739)
+muireception/
+muireception/form.py
+        9965 100%   61.20kB/s    0:00:00          9965 100%   61.20kB/s    0:00:00 (xfer#25, to-check=1622/5739)
+muireception/pagefn.py
+       12812 100%   77.23kB/s    0:00:00         12812 100%   77.23kB/s    0:00:00 (xfer#26, to-check=1606/5739)
+muireception/lib/multiSelect/MTMultiSelect.js
+       18063 100%   35.93kB/s    0:00:00         18063 100%   35.93kB/s    0:00:00 (xfer#27, to-check=1005/7429)
+muireception/lib/multiSelect/MTMultiSelect.js~
+       18063 100%   35.71kB/s    0:00:00         18063 100%   35.71kB/s    0:00:00 (xfer#28, to-check=1003/7429)
+muireception/sysadmin/
+muireception/sysadmin/sysadmin.ks
+       30884 100%   41.09kB/s    0:00:00         30884 100%   41.09kB/s    0:00:00 (xfer#29, to-check=696/8190)
+
+sent 313597 bytes  received 1762 bytes  126143.60 bytes/sec
+total size is 54459739  speedup is 172.69
+2010-08-17 21:57:37,321 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768   5%    0.00kB/s    0:00:00        627670 100%   12.07MB/s    0:00:00 (xfer#1, to-check=1/3)
+
+sent 138038 bytes  received 31 bytes  276138.00 bytes/sec
+total size is 939366  speedup is 6.80
+2010-08-17 21:57:37,321 INFO End backup loacl karrigell diretory to local git.
+2010-08-17 21:57:37,321 INFO Begin to backup local github to remote github host.

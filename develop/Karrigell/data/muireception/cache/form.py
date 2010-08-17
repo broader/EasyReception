@@ -125,21 +125,30 @@ def _mtMultiSelect(field, oldvalue):
 	if oldvalue:
 		url = '&'.join((url, '='.join(('oldvalue', oldvalue))))
 
+	paras = [msContainerId, url, field.pop('fieldName'),field.pop('itemsPerPage')]
+	selectLabels = pagefn.JSLIB['multiSelect']['labels']
+	paras.extend([selectLabels.get(name) for name in ('prev', 'next', 'total', 'selected', 'unselected')])
+	paras = tuple(paras)
 	js = \
 	"""
 	var multiSelectContainer='%s',
 	    multiSelectUrl='%s',
 	    field='%s',
-   	    itemsNumber='%s';
+   	    itemsNumber='%s',
+	    prevLabel="%s", nextLabel="%s",
+	    totaLabel="%s", selectedLabel="%s", unselectedLabel="%s";
 
 	MUI.multiSelect('',{onload: function(){
 		new MTMultiWidget({
 			container: multiSelectContainer,
 			dataUrl: multiSelectUrl,
-			fieldName: field, items_per_page: itemsNumber
+			fieldName: field, items_per_page: itemsNumber,
+			prevLabel: prevLabel, nextLabel:nextLabel,
+			labels: {'total':totaLabel, 'selected':selectedLabel, 'unselected': unselectedLabel}
 		});
 	}});
-	"""%(msContainerId, url, field.pop('fieldName'),field.pop('itemsPerPage'))
+	"""%paras
+
 	script = pagefn.script(js, link=False)
 	return Sum( [ DIV(**{'id':msContainerId, 'style': containerStyle}), script])
 

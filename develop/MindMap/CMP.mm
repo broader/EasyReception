@@ -1732,7 +1732,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1282011820245" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1282046777842" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -1853,7 +1853,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1176858964077" FOLDED="true" ID="Freemind_Link_1801314834" MODIFIED="1281929640224" TEXT="Application">
+<node COLOR="#00b439" CREATED="1176858964077" FOLDED="true" ID="Freemind_Link_1801314834" MODIFIED="1282046776508" TEXT="Application">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="button_cancel"/>
@@ -1877,7 +1877,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1177129576048" FOLDED="true" ID="Freemind_Link_255180915" MODIFIED="1274865705799" TEXT="&#x7ad9;&#x70b9;&#x8bbf;&#x95ee;&#x7edf;&#x8ba1;">
+<node COLOR="#990000" CREATED="1177129576048" FOLDED="true" ID="Freemind_Link_255180915" MODIFIED="1282046774944" TEXT="&#x7ad9;&#x70b9;&#x8bbf;&#x95ee;&#x7edf;&#x8ba1;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1177129585271" ID="Freemind_Link_1863538536" MODIFIED="1255507915739" TEXT="Google Analytics">
@@ -2309,11 +2309,11 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1281054187504" FOLDED="true" ID="ID_1257238833" MODIFIED="1281599153848" POSITION="right" TEXT="Emergency">
+<node COLOR="#0033ff" CREATED="1281054187504" FOLDED="true" ID="ID_1257238833" MODIFIED="1282045726840" POSITION="right" TEXT="Emergency">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="yes"/>
-<node COLOR="#00b439" CREATED="1281054192694" FOLDED="true" ID="ID_1589134752" MODIFIED="1281445117042" TEXT="search icon">
+<node COLOR="#00b439" CREATED="1281054192694" ID="ID_1589134752" MODIFIED="1282045723943" TEXT="search icon">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1281054202246" ID="ID_1173454446" MODIFIED="1281054229116" TEXT="&#x5728;filter&#x8f93;&#x5165;&#x680f;&#x5de6;&#x4fa7;&#x6dfb;&#x52a0;&#x653e;&#x5927;&#x955c;&#x56fe;&#x6807;">
@@ -2436,7 +2436,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1245853638712" FOLDED="true" ID="_" MODIFIED="1282015596198" POSITION="right" TEXT="Used Web Lib/Widgets">
+<node COLOR="#0033ff" CREATED="1245853638712" ID="_" MODIFIED="1282048854204" POSITION="right" TEXT="Used Web Lib/Widgets">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1258549795684" FOLDED="true" ID="ID_1371740104" MODIFIED="1275275837003" TEXT="jquery lib">
@@ -2523,10 +2523,10 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1258549813016" FOLDED="true" ID="ID_1232595129" MODIFIED="1275269113570" TEXT="mootools">
+<node COLOR="#00b439" CREATED="1258549813016" FOLDED="true" ID="ID_1232595129" MODIFIED="1282048875473" TEXT="mootools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1258549821023" FOLDED="true" ID="ID_399916535" MODIFIED="1270102982270" TEXT="tabs">
+<node COLOR="#990000" CREATED="1258549821023" FOLDED="true" ID="ID_399916535" MODIFIED="1282048874505" TEXT="tabs">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1258777426210" ID="ID_1596070275" MODIFIED="1258777429995" TEXT="site">
 <node COLOR="#111111" CREATED="1258549833953" ID="ID_71928389" MODIFIED="1258549835916" TEXT="http://www.shaunfreeman.co.uk/#page-/content/article/page-MorphTabs"/>
@@ -2577,7 +2577,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1268620263252" ID="ID_1186941418" MODIFIED="1282014039593" TEXT="MochaUI">
+<node COLOR="#00b439" CREATED="1268620263252" FOLDED="true" ID="ID_1186941418" MODIFIED="1282048876848" TEXT="MochaUI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1268620271613" ID="ID_1670060654" MODIFIED="1268620278853" TEXT="MUI.notification">
@@ -2585,7 +2585,7 @@
 <node COLOR="#111111" CREATED="1268620291854" ID="ID_994545196" MODIFIED="1268620316134" TEXT="Core.js,L363"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1259898004321" ID="ID_372536092" MODIFIED="1281583826675" TEXT="others ">
+<node COLOR="#00b439" CREATED="1259898004321" FOLDED="true" ID="ID_372536092" MODIFIED="1282048866336" TEXT="others ">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1259898055768" ID="ID_641093649" MODIFIED="1259900220999" TEXT="round corner">
@@ -3513,11 +3513,11 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1270004570562" FOLDED="true" ID="ID_201492433" MODIFIED="1280046164551" POSITION="left" TEXT="Sponsor Management">
+<node COLOR="#0033ff" CREATED="1270004570562" FOLDED="true" ID="ID_201492433" MODIFIED="1282048847798" POSITION="left" TEXT="Sponsor Management">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
-<node COLOR="#00b439" CREATED="1270004758136" ID="ID_1487426203" MODIFIED="1280045940657" TEXT="Grab Eye Functions">
+<node COLOR="#00b439" CREATED="1270004758136" ID="ID_1487426203" MODIFIED="1282046930763" TEXT="Grab Eye Functions">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -3532,6 +3532,9 @@
 <node COLOR="#111111" CREATED="1271034022423" ID="ID_469573189" LINK="http://lab.smashup.it/flip/" MODIFIED="1271034029630" TEXT="http://lab.smashup.it/flip/"/>
 <node COLOR="#111111" CREATED="1271034110797" ID="ID_1287925747" LINK="http://tutorialzine.com/2010/03/sponsor-wall-flip-jquery-css/" MODIFIED="1271034126418" TEXT="http://tutorialzine.com/2010/03/sponsor-wall-flip-jquery-css/">
 <icon BUILTIN="yes"/>
+</node>
+<node COLOR="#111111" CREATED="1282046437917" ID="ID_74093222" LINK="http://jonraasch.com/blog/quickflip-2-jquery-plugin" MODIFIED="1282046449994" TEXT="http://jonraasch.com/blog/quickflip-2-jquery-plugin">
+<icon BUILTIN="full-1"/>
 </node>
 </node>
 <node COLOR="#111111" CREATED="1272029319440" ID="ID_20268965" MODIFIED="1272029326787" TEXT="MIscellaneous">
@@ -3581,8 +3584,12 @@
 <icon BUILTIN="desktop_new"/>
 </node>
 </node>
+<node COLOR="#990000" CREATED="1282046943830" ID="ID_1605549913" MODIFIED="1282046950306" TEXT="Image Zoom ">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1282046951643" ID="ID_1015603122" LINK="http://css-tricks.com/anythingzoomer-jquery-plugin/" MODIFIED="1282046954445" TEXT="http://css-tricks.com/anythingzoomer-jquery-plugin/"/>
 </node>
-<node COLOR="#00b439" CREATED="1270004809904" FOLDED="true" ID="ID_1753822325" MODIFIED="1271208883328" TEXT="Client Analize">
+</node>
+<node COLOR="#00b439" CREATED="1270004809904" FOLDED="true" ID="ID_1753822325" MODIFIED="1282046416008" TEXT="Client Analize">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1270004609104" ID="ID_244322065" MODIFIED="1270004821927" TEXT="&#x94fe;&#x63a5;&#x8ffd;&#x8e2a;">
@@ -3594,7 +3601,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1270004644333" FOLDED="true" ID="ID_510206718" MODIFIED="1271208883912" TEXT="Market Tools">
+<node COLOR="#00b439" CREATED="1270004644333" FOLDED="true" ID="ID_510206718" MODIFIED="1282046413832" TEXT="Market Tools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1270004661963" ID="ID_1558851606" MODIFIED="1270004668353" TEXT="&#x90ae;&#x4ef6;">
@@ -3604,7 +3611,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1272419671596" FOLDED="true" ID="ID_1644448615" MODIFIED="1272461893717" TEXT="Examples">
+<node COLOR="#00b439" CREATED="1272419671596" FOLDED="true" ID="ID_1644448615" MODIFIED="1282046412120" TEXT="Examples">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1272419676641" ID="ID_1017746427" LINK="http://events.jquery.org/2010/sf-bay-area/" MODIFIED="1272419680903" TEXT="http://events.jquery.org/2010/sf-bay-area/">
@@ -3670,7 +3677,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1281767186612" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1282046795505" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1273030192723" FOLDED="true" ID="ID_344232506" MODIFIED="1278550879062" TEXT="Idea">
@@ -5128,7 +5135,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1281604372616" POSITION="right" TEXT="Company Web Site">
+<node COLOR="#0033ff" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1282046818322" POSITION="right" TEXT="Company Web Site">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="full-1"/>
@@ -5461,7 +5468,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1276913523739" FOLDED="true" ID="ID_1258369094" MODIFIED="1277434394003" TEXT="Statistics">
+<node COLOR="#00b439" CREATED="1276913523739" ID="ID_1258369094" MODIFIED="1282046813913" TEXT="Statistics">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1276913531357" ID="ID_477992321" MODIFIED="1276913532795" TEXT="tools">
@@ -5498,7 +5505,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1273293789336" FOLDED="true" ID="ID_1705404438" MODIFIED="1281599216768" POSITION="right" TEXT="Web Site Analize Tools">
+<node COLOR="#0033ff" CREATED="1273293789336" FOLDED="true" ID="ID_1705404438" MODIFIED="1282046801144" POSITION="right" TEXT="Web Site Analize Tools">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1273293872148" ID="ID_291748799" LINK="http://www.iwanna.cn/archives/2010/05/07/2966/" MODIFIED="1273293895552" TEXT="&#x7528;&#x6237;&#x884c;&#x4e3a;&#x70b9;&#x51fb;&#x70ed;&#x533a;&#x8ddf;&#x8e2a;&#x91c7;&#x96c6;">
@@ -5518,7 +5525,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1280286221408" FOLDED="true" ID="ID_767321368" MODIFIED="1281929770720" POSITION="right" TEXT="Expand Direction">
+<node COLOR="#0033ff" CREATED="1280286221408" FOLDED="true" ID="ID_767321368" MODIFIED="1282048851697" POSITION="right" TEXT="Expand Direction">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1280286228167" FOLDED="true" ID="ID_1157419451" MODIFIED="1281877061233" TEXT="Intelligence Search">
@@ -5547,7 +5554,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1281767249608" FOLDED="true" ID="ID_92462856" MODIFIED="1281855717010" TEXT="Schedule">
+<node COLOR="#00b439" CREATED="1281767249608" FOLDED="true" ID="ID_92462856" MODIFIED="1282046754561" TEXT="Schedule">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1281767256063" ID="ID_1699152031" MODIFIED="1281767263895" TEXT="Prefered Projects">
@@ -5557,8 +5564,12 @@
 </node>
 <node COLOR="#111111" CREATED="1281843335156" ID="ID_555374251" LINK="http://www.fedena.com/" MODIFIED="1281843338752" TEXT="http://www.fedena.com/"/>
 </node>
+<node COLOR="#990000" CREATED="1282046618512" ID="ID_543441057" MODIFIED="1282046623819" TEXT="Time Line">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1282046633930" ID="ID_771039804" LINK="http://mattbango.com/notebook/web-development/pure-css-timeline/" MODIFIED="1282046637030" TEXT="http://mattbango.com/notebook/web-development/pure-css-timeline/"/>
 </node>
-<node COLOR="#00b439" CREATED="1281855718646" ID="ID_1263150647" MODIFIED="1281923850912" TEXT="Conent Manage">
+</node>
+<node COLOR="#00b439" CREATED="1281855718646" FOLDED="true" ID="ID_1263150647" MODIFIED="1282046603776" TEXT="Conent Manage">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1281855728295" ID="ID_404201649" MODIFIED="1281855733798" TEXT="Prefered Projects">
@@ -5568,6 +5579,13 @@
 <node COLOR="#990000" CREATED="1281923855096" ID="ID_1023868872" MODIFIED="1281923863882" TEXT="Tabbed Content">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1281923864989" ID="ID_197424613" LINK="http://www.gayadesign.com/diy/animated-tabbed-content-with-jquery/" MODIFIED="1281923867128" TEXT="http://www.gayadesign.com/diy/animated-tabbed-content-with-jquery/"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1282046826702" ID="ID_1927699333" MODIFIED="1282046829025" TEXT="Chart">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1282046830011" ID="ID_1686808667" LINK="http://www.filamentgroup.com/lab/update_to_jquery_visualize_accessible_charts_with_html5_from_designing_with" MODIFIED="1282046833168" TEXT="http://www.filamentgroup.com/lab/update_to_jquery_visualize_accessible_charts_with_html5_from_designing_with">
+<font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
 </node>

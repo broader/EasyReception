@@ -156,7 +156,11 @@ var MTMultiWidget = new Class({
         // the container element for this widget
         'fieldName': '',
         // the field name for hidden input
-        'dataUrl': null // a json file url which will return the data of a multi select element
+        'dataUrl': null, // a json file url which will return the data of a multi select element
+        // previous button label in paginator, add by B.Z 
+        'prevLabel': null,
+        // next button label in paginator, add by B.Z 
+        'nextLabel': null,
     },
 
 
@@ -221,8 +225,6 @@ var MTMultiWidget = new Class({
         this.displaylist = new DisplayList(options);
 
         this.curlist = this.displaylist.options.datasrc;
-
-
 
         // store the default list to view dom element, which will be retrieved by this.filterform 
         view.store('data', this.curlist);
@@ -595,7 +597,7 @@ var Paginator = new Class({
 
         var start = ((this.page - 1) * this.items_per_page);
 
-        var end = start + this.items_per_page;
+        var end = start + this.items_per_page.toInt();
 
         this.updateControls(list);
 
@@ -632,7 +634,8 @@ var Paginator = new Class({
 
 
         var prevbtn = new Element('a', {
-            'text': 'prev',
+            // chage by B.Z 
+            'text': this.options.prevLabel,
 
             'href': '#cpcspswdnbd'
         });
@@ -685,7 +688,8 @@ var Paginator = new Class({
 
 
         var nextbtn = new Element('a', {
-            'text': 'next',
+        		// chage by B.Z 
+            'text': this.options.nextLabel,
 
             'href': '#cpcspswdnbd'
         });
@@ -808,31 +812,26 @@ var FilterForm = new Class({
 
 
 
-        this.totalbtn = this.makebtn(this.options.labels.total,
-
-        this.showtotal,
-
-        this.options.datasrc.length);
+        this.totalbtn = this.makebtn(
+        		this.options.labels.total,
+				this.showtotal,
+				this.options.datasrc.length);
 
         ul.grab(this.totalbtn);
 
-
-
-        this.selectedbtn = this.makebtn(this.options.labels.selected,
-
-        this.showselected,
-
-        this.numselected);
+        this.selectedbtn = this.makebtn(
+        		this.options.labels.selected,
+        		this.showselected,
+        		this.numselected);
 
         ul.grab(this.selectedbtn);
 
 
 
-        this.unselectedbtn = this.makebtn(this.options.labels.unselected,
-
-        this.showunselected,
-
-        this.options.datasrc.length - this.numselected);
+        this.unselectedbtn = this.makebtn(
+        		this.options.labels.unselected,
+        		this.showunselected,
+        		this.options.datasrc.length - this.numselected);
 
         ul.grab(this.unselectedbtn);
 

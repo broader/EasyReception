@@ -53,7 +53,9 @@ JSLIB['inlineEdit'] = \
 
 # multiful select
 JSLIB['multiSelect'] = \
-{'files':['/'.join(('lib','multiSelect',name)) for name in ('MTMultiSelect.css','MTMultiSelect.js')],
+{
+	'files':['/'.join(('lib','multiSelect',name)) for name in ('MTMultiSelect.css','MTMultiSelect.js')],
+	'labels': { 'prev': _("Previous"), 'next': _("Next"), 'total': _('Total'), 'selected': _('Selected'), 'unselected': _('Unselected')}
 }
 
 # smart list
