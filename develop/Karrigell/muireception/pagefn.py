@@ -33,7 +33,11 @@ JSLIB['dataGrid'] = \
 {
 	'files':['/'.join(('lib','grid',name)) for name in ('omnigrid.css','gridSupplement.css', 'omnigrid.js')],
 	'filter': {'labels':{'action':_('Filter'), 'clear': _('Clear')}},
-	'sorTag': {'sortOn':'sorton', 'sortBy':'sortby'}	
+	'sorTag': {'sortOn':'sorton', 'sortBy':'sortby'},
+	'prompt': {\
+		'noRow': _('Please selecte one row !'),
+		'deleteSuccess':_("{info} have been deleted successfully!"),	
+		'deleteFailed':_("Delet action failed !")}	
 }
 
 # textMultiCheckbox
@@ -173,7 +177,7 @@ ADMINSIDEBARPANELS = \
 		  'onCollapse':'sidePanelCollapse', 'contentURL':'user/userManagement.ks/page_info' },
 		       
 		{ 'id':'02', 'text':_("Issues"), 'onExpand':'issuePanel',\
-		  'onCollapse':'sidePanelCollapse' },
+		  'onCollapse':'sidePanelCollapse', 'contentURL':'issue/adminView.ks/page_info' },
 		
 		{ 'id':'03', 'text':_("News"), 'onExpand':'newsPanel',\
 		  'onCollapse':'sidePanelCollapse' },
@@ -250,7 +254,16 @@ ISSUE = \
 		}
 	},
 
-	'manageView':{}	
+	'adminView':{\
+		'mainColumn':{ 
+			'panelId': 'issueList', 'panelTitle': _('Your  Issues List'), 
+			'contentUrl': '/'.join(('issue','adminView.ks', 'page_issueList'))
+		},
+		'rightColumn':{
+			'panelId':'issueDetail','panelTitle':_('Issue Detail'), 
+			'contentUrl': '/'.join(('issue','adminView.ks', 'page_issueDetail'))
+		}
+	}	
 }
 
 #---End--------------------------------------------------------------------------------

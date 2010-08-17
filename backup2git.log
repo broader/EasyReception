@@ -3315,3 +3315,207 @@ sent 137601 bytes  received 31 bytes  275264.00 bytes/sec
 total size is 937428  speedup is 6.81
 2010-08-16 22:42:05,666 INFO End backup loacl karrigell diretory to local git.
 2010-08-16 22:42:05,667 INFO Begin to backup local github to remote github host.
+2010-08-16 22:42:06,349 INFO Command: 
+git add .
+running result is :
+2010-08-16 22:42:16,841 INFO Command: 
+git commit -m 'Update time:2010-08-16T22:42:05.667374'
+running result is :[master a2dee05] Update time:2010-08-16T22:42:05.667374
+ Committer: Broader ZHONG <broader@laptop-ubuntu.10.04>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+If the identity used for this commit is wrong, you can fix it with:
+
+    git commit --amend --author='Your Name <you@example.com>'
+
+ 26 files changed, 774 insertions(+), 45 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010081620.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010081612.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010081613.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010081620.log
+ create mode 100644 develop/Karrigell/data/muireception/sessions/3AKetkBItto5LPEC
+2010-08-16 22:42:26,321 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   b3c0ce5..a2dee05  master -> master
+2010-08-16 22:42:26,322 INFO End backup local github to remote github host.
+2010-08-17 16:24:57,365 INFO Delete nousing captcha images
+2010-08-17 16:24:57,402 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-08-17 16:24:57,403 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-08-17 16:24:59,348 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010081705.log
+        2364 100%    0.00kB/s    0:00:00          2364 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1007/4004)
+data/cms/logs_2010081708.log
+        2364 100%   49.12kB/s    0:00:00          2364 100%   49.12kB/s    0:00:00 (xfer#2, to-check=1006/4004)
+data/cms/sessions/KKkAfHGCTdmSx23h
+         235 100%    1.81kB/s    0:00:00           235 100%    1.81kB/s    0:00:00 (xfer#3, to-check=2468/5724)
+data/muireception/
+deleting data/muireception/logs_2010081620.log
+deleting data/muireception/logs_2010081614.log
+deleting data/muireception/logs_2010081613.log
+deleting data/muireception/logs_2010081612.log
+deleting data/muireception/logs_2010081611.log
+deleting data/muireception/logs_2010081609.log
+deleting data/muireception/logs_2010081608.log
+deleting data/muireception/logs_2010081607.log
+deleting data/muireception/logs_2010081606.log
+deleting data/muireception/logs_2010081603.log
+deleting data/muireception/logs_2010081602.log
+deleting data/muireception/logs_2010081601.log
+deleting data/muireception/logs_2010081600.log
+deleting data/muireception/logs_2010081520.log
+deleting data/muireception/logs_2010081515.log
+deleting data/muireception/logs_2010081512.log
+deleting data/muireception/logs_2010081509.log
+deleting data/muireception/logs_2010081508.log
+deleting data/muireception/logs_2010081507.log
+deleting data/muireception/logs_2010081501.log
+data/muireception/cache/config.py
+        3701 100%   28.24kB/s    0:00:00          3701 100%   28.24kB/s    0:00:00 (xfer#4, to-check=2436/5724)
+data/muireception/cache/form.py
+        9462 100%   71.63kB/s    0:00:00          9462 100%   71.63kB/s    0:00:00 (xfer#5, to-check=2434/5724)
+data/muireception/cache/model.py
+       20971 100%  157.53kB/s    0:00:00         20971 100%  157.53kB/s    0:00:00 (xfer#6, to-check=2430/5724)
+data/muireception/cache/pagefn.py
+       12636 100%   93.48kB/s    0:00:00         12636 100%   93.48kB/s    0:00:00 (xfer#7, to-check=2429/5724)
+data/muireception/cache/issue/
+data/muireception/cache/issue/action.ks
+       17930 100%  131.65kB/s    0:00:00         17930 100%  131.65kB/s    0:00:00 (xfer#8, to-check=2408/5724)
+data/muireception/cache/issue/adminView.ks
+       22972 100%  166.17kB/s    0:00:00         22972 100%  166.17kB/s    0:00:00 (xfer#9, to-check=2407/5724)
+data/muireception/cache/issue/userView.ks
+       22447 100%  107.46kB/s    0:00:00         22447 100%  107.46kB/s    0:00:00 (xfer#10, to-check=2406/5724)
+data/muireception/cache/js/adminSidePanels.js.pih
+        4162 100%   19.83kB/s    0:00:00          4162 100%   19.83kB/s    0:00:00 (xfer#11, to-check=2405/5724)
+data/muireception/cache/js/init.js.pih
+       11205 100%   52.86kB/s    0:00:00         11205 100%   52.86kB/s    0:00:00 (xfer#12, to-check=2404/5724)
+data/muireception/cache/js/layoutInit.js.pih
+       13163 100%   61.50kB/s    0:00:00         13163 100%   61.50kB/s    0:00:00 (xfer#13, to-check=2403/5724)
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%  152.38kB/s    0:00:02        362496 100%    1.48MB/s    0:00:00 (xfer#14, to-check=2369/5724)
+data/muireception/roundup/db/files/msg/0/
+data/muireception/roundup/db/files/msg/0/msg62
+          29 100%    0.11kB/s    0:00:00            29 100%    0.11kB/s    0:00:00 (xfer#15, to-check=2256/5724)
+data/muireception/roundup/db/files/msg/0/msg63
+          27 100%    0.10kB/s    0:00:00            27 100%    0.10kB/s    0:00:00 (xfer#16, to-check=2255/5724)
+data/muireception/roundup/db/files/msg/0/msg64
+          33 100%    0.13kB/s    0:00:00            33 100%    0.13kB/s    0:00:00 (xfer#17, to-check=2254/5724)
+data/muireception/roundup/db/files/msg/0/msg65
+          27 100%    0.10kB/s    0:00:00            27 100%    0.10kB/s    0:00:00 (xfer#18, to-check=2253/5724)
+data/muireception/roundup/db/text-index/
+data/muireception/roundup/db/text-index/flintlock
+           0 100%    0.00kB/s    0:00:00 (xfer#19, to-check=2249/5724)
+data/muireception/roundup/db/text-index/position.DB
+       16384 100%   62.50kB/s    0:00:00         16384 100%   62.50kB/s    0:00:00 (xfer#20, to-check=2247/5724)
+data/muireception/roundup/db/text-index/position.baseA
+          15 100%    0.06kB/s    0:00:00            15 100%    0.06kB/s    0:00:00 (xfer#21, to-check=2246/5724)
+data/muireception/roundup/db/text-index/position.baseB
+          15 100%    0.06kB/s    0:00:00            15 100%    0.06kB/s    0:00:00 (xfer#22, to-check=2245/5724)
+data/muireception/roundup/db/text-index/postlist.DB
+       16384 100%   62.50kB/s    0:00:00         16384 100%   62.50kB/s    0:00:00 (xfer#23, to-check=2244/5724)
+data/muireception/roundup/db/text-index/postlist.baseA
+          14 100%    0.05kB/s    0:00:00            14 100%    0.05kB/s    0:00:00 (xfer#24, to-check=2243/5724)
+data/muireception/roundup/db/text-index/postlist.baseB
+          14 100%    0.05kB/s    0:00:00            14 100%    0.05kB/s    0:00:00 (xfer#25, to-check=2242/5724)
+data/muireception/roundup/db/text-index/record.DB
+       16384 100%   62.26kB/s    0:00:00         16384 100%   62.26kB/s    0:00:00 (xfer#26, to-check=2241/5724)
+data/muireception/roundup/db/text-index/record.baseA
+          14 100%    0.05kB/s    0:00:00            14 100%    0.05kB/s    0:00:00 (xfer#27, to-check=2240/5724)
+data/muireception/roundup/db/text-index/record.baseB
+          14 100%    0.05kB/s    0:00:00            14 100%    0.05kB/s    0:00:00 (xfer#28, to-check=2239/5724)
+data/muireception/roundup/db/text-index/termlist.DB
+       16384 100%   62.26kB/s    0:00:00         16384 100%   62.26kB/s    0:00:00 (xfer#29, to-check=2238/5724)
+data/muireception/roundup/db/text-index/termlist.baseA
+          14 100%    0.05kB/s    0:00:00            14 100%    0.05kB/s    0:00:00 (xfer#30, to-check=2237/5724)
+data/muireception/roundup/db/text-index/termlist.baseB
+          14 100%    0.05kB/s    0:00:00            14 100%    0.05kB/s    0:00:00 (xfer#31, to-check=2236/5724)
+data/muireception/roundup/db/text-index/value.DB
+       16384 100%   62.02kB/s    0:00:00         16384 100%   62.02kB/s    0:00:00 (xfer#32, to-check=2235/5724)
+data/muireception/roundup/db/text-index/value.baseA
+          14 100%    0.05kB/s    0:00:00            14 100%    0.05kB/s    0:00:00 (xfer#33, to-check=2234/5724)
+data/muireception/roundup/db/text-index/value.baseB
+          14 100%    0.05kB/s    0:00:00            14 100%    0.05kB/s    0:00:00 (xfer#34, to-check=2233/5724)
+data/muireception/sessions/
+deleting data/muireception/sessions/ylbE3M4LJzSseRox
+deleting data/muireception/sessions/yHk4fnfdZQIzcCmh
+deleting data/muireception/sessions/oWpenKj5jWcc6LWy
+deleting data/muireception/sessions/oRQejltRmZ0Yzk6D
+deleting data/muireception/sessions/gGCnFUg4xr129H9I
+deleting data/muireception/sessions/aWpXiHTG3QdFrtys
+deleting data/muireception/sessions/aUz56NTZiPyAPMMA
+deleting data/muireception/sessions/TAHCcQcPBaJPHOl6
+deleting data/muireception/sessions/SwAJPcXh2vYwhiKv
+deleting data/muireception/sessions/QszIoRkcWH8UCbW5
+deleting data/muireception/sessions/NNdUPTdJQrx1TGqK
+deleting data/muireception/sessions/GwEdlbd5JxK1ttqC
+deleting data/muireception/sessions/BAzoiOGa3m4bWvsy
+deleting data/muireception/sessions/7gC9Br1U8B9btgfg
+deleting data/muireception/sessions/5q8aZdeiRVG1GjfZ
+deleting data/muireception/sessions/46RpVPILaXK5W5Lz
+deleting data/muireception/sessions/3AKetkBItto5LPEC
+deleting data/muireception/sessions/1LnIUpsIolhJCvPe
+deleting data/muireception/sessions/1KU09BbjP43dIhjR
+deleting data/muireception/sessions/0yUQrjNMCaKqSrby
+muireception/
+muireception/config.py
+        3704 100%   13.97kB/s    0:00:00          3704 100%   13.97kB/s    0:00:00 (xfer#35, to-check=1630/5724)
+muireception/model.py
+       20841 100%   77.98kB/s    0:00:00         20841 100%   77.98kB/s    0:00:00 (xfer#36, to-check=1608/5724)
+muireception/pagefn.py
+       12676 100%   47.25kB/s    0:00:00         12676 100%   47.25kB/s    0:00:00 (xfer#37, to-check=1606/5724)
+muireception/issue/
+muireception/issue/action.ks
+       17883 100%   32.52kB/s    0:00:00         17883 100%   32.52kB/s    0:00:00 (xfer#38, to-check=1016/6859)
+muireception/issue/adminView.ks
+       22967 100%   41.38kB/s    0:00:00         22967 100%   41.38kB/s    0:00:00 (xfer#39, to-check=1015/6859)
+muireception/issue/userView.ks
+       22500 100%   40.39kB/s    0:00:00         22500 100%   40.39kB/s    0:00:00 (xfer#40, to-check=1014/6859)
+muireception/js/
+muireception/js/adminSidePanels.js.pih
+        3845 100%    6.89kB/s    0:00:00          3845 100%    6.88kB/s    0:00:00 (xfer#41, to-check=1035/6882)
+muireception/js/init.js.pih
+       10523 100%   16.47kB/s    0:00:00         10523 100%   16.47kB/s    0:00:00 (xfer#42, to-check=1032/6882)
+muireception/js/init.js.pih~
+       10509 100%   16.39kB/s    0:00:00         10509 100%   16.39kB/s    0:00:00 (xfer#43, to-check=1031/6882)
+muireception/js/layoutInit.js.pih
+       12181 100%   18.94kB/s    0:00:00         12181 100%   18.94kB/s    0:00:00 (xfer#44, to-check=1028/6882)
+muireception/js/userSidePanels.js.pih
+        4180 100%    6.49kB/s    0:00:00          4180 100%    6.49kB/s    0:00:00 (xfer#45, to-check=1021/6882)
+muireception/lib/multiSelect/
+muireception/lib/multiSelect/MTMultiSelect.js
+       17775 100%   23.05kB/s    0:00:00         17775 100%   23.05kB/s    0:00:00 (xfer#46, to-check=1005/7414)
+muireception/lib/multiSelect/MTMultiSelect.js.bak
+       19476 100%   25.16kB/s    0:00:00         19476 100%   25.16kB/s    0:00:00 (xfer#47, to-check=1004/7414)
+muireception/lib/multiSelect/MTMultiSelect.js~
+       17777 100%   22.84kB/s    0:00:00         17777 100%   22.84kB/s    0:00:00 (xfer#48, to-check=1003/7414)
+muireception/sysadmin/
+muireception/sysadmin/sysadmin.ks
+       30519 100%   32.05kB/s    0:00:00         30519 100%   32.05kB/s    0:00:00 (xfer#49, to-check=696/8175)
+muireception/user/
+muireception/user/userManagement.ks
+        8812 100%    8.65kB/s    0:00:00          8812 100%    8.65kB/s    0:00:00 (xfer#50, to-check=339/8175)
+
+sent 369756 bytes  received 2186 bytes  148776.80 bytes/sec
+total size is 54342550  speedup is 146.10
+2010-08-17 16:24:59,478 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768   5%    0.00kB/s    0:00:00        626133 100%   11.10MB/s    0:00:00 (xfer#1, to-check=1/3)
+
+sent 137705 bytes  received 31 bytes  275472.00 bytes/sec
+total size is 937829  speedup is 6.81
+2010-08-17 16:24:59,478 INFO End backup loacl karrigell diretory to local git.
+2010-08-17 16:24:59,478 INFO Begin to backup local github to remote github host.

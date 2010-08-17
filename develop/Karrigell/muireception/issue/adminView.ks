@@ -14,6 +14,8 @@ model = Import( '/'.join((RELPATH, 'model.py')), REQUEST_HANDLER=REQUEST_HANDLER
 modules = {'pagefn': 'pagefn.py', 'JSON': 'demjson.py', 'formFn':'form.py'}
 [locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items() ]
 
+# config data object
+CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 
 # ********************************************************************************************
 # Page Variables
@@ -33,7 +35,7 @@ USER = getattr( so, pagefn.SOINFO['user']).get('username')
 # ********************************************************************************************
 
 def page_info(**args):
-	print DIV(_('Ask help from the staff of the congress!'), **{'class':'info'})
+	print DIV(_('Manage issues.'), **{'class':'info'})
 	return
 
 ISSUELISTCOLUMNS = \
@@ -41,12 +43,14 @@ ISSUELISTCOLUMNS = \
   {'name':'serial','header':_('Serial'),'dataType':'string'},\ 
   {'name':'title','header':_('Title'),'dataType':'string'}, \
   {'name':'keyword','header':_('Key Words'),'dataType':'string'},\ 
+  {'name':'creator','header':_('Creator'),'dataType':'string'},\ 
+  {'name':'assignedto','header':_('AssignedTo'),'dataType':'string'},\ 
+  {'name':'status','header':_('Status'),'dataType':'string'},\
   {'name':'messages','header':_('Messages Number'),'dataType':'string'},\ 
-  {'name':'activity','header':_('Activity'),'dataType':'string'}, \
-  {'name':'status','header':_('Status'),'dataType':'string'}\
+  {'name':'activity','header':_('Activity'),'dataType':'string'} \
 ]
 
-SUPPLEMENTLABELS = {'assignedto':_('Assignedto'), 'actor':_('Actor'), 'nosy': _('Nosy')}
+SUPPLEMENTLABELS = { 'actor':_('Actor'), 'nosy': _('Nosy')}
 SERIALPROP = ISSUELISTCOLUMNS[0].get('name')
 def page_issueDetail(**args):
 	serial,issueId = [ args.get(name) for name in (SERIALPROP, 'issueId')]
@@ -57,6 +61,7 @@ def page_issueDetail(**args):
 	else:
 		print _('Please select a issue by clicking one row on the left table!')
 		return
+	
 	title = _('Serial: ') + str(B(serial))
 	title = SPAN(title)
 		
@@ -78,6 +83,7 @@ def page_issueDetail(**args):
 	# if there is no 'pageaction' in arguments,
 	# then using this page url and remove the first '/' symbol
 	perms = _permissionCheck(**toCheck)
+
 	#pageAction = args.get('pageaction') or THIS.url.split('?')[0][1:]
 	#userRoles = getattr( so, pagefn.SOINFO['user']).get('roles').split(',')
 	#if not model.permissionCheck(USER, userRoles, pageAction) or not perms.get('pageaction'):
@@ -546,7 +552,7 @@ def _issueListJs(container):
 			perPage:15, page:1, pagination:true, serverSort:true,
 			showHeader: true, sortHeader: true, alternaterows: true,
 			resizeColumns: true, multipleSelection:true,
-			width:700, height: 400 
+			width:850, height: 400 
 		});
 		issueGrid.addEvent('click', issueGridShow);
 		// save the omniGrid instance
@@ -599,9 +605,17 @@ def page_issuesData(**args):
 	#def _issueFilter(_nosy, _creator):
 	def _issueFilter(*_props):
 		_viewPermission = False
-		_values = ','.join([ str(i) for i in _props])
-		if user in _values and search in _values:
+		
+		# super user role 'Admin' has all permissions
+		userRoles = getattr( so, pagefn.SOINFO['user']).get('roles').split(',')
+		# get the role name for super user
+		superAdminRole = CONFIG.getData('superAdmin')
+		if superAdminRole in userRoles:
 			_viewPermission = True
+		else:
+			_values = ','.join([ str(i) for i in _props])
+			if user in _values and search in _values:
+				_viewPermission = True
 		
 		return _viewPermission
 	
@@ -678,13 +692,13 @@ def _permissionCheck(**args):
 	'''
 	Check detailed access permission to 'issue' class.
 	The relation between user role and actions:
-	------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------
 	role/action	view	edit	detailEditFields
 	admin		OK	OK	'title','keyword',nosy', 'assignedto','status'
 	creator		OK	OK	'title','keyword'
 	assignedto	OK	OK	'title','keyword',nosy', 'assignedto','status'
 	nosy		OK	X
-	------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------
 	'''
 	perms = {}
 	user = args.get('user') or USER

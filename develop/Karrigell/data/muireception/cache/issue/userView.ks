@@ -371,8 +371,19 @@ def _issueListJs(container):
 		for name in ( 'page_colsModel', 'page_issuesData', 'page_issueDetail')\
 	])
 
-	paras.append('/'.join(('/'.join(THIS.script_url.split('/')[:-1]), 'action.ks', 'page_createIssueForm')))
-	paras.append(_('Create a new issue'))
+	paras.extend(\
+		[ '/'.join(('/'.join(THIS.script_url.split('/')[:-1]), 'action.ks', name))
+		  for name in ('page_createIssueForm', 'page_deleteIssueAction')]\
+	)
+
+	paras.extend(\
+		[
+		_('Create a new issue'),
+		pagefn.JSLIB['dataGrid']['prompt']['noRow'],
+		pagefn.JSLIB['dataGrid']['prompt']['deleteSuccess'],
+		pagefn.JSLIB['dataGrid']['prompt']['deleteFailed']
+		]\
+	)
 
 	# set the right panel id
 	paras.append(pagefn.ISSUE['userView']['rightColumn']['panelId'])
@@ -399,8 +410,13 @@ def _issueListJs(container):
 	editUrl='%s',
 	// create action url
 	createUrl='%s',
+	// delete action url
+	delIssueUrl="%s",
+	createTitle='%s',
+	// delete issues
+	propmt4selectRow="%s", prompt4delSuccess="%s", prompt4delFailed="%s",
 
-	createTitle='%s', detailPanel='%s', serialProp='%s';
+	detailPanel='%s', serialProp='%s';
 
 	// global name for datagrid
 	var issueGrid = null;
@@ -466,7 +482,7 @@ def _issueListJs(container):
 				createIssue(issueGrid, data.action);
 				break;
 			case 1 :
-				alert('delete action');
+				deleteIssue(issueGrid);
 				break;
 		};
 	};
@@ -479,6 +495,30 @@ def _issueListJs(container):
          		contentURL: createUrl,
          		modalOverlayClose: false
          	});
+	};
+
+	// delete a issue shown in the table
+	function deleteIssue(ti){
+		if( ti.selected.length == 0){
+			MUI.notification(propmt4selectRow);
+			return
+		};
+
+		var serials = ti.selected.map(function(rowIndex,index){
+			return ti.getDataByRow(rowIndex)[serialProp];
+		});
+
+		var req = new Request.JSON( {
+			url: delIssueUrl,
+			onComplete: function(result){
+				var info = result.success==1 ? prompt4delSuccess.substitute({'info':result.deleted}): prompt4delFailed ;
+				MUI.crawler(info, {width:300, height: 100, closeAfter:5000});
+				ti.loadData();
+			}
+		});
+		var q = $H();
+		q[serialProp] = serials.join(',');
+		req.get(q);
 	};
 
 	actionArea.adopt([filterContainer, issueEditButtons()]);

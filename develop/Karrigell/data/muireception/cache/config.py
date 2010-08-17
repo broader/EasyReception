@@ -99,7 +99,7 @@ INIDATA['service'] = \
 	}
 }
 
-INIDATA['superAdmin'] = 'admin'
+INIDATA['superAdmin'] = {'role':'SuperAdmin', 'use':'admin'}
 
 # these directories will be scaned in 'sysadmin/webaction.py' to add new web actions to database
 INIDATA['appdirs'] = ['issue', 'portal', 'portfolio', 'register', 'service', 'sysadmin', 'user']

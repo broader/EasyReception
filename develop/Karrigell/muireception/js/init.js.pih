@@ -246,6 +246,29 @@ MUI.extend({
 			'onContentLoaded': null,
 			'require': {}			
 		});
+	},
+	
+	// Return a custom defined notification crawler
+	crawler: function(message, options){
+		var defaultOptions = {
+			loadMethod: 'html',
+			closeAfter: 1500,
+			type: 'notification',
+			addClass: 'notification',
+			content: message,
+			width: 220,
+			height: 60,
+			//y: 53,
+			y: 280,
+			x: 700,
+			padding:  { top: 10, right: 12, bottom: 10, left: 12 },
+			shadowBlur: 5	
+		};
+		
+		$H(options).each(function(value,key){
+			defaultOptions[key] = value;
+		});
+		new MUI.Window(defaultOptions);		
 	}
 });
 

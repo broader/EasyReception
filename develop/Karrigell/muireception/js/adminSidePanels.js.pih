@@ -7,6 +7,11 @@
 # get meus stored in pagefn.py
 pagefn = Import('/'.join(('', 'pagefn.py')))
 
+# initialize some page variables
+sideBar, mainColumn = pagefn.COLUMNS
+
+issue = getattr(pagefn, 'ISSUE') 
+
 %>
 
 // the id of main panel in right main column
@@ -61,7 +66,37 @@ function userManagementPanel(panelId){
 **	Issues side panel expand function
 */
 function issuePanel(panelId){
-	MUI.accordionPanels(panelId);
+	MUI.initPanel(panelId);
+
+	// add main column	
+	var issueMainColumn = 'issueListColumn';
+	new MUI.Column({
+		container:mainPanelId, id: issueMainColumn, placement: 'main', 
+		sortable: false, width: null, resizeLimit: [100,200] 
+	});
+
+	// add right column	
+	var issueRightColumn = 'issueDetailColumn';
+	new MUI.Column({
+		container:mainPanelId, id: issueRightColumn, placement: 'right',  
+		sortable: false, width: 500, resizeLimit: [400,500] 
+	});
+	
+	// the panel to show issue list on main column
+	new MUI.Panel({
+		column: issueMainColumn, 
+		id: "<%=issue.get('adminView')['mainColumn']['panelId']%>",
+		title: "<%=issue.get('adminView')['mainColumn']['panelTitle']%>",
+		contentURL: "<%=issue.get('adminView')['mainColumn']['contentUrl']%>"
+	});
+		
+	// the panel to show the detail information of a issue item in right column
+	new MUI.Panel({
+		column: issueRightColumn,
+		id: "<%=issue.get('adminView')['rightColumn']['panelId']%>",
+		title: "<%=issue.get('adminView')['rightColumn']['panelTitle'] %>",
+		contentURL: "<%=issue.get('adminView')['rightColumn']['contentUrl']%>"
+	});
 };
 
 /*

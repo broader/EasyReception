@@ -1732,7 +1732,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1281969485022" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1282011820245" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -1788,7 +1788,7 @@
 </node>
 <node COLOR="#990000" CREATED="1252293904733" ID="Freemind_Link_1278450273" MODIFIED="1281599770464" TEXT="UI Design">
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1252293915875" ID="Freemind_Link_1696049106" MODIFIED="1281929779788" TEXT="Portal">
+<node COLOR="#111111" CREATED="1252293915875" FOLDED="true" ID="Freemind_Link_1696049106" MODIFIED="1282006487080" TEXT="Portal">
 <node COLOR="#111111" CREATED="1278550765458" ID="ID_114080679" MODIFIED="1281599164877" TEXT="scheme">
 <node COLOR="#111111" CREATED="1278550772570" FOLDED="true" ID="ID_1810258934" MODIFIED="1281604011776" TEXT="blue">
 <node COLOR="#111111" CREATED="1278550775195" ID="ID_738780480" LINK="http://justfreetemplates.com/preview/web-templates/1676.html" MODIFIED="1278550778471" TEXT="http://justfreetemplates.com/preview/web-templates/1676.html"/>
@@ -1833,6 +1833,11 @@
 </node>
 <node COLOR="#111111" CREATED="1278333951052" ID="ID_426105643" LINK="http://www.opendesigns.org/design/simple/" MODIFIED="1278333954646" TEXT="http://www.opendesigns.org/design/simple/"/>
 <node COLOR="#111111" CREATED="1278333963312" ID="ID_713018700" LINK="http://www.opendesigns.org/design/company-name-2/" MODIFIED="1278333965805" TEXT="http://www.opendesigns.org/design/company-name-2/"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1282006488557" ID="ID_740826984" MODIFIED="1282006491592" TEXT="Portalet">
+<node COLOR="#111111" CREATED="1282006492699" ID="ID_479495632" MODIFIED="1282006502080" TEXT="Prefer">
+<node COLOR="#111111" CREATED="1282006503245" ID="ID_1424633695" LINK="http://dropthings.omaralzabir.com/" MODIFIED="1282006506371" TEXT="http://dropthings.omaralzabir.com/"/>
 </node>
 </node>
 </node>
@@ -2431,7 +2436,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1245853638712" FOLDED="true" ID="_" MODIFIED="1281599152372" POSITION="right" TEXT="Used Web Lib/Widgets">
+<node COLOR="#0033ff" CREATED="1245853638712" FOLDED="true" ID="_" MODIFIED="1282015596198" POSITION="right" TEXT="Used Web Lib/Widgets">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1258549795684" FOLDED="true" ID="ID_1371740104" MODIFIED="1275275837003" TEXT="jquery lib">
@@ -2572,7 +2577,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1268620263252" FOLDED="true" ID="ID_1186941418" MODIFIED="1275269114473" TEXT="MochaUI">
+<node COLOR="#00b439" CREATED="1268620263252" ID="ID_1186941418" MODIFIED="1282014039593" TEXT="MochaUI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1268620271613" ID="ID_1670060654" MODIFIED="1268620278853" TEXT="MUI.notification">
@@ -2787,7 +2792,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1281969699171" POSITION="right" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1282012623962" POSITION="right" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -2861,8 +2866,7 @@
       &#36825;&#31181;&#24773;&#20917;&#24120;&#35265;&#65292;&#38656;&#20180;&#32454;&#25490;&#26597;js&#35821;&#21477;&#20013;&#30340;&#38169;&#35823;&#65281;
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node COLOR="#111111" CREATED="1281969619974" ID="ID_1504639582" MODIFIED="1281969640542" TEXT="evalScript &#x9009;&#x9879;&#x5173;&#x95ed;"/>
 </node>

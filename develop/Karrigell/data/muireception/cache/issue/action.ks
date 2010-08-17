@@ -1,4 +1,4 @@
-['page_createIssueForm', 'page_createIssueAction', 'page_getNosy4issue', 'page_editIssuePropForm', 'page_editIssuePropAction', 'page_addMessageForm', 'page_addMessageAction']
+['page_createIssueForm', 'page_createIssueAction', 'page_getNosy4issue', 'page_editIssuePropForm', 'page_editIssuePropAction', 'page_addMessageForm', 'page_addMessageAction', 'page_deleteIssueAction']
 """
 Pages mainly for actions on 'issue'.
 """
@@ -279,7 +279,6 @@ def _propFormAdapter(**args):
 	''' Construct filed's values corresponding to the property name. '''
 	oldValue, prop, preferProp, preferValue = \
 		[args.get(name) or '' for name in ('oldValue', 'prop', 'preferProp', 'preferValue')]
-		#[(args.get(name) or '').strip() for name in ('oldValue', 'prop', 'preferProp', 'preferValue')]
 
 	# get old values of the properties to be edit
 	form = [item for item in ISSUEPROPS if item['name'] == prop ]
@@ -581,4 +580,27 @@ def page_addMessageAction(**args):
 	issueId, msgId = model.edit_issue(editor, iprops, mprops, issueId, True)
 	PRINT( msgId)
 	return
+
+def page_deleteIssueAction(**args):
+	''' Delete issues by the given 'serial' values. '''
+	editor, serials = [ args.get(name) or '' for name in ('editor', 'serial') ]
+	editor = editor or USER
+
+	if not serials:
+		nodeIds = []
+	else:
+		nodeIds = [ model.serial2id(serial) for serial in serials.split(',')]
+
+	resTag = 0
+	if nodeIds:
+		try:
+			model.delete_items(editor, 'issue', nodeIds, isId=True)
+			resTag = 1
+		except:
+			pass
+
+	res = {'success':resTag, 'deleted':serials}
+	PRINT( JSON.encode(res, encoding='utf8'))
+	return
+
 

@@ -579,3 +579,26 @@ def page_addMessageAction(**args):
 	issueId, msgId = model.edit_issue(editor, iprops, mprops, issueId, True)
 	print msgId
 	return
+
+def page_deleteIssueAction(**args):
+	''' Delete issues by the given 'serial' values. '''
+	editor, serials = [ args.get(name) or '' for name in ('editor', 'serial') ]
+	editor = editor or USER
+
+	if not serials:
+		nodeIds = []
+	else:
+		nodeIds = [ model.serial2id(serial) for serial in serials.split(',')]
+
+	resTag = 0
+	if nodeIds:
+		try:
+			model.delete_items(editor, 'issue', nodeIds, isId=True)
+			resTag = 1
+		except:
+			pass
+
+	res = {'success':resTag, 'deleted':serials}
+	print JSON.encode(res, encoding='utf8')
+	return
+

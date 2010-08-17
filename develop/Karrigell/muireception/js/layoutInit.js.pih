@@ -252,25 +252,6 @@ MUI.extend({
 		});
 	},
 	
-	/*
-	// refresh the main MUI.Panel. Is it used ???
-	refreshMainPanel: function(){
-		MUI.Panels.instances
-		.filter(function(panel,key){
-			if( key == mainPanelId )
-				return false;
-			else if( MUI.Columns.instances.get(panel.options.column).options.container.id == mainPanelId)
-				return true;
-			else
-				return false;			
-		})
-		.each(function(panel){
-			panel.newPanel();
-		});
-		
-	},
-	*/
-	
 	// refresh the content of the specifized MUI.Panle by its panel ID
 	refreshPanel: function(panelId){
 		var panel = MUI.getPanel(panelId);

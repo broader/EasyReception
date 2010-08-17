@@ -1,3 +1,4 @@
+['page_info', 'page_issueDetail', 'page_issueMessages', 'page_issueList', 'page_colsModel', 'page_issuesData']
 """
 Pages mainly for administration.
 """
@@ -14,6 +15,8 @@ model = Import( '/'.join((RELPATH, 'model.py')), REQUEST_HANDLER=REQUEST_HANDLER
 modules = {'pagefn': 'pagefn.py', 'JSON': 'demjson.py', 'formFn':'form.py'}
 [locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items() ]
 
+# config data object
+CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 
 # ********************************************************************************************
 # Page Variables
@@ -29,37 +32,40 @@ USER = getattr( so, pagefn.SOINFO['user']).get('username')
 # *********************************End********************************************************
 
 # ********************************************************************************************
-# The page functions begining 
+# The page functions begining
 # ********************************************************************************************
 
 def page_info(**args):
-	print DIV(_('Ask help from the staff of the congress!'), **{'class':'info'})
+	PRINT( DIV(_('Manage issues.'), **{'class':'info'}))
 	return
 
 ISSUELISTCOLUMNS = \
-[\ 
-  {'name':'serial','header':_('Serial'),'dataType':'string'},\ 
+[\
+  {'name':'serial','header':_('Serial'),'dataType':'string'},\
   {'name':'title','header':_('Title'),'dataType':'string'}, \
-  {'name':'keyword','header':_('Key Words'),'dataType':'string'},\ 
-  {'name':'messages','header':_('Messages Number'),'dataType':'string'},\ 
-  {'name':'activity','header':_('Activity'),'dataType':'string'}, \
-  {'name':'status','header':_('Status'),'dataType':'string'}\
+  {'name':'keyword','header':_('Key Words'),'dataType':'string'},\
+  {'name':'creator','header':_('Creator'),'dataType':'string'},\
+  {'name':'assignedto','header':_('AssignedTo'),'dataType':'string'},\
+  {'name':'status','header':_('Status'),'dataType':'string'},\
+  {'name':'messages','header':_('Messages Number'),'dataType':'string'},\
+  {'name':'activity','header':_('Activity'),'dataType':'string'} \
 ]
 
-SUPPLEMENTLABELS = {'assignedto':_('Assignedto'), 'actor':_('Actor'), 'nosy': _('Nosy')}
+SUPPLEMENTLABELS = { 'actor':_('Actor'), 'nosy': _('Nosy')}
 SERIALPROP = ISSUELISTCOLUMNS[0].get('name')
 def page_issueDetail(**args):
 	serial,issueId = [ args.get(name) for name in (SERIALPROP, 'issueId')]
 	if serial:
 		pass
 	elif issueId:
-		serial = model.get_item(USER, 'issue', issueId, props=('serial',), keyIsId=True)['serial']	
+		serial = model.get_item(USER, 'issue', issueId, props=('serial',), keyIsId=True)['serial']
 	else:
-		print _('Please select a issue by clicking one row on the left table!')
+		PRINT( _('Please select a issue by clicking one row on the left table!'))
 		return
+
 	title = _('Serial: ') + str(B(serial))
 	title = SPAN(title)
-		
+
 	# issue information, such as title, key words, nosy, edit history
 	nodeId = model.serial2id(serial)
 	props = ('title', 'keyword', 'nosy', 'creation', 'creator', 'activity', 'actor', 'messages', 'assignedto','status')
@@ -70,7 +76,7 @@ def page_issueDetail(**args):
 		return
 	elif values.get('nosy'):
 		toCheck['nosy'] = values['nosy'].split(',')
-	
+
 	# add 'serial' which is a key of 'args' to 'toCheck'
 	toCheck.update(args)
 	# Permission check
@@ -78,16 +84,17 @@ def page_issueDetail(**args):
 	# if there is no 'pageaction' in arguments,
 	# then using this page url and remove the first '/' symbol
 	perms = _permissionCheck(**toCheck)
+
 	#pageAction = args.get('pageaction') or THIS.url.split('?')[0][1:]
 	#userRoles = getattr( so, pagefn.SOINFO['user']).get('roles').split(',')
 	#if not model.permissionCheck(USER, userRoles, pageAction) or not perms.get('pageaction'):
 	if not perms.get('pageaction'):
-		print _('You have no permission for this action!')
+		PRINT( _('You have no permission for this action!'))
 		return
 
-	print DIV(title)
-	
-	# some detail information fields of this issue 
+	PRINT( DIV(title))
+
+	# some detail information fields of this issue
 	labels = copy.deepcopy(SUPPLEMENTLABELS)
 	[labels.update({item['name']:item['header']}) for item in ISSUELISTCOLUMNS]
 	tableFields = []
@@ -110,12 +117,12 @@ def page_issueDetail(**args):
 	)
 
 	tableId = "issue-%s-info"%(issueId or model.serial2id(serial))
-	print TABLE(TBODY(trs), **{'id':tableId})
-	
+	PRINT( TABLE(TBODY(trs), **{'id':tableId}))
+
 	# list messages of this issue
 	messages = values.get('messages')
 	number = messages and len(messages) or '0'
-	print _("Messages of this issue"),
+	PRINT( _("Messages of this issue"),)
 
 	# add message button
 	msgBnId = 'addMessage'
@@ -125,20 +132,20 @@ def page_issueDetail(**args):
 		'add',\
 		'sexysmall'\
 	)
-	print button,HR(style="padding:0px;height:0.5px;")
+	PRINT( button,HR(style="padding:0px;height:0.5px;"))
 
 	msgListContainer = '-'.join(('issue', nodeId, 'msgList'))
-	print DIV(**{'id': msgListContainer})
+	PRINT( DIV(**{'id': msgListContainer}))
 
 	# js slice for show multiful messages in smart list format
 	perms = ','.join([str(perms.get(prop)) for prop in showFields[:5]])
-	print pagefn.script(_showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, messages),link=False)
+	PRINT( pagefn.script(_showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, messages),link=False))
 	return
 
 def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 	''' Add callback functions for buttons, and show the messages in a smarlt lists format of each issue. '''
 	paras = [ APP, nodeId, msgBnId]
-	
+
 	# add edit buttons to each row of the table which shows the properties' values of the issue
 	issueEdit = [tableId, perms, _('Edit')]
 	paras.extend(issueEdit)
@@ -151,15 +158,15 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 
 	paras.extend(actions)
 	paras.append(_('Add New Message'))
-	
+
 	paras.extend([_('Edit Title'), _('Edit Keywords'), _('Edit Nosy'), _('Edit Assignedto'), _('Edit Status')])
 	paras.extend(['title', 'keyword', 'nosy', 'assignedto', 'status'])
 
-	# the url to load the messages of this issue	
+	# the url to load the messages of this issue
 	page = '/'.join((APPATH, 'page_issueMessages'))
 	page = '?'.join((page, '='.join(('ids', ','.join(msgIds)))))
 	paras.extend([msgListContainer, page ])
-	
+
 	msgCounts = _('Total {total} items.')
 	msgPageInfo = _("Page <span class='{pageInfoClass}' >{currentPage}</span> of {pageNumber}")
 	filterBnLabel = _('Filter')
@@ -167,11 +174,11 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 	paras = tuple(paras)
 	js = \
 	"""
-	var appName="%s", issueId="%s", addMsgBn="%s", 
-	    tableId="%s", 
+	var appName="%s", issueId="%s", addMsgBn="%s",
+	    tableId="%s",
 
 	    // edit issue's properties config
-	    perms="%s",	editIssueBnTxt="%s", editDlgTitle="%s", 
+	    perms="%s",	editIssueBnTxt="%s", editDlgTitle="%s",
 	    editIssuePropUrl="%s",
 
 	    // the config for adding new message
@@ -181,7 +188,7 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 	    propTitles = ["%s", "%s", "%s", "%s", "%s" ],
 	    props = ["%s", "%s", "%s", "%s", "%s" ],
 
-	    listContainer="%s", msgUrl="%s", 
+	    listContainer="%s", msgUrl="%s",
 	    countInfo="%s", pageInfo="%s", filterBnLabel="%s", fields="%s";
 
 	// a handy function to get value from the td component in a tr
@@ -195,13 +202,13 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 		new Event(event).stop();
 		bn = event.target;
 		data = bn.retrieve('formData');
-		
-		query = $H(); 
+
+		query = $H();
 		query.combine({ 'issueId': issueId, 'prop':props[data.propIndex] });
 		// get old value of this property
 		query['oldValue'] = _getTdValue(tableId,data.propIndex, 'label');
 		// get the value of the preferable property
-		preferIndex = data.propIndex-1; 
+		preferIndex = data.propIndex-1;
 		if( preferIndex > 0 && preferIndex < 3){
 			query.combine({
 				'preferValue': _getTdValue(tableId, preferIndex, 'label'),
@@ -211,10 +218,10 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 
 		var url = [editIssuePropUrl, query.toQueryString()].join('?');
 		new MUI.Modal({
-			width: 400, height: 360, y: 80, 
+			width: 400, height: 360, y: 80,
 			title: propTitles[data.propIndex],
 			contentURL: url,
-			modalOverlayClose: false			
+			modalOverlayClose: false
 		});
 	};
 
@@ -222,7 +229,7 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 		options = {
 			txt: editIssueBnTxt,
 			imgType: 'edit',
-			bnAttrs: {'style':'margin-right:1em;'},	
+			bnAttrs: {'style':'margin-right:1em;'},
 			bnSize: 'sexysmall',
 			bnSkin: 'sexygreen'
 		};
@@ -241,11 +248,11 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 		td.grab(editButton(index));
 		tr.grab(td);
 	});
-	
+
 	var msgFields = fields.split(',');
 	function msgRender(liData){
 		var container = new Element('div', {style:'border-bottom: 1px solid grey;'});
-		
+
 		data = $H(liData);
 		msgFields.each(function(field){
 			rowData = data.get(field);
@@ -260,7 +267,7 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 				value = new Element('span', {html: rowData.value});
 				row = new Element('div', {'class':'note'});
 				row.adopt(value);
-				
+
 			};
 			container.grab(row);
 
@@ -270,15 +277,15 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 
 	function messagesList(){
 		var smartList = new SmartList(listContainer, {
-			dataUrl: msgUrl, 
+			dataUrl: msgUrl,
 			liRender: msgRender,
 			filterBnLabel: filterBnLabel,
 			pageInfoTmpls: {
-				'total': countInfo, 
+				'total': countInfo,
 				'page': pageInfo
 			},
-			contentClass: '' 
-		}); 
+			contentClass: ''
+		});
 		$(listContainer).store('smartListInstance',smartList);
 	};
 
@@ -288,21 +295,21 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 	$(addMsgBn).store('issueId', issueId);
 	$(addMsgBn).addEvent('click', function (event){
 		new Event(event).stop();
-		
-		query = $H(); 
+
+		query = $H();
 		query.combine({ 'issueId': event.target.retrieve('issueId')});
 
 		url = [addMessageUrl, query.toQueryString()].join('?');
 		new MUI.Modal({
-			width: 400, height: 250, y: 80, 
+			width: 400, height: 250, y: 80,
 			title: addMessageTitle,
 			contentURL: url,
-			modalOverlayClose: false			
+			modalOverlayClose: false
 		});
 	});
 
 	"""%paras
-	return js	
+	return js
 
 MSGNUMBERPERPAGE = 3
 MSGPROPS = ['serial', 'date', 'author', 'content']
@@ -311,18 +318,18 @@ def page_issueMessages(**args):
 	perPage, page = [\
 		int(args.get(name) or number) \
 		for name, number in zip(('itemsPerPage','currentPage'),(MSGNUMBERPERPAGE,1))]
-	
+
 	# get messages
 	msgIds = args.get('ids')
 	if not msgIds or not msgIds.split(','):
-		print JSON.encode([], encoding='utf8')
+		PRINT( JSON.encode([], encoding='utf8'))
 		return
 
 	msgIds = msgIds.split(',')
 	mprops = MSGPROPS
 	labels = (_('Serial'), _('Date'), _('Author'), _('Content'))
 	messages = model.get_items(args.get('user'), 'msg', mprops, link2key=True, ids=msgIds)
-	
+
 	items = []
 	if messages:
 		for msg in messages :
@@ -333,12 +340,12 @@ def page_issueMessages(**args):
 		items = filter(lambda i: search in ','.join([str(v) for v in i]), items)
 
 	data = {'total': len(items)}
-	data['pageNumber'] = (lambda x,y: x/y + (x%y != 0 and 1 or 0) )(data['total'], perPage) 
+	data['pageNumber'] = (lambda x,y: x/y + (x%y != 0 and 1 or 0) )(data['total'], perPage)
 	begin = perPage*(page-1)
 	end = begin + perPage
 	items = items[begin:end]
-	
-	msgData = [] 
+
+	msgData = []
 	for item in items:
 		msgData.append(\
 			dict(\
@@ -349,13 +356,13 @@ def page_issueMessages(**args):
 		)
 
 	data.update( {'currentPage': page, 'data': msgData })
-	print JSON.encode(data, encoding='utf8')
+	PRINT( JSON.encode(data, encoding='utf8'))
 	return
 
 def page_issueList(**args):
 	userViewIssueList = 'userViewIssueList'
-	print DIV(**{'id': userViewIssueList})
-	print pagefn.script( _issueListJs( userViewIssueList), link=False)
+	PRINT( DIV(**{'id': userViewIssueList}))
+	PRINT( pagefn.script( _issueListJs( userViewIssueList), link=False))
 	return
 
 ACTIONTAG, ACTIONS, ACTIONLABELS = 'action', ['create','delete'],[_('Create'), _('Delete')]
@@ -370,17 +377,17 @@ def _issueListJs(container):
 		'/'.join((APPATH,name)) \
 		for name in ( 'page_colsModel', 'page_issuesData', 'page_issueDetail')\
 	])
-	
+
 	paras.extend(\
-		[ '/'.join(('/'.join(THIS.script_url.split('/')[:-1]), 'action.ks', name)) 
+		[ '/'.join(('/'.join(THIS.script_url.split('/')[:-1]), 'action.ks', name))
 		  for name in ('page_createIssueForm', 'page_deleteIssueAction')]\
 	)
 
 	paras.extend(\
-		[ 
-		_('Create a new issue'), 
-		pagefn.JSLIB['dataGrid']['prompt']['noRow'], 
-		pagefn.JSLIB['dataGrid']['prompt']['deleteSuccess'], 
+		[
+		_('Create a new issue'),
+		pagefn.JSLIB['dataGrid']['prompt']['noRow'],
+		pagefn.JSLIB['dataGrid']['prompt']['deleteSuccess'],
 		pagefn.JSLIB['dataGrid']['prompt']['deleteFailed']
 		]\
 	)
@@ -395,7 +402,7 @@ def _issueListJs(container):
 	var appName='%s', container=$('%s'), actionTag='%s',
 
 	// labels for filter buttons
-	filterBnLabels=['%s', '%s'],	
+	filterBnLabels=['%s', '%s'],
 
 	// actions and labels for actions
 	actions=['%s', '%s'], bnLabels=['%s', '%s'],
@@ -409,21 +416,21 @@ def _issueListJs(container):
 	// edit action url
 	editUrl='%s',
 	// create action url
-	createUrl='%s', 
+	createUrl='%s',
 	// delete action url
 	delIssueUrl="%s",
 	createTitle='%s',
 	// delete issues
-	propmt4selectRow="%s", prompt4delSuccess="%s", prompt4delFailed="%s", 
-	
+	propmt4selectRow="%s", prompt4delSuccess="%s", prompt4delFailed="%s",
+
 	detailPanel='%s', serialProp='%s';
 
 	// global name for datagrid
 	var issueGrid = null;
-	
+
 	// Action area
 	var actionArea = new Element('div', {style:'padding-bottom:0.3em;'});
-	
+
 	// filter operation area
 	var filterContainer= [], filterInput= new Element('input', {style:'margin-right:0.5em'});
 	filterContainer.push(filterInput);
@@ -445,7 +452,7 @@ def _issueListJs(container):
 	});
 	// insert a seperator symbol to the container array
 	filterContainer.splice(filterContainer.length-1, 0, new Element('span',{html:' | '}));
-	
+
 	/**********************************************************************************
 	Return a button container which contains three buttons - 'create','edit','delete'
 	***********************************************************************************/
@@ -453,14 +460,14 @@ def _issueListJs(container):
 		bnAttributes = [
 			{'type':'add','label': bnLabels[0], 'bnSize':'sexysmall', 'bnSkin': 'sexyblue', 'action':actions[0]},
 			{'type':'delete','label': bnLabels[1], 'bnSize':'sexysmall', 'bnSkin': 'sexyblue', 'action':actions[1]}
-		];	
+		];
 
 		bnContainer = new Element('span',{style: 'margin-left:10em;'});
 		bnAttributes.each(function(attrs,index){
 			options = {
 				txt: attrs['label'],
 			   	imgType: attrs['type'],
-				bnAttrs: {'style':'margin-right:1em;'},	
+				bnAttrs: {'style':'margin-right:1em;'},
 				bnSize: attrs['bnSize'],
 				bnSkin: attrs['bnSkin']
 			};
@@ -469,9 +476,9 @@ def _issueListJs(container):
 			button.addEvent('click', issueActionAdapter);
 			bnContainer.grab(button);
 		});
-		return bnContainer		
+		return bnContainer
 	};
-	
+
 	function issueActionAdapter(event){
 		new Event(event).stop();
 		button = event.target;
@@ -486,9 +493,9 @@ def _issueListJs(container):
 				break;
 		};
 	};
-	
-	function createIssue(ti, action){	
-		query = $H(); 
+
+	function createIssue(ti, action){
+		query = $H();
 		query.combine({actionTag:action});
 		new MUI.Modal({
          		width: 450, height: 320, y: 80, title: createTitle,
@@ -503,11 +510,11 @@ def _issueListJs(container):
 			MUI.notification(propmt4selectRow);
 			return
 		};
-		
+
 		var serials = ti.selected.map(function(rowIndex,index){
 			return ti.getDataByRow(rowIndex)[serialProp];
 		});
-		
+
 		var req = new Request.JSON( {
 			url: delIssueUrl,
 			onComplete: function(result){
@@ -523,22 +530,22 @@ def _issueListJs(container):
 
 	actionArea.adopt([filterContainer, issueEditButtons()]);
 	container.adopt(actionArea);
-	
+
 	// datagrid body
 	var issueGridContainer = new Element('div');
 	container.adopt(issueGridContainer);
-	
-	function renderIssueGrid(){	
+
+	function renderIssueGrid(){
 		var colsModel=null;
-	
-		// load column model for the grid from server side 
+
+		// load column model for the grid from server side
 		var jsonRequest = new Request.JSON({
-			async: false, url: colsModelUrl, 
+			async: false, url: colsModelUrl,
 			onSuccess: function(json){
     				colsModel = json['data'];
     			}
 		}).get();
-		
+
 		// create a 'omniGrid' instance and assign it to the global variable 'issueGrid'
 		issueGrid = new omniGrid( issueGridContainer, {
 			columnModel: colsModel,	url: issueGriDataUrl,
@@ -546,13 +553,13 @@ def _issueListJs(container):
 			perPage:15, page:1, pagination:true, serverSort:true,
 			showHeader: true, sortHeader: true, alternaterows: true,
 			resizeColumns: true, multipleSelection:true,
-			width:700, height: 400 
+			width:850, height: 400
 		});
 		issueGrid.addEvent('click', issueGridShow);
 		// save the omniGrid instance
 		$$('.omnigrid')[0].store('tableInstance',issueGrid);
 	};
-	
+
 	function issueGridShow(event){
 		/* Parameters
    		evt.target:the grid object
@@ -565,46 +572,54 @@ def _issueListJs(container):
 		var url = [ editUrl, q.toQueryString()].join('?');
 		var panel = MUI.getPanel(detailPanel);
 		panel.options.contentURL = url;
-		panel.newPanel();		
+		panel.newPanel();
 	};
-	
+
 	MUI.dataGrid(appName, {'onload':renderIssueGrid});
 
 	"""%paras
 	return js
 
 def page_colsModel(**args):
-	""" 
+	"""
 	Return the columns' model of the grid on the client side, which is used to show users' issues.
 	Format:
 		[{'header':...,'dataIndex':...,'dataType':...},...]
 	"""
 	[ item.update({'dataIndex': item.pop('name')}) for item in ISSUELISTCOLUMNS ]
 	colsModel = [ pagefn.decodeDict2Utf8(item) for item in ISSUELISTCOLUMNS]
-	print JSON.encode({'data':colsModel}, encoding='utf8')
+	PRINT( JSON.encode({'data':colsModel}, encoding='utf8'))
 	return
 
-DEFAULTSORTON, DEFAULTSORTBY = 'activity', 'DESC'  
+DEFAULTSORTON, DEFAULTSORTBY = 'activity', 'DESC'
 def page_issuesData(**args):
 	user = args.get('user') or USER
 
 	# paging arguments
 	showPage, pageNumber = [ int(args.get(name)) for name in ('page', 'perpage') ]
 	search = args.get('filter') or ''
-	
+
 	# returned data object
 	d = {'page':showPage,'data':[],'search':search}
-	
+
 	# a temporary inner function to filter issues
 	#def _issueFilter(_nosy, _creator):
 	def _issueFilter(*_props):
 		_viewPermission = False
-		_values = ','.join([ str(i) for i in _props])
-		if user in _values and search in _values:
+
+		# super user role 'Admin' has all permissions
+		userRoles = getattr( so, pagefn.SOINFO['user']).get('roles').split(',')
+		# get the role name for super user
+		superAdminRole = CONFIG.getData('superAdmin')
+		if superAdminRole in userRoles:
 			_viewPermission = True
-		
+		else:
+			_values = ','.join([ str(i) for i in _props])
+			if user in _values and search in _values:
+				_viewPermission = True
+
 		return _viewPermission
-	
+
 	# column's property name
 	showProps = [item.get('name') for item in ISSUELISTCOLUMNS]
 
@@ -616,46 +631,46 @@ def page_issuesData(**args):
 	total, data = model.get_issues(user, showProps, search, filterFn=_issueFilter, filterArgs=fargs)
 
 	d['total'] = total
-	if data:			
+	if data:
 		# sort data
 		# arguments for sort action
 		tags = [ pagefn.JSLIB['dataGrid']['sorTag'][name] for name in ('sortOn', 'sortBy')]
 		sorton,sortby = [ args.get(name) or defaultValue for name,defaultValue in zip(
 			tags,
-			[ DEFAULTSORTON, DEFAULTSORTBY]) 
-		] 
+			[ DEFAULTSORTON, DEFAULTSORTBY])
+		]
 
 		if sorton in ('creation', 'activity'):
 			import datetime
 			# a temporary function to construct a datetime.datetime object from 'activity' data
 			def _cmpActivity(d):
 				src = [ l.split(sep) for l,sep in zip(str(d).split('.'), ('-',':')) ]
-				res = [] 
+				res = []
 				[ [ res.append(int(i)) for i in l] for l in src]
-				return datetime.datetime(*res) 
+				return datetime.datetime(*res)
 
-			data.sort(key=lambda row: _cmpActivity(row[showProps.index(sorton)]))	
+			data.sort(key=lambda row: _cmpActivity(row[showProps.index(sorton)]))
 			data.reverse()
 		else:
-			data.sort(key=lambda row: row[showProps.index(sorton)])	
-		
+			data.sort(key=lambda row: row[showProps.index(sorton)])
+
 		if sortby == 'DESC':
 			data.reverse()
-			
+
 		# get the data of the displayed page
 		start = (showPage-1)*pageNumber
 		end = start + pageNumber - 1
 		if end >= total:
 			end = total
-		# get data slice in the displayed page from the data 	
+		# get data slice in the displayed page from the data
 		rslice = data[start : end]
-		
+
 		# if ascii chars mixins with non-ascii chars will result
-		# JSON.encode error, so decode all the data items to utf8.	
+		# JSON.encode error, so decode all the data items to utf8.
 		# set python default encoding to 'utf8'
 		reload(sys)
 		sys.setdefaultencoding('utf8')
-		
+
 		for row in rslice:
 			for i,s in enumerate(row) :
 				# get 'messages' index
@@ -664,27 +679,27 @@ def page_issuesData(**args):
 					s = str(len(s))
 					#s = ','.join(s)
 
-				row[i] = str(s).decode('utf8')		
-		
+				row[i] = str(s).decode('utf8')
+
 		# constructs each row to be a dict object that key is a property.
 		encoded = [dict([(prop,value) for prop,value in zip(showProps,row)]) for row in rslice]
-			
+
 		d['data'] = encoded
-	
-	print JSON.encode(d, encoding='utf8')	
+
+	PRINT( JSON.encode(d, encoding='utf8'))
 	return
 
 def _permissionCheck(**args):
 	'''
 	Check detailed access permission to 'issue' class.
 	The relation between user role and actions:
-	------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------
 	role/action	view	edit	detailEditFields
 	admin		OK	OK	'title','keyword',nosy', 'assignedto','status'
 	creator		OK	OK	'title','keyword'
 	assignedto	OK	OK	'title','keyword',nosy', 'assignedto','status'
 	nosy		OK	X
-	------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------
 	'''
 	perms = {}
 	user = args.get('user') or USER
@@ -697,11 +712,11 @@ def _permissionCheck(**args):
 	if args.get('nosy') and user in args['nosy']:
 		perms['pageaction'] = 1
 	elif args.get('creator') and user == args['creator']:
-		perms['pageaction'] = 1	
+		perms['pageaction'] = 1
 	else:
 		perms['pageaction'] = 0
 		return perms
-	
+
 	if user in [args.get(name) for name in ('assignedto', 'creator')]:
 		hasperm = 1
 	else:
@@ -716,5 +731,6 @@ def _permissionCheck(**args):
 
 	[perms.update({key:hasperm}) for key in ('nosy', 'assignedto', 'status')]
 
-	return perms 
+	return perms
+
 
