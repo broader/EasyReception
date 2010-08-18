@@ -15,7 +15,7 @@ modules = {'pagefn': 'pagefn.py', 'JSON': 'demjson.py', 'formFn':'form.py'}
 [locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items() ]
 
 # config data object
-CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
+INITCONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 
 # ********************************************************************************************
 # Page Variables
@@ -593,6 +593,10 @@ def page_colsModel(**args):
 DEFAULTSORTON, DEFAULTSORTBY = 'activity', 'DESC'  
 def page_issuesData(**args):
 	user = args.get('user') or USER
+	# super user role 'Admin' has all permissions
+	userRoles = getattr( so, pagefn.SOINFO['user']).get('roles').split(',')
+	# judge whether it's a super user 
+	isSuperAdmin = INITCONFIG.getData('superAdmin')['role'] in userRoles or user == INITCONFIG.getData('superAdmin')['user']
 
 	# paging arguments
 	showPage, pageNumber = [ int(args.get(name)) for name in ('page', 'perpage') ]
@@ -602,15 +606,11 @@ def page_issuesData(**args):
 	d = {'page':showPage,'data':[],'search':search}
 	
 	# a temporary inner function to filter issues
-	#def _issueFilter(_nosy, _creator):
 	def _issueFilter(*_props):
 		_viewPermission = False
-		
-		# super user role 'Admin' has all permissions
-		userRoles = getattr( so, pagefn.SOINFO['user']).get('roles').split(',')
-		# get the role name for super user
-		superAdminRole = CONFIG.getData('superAdmin')
-		if superAdminRole in userRoles:
+	
+		# super administrator has all the permissions	
+		if isSuperAdmin:
 			_viewPermission = True
 		else:
 			_values = ','.join([ str(i) for i in _props])
@@ -676,9 +676,8 @@ def page_issuesData(**args):
 				mindex = [ item.get('name') for item in ISSUELISTCOLUMNS].index('messages')
 				if i == mindex:
 					s = str(len(s))
-					#s = ','.join(s)
 
-				row[i] = str(s).decode('utf8')		
+				row[i] = str(s or '').decode('utf8')		
 		
 		# constructs each row to be a dict object that key is a property.
 		encoded = [dict([(prop,value) for prop,value in zip(showProps,row)]) for row in rslice]

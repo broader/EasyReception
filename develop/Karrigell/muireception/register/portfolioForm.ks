@@ -21,7 +21,7 @@ modules = {'pagefn' : 'pagefn.py',  'JSON' : 'demjson.py', 'formFn':'form.py'}
 so = Session()
 
 # config data object
-CONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
+INICONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 
 # account information fields' names in CONFIG file
 ACCOUNTFIELDS = 'userAccountInfo'
@@ -40,7 +40,7 @@ FORMBNS = 'baseInfoBns'
 
 
 def index(**args):	
-	render = CONFIG.getData(BASEINFOFIELDS)		
+	render = INICONFIG.getData(BASEINFOFIELDS)		
 	rember = dict([ (field.get('name'), getattr(so, field.get('name'), None))  for field in render ])
 	
 	# Add other properties for each field, these properties are 'id','required','oldvalue'
@@ -48,16 +48,16 @@ def index(**args):
 		name = element.get('name')
 		# Add 'id' property for each field		
 		element.update({'id':name})
-      # Add required property to the needed fields, 
-      # here means all the fields will be added the 'required' property.
+		# Add required property to the needed fields, 
+		# here means all the fields will be added the 'required' property.
 		element.update({'required':False})
-      # add maybe old value
+		# add maybe old value
 		element.update({'oldvalue':rember.get(name)})	
 	
 	
 	# render the fields to the form
 	form = []
-   # get the OL content from formRender.py module	
+	# get the OL content from formRender.py module	
 	yform = formFn.yform
 	# calculate the fields' number showing in each column of the form	
 	interval = int(len(render)/3)	
@@ -68,7 +68,7 @@ def index(**args):
 	right = DIV(Sum(yform(render[next:])), **{'class':'c33r', 'style':style})
 	divs = DIV(Sum((left, center, right)), **{'class':'subcolumns'})	
 	
-   # add the <Legend> tag
+	# add the <Legend> tag
 	legend = LEGEND(TEXT(_('Base Information')))    
 	form.append(FIELDSET(Sum((legend,divs))))
 	
@@ -175,13 +175,10 @@ def page_accountRegister(**args):
 		user = client.user = account.get('username')		
 		
 		# set the user's base information, 
-		# which is stored in a csv format file on server side		
+		# which will be saved in a csv format file on server side		
 		info = {}		
-		fields = [ item.get('name') for item in CONFIG.getData(BASEINFOFIELDS) ]
-		
+		fields = [ item.get('name') for item in INICONFIG.getData(BASEINFOFIELDS) ]
 		[ info.update({ name:args.get(name) or '' }) for name in fields ]
-		  
-		#filename = '_'.join(('user', str(userId), 'info' ))	
 		
 		# write these informations to database
 		res = model.edit_user_info( user, user, 'create', info, None, client)

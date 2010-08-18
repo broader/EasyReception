@@ -333,13 +333,15 @@ def edit_linkcsv(client, klass, nodeid, linkprop, actionType, content, filename=
 	   	content - a dictionary, holds the properties names and values
 	   	filename - for 'create' action, a file name should be assigned first
 	"""
-	form = {'context' : (klass, nodeid),
-		     'linkprop' : linkprop,
-		     'action' : 'linkcsv',
-		     'actiontype': actionType,
-		     'filename' : filename,
-		     'content': content
-		    }
+	form = {
+		'context' : (klass, nodeid),
+		'linkprop' : linkprop,
+		'action' : 'linkcsv',
+		'actiontype': actionType,
+		'filename' : filename,
+		'content': content
+	}
+
 	client.form = form
 	return action(client)
 

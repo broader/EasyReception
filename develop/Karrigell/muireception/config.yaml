@@ -8,7 +8,7 @@ service:
       prompt: status that could be reserved
       property: status
       value: [toBeReserve]
-superAdmin: admin
+superAdmin: {role: SuperAdmin, user: admin}
 userAccountInfo:
 - {name: username, prompt: !!python/str "\u7528\u6237\u540D", type: text}
 - {name: email, prompt: Email address, type: text}

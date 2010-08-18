@@ -248,17 +248,17 @@ def _editPortfolioJs(panelReload):
 		}// the end for 'onload' define
 	};// the end for 'options' define
  
-   MUI.formValidLib(appName,options);
+	MUI.formValidLib(appName,options);
    
-   function editPortfolio(event){
+	function editPortfolio(event){
 		portfolioFormchk.onSubmit(event);
 	};
 	
 	function closeDialog(){
 		// close register dialog, this function has been defined in init.js
-   	MUI.closeModalDialog();
-   	// remove imported Assets
-   	MUI.assetsManager.remove(appName,'app');
+		MUI.closeModalDialog();
+		// remove imported Assets
+		MUI.assetsManager.remove(appName,'app');
 	};
 	
 	function exitEditPortfolio(event){
@@ -268,15 +268,15 @@ def _editPortfolioJs(panelReload):
 	
 	function editPortfolioPageInit(){
 		// add mouseover effect to buttons
-   	new MooHover({container: portfolioActionBn,duration:800});
+		new MooHover({container: portfolioActionBn,duration:800});
    	
-   	var fns = [ exitEditPortfolio, editPortfolio ]
-   	$( portfolioActionBn )
-	   .getElements('button')
-	   .each(function(button){
-		   button.addEvent('click', fns.pop());
-	   });
-	};
+		var fns = [ exitEditPortfolio, editPortfolio ]
+		$( portfolioActionBn )
+			.getElements('button')
+			.each(function(button){
+				button.addEvent('click', fns.pop());
+			});
+		};
 	
 	window.addEvent('domready', editPortfolioPageInit );
 	"""%paras	

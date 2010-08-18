@@ -49,7 +49,7 @@ INIDATA['userBaseInfo'] = \
 	  'class':'', 'required':False, 'validate':[] },\
 
 
-	{ 'name':'phone',	'prompt':_("Phone"), 'type':'text',\
+	{ 'name':'phone', 'prompt':_("Phone"), 'type':'text',\
 	  'class':'', 'required':False,'validate':[] },\
 
 
@@ -57,7 +57,7 @@ INIDATA['userBaseInfo'] = \
 	  'class':'', 'required':False, 'validate':[] },\
 
 
-	{ 'name':'aperson',	'prompt':_("Accompany Person"), 'type':'select',\
+	{ 'name':'aperson', 'prompt':_("Accompany Person"), 'type':'select',\
 	  'class':'', 'required':False, 'validate':[],\
 	  'options':[\
 		{'value':'0', 'label':'0'},\
@@ -67,15 +67,15 @@ INIDATA['userBaseInfo'] = \
 	},\
 
 
-	{ 'name':'address',	'prompt':_("Address"), 'type':'textarea',\
+	{ 'name':'address', 'prompt':_("Address"), 'type':'textarea',\
 	  'class':'', 'required':False, 'validate':[] },\
 
 
-	{ 'name':'city',	'prompt':_("City"), 'type':'text',\
+	{ 'name':'city', 'prompt':_("City"), 'type':'text',\
 	  'class':'', 'required':False, 'validate':[] },\
 
 
-	{ 'name':'country',	'prompt':_("Country"), 'type':'text',\
+	{ 'name':'country', 'prompt':_("Country"), 'type':'text',\
 	  'class':'', 'required':False, 'validate':[] },\
 
 
@@ -99,7 +99,7 @@ INIDATA['service'] = \
 	}
 }
 
-INIDATA['superAdmin'] = {'role':'SuperAdmin', 'use':'admin'}
+INIDATA['superAdmin'] = {'role':'SuperAdmin', 'user':'admin'}
 
 # these directories will be scaned in 'sysadmin/webaction.py' to add new web actions to database
 INIDATA['appdirs'] = ['issue', 'portal', 'portfolio', 'register', 'service', 'sysadmin', 'user']
@@ -111,6 +111,7 @@ def _init(value=None):
 	if value:
 		yaml.dump(value,stream,explicit_start=True)
 	else:
+		# dump all the values in "INIDATA" dict to config file
 		yaml.dump(INIDATA,stream,explicit_start=True)
 
 	stream.close()
@@ -130,6 +131,10 @@ def _getConfig(field):
 	return res
 
 def getData(field):
+	'''
+	Parameters:
+	  field - the variable's name
+	'''
 	initValue = _getConfig(field)
 	if not initValue :
 		# when there is no value, it's need to initialize config file again.

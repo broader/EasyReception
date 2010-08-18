@@ -296,7 +296,7 @@ class LinkCSVAction(Action):
                 return 
                 
             newLinkPropId,fn = create_file(self.db,linklass, filename)
-            print 'ajaxActions.LinkCSVAction,L298, new file node id is %s, name is %s'%(newid, fn)
+            print 'ajaxActions.LinkCSVAction,L298, new file node id is %s, name is %s'%(newLinkPropId, fn)
             klass.set(nodeId,**{linkprop: newLinkPropId})                
             try:
                 write2csv(fn, rows)

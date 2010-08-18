@@ -324,16 +324,17 @@ var omniGrid = new Class({
 			data.sorton = this.options.sortOn;
 			data.sortby = this.options.sortBy;
 		}
-		
-		// add others options data, add by B.Z 
-		if($type(options) != false)
-			for (key in options){data[key]=options[key]};	
-		
+				
 		// add user defined data with url, new added by B.Z 
 		urlData = this.options.urlData; 		
 		if(urlData != null){
 			for (key in urlData ){ data[key]=urlData[key]}; 
-		};			
+		};
+					
+		// add others options data which is the arguments of this fucntion, 
+		// add by B.Z 
+		if($type(options) != false)
+			for (key in options){data[key]=options[key]};
 			
 		// ************* white overflow & loader ************
 		if ( this.container.getElement('.gBlock') )

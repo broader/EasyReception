@@ -28,6 +28,9 @@ APP = pagefn.getApp(THIS.baseurl,1)
 so = Session()
 USER = getattr( so, pagefn.SOINFO['user']).get('username')
 
+# config data object
+INICONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
+
 # End*****************************************************************************************
 
 # ********************************************************************************************
@@ -434,6 +437,8 @@ def page_classList(**args):
 
 def _classListJs(klass):
 	paras = [CLASSPROP, klass, APP, CONTAINER]
+	# if klass is 'user', add 'Admin' value to filter input as initial value
+	paras.append( klass=='user' and 'Admin' or '')
 	paras.append(' '.join((klass,_('Items'))))
 	paras.append(CLASSNAMESTYLE)
 	paras.extend([''.join((prefix, klass)) for prefix in (_('Create new item of '), _('Edit the item of '))])
@@ -445,25 +450,26 @@ def _classListJs(klass):
 	paras = tuple(paras)
 	js = \
 	"""
-	var klassProp='%s', klass='%s', appName='%s',
-	container='%s',
-	title='%s', titleStyle='%s',
-	createTitle='%s', ediTitle='%s',
-	filterLabel="%s", clearFilterLabel="%s",
-	colsModelUrl='%s', dataUrl='%s', editUrl='%s',
-	delClassItemUrl='%s', resetPwdUrl='%s';
+	var klassProp='%s', klass='%s', appName='%s', container='%s',
+	    initValue4filter="%s",
+	    title='%s', titleStyle='%s',
+	    createTitle='%s', ediTitle='%s',
+	    filterLabel="%s", clearFilterLabel="%s",
+	    colsModelUrl='%s', dataUrl='%s', editUrl='%s',
+	    delClassItemUrl='%s', resetPwdUrl='%s';
 
 	var colsModel=null, datagrid=null;
 
 	// load column model for the grid from server side
-	var reqData = {};
+	var reqData = {'filter': initValue4filter };
+
 	reqData[klassProp] = klass;
 	var jsonRequest = new Request.JSON({
 		async: false,
 		url: colsModelUrl,
 		onSuccess: function(json){
-    		colsModel = json['data'];
-    	}
+			colsModel = json['data'];
+		}
 	}).get(reqData);
 
 	// add title and a underline
@@ -473,19 +479,19 @@ def _classListJs(klass):
 
 
  	 // add filter input Element
-   	var filterInput = new Element('input',{style:'margin:15px 5px 15px 0;'});
+   	var filterInput = new Element('input',{style:'margin:15px 5px 15px 0;', value: initValue4filter});
 
    	var filterButton = new Element('a',{html:filterLabel,href:'javascript:;'});
 
    	filterButton.addEvent('click',function (e){
-   	   datagrid.loadData(dataUrl, {'filter': filterInput.value || ''});
+   	   datagrid.loadData(dataUrl, {'filter': filterInput.getProperty('value')});
    	});
 
 
    	var filterClearButton = new Element('a',{html: clearFilterLabel,href:'javascript:;'});
    	filterClearButton.addEvent('click', function(e){
    	   filterInput.setProperty('value','');
-   	   datagrid.loadData();
+   	   datagrid.loadData(dataUrl, {'filter':'' });
    	});
 
    	span = new Element('span');
@@ -506,7 +512,8 @@ def _classListJs(klass):
 			resizeColumns: true,	multipleSelection:true,
 			width:700, height: 320
 		});
-
+		// save the omniGrid instance
+		$$('.omnigrid')[0].store('tableInstance',datagrid);
 	};
 
 	MUI.dataGrid(appName, {'onload':renderGrid});
@@ -562,11 +569,7 @@ def _classListJs(klass):
 		};
 
 		var modalOptions = {
-			width:mwidth, height:mheight, modalOverlayClose: false,
-	   		onClose: function(e){
-	   		   // refresh table's body
-	   		   datagrid.loadData();
-	   		}
+			width:mwidth, height:mheight, modalOverlayClose: false
 		};
 
 		switch(index){
@@ -687,8 +690,6 @@ def page_colsModel(**args):
 GRIDSORTONTAG, GRIDSORTBYTAG = ('sorton', 'sortby')
 def page_classItems(**args):
 	klass = args.get(CLASSPROP)
-
-
 
 	# paging arguments
 	showPage, pageNumber = [ int(args.get(name)) for name in ('page', 'perpage') ]
@@ -1001,23 +1002,25 @@ def _classEditJs(formId, bnStyle):
 	var classItemEditFormChk;
 	// Load the form validation plugin script
 	var options = {
-	    onload:function(){
-		classItemEditFormChk = new FormCheck( container,{
-		    submitByAjax: true,
-		    onAjaxSuccess: function(response){
-			if(response == 1){
-			    MUI.closeModalDialog();
-			};
-		    },
+		onload:function(){
+			classItemEditFormChk = new FormCheck( container,{
+				submitByAjax: true,
+				onAjaxSuccess: function(response){
+					if(response == 1){
+						MUI.closeModalDialog();
+						// refresh table grid
+						$$('.omnigrid')[0].retrieve('tableInstance').loadData();
+					};
+				},
 
- 		    display:{
-			errorsLocation : 1,
-			keepFocusOnError : 0,
-			scrollToFirst : false
-		    }
-		});// the end for 'classItemEditFormChk' definition
+				display:{
+					errorsLocation : 1,
+					keepFocusOnError : 0,
+					scrollToFirst : false
+				}
+			});// the end for 'classItemEditFormChk' definition
 
-	    }// the end for 'onload' definition
+		}// the end for 'onload' definition
 	};// the end for 'options' definition
 
    	MUI.formValidLib(appName,options);
@@ -1068,24 +1071,30 @@ def page_classEditAction(**args):
 	   # 'delete' action
 	   nid = args.get('id')
 	   model.delete_item( USER, klass, nid, isId=True)
-	   info = 'item %s has been deleted!'%nid
-	   PRINT( info)
+	   PRINT( 'item %s has been deleted!'%nid)
 	   return
 
-	if ACTIONTYPES.index(action) == 0:
-		# 'create' action
-
+	if ACTIONTYPES.index(action) == 0:	# 'create' action
 		# for 'user' class we need to remove the confirm password field
 		if klass == 'user':
 			args.pop(USERCONFIRMPWD)
+			username = args.get('username')
 
 		[args.pop(key) for key in args.keys() if not args.get(key)]
 		nid = model.create_item(USER, klass, args, autoSerial=False)
 		if nid:
 			successTag = 1
+			# for roundup.user Class, if created user has 'User' role,
+			# it's need to create its 'info' property's value
+			# set the user's base information,
+			# which will be saved in a csv format file on server side
+			info = {}
+			fields = [ item.get('name') for item in INICONFIG.getData('userBaseInfo') ]
+			[ info.update({ name: None }) for name in fields ]
+			# write these informations to database
+			model.edit_user_info( USER, username, 'create', info )
 
-	elif ACTIONTYPES.index(action) == 1:
-		# 'edit' action
+	elif ACTIONTYPES.index(action) == 1:	# 'edit' action
 		nid = args.pop('id')
 		model.edit_item(USER, klass, nid, args, 'edit', keyIsId=True)
 		successTag = 1
