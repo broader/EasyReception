@@ -131,7 +131,7 @@ class Client:
         '''
         '''        
         try:                            
-            print 'ajaxClient.Client.inner_main,L135, form is ', self.form
+            #print 'ajaxClient.Client.inner_main,L135, form is ', self.form
             self.determine_user()
             #print 'ajaxClient.Client.inner_main,L137'
             # figure out the object class this client action for.
@@ -173,9 +173,10 @@ class Client:
 
     def determine_user(self):
         """Determine who the user is"""          
-        #print 'ajaxClient.determine_user,L174,self.form is ', self.form
+        #print 'ajaxClient.determine_user,L174,self.form is %s, self.user is %s'%\
+        #    (self.form, self.user)
+            
         self.opendb('admin')                
-        #print 'ajaxClient.determine_user,L176,self.form is ', self.form
         
         # For ajax client, get user information from the form fields.
         # Add by ZG.
@@ -186,6 +187,7 @@ class Client:
         if not user:
             user = 'anonymous'        
         
+        #print 'ajaxClient.determine_user,L193, user is ', user
         # sanity check on the user still being valid,
         # getting the userid at the same time
         try:
@@ -212,8 +214,9 @@ class Client:
         "Development Mode" (cf. roundup_server) then the database is always
         re-opened.
         """
-        #print 'ajaxClient.opendb,L213'
-        #print 'ajaxClient.opendb, L214, self.db_open is %s, '%self.db_open       
+        
+        #print 'ajaxClient.opendb, L221, self.db_open is %s, self.user is %s'%\
+        #    (self.db_open, self.user)
                 
         # don't do anything if the db is open and the user has not changed
         if hasattr(self, 'db') and self.db_open == 1 and self.db.isCurrentUser(username):            
@@ -225,12 +228,18 @@ class Client:
                 self.db = self.instance.open(username)            
             except:
                 print 'ajaxClient.opendb, L226', sys.exc_info()
+            
+            #print 'ajaxClient.opendb, L235, self.db_open is %s, self.user is %s'%\
+            #(self.db_open, self.user)
         else:
             if self.instance.optimize:
                 self.db.setCurrentUser(username)
             else:
                 self.db.close()
                 self.db = self.instance.open(username)
+        
+        #print 'ajaxClient.opendb, L243, self.db_open is %s, self.user is %s'%\
+        #    (self.db_open, self.user)
         
         # Added status signal,for reopening db needs.
         self.db_open = 1

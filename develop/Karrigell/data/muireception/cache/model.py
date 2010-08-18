@@ -68,7 +68,7 @@ def get_client( ):
 
 def _getSuperAdmin():
 	""" Return the super administrator for system."""
-	superAdmin = INITCONFIG.getData('superAdmin')
+	superAdmin = INITCONFIG.getData('superAdmin')['user']
 	return superAdmin
 
 def login(usr=None, pwd=None):
@@ -627,8 +627,9 @@ def userCheck(name):
 
 	try:
 		client = get_client()
+
 	except:
-		res['info'] = sys.exc_info()
+		PRINT( sys.exc_info())
 
 	if not hasattr(client, 'db') or client.db_open == 0:
 		# now client has no 'db' attribute or the db has been closed,

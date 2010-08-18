@@ -86,7 +86,7 @@ def page_loginForm(**args):
 	form = Sum([table, bns])
 	# render form
 	PRINT( FORM(form,**{'id':LOGINFORM, 'class':'yform' }))
-	PRINT( pagefn.script(_formJs(),link=False))
+	PRINT( pagefn.script(_loginFormJs(),link=False))
 	return
 
 def _autoDemo( ):
@@ -101,7 +101,7 @@ def _autoDemo( ):
 	prompt = SPAN(VERSION.demoPrompt,style='font-size:15px;',**{'class':'highlight'})
 	return Sum(( prompt, BR(), select, HR(style='padding:0 0 0.2em;')))
 
-def _formJs():
+def _loginFormJs():
 	# callback function for slect action
 	paras = [ LOGINFORM, DEMOSELECT, FORMBUTTONS]
 	paras.append(APP)
@@ -136,14 +136,14 @@ def _formJs():
 
 				onValidateSuccess: function(){
 					// load the script which will set the user's menus
-   				MUI.login();
+					MUI.login();
 
-   				// remove all the imported Assets of login module
-   				am.remove(appName,'app');
+					// remove all the imported Assets of login module
+					am.remove(appName,'app');
 
-   				// everything is done, close the dialog
-   				MUI.closeModalDialog();
-   				return false
+					// everything is done, close the dialog
+					MUI.closeModalDialog();
+					return false
 				},
 
 				display:{

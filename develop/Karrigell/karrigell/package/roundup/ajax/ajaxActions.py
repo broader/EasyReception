@@ -921,10 +921,9 @@ class LoginAction(Action):
         else:
             pwd = ''
         
-        #print 'ajaxAction.LoginAction,L972,user is %s, password is %s'%(self.client.user, pwd)
         pwd = password.Password(pwd)                
         auth = self.verifyLogin(self.client.user, pwd)
-        #print 'ajaxAction.LoginAction,L975, the result of authorication is ',auth
+        #print 'ajaxAction.LoginAction,L927, the result of authorication is ',auth
         if auth[0] != 1 :
             self.client.make_user_anonymous()                    
         # now we're OK, re-open the database for real, using the user
