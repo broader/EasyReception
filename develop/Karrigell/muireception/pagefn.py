@@ -191,7 +191,7 @@ ADMINSIDEBARPANELS = \
 		  'onCollapse':'sidePanelCollapse', 'contentURL':'service/service.ks/page_info' },
 		  
 		{ 'id':'06', 'text':_("System Config"), 'onExpand':'sysadminPanel',\
-		  'onCollapse':'sidePanelCollapse', 'contentURL':'service/service.ks/page_info' },
+		  'onCollapse':'sidePanelCollapse', 'contentURL':'sysadmin/sysadmin.ks/page_info' },
        
 	),
 	

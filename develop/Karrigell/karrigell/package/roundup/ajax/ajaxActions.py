@@ -282,6 +282,7 @@ class LinkCSVAction(Action):
         actiontype = self.client.form['actiontype']
         filename = self.client.form['filename']
         content = self.client.form['content']
+        print 'ajaxActions.LinkCSVAction,L285,',cn, nodeId, linkprop, actiontype, filename
         # get class and link property's class
         klass = self.db.getclass(cn)
         linklass_name = klass.getprops()[linkprop].classname
@@ -295,22 +296,23 @@ class LinkCSVAction(Action):
                 return 
                 
             newLinkPropId,fn = create_file(self.db,linklass, filename)
-            #print 'ajaxActions.LinkCSVAction,L313, new file node id is %s, name is %s'%(newid, fn)
+            print 'ajaxActions.LinkCSVAction,L298, new file node id is %s, name is %s'%(newid, fn)
             klass.set(nodeId,**{linkprop: newLinkPropId})                
             try:
                 write2csv(fn, rows)
             except:
-                print 'ajaxActions.LinkCSVAction,L317', sys.exc_info()
+                print 'ajaxActions.LinkCSVAction,L303', sys.exc_info()
                 
-            message = "New user id  %s, info link dossier id %s"%(nodeId, newLinkPropId)
+            message = "ajaxActions.LinkCSVAction,L305,New user id  %s, info link dossier id %s"%(nodeId, newLinkPropId)
         elif actiontype == 'edit':
             # find the link propterty's value
             linkId = klass.get(nodeId, linkprop)
-            fn = get_filepath(self.db, linklass, linkId)            
+            fn = get_filepath(self.db, linklass, linkId) 
+            print "ajaxActions.LinkCSVAction,L310, linked id is %s, file name is %s"%(linkId, fn)
             try:
                 write2csv(fn, rows, 'wb')
             except:
-                print 'ajaxActions.LinkCSVAction,edit,L329', sys.exc_info()
+                print 'ajaxActions.LinkCSVAction,edit,L313', sys.exc_info()
             
             # journal the action
             if klass.do_journal:
@@ -1392,7 +1394,7 @@ class FilterByTextAction(Action):
             ids = klass.list()
         self.form['total'] = len(ids)
         
-        print 'FilterByTextAction,L1442, propnames are %s, search value is %s, item ids are %s'%(props, search, ids)
+        #print 'FilterByTextAction,L1395, propnames are %s, search value is %s, item ids are %s'%(props, search, ids)
         
         rows = []
         for id in ids:
@@ -1400,7 +1402,7 @@ class FilterByTextAction(Action):
             if row:
                 rows.append(row)                               
         
-        print 'FilterByTextAction,L1448, searched result values are ', rows        
+        #print 'FilterByTextAction,L1404, searched result values are ', rows        
         return rows
  
 class FilterByFunctionAction(GetItemAction):   
@@ -2473,7 +2475,7 @@ class GetItemByLinkPropValueAction(Action, GetItemAction):
 def get_filepath(db,fileclass, id):
     #filepath = fileclass.exportFilename(db.dir,id)
     subdir_filename = db.subdirFilename(fileclass.classname, id)
-    #print ajaxActions.create_file, L2414, subdir_filename is ',subdir_filename
+    #print ajaxActions.create_file, L2478, subdir_filename is ',subdir_filename
     filepath = os.path.join(db.dir, 'files', fileclass.classname, subdir_filename)
     return filepath
 
@@ -2499,7 +2501,8 @@ def write2csv(filename,content, mode='ab'):
         mode - 'a' means append the content to the file, 'b' means binarary, 'w' mease overwrite the file
     '''
     f = open(filename, mode)
-    writer = csv.writer(f) 
+    writer = csv.writer(f)
+    print 'ajaxActions.write2csv,L2505, file content is ',content
     writer.writerows(content)
     f.close()  
 
@@ -2507,8 +2510,8 @@ def searchString(klass, nodeid, props, search='', link2contentProps=[]):
     ''' Get properties values of a class, if the property is linked to a FileClass,
        return file content.
     '''
-    print 'ajaxActions.searchString, L2541, class is %s, nodeid is %s, props are %s, search is %s'\
-          %(klass,nodeid, props, search)
+    #print 'ajaxActions.searchString, L2510, class is %s, nodeid is %s, props are %s, search is %s'\
+    #     %(klass,nodeid, props, search)
           
     row = []          
     properties = klass.getprops()  
@@ -2521,7 +2524,7 @@ def searchString(klass, nodeid, props, search='', link2contentProps=[]):
             lklass = klass.db.getclass(cn)            
             # get the linked node id of this item
             linkid = klass.get(nodeid, prop)
-            print 'ajaxAction,L2490, link class name is %s, link class is %s, link ids are %s '%(cn, lklass, linkid)
+            #print 'ajaxAction,L2524, link class name is %s, link class is %s, link ids are %s '%(cn, lklass, linkid)
             if not linkid:
                 # no linked file, set the content to null
                 content = '' or linkid
@@ -2550,22 +2553,22 @@ def searchString(klass, nodeid, props, search='', link2contentProps=[]):
                 content = [lklass.get(id, keyprop) for id in ids ]
                 content = ','.join(content)                                   
             row.append(content)
-            print 'ajaxAction,L2506, searched row value is ', row            
+            #print 'ajaxAction,L2553, searched row value is ', row            
         elif classtype == 'String' :
             row.append(klass.get(nodeid,prop))
-            print 'ajaxAction,L2509, searched row value is ', row
+            #print 'ajaxAction,L2556, searched row value is ', row
         else:
             try:
                 row.append(str(klass.get(nodeid,prop)))
             except:
                 row.append('')
-    print 'ajaxAction,L2515, searched row value is ', row
+    #print 'ajaxAction,L2562, searched row value is ', row
     
     # search the text in the item of this row
     # join all the item in this row to a string for judging handyly
     row = [i or '' for i in row]
     target = ''.join(row)
-    print 'ajaxAction,L2521, searched value is %s, target is %s'%(target, search)
+    #print 'ajaxAction,L2568, searched value is %s, target is %s'%(target, search)
     if not target:
         row = []
     elif search not in target:

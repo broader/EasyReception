@@ -32,8 +32,13 @@ USER = getattr( so, pagefn.SOINFO['user']).get('username')
 # ********************************************************************************************
 # The page functions begining 
 # ********************************************************************************************
-STATUSEDITJSFNS = ['statusJunaValid',]
 
+def page_info(**args):
+	''' Intruducts the main functions of this application module on the left panel. '''
+	print DIV(_('Manage the schema objects, that are instances of roundup.Class.'), **{'class':'info'})
+	return
+
+STATUSEDITJSFNS = ['statusJunaValid',]
 def page_statusJunaValid(**args):
 	nid, name,category = [args.get(prop) for prop in ('id','name','category')]
 
@@ -549,7 +554,7 @@ def _classListJs(klass):
 				mwidth=850,mheight=550;
 				break;
 			case 'user':
-				mwidth=680,mheight=480;
+				mwidth=780,mheight=520;
 				break;
 		};
 
@@ -899,8 +904,9 @@ def _userPropHandler(props,action):
 CLASSADAPTOR = {'keyword':_keywordPropHandler, 'relation': _relationPropHandler, 'user': _userPropHandler}
 ACTIONPROP,ACTIONTYPES = 'action',('create','edit')
 def page_classEdit(**args):
+	''' Return the class edit form . '''
 	klass = args.pop(CLASSPROP)
-	# store the files to be shown and hidden
+	# store the fields to be shown and hidden
 	info,hideInput = [],[]
 	
 	props = copy.deepcopy(args)

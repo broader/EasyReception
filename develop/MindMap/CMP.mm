@@ -1732,7 +1732,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1282046777842" POSITION="right" TEXT="ToDo">
+<node COLOR="#0033ff" CREATED="1251723332819" FOLDED="true" ID="Freemind_Link_1929446294" MODIFIED="1282099018945" POSITION="right" TEXT="ToDo">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <cloud/>
 <font NAME="SansSerif" SIZE="18"/>
@@ -1786,10 +1786,10 @@
 </node>
 <node COLOR="#111111" CREATED="1252293893809" ID="Freemind_Link_1747469721" MODIFIED="1252293896328" TEXT="Portal"/>
 </node>
-<node COLOR="#990000" CREATED="1252293904733" ID="Freemind_Link_1278450273" MODIFIED="1281599770464" TEXT="UI Design">
+<node COLOR="#990000" CREATED="1252293904733" FOLDED="true" ID="Freemind_Link_1278450273" MODIFIED="1282093627072" TEXT="UI Design">
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1252293915875" FOLDED="true" ID="Freemind_Link_1696049106" MODIFIED="1282006487080" TEXT="Portal">
-<node COLOR="#111111" CREATED="1278550765458" ID="ID_114080679" MODIFIED="1281599164877" TEXT="scheme">
+<node COLOR="#111111" CREATED="1252293915875" ID="Freemind_Link_1696049106" MODIFIED="1282093571924" TEXT="Portal">
+<node COLOR="#111111" CREATED="1278550765458" FOLDED="true" ID="ID_114080679" MODIFIED="1282093625577" TEXT="scheme">
 <node COLOR="#111111" CREATED="1278550772570" FOLDED="true" ID="ID_1810258934" MODIFIED="1281604011776" TEXT="blue">
 <node COLOR="#111111" CREATED="1278550775195" ID="ID_738780480" LINK="http://justfreetemplates.com/preview/web-templates/1676.html" MODIFIED="1278550778471" TEXT="http://justfreetemplates.com/preview/web-templates/1676.html"/>
 <node COLOR="#111111" CREATED="1278551019623" ID="ID_1010819905" LINK="http://justfreetemplates.com/preview/web-templates/1163.html" MODIFIED="1278551028959" TEXT="http://justfreetemplates.com/preview/web-templates/1163.html">
@@ -1804,7 +1804,7 @@
 <node COLOR="#111111" CREATED="1278550531100" ID="ID_1591036768" LINK="http://www.opendesigns.org/design/halcyon/" MODIFIED="1278550534877" TEXT="http://www.opendesigns.org/design/halcyon/"/>
 <node COLOR="#111111" CREATED="1278990770852" ID="ID_468120439" LINK="http://www.opendesigns.org/od/wp-content/designs/2/2037/?KeepThis=true&amp;TB_iframe=true" MODIFIED="1278990776350" TEXT="http://www.opendesigns.org/od/wp-content/designs/2/2037/?KeepThis=true&amp;TB_iframe=true"/>
 </node>
-<node COLOR="#111111" CREATED="1279501033903" FOLDED="true" ID="ID_720131532" MODIFIED="1281604366042" TEXT="grey">
+<node COLOR="#111111" CREATED="1279501033903" ID="ID_720131532" MODIFIED="1282093578801" TEXT="grey">
 <node COLOR="#111111" CREATED="1279501036917" ID="ID_52066910" LINK="http://www.opendesigns.org/design/exalted/" MODIFIED="1279501040150" TEXT="http://www.opendesigns.org/design/exalted/"/>
 <node COLOR="#111111" CREATED="1280884454605" ID="ID_1164882387" LINK="http://www.opendesigns.org/design/country-portal/" MODIFIED="1280884459196" TEXT="http://www.opendesigns.org/design/country-portal/"/>
 <node COLOR="#111111" CREATED="1280884468571" ID="ID_207095464" LINK="http://www.opendesigns.org/design/fresh-fruit/" MODIFIED="1280884472415" TEXT="http://www.opendesigns.org/design/fresh-fruit/"/>
@@ -1816,11 +1816,12 @@
 <node COLOR="#111111" CREATED="1281604157693" ID="ID_1085801531" LINK="http://justfreetemplates.com/preview/web-templates/237.html" MODIFIED="1281604160852" TEXT="http://justfreetemplates.com/preview/web-templates/237.html"/>
 <node COLOR="#111111" CREATED="1281604250170" ID="ID_776979692" LINK="http://justfreetemplates.com/preview/web-templates/247.html" MODIFIED="1281604253281" TEXT="http://justfreetemplates.com/preview/web-templates/247.html"/>
 <node COLOR="#111111" CREATED="1281604267550" ID="ID_1869364116" LINK="http://justfreetemplates.com/preview/web-templates/235.html" MODIFIED="1281604270428" TEXT="http://justfreetemplates.com/preview/web-templates/235.html"/>
+<node COLOR="#111111" CREATED="1282093580694" ID="ID_1736884934" LINK="http://www.opendesigns.org/design/roundium/" MODIFIED="1282093583825" TEXT="http://www.opendesigns.org/design/roundium/"/>
 </node>
-<node COLOR="#111111" CREATED="1280884495868" ID="ID_254058560" MODIFIED="1281604152091" TEXT="green">
+<node COLOR="#111111" CREATED="1280884495868" FOLDED="true" ID="ID_254058560" MODIFIED="1282093576335" TEXT="green">
 <node COLOR="#111111" CREATED="1280884498702" ID="ID_1839702754" LINK="http://www.opendesigns.org/design/metamorph_drop/" MODIFIED="1280884501868" TEXT="http://www.opendesigns.org/design/metamorph_drop/"/>
 </node>
-<node COLOR="#111111" CREATED="1281604013928" ID="ID_888972557" MODIFIED="1281604015606" TEXT="white">
+<node COLOR="#111111" CREATED="1281604013928" FOLDED="true" ID="ID_888972557" MODIFIED="1282093577287" TEXT="white">
 <node COLOR="#111111" CREATED="1281604021941" ID="ID_1404074236" LINK="http://justfreetemplates.com/preview/web-templates/771.html" MODIFIED="1281604027645" TEXT="http://justfreetemplates.com/preview/web-templates/771.html"/>
 </node>
 </node>
@@ -2436,7 +2437,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1245853638712" ID="_" MODIFIED="1282048854204" POSITION="right" TEXT="Used Web Lib/Widgets">
+<node COLOR="#0033ff" CREATED="1245853638712" FOLDED="true" ID="_" MODIFIED="1282099021464" POSITION="right" TEXT="Used Web Lib/Widgets">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1258549795684" FOLDED="true" ID="ID_1371740104" MODIFIED="1275275837003" TEXT="jquery lib">
@@ -3677,7 +3678,22 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1282046795505" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1282099027124" ID="ID_328316915" MODIFIED="1282099029089" POSITION="left" TEXT="Docs">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1282099030493" ID="ID_1476930255" MODIFIED="1282099036692" TEXT="User Guide">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1282099038476" ID="ID_786833514" MODIFIED="1282099048002" TEXT="&apos;user&apos;">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1282099049238" ID="ID_857237740" MODIFIED="1282099057113" TEXT="&#x521b;&#x5efa;">
+<node COLOR="#111111" CREATED="1282099059365" ID="ID_389317706" MODIFIED="1282099066595" TEXT="&#x7528;&#x6237;&#x81ea;&#x5df1;&#x6ce8;&#x518c;"/>
+<node COLOR="#111111" CREATED="1282099068126" ID="ID_273096857" MODIFIED="1282099080598" TEXT="&#x7531;&#x7ba1;&#x7406;&#x5458;&#x5728;&#x540e;&#x53f0;&#x521b;&#x5efa;"/>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1282099015406" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1273030192723" FOLDED="true" ID="ID_344232506" MODIFIED="1278550879062" TEXT="Idea">
@@ -3711,7 +3727,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1265252373668" FOLDED="true" ID="ID_1883535158" MODIFIED="1281753881666" TEXT="Layout">
+<node COLOR="#00b439" CREATED="1265252373668" ID="ID_1883535158" MODIFIED="1282093885394" TEXT="Layout">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1269055913285" ID="ID_718060145" MODIFIED="1277366427294" TEXT="Examples">
@@ -3734,10 +3750,10 @@
 <node COLOR="#111111" CREATED="1281666061032" ID="ID_1026782662" LINK="http://www.gethifi.com/" MODIFIED="1281666064350" TEXT="http://www.gethifi.com/"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1173066298350" FOLDED="true" ID="Freemind_Link_1468412211" MODIFIED="1275216724839" TEXT="UI">
+<node COLOR="#00b439" CREATED="1173066298350" ID="Freemind_Link_1468412211" MODIFIED="1282093881906" TEXT="UI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261723589326" FOLDED="true" ID="ID_80373969" MODIFIED="1273033030681" TEXT="Preference">
+<node COLOR="#990000" CREATED="1261723589326" ID="ID_80373969" MODIFIED="1282093887185" TEXT="Preference">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1176041576720" FOLDED="true" ID="Freemind_Link_940755797" MODIFIED="1273032958002" TEXT="Application">
 <edge STYLE="bezier" WIDTH="thin"/>
@@ -4118,7 +4134,7 @@
 <node COLOR="#111111" CREATED="1267407335622" ID="ID_438190924" MODIFIED="1267407337820" TEXT="http://code.google.com/p/twotiny/"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1263009691239" FOLDED="true" ID="ID_1853015666" MODIFIED="1273029768465" TEXT="Framework Tools">
+<node COLOR="#990000" CREATED="1263009691239" FOLDED="true" ID="ID_1853015666" MODIFIED="1282093903071" TEXT="Framework Tools">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1263009697067" ID="ID_1781009959" MODIFIED="1263009698398" TEXT="http://www.lucid-desktop.org/"/>
 <node COLOR="#111111" CREATED="1261116138051" ID="ID_886881172" MODIFIED="1261723671558" TEXT="http://960.gs/">
@@ -4147,12 +4163,16 @@
 <icon BUILTIN="messagebox_warning"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1261116666825" FOLDED="true" ID="ID_1018641055" MODIFIED="1273482520363" TEXT="Widgets">
+<node COLOR="#990000" CREATED="1261116666825" ID="ID_1018641055" MODIFIED="1282093904884" TEXT="Widgets">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1268099746103" FOLDED="true" ID="ID_1075967642" MODIFIED="1273482169272" TEXT="Table">
+<node COLOR="#111111" CREATED="1268099746103" ID="ID_1075967642" MODIFIED="1282094084529" TEXT="Table">
 <node COLOR="#111111" CREATED="1268099749578" ID="ID_1068975592" LINK="http://designingwebinterfaces.com/posts" MODIFIED="1273070163726" TEXT="http://designingwebinterfaces.com/posts"/>
+<node COLOR="#111111" CREATED="1261018179346" ID="ID_1233393089" LINK="http://icant.co.uk/csstablegallery/index.php?css=39#r39" MODIFIED="1282094046418" TEXT="http://icant.co.uk/csstablegallery/index.php?css=39#r39"/>
+<node COLOR="#111111" CREATED="1261018191456" ID="ID_1613919919" MODIFIED="1261018193284" TEXT="http://icant.co.uk/csstablegallery/index.php?css=41#r41"/>
+<node COLOR="#111111" CREATED="1261018242097" ID="ID_943743038" MODIFIED="1261018242657" TEXT="http://icant.co.uk/csstablegallery/index.php?css=69#r69"/>
+<node COLOR="#111111" CREATED="1261018229590" ID="ID_95135814" MODIFIED="1261018230299" TEXT="http://icant.co.uk/csstablegallery/index.php?css=42#r42"/>
 </node>
 <node COLOR="#111111" CREATED="1261017335455" ID="ID_1512844932" MODIFIED="1271132460640" TEXT="Issue tracker">
 <edge STYLE="bezier" WIDTH="thin"/>
@@ -4177,16 +4197,9 @@
 <icon BUILTIN="messagebox_warning"/>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1261018167104" FOLDED="true" ID="ID_892054405" MODIFIED="1273482167425" TEXT="Registration">
+<node COLOR="#111111" CREATED="1261018167104" ID="ID_892054405" MODIFIED="1282094031275" TEXT="Registration">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1261018172178" FOLDED="true" ID="ID_425931376" MODIFIED="1273070177207" TEXT="End prompt">
-<font NAME="SansSerif" SIZE="12"/>
-<node COLOR="#111111" CREATED="1261018179346" ID="ID_1233393089" MODIFIED="1261035520849" TEXT="http://icant.co.uk/csstablegallery/index.php?css=39#r39"/>
-<node COLOR="#111111" CREATED="1261018191456" ID="ID_1613919919" MODIFIED="1261018193284" TEXT="http://icant.co.uk/csstablegallery/index.php?css=41#r41"/>
-<node COLOR="#111111" CREATED="1261018242097" ID="ID_943743038" MODIFIED="1261018242657" TEXT="http://icant.co.uk/csstablegallery/index.php?css=69#r69"/>
-<node COLOR="#111111" CREATED="1261018229590" ID="ID_95135814" MODIFIED="1261018230299" TEXT="http://icant.co.uk/csstablegallery/index.php?css=42#r42"/>
-</node>
 <node COLOR="#111111" CREATED="1271132984329" ID="ID_887386629" MODIFIED="1271132986382" TEXT="Form">
 <node COLOR="#111111" CREATED="1271132987202" ID="ID_739844389" LINK="http://tutorialzine.com/2009/08/creating-a-facebook-like-registration-form-with-jquery/" MODIFIED="1271132991164" TEXT="http://tutorialzine.com/2009/08/creating-a-facebook-like-registration-form-with-jquery/"/>
 </node>
@@ -4202,10 +4215,10 @@
 <node COLOR="#111111" CREATED="1264824530832" ID="ID_1404039310" MODIFIED="1264824532633" TEXT="http://cssrainbow.cn/index.php/tutorials/mootools/1045.html"/>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1264042376170" FOLDED="true" ID="ID_1251394535" MODIFIED="1273482172097" TEXT="Portfolio">
+<node COLOR="#111111" CREATED="1264042376170" FOLDED="true" ID="ID_1251394535" MODIFIED="1282093931959" TEXT="Portfolio">
 <node COLOR="#111111" CREATED="1264042381949" ID="ID_1850665483" LINK="http://www.opendesigns.org/preview/?design=1716" MODIFIED="1273070061953" TEXT="http://www.opendesigns.org/preview/?design=1716"/>
 </node>
-<node COLOR="#111111" CREATED="1265250785609" FOLDED="true" ID="ID_1688461628" MODIFIED="1273482171697" TEXT="File manager">
+<node COLOR="#111111" CREATED="1265250785609" FOLDED="true" ID="ID_1688461628" MODIFIED="1282094026103" TEXT="File manager">
 <node COLOR="#111111" CREATED="1268614243464" ID="ID_1024460139" MODIFIED="1268614247742" TEXT="Upload">
 <node COLOR="#111111" CREATED="1268614230088" ID="ID_625497354" LINK="http://www.swfupload.org" MODIFIED="1273070193058" TEXT="http://www.swfupload.org"/>
 </node>
@@ -4217,8 +4230,8 @@
 <node COLOR="#111111" CREATED="1271131536740" ID="ID_38895612" LINK="http://tutorialzine.com/2010/03/who-is-online-widget-php-mysql-jquery/" MODIFIED="1271131540624" TEXT="http://tutorialzine.com/2010/03/who-is-online-widget-php-mysql-jquery/"/>
 <node COLOR="#111111" CREATED="1271132385009" ID="ID_806077645" LINK="http://tutorialzine.com/2009/11/twitter-list-ajax-fanpage/" MODIFIED="1271132388540" TEXT="http://tutorialzine.com/2009/11/twitter-list-ajax-fanpage/"/>
 </node>
-<node COLOR="#111111" CREATED="1268980257213" FOLDED="true" ID="ID_972062433" MODIFIED="1273482173696" TEXT="Bubbles">
-<node COLOR="#111111" CREATED="1268980264673" ID="ID_165973340" MODIFIED="1268980266501" TEXT="http://nicolasgallagher.com/demo/pure-css-speech-bubbles/bubbles.html"/>
+<node COLOR="#111111" CREATED="1268980257213" FOLDED="true" ID="ID_972062433" MODIFIED="1282094029935" TEXT="Bubbles">
+<node COLOR="#111111" CREATED="1268980264673" ID="ID_165973340" LINK="http://nicolasgallagher.com/demo/pure-css-speech-bubbles/bubbles.html" MODIFIED="1282093941721" TEXT="http://nicolasgallagher.com/demo/pure-css-speech-bubbles/bubbles.html"/>
 </node>
 <node COLOR="#111111" CREATED="1268450757388" FOLDED="true" ID="ID_173231893" MODIFIED="1273482174608" TEXT="Time Picker">
 <node COLOR="#111111" CREATED="1268450737842" ID="ID_1751261043" MODIFIED="1268450739086" TEXT="http://mootools.net/forge/p/time_picker"/>
@@ -4230,7 +4243,7 @@
 <node COLOR="#111111" CREATED="1265254486027" ID="ID_1747342780" MODIFIED="1265254487885" TEXT="http://designingwebinterfaces.com/tag/mootools"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1261730813032" FOLDED="true" ID="ID_176890161" MODIFIED="1271131044024" TEXT="&#x6e10;&#x53d8;">
+<node COLOR="#990000" CREATED="1261730813032" FOLDED="true" ID="ID_176890161" MODIFIED="1282093899495" TEXT="&#x6e10;&#x53d8;">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1261730844673" ID="ID_496054024" MODIFIED="1261730846661" TEXT="Image">
 <node COLOR="#111111" CREATED="1261730825806" ID="ID_59816790" MODIFIED="1261730828009" TEXT="http://www.webdesignerwall.com/tutorials/css-decorative-gallery/"/>

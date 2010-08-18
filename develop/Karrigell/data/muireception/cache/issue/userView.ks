@@ -79,9 +79,10 @@ def page_issueDetail(**args):
 	# if there is no 'pageaction' in arguments,
 	# then using this page url and remove the first '/' symbol
 	perms = _permissionCheck(**toCheck)
-	pageAction = args.get('pageaction') or THIS.url.split('?')[0][1:]
-	userRoles = getattr( so, pagefn.SOINFO['user']).get('roles').split(',')
-	if not model.permissionCheck(USER, userRoles, pageAction) or not perms.get('pageaction'):
+	#pageAction = args.get('pageaction') or THIS.url.split('?')[0][1:]
+	#userRoles = getattr( so, pagefn.SOINFO['user']).get('roles').split(',')
+	#if not model.permissionCheck(USER, userRoles, pageAction) or not perms.get('pageaction'):
+	if not perms.get('pageaction'):
 		PRINT( _('You have no permission for this action!'))
 		return
 
@@ -678,13 +679,13 @@ def _permissionCheck(**args):
 	'''
 	Check detailed access permission to 'issue' class.
 	The relation between user role and actions:
-	--------------------------------------------------------------
+	------------------------------------------------------------------------------
 	role/action	view	edit	detailEditFields
-	admin		OK	OK
+	admin		OK	OK	'title','keyword',nosy', 'assignedto','status'
 	creator		OK	OK	'title','keyword'
-	assignedto	OK	OK	'nosy', 'assignedto','status'
+	assignedto	OK	OK	'title','keyword',nosy', 'assignedto','status'
 	nosy		OK	X
-	--------------------------------------------------------------
+	------------------------------------------------------------------------------
 	'''
 	perms = {}
 	user = args.get('user') or USER
@@ -714,8 +715,8 @@ def _permissionCheck(**args):
 	else:
 		hasperm = 0
 
-	#[perms.update({key:hasperm}) for key in ('nosy', 'assignedto', 'status')]
-	[perms.update({key:1}) for key in ('nosy', 'assignedto', 'status')]
+	[perms.update({key:hasperm}) for key in ('nosy', 'assignedto', 'status')]
+
 	return perms
 
 

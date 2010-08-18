@@ -251,20 +251,21 @@ def page_usersData(**args):
 
 		for row in rslice:
 			for i,s in enumerate(row) :
-				row[i] = s.decode('utf8')
+				row[i] = (s or '').decode('utf8')
 
 		# constructs each row to be a dict object that key is a property.
 		encoded = [dict([(prop,value) for prop,value in zip(showProps,row)]) for row in rslice]
 
 		# some properties need to be transformated
-		transProps = [{'name':'gender','function':(lambda i: pagefn.GENDER[int(i)] )},]
+		transProps = [{'name':'gender','function':(lambda v: pagefn.GENDER[int(v or 0)] )},]
 		names = [prop.get('name') for prop in transProps]
 
 		for row in encoded :
 			for prop in transProps:
-				old = row[prop.get('name')]
-				new = prop.get('function')(old)
-				row[prop.get('name')] = new
+				name = prop.get('name')
+				new = prop.get('function')(row[name])
+				# set the key for a new value
+				row[name] = new
 
 		d['data'] = encoded
 

@@ -287,11 +287,11 @@ def filterProps(fields,values):
 		propName = field.get('name')
 		if temp['type'] in ('radio','select') :			
 			for option in field['options'] :
-				if option['value'] == str(values.get(propName)):
+				if option['value'] == str(values.get(propName) or 0):
 					temp['value'] = option['label']
 					break
 		else:
-			temp['value'] = values.get(propName)
+			temp['value'] = values.get(propName) or ''
 			
 		postValues.append(temp)
 		
