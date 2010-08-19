@@ -66,6 +66,7 @@ Initialize menus
 Parameters:
 	data - a Array instance, for which format is [{'text':'..','function':'...'},]
 **********************************************************************************/
+/*
 function menuSet(data){	
 	var ul = new Element('ul');
 	data.each(function(menu){
@@ -86,7 +87,7 @@ function menuSet(data){
 	$('<%=pagefn.MENUCONTAINER%>').grab(ul,'top');
 
 };
-
+*/
 
 /*
 **	Initialize menu by json data from server side
@@ -103,7 +104,18 @@ function menuInit(){
 				},
 				{
 					onload: function(){						
-						menuSet(json['data']);	// set the menus' text
+						//menuSet(json['data']);	// set the menus' text
+						var navBarHtml = json['html'];
+						$('<%=pagefn.MENUCONTAINER%>').grab(navBarHtml,'top');
+						json['functions'].each(function(func, nid){
+							$(nid).addProperties({
+								'html': menu['text'],
+								'class':'returnFalse',
+								'style':'text-decoration:none;',
+								'href': ''
+							});
+							if(func != '') $(nid).addEvent('clcik', windows[func]);
+						});
 					}
 				}
 			);

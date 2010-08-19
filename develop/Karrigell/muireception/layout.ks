@@ -3,6 +3,11 @@ The pages and functions for menu setup
 """
 
 import sys
+
+# added module in Karrigell "/karrigell/packages" directory
+import tools
+from tools import treeHandler
+
 from HTMLTags import *
 
 # 'THIS.script_url' is a global variable in Karrigell system
@@ -310,6 +315,32 @@ def page_welcomeInfo(**args):
 	print str(welcomeInfo)
 	return
 
+def _renderNode(node, funcs):
+	text, func = [node.data.get(name) for name in ('text', 'function')]
+	li = LI()
+	aLink = A(text, **{'id': node.id})
+	li <= aLink
+	funcs[node.id] = func
+	if node.children:
+		ul = [] 
+		for child in node.children:
+			ul.append( _renderNode(child, funcs))
+		li <= UL(''.join(ul))
+	return str(li)
+
+def _menuHtml(data):
+	''' Constructs the menus list recursively. '''
+	idFn = lambda i : i.get('id')
+	pidFn = lambda i : i.get('parent')
+	handler = treeHandler.TreeHandler(data, idFn, pidFn)
+	nodes = handler.flatten()[1:]	# delete the first 'root' node
+	html, funcs = [],{}
+	for node in nodes:
+		html.append( _renderNode(node, funcs))
+	
+	html = str(UL(''.join(html)))
+	return html, funcs
+ 
 def page_menu(**args):
 	""" Return the menus data corresponding to user role. """
 	so = Session()
@@ -320,9 +351,15 @@ def page_menu(**args):
 	else:
 		menus = pagefn.ADMINMENUS
 	
+	"""
 	for menuData in menus['data']:
 		menuData['text'] = menuData['text'].decode('utf8')
+	"""
 	
+	# constructs the json objec to be returned
+	data = menus.pop('data')
+	menus['html'], menus['functions'] = _menuHtml(data)
+
 	print JSON.encode(menus, encoding='utf8')
 	return
 	

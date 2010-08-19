@@ -114,24 +114,26 @@ LAYOUTURLS = \
 # The normal user's role
 USEROLE = 'User'
 
-# The normal user's menus
+# The menus for  normal user
 USERMENUS = \
 {
 'data':
-	(
+	[
 		{ 'id':'00', 'text':_("Setting"), 'function':'test' },\
 		{ 'id':'01', 'text':_("Logout"), 'function':'logout'}\
-	),
+	],
 'js': 'js/userMenus.js'
 }
 
+# The menues for adminstrator user
 ADMINMENUS = \
 {
 'data':
-	(
-		{ 'id':'00', 'text':_("Setting"), 'function':'test' },\
-		{ 'id':'01', 'text':_("Logout"), 'function':'logout'}\
-	),
+	[
+		{'id':'00', 'text':_("Setting"), 'function':'test', 'parent': ''},
+		{'id':'0000', 'text':_("Profile"), 'function':'profileSet', 'parent': '00'},
+		{'id':'01', 'text':_("Logout"), 'function':'logout', 'parent': ''}
+	],
 'js': 'js/adminMenus.js'
 }
 

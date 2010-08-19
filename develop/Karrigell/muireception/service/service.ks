@@ -498,8 +498,8 @@ def _data2tree(items,idFn,pidFn):
 	""" Constructs a tree.
 	Parameters:
 	items -  the data to be structured to a tree
-	idFn - the function to the node's id 
-	pidFn - the function to the id of the parent of a node
+	idFn - the function to return the node's id 
+	pidFn - the function to return the id of the parent of a node
 	"""
 	# tree construntion Class
 	return treeHandler.TreeHandler(items, idFn, pidFn)

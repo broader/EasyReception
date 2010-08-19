@@ -2,8 +2,9 @@
 """
 Pages mainly for administration functions for 'Hotel' service.
 """
-import copy,tools
-from tools import treeHandler
+import copy
+#import copy,tools
+#from tools import treeHandler
 
 from HTMLTags import *
 
