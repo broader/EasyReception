@@ -315,32 +315,48 @@ def page_welcomeInfo(**args):
 	print str(welcomeInfo)
 	return
 
-def _renderNode(node, funcs):
-	text, func = [node.data.get(name) for name in ('text', 'function')]
+def _renderNode(nodes, node, prefix):
 	li = LI()
-	aLink = A(text, **{'id': node.id})
+	aLink = A( node.data.get('text'), **{'id': '-'.join(( prefix, node.id))})
 	li <= aLink
-	funcs[node.id] = func
-	if node.children:
-		ul = [] 
+	if node.children:	# has submenus
+		ul = UL() 
 		for child in node.children:
-			ul.append( _renderNode(child, funcs))
-		li <= UL(''.join(ul))
-	return str(li)
+			ul <= _renderNode(nodes,child, prefix)
+			nodes.remove(child)
 
-def _menuHtml(data):
+		li <= ul
+
+	return li
+
+def _menuHtml(data, prefix):
 	''' Constructs the menus list recursively. '''
 	idFn = lambda i : i.get('id')
 	pidFn = lambda i : i.get('parent')
 	handler = treeHandler.TreeHandler(data, idFn, pidFn)
 	nodes = handler.flatten()[1:]	# delete the first 'root' node
-	html, funcs = [],{}
-	for node in nodes:
-		html.append( _renderNode(node, funcs))
+
+	# now recursively render the menu tree into html
+	while nodes :
+		node = nodes.pop(0)
+		li = _renderNode(nodes, node, prefix)
+		print li
 	
-	html = str(UL(''.join(html)))
-	return html, funcs
- 
+	return 
+
+def page_menuList(**args):
+	menuType = args.get(MENUTYPETAG)
+	if MENUTYPE.index(menuType) == 0 :
+		data = pagefn.USERMENUS['data']
+	else:
+		data = pagefn.ADMINMENUS['data']
+
+	_menuHtml(data,menuType)
+
+	return
+
+MENUTYPE = ('userMenu', 'adminMenu')
+MENUTYPETAG = 'menuType' 
 def page_menu(**args):
 	""" Return the menus data corresponding to user role. """
 	so = Session()
@@ -348,17 +364,18 @@ def page_menu(**args):
 		
 	if pagefn.USEROLE in roles:
 		menus = pagefn.USERMENUS
+		menuType = MENUTYPE[0]
 	else:
 		menus = pagefn.ADMINMENUS
+		menuType = MENUTYPE[1]
 	
-	"""
-	for menuData in menus['data']:
-		menuData['text'] = menuData['text'].decode('utf8')
-	"""
+	menus['url'] = '?'.join(( '/'.join((APPATH, 'page_menuList')), '%s=%s'%(MENUTYPETAG, menuType) ))
 	
 	# constructs the json objec to be returned
 	data = menus.pop('data')
-	menus['html'], menus['functions'] = _menuHtml(data)
+	
+	menus['functions'] = {}
+	[ menus['functions'].update({ '-'.join(( menuType, item.get('id'))): item.get('function') }) for item in data ]
 
 	print JSON.encode(menus, encoding='utf8')
 	return

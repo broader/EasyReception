@@ -103,18 +103,21 @@ function menuInit(){
 					'type':'js'
 				},
 				{
-					onload: function(){						
-						//menuSet(json['data']);	// set the menus' text
-						var navBarHtml = json['html'];
-						$('<%=pagefn.MENUCONTAINER%>').grab(navBarHtml,'top');
-						json['functions'].each(function(func, nid){
-							$(nid).addProperties({
-								'html': menu['text'],
+					onload: function(){
+						// load html slice to the navigation bar		
+						var ul = new Element('ul');
+						ul.set('load', {url:json.url, async:false});
+						ul.load();
+						$('<%=pagefn.MENUCONTAINER%>').grab(ul,'top');
+
+						// add event to each menu
+						$H(json.functions).each(function(func, nid){
+							$(nid).setProperties({
 								'class':'returnFalse',
 								'style':'text-decoration:none;',
-								'href': ''
+								'href': 'javascript:;'
 							});
-							if(func != '') $(nid).addEvent('clcik', windows[func]);
+							if($type(window[func])) $(nid).addEvent('click', window[func]);
 						});
 					}
 				}
