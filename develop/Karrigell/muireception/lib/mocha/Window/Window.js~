@@ -2281,8 +2281,12 @@ MUI.extend({
 
 	*/
 	closeAll: function() {		
+		/*
 		$$('.mocha').each(function(windowEl){
 			this.closeWindow(windowEl);
+		*/
+		this.Windows.instances.each(function(instance){
+			this.closeWindow(instance.windowEl);			
 		}.bind(this));
 	},
 	/*

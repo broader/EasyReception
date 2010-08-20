@@ -2282,9 +2282,10 @@ MUI.extend({
 	*/
 	closeAll: function() {		
 		$$('.mocha').each(function(windowEl){
-			this.closeWindow(windowEl);
+			this.closeWindow(windowEl);		
 		}.bind(this));
 	},
+	
 	/*
 	  	
 	Function: collapseToggle

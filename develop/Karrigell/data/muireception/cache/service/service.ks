@@ -329,9 +329,9 @@ def _showServiceJs(category):
 	var modalOptions = {
 		width:600, height:480, modalOverlayClose: false,
    		onClose: function(e){
-   		// refresh table's body
-   		treeTable.refreshTbody();
-   	}
+			// refresh table's body
+			treeTable.refreshTbody();
+		}
 	};
 
 	// The function to add action buttons to each row in the table.
@@ -534,7 +534,6 @@ def page_serviceItems(**args):
 	category = args.get(CATEGORYTAG)
 
 	# filter the last three column that are  action clolumns
-	#props = [item.get('dataIndex') for item in COLUMNMODEL[:-3]]
 	props = [item.get('dataIndex') for item in COLUMNMODEL ]
 
 	# filter the root category items

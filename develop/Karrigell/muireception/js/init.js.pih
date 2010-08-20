@@ -31,9 +31,16 @@ registerAppName = pagefn.getApp(iniTabUrl,0)
 
 
 /****************************************************************************************
-Add some assistant tools to MUI
+Add or extend some assistant tools to MUI
 *****************************************************************************************/
 MUI.extend({
+	// close all the opened MUI.Window instances
+	closeAllWindows: function(){
+		this.Windows.instances.each(function(instance){
+			this.closeWindow(instance.windowEl);
+		}.bind(this));
+	},
+
 	// a function to find a panel by its id
 	getPanel: function(panelId){
 		var search = MUI.Panels.instances.filter(function(panel,key){

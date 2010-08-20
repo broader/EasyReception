@@ -2343,6 +2343,9 @@
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1282203578531" ID="ID_229501342" MODIFIED="1282203599164" TEXT="&#x9152;&#x5e97;&#x5217;&#x8868;&#x6bcf;&#x5237;&#x65b0;&#x4e00;&#x6b21;&#x5c31;&#x4f1a;&#x7f29;&#x5c0f;&#x4e00;&#x5708;&#xff1f;"/>
 </node>
+<node COLOR="#990000" CREATED="1282293203276" ID="ID_962500144" MODIFIED="1282293212455" TEXT="&#x9875;&#x9762;&#x6743;&#x9650;&#x63a7;&#x5236;">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
 </node>
 </node>
 <node COLOR="#0033ff" CREATED="1176858951119" FOLDED="true" ID="Freemind_Link_55211099" MODIFIED="1275011422010" POSITION="left" TEXT="Roundup &amp; Karrigell Server Config">
@@ -2619,8 +2622,7 @@
       mochaUI&#30340;&#28436;&#31034;&#26679;&#20363;&#37319;&#29992;&#30340;&#26159;&#23558;menus&#20889;&#20837;index.html&#20013;
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>

@@ -66,7 +66,7 @@ function topNavSwitch(login){
 function menuInit(){
 	var data = new Request.JSON({
 		async: false,
-		url: '<%=layoutUrls[1] %>', 
+		url: "<%=layoutUrls[1] %>", 
 		onSuccess:function(json,html){	
 			var assetOptions = {
 				'url':json['js'],	// load the menus' corresponding clickable functions
@@ -89,8 +89,9 @@ function menuInit(){
 							'style':'text-decoration:none;',
 							'href': 'javascript:;'
 						});
+						$(nid).store('popupWindowId',func.popupWindowId);
 
-						if($type(window[func])) $(nid).addEvent('click', window[func]);
+						if($type(window[func.funcname])) $(nid).addEvent('click', window[func.funcname]);
 					});
 				}
 			};
@@ -194,8 +195,10 @@ MUI.extend({
 	// logout function
 	logout: function(event){
 		new Event(event).stop();
-		MUI.notification('Really log out?');
 		
+		// close all opened MUI.Window
+		MUI.closeAllWindows();		
+
 		// remove menus in menu bar
 		$('<%=pagefn.MENUCONTAINER%>').getElement('ul').dispose();
 		
@@ -214,6 +217,8 @@ MUI.extend({
 		// clear the hash objects that save MUI.Column  instances and MUI.Panel instances
 		MUI.Columns.instances.empty();
 		MUI.Panels.instances.empty();
+		
+		
 		
 		// remove all the imported mootools.Assets
 		MUI.assetsManager.remove('<%=loginApp %>', 'app');

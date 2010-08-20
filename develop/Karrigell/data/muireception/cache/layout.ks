@@ -376,7 +376,11 @@ def page_menu(**args):
 	data = menus.pop('data')
 
 	menus['functions'] = {}
-	[ menus['functions'].update({ '-'.join(( menuType, item.get('id'))): item.get('function') }) for item in data ]
+	[ menus['functions'].update({ \
+		'-'.join(( menuType, item.get('id'))):\
+		{'funcname': item.get('function'), 'popupWindowId': item.get('popupWindowId') or '' }})\
+		for item in data \
+	]
 
 	PRINT( JSON.encode(menus, encoding='utf8'))
 	return

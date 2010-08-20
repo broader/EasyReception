@@ -131,7 +131,7 @@ ADMINMENUS = \
 'data':
 	[
 		{'id':'00', 'text':_("Setting"), 'function':'', 'parent': ''},
-		{'id':'0000', 'text':_("Profile"), 'function':'adminProfile', 'parent': '00'},
+		{'id':'0000', 'text':_("Profile"), 'function':'adminProfile', 'parent': '00', 'popupWindowId':'adminProfileWindow'},
 		{'id':'01', 'text':_("Logout"), 'function':'logout', 'parent': ''}
 	],
 'js': 'js/adminMenus.js'

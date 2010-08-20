@@ -467,13 +467,15 @@ def page_editAccount(**args):
 	return
 
 def _editAccountJs(**args):
-	paras = [ accountPanel, APP, ACCOUNTACTIONBN, ACCOUNTFIELDS ]
+	paras = [ accountPanel, APP, ACCOUNTACTIONBN, ACCOUNTFIELDS, pagefn.ADMINMENUS['data'][1]['popupWindowId'] ]
 	paras = tuple(paras)
 
 	js =\
 	"""
 	var panelId='%s',appName='%s',
-	buttonsContainer='%s', formId='%s';
+	    buttonsContainer='%s', formId='%s',
+	    // the dom id for popup window which is been showing the portfolio of this user
+	    popupWindowId="%s";
 
 	// Set a global variable 'formchk',
 	// which will be used as an instance of the validation Class-'FormCheck'.
@@ -492,7 +494,12 @@ def _editAccountJs(**args):
 						// close edit dialog
 						closeDialog();
 
-						if($("adminProfileWindow")){
+						if($(popupWindowId)){
+							/*
+							when $(popupWindowId) is a element,
+							that means this edit action is called by a MUI.Window( used in the navigation bar of admin user's view),
+							it's need to refresh the content in the MUI.Window instance.
+							*/
 							var wInstance = MUI.Windows.instances.get("adminProfileWindow");
 							var options = wInstance.options;
 
@@ -504,7 +511,6 @@ def _editAccountJs(**args):
 								'data': options.data,
 								'onContentLoaded': null
 							});
-
 							return
 						};
 
