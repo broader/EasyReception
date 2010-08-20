@@ -1436,7 +1436,7 @@ MUI.Window = new Class({
 				gradient = gradient.match(pattern)[1];
 				gradient = gradient.parseQueryString();
 				var gradientFrom = gradient.from; 
-				var gradientTo = gradient.to.replace(/\"/, ''); // IE7 was adding a quotation mark in. No idea why.						
+				var gradientTo = gradient.to.replace(/\"/, ''); // IE7 was adding a quotation mark in. No idea why.	
 				
 				this.options.headerStartColor = new Color(gradientFrom);
 				this.options.headerStopColor = new Color(gradientTo);
@@ -2420,6 +2420,7 @@ MUI.extend({
 		}
 
 	},
+	
 	getWindowWithHighestZindex: function(){
 		this.highestZindex = 0;
 		$$('.mocha').each(function(element){
@@ -2435,6 +2436,7 @@ MUI.extend({
 		}.bind(this));
 		return this.windowWithHighestZindex;
 	},
+	
 	blurAll: function(){		
 		if (MUI.Windows.focusingWindow == false) {
 			$$('.mocha').each(function(windowEl){
@@ -2446,6 +2448,7 @@ MUI.extend({
 			$$('.dockTab').removeClass('activeDockTab');
 		}
 	},
+	
 	centerWindow: function(windowEl){
 		
 		if(!windowEl){
@@ -2481,6 +2484,7 @@ MUI.extend({
 			});
 		}
 	},
+	
 	resizeWindow: function(windowEl, options){
 		var instance = windowEl.retrieve('instance');
 		
@@ -2538,6 +2542,7 @@ MUI.extend({
 		}
 		return instance;
 	},
+	
 	/*
 
 	Internal Function: dynamicResize

@@ -310,7 +310,7 @@ def page_showAccount(**args):
 	account = {'username':user}
 
 	# get account info
-	props = ['email', 'creation']
+	props = ['email', 'creation', 'activity']
 	res = model.get_item(user, 'user', user, props, keyIsId=False)
 	if type(res) == type({}):
 		account.update(res)
@@ -326,6 +326,7 @@ def page_showAccount(**args):
 
 	fields = INITCONFIG.getData(ACCOUNTFIELDS)
 	fields.append({ 'name':'creation' , 'prompt':_('Created Time :'), 'type':'text'})
+	fields.append({ 'name':'activity' , 'prompt':_('Activity :'), 'type':'text'})
 	values = formFn.filterProps(fields, account)
 	"""
 	values = []
@@ -367,21 +368,22 @@ def _accountShowJs(**args):
 	js = \
 	"""
 	var accountBn='%s', accountDlgTitle='%s', accountEditUrl='%s';
+
 	function pageInit(){
 		// add mouseover effect to buttons
-   	new MooHover({container: accountBn,duration:800});
+		new MooHover({container: accountBn,duration:800});
 
-   	// Add click callback functions for buttons
-      $(accountBn)
-      .getElements('button')[0]
-      .addEvent('click',function(event){
-         new MUI.Modal({
-         	width:400, height:350,
-         	contentURL: accountEditUrl,
-         	title: accountDlgTitle,
-         	modalOverlayClose: false,
-         });
-      });
+		// Add click callback functions for buttons
+		$(accountBn)
+		.getElements('button')[0]
+		.addEvent('click',function(event){
+			new MUI.Modal({
+				width:400, height:350,
+				contentURL: accountEditUrl,
+				title: accountDlgTitle,
+				modalOverlayClose: false,
+			});
+		});
 	};
 
 	window.addEvent('domready', pageInit);
@@ -487,10 +489,26 @@ def _editAccountJs(**args):
 						MUI.notification('Account creating failed!');
 					}
 					else{
-						MUI.notification('Edit Successfully');	// Successfully action
 						// close edit dialog
 						closeDialog();
 
+						if($("adminProfileWindow")){
+							var wInstance = MUI.Windows.instances.get("adminProfileWindow");
+							var options = wInstance.options;
+
+							MUI.updateContent({
+								'element': wInstance.windowEl,
+								'content': options.content,
+								'method': options.method,
+								'url': options.contentURL,
+								'data': options.data,
+								'onContentLoaded': null
+							});
+
+							return
+						};
+
+						MUI.notification('Edit Successfully');	// Successfully action
 						// refresh account show page
 						var panel = MUI.Panels.instances.get(panelId),
 						props = panel.options;
@@ -514,10 +532,10 @@ def _editAccountJs(**args):
 		}// the end for 'onload' define
 	};
 
-   MUI.formValidLib(appName,options);
+	MUI.formValidLib(appName,options);
 
 
-   function edit(event){
+	function edit(event){
 		formchk.onSubmit(event);
 	};
 

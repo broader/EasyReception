@@ -1,10 +1,24 @@
 /*
 **	Portal menu click function
 */
-function test(event){
+function adminProfile(event){
 	new Event(event).stop();
-	//MUI.notification('Portal menu clicked!');
-	alert('menu clicked');	
+
+	// the dom id for popup window
+	var wid = "adminProfileWindow";
+	if($(wid)) return;
+
+	var url = "portfolio/portfolio.ks/page_showAccount?windowId={wid}".substitute({'wid':wid});
+	//new MUI.Modal({
+	new MUI.Window({
+		id: wid,
+         	width:400, height:350,
+         	contentURL: url,
+         	//title: "Your Profile",
+         	title: "Your Profile"
+         	//modalOverlayClose: false
+         });
+
 };
 
 /*

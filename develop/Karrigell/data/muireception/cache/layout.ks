@@ -316,14 +316,14 @@ def page_welcomeInfo(**args):
 	PRINT( str(welcomeInfo))
 	return
 
-def _renderNode(nodes, node, prefix):
+def _renderMenuNode(nodes, node, prefix):
 	li = LI()
 	aLink = A( node.data.get('text'), **{'id': '-'.join(( prefix, node.id))})
 	li <= aLink
 	if node.children:	# has submenus
 		ul = UL()
 		for child in node.children:
-			ul <= _renderNode(nodes,child, prefix)
+			ul <= _renderMenuNode(nodes,child, prefix)
 			nodes.remove(child)
 
 		li <= ul
@@ -340,7 +340,7 @@ def _menuHtml(data, prefix):
 	# now recursively render the menu tree into html
 	while nodes :
 		node = nodes.pop(0)
-		li = _renderNode(nodes, node, prefix)
+		li = _renderMenuNode(nodes, node, prefix)
 		PRINT( li)
 
 	return

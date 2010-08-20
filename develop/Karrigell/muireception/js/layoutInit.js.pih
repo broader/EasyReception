@@ -60,35 +60,6 @@ function topNavSwitch(login){
 	
 };
 
-
-/*********************************************************************************
-Initialize menus
-Parameters:
-	data - a Array instance, for which format is [{'text':'..','function':'...'},]
-**********************************************************************************/
-/*
-function menuSet(data){	
-	var ul = new Element('ul');
-	data.each(function(menu){
-		li = new Element('li');			
-		a = new Element('a',{
-			'html': menu['text'],
-		 	'class':'returnFalse',
-		 	'style':'text-decoration:none;',
-		 	'href': '',
-			'events': {
-				'click': window[menu['function']]
-			}
-		});
-		a.inject(li);		
-		li.inject(ul);		
-	});
-	
-	$('<%=pagefn.MENUCONTAINER%>').grab(ul,'top');
-
-};
-*/
-
 /*
 **	Initialize menu by json data from server side
 */
@@ -96,32 +67,36 @@ function menuInit(){
 	var data = new Request.JSON({
 		async: false,
 		url: '<%=layoutUrls[1] %>', 
-		onSuccess:function(json,html){			
-			am.import(
-				{	'url':json['js'],	// load the menus' corresponding clickable functions
-					'app':'<%=loginApp %>',
-					'type':'js'
-				},
-				{
-					onload: function(){
-						// load html slice to the navigation bar		
-						var ul = new Element('ul');
-						ul.set('load', {url:json.url, async:false});
-						ul.load();
-						$('<%=pagefn.MENUCONTAINER%>').grab(ul,'top');
+		onSuccess:function(json,html){	
+			var assetOptions = {
+				'url':json['js'],	// load the menus' corresponding clickable functions
+				'app':'<%=loginApp %>',
+				'type':'js'
+			};
+		
+			var onloadOptions = {
+				onload: function(){
+					// load html slice to the navigation bar		
+					var ul = new Element('ul');
+					ul.set('load', {url:json.url, async:false});
+					ul.load();
+					$('<%=pagefn.MENUCONTAINER%>').grab(ul,'top');
 
-						// add event to each menu
-						$H(json.functions).each(function(func, nid){
-							$(nid).setProperties({
-								'class':'returnFalse',
-								'style':'text-decoration:none;',
-								'href': 'javascript:;'
-							});
-							if($type(window[func])) $(nid).addEvent('click', window[func]);
+					// add event to each menu item
+					$H(json.functions).each(function(func, nid){
+						$(nid).setProperties({
+							'class':'returnFalse',
+							'style':'text-decoration:none;',
+							'href': 'javascript:;'
 						});
-					}
+
+						if($type(window[func])) $(nid).addEvent('click', window[func]);
+					});
 				}
-			);
+			};
+			
+			// load js slice
+			am.import( assetOptions, onloadOptions );
 		}
 	}).get();
 	
