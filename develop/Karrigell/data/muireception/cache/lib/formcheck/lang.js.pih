@@ -1,4 +1,5 @@
 []
+# -*- coding: utf_8 -*-
 STDOUT("formcheckLanguage = {\n	required: \'")
 STDOUT(str(_("This field is required.")))
 STDOUT("\',\n	alpha: \'")
@@ -41,11 +42,11 @@ STDOUT("\',\n	words_range : \'")
 STDOUT(str(_("This field must contain %0-%1 words, currently: %2 words")))
 STDOUT("\',\n	words_max : \'")
 STDOUT(str(_("This field must contain at max %0 words, currently: %1 words")))
-STDOUT("\'\n	//checkbox: \'")
+STDOUT("\',\n	checkbox: \'")
 STDOUT(str(_("Please check the box")))
-STDOUT("\',\n	//radios: \'")
+STDOUT("\',\n	radios: \'")
 STDOUT(str(_("Please select a radio")))
-STDOUT("\',\n	//select: \'")
+STDOUT("\',\n	select: \'")
 STDOUT(str(_("Please choose a value")))
 STDOUT("\'\n}\n")
 

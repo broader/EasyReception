@@ -4,17 +4,24 @@
   *
   * Table Hack
   *
-  * Apply some css rules for adjusting the YAML result, these rules class deault is '.fc-tbx'.  
+  * Apply some css rules for adjusting the YAML css layout, the class of these rules is '.fc-tbx'.  
   */
 
 .fc-tbx table{
    width:auto; border-collapse:collapse; margin-bottom:0em; border:0 none; }
 
-.fc-tbx tbody td{ border-bottom:0em; }
 
-.fc-tbx th,td{ padding:0em; }
+.fc-tbx table tbody td { border-bottom:0em; }
 
-.fc-tbx p {text-align:left;}
+
+/*
+.fc-tbx table th,td { padding:0em; }
+*/
+
+
+
+.fc-tbx table td p {text-align:left;}
+
 
 /**
   *---------------------------------------------------------------------------------------------------*
@@ -23,7 +30,11 @@
   *
   * Apply some css rules for adjusting error tip showing result, these rules class deault is '.fc-tbx'.
   *
-  */ 
+  */
  
-.fc-tbx { z-index:10000;}
+.fc-tbx { z-index:1000000;}
+
 .fc-tbx div.err { font-weight:bold; }
+
+.fc-tbx .l{ width : auto; padding:0em;}
+  

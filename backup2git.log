@@ -4803,3 +4803,231 @@ sent 140110 bytes  received 31 bytes  280282.00 bytes/sec
 total size is 948770  speedup is 6.77
 2010-08-20 16:58:41,243 INFO End backup loacl karrigell diretory to local git.
 2010-08-20 16:58:41,243 INFO Begin to backup local github to remote github host.
+2010-08-20 16:58:42,254 INFO Command: 
+git add .
+running result is :
+2010-08-20 16:58:52,727 INFO Command: 
+git commit -m 'Update time:2010-08-20T16:58:41.243565'
+running result is :[master af08510] Update time:2010-08-20T16:58:41.243565
+ Committer: Broader ZHONG <broader@laptop-ubuntu.10.04>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+If the identity used for this commit is wrong, you can fix it with:
+
+    git commit --amend --author='Your Name <you@example.com>'
+
+ 52 files changed, 2082 insertions(+), 46 deletions(-)
+ create mode 100644 develop/Karrigell/data/cms/logs_2010082013.log
+ create mode 100644 develop/Karrigell/data/cms/logs_2010082014.log
+ create mode 100644 develop/Karrigell/data/cms/sessions/IFsrtrCxeu7eppxU
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010082006.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010082007.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010082013.log
+ create mode 100644 develop/Karrigell/data/muireception/logs_2010082014.log
+ create mode 100644 develop/Karrigell/data/muireception/sessions/0lnXQZigja7V1Wye
+ create mode 100644 develop/Karrigell/data/muireception/sessions/7HomAh4FFuXb2pXb
+ create mode 100644 develop/Karrigell/data/muireception/sessions/7bH4rPCPYNlnTmJl
+ create mode 100644 develop/Karrigell/data/muireception/sessions/8pyR8DVeKCwnt8EB
+ create mode 100644 develop/Karrigell/data/muireception/sessions/KKO97KHCMYGPyp39
+ create mode 100644 develop/Karrigell/data/muireception/sessions/MDpi3Lievx4IbAij
+ create mode 100644 develop/Karrigell/data/muireception/sessions/N6mG3xv1YjZofAdt
+ create mode 100644 develop/Karrigell/data/muireception/sessions/NrsHRv2M8kWB4kkz
+ create mode 100644 develop/Karrigell/data/muireception/sessions/OCDNPSKiuaVws7Uw
+ create mode 100644 develop/Karrigell/data/muireception/sessions/ON22WKvrVTrv8nM3
+ create mode 100644 develop/Karrigell/data/muireception/sessions/RZJQ3wKkTquWFlYC
+ create mode 100644 develop/Karrigell/data/muireception/sessions/TIsRuCJn9xmjRcO1
+ create mode 100644 develop/Karrigell/data/muireception/sessions/XA1BLJuvadjL41vs
+ create mode 100644 develop/Karrigell/data/muireception/sessions/ZdXSfaYL5HtlJsMR
+ create mode 100644 develop/Karrigell/data/muireception/sessions/bJpv7uaF9igcPb3C
+ create mode 100644 develop/Karrigell/data/muireception/sessions/nN7JSAZXY9pxT47u
+ create mode 100644 develop/Karrigell/data/muireception/sessions/r491zQqSySzVVW7R
+ create mode 100644 develop/Karrigell/data/muireception/sessions/tkT2IRDqy1RLDen0
+ create mode 100644 develop/Karrigell/data/muireception/sessions/tvG6IxEuSCEC86Jr
+ create mode 100644 develop/Karrigell/data/muireception/sessions/u950jKVPfVeqNIt0
+ create mode 100644 develop/Karrigell/data/muireception/sessions/urJRbClV6IdR8TsT
+ create mode 100644 develop/Karrigell/data/muireception/sessions/wIsU27vgJuWUOePm
+ create mode 100644 develop/Karrigell/data/muireception/sessions/zWi8xaykimuN7fou
+ create mode 100644 develop/Karrigell/data/muireception/sessions/zmeNgQ0ZmX0Eb7pp
+ mode change 100644 => 100755 develop/Karrigell/muireception/lib/treeTable/treeTable.js~
+2010-08-20 16:59:05,119 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   23e8632..af08510  master -> master
+2010-08-20 16:59:05,119 INFO End backup local github to remote github host.
+2010-08-21 12:21:52,890 INFO Delete nousing captcha images
+2010-08-21 12:21:52,930 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-08-21 12:21:52,931 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-08-21 12:21:54,285 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/cms/
+data/cms/logs_2010082102.log
+          92 100%    0.00kB/s    0:00:00            92 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1030/4038)
+data/cms/logs_2010082103.log
+        2364 100%    2.25MB/s    0:00:00          2364 100%    2.25MB/s    0:00:00 (xfer#2, to-check=1029/4038)
+data/cms/logs_2010082104.log
+        4728 100%    4.51MB/s    0:00:00          4728 100%    4.51MB/s    0:00:00 (xfer#3, to-check=1028/4038)
+data/cms/logs_2010082108.log
+        2364 100%    2.25MB/s    0:00:00          2364 100%    2.25MB/s    0:00:00 (xfer#4, to-check=1027/4038)
+data/cms/sessions/
+data/cms/sessions/bDMTFoFtjpV2goE2
+         204 100%    7.11kB/s    0:00:00           204 100%    7.11kB/s    0:00:00 (xfer#5, to-check=1040/4324)
+data/cms/sessions/x88MsNMRPVDIUp5i
+         204 100%    7.11kB/s    0:00:00           204 100%    7.11kB/s    0:00:00 (xfer#6, to-check=1029/4324)
+data/muireception/
+data/muireception/logs_2010082010.log
+          92 100%    2.09kB/s    0:00:00            92 100%    2.09kB/s    0:00:00 (xfer#7, to-check=1018/4329)
+data/muireception/logs_2010082101.log
+       32768  32%  711.11kB/s    0:00:00         99617 100%    1.83MB/s    0:00:00 (xfer#8, to-check=1015/4329)
+data/muireception/logs_2010082102.log
+       32768  31%  592.59kB/s    0:00:00        103547 100%    1.65MB/s    0:00:00 (xfer#9, to-check=1014/4329)
+data/muireception/logs_2010082103.log
+       32768  36%  507.94kB/s    0:00:00         90107 100%    1.28MB/s    0:00:00 (xfer#10, to-check=1013/4329)
+data/muireception/logs_2010082104.log
+       32768  40%  470.59kB/s    0:00:00         81365 100%    1.12MB/s    0:00:00 (xfer#11, to-check=1012/4329)
+data/muireception/logs_2010082108.log
+        9065 100%  128.30kB/s    0:00:00          9065 100%  128.30kB/s    0:00:00 (xfer#12, to-check=1011/4329)
+data/muireception/logs_2010082109.log
+         851 100%   12.04kB/s    0:00:00           851 100%   11.87kB/s    0:00:00 (xfer#13, to-check=1010/4329)
+data/muireception/users.sqlite
+        2048 100%   28.57kB/s    0:00:00          2048 100%   28.57kB/s    0:00:00 (xfer#14, to-check=1007/4329)
+data/muireception/cache/layout.ks
+       11798 100%  162.27kB/s    0:00:00         11798 100%  162.27kB/s    0:00:00 (xfer#15, to-check=1030/4362)
+data/muireception/cache/pagefn.py
+       13074 100%  179.83kB/s    0:00:00         13074 100%  179.83kB/s    0:00:00 (xfer#16, to-check=1028/4362)
+data/muireception/cache/js/layoutInit.js.pih
+       13037 100%  174.40kB/s    0:00:00         13037 100%  174.40kB/s    0:00:00 (xfer#17, to-check=1002/4362)
+data/muireception/cache/lib/formcheck/lang.js.pih
+        2183 100%   23.69kB/s    0:00:00          2183 100%   23.69kB/s    0:00:00 (xfer#18, to-check=1009/4373)
+data/muireception/cache/service/adminHotels.ks
+        3602 100%   38.65kB/s    0:00:00          3602 100%   38.65kB/s    0:00:00 (xfer#19, to-check=1003/4378)
+data/muireception/cache/service/service.ks
+       28896 100%  300.20kB/s    0:00:00         28896 100%  300.20kB/s    0:00:00 (xfer#20, to-check=1002/4378)
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%  301.89kB/s    0:00:01        362496 100%    2.42MB/s    0:00:00 (xfer#21, to-check=1007/4401)
+data/muireception/sessions/
+data/muireception/sessions/1LxIA9J5WlF04mib
+         285 100%    1.34kB/s    0:00:00           285 100%    1.34kB/s    0:00:00 (xfer#22, to-check=2361/5907)
+data/muireception/sessions/1izVvdImW4Q869Ik
+         285 100%    1.34kB/s    0:00:00           285 100%    1.34kB/s    0:00:00 (xfer#23, to-check=2359/5907)
+data/muireception/sessions/3vsV2O88k8IpzDJn
+         285 100%    1.34kB/s    0:00:00           285 100%    1.34kB/s    0:00:00 (xfer#24, to-check=2354/5907)
+data/muireception/sessions/43neAgVr3Q5ELzEJ
+         285 100%    1.34kB/s    0:00:00           285 100%    1.34kB/s    0:00:00 (xfer#25, to-check=2353/5907)
+data/muireception/sessions/5G2xf3NIRzW9zOpf
+         285 100%    1.34kB/s    0:00:00           285 100%    1.34kB/s    0:00:00 (xfer#26, to-check=2352/5907)
+data/muireception/sessions/7WjNJ4xGc3JtHUld
+         285 100%    1.34kB/s    0:00:00           285 100%    1.34kB/s    0:00:00 (xfer#27, to-check=2347/5907)
+data/muireception/sessions/8kUJxo5LC20cW9wk
+         285 100%    1.34kB/s    0:00:00           285 100%    1.34kB/s    0:00:00 (xfer#28, to-check=2345/5907)
+data/muireception/sessions/8yC6KsVFbbY487Cn
+         285 100%    1.34kB/s    0:00:00           285 100%    1.34kB/s    0:00:00 (xfer#29, to-check=2343/5907)
+data/muireception/sessions/94TG8uFEC9lYGT2N
+         285 100%    1.33kB/s    0:00:00           285 100%    1.33kB/s    0:00:00 (xfer#30, to-check=2342/5907)
+data/muireception/sessions/AG6MS9qCyuOCCEv9
+         285 100%    1.33kB/s    0:00:00           285 100%    1.33kB/s    0:00:00 (xfer#31, to-check=2340/5907)
+data/muireception/sessions/AVGWz3XBKFOMN4nu
+         285 100%    1.33kB/s    0:00:00           285 100%    1.33kB/s    0:00:00 (xfer#32, to-check=2339/5907)
+data/muireception/sessions/Ccf4dJ4SgNNFL3sY
+         285 100%    1.33kB/s    0:00:00           285 100%    1.33kB/s    0:00:00 (xfer#33, to-check=2335/5907)
+data/muireception/sessions/ElzLA3qiyWSTLWyw
+         285 100%    1.33kB/s    0:00:00           285 100%    1.33kB/s    0:00:00 (xfer#34, to-check=2334/5907)
+data/muireception/sessions/Fv4t7ZzxPbVVV4we
+         285 100%    1.33kB/s    0:00:00           285 100%    1.33kB/s    0:00:00 (xfer#35, to-check=2331/5907)
+data/muireception/sessions/IbAQZmlujVFcIlhF
+         285 100%    1.33kB/s    0:00:00           285 100%    1.33kB/s    0:00:00 (xfer#36, to-check=2325/5907)
+data/muireception/sessions/IiNAkRLwWRX0dN1Z
+         285 100%    1.32kB/s    0:00:00           285 100%    1.32kB/s    0:00:00 (xfer#37, to-check=2323/5907)
+data/muireception/sessions/KByCRx7ftpG14gex
+         285 100%    1.32kB/s    0:00:00           285 100%    1.32kB/s    0:00:00 (xfer#38, to-check=2320/5907)
+data/muireception/sessions/LIqB6xicc25vLln0
+         285 100%    1.32kB/s    0:00:00           285 100%    1.32kB/s    0:00:00 (xfer#39, to-check=2315/5907)
+data/muireception/sessions/MmWCwCHuWZYaKjTI
+         285 100%    1.32kB/s    0:00:00           285 100%    1.32kB/s    0:00:00 (xfer#40, to-check=2313/5907)
+data/muireception/sessions/NKYYD6n1rYtanUBm
+         285 100%    1.32kB/s    0:00:00           285 100%    1.32kB/s    0:00:00 (xfer#41, to-check=2309/5907)
+data/muireception/sessions/SIcrM7O22CCygN0T
+         285 100%    1.32kB/s    0:00:00           285 100%    1.32kB/s    0:00:00 (xfer#42, to-check=2294/5907)
+data/muireception/sessions/SNvsLOkALsMuvEGB
+         285 100%    1.32kB/s    0:00:00           285 100%    1.32kB/s    0:00:00 (xfer#43, to-check=2293/5907)
+data/muireception/sessions/SgWVzedusqJdW9Iv
+         285 100%    1.32kB/s    0:00:00           285 100%    1.32kB/s    0:00:00 (xfer#44, to-check=2292/5907)
+data/muireception/sessions/Tk5LO4svrUvUXbUg
+         285 100%    1.32kB/s    0:00:00           285 100%    1.32kB/s    0:00:00 (xfer#45, to-check=2290/5907)
+data/muireception/sessions/VXdbfSu0qU55pt8q
+         285 100%    1.31kB/s    0:00:00           285 100%    1.31kB/s    0:00:00 (xfer#46, to-check=2285/5907)
+data/muireception/sessions/ZWa4ZlE4N2q9tUKd
+         285 100%    1.31kB/s    0:00:00           285 100%    1.31kB/s    0:00:00 (xfer#47, to-check=2282/5907)
+data/muireception/sessions/cCn1cQUuuBsmPGmy
+         285 100%    1.31kB/s    0:00:00           285 100%    1.31kB/s    0:00:00 (xfer#48, to-check=2279/5907)
+data/muireception/sessions/daCFL9bjfXpnnNYn
+         285 100%    1.31kB/s    0:00:00           285 100%    1.31kB/s    0:00:00 (xfer#49, to-check=2275/5907)
+data/muireception/sessions/epnuGTzcXsQNAN3n
+         285 100%    1.31kB/s    0:00:00           285 100%    1.31kB/s    0:00:00 (xfer#50, to-check=2272/5907)
+data/muireception/sessions/fXp5MBbuBTQ9kfcT
+         285 100%    1.31kB/s    0:00:00           285 100%    1.31kB/s    0:00:00 (xfer#51, to-check=2270/5907)
+data/muireception/sessions/gxMIzV587csGNZPI
+         285 100%    1.31kB/s    0:00:00           285 100%    1.31kB/s    0:00:00 (xfer#52, to-check=2267/5907)
+data/muireception/sessions/otqiQcgvMJT9tdgM
+         285 100%    1.30kB/s    0:00:00           285 100%    1.30kB/s    0:00:00 (xfer#53, to-check=2258/5907)
+data/muireception/sessions/qCt5fjTAHg6B4Zxc
+         285 100%    1.30kB/s    0:00:00           285 100%    1.30kB/s    0:00:00 (xfer#54, to-check=2257/5907)
+data/muireception/sessions/qSunU3W8JX3tzS1F
+         285 100%    1.30kB/s    0:00:00           285 100%    1.30kB/s    0:00:00 (xfer#55, to-check=2256/5907)
+data/muireception/sessions/vpX84ScHPeQElUhE
+         285 100%    1.30kB/s    0:00:00           285 100%    1.30kB/s    0:00:00 (xfer#56, to-check=2244/5907)
+data/muireception/sessions/w20fEcUw90FpvJHo
+         285 100%    1.30kB/s    0:00:00           285 100%    1.30kB/s    0:00:00 (xfer#57, to-check=2242/5907)
+data/muireception/sessions/we0Mjc1ZSZstr7sT
+         285 100%    1.30kB/s    0:00:00           285 100%    1.30kB/s    0:00:00 (xfer#58, to-check=2239/5907)
+data/muireception/sessions/zLsxEyEw5xbBuHS5
+         285 100%    1.29kB/s    0:00:00           285 100%    1.29kB/s    0:00:00 (xfer#59, to-check=2233/5907)
+muireception/
+muireception/.layout.ks.swp
+       28672 100%  129.03kB/s    0:00:00         28672 100%  129.03kB/s    0:00:00 (xfer#60, to-check=1632/5907)
+muireception/.pagefn.py.swp
+       28672 100%  127.85kB/s    0:00:00         28672 100%  127.85kB/s    0:00:00 (xfer#61, to-check=1631/5907)
+muireception/layout.ks
+       11859 100%   52.64kB/s    0:00:00         11859 100%   52.64kB/s    0:00:00 (xfer#62, to-check=1613/5907)
+muireception/pagefn.py
+       13107 100%   58.18kB/s    0:00:00         13107 100%   58.18kB/s    0:00:00 (xfer#63, to-check=1606/5907)
+muireception/js/
+muireception/js/.init.js.pih.swp
+       16384 100%   36.45kB/s    0:00:00         16384 100%   36.36kB/s    0:00:00 (xfer#64, to-check=1038/7067)
+muireception/js/.layoutInit.js.pih.swp
+       28672 100%   63.21kB/s    0:00:00         28672 100%   63.21kB/s    0:00:00 (xfer#65, to-check=1037/7067)
+muireception/js/layoutInit.js.pih
+       12091 100%   26.47kB/s    0:00:00         12091 100%   26.47kB/s    0:00:00 (xfer#66, to-check=1028/7067)
+muireception/lib/formcheck/lang.js.pih
+        1589 100%    3.47kB/s    0:00:00          1589 100%    3.47kB/s    0:00:00 (xfer#67, to-check=1023/7090)
+muireception/lib/formcheck/lang.js.pih~
+        1588 100%    3.46kB/s    0:00:00          1588 100%    3.46kB/s    0:00:00 (xfer#68, to-check=1022/7090)
+muireception/lib/formcheck/css/hack.css
+         780 100%    1.70kB/s    0:00:00           780 100%    1.70kB/s    0:00:00 (xfer#69, to-check=1016/7090)
+muireception/lib/formcheck/css/hack.css~
+         827 100%    1.76kB/s    0:00:00           827 100%    1.76kB/s    0:00:00 (xfer#70, to-check=1015/7090)
+muireception/service/
+muireception/service/.service.ks.swp
+       32768  61%   50.63kB/s    0:00:00         53248 100%   82.02kB/s    0:00:00 (xfer#71, to-check=700/8361)
+muireception/service/service.ks
+       29080 100%   42.83kB/s    0:00:00         29080 100%   42.83kB/s    0:00:00 (xfer#72, to-check=698/8361)
+
+sent 371250 bytes  received 2585 bytes  149534.00 bytes/sec
+total size is 55534086  speedup is 148.55
+2010-08-21 12:21:54,352 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 85 bytes  received 12 bytes  194.00 bytes/sec
+total size is 948770  speedup is 9781.13
+2010-08-21 12:21:54,352 INFO End backup loacl karrigell diretory to local git.
+2010-08-21 12:21:54,352 INFO Begin to backup local github to remote github host.

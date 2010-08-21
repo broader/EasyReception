@@ -21,6 +21,7 @@ JSLIB = {}
 JSLIB['formValid'] = \
 {
 	'files': ['/'.join(( 'lib', 'formcheck', name )) for name in ('css/hack.css', 'theme/red/formcheck.css', 'lang.js.pih', 'formcheck.js')],
+	#'files': ['/'.join(( 'lib', 'formcheck', name )) for name in ('theme/red/formcheck.css', 'lang.js.pih', 'formcheck.js')],
 }
 
 

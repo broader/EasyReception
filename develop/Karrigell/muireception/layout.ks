@@ -167,21 +167,22 @@ def _loginFormJs():
  
  	var accountValidTag = false;
  	var accountCheck = function(el){ 		
-   	el.errors.push(accountErr)
-    	// set some options for Request.JSON instance
-    	accountRequest.setOptions({
-      	url: checkUrl,
-       	onSuccess: function(res){
-         	if(res.valid == 1){accountValidTag=true};
-       	}
-    	});
+		el.errors.push(accountErr)
+		// set some options for Request.JSON instance
+		accountRequest.setOptions({
+			url: checkUrl,
+			onSuccess: function(res){
+				if(res.valid == 1){accountValidTag=true};
+			}
+		});
     
-    	accountRequest.get({'name':el.getProperty('value')});
-    	if(accountValidTag){
-      	accountValidTag=false;   // reset global variable 'accountValid' to be 'false'
-       	return true
-    	}             
-    	return false;
+		accountRequest.get({'name':el.getProperty('value')});
+		if(accountValidTag){
+			accountValidTag=false;   // reset global variable 'accountValid' to be 'false'
+			return true
+		};
+             
+		return false;
  	};
  	/***********************************************************************************/
     
@@ -192,24 +193,25 @@ def _loginFormJs():
  
  	var pwdValidTag = false;
  	function pwdCheck(el){
-   	el.errors.push(pwdErr)
-   	// get account input information
-   	var input = $(loginForm).getElements('input')[0];
+		el.errors.push(pwdErr)
+		// get account input information
+		var input = $(loginForm).getElements('input')[0];
 		var actionUrl = checkUrl + '?'+[input.getProperty('name'), input.getProperty('value')].join('=');
-    	// set some options for Request.JSON instance
-    	pwdRequest.setOptions({
-      	url: actionUrl,      	
-       	onSuccess: function(res){
-         	if(res.valid == 1){ pwdValidTag=true };
-       	}
-    	});
+		// set some options for Request.JSON instance
+		pwdRequest.setOptions({
+			url: actionUrl,      	
+			onSuccess: function(res){
+				if(res.valid == 1){ pwdValidTag=true };
+			}
+		});
     
-    	pwdRequest.get({'name':el.getProperty('value')});
-    	if(pwdValidTag){
-      	pwdValidTag=false;   // reset global variable 'pwdValidTag' to be 'false'
-       	return true
-    	}             
-    	return false;
+		pwdRequest.get({'name':el.getProperty('value')});
+		if(pwdValidTag){
+			pwdValidTag=false;   // reset global variable 'pwdValidTag' to be 'false'
+			return true
+		};
+             
+		return false;
  	};
  	/***********************************************************************************/
    

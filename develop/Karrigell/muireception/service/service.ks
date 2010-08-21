@@ -325,14 +325,6 @@ def _showServiceJs(category):
 	
 	var treeTable;
 	
-	var modalOptions = {
-		width:600, height:480, modalOverlayClose: false,
-   		onClose: function(e){
-			// refresh table's body
-			treeTable.refreshTbody();
-		}
-	};
-	
 	// The function to add action buttons to each row in the table.
 	function addButton(ti){		
 		// Parameter 'ti'- the TreeTable instance
@@ -360,11 +352,11 @@ def _showServiceJs(category):
 	*/
 	function action2service(index){
 		trs = this.getSelectedRows();
-		if(trs.length == 0 && [1,2].contains(index)){	// 'edit' or 'delete' action
+		if(trs.length == 0 && [1,2].contains(index)){	// it's need to select one row
 			MUI.alert(noneRowErr);
 			return
 		}
-		else if(trs.length > 1 && [0,1,2].contains(index)){
+		else if(trs.length > 1 && [0,1,2].contains(index)){	// select more than one row
 			MUI.alert(moreRowErr);
 			return
 		};
@@ -398,6 +390,14 @@ def _showServiceJs(category):
 		}
 		
 		if([0,1].contains(index)){
+			var modalOptions = {
+				width:600, height:480, modalOverlayClose: false,
+				onClose: function(e){
+					// refresh table's body
+					treeTable.refreshTbody();
+				}
+			};
+
 			// set the really action url
 			url = [actionUrl, query].join('?');
 			
@@ -405,11 +405,13 @@ def _showServiceJs(category):
 			modalOptions.contentURL = url;
 			
 			modalOptions.title = (trs.length!=0)? modalTitles.service : modalTitles.category ;
+
 			new MUI.Modal(modalOptions);
 		}
 		else {	// 'delete' action
 			MUI.confirm('Delete service items:', delServiceItems.bind(this), {});
 		};
+
 	};
 	
 	/******************************************************************

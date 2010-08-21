@@ -328,22 +328,22 @@ MUI.extend({
 		<% end %>
 		
 		// get the global Assets manager
-	   var am = MUI.assetsManager;
-	   
-	   // import css file for validation
-	   urls.slice(0,2).each(function(src){
-	   	if(!$defined(am.imported[src])){
-	    		am.import({'url':src,'app':appName,'type':'css'});
-	    	}	
+		var am = MUI.assetsManager;
+ 
+		// import css file for validation
+		urls.slice(0,2).each(function(src){
+			if(!$defined(am.imported[src])){
+				am.import({'url':src,'app':appName,'type':'css'});
+			}	
 		});
 		
 		// i18n file of this lib
 		url = urls[2];
-	   if(!$defined(am.imported[url])){
-	   	am.import({'url':url,'app':appName,'type':'js'});
-	   };
+		if(!$defined(am.imported[url])){
+			am.import({'url':url,'app':appName,'type':'js'});
+		};
 	   
-	   // the really validation functions
+		// the really validation functions
 		am.import({'url':urls[3],'app':appName,'type':'js'},options);
 	},
 	
