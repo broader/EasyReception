@@ -402,9 +402,9 @@ def page_sideBarPanels(**args):
 	print JSON.encode(panels, encoding='utf8')
 	return
 	
-def page_closeSession(**args):
-	""" Logout action, remove current session. """
+#def page_closeSession(**args):
+	#""" Logout action, remove current session. """
 	#so = Session()
 	#so.close()
-	return
+	#return
 	

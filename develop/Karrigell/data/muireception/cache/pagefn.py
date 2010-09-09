@@ -110,7 +110,8 @@ LOGINFORM = '/'.join(('layout.ks', 'page_loginForm'))
 LOGINPANEL = 'topNav'
 LAYOUTURLS = \
 [ '/'.join(('layout.ks', url)) \
-  for url in ('page_welcomeInfo', 'page_menu', 'page_sideBarPanels', 'page_closeSession') ]
+  #for url in ('page_welcomeInfo', 'page_menu', 'page_sideBarPanels', 'page_closeSession') ]
+  for url in ('page_welcomeInfo', 'page_menu', 'page_sideBarPanels') ]
 
 # The normal user's role
 USEROLE = 'User'

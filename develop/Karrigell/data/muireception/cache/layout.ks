@@ -1,4 +1,4 @@
-['index', 'page_loginForm', 'page_accountValid', 'page_welcomeInfo', 'page_menuList', 'page_menu', 'page_sideBarPanels', 'page_closeSession']
+['index', 'page_loginForm', 'page_accountValid', 'page_welcomeInfo', 'page_menuList', 'page_menu', 'page_sideBarPanels']
 """
 The pages and functions for menu setup
 """
@@ -403,10 +403,10 @@ def page_sideBarPanels(**args):
 	PRINT( JSON.encode(panels, encoding='utf8'))
 	return
 
-def page_closeSession(**args):
-	""" Logout action, remove current session. """
+#def page_closeSession(**args):
+	#""" Logout action, remove current session. """
 	#so = Session()
 	#so.close()
-	return
+	#return
 
 

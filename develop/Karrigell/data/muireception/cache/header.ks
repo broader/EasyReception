@@ -76,7 +76,8 @@ def index(**args):
 	PRINT( pagefn.script( '/'.join(('lib','tools','assetsmanager.js')), link=True))
 
 	# page initial js
-	jsfiles = ('init.js.pih', 'layoutInit.js.pih')
+	#jsfiles = ('init.js.pih', 'layoutInit.js.pih')
+	jsfiles = ('initMUI.js.pih', 'init.js.pih', 'layoutInit.js.pih')
 	for name in jsfiles:
 		PRINT( pagefn.script( '/'.join(('js', name)), link=True))
 

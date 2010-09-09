@@ -2,24 +2,71 @@
 """ The portal which is like a desktop user interface. """
 
 from HTMLTags import *
+from tools import treeHandler
+modules = {'pagefn': 'pagefn.py',  'JSON': 'demjson.py', } #'formFn':'form.py'}
+[locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items() ]
 
-#modules = {'pagefn': 'pagefn.py', 'JSON': 'demjson.py', 'formFn':'form.py'}
-#[locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items() ]
-
-
-RELPATH = '/'.join(THIS.baseurl.split('/'))
+#APPATH = THIS.script_url[1:]
+#RELPATH = '/'.join(THIS.baseurl.split('/'))
 #DATA = Import( '/'.join((RELPATH, 'hotelConfig.py')), rootdir=CONFIG.root_dir)
 
 
 def _initJs():
-	paras = [NAVBAR,]
+	paras = [NAVBAR,'page_menu']
 	paras = tuple(paras)
 	js = \
 	"""
-	var menuId="%s";
+	var menuContainer="%s", menuUrl="%s";
+
+	// get the global Assets manager
+	var am = MUI.assetsManager;
+	alert(am);
+
+	/*
+	**	Initialize menu by json data from server side
+	*/
+	function menuInit(){
+		var data = new Request.JSON({
+			async: false,
+			url: menuUrl,
+			onSuccess:function(json,html){
+				var assetOptions = {
+					'url':json['js'],	// load the menus' corresponding clickable functions
+					'app':'',
+					'type':'js'
+				};
+
+				var onloadOptions = {
+					onload: function(){
+						// load html slice to the navigation bar
+						var ul = new Element('ul');
+						ul.set('load', {url:json.url, async:false});
+						ul.load();
+						$(menuContainer).grab(ul,'top');
+
+						// add event to each menu item
+						$H(json.functions).each(function(func, nid){
+							$(nid).setProperties({
+								'class':'returnFalse',
+								'style':'text-decoration:none;',
+								'href': 'javascript:;'
+							});
+							$(nid).store('popupWindowId',func.popupWindowId);
+
+							if($type(window[func.funcname])) $(nid).addEvent('click', window[func.funcname]);
+						});
+					}
+				};
+
+				// load js slice
+				am.import( assetOptions, onloadOptions );
+			}
+		}).get();
+
+	};
 
 	window.addEvent('domready', function(){
-		alert($(menuId));
+		menuInit();
 	});
 	"""%paras
 	return js
@@ -56,6 +103,14 @@ def _head():
 	for name in ('Core/Core.js', 'Window/Window.js', 'Layout/Layout.js', 'Layout/Dock.js') :
 		PRINT( SCRIPT(**{'type':'text/javascript', 'src': '/'.join(('..', 'lib', 'mocha', name))}))
 
+	# mootools Assets tools
+	PRINT( pagefn.script( '/'.join(('..', 'lib','tools','assetsmanager.js')), link=True))
+
+	# page initial js
+	#jsfiles = ('init.js.pih', 'layoutInit.js.pih')
+	jsfiles = ('initMUI.js.pih', )
+	for name in jsfiles:
+		PRINT( pagefn.script( '/'.join(('..', 'js', name)), link=True))
 
 	PRINT( SCRIPT(_initJs(), **{'type':'text/javascript'}))
 
@@ -111,7 +166,7 @@ def _menuHtml(data, prefix):
 
 def page_menuList(**args):
 	menuType = args.get(MENUTYPETAG)
-	if MENUTYPE.index(menuType) == 0 :
+	if menuType == None or MENUTYPE.index(menuType) == 0 :
 		data = pagefn.USERMENUS['data']
 	else:
 		data = pagefn.ADMINMENUS['data']
@@ -134,7 +189,7 @@ def page_menu(**args):
 		menus = pagefn.ADMINMENUS
 		menuType = MENUTYPE[1]
 
-	menus['url'] = '?'.join(( '/'.join((APPATH, 'page_menuList')), '%s=%s'%(MENUTYPETAG, menuType) ))
+	menus['url'] = '?'.join(( 'page_menuList', '%s=%s'%(MENUTYPETAG, menuType) ))
 
 	# constructs the json objec to be returned
 	data = menus.pop('data')
@@ -150,7 +205,7 @@ def page_menu(**args):
 	return
 
 NAVBAR = 'desktopNavbar'
-def _header():
+def _header(user=None):
 	desktopHeader = DIV(**{'id':'desktopHeader'})
 
 	titleWrapper = DIV(**{'id':'desktopTitlebarWrapper'})
@@ -166,9 +221,9 @@ def _header():
 	topNav = DIV(**{'id':'topNav'})
 	titleBar <= topNav
 	ul = UL(**{'class':'menu-right'})
-	li = LI(A("""Welcome <a href="#" onclick="MUI.notification('Do Something');return false;">Demo User</a>."""))
+	li = LI(A("""Welcome <a href="#" onclick="MUI.notification('Do Something');return false;">%s</a>."""%(user or '')))
 	ul <= li
-	li = LI(A("""<a href="#" onclick="MUI.notification('Do Something');return false;">Sign Out</a>"""))
+	li = LI(A("""<a href="#" onclick="MUI.notification('Do Something');return false;">%s</a>"""%_("Sign Out")))
 	ul <= li
 	topNav <= ul
 
@@ -179,12 +234,12 @@ def _header():
 
 	return
 
-def _body():
+def _body(user=None):
 	PRINT( "<body>")
 
 	PRINT( """<div id="desktop">""")
 
-	_header()
+	_header(user)
 
 	PRINT( """</div>""")
 	PRINT( "</body>")
@@ -194,10 +249,11 @@ def index(**args):
 	PRINT( '''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">''')
 	PRINT( '<html xmlns="http://www.w3.org/1999/xhtml">')
 
+
 	_head()
 
 	# body
-	_body()
+	_body(args.get('user'))
 
 	PRINT( '</html>')
 	return
