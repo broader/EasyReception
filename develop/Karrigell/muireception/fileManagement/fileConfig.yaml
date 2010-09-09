@@ -1,0 +1,8 @@
+---
+VirtualFolder:
+- {name: !!python/str "\u8BBA\u6587"}
+- {name: !!python/str "\u8BF8\u845B\u4EAE", parent: !!python/str "\u8BBA\u6587"}
+- {name: !!python/str "\u5E9E\u7EDF", parent: !!python/str "\u8BBA\u6587"}
+- {name: !!python/str "\u594F\u7AE0"}
+- {name: !!python/str "\u738B\u5141", parent: !!python/str "\u594F\u7AE0"}
+- {name: !!python/str "\u66F9\u64CD", parent: !!python/str "\u594F\u7AE0"}

@@ -1,0 +1,97 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=8" />
+
+	<title>EasyReception - A Web Applications For Congress Reception Work!</title>
+	<meta name="description" content="A Web Applications For Congress Reception Work!" />
+	
+	<!--
+	<link rel="stylesheet" type="text/css" href="themes/default/css/Content.css" />
+	<link rel="stylesheet" type="text/css" href="themes/default/css/Core.css" />
+	<link rel="stylesheet" type="text/css" href="themes/default/css/Layout.css" />
+	<link rel="stylesheet" type="text/css" href="themes/default/css/Dock.css" />
+	<link rel="stylesheet" type="text/css" href="themes/default/css/Window.css" />
+	<link rel="stylesheet" type="text/css" href="themes/default/css/Tabs.css" />
+	-->
+	<!--[if IE]>
+		<script type="text/javascript" src="scripts/excanvas_r43.js"></script>
+	<![endif]-->
+	
+	<!--
+	<script type="text/javascript" src="scripts/mootools-1.2.2-core.js"></script>
+	<script type="text/javascript" src="scripts/mootools-1.2.2.2-more.js"></script>
+	-->
+	<script type="text/javascript" src="../../../scripts/mootools-1.2.2-core.js"></script>
+	<script type="text/javascript" src="../../../scripts/mootools-1.2.2.2-more.js"></script>
+	<script type="text/javascript">
+		window.addEvent('domready', function(){
+			function runShinning(){	
+				var el = this.el;
+				new Fx.Morph(el, {
+					duration:500, 
+					onComplete:function(morph){
+						var fadeOut = new Fx.Morph(el, {duration:500}).start({
+							opacity:0,
+						});
+					}
+				}).start({'opacity':1});
+			};
+			
+			var img = $('hotel').setStyles({
+				display:'block',
+				//opacity: 0 
+				opacity: 1 
+			});
+			
+			/*
+			img.addEvent('click', function(e){
+				new Event(e).stop();
+				alert('china');
+			});
+			*/
+
+			img.makeDraggable({
+				container: "mapContainer",
+				//onComplete: function(){
+				onDrop: function(element, droppable, event){
+					var pos = {"x": element.getStyle('left').toInt()+1, "y": element.getStyle("top").toInt()};
+					alert(pos.x+','+pos.y);
+				}
+			});
+			
+			//runShinning.periodical(1800, {el:img});
+
+		});
+
+	</script>
+
+	<!--	
+	<script type="text/javascript" src="scripts/source/Core/Core.js"></script>
+	<script type="text/javascript" src="scripts/source/Layout/Layout.js"></script>
+	<script type="text/javascript" src="scripts/source/Layout/Dock.js"></script>
+	<script type="text/javascript" src="scripts/source/Window/Window.js"></script>
+	<script type="text/javascript" src="scripts/source/Window/Modal.js"></script>
+	<script type="text/javascript" src="scripts/source/Components/Tabs.js"></script>			
+
+	<script type="text/javascript" src="js/pageInit.js"></script>
+	-->
+
+</head>
+<body>
+<div id="bnContainer">
+	<button id="showHotelsList">已添加宾馆列表</button>
+</div>
+
+<div id="mapContainer" style="background-image:url('haidian_hotel_900.jpg'); background-repeat:no;width:900px; height:668px;position:relative;z-index:0;">
+	<a id="hotel" style="width:32px;height:32px;background-image:url('agency_32.png');margin-left:446px;margin-top:337px;position:absolute;z-index:0;">
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<!--<image src="agency_32.png" id="hotel" >-->
+	</a>
+
+</div><!-- mapContainer end -->
+
+</body>
+</html>
+
+

@@ -21,7 +21,7 @@ hide_extensions = [".pdl"]
 ignore = [".*/favicon.ico","/core.*","/package.*","/conf.*","/data.*"]
 
 # logging file
-logging_file = os.path.join(data_dir,"logs")
+logging_file = None #os.path.join(data_dir,"logs")
 logging_rotate = "hourly"
 
 # Unicode management

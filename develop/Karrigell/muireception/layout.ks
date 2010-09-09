@@ -5,7 +5,7 @@ The pages and functions for menu setup
 import sys
 
 # added module in Karrigell "/karrigell/packages" directory
-import tools
+#import tools
 from tools import treeHandler
 
 from HTMLTags import *

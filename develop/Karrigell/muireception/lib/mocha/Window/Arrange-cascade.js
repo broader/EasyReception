@@ -25,9 +25,9 @@ MUI.extend({
 	arrangeCascade: function(){
 
 		var	viewportTopOffset = 30;    // Use a negative number if neccessary to place first window where you want it
-	var viewportLeftOffset = 20;
-	var windowTopOffset = 50;    // Initial vertical spacing of each window
-	var windowLeftOffset = 40; 
+		var viewportLeftOffset = 20;
+		var windowTopOffset = 50;    // Initial vertical spacing of each window
+		var windowLeftOffset = 40; 
 
 		// See how much space we have to work with
 		var coordinates = document.getCoordinates();
