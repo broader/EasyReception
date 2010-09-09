@@ -77,11 +77,17 @@ def run(test):
    	# synchronize 'EasyReception' to remote github host
 	logger.info('Begin to backup local github to remote github host.')    
    
-   # get current date info
+	# set account information of github
+	#options = [['config', '--global', 'user.name', '"broader"'],['config', '--global', 'user.email', 'broader.zhong@yahoo.com.cn']]
+	
+	# get current date info
 	now = datetime.datetime.today().isoformat()
 	info = 'Update time:%s'%now
+	#options.append( [ 'add .', "commit -m '%s'"%info, 'push origin master'])
 	options = [ 'add .', "commit -m '%s'"%info, 'push origin master']
 	for option in options :
+		#option.insert(0, GIT)
+		#cmd = ' '.join(option)
 		cmd = ' '.join([GIT, option])
 		action(cmd,test,logger)
    	

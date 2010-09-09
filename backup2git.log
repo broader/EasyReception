@@ -10198,3 +10198,132 @@ sent 420 bytes  received 17 bytes  874.00 bytes/sec
 total size is 1068611  speedup is 2445.33
 2010-09-09 11:51:56,580 INFO End backup loacl karrigell diretory to local git.
 2010-09-09 11:51:56,580 INFO Begin to backup local github to remote github host.
+2010-09-09 11:51:56,696 INFO Command: 
+git add .
+running result is :
+2010-09-09 11:51:56,872 INFO Command: 
+git commit -m 'Update time:2010-09-09T11:51:56.581018'
+running result is :[master 46a9cc3] Update time:2010-09-09T11:51:56.581018
+ Committer: Broader ZHONG <broader@laptop-ubuntu.10.04>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+If the identity used for this commit is wrong, you can fix it with:
+
+    git commit --amend --author='Your Name <you@example.com>'
+
+ 1 files changed, 1994 insertions(+), 0 deletions(-)
+2010-09-09 11:59:09,831 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   cf22667..46a9cc3  master -> master
+2010-09-09 11:59:09,832 INFO End backup local github to remote github host.
+2010-09-09 12:01:10,402 INFO Delete nousing captcha images
+2010-09-09 12:01:10,404 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-09-09 12:01:10,404 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-09-09 12:01:10,621 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+
+sent 209350 bytes  received 1257 bytes  421214.00 bytes/sec
+total size is 85409103  speedup is 405.54
+2010-09-09 12:01:10,674 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 420 bytes  received 17 bytes  874.00 bytes/sec
+total size is 1068611  speedup is 2445.33
+2010-09-09 12:01:10,675 INFO End backup loacl karrigell diretory to local git.
+2010-09-09 12:01:10,675 INFO Begin to backup local github to remote github host.
+2010-09-09 12:03:32,727 INFO Delete nousing captcha images
+2010-09-09 12:03:32,729 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-09-09 12:03:32,729 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-09-09 12:03:32,953 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+
+sent 209350 bytes  received 1257 bytes  421214.00 bytes/sec
+total size is 85409103  speedup is 405.54
+2010-09-09 12:03:33,006 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 420 bytes  received 17 bytes  874.00 bytes/sec
+total size is 1068611  speedup is 2445.33
+2010-09-09 12:03:33,006 INFO End backup loacl karrigell diretory to local git.
+2010-09-09 12:03:33,007 INFO Begin to backup local github to remote github host.
+2010-09-09 12:03:33,014 INFO Command: 
+git config --global user.name "broader"
+running result is :
+2010-09-09 12:03:33,020 INFO Command: 
+git config --global user.email broader.zhong@yahoo.com.cn
+running result is :
+2010-09-09 12:03:33,024 INFO Command: 
+git add . commit -m 'Update time:2010-09-09T12:03:33.007447' push origin master
+running result is :error: unknown switch `m'
+usage: git add [options] [--] <filepattern>...
+
+    -n, --dry-run         dry run
+    -v, --verbose         be verbose
+
+    -i, --interactive     interactive picking
+    -p, --patch           interactive patching
+    -e, --edit            edit current diff and apply
+    -f, --force           allow adding otherwise ignored files
+    -u, --update          update tracked files
+    -N, --intent-to-add   record only the fact that the path will be added later
+    -A, --all             add all, noticing removal of tracked files
+    --refresh             don't add, only refresh the index
+    --ignore-errors       just skip files which cannot be added because of errors
+
+2010-09-09 12:03:33,024 INFO End backup local github to remote github host.
+2010-09-09 12:04:51,609 INFO Delete nousing captcha images
+2010-09-09 12:04:51,611 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-09-09 12:04:51,611 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-09-09 12:04:51,803 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+
+sent 209350 bytes  received 1257 bytes  421214.00 bytes/sec
+total size is 85409103  speedup is 405.54
+2010-09-09 12:04:51,857 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 420 bytes  received 17 bytes  874.00 bytes/sec
+total size is 1068611  speedup is 2445.33
+2010-09-09 12:04:51,857 INFO End backup loacl karrigell diretory to local git.
+2010-09-09 12:04:51,858 INFO Begin to backup local github to remote github host.
+2010-09-09 12:05:05,276 INFO Delete nousing captcha images
+2010-09-09 12:05:05,279 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-09-09 12:05:05,279 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-09-09 12:05:05,503 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+
+sent 209350 bytes  received 1257 bytes  421214.00 bytes/sec
+total size is 85409103  speedup is 405.54
+2010-09-09 12:05:05,537 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 420 bytes  received 17 bytes  874.00 bytes/sec
+total size is 1068611  speedup is 2445.33
+2010-09-09 12:05:05,538 INFO End backup loacl karrigell diretory to local git.
+2010-09-09 12:05:05,538 INFO Begin to backup local github to remote github host.
