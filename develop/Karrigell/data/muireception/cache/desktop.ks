@@ -1,4 +1,4 @@
-['page_menuList', 'page_menu', 'index']
+['page_menuList', 'page_menuData', 'index']
 """ The portal which is like a desktop user interface. """
 
 from HTMLTags import *
@@ -12,7 +12,7 @@ modules = {'pagefn': 'pagefn.py',  'JSON': 'demjson.py', } #'formFn':'form.py'}
 
 
 def _initJs():
-	paras = [NAVBAR,'page_menu']
+	paras = [NAVBAR,'page_menuData']
 	paras = tuple(paras)
 	js = \
 	"""
@@ -20,7 +20,6 @@ def _initJs():
 
 	// get the global Assets manager
 	var am = MUI.assetsManager;
-	alert(am);
 
 	/*
 	**	Initialize menu by json data from server side
@@ -103,6 +102,8 @@ def _head():
 	for name in ('Core/Core.js', 'Window/Window.js', 'Layout/Layout.js', 'Layout/Dock.js') :
 		PRINT( SCRIPT(**{'type':'text/javascript', 'src': '/'.join(('..', 'lib', 'mocha', name))}))
 
+	PRINT( SCRIPT(**{'type':'text/javascript', 'src': "../scripts/demo-virtual-desktop-init.js"}))
+
 	# mootools Assets tools
 	PRINT( pagefn.script( '/'.join(('..', 'lib','tools','assetsmanager.js')), link=True))
 
@@ -177,7 +178,7 @@ def page_menuList(**args):
 
 MENUTYPE = ('userMenu', 'adminMenu')
 MENUTYPETAG = 'menuType'
-def page_menu(**args):
+def page_menuData(**args):
 	""" Return the menus data corresponding to user role. """
 	so = Session()
 	roles = getattr(so, pagefn.SOINFO['user']).get('roles') or ''
@@ -189,6 +190,7 @@ def page_menu(**args):
 		menus = pagefn.ADMINMENUS
 		menuType = MENUTYPE[1]
 
+	menus['js'] = '/'.join(('..', menus['js']))
 	menus['url'] = '?'.join(( 'page_menuList', '%s=%s'%(MENUTYPETAG, menuType) ))
 
 	# constructs the json objec to be returned
@@ -206,6 +208,7 @@ def page_menu(**args):
 
 NAVBAR = 'desktopNavbar'
 def _header(user=None):
+
 	desktopHeader = DIV(**{'id':'desktopHeader'})
 
 	titleWrapper = DIV(**{'id':'desktopTitlebarWrapper'})
@@ -221,9 +224,9 @@ def _header(user=None):
 	topNav = DIV(**{'id':'topNav'})
 	titleBar <= topNav
 	ul = UL(**{'class':'menu-right'})
-	li = LI(A("""Welcome <a href="#" onclick="MUI.notification('Do Something');return false;">%s</a>."""%(user or '')))
+	li = LI(TEXT("""Welcome <a href="#" onclick="MUI.notification('Do Something');return false;">%s</a>."""%(user or '')))
 	ul <= li
-	li = LI(A("""<a href="#" onclick="MUI.notification('Do Something');return false;">%s</a>"""%_("Sign Out")))
+	li = LI(TEXT("""<a href="#" onclick="MUI.notification('Do Something');return false;">%s</a>"""%_("Sign Out")))
 	ul <= li
 	topNav <= ul
 
@@ -234,12 +237,72 @@ def _header(user=None):
 
 	return
 
+def _dock():
+	# dock bar
+	dockwrapper = DIV(**{'id':'dockWrapper'})
+
+	dock = DIV(**{'id':'dock'})
+	dockwrapper <= dock
+
+	for tag in ('dockPlacement', 'dockAutoHide'):
+		dock <= DIV(**{'id':tag})
+
+	dock <= DIV(DIV(**{'id':'dockClear', 'class':'clear'}), **{'id':'dockSort'})
+
+	PRINT( dockwrapper)
+	return
+
+def _page():
+	# main desktop page
+	pageWrapper = DIV(**{'id':'pageWrapper'})
+	page = DIV(**{'id':'page'})
+	pageWrapper <= page
+
+	for name in ('globe.png', 'speaker.png', 'view.png', 'headset.png', 'camera.png') :
+		page <= IMG(**{\
+			'class':'desktopIcon', \
+			'src':'../images/icons/48x48/%s'%name, \
+			'alt':'Camera', 'width':'48', 'height':'48', 'onload':'fixPNG(this)'\
+		})
+		page <= BR()
+
+
+	PRINT( pageWrapper)
+
+	return
+
+def _footer():
+	# footer
+	footWrapper = DIV(**{'id':'desktopFooterWrapper'})
+	info = \
+	"""
+	&copy; 2007-2009 <a target="_blank" href="http://greghoustondesign.com/">Greg Houston</a> - MIT License
+	"""
+
+	footer = DIV(info, **{'id':'desktopFooter'})
+	footWrapper <= footer
+	PRINT( footWrapper)
+
+	return
+
+def _innerBody():
+
+	_dock()
+
+	_page()
+
+	_footer()
+
+	return
+
 def _body(user=None):
 	PRINT( "<body>")
 
 	PRINT( """<div id="desktop">""")
 
 	_header(user)
+
+	_innerBody()
 
 	PRINT( """</div>""")
 	PRINT( "</body>")
@@ -249,11 +312,16 @@ def index(**args):
 	PRINT( '''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">''')
 	PRINT( '<html xmlns="http://www.w3.org/1999/xhtml">')
 
-
 	_head()
 
+	user = args.get('user') or None
+	# set user information to session object
+	data = {'user': user,'roles': "User"}
+	so = Session()
+	setattr( so, pagefn.SOINFO['user'], data)
+
 	# body
-	_body(args.get('user'))
+	_body(user)
 
 	PRINT( '</html>')
 	return
