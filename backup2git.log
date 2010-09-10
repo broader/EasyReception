@@ -10463,3 +10463,72 @@ sent 420 bytes  received 17 bytes  874.00 bytes/sec
 total size is 1068611  speedup is 2445.33
 2010-09-09 21:30:21,178 INFO End backup loacl karrigell diretory to local git.
 2010-09-09 21:30:21,179 INFO Begin to backup local github to remote github host.
+2010-09-09 21:30:21,746 INFO Command: 
+git add .
+running result is :
+2010-09-09 21:30:32,523 INFO Command: 
+git commit -m 'Update time:2010-09-09T21:30:21.179349'
+running result is :[master 00ec2ba] Update time:2010-09-09T21:30:21.179349
+ 3 files changed, 215 insertions(+), 16 deletions(-)
+2010-09-09 21:30:42,767 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   8c690f4..00ec2ba  master -> master
+2010-09-09 21:30:42,767 INFO End backup local github to remote github host.
+2010-09-10 12:25:02,500 INFO Delete nousing captcha images
+2010-09-10 12:25:02,543 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-09-10 12:25:02,544 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-09-10 12:25:04,116 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/muireception/
+data/muireception/translations.dat
+        9825 100%    0.00kB/s    0:00:00          9825 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1005/6066)
+data/muireception/users.sqlite
+        2048 100%    1.95MB/s    0:00:00          2048 100%    1.95MB/s    0:00:00 (xfer#2, to-check=1004/6066)
+data/muireception/cache/desktop.ks
+        8161 100%    1.56MB/s    0:00:00          8161 100%    1.56MB/s    0:00:00 (xfer#3, to-check=1022/6091)
+data/muireception/cache/header.ks
+        2693 100%  438.31kB/s    0:00:00          2693 100%  438.31kB/s    0:00:00 (xfer#4, to-check=1020/6091)
+data/muireception/cache/pagefn.py
+       13146 100%    1.39MB/s    0:00:00         13146 100%    1.39MB/s    0:00:00 (xfer#5, to-check=1016/6091)
+data/muireception/cache/js/init.js.pih
+        3835 100%   45.12kB/s    0:00:00          3835 100%   45.12kB/s    0:00:00 (xfer#6, to-check=2451/7561)
+data/muireception/cache/js/layoutInit.js.pih
+       13037 100%  151.56kB/s    0:00:00         13037 100%  151.56kB/s    0:00:00 (xfer#7, to-check=2449/7561)
+data/muireception/cache/portal/index.pih
+        7254 100%   84.33kB/s    0:00:00          7254 100%   84.33kB/s    0:00:00 (xfer#8, to-check=2441/7561)
+data/muireception/sessions/
+data/muireception/sessions/GdP9xTNOpAqX1ya4
+         245 100%    2.85kB/s    0:00:00           245 100%    2.85kB/s    0:00:00 (xfer#9, to-check=2266/7561)
+data/muireception/sessions/bIizc7VJBdMzeWlb
+         245 100%    2.85kB/s    0:00:00           245 100%    2.85kB/s    0:00:00 (xfer#10, to-check=2265/7561)
+muireception/
+muireception/.desktop.ks.swp
+       24576 100%  282.35kB/s    0:00:00         24576 100%  282.35kB/s    0:00:00 (xfer#11, to-check=1668/7561)
+muireception/desktop.ks
+        8112 100%   92.11kB/s    0:00:00          8112 100%   92.11kB/s    0:00:00 (xfer#12, to-check=1659/7561)
+muireception/js/
+muireception/js/.init-desktop4user.js.swp
+       24576 100%   60.45kB/s    0:00:00         24576 100%   60.45kB/s    0:00:00 (xfer#13, to-check=1040/8764)
+muireception/js/init-desktop4user.js
+        2931 100%    7.21kB/s    0:00:00          2931 100%    7.21kB/s    0:00:00 (xfer#14, to-check=1036/8764)
+muireception/scripts/
+muireception/scripts/.demo-virtual-desktop-init.js.swp
+       16384 100%   26.27kB/s    0:00:00         16384 100%   26.27kB/s    0:00:00 (xfer#15, to-check=844/10059)
+
+sent 247542 bytes  received 1565 bytes  99642.80 bytes/sec
+total size is 85485336  speedup is 343.17
+2010-09-10 12:25:04,226 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768   4%    0.00kB/s    0:00:00        661106 100%   12.23MB/s    0:00:00 (xfer#1, to-check=13/15)
+
+sent 145832 bytes  received 36 bytes  291736.00 bytes/sec
+total size is 1071419  speedup is 7.35
+2010-09-10 12:25:04,226 INFO End backup loacl karrigell diretory to local git.
+2010-09-10 12:25:04,226 INFO Begin to backup local github to remote github host.

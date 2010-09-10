@@ -102,7 +102,7 @@ def _head():
 	for name in ('Core/Core.js', 'Window/Window.js', 'Layout/Layout.js', 'Layout/Dock.js') :
 		PRINT( SCRIPT(**{'type':'text/javascript', 'src': '/'.join(('..', 'lib', 'mocha', name))}))
 
-	PRINT( SCRIPT(**{'type':'text/javascript', 'src': "../scripts/demo-virtual-desktop-init.js"}))
+	PRINT( SCRIPT(**{'type':'text/javascript', 'src': "../js/init-desktop4user.js"}))
 
 	# mootools Assets tools
 	PRINT( pagefn.script( '/'.join(('..', 'lib','tools','assetsmanager.js')), link=True))
@@ -218,13 +218,13 @@ def _header(user=None):
 	titleWrapper <= titleBar
 
 	titleBar <= H1('Mocha UI', **{'class':'applicationTitle'})
-	leftUpLogo = """A Web Applications <span class="taglineEm">User Interface Library</span>"""
+	leftUpLogo = """%s <span class="taglineEm">%s</span>"""%(_("Simple, Effective"), _("Portal for congress administration"))
 	titleBar <= H2(leftUpLogo, **{'class':'tagline'})
 
 	topNav = DIV(**{'id':'topNav'})
 	titleBar <= topNav
 	ul = UL(**{'class':'menu-right'})
-	li = LI(TEXT("""Welcome <a href="#" onclick="MUI.notification('Do Something');return false;">%s</a>."""%(user or '')))
+	li = LI(TEXT("""%s <a href="#" onclick="MUI.notification('Do Something');return false;">%s</a>."""%(_("Welcome"), user or '')))
 	ul <= li
 	li = LI(TEXT("""<a href="#" onclick="MUI.notification('Do Something');return false;">%s</a>"""%_("Sign Out")))
 	ul <= li
@@ -276,7 +276,7 @@ def _footer():
 	footWrapper = DIV(**{'id':'desktopFooterWrapper'})
 	info = \
 	"""
-	&copy; 2007-2009 <a target="_blank" href="http://greghoustondesign.com/">Greg Houston</a> - MIT License
+	&copy; 2007-2010 <a target="_blank" href="http://www.acroes.com/">北京昊鹏星辰科技有限责任公司</a> - MIT License
 	"""
 
 	footer = DIV(info, **{'id':'desktopFooter'})
