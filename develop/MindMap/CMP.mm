@@ -2182,7 +2182,7 @@
 <icon BUILTIN="button_cancel"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1282382616939" FOLDED="true" ID="ID_230604957" MODIFIED="1283418007630" TEXT="&#x9152;&#x5e97;&#x9884;&#x5b9a;">
+<node COLOR="#00b439" CREATED="1282382616939" FOLDED="true" ID="ID_230604957" MODIFIED="1284345692358" TEXT="&#x9152;&#x5e97;&#x9884;&#x5b9a;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1282382625969" ID="ID_467871394" MODIFIED="1282382629332" TEXT="&#x5730;&#x56fe;">
@@ -2192,6 +2192,13 @@
 <node COLOR="#111111" CREATED="1283395832419" ID="ID_1511071758" LINK="http://static.buildinternet.com/live-tutorials/interactive-picture/index.html" MODIFIED="1283395836086" TEXT="http://static.buildinternet.com/live-tutorials/interactive-picture/index.html">
 <node COLOR="#111111" CREATED="1283395838978" ID="ID_1152431343" MODIFIED="1283395858282" TEXT="&#x5730;&#x56fe;&#x4e0a;&#x5177;&#x4f53;&#x4f4d;&#x7f6e;&#x7684;&#x4ecb;&#x7ecd;&#x65b9;&#x5f0f;"/>
 </node>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1284107740416" ID="ID_1266994084" MODIFIED="1284107750945" TEXT="&#x5165;&#x4f4f;&#x65e5;&#x671f;&#x9009;&#x62e9;">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1284107753007" ID="ID_609387968" MODIFIED="1284107756376" TEXT="prefer">
+<node COLOR="#111111" CREATED="1284107757404" ID="ID_1681167136" LINK="http://www.filamentgroup.com/examples/datepicker/" MODIFIED="1284107760431" TEXT="http://www.filamentgroup.com/examples/datepicker/"/>
+<node COLOR="#111111" CREATED="1284107867758" ID="ID_536935715" LINK="http://www.filamentgroup.com/lab/date_range_picker_using_jquery_ui_16_and_jquery_ui_css_framework/" MODIFIED="1284107870690" TEXT="http://www.filamentgroup.com/lab/date_range_picker_using_jquery_ui_16_and_jquery_ui_css_framework/"/>
 </node>
 </node>
 </node>
@@ -2236,7 +2243,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1252293844859" FOLDED="true" ID="Freemind_Link_141958953" MODIFIED="1284091201704" TEXT="Agenda/Calendar">
+<node COLOR="#00b439" CREATED="1252293844859" FOLDED="true" ID="Freemind_Link_141958953" MODIFIED="1284196665607" TEXT="Agenda/Calendar">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="full-1"/>
@@ -2272,6 +2279,12 @@
 <node COLOR="#111111" CREATED="1276311882636" ID="ID_1392794657" LINK="http://dansnetwork.com/mootools/events-calendar/" MODIFIED="1283396190256" TEXT="http://dansnetwork.com/mootools/events-calendar/">
 <icon BUILTIN="full-1"/>
 </node>
+<node COLOR="#111111" CREATED="1284195896107" ID="ID_1424708186" LINK="http://www.electricprism.com/aeron/calendar/" MODIFIED="1284195908693" TEXT="http://www.electricprism.com/aeron/calendar/">
+<icon BUILTIN="idea"/>
+</node>
+<node COLOR="#111111" CREATED="1284196591150" ID="ID_1246629754" LINK="http://www.ajaxavailabilitycalendar.com/" MODIFIED="1284196600617" TEXT="http://www.ajaxavailabilitycalendar.com/">
+<icon BUILTIN="idea"/>
+</node>
 </node>
 <node COLOR="#111111" CREATED="1283400280412" ID="ID_811680513" MODIFIED="1283400282898" TEXT="Misc">
 <node COLOR="#111111" CREATED="1283400267215" ID="ID_583092114" LINK="http://www.askthecssguy.com/2007/08/creating_a_table_with_dynamica.html" MODIFIED="1283400298082" TEXT="http://www.askthecssguy.com/2007/08/creating_a_table_with_dynamica.html">
@@ -2290,13 +2303,13 @@
 <node COLOR="#111111" CREATED="1283829937527" ID="ID_250278661" LINK="http://www.csstemplatesfree.org/templates/OWMX/" MODIFIED="1283829940305" TEXT="http://www.csstemplatesfree.org/templates/OWMX/"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1283396146935" FOLDED="true" ID="ID_1350886918" MODIFIED="1283418023527" TEXT="&#x5f53;&#x65e5;&#x65e5;&#x7a0b;&#x5b89;&#x6392;&#x6837;&#x5f0f;">
+<node COLOR="#990000" CREATED="1283396146935" ID="ID_1350886918" MODIFIED="1284195869222" TEXT="&#x5f53;&#x65e5;&#x65e5;&#x7a0b;&#x5b89;&#x6392;&#x6837;&#x5f0f;">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1283396130668" ID="ID_1214252604" LINK="http://events.jquery.org/2010/sf-bay-area/schedule/" MODIFIED="1283396144523" TEXT="http://events.jquery.org/2010/sf-bay-area/schedule/">
 <icon BUILTIN="full-3"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1283418032271" FOLDED="true" ID="ID_1118284567" MODIFIED="1283741783451" TEXT="&#x8bbe;&#x8ba1;&#x601d;&#x8def;">
+<node COLOR="#990000" CREATED="1283418032271" ID="ID_1118284567" MODIFIED="1284195792419" TEXT="&#x8bbe;&#x8ba1;&#x601d;&#x8def;">
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="idea"/>
 <node COLOR="#111111" CREATED="1283418039932" ID="ID_220616270" MODIFIED="1283741780333">
@@ -2319,7 +2332,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1255678687321" ID="Freemind_Link_1960570627" MODIFIED="1284091208013" TEXT="Portal">
+<node COLOR="#00b439" CREATED="1255678687321" ID="Freemind_Link_1960570627" MODIFIED="1284360693517" TEXT="Portal">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="button_cancel"/>
@@ -2337,7 +2350,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1275355086386" ID="ID_51944167" LINK="http://codecanyon.net/item/newsletter-system/52667" MODIFIED="1275355089505" TEXT="http://codecanyon.net/item/newsletter-system/52667"/>
 </node>
-<node COLOR="#990000" CREATED="1251723352369" ID="Freemind_Link_1621143709" MODIFIED="1284092394381" TEXT="Register User">
+<node COLOR="#990000" CREATED="1251723352369" FOLDED="true" ID="Freemind_Link_1621143709" MODIFIED="1284360879631" TEXT="Register User">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="full-2"/>
@@ -2429,6 +2442,12 @@
 <node COLOR="#111111" CREATED="1284091041509" ID="ID_1311811569" MODIFIED="1284091066155" TEXT="Bullet Board(&#x6d88;&#x606f;&#x724c;)">
 <node COLOR="#111111" CREATED="1284091067196" ID="ID_1167584934" LINK="http://labs.unwieldy.net/tagboard/" MODIFIED="1284091073493" TEXT="http://labs.unwieldy.net/tagboard/"/>
 </node>
+<node COLOR="#111111" CREATED="1284360700926" ID="ID_816378501" MODIFIED="1284360708983" TEXT="stickyNote">
+<node COLOR="#111111" CREATED="1284360710245" ID="ID_370290705" LINK="http://www.tympanus.net/jstickynote/#about" MODIFIED="1284360712371" TEXT="http://www.tympanus.net/jstickynote/#about"/>
+</node>
+<node COLOR="#111111" CREATED="1284108040235" ID="ID_1642148487" MODIFIED="1284108050308" TEXT="&#x5012;&#x8ba1;&#x65f6;&#x724c;">
+<node COLOR="#111111" CREATED="1284108052300" ID="ID_856767992" LINK="http://net.tutsplus.com/tutorials/html-css-techniques/learn-how-to-create-a-retro-animated-flip-down-clock/" MODIFIED="1284108055034" TEXT="http://net.tutsplus.com/tutorials/html-css-techniques/learn-how-to-create-a-retro-animated-flip-down-clock/"/>
+</node>
 </node>
 </node>
 <node COLOR="#111111" CREATED="1273030235681" ID="ID_907559796" MODIFIED="1284092401449" TEXT="Idea">
@@ -2442,7 +2461,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1273030240720" ID="ID_1458447197" MODIFIED="1273032435449" TEXT="Tools">
+<node COLOR="#111111" CREATED="1273030240720" FOLDED="true" ID="ID_1458447197" MODIFIED="1284195771248" TEXT="Tools">
 <node COLOR="#111111" CREATED="1273030245746" ID="ID_732902510" MODIFIED="1273032437042" TEXT="stick note">
 <node COLOR="#111111" CREATED="1267497612681" ID="ID_1463941077" LINK="http://www.tympanus.net/jstickynote/#about" MODIFIED="1273029807476" TEXT="http://www.tympanus.net/jstickynote/#about"/>
 <node COLOR="#111111" CREATED="1271132112837" ID="ID_1161384671" LINK="http://tutorialzine.com/2010/01/sticky-notes-ajax-php-jquery/" MODIFIED="1271132116470" TEXT="http://tutorialzine.com/2010/01/sticky-notes-ajax-php-jquery/"/>
@@ -2455,7 +2474,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1283418472472" FOLDED="true" ID="ID_1886753101" MODIFIED="1284092399895" TEXT="Demo Exhibition Portal">
+<node COLOR="#990000" CREATED="1283418472472" ID="ID_1886753101" MODIFIED="1284360882549" TEXT="Demo Exhibition Portal">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1283418529202" ID="ID_1253906057" MODIFIED="1283418531394" TEXT="Layout">
@@ -2471,10 +2490,15 @@
 <node COLOR="#111111" CREATED="1284091224029" ID="ID_849026020" MODIFIED="1284091229529" TEXT="Instan Message">
 <node COLOR="#111111" CREATED="1284091230332" ID="ID_1089368666" LINK="http://ajaxim.com/" MODIFIED="1284091233242" TEXT="http://ajaxim.com/"/>
 </node>
+<node COLOR="#111111" CREATED="1284360891862" ID="ID_1848496707" MODIFIED="1284360899832" TEXT="Sponsors">
+<node COLOR="#111111" CREATED="1284360901035" ID="ID_1824425706" MODIFIED="1284360903959" TEXT="Filp">
+<node COLOR="#111111" CREATED="1284360904969" ID="ID_785081870" LINK="http://jonraasch.com/blog/quickflip-2-jquery-plugin" MODIFIED="1284360907967" TEXT="http://jonraasch.com/blog/quickflip-2-jquery-plugin"/>
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1257233438846" FOLDED="true" ID="ID_1216660804" MODIFIED="1283741677905" TEXT="Web Map">
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1257233438846" FOLDED="true" ID="ID_1216660804" MODIFIED="1284360692082" TEXT="Web Map">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="help"/>
@@ -2542,7 +2566,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1282446905665" ID="ID_1854383608" MODIFIED="1282446910611" TEXT="Idea">
+<node COLOR="#990000" CREATED="1282446905665" ID="ID_1854383608" MODIFIED="1284346695152" TEXT="Idea">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1282446911223" ID="ID_669955092" MODIFIED="1282449212714" TEXT="Zoom">
 <icon BUILTIN="full-1"/>
@@ -2567,9 +2591,10 @@
 <node COLOR="#111111" CREATED="1282448135936" ID="ID_466141073" MODIFIED="1282449200068" TEXT="&#x5168;&#x666f;&#x56fe;&#x7247;">
 <node COLOR="#111111" CREATED="1282448142367" ID="ID_727183033" MODIFIED="1282448177360" TEXT="&#x5408;&#x9002;&#x6bd4;&#x4f8b;&#x7684;&#x5317;&#x4eac;&#x56fe;&#x7247;"/>
 <node COLOR="#111111" CREATED="1282448178194" ID="ID_870442100" MODIFIED="1282462952961" TEXT="&#x9152;&#x5e97;&#x6807;&#x8bc6;">
-<node COLOR="#111111" CREATED="1282448193613" ID="ID_1588442775" MODIFIED="1282462980477" TEXT="&#x80cc;&#x666f;&#x56fe;&#x7247;&#xff0b;js&#x751f;&#x6210;&#x6807;&#x8bc6;&#x70b9;">
+<node COLOR="#111111" CREATED="1282448193613" ID="ID_1588442775" MODIFIED="1284346714454" TEXT="&#x80cc;&#x666f;&#x56fe;&#x7247;&#xff0b;js&#x751f;&#x6210;&#x6807;&#x8bc6;&#x70b9;">
 <icon BUILTIN="help"/>
 <icon BUILTIN="full-1"/>
+<icon BUILTIN="button_ok"/>
 <node COLOR="#111111" CREATED="1282448489647" ID="ID_607500812" MODIFIED="1282449148742">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -2615,6 +2640,9 @@
 <node COLOR="#111111" CREATED="1282611072611" ID="ID_1329287930" MODIFIED="1282611075025" TEXT="Tools">
 <node COLOR="#111111" CREATED="1282611076250" ID="ID_1704564711" MODIFIED="1282611083288" TEXT="Image Tooltip">
 <node COLOR="#111111" CREATED="1282611084097" ID="ID_655538772" LINK="http://mootools.net/forge/p/mooimagetip" MODIFIED="1282611086635" TEXT="http://mootools.net/forge/p/mooimagetip"/>
+</node>
+<node COLOR="#111111" CREATED="1284346719929" ID="ID_1491482760" MODIFIED="1284346726212" TEXT="Popup Detail">
+<node COLOR="#111111" CREATED="1284346727383" ID="ID_300507957" LINK="http://www.clientcide.com/wiki/cnet-libraries/07-ui/03-popupdetails" MODIFIED="1284346729836" TEXT="http://www.clientcide.com/wiki/cnet-libraries/07-ui/03-popupdetails"/>
 </node>
 </node>
 </node>
@@ -4607,9 +4635,15 @@
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1268185604841" ID="ID_97227876" MODIFIED="1268185605590" TEXT="http://kuler.adobe.com/#themes/rating?time=30"/>
 </node>
-<node COLOR="#990000" CREATED="1268185720454" ID="ID_637722862" MODIFIED="1269056930644" TEXT="Layout Mocking">
+<node COLOR="#990000" CREATED="1284345719964" ID="ID_1652331621" MODIFIED="1284345721867" TEXT="Layout">
 <font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1284345724860" ID="ID_1760142764" MODIFIED="1284345729567" TEXT="Package">
+<node COLOR="#111111" CREATED="1284345730459" ID="ID_261553938" LINK="http://www.clientcide.com/wiki/cnet-libraries" MODIFIED="1284345816882" TEXT="http://www.clientcide.com/wiki/cnet-libraries"/>
+</node>
+<node COLOR="#111111" CREATED="1268185720454" ID="ID_637722862" MODIFIED="1284345829497" TEXT="Mocking">
+<font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1268185724802" ID="ID_1218559749" MODIFIED="1268185725870" TEXT="http://gomockingbird.com/mockingbird/"/>
+</node>
 </node>
 <node COLOR="#990000" CREATED="1271381980480" ID="ID_1234453227" MODIFIED="1271381988538" TEXT="Microformat">
 <font NAME="SansSerif" SIZE="14"/>

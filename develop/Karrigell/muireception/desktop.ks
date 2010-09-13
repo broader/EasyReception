@@ -95,7 +95,7 @@ def _head():
 	"""
 
 	# javascript files' links
-	for name in ('mootools-1.2.4-core.js', 'mootools-1.2.4.2-more.js') :
+	for name in ('mootools-1.2.4-core.js', 'mootools-1.2.4.2-more.js', 'Date.Chinese.CN.js' ) :
 		print SCRIPT(**{'type':'text/javascript', 'src': '/'.join(('..', 'lib', 'mootools', name))})
 	
 	for name in ('Core/Core.js', 'Window/Window.js', 'Layout/Layout.js', 'Layout/Dock.js') :
@@ -257,7 +257,8 @@ def _page():
 	page = DIV(**{'id':'page'})
 	pageWrapper <= page
 
-	for name in ('globe.png', 'speaker.png', 'view.png', 'headset.png', 'camera.png') :
+	#for name in ('globe.png', 'speaker.png', 'view.png', 'headset.png', 'camera.png') :
+	for name in () :
 		page <= IMG(**{\
 			'class':'desktopIcon', \
 			'src':'../images/icons/48x48/%s'%name, \
@@ -325,3 +326,11 @@ def index(**args):
 	print '</html>'	
 	return	
 
+def page_windowsConfig(**args):
+	config = pagefn.DESKTOP4USER['windowsConfig']
+	for wconfig in config :
+		for k,v in wconfig.items():
+			if type(v) == type(''):
+				wconfig[k] = v.decode('utf-8')
+	
+	print JSON.encode(config, encoding='utf8') 

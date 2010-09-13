@@ -127,6 +127,46 @@ USERMENUS = \
 'js': 'js/userMenus.js'
 }
 
+DESKTOP4USER = \
+{
+'windowsConfig':[\
+	{\
+		'id': 'reservationDashboard',\
+		'title':_('Your Reservations'),\
+		'loadMethod': 'xhr',\
+		'contentURL': '../portal/desktop/reservation.ks/index',\
+		'width': 250, 'height': 150, 'x': 50, 'y': 100\
+	},\
+	{\
+		'id': 'hotelMap',\
+		'title':_('Hotel Map'),\
+		'loadMethod': 'xhr',\
+		'contentURL': '../portal/desktop/hotelMap.ks/index',\
+		'width': 250, 'height': 150, 'x': 50, 'y': 210\
+	},\
+	{\
+		'id': 'fileManager',\
+		'title':_('Your File Folder'),\
+		'loadMethod': 'xhr',\
+		'contentURL': '../portal/desktop/fileManager.ks/index',\
+		'width': 250, 'height': 150, 'x': 50, 'y': 310\
+	},\
+	{\
+		'id': 'calendar',\
+		'title':_('Calendar'),\
+		'shape': 'gauge', 'headerHeight': 30,\
+		'addClass': 'transparent',
+		'padding': { 'top': 0, 'right': 0, 'bottom': 0, 'left': 0 },\
+		'loadMethod': 'xhr',\
+		'contentURL': '../portal/desktop/calendar.ks/index',\
+		'width': 260, 'height': 200, 'x': 810, 'y': 100\
+	},\
+
+
+],
+
+}
+
 # The menues for adminstrator user
 ADMINMENUS = \
 {

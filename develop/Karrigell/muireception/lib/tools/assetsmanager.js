@@ -18,16 +18,16 @@ var AssetsManager = new Class({
     			  {'app':..., 'lib':..., 'url':..., 'type':... }
     	options: the options or properties for mootoools.Assets import function
     *********************************************************************/
-    import: function(object, options){
+    import: function(obj, options){
     	if(!$defined(options)){ options={};}; 
     	   	
     	var id = options['id'];    	
     	if(!$defined(id)){ 
-    		options['id'] = id = object['url'];    		 
+    		options['id'] = id = obj['url'];    		 
     	};
     	
     	// store the information of this file to be imported     	
-		this.imported.set(id, $H(object));
+	this.imported.set(id, $H(obj));
 		
     	// import this file 
     	this._importAsset(id, options);

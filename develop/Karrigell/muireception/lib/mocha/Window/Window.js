@@ -608,7 +608,7 @@ MUI.Window = new Class({
 				'onContentLoaded': options.toolbar2Onload
 			});
 		}
-				        
+		
 		this.drawWindow();
 				
 		// Attach events to the window

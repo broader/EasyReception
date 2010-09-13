@@ -608,7 +608,7 @@ MUI.Window = new Class({
 				'onContentLoaded': options.toolbar2Onload
 			});
 		}
-				        
+		
 		this.drawWindow();
 				
 		// Attach events to the window
@@ -1851,6 +1851,7 @@ MUI.Window = new Class({
 	drawGauge: function(ctx, width, height, shadowBlur, shadowOffset, shadows){
 		var options = this.options;
 		var radius = (width * .5) - (shadowBlur) + 16;
+		/*
 		if (shadows != false) {	
 			for (var x = 0; x <= shadowBlur; x++){
 				MUI.circle(
@@ -1871,6 +1872,7 @@ MUI.Window = new Class({
 			options.bodyBgColor,
 			1
 		);
+		*/
 
 		// Draw gauge header
 		this.canvasHeaderEl.setStyles({
@@ -2281,14 +2283,11 @@ MUI.extend({
 
 	*/
 	closeAll: function() {		
-		/*
 		$$('.mocha').each(function(windowEl){
-			this.closeWindow(windowEl);
-		*/
-		this.Windows.instances.each(function(instance){
-			this.closeWindow(instance.windowEl);			
+			this.closeWindow(windowEl);		
 		}.bind(this));
 	},
+	
 	/*
 	  	
 	Function: collapseToggle

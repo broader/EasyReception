@@ -4,4 +4,6 @@ Hotel:
     \u996D\u5E97", x: '545', y: '261'}
 - {mapInfo: detailImages/friendship_demo_600.jpg, name: !!python/str "\u53CB\u8C0A\
     \u5BBE\u9986", x: '441', y: '339'}
-- {mapInfo: detailImages/beiligong_demo_600.jpg, name: !!python/str "\u5317\u7406\u5DE5\u4EA4\u6D41\u4E2D\u5FC3", x: '397', y: '350'}
+- {mapInfo: detailImages/beiligong_demo_600.jpg, name: !!python/str "\u5317\u7406\u5DE5\
+    \u4EA4\u6D41\u4E2D\u5FC3", x: '397', y: '350'}
+- {name: !!python/str "\u6D4B\u8BD5\u9152\u5E97", x: '398', y: '217'}
