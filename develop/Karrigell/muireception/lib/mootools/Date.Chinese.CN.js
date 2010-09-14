@@ -24,7 +24,7 @@ MooTools.lang.set('zh-CN', 'Date', {
 	months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
 	days: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
 	//culture's date order: MM/DD/YYYY
-	dateOrder: ['月', '日', '年'],
+	dateOrder: ['year', 'month', 'date'],
 	shortDate: '%Y年%m月%d日',
 	shortTime: '%H:%M',
 	AM: '上午',

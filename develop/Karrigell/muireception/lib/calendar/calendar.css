@@ -1,6 +1,6 @@
 /* ******************************************************* */
 
-.calendarTable { 
+.calendarTable table { 
 	width:auto; 
 	border-collapse:collapse; 
 	margin-bottom:0.5em; 
@@ -12,6 +12,26 @@
 	margin-left: 10px;
 }
 
-/*
-.calendarTable caption { font-variant:small-caps; }
-*/
+.calendarTable caption { 
+	font-variant:small-caps;
+	width: 100%;
+}
+
+.calendarTable caption a { 
+	color: white;
+}
+
+.calendarTable caption span { 
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.calendarTable th,td { 
+	padding-left: 2px;
+	padding-right: 2px;
+	text-align: center;
+}
+
+.calendarTable td.outOfMonth { 
+	color: gainsboro;
+}

@@ -18,7 +18,10 @@ var CalendarTable = new Class({
 		//columnsModel: null,	
 		//colsModelUrl: null,
 		lang: 'zh-CN',	// i18n 
-		cssStyle: 'calendarTable',
+		tableClass: 'calendarTable',
+		nextClass: 'next',
+		prevClass: 'prev',
+		outOfMonthClass: 'outOfMonth',
 		dataUrl: null,
 		//data: null,
 		selectedClass: 'selected'	// the css class for selected <td> element 
@@ -33,13 +36,14 @@ var CalendarTable = new Class({
 					
 		this.setOptions(options);		
 		this.container = $(container);
+		if(!this.container.hasClass(this.options.cssStyle)) this.container.addClass(this.options.tableClass);
+
 		if (!this.container)
 			return;
-		
-		//this.colsModel = this.options.columnsModel;
-		//this.treeColumn = this.options.treeColumn;
-		//this.fireRenderOver = this.options.fireRenderOver; 
-		
+	
+		// the MooTools Date instance
+		this.date = new Date();
+				
 		this.htmlTable=null;
 		this.draw();		
 		//this.loadData();
@@ -51,14 +55,14 @@ var CalendarTable = new Class({
 	draw: function(){		
 		this.htmlTable = new HtmlTable();
 		
-		// set table css style 
-		this.htmlTable.element.addClass(this.options.cssStyle);
-		
 		// add caption for the table
 		this.setCaption();
 		
 		// set the table headers 
 		this.setHeader();
+
+		// set the days of this month
+		this.setDays();
 		
 		this.htmlTable.inject(this.container,'top');
 
@@ -69,14 +73,70 @@ var CalendarTable = new Class({
 	*/
 	setCaption: function(){
 		var caption = new Element('caption');
-		caption.grab( new Element('span', {html: 'China'}));
+		
+		caption.adopt(
+			new Element('a', {'class': this.options.nextClass, html: '<<'}), 
+			new Element('span', {html: this.date.format(Date.shortDate).split(' ')[0]}), 
+			new Element('a', {'class': this.options.prevClass, html: '>>'}) 
+		);
 		this.htmlTable.grab(caption);
 	},
 	
 	/*
-	Set the header of the calendar table.
+	Set the date header of the calendar table.
 	*/
 	setHeader: function(){
+		this.htmlTable.setHeaders(MooTools.lang.get('Date').days);
+	},
+
+	/*
+	Set the days of current month to the calendar table.
+	*/
+	setDays: function(){
+		var isLastDay=true,
+		    date= this.date.clone();
+
+		date.decrement('day', this.date.get('Date')-1);
+		var startWeekDay=date.get('day'), 
+		    startWeek = date.get('week'),
+		    endDay= date.getLastDayOfMonth();
+
+		while(isLastDay){
+			var tr = [];
+
+			if(date.get('week') == startWeek){
+				date = date.decrement('day', startWeekDay);
+				for(i=0;i<=6;i++){
+					if(i < startWeekDay){
+						tr.push({'content': date.get('date'), properties:{'class':this.options.outOfMonthClass}});
+					}
+					else{tr.push(date.get('date'));};
+					
+					date.increment('day',1);
+				}
+			}
+			else{
+				var endMonth = false;
+				for(i=0;i<=6;i++){
+					if(date.get('date') == endDay) endMonth = true;
+
+					if(!endMonth || date.get('date') == endDay){
+						tr.push(date.get('date'));
+					}
+					else{
+						tr.push({'content': date.get('date'), properties:{'class':this.options.outOfMonthClass}});
+					};
+
+					if(date.get('date')==endDay) {isLastDay=false;}
+					date.increment('day',1);
+				};
+			};
+		
+	
+			this.htmlTable.push(tr);
+
+		};
+		
 	}
 	
 });

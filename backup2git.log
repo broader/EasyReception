@@ -10665,3 +10665,199 @@ sent 165495 bytes  received 55 bytes  331100.00 bytes/sec
 total size is 1074635  speedup is 6.49
 2010-09-13 17:05:33,523 INFO End backup loacl karrigell diretory to local git.
 2010-09-13 17:05:33,523 INFO Begin to backup local github to remote github host.
+2010-09-13 17:05:34,440 INFO Command: 
+git add .
+running result is :
+2010-09-13 17:05:45,350 INFO Command: 
+git commit -m 'Update time:2010-09-13T17:05:33.523926'
+running result is :[master b0c6624] Update time:2010-09-13T17:05:33.523926
+ 36 files changed, 800 insertions(+), 118 deletions(-)
+ create mode 100644 develop/Karrigell/data/muireception/cache/portal/desktop/calendar.ks
+ create mode 100644 develop/Karrigell/data/muireception/cache/portal/desktop/fileManager.ks
+ create mode 100644 develop/Karrigell/data/muireception/cache/portal/desktop/hotelMap.ks
+ create mode 100644 develop/Karrigell/data/muireception/cache/portal/desktop/index.ks
+ create mode 100644 develop/Karrigell/data/muireception/cache/portal/desktop/reservation.ks
+ create mode 100644 develop/Karrigell/data/muireception/sessions/J9tq4SYQVoyaLzEw
+ create mode 100644 develop/Karrigell/data/muireception/sessions/cVb6viPO83Ql5xwZ
+ create mode 100644 develop/Karrigell/data/muireception/sessions/eF1qIIjvE2MMSgtM
+ create mode 100644 develop/Karrigell/data/muireception/sessions/q9DEF5HDgFKDbvBG
+ create mode 100644 develop/Karrigell/data/muireception/sessions/u8IvH5FMIvmiLekZ
+ create mode 100644 develop/Karrigell/muireception/lib/calendar/calendar.css
+ create mode 100644 develop/Karrigell/muireception/lib/calendar/calendar.js
+ create mode 100644 develop/Karrigell/muireception/lib/calendar/calendar.js~
+ create mode 100644 develop/Karrigell/muireception/lib/mootools/Date.Chinese.CN.js
+ create mode 100644 develop/Karrigell/muireception/lib/mootools/Date.Chinese.js~
+ create mode 100644 develop/Karrigell/muireception/portal/desktop/calendar.ks
+ create mode 100644 develop/Karrigell/muireception/portal/desktop/fileManager.ks
+ create mode 100644 develop/Karrigell/muireception/portal/desktop/hotelMap.ks
+ create mode 100644 develop/Karrigell/muireception/portal/desktop/reservation.ks
+2010-09-13 17:05:54,092 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   baca799..b0c6624  master -> master
+2010-09-13 17:05:54,092 INFO End backup local github to remote github host.
+2010-09-14 21:46:08,187 INFO Delete nousing captcha images
+2010-09-14 21:46:08,233 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-09-14 21:46:08,234 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-09-14 21:46:10,811 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/muireception/cache/
+deleting data/muireception/cache/user/userManagement.ks
+deleting data/muireception/cache/user/
+deleting data/muireception/cache/test/smartList/smartListTest.pih
+deleting data/muireception/cache/test/smartList/
+deleting data/muireception/cache/test/smartListTest.pih
+deleting data/muireception/cache/test/smartList.pih
+deleting data/muireception/cache/test/data.ks
+deleting data/muireception/cache/test/
+deleting data/muireception/cache/sysadmin/webaction.py
+deleting data/muireception/cache/sysadmin/sysadmin.ks
+deleting data/muireception/cache/sysadmin/
+deleting data/muireception/cache/service/userHotelsView.ks
+deleting data/muireception/cache/service/service.ks
+deleting data/muireception/cache/service/adminHotels.ks
+deleting data/muireception/cache/service/
+deleting data/muireception/cache/register/registerEnd.ks
+deleting data/muireception/cache/register/register.ks
+deleting data/muireception/cache/register/portfolioForm.ks
+deleting data/muireception/cache/register/accountForm.ks
+deleting data/muireception/cache/register/Captcha.py
+deleting data/muireception/cache/register/
+deleting data/muireception/cache/portfolio/portfolio.ks
+deleting data/muireception/cache/portfolio/
+deleting data/muireception/cache/lib/smartList/smartList.pih
+deleting data/muireception/cache/lib/smartList/demoData.ks
+deleting data/muireception/cache/lib/smartList/
+deleting data/muireception/cache/lib/formcheck/lang.js.pih
+deleting data/muireception/cache/lib/formcheck/
+deleting data/muireception/cache/lib/
+deleting data/muireception/cache/issue/userView.ks
+deleting data/muireception/cache/issue/adminView.ks
+deleting data/muireception/cache/issue/action.ks
+deleting data/muireception/cache/issue/
+deleting data/muireception/cache/images/maps/hotel/index.pih
+deleting data/muireception/cache/images/maps/hotel/index.ks
+deleting data/muireception/cache/images/maps/hotel/hotelConfig.py
+deleting data/muireception/cache/images/maps/hotel/
+deleting data/muireception/cache/images/maps/
+deleting data/muireception/cache/images/
+deleting data/muireception/cache/fileManagement/index.ks
+deleting data/muireception/cache/fileManagement/fileConfig.py
+deleting data/muireception/cache/fileManagement/demo.ks
+deleting data/muireception/cache/fileManagement/
+deleting data/muireception/cache/admin/translation/translator.ks
+deleting data/muireception/cache/admin/translation/jQueryFileTree.py
+deleting data/muireception/cache/admin/translation/index.py
+deleting data/muireception/cache/admin/translation/fileMenu.pih
+deleting data/muireception/cache/admin/translation/
+deleting data/muireception/cache/admin/editor/editScript.ks
+deleting data/muireception/cache/admin/editor/
+deleting data/muireception/cache/admin/login.ks
+deleting data/muireception/cache/admin/
+deleting data/muireception/cache/version.py
+deleting data/muireception/cache/model.py
+deleting data/muireception/cache/layout.ks
+deleting data/muireception/cache/kindex.pih
+deleting data/muireception/cache/header.ks
+deleting data/muireception/cache/form.py
+data/muireception/cache/config.py
+        3813 100%    0.00kB/s    0:00:00          3813 100%    0.00kB/s    0:00:00 (xfer#1, to-check=2451/7518)
+data/muireception/cache/demjson.py
+       32768  37%   31.25MB/s    0:00:00         88190 100%  755.47kB/s    0:00:00 (xfer#2, to-check=2450/7518)
+data/muireception/cache/desktop.ks
+        8468 100%   71.29kB/s    0:00:00          8468 100%   71.29kB/s    0:00:00 (xfer#3, to-check=2449/7518)
+data/muireception/cache/pagefn.py
+       14112 100%   83.52kB/s    0:00:00         14112 100%   83.52kB/s    0:00:00 (xfer#4, to-check=2448/7518)
+data/muireception/cache/js/
+deleting data/muireception/cache/js/userSidePanels.js.pih
+deleting data/muireception/cache/js/layoutInit.js.pih
+deleting data/muireception/cache/js/init.js.pih
+deleting data/muireception/cache/js/adminSidePanels.js.pih
+data/muireception/cache/js/initMUI.js.pih
+        8860 100%   51.50kB/s    0:00:00          8860 100%   51.50kB/s    0:00:00 (xfer#5, to-check=2445/7518)
+data/muireception/cache/portal/
+deleting data/muireception/cache/portal/portal4admin.ks
+deleting data/muireception/cache/portal/portal.ks
+deleting data/muireception/cache/portal/index.pih
+deleting data/muireception/cache/portal/desktop.ks
+data/muireception/cache/portal/desktop/
+deleting data/muireception/cache/portal/desktop/index.ks
+data/muireception/cache/portal/desktop/calendar.ks
+         715 100%    4.16kB/s    0:00:00           715 100%    4.16kB/s    0:00:00 (xfer#6, to-check=2443/7518)
+data/muireception/cache/portal/desktop/fileManager.ks
+          81 100%    0.47kB/s    0:00:00            81 100%    0.47kB/s    0:00:00 (xfer#7, to-check=2442/7518)
+data/muireception/cache/portal/desktop/hotelMap.ks
+          81 100%    0.47kB/s    0:00:00            81 100%    0.47kB/s    0:00:00 (xfer#8, to-check=2441/7518)
+data/muireception/cache/portal/desktop/reservation.ks
+          89 100%    0.51kB/s    0:00:00            89 100%    0.51kB/s    0:00:00 (xfer#9, to-check=2440/7518)
+data/muireception/sessions/
+data/muireception/sessions/9i8X4zdqog6oy9Vn
+         245 100%    1.42kB/s    0:00:00           245 100%    1.42kB/s    0:00:00 (xfer#10, to-check=2284/7518)
+data/muireception/sessions/CM3WFd5Oy8F7A5OH
+         245 100%    1.23kB/s    0:00:00           245 100%    1.23kB/s    0:00:00 (xfer#11, to-check=2283/7518)
+data/muireception/sessions/HmgO7sKK681l1kNO
+         245 100%    1.04kB/s    0:00:00           245 100%    1.04kB/s    0:00:00 (xfer#12, to-check=2281/7518)
+data/muireception/sessions/JwxbBmNflWVpY379
+         245 100%    0.95kB/s    0:00:00           245 100%    0.95kB/s    0:00:00 (xfer#13, to-check=2279/7518)
+data/muireception/sessions/KM5oQfcldvLbfc7g
+         245 100%    0.90kB/s    0:00:00           245 100%    0.90kB/s    0:00:00 (xfer#14, to-check=2278/7518)
+data/muireception/sessions/LjCTcLo9uY84oHJQ
+         245 100%    0.90kB/s    0:00:00           245 100%    0.90kB/s    0:00:00 (xfer#15, to-check=2277/7518)
+data/muireception/sessions/RPa7xwHrN4AgSjiP
+         245 100%    0.90kB/s    0:00:00           245 100%    0.90kB/s    0:00:00 (xfer#16, to-check=2276/7518)
+data/muireception/sessions/Uf86UUaWtYmT7C2i
+         245 100%    0.85kB/s    0:00:00           245 100%    0.85kB/s    0:00:00 (xfer#17, to-check=2275/7518)
+data/muireception/sessions/YwZNWs3elyASZcUX
+         245 100%    0.83kB/s    0:00:00           245 100%    0.83kB/s    0:00:00 (xfer#18, to-check=2274/7518)
+data/muireception/sessions/cVb6viPO83Ql5xwZ
+         245 100%    0.81kB/s    0:00:00           245 100%    0.81kB/s    0:00:00 (xfer#19, to-check=2272/7518)
+data/muireception/sessions/f88fvPUmZw5rOcS2
+         245 100%    0.81kB/s    0:00:00           245 100%    0.81kB/s    0:00:00 (xfer#20, to-check=2270/7518)
+data/muireception/sessions/iRPGlYRVfCwKsi6e
+         245 100%    0.81kB/s    0:00:00           245 100%    0.81kB/s    0:00:00 (xfer#21, to-check=2269/7518)
+data/muireception/sessions/ibQ5jD973oq3VjP0
+         245 100%    0.81kB/s    0:00:00           245 100%    0.81kB/s    0:00:00 (xfer#22, to-check=2268/7518)
+data/muireception/sessions/ySD2odbHOMQvAGwq
+         245 100%    0.81kB/s    0:00:00           245 100%    0.81kB/s    0:00:00 (xfer#23, to-check=2265/7518)
+data/muireception/sessions/yXNGitNvh2dfXRkb
+         245 100%    0.78kB/s    0:00:00           245 100%    0.78kB/s    0:00:00 (xfer#24, to-check=2264/7518)
+muireception/
+muireception/desktop.ks
+        8397 100%   26.80kB/s    0:00:00          8397 100%   26.80kB/s    0:00:00 (xfer#25, to-check=1659/7518)
+muireception/pagefn.py
+       14146 100%   44.85kB/s    0:00:00         14146 100%   44.71kB/s    0:00:00 (xfer#26, to-check=1642/7518)
+muireception/js/
+muireception/js/init-desktop4user.js
+        1899 100%    3.04kB/s    0:00:00          1899 100%    3.04kB/s    0:00:00 (xfer#27, to-check=1020/8704)
+muireception/lib/calendar/
+muireception/lib/calendar/calendar.css
+         621 100%    0.99kB/s    0:00:00           621 100%    0.99kB/s    0:00:00 (xfer#28, to-check=1011/8727)
+muireception/lib/calendar/calendar.js
+        3527 100%    5.61kB/s    0:00:00          3527 100%    5.61kB/s    0:00:00 (xfer#29, to-check=1010/8727)
+muireception/lib/mootools/
+muireception/lib/mootools/Date.Chinese.CN.js
+        1612 100%    2.27kB/s    0:00:00          1612 100%    2.27kB/s    0:00:00 (xfer#30, to-check=1006/9248)
+muireception/lib/mootools/mootools-1.2.4.2-more.js
+       32768  15%   45.91kB/s    0:00:03        207058 100%  280.45kB/s    0:00:00 (xfer#31, to-check=1003/9248)
+muireception/lib/mootools/mootools-1.2.4.2-more.js~
+       32768  15%   37.83kB/s    0:00:04        207058 100%  234.58kB/s    0:00:00 (xfer#32, to-check=1002/9248)
+muireception/portal/desktop/
+muireception/portal/desktop/calendar.ks
+         706 100%    0.74kB/s    0:00:00           706 100%    0.74kB/s    0:00:00 (xfer#33, to-check=861/10026)
+
+sent 364290 bytes  received 1909 bytes  146479.60 bytes/sec
+total size is 85289025  speedup is 232.90
+2010-09-14 21:46:11,080 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768   4%    0.00kB/s    0:00:00        665198 100%    5.48MB/s    0:00:00 (xfer#1, to-check=13/15)
+
+sent 146811 bytes  received 36 bytes  97898.00 bytes/sec
+total size is 1075444  speedup is 7.32
+2010-09-14 21:46:11,081 INFO End backup loacl karrigell diretory to local git.
+2010-09-14 21:46:11,081 INFO Begin to backup local github to remote github host.

@@ -2498,7 +2498,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1257233438846" FOLDED="true" ID="ID_1216660804" MODIFIED="1284360692082" TEXT="Web Map">
+<node COLOR="#00b439" CREATED="1257233438846" ID="ID_1216660804" MODIFIED="1284447587688" TEXT="Web Map">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="help"/>
@@ -2568,7 +2568,7 @@
 </node>
 <node COLOR="#990000" CREATED="1282446905665" ID="ID_1854383608" MODIFIED="1284346695152" TEXT="Idea">
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1282446911223" ID="ID_669955092" MODIFIED="1282449212714" TEXT="Zoom">
+<node COLOR="#111111" CREATED="1282446911223" FOLDED="true" ID="ID_669955092" MODIFIED="1284447590956" TEXT="Zoom">
 <icon BUILTIN="full-1"/>
 <node COLOR="#111111" CREATED="1282446918214" ID="ID_487961707" MODIFIED="1282446920501" TEXT="mootools">
 <node COLOR="#111111" CREATED="1282446921280" ID="ID_1580673240" LINK="file:///home/broader/develop/R@K/prefer_module/image_zoom/index.html" MODIFIED="1282446923609" TEXT="file:///home/broader/develop/R@K/prefer_module/image_zoom/index.html"/>
@@ -2644,6 +2644,13 @@
 <node COLOR="#111111" CREATED="1284346719929" ID="ID_1491482760" MODIFIED="1284346726212" TEXT="Popup Detail">
 <node COLOR="#111111" CREATED="1284346727383" ID="ID_300507957" LINK="http://www.clientcide.com/wiki/cnet-libraries/07-ui/03-popupdetails" MODIFIED="1284346729836" TEXT="http://www.clientcide.com/wiki/cnet-libraries/07-ui/03-popupdetails"/>
 </node>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1284447592916" ID="ID_1270768907" MODIFIED="1284447634621" TEXT="&#x52a8;&#x6001;&#x6f14;&#x793a;&#x8def;&#x5f84;">
+<icon BUILTIN="idea"/>
+<icon BUILTIN="yes"/>
+<node COLOR="#111111" CREATED="1284447595582" ID="ID_333526198" MODIFIED="1284447597267" TEXT="tools">
+<node COLOR="#111111" CREATED="1284447598096" ID="ID_179047262" LINK="http://www.alistapart.com/articles/svg-with-a-little-help-from-raphael/" MODIFIED="1284447600825" TEXT="http://www.alistapart.com/articles/svg-with-a-little-help-from-raphael/"/>
 </node>
 </node>
 </node>
@@ -4065,7 +4072,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1283829202166" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1284447583789" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1273030192723" FOLDED="true" ID="ID_344232506" MODIFIED="1283430229392" TEXT="Idea">
@@ -5961,7 +5968,7 @@ au</pre>
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1280286221408" FOLDED="true" ID="ID_767321368" MODIFIED="1284091030707" POSITION="right" TEXT="Expand Direction">
+<node COLOR="#0033ff" CREATED="1280286221408" FOLDED="true" ID="ID_767321368" MODIFIED="1284446459291" POSITION="right" TEXT="Expand Direction">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1280286228167" FOLDED="true" ID="ID_1157419451" MODIFIED="1282379580912" TEXT="Intelligence Search">
@@ -6017,7 +6024,7 @@ au</pre>
 <node COLOR="#111111" CREATED="1284087421724" ID="ID_1406916258" LINK="http://www.omnigroup.com/products/omnifocus/" MODIFIED="1284087424216" TEXT="http://www.omnigroup.com/products/omnifocus/"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1281855718646" FOLDED="true" ID="ID_1263150647" MODIFIED="1282379579737" TEXT="Conent Manage">
+<node COLOR="#00b439" CREATED="1281855718646" ID="ID_1263150647" MODIFIED="1284445953949" TEXT="Conent Manage">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1281855728295" ID="ID_404201649" MODIFIED="1281855733798" TEXT="Prefered Projects">
@@ -6025,6 +6032,9 @@ au</pre>
 <node COLOR="#111111" CREATED="1281855734914" ID="ID_83425186" LINK="http://www.webappers.com/2010/01/22/the-best-open-source-cms-mainly-used-for-blogging/" MODIFIED="1281855737150" TEXT="http://www.webappers.com/2010/01/22/the-best-open-source-cms-mainly-used-for-blogging/"/>
 <node COLOR="#111111" CREATED="1282197823219" ID="ID_289692815" LINK="http://www.nuggetz.co.uk/" MODIFIED="1282197827822" TEXT="http://www.nuggetz.co.uk/"/>
 <node COLOR="#111111" CREATED="1282199346683" ID="ID_53741489" LINK="http://demo.apostrophenow.com/" MODIFIED="1282199351263" TEXT="http://demo.apostrophenow.com/"/>
+<node COLOR="#111111" CREATED="1284445956581" ID="ID_1437404098" MODIFIED="1284445958289" TEXT="http://www.trymodx.com/">
+<node COLOR="#111111" CREATED="1284445959316" ID="ID_1818975524" MODIFIED="1284445969812" TEXT="demo_user/demo_user"/>
+</node>
 </node>
 <node COLOR="#990000" CREATED="1281923855096" ID="ID_1023868872" MODIFIED="1281923863882" TEXT="Tabbed Content">
 <font NAME="SansSerif" SIZE="14"/>
