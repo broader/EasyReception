@@ -158,7 +158,8 @@ DESKTOP4USER = \
 		'padding': { 'top': 0, 'right': 0, 'bottom': 0, 'left': 0 },\
 		'loadMethod': 'xhr',\
 		'contentURL': '../portal/desktop/calendar.ks/index',\
-		'width': 300, 'height': 150, 'x': 1100, 'y': 280\
+		#'width': 300, 'height': 150, 'x': 1100, 'y': 280\
+		'width': 300, 'height': 350, 'x': 800, 'y': 80\
 	},\
 	
 ],

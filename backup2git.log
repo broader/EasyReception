@@ -10861,3 +10861,91 @@ sent 146811 bytes  received 36 bytes  97898.00 bytes/sec
 total size is 1075444  speedup is 7.32
 2010-09-14 21:46:11,081 INFO End backup loacl karrigell diretory to local git.
 2010-09-14 21:46:11,081 INFO Begin to backup local github to remote github host.
+2010-09-14 21:46:12,006 INFO Command: 
+git add .
+running result is :
+2010-09-14 21:46:23,580 INFO Command: 
+git commit -m 'Update time:2010-09-14T21:46:11.081743'
+running result is :[master ad41fd0] Update time:2010-09-14T21:46:11.081743
+ 23 files changed, 8657 insertions(+), 23 deletions(-)
+ create mode 100644 develop/Karrigell/data/muireception/sessions/9i8X4zdqog6oy9Vn
+ create mode 100644 develop/Karrigell/data/muireception/sessions/CM3WFd5Oy8F7A5OH
+ create mode 100644 develop/Karrigell/data/muireception/sessions/HmgO7sKK681l1kNO
+ create mode 100644 develop/Karrigell/data/muireception/sessions/JwxbBmNflWVpY379
+ create mode 100644 develop/Karrigell/data/muireception/sessions/KM5oQfcldvLbfc7g
+ create mode 100644 develop/Karrigell/data/muireception/sessions/LjCTcLo9uY84oHJQ
+ create mode 100644 develop/Karrigell/data/muireception/sessions/RPa7xwHrN4AgSjiP
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Uf86UUaWtYmT7C2i
+ create mode 100644 develop/Karrigell/data/muireception/sessions/YwZNWs3elyASZcUX
+ create mode 100644 develop/Karrigell/data/muireception/sessions/f88fvPUmZw5rOcS2
+ create mode 100644 develop/Karrigell/data/muireception/sessions/iRPGlYRVfCwKsi6e
+ create mode 100644 develop/Karrigell/data/muireception/sessions/ibQ5jD973oq3VjP0
+ create mode 100644 develop/Karrigell/data/muireception/sessions/ySD2odbHOMQvAGwq
+ create mode 100644 develop/Karrigell/data/muireception/sessions/yXNGitNvh2dfXRkb
+ create mode 100755 develop/Karrigell/muireception/lib/mootools/mootools-1.2.4.2-more.js~
+2010-09-14 21:46:33,668 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   b0c6624..ad41fd0  master -> master
+2010-09-14 21:46:33,669 INFO End backup local github to remote github host.
+2010-09-16 17:17:55,086 INFO Delete nousing captcha images
+2010-09-16 17:17:55,125 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-09-16 17:17:55,126 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-09-16 17:17:57,568 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/muireception/cache/desktop.ks
+        8468 100%    0.00kB/s    0:00:00          8468 100%    0.00kB/s    0:00:00 (xfer#1, to-check=2458/7527)
+data/muireception/cache/pagefn.py
+       14163 100%   13.51MB/s    0:00:00         14163 100%   13.51MB/s    0:00:00 (xfer#2, to-check=2457/7527)
+data/muireception/cache/portal/desktop/calendar.ks
+         715 100%   43.64kB/s    0:00:00           715 100%   43.64kB/s    0:00:00 (xfer#3, to-check=2452/7527)
+data/muireception/sessions/
+data/muireception/sessions/7DDRVexJt6sPF7xp
+         245 100%   14.07kB/s    0:00:00           245 100%   14.07kB/s    0:00:00 (xfer#4, to-check=2293/7527)
+data/muireception/sessions/9KGOEY5dEgOEu0Nz
+         245 100%    2.55kB/s    0:00:00           245 100%    2.55kB/s    0:00:00 (xfer#5, to-check=2292/7527)
+data/muireception/sessions/GqWXzEo55WAhZ83A
+         245 100%    1.67kB/s    0:00:00           245 100%    1.67kB/s    0:00:00 (xfer#6, to-check=2288/7527)
+data/muireception/sessions/S4fZF5YQVimPsl0U
+         245 100%    1.60kB/s    0:00:00           245 100%    1.60kB/s    0:00:00 (xfer#7, to-check=2281/7527)
+data/muireception/sessions/XygC8TGvVQohlxO9
+         245 100%    1.60kB/s    0:00:00           245 100%    1.60kB/s    0:00:00 (xfer#8, to-check=2279/7527)
+data/muireception/sessions/coOzYMYu4fLbULSa
+         245 100%    1.60kB/s    0:00:00           245 100%    1.60kB/s    0:00:00 (xfer#9, to-check=2275/7527)
+data/muireception/sessions/cx3tcG0ZBaMxNIW9
+         245 100%    1.60kB/s    0:00:00           245 100%    1.60kB/s    0:00:00 (xfer#10, to-check=2274/7527)
+data/muireception/sessions/dWDTcXPgwAqL2N92
+         245 100%    1.60kB/s    0:00:00           245 100%    1.60kB/s    0:00:00 (xfer#11, to-check=2273/7527)
+data/muireception/sessions/ibQ5jD973oq3VjP0
+         245 100%    1.41kB/s    0:00:00           245 100%    1.41kB/s    0:00:00 (xfer#12, to-check=2269/7527)
+data/muireception/sessions/tJB2rqVIXchB7pkf
+         245 100%    1.41kB/s    0:00:00           245 100%    1.41kB/s    0:00:00 (xfer#13, to-check=2267/7527)
+muireception/
+muireception/desktop.ks
+        8397 100%   47.95kB/s    0:00:00          8397 100%   47.95kB/s    0:00:00 (xfer#14, to-check=1659/7527)
+muireception/pagefn.py
+       14197 100%   81.08kB/s    0:00:00         14197 100%   81.08kB/s    0:00:00 (xfer#15, to-check=1642/7527)
+muireception/js/
+muireception/lib/calendar/
+muireception/lib/calendar/calendar.css
+         729 100%    1.54kB/s    0:00:00           729 100%    1.54kB/s    0:00:00 (xfer#16, to-check=1011/8736)
+muireception/lib/calendar/calendar.js
+        5239 100%   11.05kB/s    0:00:00          5239 100%   11.05kB/s    0:00:00 (xfer#17, to-check=1010/8736)
+muireception/lib/mootools/
+muireception/lib/mootools/Date.Chinese.CN.js
+        1612 100%    2.82kB/s    0:00:00          1612 100%    2.82kB/s    0:00:00 (xfer#18, to-check=1006/9257)
+
+sent 230494 bytes  received 1607 bytes  92840.40 bytes/sec
+total size is 85293152  speedup is 367.48
+2010-09-16 17:17:57,683 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+
+sent 420 bytes  received 17 bytes  874.00 bytes/sec
+total size is 1075444  speedup is 2460.97
+2010-09-16 17:17:57,683 INFO End backup loacl karrigell diretory to local git.
+2010-09-16 17:17:57,684 INFO Begin to backup local github to remote github host.

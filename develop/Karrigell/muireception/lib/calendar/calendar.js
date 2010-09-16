@@ -14,16 +14,12 @@ var CalendarTable = new Class({
 	Implements: [Events,Options],
 				  
 	options: {
-		// table layout 
-		//columnsModel: null,	
-		//colsModelUrl: null,
 		lang: 'zh-CN',	// i18n 
+		// table layout 
 		tableClass: 'calendarTable',
 		nextClass: 'next',
 		prevClass: 'prev',
 		outOfMonthClass: 'outOfMonth',
-		dataUrl: null,
-		//data: null,
 		selectedClass: 'selected'	// the css class for selected <td> element 
 		
 		// setting for Events
@@ -42,7 +38,8 @@ var CalendarTable = new Class({
 			return;
 	
 		// the MooTools Date instance
-		this.date = new Date();
+		this.selectDate = new Date();
+		this.currentDate = this.selectDate.clone();
 				
 		this.htmlTable=null;
 		this.draw();		
@@ -62,10 +59,15 @@ var CalendarTable = new Class({
 		this.setHeader();
 
 		// set the days of this month
-		this.setDays();
+		this.setDays(this.firstDate(this.selectDate));
 		
 		this.htmlTable.inject(this.container,'top');
 
+	},
+
+	// calculate the first date for current this.selectDate
+	firstDate: function(date){
+		return date.clone().decrement('day', date.get('Date')-1);
 	},
 	
 	/*
@@ -73,13 +75,30 @@ var CalendarTable = new Class({
 	*/
 	setCaption: function(){
 		var caption = new Element('caption');
+	
+		var prevTag = new Element('a', {'class': this.options.nextClass, html: '<<'});
+		prevTag.addEvent('click', function(e){
+			date = this.currentDate.decrement('month', 1);
+			this.setDays(this.firstDate(date));			
+			this.refreshCaptionDate(date);
+		}.bind(this));
+
+		this.captionDate = new Element('span', {html: this.selectDate.format(Date.shortDate).split(' ')[0]}); 
 		
-		caption.adopt(
-			new Element('a', {'class': this.options.nextClass, html: '<<'}), 
-			new Element('span', {html: this.date.format(Date.shortDate).split(' ')[0]}), 
-			new Element('a', {'class': this.options.prevClass, html: '>>'}) 
-		);
+		var nexTag = new Element('a', {'class': this.options.prevClass, html: '>>'});
+		nexTag.addEvent('click', function(e){
+			date = this.currentDate.increment('month', 1);
+			this.refreshCaptionDate(date);
+			this.setDays(this.firstDate(date));			
+		}.bind(this));
+
+		caption.adopt( prevTag, this.captionDate, nexTag);
 		this.htmlTable.grab(caption);
+	},
+
+	// refresh the date in the caption
+	refreshCaptionDate: function(date){
+		this.captionDate.set('html', date.format(Date.shortDate).split(' ')[0].slice(0,8));
 	},
 	
 	/*
@@ -92,25 +111,40 @@ var CalendarTable = new Class({
 	/*
 	Set the days of current month to the calendar table.
 	*/
-	setDays: function(){
-		var isLastDay=true,
-		    date= this.date.clone();
+	setDays: function(startDate){
+		// clear the table's body first
+		this.htmlTable.empty();
 
-		date.decrement('day', this.date.get('Date')-1);
-		var startWeekDay=date.get('day'), 
-		    startWeek = date.get('week'),
-		    endDay= date.getLastDayOfMonth();
+		var isLastDay=true;
 
+		var startWeekDay = startDate.get('day'), 
+		    endDay = startDate.getLastDayOfMonth(),
+		    date = startDate.clone();
+	
+		// calculate whether the selected date in the same month with start date
+		var selected = null;
+		if( this.currentDate.format('%x') == this.selectDate.format('%x') ) selected = this.selectDate.get('date');
+		
 		while(isLastDay){
 			var tr = [];
-
-			if(date.get('week') == startWeek){
+			
+			if(date.get('date') <= startDate.clone().increment('day', 6-startDate.get('day')).get('date')){
+				// decrement the date to the start date of this week which is not the date in this month
 				date = date.decrement('day', startWeekDay);
+
 				for(i=0;i<=6;i++){
+					var number = date.get('date');
 					if(i < startWeekDay){
-						tr.push({'content': date.get('date'), properties:{'class':this.options.outOfMonthClass}});
+						tr.push({'content': number, properties:{'class':this.options.outOfMonthClass}});
 					}
-					else{tr.push(date.get('date'));};
+					else{
+						if( (!selected) || number != selected ){
+							tr.push(number);
+						}
+						else{
+							tr.push({'content': number, properties:{'class':this.options.selectedClass}});
+						};
+					};
 					
 					date.increment('day',1);
 				}
@@ -118,16 +152,22 @@ var CalendarTable = new Class({
 			else{
 				var endMonth = false;
 				for(i=0;i<=6;i++){
-					if(date.get('date') == endDay) endMonth = true;
+					var number = date.get('date');
+					if(number == endDay) endMonth = true;
 
-					if(!endMonth || date.get('date') == endDay){
-						tr.push(date.get('date'));
+					if(!endMonth || number == endDay){
+						if( (!selected) || number != selected ){
+							tr.push(number);
+						}
+						else{
+							tr.push({'content': number, properties:{'class':this.options.selectedClass}});
+						};
 					}
 					else{
-						tr.push({'content': date.get('date'), properties:{'class':this.options.outOfMonthClass}});
+						tr.push({'content': number, properties:{'class':this.options.outOfMonthClass}});
 					};
 
-					if(date.get('date')==endDay) {isLastDay=false;}
+					if(number == endDay) {isLastDay=false;}
 					date.increment('day',1);
 				};
 			};
@@ -136,6 +176,14 @@ var CalendarTable = new Class({
 			this.htmlTable.push(tr);
 
 		};
+		
+		// add event to each td cell of this month
+		this.htmlTable.element.getElements('tbody td[class!=outOfMonth]').map(function(td, index){
+			td.addEvent('click', function(e){
+				new Event(e).stop();
+				alert('china');
+			});
+		});
 		
 	}
 	

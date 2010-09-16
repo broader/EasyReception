@@ -34,4 +34,14 @@
 
 .calendarTable td.outOfMonth { 
 	color: gainsboro;
+	cursor: auto;
 }
+
+.calendarTable td.selected {
+	color: red;
+}
+
+.calendarTable tbody td {
+	cursor: pointer;
+}
+
