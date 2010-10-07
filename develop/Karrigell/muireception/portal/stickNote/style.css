@@ -1,0 +1,50 @@
+
+.stickNoteContainer { 
+	width: 1200px;
+	height: 700px;
+	background-color: grey;
+}
+
+.droppable {
+	width: 800px;
+	height: 500px;
+	background-color: #EEEEEE;
+
+}
+
+.note {
+	width: 190px;
+	height: 190px;
+	padding: 1em;
+	background-image: url("stickynote-large.png");
+	color: #000;
+	display: block;
+	/*cursor: pointer;*/
+	cursor: move;
+}
+
+.note .handle {
+	position: absolute;
+	width: 100%;
+}
+
+.note .needle {
+	width: 40px;
+	height: 40px;
+	margin-top: -2em;
+	margin-left: -1.1em;
+}
+
+.note .closeNote {
+	/*
+	width: 22px;
+	height: 22px;*/
+	position: absolute;
+	padding-left: 140px;	
+	cursor: auto;
+}
+
+.note p {
+	font-family: arial, cursive;
+	font-size: 100%;
+}

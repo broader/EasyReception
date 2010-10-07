@@ -121,16 +121,24 @@ USERMENUS = \
 {
 'data':
 	[
-		{ 'id':'00', 'text':_("Setting"), 'function':'test' },\
-		{ 'id':'01', 'text':_("Logout"), 'function':'logout'}\
+		{ 'id':'00', 'text':_("Service"), 'function':'' },\
+		{'id':'0000', 'text':_("File List"), 'function':'popupWindow', 'parent': '00', 'popupWindowId':'fileManager'},
+		{'id':'0001', 'text':_("Hotel Map"), 'function':'popupWindow', 'parent': '00', 'popupWindowId':'hotelMap'},
+		{ 'id':'01', 'text':_("Setting"), 'function':'test' },\
+		{ 'id':'02', 'text':_("Logout"), 'function':'logout'}\
 	],
 'js': 'js/userMenus.js'
 }
 
 DESKTOP4USER = \
 {
+# the popup windows that shown on the desktop initially
+'initDesktop': (3,),\
+
+
 'windowsConfig':[\
 	{\
+		'type':'window',
 		'id': 'reservationDashboard',\
 		'title':_('Your Reservations'),\
 		'loadMethod': 'xhr',\
@@ -138,13 +146,15 @@ DESKTOP4USER = \
 		'width': 250, 'height': 150, 'x': 50, 'y': 100\
 	},\
 	{\
+		'type':'modal', 'modalOverlayClose':'false',
 		'id': 'hotelMap',\
 		'title':_('Hotel Map'),\
 		'loadMethod': 'xhr',\
-		'contentURL': '../portal/desktop/hotelMap.ks/index',\
-		'width': 250, 'height': 150, 'x': 50, 'y': 210\
+		'contentURL': '../accomodation/maps/index.ks',\
+		'width': 1060, 'height': 600, 'x': 10, 'y': 10\
 	},\
 	{\
+		'type':'window',
 		'id': 'fileManager',\
 		'title':_('Your File Folder'),\
 		'loadMethod': 'xhr',\
@@ -152,6 +162,7 @@ DESKTOP4USER = \
 		'width': 250, 'height': 150, 'x': 50, 'y': 310\
 	},\
 	{\
+		'type':'window',
 		'id': 'calendar',\
 		'title':_('Calendar'),\
 		'shape': 'gauge', 'headerHeight': 30,\
@@ -159,8 +170,7 @@ DESKTOP4USER = \
 		'padding': { 'top': 0, 'right': 0, 'bottom': 0, 'left': 0 },\
 		'loadMethod': 'xhr',\
 		'contentURL': '../portal/desktop/calendar.ks/index',\
-		#'width': 300, 'height': 150, 'x': 1100, 'y': 280\
-		'width': 300, 'height': 350, 'x': 800, 'y': 80\
+		'width': 300, 'height': 300, 'x': 1100, 'y': 310\
 	},\
 
 

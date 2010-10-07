@@ -10949,3 +10949,188 @@ sent 420 bytes  received 17 bytes  874.00 bytes/sec
 total size is 1075444  speedup is 2460.97
 2010-09-16 17:17:57,683 INFO End backup loacl karrigell diretory to local git.
 2010-09-16 17:17:57,684 INFO Begin to backup local github to remote github host.
+2010-09-16 17:17:58,463 INFO Command: 
+git add .
+running result is :
+2010-09-16 17:18:09,369 INFO Command: 
+git commit -m 'Update time:2010-09-16T17:17:57.684453'
+running result is :[master c8ef9d2] Update time:2010-09-16T17:17:57.684453
+ 15 files changed, 178 insertions(+), 30 deletions(-)
+ create mode 100644 develop/Karrigell/data/muireception/sessions/7DDRVexJt6sPF7xp
+ create mode 100644 develop/Karrigell/data/muireception/sessions/9KGOEY5dEgOEu0Nz
+ create mode 100644 develop/Karrigell/data/muireception/sessions/GqWXzEo55WAhZ83A
+ create mode 100644 develop/Karrigell/data/muireception/sessions/S4fZF5YQVimPsl0U
+ create mode 100644 develop/Karrigell/data/muireception/sessions/XygC8TGvVQohlxO9
+ create mode 100644 develop/Karrigell/data/muireception/sessions/coOzYMYu4fLbULSa
+ create mode 100644 develop/Karrigell/data/muireception/sessions/cx3tcG0ZBaMxNIW9
+ create mode 100644 develop/Karrigell/data/muireception/sessions/dWDTcXPgwAqL2N92
+ create mode 100644 develop/Karrigell/data/muireception/sessions/tJB2rqVIXchB7pkf
+2010-09-16 17:18:18,896 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   ad41fd0..c8ef9d2  master -> master
+2010-09-16 17:18:18,896 INFO End backup local github to remote github host.
+2010-10-07 10:41:35,412 INFO Delete nousing captcha images
+2010-10-07 10:41:35,453 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-10-07 10:41:35,453 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-10-07 10:41:37,965 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/muireception/cache/
+data/muireception/cache/desktop.ks
+        8784 100%    0.00kB/s    0:00:00          8784 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1009/6078)
+data/muireception/cache/form.py
+        9904 100%  439.63kB/s    0:00:00          9904 100%  439.63kB/s    0:00:00 (xfer#2, to-check=1008/6078)
+data/muireception/cache/header.ks
+        2693 100%   43.83kB/s    0:00:00          2693 100%   43.83kB/s    0:00:00 (xfer#3, to-check=1007/6078)
+data/muireception/cache/kindex.pih
+        2316 100%   37.08kB/s    0:00:00          2316 100%   37.08kB/s    0:00:00 (xfer#4, to-check=1006/6078)
+data/muireception/cache/pagefn.py
+       14567 100%  222.27kB/s    0:00:00         14567 100%  222.27kB/s    0:00:00 (xfer#5, to-check=1005/6078)
+data/muireception/cache/accomodation/
+data/muireception/cache/accomodation/maps/
+data/muireception/cache/accomodation/maps/hotelConfig.py
+        1247 100%   16.68kB/s    0:00:00          1247 100%   16.68kB/s    0:00:00 (xfer#6, to-check=1001/6079)
+data/muireception/cache/accomodation/maps/index.ks
+       10040 100%  119.57kB/s    0:00:00         10040 100%  119.57kB/s    0:00:00 (xfer#7, to-check=1000/6079)
+data/muireception/cache/js/
+data/muireception/cache/js/init.js.pih
+        3835 100%   39.01kB/s    0:00:00          3835 100%   39.01kB/s    0:00:00 (xfer#8, to-check=1003/6083)
+data/muireception/cache/js/layoutInit.js.pih
+       13037 100%  117.88kB/s    0:00:00         13037 100%  117.88kB/s    0:00:00 (xfer#9, to-check=1001/6083)
+data/muireception/cache/portal/
+data/muireception/cache/portal/stickNote/
+data/muireception/cache/portal/stickNote/index.ks
+        3755 100%   32.74kB/s    0:00:00          3755 100%   32.74kB/s    0:00:00 (xfer#10, to-check=1001/6090)
+data/muireception/sessions/
+data/muireception/sessions/7SWIIhqVSvzVxL9q
+         245 100%    1.49kB/s    0:00:00           245 100%    1.49kB/s    0:00:00 (xfer#11, to-check=2307/7553)
+data/muireception/sessions/O2BJLSBQ5jxb9dij
+         245 100%    1.49kB/s    0:00:00           245 100%    1.49kB/s    0:00:00 (xfer#12, to-check=2296/7553)
+data/muireception/sessions/coOzYMYu4fLbULSa
+         245 100%    1.40kB/s    0:00:00           245 100%    1.40kB/s    0:00:00 (xfer#13, to-check=2288/7553)
+muireception/
+muireception/desktop.ks
+        8711 100%   39.02kB/s    0:00:00          8711 100%   38.84kB/s    0:00:00 (xfer#14, to-check=1672/7553)
+muireception/pagefn.py
+       14607 100%   60.70kB/s    0:00:00         14607 100%   60.70kB/s    0:00:00 (xfer#15, to-check=1655/7553)
+muireception/accomodation/
+muireception/accomodation/maps/
+muireception/accomodation/maps/agency_32.png
+        2612 100%   10.12kB/s    0:00:00          2612 100%   10.12kB/s    0:00:00 (xfer#16, to-check=1628/7553)
+muireception/accomodation/maps/agency_32_old.png
+        2245 100%    8.24kB/s    0:00:00          2245 100%    8.24kB/s    0:00:00 (xfer#17, to-check=1627/7553)
+muireception/accomodation/maps/haidian_hotel_900.jpg
+       32768   5%  111.11kB/s    0:00:04        570534 100%    1.63MB/s    0:00:00 (xfer#18, to-check=1626/7553)
+muireception/accomodation/maps/haidian_hotel_900_bak.jpg
+       32768   6%   89.64kB/s    0:00:05        505708 100%    1.21MB/s    0:00:00 (xfer#19, to-check=1625/7553)
+muireception/accomodation/maps/hotel.png
+       16294 100%   39.00kB/s    0:00:00         16294 100%   38.90kB/s    0:00:00 (xfer#20, to-check=1624/7553)
+muireception/accomodation/maps/hotelConfig.py
+        1234 100%    2.86kB/s    0:00:00          1234 100%    2.86kB/s    0:00:00 (xfer#21, to-check=1623/7553)
+muireception/accomodation/maps/hotelConfig.yaml
+         397 100%    0.91kB/s    0:00:00           397 100%    0.91kB/s    0:00:00 (xfer#22, to-check=1622/7553)
+muireception/accomodation/maps/index.ks
+       10007 100%   22.73kB/s    0:00:00         10007 100%   22.67kB/s    0:00:00 (xfer#23, to-check=1621/7553)
+muireception/accomodation/maps/detailImages/
+muireception/accomodation/maps/detailImages/beiligong_demo_600.jpg
+       32768  12%   70.48kB/s    0:00:03        252253 100%  517.52kB/s    0:00:00 (xfer#24, to-check=1619/7553)
+muireception/accomodation/maps/detailImages/friendship_demo_600.jpg
+       32768  13%   64.39kB/s    0:00:03        244107 100%  463.79kB/s    0:00:00 (xfer#25, to-check=1618/7553)
+muireception/accomodation/maps/detailImages/gradeHotel_demo_600.jpg
+       32768  12%   60.72kB/s    0:00:03        259974 100%  461.60kB/s    0:00:00 (xfer#26, to-check=1617/7553)
+muireception/css/
+muireception/css/forms.css
+       10293 100%   17.76kB/s    0:00:00         10293 100%   17.76kB/s    0:00:00 (xfer#27, to-check=1616/7553)
+muireception/images/
+deleting muireception/images/maps/hotel/download/ifeellucky.png
+deleting muireception/images/maps/hotel/download/gradeHotel_demo_600.jpg
+deleting muireception/images/maps/hotel/download/gradeHotel_demo.jpg
+deleting muireception/images/maps/hotel/download/gradeHotel_2100.png
+deleting muireception/images/maps/hotel/download/gradeHotel.png
+deleting muireception/images/maps/hotel/download/gradeHotel.jpg
+deleting muireception/images/maps/hotel/download/friendship_demo.jpg
+deleting muireception/images/maps/hotel/download/frendship_1800.png
+deleting muireception/images/maps/hotel/download/frendship.png
+deleting muireception/images/maps/hotel/download/blgHotel.png
+deleting muireception/images/maps/hotel/download/beiligong_demo_text.jpg
+deleting muireception/images/maps/hotel/download/beiligong_demo.jpg
+deleting muireception/images/maps/hotel/download/beiligong.png
+deleting muireception/images/maps/hotel/download/Screenshot-i Feel Lucky | Free CSS Template by Rambling Soul - Mozilla Firefox.png
+deleting muireception/images/maps/hotel/download/
+deleting muireception/images/maps/hotel/detailImages/gradeHotel_demo_600.jpg
+deleting muireception/images/maps/hotel/detailImages/friendship_demo_600.jpg
+deleting muireception/images/maps/hotel/detailImages/beiligong_demo_600.jpg
+deleting muireception/images/maps/hotel/detailImages/
+deleting muireception/images/maps/hotel/index.pih
+deleting muireception/images/maps/hotel/index.ks
+deleting muireception/images/maps/hotel/hotelConfig.yaml
+deleting muireception/images/maps/hotel/hotelConfig.py
+deleting muireception/images/maps/hotel/haidian_hotel_900.jpg
+deleting muireception/images/maps/hotel/haidian_hotel.jpg
+deleting muireception/images/maps/hotel/beijing_inner.jpg
+deleting muireception/images/maps/hotel/beijing_full.jpg
+deleting muireception/images/maps/hotel/beijing_900.jpg
+deleting muireception/images/maps/hotel/agency_72.png
+deleting muireception/images/maps/hotel/agency_64.png
+deleting muireception/images/maps/hotel/agency_48.png
+deleting muireception/images/maps/hotel/agency_400_80.gif
+deleting muireception/images/maps/hotel/agency_400_60.gif
+deleting muireception/images/maps/hotel/agency_400.png
+deleting muireception/images/maps/hotel/agency_400.gif
+deleting muireception/images/maps/hotel/agency_32.png
+deleting muireception/images/maps/hotel/agency_256.png
+deleting muireception/images/maps/hotel/agency_24.png
+deleting muireception/images/maps/hotel/agency_16.png
+deleting muireception/images/maps/hotel/agency_128.png
+deleting muireception/images/maps/hotel/
+deleting muireception/images/maps/
+muireception/js/
+muireception/js/init-desktop4user.js
+        1899 100%    1.94kB/s    0:00:00          1899 100%    1.94kB/s    0:00:00 (xfer#28, to-check=1023/8701)
+muireception/js/userMenus.js
+         823 100%    0.84kB/s    0:00:00           823 100%    0.84kB/s    0:00:00 (xfer#29, to-check=1010/8701)
+muireception/lib/
+muireception/lib/rotate/
+muireception/lib/rotate/Fx.Rotate.js
+        2088 100%    1.88kB/s    0:00:00          2088 100%    1.88kB/s    0:00:01 (xfer#30, to-check=1005/9259)
+muireception/lib/rotate/Fx.Rotate.js~
+        2019 100%    1.80kB/s    0:00:00          2019 100%    1.80kB/s    0:00:01 (xfer#31, to-check=1004/9259)
+muireception/portal/
+muireception/portal/desktop/
+deleting muireception/portal/desktop/hotelMap.ks
+muireception/portal/stickNote/
+muireception/portal/stickNote/close-32.png
+        1792 100%    1.37kB/s    0:00:00          1792 100%    1.37kB/s    0:00:01 (xfer#32, to-check=864/10030)
+muireception/portal/stickNote/close.png
+         791 100%    0.60kB/s    0:00:00           791 100%    0.60kB/s    0:00:01 (xfer#33, to-check=863/10030)
+muireception/portal/stickNote/index.ks
+        3735 100%    2.86kB/s    0:00:00          3735 100%    2.86kB/s    0:00:01 (xfer#34, to-check=862/10030)
+muireception/portal/stickNote/needleleftyellow.png
+        3360 100%    2.57kB/s    0:00:00          3360 100%    2.57kB/s    0:00:01 (xfer#35, to-check=861/10030)
+muireception/portal/stickNote/stickynote-large.png
+       32768  91%   24.96kB/s    0:00:00         35915 100%   27.34kB/s    0:00:00         35915 100%   27.34kB/s    0:00:01 (xfer#36, to-check=860/10030)
+muireception/portal/stickNote/stickynote-medium.png
+       22946 100%    1.99MB/s    0:00:00         22946 100%    1.99MB/s    0:00:00 (xfer#37, to-check=859/10030)
+muireception/portal/stickNote/style.css
+         652 100%   57.88kB/s    0:00:00           652 100%   57.88kB/s    0:00:00 (xfer#38, to-check=858/10030)
+
+sent 2175062 bytes  received 2035 bytes  870838.80 bytes/sec
+total size is 58662942  speedup is 26.95
+2010-10-07 10:41:38,175 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+./
+CMP.mm
+       32768   4%    0.00kB/s    0:00:00        673700 100%    8.26MB/s    0:00:00 (xfer#1, to-check=15/17)
+knowledge/
+knowledge/gettingthingsdone.odt
+       32768  14%  326.53kB/s    0:00:00        218832 100%    1.59MB/s    0:00:00 (xfer#2, to-check=0/17)
+
+sent 365145 bytes  received 62 bytes  243471.33 bytes/sec
+total size is 1302778  speedup is 3.57
+2010-10-07 10:41:38,175 INFO End backup loacl karrigell diretory to local git.
+2010-10-07 10:41:38,176 INFO Begin to backup local github to remote github host.

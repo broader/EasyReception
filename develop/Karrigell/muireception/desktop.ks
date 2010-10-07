@@ -5,10 +5,6 @@ from tools import treeHandler
 modules = {'pagefn': 'pagefn.py',  'JSON': 'demjson.py', } #'formFn':'form.py'}
 [locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items() ]
 
-#APPATH = THIS.script_url[1:]
-#RELPATH = '/'.join(THIS.baseurl.split('/'))
-#DATA = Import( '/'.join((RELPATH, 'hotelConfig.py')), rootdir=CONFIG.root_dir)
- 
 
 def _initJs():
 	paras = [NAVBAR,'page_menuData']
@@ -51,7 +47,8 @@ def _initJs():
 							});
 							$(nid).store('popupWindowId',func.popupWindowId);
 
-							if($type(window[func.funcname])) $(nid).addEvent('click', window[func.funcname]);
+							//if($type(window[func.funcname])) $(nid).addEvent('click', window[func.funcname]);
+							if($type(window[func.funcname])) $(nid).addEvent('click', window[func.funcname].pass(func.popupWindowId));
 						});
 					}
 				};
@@ -98,7 +95,7 @@ def _head():
 	for name in ('mootools-1.2.4-core.js', 'mootools-1.2.4.2-more.js', 'Date.Chinese.CN.js' ) :
 		print SCRIPT(**{'type':'text/javascript', 'src': '/'.join(('..', 'lib', 'mootools', name))})
 	
-	for name in ('Core/Core.js', 'Window/Window.js', 'Layout/Layout.js', 'Layout/Dock.js') :
+	for name in ('Core/Core.js', 'Window/Window.js', 'Window/Modal.js', 'Layout/Layout.js', 'Layout/Dock.js') :
 		print SCRIPT(**{'type':'text/javascript', 'src': '/'.join(('..', 'lib', 'mocha', name))})
 
 	print SCRIPT(**{'type':'text/javascript', 'src': "../js/init-desktop4user.js"})
@@ -327,10 +324,25 @@ def index(**args):
 	return	
 
 def page_windowsConfig(**args):
+	wid = args.get('wid')
 	config = pagefn.DESKTOP4USER['windowsConfig']
-	for wconfig in config :
-		for k,v in wconfig.items():
-			if type(v) == type(''):
-				wconfig[k] = v.decode('utf-8')
+	if not wid:
+		res = []
+		for index in pagefn.DESKTOP4USER['initDesktop']:
+			wconfig = config[index]
+			for k,v in wconfig.items():
+				if type(v) == type(''):
+					wconfig[k] = v.decode('utf-8')
+			res.append(wconfig)	
+		print JSON.encode(res, encoding='utf8')
+	else:
+		for item in config:
+			if item['id'] == wid:
+				for k,v in item.items():
+					if type(v) == type(''):
+						item[k] = v.decode('utf-8')	
+				print JSON.encode(item, encoding='utf-8')
+				break
 	
-	print JSON.encode(config, encoding='utf8') 
+	return
+

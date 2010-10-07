@@ -1,4 +1,5 @@
 []
+# -*- coding: utf_8 -*-
 Include ("header.ks/index")
 STDOUT("<body>\n<div id=\"desktop\">\n	<div id=\"desktopHeader\">\n		<div id=\"desktopTitlebarWrapper\">\n			<div id=\"desktopTitlebar\">\n				<h1 class=\"applicationTitle\">EasyReception</h1>\n				<h2 class=\"tagline\">					 \n					<span class=\"taglineEm\">")
 STDOUT(str(_('A Web Portal For Congress Reception Work')))
