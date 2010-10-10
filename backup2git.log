@@ -11134,3 +11134,107 @@ sent 365145 bytes  received 62 bytes  243471.33 bytes/sec
 total size is 1302778  speedup is 3.57
 2010-10-07 10:41:38,175 INFO End backup loacl karrigell diretory to local git.
 2010-10-07 10:41:38,176 INFO Begin to backup local github to remote github host.
+2010-10-07 10:41:39,055 INFO Command: 
+git add .
+running result is :
+2010-10-07 10:41:49,578 INFO Command: 
+git commit -m 'Update time:2010-10-07T10:41:38.176287'
+running result is :[master d2aa0a2] Update time:2010-10-07T10:41:38.176287
+ 36 files changed, 1873 insertions(+), 93 deletions(-)
+ create mode 100644 develop/Karrigell/data/muireception/cache/accomodation/maps/hotelConfig.py
+ create mode 100644 develop/Karrigell/data/muireception/cache/accomodation/maps/index.ks
+ create mode 100644 develop/Karrigell/data/muireception/cache/portal/stickNote/index.ks
+ create mode 100644 develop/Karrigell/data/muireception/sessions/7SWIIhqVSvzVxL9q
+ create mode 100644 develop/Karrigell/data/muireception/sessions/O2BJLSBQ5jxb9dij
+ create mode 100644 develop/Karrigell/muireception/accomodation/maps/agency_32.png
+ create mode 100644 develop/Karrigell/muireception/accomodation/maps/agency_32_old.png
+ create mode 100644 develop/Karrigell/muireception/accomodation/maps/detailImages/beiligong_demo_600.jpg
+ create mode 100644 develop/Karrigell/muireception/accomodation/maps/detailImages/friendship_demo_600.jpg
+ create mode 100644 develop/Karrigell/muireception/accomodation/maps/detailImages/gradeHotel_demo_600.jpg
+ create mode 100644 develop/Karrigell/muireception/accomodation/maps/haidian_hotel_900.jpg
+ create mode 100644 develop/Karrigell/muireception/accomodation/maps/haidian_hotel_900_bak.jpg
+ create mode 100644 develop/Karrigell/muireception/accomodation/maps/hotel.png
+ create mode 100644 develop/Karrigell/muireception/accomodation/maps/hotelConfig.py
+ create mode 100644 develop/Karrigell/muireception/accomodation/maps/hotelConfig.yaml
+ create mode 100644 develop/Karrigell/muireception/accomodation/maps/index.ks
+ create mode 100644 develop/Karrigell/muireception/lib/rotate/Fx.Rotate.js
+ create mode 100644 develop/Karrigell/muireception/lib/rotate/Fx.Rotate.js~
+ create mode 100644 develop/Karrigell/muireception/portal/stickNote/close-32.png
+ create mode 100644 develop/Karrigell/muireception/portal/stickNote/close.png
+ create mode 100644 develop/Karrigell/muireception/portal/stickNote/index.ks
+ create mode 100644 develop/Karrigell/muireception/portal/stickNote/needleleftyellow.png
+ create mode 100644 develop/Karrigell/muireception/portal/stickNote/stickynote-large.png
+ create mode 100644 develop/Karrigell/muireception/portal/stickNote/stickynote-medium.png
+ create mode 100644 develop/Karrigell/muireception/portal/stickNote/style.css
+ create mode 100644 develop/MindMap/knowledge/gettingthingsdone.odt
+2010-10-07 10:42:18,999 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   c8ef9d2..d2aa0a2  master -> master
+2010-10-07 10:42:18,999 INFO End backup local github to remote github host.
+2010-10-10 22:01:24,707 INFO Delete nousing captcha images
+2010-10-10 22:01:24,746 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-10-10 22:01:24,747 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-10-10 22:01:27,604 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/congressdemo/cache/index.ks
+        3061 100%    0.00kB/s    0:00:00          3061 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1004/6049)
+data/muireception/cache/
+data/muireception/cache/model.py
+       20948 100%  157.36kB/s    0:00:00         20948 100%  157.36kB/s    0:00:00 (xfer#2, to-check=1011/6084)
+data/muireception/cache/lib/
+data/muireception/cache/lib/stickyNotes/
+data/muireception/cache/lib/stickyNotes/test.ks
+        3801 100%   25.60kB/s    0:00:00          3801 100%   25.60kB/s    0:00:00 (xfer#3, to-check=1000/6086)
+data/muireception/cache/portal/
+data/muireception/cache/portal/index.pih
+        7254 100%   43.46kB/s    0:00:00          7254 100%   43.20kB/s    0:00:00 (xfer#4, to-check=1007/6094)
+data/muireception/cache/portal/portal.ks
+        1313 100%    7.54kB/s    0:00:00          1313 100%    7.54kB/s    0:00:00 (xfer#5, to-check=1006/6094)
+data/muireception/cache/portal/stickNote/index.ks
+        3755 100%   19.82kB/s    0:00:00          3755 100%   19.82kB/s    0:00:00 (xfer#6, to-check=1001/6096)
+data/muireception/sessions/O2BJLSBQ5jxb9dij
+         245 100%    1.07kB/s    0:00:00           245 100%    1.07kB/s    0:00:00 (xfer#7, to-check=2296/7559)
+muireception/lib/
+muireception/lib/stickyNotes/
+muireception/lib/stickyNotes/close.png
+         791 100%    0.86kB/s    0:00:00           791 100%    0.86kB/s    0:00:00 (xfer#8, to-check=1007/9279)
+muireception/lib/stickyNotes/needle.png
+        1301 100%    1.40kB/s    0:00:00          1301 100%    1.40kB/s    0:00:00 (xfer#9, to-check=1006/9279)
+muireception/lib/stickyNotes/needle_64.png
+        3360 100%    3.56kB/s    0:00:00          3360 100%    3.56kB/s    0:00:00 (xfer#10, to-check=1005/9279)
+muireception/lib/stickyNotes/stickyNotes.js
+        5576 100%    5.81kB/s    0:00:00          5576 100%    5.81kB/s    0:00:00 (xfer#11, to-check=1004/9279)
+muireception/lib/stickyNotes/stickynote-large.png
+       32768  91%   33.47kB/s    0:00:00         35915 100%   36.69kB/s    0:00:00 (xfer#12, to-check=1003/9279)
+muireception/lib/stickyNotes/stickynote-medium.png
+       22946 100%   23.42kB/s    0:00:00         22946 100%   23.42kB/s    0:00:00 (xfer#13, to-check=1002/9279)
+muireception/lib/stickyNotes/style.css
+         842 100%    0.85kB/s    0:00:00           842 100%    0.85kB/s    0:00:00 (xfer#14, to-check=1001/9279)
+muireception/lib/stickyNotes/test.ks
+        3780 100%    3.81kB/s    0:00:00          3780 100%    3.81kB/s    0:00:00 (xfer#15, to-check=1000/9279)
+muireception/lib/treeTable/
+muireception/lib/treeTable/treeTable.js
+       11602 100%   11.44kB/s    0:00:00         11602 100%   11.44kB/s    0:00:00 (xfer#16, to-check=1003/9303)
+muireception/portal/stickNote/
+muireception/portal/stickNote/index.ks
+        3735 100%    3.39kB/s    0:00:00          3735 100%    3.39kB/s    0:00:01 (xfer#17, to-check=862/10045)
+muireception/portal/stickNote/style.css
+         652 100%    0.59kB/s    0:00:00           652 100%    0.59kB/s    0:00:01 (xfer#18, to-check=858/10045)
+
+sent 297523 bytes  received 1623 bytes  85470.29 bytes/sec
+total size is 58770768  speedup is 196.46
+2010-10-10 22:01:27,826 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768   4%    0.00kB/s    0:00:00        674601 100%    5.62MB/s    0:00:00 (xfer#1, to-check=15/17)
+
+sent 148918 bytes  received 37 bytes  297910.00 bytes/sec
+total size is 1303679  speedup is 8.75
+2010-10-10 22:01:27,827 INFO End backup loacl karrigell diretory to local git.
+2010-10-10 22:01:27,827 INFO Begin to backup local github to remote github host.

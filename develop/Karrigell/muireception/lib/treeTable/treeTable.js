@@ -40,7 +40,7 @@ var TreeTable = new Class({
 		
 		// setting for Events
 		fireRenderOver: true,
-		renderOver: null, 
+		renderOver: null 
 		
 	},
 	

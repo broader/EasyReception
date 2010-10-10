@@ -2123,7 +2123,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1281054187504" ID="ID_1257238833" MODIFIED="1286333306879" POSITION="right" TEXT="Emergency">
+<node COLOR="#0033ff" CREATED="1281054187504" FOLDED="true" ID="ID_1257238833" MODIFIED="1286590448653" POSITION="right" TEXT="Emergency">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="yes"/>
@@ -2332,7 +2332,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1255678687321" ID="Freemind_Link_1960570627" MODIFIED="1286333308958" TEXT="Portal">
+<node COLOR="#00b439" CREATED="1255678687321" FOLDED="true" ID="Freemind_Link_1960570627" MODIFIED="1286590447642" TEXT="Portal">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="button_cancel"/>
@@ -2350,7 +2350,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1275355086386" ID="ID_51944167" LINK="http://codecanyon.net/item/newsletter-system/52667" MODIFIED="1275355089505" TEXT="http://codecanyon.net/item/newsletter-system/52667"/>
 </node>
-<node COLOR="#990000" CREATED="1251723352369" ID="Freemind_Link_1621143709" MODIFIED="1286333318201" TEXT="Register User">
+<node COLOR="#990000" CREATED="1251723352369" FOLDED="true" ID="Freemind_Link_1621143709" MODIFIED="1286590445281" TEXT="Register User">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="full-2"/>
@@ -3192,7 +3192,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1282198309588" POSITION="right" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" ID="Freemind_Link_986904229" MODIFIED="1286590498489" POSITION="right" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -3283,7 +3283,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1275534519734" FOLDED="true" ID="ID_64771622" MODIFIED="1281969494430" TEXT="Mootools">
+<node COLOR="#00b439" CREATED="1275534519734" FOLDED="true" ID="ID_64771622" MODIFIED="1286591585901" TEXT="Mootools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1275534524901" FOLDED="true" ID="ID_623447683" MODIFIED="1277113978747" TEXT="Slider.js">
@@ -3296,6 +3296,38 @@
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1277113990394" ID="ID_848592637" MODIFIED="1277114168619" TEXT="&#x5185;&#x5bb9;&#x4e2d;&#x5fc5;&#x987b;&#x6709;&#x5b64;&#x7acb;&#x3001;&#x975e;&#x95ed;&#x5408;&#x7684;Tag&#x3002;&#xa;&#x4f8b;&#x5982;&#xff1a;&lt;br&gt;&#xa;&#x5426;&#x5219;firebug&#x4f1a;&#x6709;&#x8b66;&#x544a;?&#xa;&#x4e0e;mootools&#x4e2d;&#x5185;&#x7f6e;&#x7684;xml&#x5904;&#x7406;&#x5f15;&#x64ce;&#x76f8;&#x5173;&#xff1f;&#xa;mootools-1.2.4-core.js&#xa;---&gt;Element.processHtml()">
 <icon BUILTIN="help"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1286591461640" ID="ID_247168229" MODIFIED="1286591466013" TEXT="Form">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1286591467504" ID="ID_450631495" MODIFIED="1286591470280" TEXT="Select">
+<node COLOR="#111111" CREATED="1286591474001" ID="ID_536989714" MODIFIED="1286591477107" TEXT="Event">
+<node COLOR="#111111" CREATED="1286591478449" ID="ID_1468757898" MODIFIED="1286591580520">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      'change'
+    </p>
+    <p>
+      $(select).addEvent('change', function(e){
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;e.target---&gt; select element
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;e.target.getProperty('value') ---&gt; the value of the selected option
+    </p>
+    <p>
+      })
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
 </node>
 </node>
 </node>
@@ -3353,7 +3385,7 @@
 <node COLOR="#111111" CREATED="1270272374006" ID="ID_1440362744" MODIFIED="1270272624879" TEXT="Create Action&#xa;---&gt;&#x68c0;&#x67e5;&#x662f;&#x5426;&#x4e0e; existed key values &#x503c;&#x91cd;&#x590d;&#x5373;&#x53ef;&#xa;&#xa;Edit Action&#xa;---&gt;1, &#x901a;&#x8fc7; node id &#x83b7;&#x5f97; old key value;&#xa;---&gt;2, &#x5982;&#x679c; &#xa;------&gt;input value == old key value---&gt; valid input&#xa;------&gt;&#x6216;&#x8005; input value &#x6ca1;&#x6709;&#x4e0e; existed key values &#x91cd;&#x590d; ---&gt; valid input"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1280216752721" TEXT="Karrigell">
+<node COLOR="#00b439" CREATED="1174877401376" ID="Freemind_Link_503549801" MODIFIED="1286591589027" TEXT="Karrigell">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1250824602428" FOLDED="true" ID="Freemind_Link_1774893402" MODIFIED="1274274708400" TEXT="_()---i18n">
@@ -3385,7 +3417,7 @@
 <node COLOR="#111111" CREATED="1260451690651" ID="ID_1486718180" MODIFIED="1260451819616" TEXT="{,  [ ,  &apos;&apos;&apos; ,  &quot;&quot;&quot; &#x7f3a;&#x5c11;&#x5bf9;&#x5e94;&#x7684;&#x7ed3;&#x675f;&#x7b26;&#x53f7;&#xff0c;&#xa;&#x6216;&#x662f;&#x6587;&#x4ef6;&#x6700;&#x540e;&#x4e00;&#x884c; &#x4ee5; &apos;\&apos; &#x7ed3;&#x675f;&#xa;"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1265166162729" ID="ID_1537892475" MODIFIED="1280216139623" TEXT="Unicode &amp; UTF8">
+<node COLOR="#990000" CREATED="1265166162729" FOLDED="true" ID="ID_1537892475" MODIFIED="1286590506556" TEXT="Unicode &amp; UTF8">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -3405,7 +3437,7 @@
 <node COLOR="#111111" CREATED="1273633491829" ID="ID_1759401359" MODIFIED="1273633903399" TEXT="&#x5bfc;&#x5165;&#x94fe;&#xff1a;&#xa;&quot;&#x67d0;&#x9875;&#x9762;&quot;&#xff0d;&#x300b;model.py-&gt;config.py&#xa;&#xa;&#x4fee;&#x6b63;&#x70b9;&#xff1a;&#xa;model.py-&gt;&#xa;INITCONFIG = Import( &quot;../config.py&quot;, rootdir=CONFIG.root_dir)&#xa;&#xa;&#x6b64;&#x5904;&#x5fc5;&#x987b;&#x4f7f;&#x7528;&quot;../config.py&quot;&#xff0c;&#x5426;&#x5219;Karrigell-&gt;k_target.py-&gt;Target._import()&#x4e2d;&#x4ee5;&#x4e0b;&#x8bed;&#x53e5;&#xa;abs_url = urlparse.urljoin(self.script_url,url)&#xa;&#x5c06;&#x5bfc;&#x81f4;&quot;&#x67d0;&#x9875;&#x9762;&#x201c;&#x7684;&#x76f8;&#x5bf9;&#x8def;&#x5f84;&#x88ab;&#x6dfb;&#x52a0;&#xff0c;&#x4ece;&#x800c;&#x5f15;&#x53d1;Import Error"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1263825181828" FOLDED="true" ID="ID_854025776" MODIFIED="1274590389081" TEXT="Session">
+<node COLOR="#990000" CREATED="1263825181828" FOLDED="true" ID="ID_854025776" MODIFIED="1286590528933" TEXT="Session">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -3450,8 +3482,8 @@
 <node COLOR="#111111" CREATED="1269422877447" ID="ID_1239812545" MODIFIED="1269423710766" TEXT="&#x73b0;&#x5728;roundup tracker &#x5728;RequestHandler&#x4e2d;&#x88ab;&#x7f13;&#x5b58;&#x5e76;&#x53cd;&#x590d;&#x4f7f;&#x7528;,&#xa;sesssion object = requestHandler.sessionId&#xa;&#x8fd9;&#x6837;&#x53ef;&#x80fd;&#x4f1a;&#x5bfc;&#x81f4;sessionId&#x7d0a;&#x4e71;?&#xa;&#x4f8b;&#x5982;&#xff1a;&#xa;demo&#x767b;&#x5f55;&#xff0c;&#x5374;&#x663e;&#x793a;admin&#x7684;&#x754c;&#x9762;&#xff1b;&#xa;&#x6b63;&#x5e38;&#x767b;&#x5f55;&#xff0c;&#x5374;&#x65e0;&#x6cd5;&#x8bfb;&#x53d6;role&#x7b49;session object &#x5c5e;&#x6027;&#xff1b;&#xa;&#xa;&#x73b0;&#x5728;&#x5df2;&#x5220;&#x9664;RequestHandler&#x4e2d;&#x7684;roundup tracker instance &#x7f13;&#x5b58;"/>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1274320675710" FOLDED="true" ID="ID_433686554" MODIFIED="1274539718385" TEXT="&#x89e3;&#x51b3;&#x529e;&#x6cd5;">
-<node COLOR="#111111" CREATED="1274320693706" FOLDED="true" ID="ID_387659754" MODIFIED="1274539717322" TEXT="layout.ks">
+<node COLOR="#111111" CREATED="1274320675710" FOLDED="true" ID="ID_433686554" MODIFIED="1286590527773" TEXT="&#x89e3;&#x51b3;&#x529e;&#x6cd5;">
+<node COLOR="#111111" CREATED="1274320693706" ID="ID_387659754" MODIFIED="1286590523549" TEXT="layout.ks">
 <node COLOR="#111111" CREATED="1274320709899" ID="ID_1005593136" MODIFIED="1274320925639" TEXT="&#x7531;&#x4e8e;&#x8be5;&#x6587;&#x4ef6;&#x8d1f;&#x8d23;&#x767b;&#x5f55;&#x8fc7;&#x7a0b;&#x63a7;&#x5236;&#xff0c;&#x5c06;session&#x7684;&#x8c03;&#x7528;&#x5206;&#x5e03;&#x4e8e;&#x5177;&#x4f53;&#x51fd;&#x6570;&#x4e2d;&#xff0c;&#x800c;&#x4e0d;&#x662f;&#x5728;ks&#x6587;&#x4ef6;&#x7684;&#x5f00;&#x5934;&#x5168;&#x5c40;&#x5b9a;&#x4e49;&#xff1b;&#xa;&#xa;&#x4ec5;&#x5728;&#x7528;&#x6237;&#x5e10;&#x6237;&#x3001;&#x53e3;&#x4ee4;&#x6821;&#x9a8c;&#x6210;&#x529f;&#x540e;&#xff0c;&#x5c06;&#x7528;&#x6237;&#x767b;&#x5f55;&#x4fe1;&#x606f;&#x5b58;&#x50a8;&#x5230;&#x521a;&#x521b;&#x5efa;&#x7684;session objcet&#x4e2d;&#x3002;&#xa;"/>
 <node COLOR="#111111" CREATED="1274320931003" ID="ID_1794841848" MODIFIED="1274325150022" TEXT="K3.1&#xa;---&gt;HTTP.py&#xa;------&gt;def Session(self,expires=15*60,path=&apos;/&apos;):&#xa;&#x7531;&#x4e8e;&#x6b64;&#x5904;&#x5c06;cookie&#x7684;&#x76f8;&#x5bf9;&#x8def;&#x5f84;&#x7f3a;&#x7701;&#x8bbe;&#x7f6e;&#x4e3a;&apos;/&apos;,&#x5728;layout.ks&#x6587;&#x4ef6;&#x4e2d;&#x4e0d;&#x7528;&#x518d;&#x9488;&#x5bf9;&#x6b64;&#x505a;&#x5904;&#x7406;&#x3002;&#xa;">
 <arrowlink DESTINATION="ID_1348534102" ENDARROW="Default" ENDINCLINATION="-65;-51;" ID="Arrow_ID_1331154546" STARTARROW="None" STARTINCLINATION="-73;22;"/>
@@ -4026,24 +4058,6 @@
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1272419676641" ID="ID_1017746427" LINK="http://events.jquery.org/2010/sf-bay-area/" MODIFIED="1272419680903" TEXT="http://events.jquery.org/2010/sf-bay-area/">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-</node>
-</node>
-<node COLOR="#0033ff" CREATED="1271035965662" FOLDED="true" ID="ID_1623049594" MODIFIED="1282190417715" POSITION="left" TEXT="Knowledge Management">
-<edge STYLE="sharp_bezier" WIDTH="8"/>
-<font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1271035977485" ID="ID_412420687" MODIFIED="1272459237606" TEXT="Comment Functions">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1271035984757" ID="ID_1652687120" LINK="http://tutorialzine.com/2009/10/google-wave-history-slider-jquery/" MODIFIED="1271035994453" TEXT="http://tutorialzine.com/2009/10/google-wave-history-slider-jquery/">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-</node>
-<node COLOR="#00b439" CREATED="1274318815815" ID="ID_1086359370" MODIFIED="1274318827626" TEXT="Text Search">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1274318828477" ID="ID_1761019953" LINK="http://mootools.net/forge/p/contextualsearch" MODIFIED="1274318832850" TEXT="http://mootools.net/forge/p/contextualsearch">
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
@@ -6007,7 +6021,7 @@ au</pre>
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1280286221408" FOLDED="true" ID="ID_767321368" MODIFIED="1285729503191" POSITION="right" TEXT="Expand Direction">
+<node COLOR="#0033ff" CREATED="1280286221408" FOLDED="true" ID="ID_767321368" MODIFIED="1286590494879" POSITION="right" TEXT="Expand Direction">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1280286228167" FOLDED="true" ID="ID_1157419451" MODIFIED="1282379580912" TEXT="Intelligence Search">
@@ -6122,7 +6136,7 @@ au</pre>
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1282199089906" ID="ID_1993053185" MODIFIED="1285729316719" TEXT="ToDo/ Getting Things Done">
+<node COLOR="#00b439" CREATED="1282199089906" FOLDED="true" ID="ID_1993053185" MODIFIED="1286590485025" TEXT="ToDo/ Getting Things Done">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1284087313128" ID="ID_836821811" MODIFIED="1284087315690" TEXT="Prefer">
@@ -6188,6 +6202,25 @@ au</pre>
 <node COLOR="#990000" CREATED="1285729268916" ID="ID_1087349517" MODIFIED="1285729272226" TEXT="Prefer">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1285729272934" ID="ID_255257930" LINK="http://www.liquidplanner.com/" MODIFIED="1285729275860" TEXT="http://www.liquidplanner.com/"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1271035965662" ID="ID_1623049594" MODIFIED="1286590492324" TEXT="Knowledge Management">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<icon BUILTIN="yes"/>
+<node COLOR="#990000" CREATED="1271035977485" ID="ID_412420687" MODIFIED="1286590479662" TEXT="Comment Functions">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1271035984757" ID="ID_1652687120" LINK="http://tutorialzine.com/2009/10/google-wave-history-slider-jquery/" MODIFIED="1286590479662" TEXT="http://tutorialzine.com/2009/10/google-wave-history-slider-jquery/">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1274318815815" ID="ID_1086359370" MODIFIED="1286590479663" TEXT="Text Search">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1274318828477" ID="ID_1761019953" LINK="http://mootools.net/forge/p/contextualsearch" MODIFIED="1286590479663" TEXT="http://mootools.net/forge/p/contextualsearch">
+<font NAME="SansSerif" SIZE="12"/>
+</node>
 </node>
 </node>
 </node>
