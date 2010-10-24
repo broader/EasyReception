@@ -38,14 +38,11 @@ var loginFns = {
 		new Event(event).stop();
 		
 		modal = new MUI.Modal({
-			//id: dlgId,
 			title: '<%=_("Login Dialog") %>',			
-			contentURL: "<%=pagefn.LOGINFORM%>",
-			//type: 'modal2',
+			contentURL: "layout.ks/page_loginForm",
 			modalOverlayClose: false,
 			width: 400,
 			height: 300,
-			//padding: { top: 10, right: 12, bottom: 10, left: 12 },
 			scrollbars: true,
 						
 			onClose: function(e){

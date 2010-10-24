@@ -63,7 +63,7 @@
 			</span>
 			<span style="text-align:center;">
 				<%=_('CSS style powered by ')%>
-     			<a href="http://www.yaml.de/en/home.html" target="YAML" class="copyright">YAML</a>
+				<a href="http://www.yaml.de/en/home.html" target="YAML" class="copyright">YAML</a>
 			</span>
 		</div>
 	</div>

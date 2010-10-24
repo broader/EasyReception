@@ -1,0 +1,31 @@
+[]
+# -*- coding: utf_8 -*-
+STDOUT("/* \n	In this file, first set the layout of the application, such as desktop and\n	menu dock, etc. Then set the menus\' function in login panel.\n*/\n/*---------------------------------------------------------------------\nINITIALIZE THE TWO MENU \'Login\' AND \'Register\'\n	1. \'Login\' menu clicked function\n	2. \'Register\' menu clicked function	\n-------------------------------------------------------------------- */\n")
+# PYTHON CODE
+# get global variables stored in pagefn.py
+pagefn = Import('/'.join(('', 'pagefn.py')))
+registerTabsUrls = [ item.get('url') for item in pagefn.REGISTERTABS ]
+# initial showing tabs' url
+iniTabUrl = registerTabsUrls[0]
+# Application name, when closing the registration dialog,
+# this name will be need to remove all the imported Assets tags.
+registerAppName = pagefn.getApp(iniTabUrl,0)
+STDOUT("// the names for prelogin menues\' click function \nvar fNames = [ \'login\', \'register\' ];\n// a object holds two functions for prelogin \nvar loginFns = {\n	/* The \'click\' callback function for the \'login\' menu. */\n	\'login\': function(event){\n		new Event(event).stop();\n		modal = new MUI.Modal({\n			title: \'")
+STDOUT(str(_("Login Dialog")))
+STDOUT("\',			\n			contentURL: \"portaLayout.ks/page_loginForm\",\n			modalOverlayClose: false,\n			width: 400, height: 300,\n			scrollbars: true,						\n			onClose: function(e){\n				MUI.removeErr();\n			}			\n		});\n		return modal\n	},\n	\'register\': function(event){\n		new Event(event).stop();\n		var dlgId = \'")
+STDOUT(str(pagefn.REGISTERDIALOG))
+STDOUT("\'; \n		var tabsId = \'")
+STDOUT(str(pagefn.REGISTERTABSID))
+STDOUT("\';\n		// using python inside html to set the tabs\' url to a javascript array\n		var tabUrls = []; \n")
+for url in registerTabsUrls:
+ STDOUT("			tabUrls.push(\"")
+ STDOUT(str(url))
+ STDOUT("\");\n")
+STDOUT("		// Define a tab switching function. It\'s a global function and will be called\n		// in registration form submitting process, for this reason we should not use\n		// \'var\' before the variable.\n		tabSwitch = function(index) {\n			var spinner = new Spinner(dlgId+\'_content\'); 						\n			spinner.show();\n			$(tabsId).getElements(\'li\')[index].fireEvent(\'click\');						\n			MUI.updateContent({\'element\':$(dlgId), \'url\':tabUrls[index]});\n			spinner.hide();\n		};\n		new MUI.Modal({\n			id: dlgId,\n			title: \'")
+STDOUT(str(_("Register Dialog")))
+STDOUT("\',			\n			contentURL: \'")
+STDOUT(str(iniTabUrl))
+STDOUT("\',\n			//type: \'modal2\',\n			modalOverlayClose: false,\n			width: 750,\n			height: 400,\n			padding: { top: 10, right: 12, bottom: 10, left: 12 },\n			scrollbars: true,\n			//shape: \'gaoge\',\n			toolbar: true,\n			toolbarURL:\'register/register.ks/tabs\',\n			toolbarOnload: function(){				\n				// add selected class to each tabs when they are selected				\n				MUI.initializeTabs(tabsId);\n				$(tabsId).getElements(\'li\')[0].fireEvent(\'click\');							\n			},\n			onClose: function(e){	\n				// remove validation errors\' information	\n				MUI.removeErr();		\n				// Remove all the imported Assets				\n				MUI.assetsManager.remove(\'")
+STDOUT(str(registerAppName))
+STDOUT("\',\'app\');\n			}			\n		});\n		return false;\n	}\n};\nfunction preLoginInit(){	\n	$(\'topNav\').getElements(\'li\').each(function(item,index){\n		item.addEvent(\'click\', loginFns[fNames[index]]);\n	});\n	// application initialization, including closing old session and removing old cookie\n	MUI.appInit();\n};\n// Initialize MochaUI when the DOM is ready\nwindow.addEvent(\'load\', function(){ //using load instead of domready for IE8\n	MUI.myChain = new Chain();\n	MUI.myChain.chain(\n		function(){MUI.Desktop.initialize();},\n		function(){MUI.Dock.initialize();},\n		preLoginInit()		\n	).callChain();	\n});\n")
+

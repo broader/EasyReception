@@ -16,21 +16,35 @@ var StickyNotes = new Class({
 	options: {
 		dropElements: null,	// the elements where the dragged elements could be dropped	
 		container: null,	// the container for the sticky notes
-		noteClass: "note", 		// the css class for the note
+		noteClass: "stickyNote", 		// the css class for the note
 		handleClass: "handle", 		// the css class for the note
 		needleClass: "needle", 		// the css class for the note
 		closeBnClass: "closeNote", 	// the css class for the note
 		layout: "cascade",		// the style for the layout of the sticky notes in the container
-		indexLevel: 10000,		// the default z-index level value
-		notesData: null		// the data holding the content for each note
+		indexLevel: 1000,		// the default z-index level value
+		notesData: null,		// the data holding the content for each note
+		notesDataUrl: null		// the url which will return a json object as notesData
 	},
 	
 	initialize: function(options){	
 		this.setOptions(options);
 		this.layout = this.options.layout;
 		var self = this;
+		var data = null;
+		if(self.options.notesDataUrl){
+			new Request.JSON({
+				url:self.options.notesDataUrl, 
+				async: false, 
+				onSuccess: function(json){
+					data = json;
+				}
+			}).get();
+		}
+		else{
+			data = self.options.notesData || [];
+		};
 		
-		self.addNotes(self.options.notesData || []);		
+		self.addNotes(data);		
 
 	},
 	
@@ -50,18 +64,19 @@ var StickyNotes = new Class({
 	// initialize the layout of one note
 	addNote: function(item){
 		var self = this;
-		var el = new Element('div',{'class':'note','style':'margin-top:2em;margin-left:2em;'});
-
+		var el = new Element('div',{'class':self.options.noteClass});
+		
 		// add title bar
-		var titleDiv = new Element('div',{'class':'handle'});
+		var titleDiv = new Element('div',{'class': self.options.handleClass});
 				
-		var closeBn = new Element('div', {'class':'closeNote'});
+		var closeBn = new Element('div', {'class':self.options.closeBnClass});
+		// add the callback function to the close button
 		closeBn.addEvent('click', function(e){
 			new Event(e).stop();
 			el.dispose();
 			self.resetLayout(self.layout);
 		});
-		titleDiv.adopt( new Element('div', {'class':'needle'}),closeBn);
+		titleDiv.adopt( new Element('div', {'class':self.options.needleClass}),closeBn);
 		el.adopt(titleDiv);
 
 		// add content to the note
@@ -70,14 +85,13 @@ var StickyNotes = new Class({
 			new Element('p', {html: item.content})
 		);
 		
-
 		el.addEvent('click', function(e){
 			self.options.indexLevel++;
 			e.target.setStyle('z-index', self.options.indexLevel);
 		});
 
 		var draggableOptions = {
-			//droppables: self.options.dropElements,
+			droppables: self.options.dropElements,
 			container: $(self.options.container),
 			onStart: function(el,dr){
 				self.options.indexLevel++;
@@ -116,7 +130,14 @@ var StickyNotes = new Class({
 		return $$('.'+this.options.noteClass)
 	},
 
-	// cascade notes
+	// delete all the notes
+	closeAll: function(){
+		this.getNotes().each(function(item){
+			item.dispose();
+		});
+	},
+
+	// cascade layout 
 	cascade: function(xOffset, yOffset){
 		xOffset = xOffset || 40;
 		yOffset = yOffset || 40;
@@ -171,24 +192,23 @@ var StickyNotes = new Class({
 		xOffset = xOffset || 180;
 		yOffset = yOffset || 100;
 		var self = this, 
-		    containerTopOffset = 120,
-		    containerLeftOffset = 150;
-		var i = 1;
+		    //containerTopOffset = 120,
+		    //containerLeftOffset = 150,
+		    containerTopOffset = 10,
+		    containerLeftOffset = 10,
+		    i = 1;
+
 		self.getNotes().each(function(el){
 			self.options.indexLevel++;
 			el.setStyle('z-index', self.options.indexLevel);
-			if(i>1 && i<= columns){
-				containerLeftOffset += xOffset;
-			}
+			if(i>1 && i<= columns){	containerLeftOffset += xOffset;	}
 			else if (i>1){
 				containerLeftOffset = 150;
 				containerTopOffset += yOffset;
 				i = 1;
 			}
 			
-			var notesMorph = new Fx.Morph(el, {
-				'duration': 400
-			});
+			var notesMorph = new Fx.Morph(el, {'duration': 400});
 			notesMorph.start({
 				'top': containerTopOffset,
 				'left': containerLeftOffset,
@@ -201,12 +221,6 @@ var StickyNotes = new Class({
 	resetLayout: function(layouType){
 		this.layout = layouType;
 		if($defined(this[layouType])) this[layouType]();
-	},
-	
-	// add a note
-	addOne: function(title,content){
-		
-			
 	}
-
+	
 });

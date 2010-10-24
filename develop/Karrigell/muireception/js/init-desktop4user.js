@@ -45,7 +45,7 @@ initializeWindows = function(){
 	var res = new Request.JSON();
 	// set some options for Request.JSON instance
 	res.setOptions({
-		url: '../desktop.ks/page_windowsConfig',
+		url: '../desktop_demo.ks/page_windowsConfig',
 		onSuccess: function(json){
 			if(json.length == 0 ) return;
 			json.each(function(option,index){

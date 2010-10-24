@@ -10,11 +10,9 @@ iniTabUrl = registerTabsUrls[0]
 # Application name, when closing the registration dialog,
 # this name will be need to remove all the imported Assets tags.
 registerAppName = pagefn.getApp(iniTabUrl,0)
-STDOUT("// the names for prelogin menues\' click function \nvar fNames = [ \'login\', \'register\' ];\n// a object holds two functions for prelogin \nvar loginFns = {\n	/* The \'click\' callback function for the \'login\' menu. */\n	\'login\': function(event){\n		new Event(event).stop();\n		modal = new MUI.Modal({\n			//id: dlgId,\n			title: \'")
+STDOUT("// the names for prelogin menues\' click function \nvar fNames = [ \'login\', \'register\' ];\n// a object holds two functions for prelogin \nvar loginFns = {\n	/* The \'click\' callback function for the \'login\' menu. */\n	\'login\': function(event){\n		new Event(event).stop();\n		modal = new MUI.Modal({\n			title: \'")
 STDOUT(str(_("Login Dialog")))
-STDOUT("\',			\n			contentURL: \"")
-STDOUT(str(pagefn.LOGINFORM))
-STDOUT("\",\n			//type: \'modal2\',\n			modalOverlayClose: false,\n			width: 400,\n			height: 300,\n			//padding: { top: 10, right: 12, bottom: 10, left: 12 },\n			scrollbars: true,\n			onClose: function(e){\n				MUI.removeErr();\n			}			\n		});\n		return modal\n	},\n	\'register\': function(event){\n		new Event(event).stop();\n		var dlgId = \'")
+STDOUT("\',			\n			contentURL: \"layout.ks/page_loginForm\",\n			modalOverlayClose: false,\n			width: 400,\n			height: 300,\n			scrollbars: true,\n			onClose: function(e){\n				MUI.removeErr();\n			}			\n		});\n		return modal\n	},\n	\'register\': function(event){\n		new Event(event).stop();\n		var dlgId = \'")
 STDOUT(str(pagefn.REGISTERDIALOG))
 STDOUT("\'; \n		var tabsId = \'")
 STDOUT(str(pagefn.REGISTERTABSID))

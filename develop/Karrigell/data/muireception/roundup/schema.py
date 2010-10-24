@@ -84,6 +84,9 @@ file = FileClass(db, "file",name=String())
 
 # the dossier for user, saved in a csv formatted file
 dossier = FileClass(db, "dossier",name=String())		
+
+# the config file for each user, saved in yaml formatted file
+userconfig = FileClass(db, "userconfig", username=Link("user"))
 		
 # IssueClass automatically gets these properties in addition to the Class ones:
 #   title = String()

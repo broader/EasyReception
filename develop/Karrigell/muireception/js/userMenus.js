@@ -23,11 +23,11 @@ function logout(event){
 **	Pop up a window by given window's id
 */
 function popupWindow(wid){
-	
+
 	var res = new Request.JSON();
 	// set some options for Request.JSON instance
 	res.setOptions({
-		url: '../desktop.ks/page_windowsConfig?wid='+wid,
+		url: 'portaLayout.ks/page_windowsConfig?wid='+wid,
 		onSuccess: function(config){
 			if( config.shape == 'gauge'){
 				new MUI.GaugeWindow(config);	

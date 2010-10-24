@@ -1,4 +1,4 @@
-['css', 'script', 'setCookie', 'sexyButton', 'getConfig', 'decodeDict2Utf8']
+['css', 'script', 'sexyButton', 'getConfig', 'decodeDict2Utf8']
 # karrigell modules
 from HTMLTags import *
 
@@ -106,12 +106,15 @@ BUTTONLABELS = {\
 # login area on the top and right corner of the screen
 #---------------------------------------------------------------------------------------
 LOGINAPPNAME = 'loginApp'
-LOGINFORM = '/'.join(('layout.ks', 'page_loginForm'))
+#LOGINFORM = '/'.join(('layout.ks', 'page_loginForm'))
 LOGINPANEL = 'topNav'
 LAYOUTURLS = \
 [ '/'.join(('layout.ks', url)) \
   #for url in ('page_welcomeInfo', 'page_menu', 'page_sideBarPanels', 'page_closeSession') ]
   for url in ('page_welcomeInfo', 'page_menu', 'page_sideBarPanels') ]
+
+# layout type of the portal, used in "portaLayout.ks/page_accountValid
+PORTALTYPE = ( 'grid', 'desktop' )
 
 # The normal user's role
 USEROLE = 'User'
@@ -122,9 +125,16 @@ USERMENUS = \
 'data':
 	[
 		{ 'id':'00', 'text':_("Service"), 'function':'' },\
-		{'id':'0000', 'text':_("File List"), 'function':'popupWindow', 'parent': '00', 'popupWindowId':'fileManager'},
-		{'id':'0001', 'text':_("Hotel Map"), 'function':'popupWindow', 'parent': '00', 'popupWindowId':'hotelMap'},
-		{ 'id':'01', 'text':_("Setting"), 'function':'test' },\
+		{ 'id':'fileManagerLinkCheck', 'text':_("File List"), 'function':'popupWindow', 'parent': '00', 'popupWindowId':'fileManager'},
+		{ 'id':'hotelMapLinkCheck', 'text':_("Hotel Map"), 'function':'popupWindow', 'parent': '00', 'popupWindowId':'hotelMap', 'liCssClass':'divider' },
+		{ 'id':'01', 'text':_("Setting"), 'function':'' },\
+		#----------------Sticky Notes Config---------------------------------------------------------------------------------------------
+		{ 'id':'stickyNotes', 'text':_("Tickets"), 'function':'', 'parent': '01', 'aCssClass':'returnFalse arrow-right' },
+		{ 'id':'gridCal', 'text':_("grid"), 'function':'setCalendarLayout', 'parent': 'stickyNotes'},
+		{ 'id':'cascadeCal', 'text':_("cascade"), 'function':'setCalendarLayout', 'parent': 'stickyNotes', 'liCssClass':'divider' },
+		{ 'id':'cycleCal', 'text':_("cycle"), 'function':'setCalendarLayout', 'parent': 'stickyNotes', 'liCssClass':'divider' },
+		#*********************************************************************************************************************************
+		{ 'id':'calendarLinkCheck', 'text':_("Calendar"), 'function':'popupWindow', 'parent': '01', 'popupWindowId':'calendar', 'aCssClass':'returnFalse' },
 		{ 'id':'02', 'text':_("Logout"), 'function':'logout'}\
 	],
 'js': 'js/userMenus.js'
@@ -169,8 +179,8 @@ DESKTOP4USER = \
 		'addClass': 'transparent',
 		'padding': { 'top': 0, 'right': 0, 'bottom': 0, 'left': 0 },\
 		'loadMethod': 'xhr',\
-		'contentURL': '../portal/desktop/calendar.ks/index',\
-		'width': 300, 'height': 300, 'x': 1100, 'y': 310\
+		'contentURL': 'portal/desktop/calendar.ks/index',\
+		'width': 250, 'height': 300, 'x': 1125, 'y': 260\
 	},\
 
 
@@ -406,9 +416,9 @@ def script(src, link=True):
 
 # some global variables stored in Session object of Karrigell
 COOKIENAME = "sessionId"
-def setCookie(cookie,requestHandler):
-	""" Set cookie info in the header of a html page. """
-	sname = COOKIENAME
+#def setCookie(cookie,requestHandler):
+#	""" Set cookie info in the header of a html page. """
+	#sname = COOKIENAME
 	# cookie is the Karrigell's global variable "SET_COOKIE",
 	# which is a instance of Cookie.SimpleCookie.
 	# When a new key is set for a SimpleCookie object, a Morsel instance is created.
@@ -418,7 +428,7 @@ def setCookie(cookie,requestHandler):
 	# set cookie path
 	#cookie[sname]['path'] = '/'
 
-	return
+	#return
 
 def sexyButton(txt,bnAttrs={},bnType='',size='sexymedium',skin='sexysimple'):
 	""" Return a <button> html element which is styled by 'sexybutton' plugin.

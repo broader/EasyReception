@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<% Include("portalHeader.ks/index") %>
+
+<body>
+
+<div id="desktop">
+
+	<div id="desktopHeader">
+		<div id="desktopTitlebarWrapper">
+			<div id="desktopTitlebar">
+		
+				<h1 class="applicationTitle">EasyReception</h1>
+				<h2 class="tagline">					 
+					Simple, Effective
+					<span class="taglineEm"><%=_('Portal For Congress Service')%></span>
+				</h2>
+				<div id="topNav">
+					<ul class="menu-right">
+						<li><a href="#" ><%=_('Sign In')%></a></li>
+						<li><a href="#" ><%=_('Register')%></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+		<div id="desktopNavbar">	
+			<!--
+				This area will be filled corresponding menues after user has been logined.
+				Before user login, that should be a blank area.			
+			-->	
+			
+			<div class="toolbox divider">
+				<div id="spinnerWrapper"><div id="spinner"></div></div>		
+			</div>
+
+			<div class="toolbox divider">	
+				<select id="themeControl" name="themeControl" size="1" onchange="MochaUI.Themes.init(this.options[this.selectedIndex].value)">
+					<option id="chooseTheme" value="" selected><%=_('Choose Theme')%></option>
+					<option value="default">Default</option>
+					<option value="Charcoal">Charcoal</option>
+					<option value="Grey">Grey</option>
+				</select>	
+			</div>		
+
+		</div><!-- desktopNavbar end -->
+	</div><!-- desktopHeader end -->
+
+	<div id="dockWrapper">
+		<div id="dock">
+			<div id="dockPlacement"></div>
+			<div id="dockAutoHide"></div>
+			<div id="dockSort"><div id="dockClear" class="clear"></div></div>
+		</div>
+	</div>
+
+	<div id="pageWrapper"></div>
+
+	<div id="desktopFooterWrapper">
+		<div id="desktopFooter">			
+			<span style="float:right;">
+				&copy; 2007-2010
+				<a target="_blank" href="http://www.acroes.com" style="color:#CCF564;" >
+					<%=_("Acroes Corporation") %>	
+				</a>
+				 - 
+				<a id="licenseLink" href="license.html" style="color:#CCF564;" >MIT License</a>
+			</span>
+		</div>
+	</div>
+
+</div><!-- desktop end -->
+
+</body>
+</html>

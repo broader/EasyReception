@@ -1,34 +1,38 @@
-['index']
+['page_data', 'index']
 from HTMLTags import *
 #from tools import treeHandler
-modules = {'pagefn': 'pagefn.py', } # 'JSON': 'demjson.py', } #'formFn':'form.py'}
+modules = {'pagefn': 'pagefn.py', 'JSON': 'demjson.py', } #'formFn':'form.py'}
 [locals().update({k : Import('/'.join(('',v)))}) for k,v in modules.items() ]
 
+RELPATH = (lambda p : p.split('/')[0])(THIS.baseurl)
+APPATH = THIS.script_url[1:]
+
+def page_data(**args):
+	res = [{'title': 'Ticket %s'%(i+1), 'content': 'Welcome!'} for i in range(5)]
+
+	PRINT( JSON.encode(res, encoding='utf-8'))
+	return
 
 def _js():
-	paras = [ACTIVEAREA, NOTE]
+	#paras = [ACTIVEAREA, NOTE, '/'.join((APPATH, 'page_data'))]
+	paras = [ACTIVEAREA, NOTE, 'page_data']
 	paras = tuple(paras)
 	js = \
 	"""
-	var dropArea="%s", note=".%s";
+	var dropArea="%s", note=".%s", dataUrl="%s";
 
 	window.addEvent('domready', function(){
 
 		var select = $(dropArea).getNext().getChildren()[0];
-		if(select.getProperty('value')== 'add')
+		if( ['add', 'closeAll'].contains(select.getProperty('value')))
 		    select.setProperty('value', 'cascade');
 
+		// the sticky notes widget initial
 		var initLayout = select.getProperty('value');
 		var options = {
 			dropElements: [$(dropArea),],
 			container: $(dropArea),
-			notesData: [
-				{title:'Note1',content: 'Welcome'},
-				{title:'Note2',content: 'Welcome'},
-				{title:'Note3',content: 'Welcome'},
-				{title:'Note4',content: 'Welcome'},
-				{title:'Note5',content: 'Welcome'}
-			],
+			notesDataUrl: dataUrl,
 			layout:  initLayout
 		};
 
@@ -36,7 +40,12 @@ def _js():
 
 		select.addEvent('change',function(e){
 			var action = e.target.getProperty('value');
-			if (action == 'add') sn.addNotes([{title:'New Ticket', content:'Great China!'},]);
+			if (action == 'add') {
+				sn.addNotes([{title:'New Ticket', content:'Great China!'},]);
+			}
+			else if (action == 'closeAll'){
+				sn.closeAll();
+			}
 			else {sn.resetLayout(action);}
 		});
 
@@ -44,9 +53,11 @@ def _js():
 	"""%paras
 	return js
 
-CONAINER, ACTIVEAREA, NOTE, NOTEHANDLE, NOTECLOSEBN = 'stickNoteContainer', 'droppable', 'note', 'handle', 'closeNote'
+#CONTAINER, ACTIVEAREA, NOTE, NOTEHANDLE, NOTECLOSEBN = 'stickNoteContainer', 'droppable', 'note', 'handle', 'closeNote'
+ACTIVEAREA, NOTE, NOTEHANDLE, NOTECLOSEBN = 'droppable', 'note', 'handle', 'closeNote'
 def _innerBody():
-	container = DIV(**{'class':CONAINER,'id':CONAINER})
+	#container = DIV(**{'class':CONTAINER,'id':CONTAINER})
+	container = DIV()
 
 	# the area for dropping notes
 	div = DIV(**{'class':ACTIVEAREA,'id':ACTIVEAREA, 'style':'width:80%;background-color:grey;height:800px;float:left;'})
@@ -55,7 +66,7 @@ def _innerBody():
 	# add a select button to the right margin of the page
 	div = DIV(**{'style':'float:right;width:20%;'})
 	select = SELECT()
-	for name in ('cascade', 'grid', 'circle', 'add'):
+	for name in ('cascade', 'grid', 'circle', 'add', 'closeAll'):
 		select <= OPTION(name, value=name)
 
 	div <= select
@@ -91,19 +102,15 @@ def _head():
 	PRINT( TITLE(_("Sticky Note Test")))
 
 	# css links
-	#for name in ("Content.css", "Core.css", "Layout.css", "Dock.css", "Tabs.css", "Window.css" ) :
-		#print LINK(**{'rel':'stylesheet', 'type': 'text/css', 'href': '/'.join(('..', 'themes', 'default', 'css', name))})
-	for name in ("style.css",) :
+	for name in ("stickyNotes.css",) :
 		PRINT( LINK(**{'rel':'stylesheet', 'type': 'text/css', 'href': '/'.join(('..', name))}))
 
-	# google font
-	#print LINK(**{'href':'http://fonts.googleapis.com/css?family=Reenie+Beanie:regular', 'rel':'stylesheet', 'type':'text/css'})
-	#print \
+	PRINT( \
 	"""
 	<!--[if IE]>
 		<script type="text/javascript" src="scripts/excanvas_r43.js"></script>
 	<![endif]-->
-	"""
+	""")
 
 	# javascript files' links
 	for name in ('mootools-1.2.4-core.js', 'mootools-1.2.4.2-more.js') :

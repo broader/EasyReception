@@ -1,5 +1,5 @@
 ['page_menuList', 'page_menuData', 'index', 'page_windowsConfig']
-""" The portal which is like a desktop user interface. """
+""" Demo to be deleted, the portal which is like a desktop user interface. """
 
 from HTMLTags import *
 from tools import treeHandler

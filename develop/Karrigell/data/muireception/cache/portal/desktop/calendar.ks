@@ -1,6 +1,4 @@
 ['index']
-
-
 from HTMLTags import *
 
 def _indexJs():
@@ -10,21 +8,16 @@ def _indexJs():
 	"""
 	var calendarTable="%s";
 
-	MUI.assetsManager.import({
-		'url': "../../../lib/calendar/calendar.css",
-		'app': '',
-		'type': 'css'
-	}, {});
-
 	var assetOptions = {
-		'url': "../../../lib/calendar/calendar.js",
-		'app':'',
-		'type':'js'
+		'url': "lib/calendar/calendar.js",
+		'app':'', 'type':'js'
 	};
 
 	var onloadOptions = {
 		onload: function(){
-			var calendar = new CalendarTable(calendarTable,{});
+			var calendar = new CalendarTable(calendarTable,{
+				cssFile:"lib/calendar/calendar.css"
+			});
 		}
 	};
 

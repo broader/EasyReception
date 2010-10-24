@@ -15,24 +15,24 @@ var CalendarTable = new Class({
 				  
 	options: {
 		lang: 'zh-CN',	// i18n 
-		// table layout 
-		tableClass: 'calendarTable',
+		// table layout
+		cssFile: null,	// the css file for this widget instance 
+		containerClass: 'calendarTable',
 		nextClass: 'next',
 		prevClass: 'prev',
 		outOfMonthClass: 'outOfMonth',
 		selectedClass: 'selected'	// the css class for selected <td> element 
-		
-		// setting for Events
-		//fireRenderOver: true,
-		//renderOver: null, 
-		
 	},
 	
 	initialize: function(container, options){		
 					
 		this.setOptions(options);		
+		
+		// load css sytle
+		if(this.options.cssFile) new Asset.css(this.options.cssFile);
+
 		this.container = $(container);
-		if(!this.container.hasClass(this.options.cssStyle)) this.container.addClass(this.options.tableClass);
+		if(!this.container.hasClass(this.options.cssStyle)) this.container.addClass(this.options.containerClass);
 
 		if (!this.container)
 			return;
@@ -83,7 +83,7 @@ var CalendarTable = new Class({
 			this.refreshCaptionDate(date);
 		}.bind(this));
 
-		this.captionDate = new Element('span', {html: this.selectDate.format(Date.shortDate).split(' ')[0]}); 
+		this.captionDate = new Element('span', {html: this.selectDate.format(Date.shortDate).split(' ')[0].slice(0,8)}); 
 		
 		var nexTag = new Element('a', {'class': this.options.prevClass, html: '>>'});
 		nexTag.addEvent('click', function(e){

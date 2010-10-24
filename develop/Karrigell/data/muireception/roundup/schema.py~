@@ -52,10 +52,10 @@ user.setkey("username")
 # Web Action
 webaction = Class(db, "webaction",
 			name=String(),	# the name of this action
-			action=String(),	# the page path of this action
+			actionpage=String(),	# the page path of this action
 			description=String(),
 			serial=String())
-webaction.setkey("action")
+webaction.setkey("actionpage")
 
 # User's role
 role = Class(db, "role",
@@ -84,6 +84,9 @@ file = FileClass(db, "file",name=String())
 
 # the dossier for user, saved in a csv formatted file
 dossier = FileClass(db, "dossier",name=String())		
+
+# the config file for each user, saved in yaml formatted file
+userconfig = FileClass(db, "userconfig", username=String())
 		
 # IssueClass automatically gets these properties in addition to the Class ones:
 #   title = String()
@@ -109,8 +112,7 @@ relation = Class(db, 'relation',
         klassname=String(),
         klassvalue=String(),
         relateclass=String(),
-        relatevalue=String(),
-        action=String())
+        relatevalue=String())
 
 # the services provided by Congress secretary
 service = Class(db, "service",

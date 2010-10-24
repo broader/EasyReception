@@ -136,7 +136,7 @@ def _loginFormJs():
 					closeLoginPanel();
 
 					window.open(
-						"http://muireception:8080/portal",
+						"http://muireception:8080/portal/mocha_desktop.pih",
 						"Online Registration System"
 					)
 					return false

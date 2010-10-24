@@ -1,0 +1,530 @@
+/*
+INITIALIZE THE USER'S MENUS
+*/
+
+<% 
+# PYTHON CODE SLICE
+# get meus stored in pagefn.py
+pagefn = Import('/'.join(('', 'pagefn.py')))
+
+# initialize some page variables
+loginApp, sidePanelPrefix = \
+[getattr(pagefn,name) for name in ('LOGINAPPNAME', 'SIDEPANELPREFIX')]
+
+sideBar, mainColumn = pagefn.COLUMNS
+%>
+
+// the id of main panel in right main column
+var mainPanelId = '<%=pagefn.PANELSID['main'] %>';
+
+// get the global Assets manager
+var am = MUI.assetsManager;
+
+/*
+Initialize the top navigation info on the top right of the screen, 
+then switch the menu according user's login status.
+*/
+function topNavSwitch(login){
+	var topNav = $('<%=pagefn.LOGINPANEL %>')
+	var children = topNav.getChildren();
+	var url = 'portaLayout.ks/page_welcomeInfo';
+	
+	switch(login){
+		case true:			
+			if(children.length < 2){
+				// append welcom information to top navigation bar
+				var span = new Element('span');
+				span.load(url);			
+				topNav.grab(span);
+				topNav.getElements('ul')[0].setProperty('style','display:none;');
+			}
+			else{
+				// just insert content to the welcome information container and 
+				// envisible the container element
+				children[0].setProperty('style','display:none;');
+				children[1].load(url).setProperty('style','display:block;');
+			}
+			break
+		case false:
+			// delete the content in the welcome information container and 
+			// make it invisible
+			children[0].setProperty('style','display:block;');
+			children[1].setProperties({
+				'html': '',
+				'style': 'display:none;'
+			});
+			break
+	}
+	
+};
+
+/*
+Initialize menu by json data from server side
+*/
+function menuInit(){
+	var data = new Request.JSON({
+		async: false,
+		url: "portaLayout.ks/page_menu", 
+		onSuccess:function(json,html){	
+			var assetOptions = {
+				'url':json['js'],	// load the menus' corresponding clickable functions
+				'app':'<%=loginApp %>',
+				'type':'js'
+			};
+		
+			var onloadOptions = {
+				onload: function(){
+					// load html slice to the navigation bar		
+					var ul = new Element('ul');
+					ul.set('load', {url:json.url, async:false});
+					ul.load();
+					$('<%=pagefn.MENUCONTAINER%>').grab(ul,'top');
+
+					/*
+					  Add event to each menu item
+					  'json.functions' is a dictionary object, 
+					  its key is the 'id' of the <a> tag,
+					  its value is a dictionary object whose format is {'funcname':..., 'popupWindowId':... }
+					*/
+					$H(json.functions).each(function(func, nid){
+
+						$(nid).setProperties({
+							'style':'text-decoration:none;',
+							'href': 'javascript:;'
+						});
+						$(nid).store('popupWindowId',func.popupWindowId);
+
+						if($type(window[func.funcname])) {
+							/*
+							 For pop up window, it's need to pass window's id to 
+							 popupWindow function in "js/userMenus.js" file.
+							*/
+							if(func.funcname == 'popupWindow'){
+								$(nid).addEvent(
+									'click', 
+									window[func.funcname].pass(func.popupWindowId)
+								);
+							}
+							else{
+								$(nid).addEvent('click', window[func.funcname]);
+							};
+						}
+					});
+				}
+			};
+			
+			// load js slice
+			am.import( assetOptions, onloadOptions );
+		}
+	}).get();
+};
+
+
+/*
+Initialize layout in main window
+*/
+
+// Add two columns, one is sidebar and the other is the main column.
+function addColumns(){
+	/*
+	All these two MUI.Column instance are to be added to MUI.Desktop.pageWrapper, 
+	so it's no need to set 'container' option when initializing these two
+	MUI.Column instances.
+	*/
+
+	// first, add columns to main window of the desktop	
+	new MUI.Column({
+		id:'<%=sideBar %>', placement:'left', width:200, 
+		resizeLimit:[100, 300], sortable: true
+	});
+
+	new MUI.Column({ 
+		id:'<%=mainColumn %>', placement:'main',
+		resizeLimit:[100, 500], sortable: false
+	});
+	
+	// add the main MUI.Panel to the main MUI.Column
+	new MUI.Panel({
+		id: mainPanelId, header:false, column: '<%=mainColumn %>'
+	});
+};
+
+// Traditional layout by columns and panels
+function gridLayout(json){
+	addColumns();						
+	
+	json['data'].each(function(item,index){														
+		var pid = ['<%=sidePanelPrefix %>', item['id']].join('-'),
+		    text=item['text'], url=item['contentURL'], 
+		    expandfn=item['onExpand'], collapse=item['onCollapse'];
+						
+		// add panel in left sidebar column
+		var panel = new MUI.Panel({
+			id:pid, title:text, contentURL:url, 
+			onExpand:window[expandfn].pass(pid),
+			onCollapse: window[collapse].pass(pid),					
+			column: "<%=sideBar%>",					
+			onContentLoaded: function(){}
+		});
+							
+		// collapse others panels, only left the first panel expanded
+		if(index != 0){panel.toggleExpand();};
+	});
+};
+
+// Desktop style layout
+function desktopLayout(json){
+	MUI.Desktop.initialize();
+	MUI.Dock.initialize();
+
+	// set the background of the desktop
+	$("pageWrapper").store('background', $("pageWrapper").getStyle('background'));
+	$("pageWrapper").setStyle('background', '#777');
+
+	// Deactivate menu header links
+	$$('a.returnFalse').each(function(el){
+		el.addEvent('click', function(e){
+			new Event(e).stop();
+		});
+	});
+
+	// the sticky notes widget on desktop
+	/*
+	$('pageWrapper').adopt( 
+		new Element('div', {'id':'stickyNotes', 'style':'width:800px;height:400px;background-color:gainsboro;'}) 
+	);
+	*/
+	new Asset.css('lib/stickyNotes/stickyNotes.css');
+	new Asset.javascript('lib/stickyNotes/stickyNotes.js', {
+		onload: function(){
+			var options = {
+				dropElements: [$('pageWrapper'),],
+				container: $('pageWrapper'),
+				notesDataUrl: 'lib/stickyNotes/test.ks/page_data',
+				layout: 'cascade' 
+			};	
+		
+			var sn = new StickyNotes(options);
+	}});
+	
+	// a clock window 
+	new MUI.Window({
+		id: 'clock',
+		title: 'Canvas Clock',
+		addClass: 'transparent',
+		loadMethod: 'xhr',
+		contentURL: 'plugins/coolclock/index.html',
+		shape: 'gauge',
+		headerHeight: 30,
+		width: 160, height: 160,
+		x: 1170, y: 82,
+		padding: { top: 0, right: 0, bottom: 0, left: 0 },
+		require: {			
+			js: ['plugins/' + 'coolclock/scripts/coolclock.js'],
+			onload: function(){
+				if (CoolClock) new CoolClock();
+			}	
+		}			
+	});
+
+	// application windows on desktop
+	var res = new Request.JSON();
+	// set some options for Request.JSON instance
+	res.setOptions({
+		url: 'portaLayout.ks/page_windowsConfig',
+		onSuccess: function(json){
+			if(json.length == 0 ) return;
+			json.each(function(option,index){
+				if( option.shape == 'gauge'){
+					new MUI.GaugeWindow(option);	
+				}
+				else new MUI.Window(option);
+			});
+		}
+	});
+    
+	res.get();
+};
+
+// the layout config handler 
+function layoutInit(userData){	
+	// get panels on the left column
+	new Request.JSON({
+		url: "portaLayout.ks/page_sideBarPanels", 
+		onSuccess:function(json,html){					
+			am.import(
+				{
+					'url':json['js'],	// load the functions for the events of sidePanels
+					'app':'<%=loginApp %>',
+					'type':'js'
+				},
+				{
+					onload: function(){
+						if(userData.portal == "<%=pagefn.PORTALTYPE[1]%>")
+							desktopLayout(json);
+						else{	gridLayout(json); }
+					}
+				}
+			);
+		}
+	}).get();	
+};
+
+
+// Add some assistant tools to MUI
+MUI.extend({
+	// login function 
+	login: function(userData){
+		var menuChain = new Chain();
+		menuChain.chain(
+			topNavSwitch(true),
+			menuInit(),
+			layoutInit(userData)			
+		).callChain();
+	},
+	
+	// logout function
+	logout: function(event){
+		new Event(event).stop();
+		
+		// close all opened MUI.Window
+		MUI.closeAllWindows();		
+
+		// remove menus in menu bar
+		$('<%=pagefn.MENUCONTAINER%>').getElement('ul').dispose();
+		
+		// reset the top navigation info
+		topNavSwitch(false);
+		
+		// remove the columns in main window
+		MUI.Columns.instances.getKeys().each(function(key,index){
+			// Only the first two key ( the ids of side column and main column )
+			// are the reall existed MUI.Column instance,
+			// others should be no existed.
+			var columns = ['<%=sideBar %>','<%=mainColumn%>'];
+			if(columns.contains(key)){ MUI.closeColumn($(key));};
+		});
+		
+		// clear the hash objects that save MUI.Column  instances and MUI.Panel instances
+		MUI.Columns.instances.empty();
+		MUI.Panels.instances.empty();
+		
+		// clear body in the page and set the background of the desktop
+		$("pageWrapper").empty().setStyle('background', $("pageWrapper").retrieve('background'));
+		
+		// remove all the imported mootools.Assets
+		MUI.assetsManager.remove('<%=loginApp %>', 'app');
+		
+		// close session object on server side
+		
+		// application initialization, including closing old session and removing old cookie
+		MUI.appInit();
+	},
+	
+	// set the id for the main MUI.Panel
+	mainPanelId: mainPanelId,
+	
+	// remove all the MUI.Columns in the main panel
+	clearMainPanel: function (){	
+		MUI.Columns.instances
+		.filter(function(column,key){		// filter the instances whose element has been removed			
+			return $(column.options.id) != null;
+		})
+		.each(function(column){			
+			if(column.options.container.id == mainPanelId){
+				MUI.closeColumn($(column.options.id));
+			}
+		});
+	},
+	
+	// refresh the content of the specifized MUI.Panle by its panel ID
+	refreshPanel: function(panelId){
+		var panel = MUI.getPanel(panelId);
+		if (panel) panel.newPanel();
+	},
+	
+	// collapse all other panels, only left user selected panel
+	accordionPanels: function(selectedId){
+		// get the MUI.Column of this MUI.Panel
+		var column = MUI.Panels.instances.get(selectedId).options.column;
+		
+		MUI.Panels.instances.each(function(panel){
+			if (panel.options.column != column){
+				return
+			};
+			if (panel.options.id != selectedId && panel.isCollapsed != true ){
+				panel.toggleExpand();
+			};
+		});
+	},
+	
+	// initialzie actions before expand a MUI.Panel in the left side bar
+	initPanel: function(panelId){
+		// remove error tips which generated by "FormCheck" lib
+		MUI.removeErr();
+		
+		// collapsed others MUI.Panels
+		MUI.accordionPanels(panelId);
+		
+		// empty the main Panel which is to be used to show main page
+		MUI.clearMainPanel();
+	},
+	
+	// judge file type by its name
+	fileType: function(url){
+		fileType = '';
+		if(url.contains('.css')){fileType='css';}
+		else if(url.contains('.js') || url.contains('.js.pih')){fileType='js';}		
+		return fileType
+	},
+	
+	/***************************************************************
+	A common function to handle import aciton for Mootools.Assets.
+	Here we assume that there is only one 'js' file.
+	****************************************************************/
+	import: function(appName,urls,options){
+		// get the global Assets manager
+	   	var am = MUI.assetsManager;		
+		urls.each(function(src){
+			fileType = MUI.fileType(src);	
+
+			if(fileType == 'css'){
+				if(!$defined(am.imported[src])){
+	    				am.import({'url':src,'app':appName,'type':'css'});	
+				};
+			}
+			else if(fileType == 'js'){
+				if(!$defined(am.imported[src])){
+					am.import({'url':src,'app':appName,'type':'js'},options);
+				}
+				else{
+					// this plugin files have been imported,
+					// so just run the function
+					fn = options.onload;					
+					if($defined(fn)){fn();}
+				};	   
+			};			
+		});	   
+		
+	},
+	
+	/******************************************************************
+	Imports form validation lib and sets initial actions.	
+	*******************************************************************/
+	formValidLib: function(appName, options){
+		// get lib files
+		var urls = [];
+		<% for url in pagefn.JSLIB['formValid']['files'] : %>
+			urls.push('<%=url%>');
+		<% end %>
+		
+		// get the global Assets manager
+		var am = MUI.assetsManager;
+ 
+		// import css file for validation
+		urls.slice(0,2).each(function(src){
+			if(!$defined(am.imported[src])){
+				am.import({'url':src,'app':appName,'type':'css'});
+			}	
+		});
+		
+		// i18n file of this lib
+		url = urls[2];
+		if(!$defined(am.imported[url])){
+			am.import({'url':url,'app':appName,'type':'js'});
+		};
+	   
+		// the really validation functions
+		am.import({'url':urls[3],'app':appName,'type':'js'},options);
+	},
+	
+	/*********************************************************************
+	Imports treeTable lib and sets initial actions.	
+	**********************************************************************/
+	treeTable: function(appName,options){
+		// get lib files
+		var urls = [];
+		<% for url in pagefn.JSLIB['treeTable']['files'] : %>
+			urls.push('<%=url%>');
+		<% end %>
+		
+		MUI.import(appName,urls, options);
+	},
+	
+	/***********************************************************************
+	Imports grid lib and sets initial actions.
+	************************************************************************/
+	dataGrid: function(appName, options){
+		// get lib files
+		var urls = [];
+		<% for url in pagefn.JSLIB['dataGrid']['files'] : %>
+			urls.push('<%=url%>');
+		<% end %>
+		
+		MUI.import(appName,urls,options);
+		
+	},
+
+	/***********************************************************************
+	Imports TextMultiCheckbox plugin
+	************************************************************************/
+	textMultiCheckbox: function(appName, options){
+		// get lib files
+		var urls = [];
+		<% for url in pagefn.JSLIB['textMultiCheckbox']['files'] : %>
+			urls.push('<%=url%>');
+		<% end %>
+		
+		MUI.import(appName,urls,options);
+	},
+	
+	/**********************************************************************
+	Import InlineEdit plugin files and initialize corresponding Elements.
+	***********************************************************************/
+	inlineEdit: function(appName, elsArray){
+		options = {
+			onload: function(){
+				elsArray.each(function(elObject){
+					editEl = new InlineEditElement(elObject.element, elObject.options);
+				});
+			}
+		};
+		
+		// get lib files
+		var urls = [];
+		<% for url in pagefn.JSLIB['inlineEdit']['files'] : %>
+			urls.push('<%=url%>');
+		<% end %>
+		
+		MUI.import(appName,urls,options);
+
+	},
+	
+	/**********************************************************************
+	Import multiselect plugin files and initialize correspinding Elements.
+	***********************************************************************/
+	multiSelect: function(appName, options){
+		// get lib files
+		var urls = [];
+		<% for url in pagefn.JSLIB['multiSelect']['files'] : %>
+			urls.push('<%=url%>');
+		<% end %>
+		
+		MUI.import(appName,urls,options);
+
+	},
+
+	/**********************************************************************
+	Import smartList plugin files and initialize corresponding Elements.
+	***********************************************************************/
+	smartList: function(appName, options){
+		// get lib files
+		var urls = [];
+		<% for url in pagefn.JSLIB['smartList']['files'] : %>
+			urls.push('<%=url%>');
+		<% end %>
+		
+		MUI.import(appName,urls,options);
+	}
+	
+});

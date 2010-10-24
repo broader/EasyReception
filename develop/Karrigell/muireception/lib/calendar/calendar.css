@@ -1,14 +1,13 @@
 /* ******************************************************* */
+.calendarTable {
+	background-color: #44406E;
+	color: white;
+}
 
-.calendarTable table { 
-	width:auto; 
-	border-collapse:collapse; 
-	margin-bottom:0.5em; 
-	border-top:2px #888 solid; 
-	border-bottom:2px #888 solid; 
+.calendarTable table {
+	font-size: 13px;
 	color: white;
 	font-weight: bold;
-	font-size: 16px;
 	margin-left: 10px;
 }
 
@@ -26,6 +25,10 @@
 	padding-right: 5px;
 }
 
+.calendarTable th { 
+	color: white;
+}
+
 .calendarTable th,td { 
 	padding-left: 2px;
 	padding-right: 2px;
@@ -33,7 +36,7 @@
 }
 
 .calendarTable td.outOfMonth { 
-	color: gainsboro;
+	color: #726F85;
 	cursor: auto;
 }
 
@@ -45,3 +48,6 @@
 	cursor: pointer;
 }
 
+.calendarTable tbody tr:hover td {
+	background-color: #B8BAB1;
+}
