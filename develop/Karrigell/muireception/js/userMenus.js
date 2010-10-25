@@ -1,21 +1,7 @@
 /*
-**	Portal menu click function
-*/
-function test(event){
-	new Event(event).stop();
-	//MUI.notification('Portal menu clicked!');
-	alert('menu clicked');	
-};
-
-/*
-**
+**	Quit system
 */
 function logout(event){
-	//new Event(event).stop();
-	//MUI.notification('Really log out?');
-	// remove menus in menu bar
-	// reset the top navigation info
-	//topNavSwitch(false);
 	MUI.logout(event);
 };
 
@@ -40,4 +26,14 @@ function popupWindow(wid){
 	});
     
 	res.get();
+};
+
+/*
+**	Change the layout of the sticky notes	
+*/
+function setNotesLayout(event){
+	new Event(event).stop();
+	$("pageWrapper")
+	.retrieve("notesWidget")
+	.resetLayout(event.target.getProperty('id'));
 };

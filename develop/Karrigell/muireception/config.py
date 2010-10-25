@@ -12,9 +12,6 @@ INIDATA['userAccountInfo'] = \
 	{ 'name':'password' , 'prompt':_('Password'), 'type':'password'},\
 ]
 
-#{
-#	'fields':( 'username', 'email', 'password' ),
-#}
 
 INIDATA['userBaseInfo'] = \
 [ 

@@ -20,7 +20,15 @@ var StickyNotes = new Class({
 		handleClass: "handle", 		// the css class for the note
 		needleClass: "needle", 		// the css class for the note
 		closeBnClass: "closeNote", 	// the css class for the note
-		layout: "cascade",		// the style for the layout of the sticky notes in the container
+
+		// the default setting for different styles' layout of the sticky notes in the container
+		layout: {
+			"default":"grid", 
+			"grid":{"columns":4, "xOffset":180, "yOffset": 100, "containerTopOffset": 120, "containerLeftOffset": 150},
+			"circle":{"centerX":320, "centerY": 270, "radius": 200},
+			"cascade":{"xOffset":40, "yOffset": 40, "containerTopOffset": 10, "containerLeftOffset": 10}
+		},
+		
 		indexLevel: 1000,		// the default z-index level value
 		notesData: null,		// the data holding the content for each note
 		notesDataUrl: null		// the url which will return a json object as notesData
@@ -28,7 +36,7 @@ var StickyNotes = new Class({
 	
 	initialize: function(options){	
 		this.setOptions(options);
-		this.layout = this.options.layout;
+		this.layout = this.options.layout.default;
 		var self = this;
 		var data = null;
 		if(self.options.notesDataUrl){
@@ -139,12 +147,13 @@ var StickyNotes = new Class({
 
 	// cascade layout 
 	cascade: function(xOffset, yOffset){
-		xOffset = xOffset || 40;
-		yOffset = yOffset || 40;
-		var self = this,
-		    containerTopOffset = 0, containerLeftOffset = 0;
+		var self = this;
+		xOffset = xOffset || this.options.layout.cascade.xOffset ;
+		yOffset = yOffset || this.options.layout.cascade.yOffset ;
+		var containerTopOffset = self.options.layout.cascade.containerTopOffset,
+		    containerLeftOffset = self.options.layout.cascade.containerLeftOffset;
 
-		self.layout="cascade";
+		self.layout = "cascade";
 		self.getNotes().each(function(el){
 			self.options.indexLevel++;
 			el.setStyle('z-index', self.options.indexLevel);
@@ -162,15 +171,15 @@ var StickyNotes = new Class({
 	
 	// circle layout
 	circle: function(centerX, centerY, radius){
-		centerX = centerX || 320;
-		centerY = centerY || 270;
-		radius = radius || 200;
+		var self = this;	
+		centerX = centerX || this.options.layout.circle.centerX ;
+		centerY = centerY || this.options.layout.circle.centerY ;
+		radius = radius || this.options.layout.circle.radius;
 
-		var self = this,
-		    elements = self.getNotes(),
+		var elements = self.getNotes(),
 		    i = 1, sides = elements.length;
 
-		self.layout="circle";
+		self.layout = "circle";
 
 		elements.each(function(el){
 			self.options.indexLevel++;
@@ -188,16 +197,16 @@ var StickyNotes = new Class({
 	
 	// grid layout
 	grid: function(columns, xOffset, yOffset){
-		columns = columns || 4;
-		xOffset = xOffset || 180;
-		yOffset = yOffset || 100;
-		var self = this, 
-		    //containerTopOffset = 120,
-		    //containerLeftOffset = 150,
-		    containerTopOffset = 10,
-		    containerLeftOffset = 10,
+		var self = this;
+		columns = columns || self.options.layout.grid.columns;
+		xOffset = xOffset || self.options.layout.grid.xOffset ;
+		yOffset = yOffset || self.options.layout.grid.yOffset;
+		    
+		var containerTopOffset = self.options.layout.grid.containerTopOffset,
+		    containerLeftOffset = self.options.layout.grid.containerLeftOffset,
 		    i = 1;
-
+		
+		self.layout = "grid" ;	
 		self.getNotes().each(function(el){
 			self.options.indexLevel++;
 			el.setStyle('z-index', self.options.indexLevel);
@@ -219,7 +228,7 @@ var StickyNotes = new Class({
 
 	// reset the layout of the sticky notes
 	resetLayout: function(layouType){
-		this.layout = layouType;
+		this.layout.default = layouType;
 		if($defined(this[layouType])) this[layouType]();
 	}
 	

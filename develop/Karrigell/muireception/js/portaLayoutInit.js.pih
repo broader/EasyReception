@@ -189,11 +189,6 @@ function desktopLayout(json){
 	});
 
 	// the sticky notes widget on desktop
-	/*
-	$('pageWrapper').adopt( 
-		new Element('div', {'id':'stickyNotes', 'style':'width:800px;height:400px;background-color:gainsboro;'}) 
-	);
-	*/
 	new Asset.css('lib/stickyNotes/stickyNotes.css');
 	new Asset.javascript('lib/stickyNotes/stickyNotes.js', {
 		onload: function(){
@@ -201,10 +196,15 @@ function desktopLayout(json){
 				dropElements: [$('pageWrapper'),],
 				container: $('pageWrapper'),
 				notesDataUrl: 'lib/stickyNotes/test.ks/page_data',
-				layout: 'cascade' 
+				layout: {
+					"default":"grid", 
+					"grid":{"columns":5, "xOffset":180, "yOffset": 100, "containerTopOffset": 10, "containerLeftOffset": 10},
+					"circle":{"centerX":270, "centerY": 210, "radius": 200},
+					"cascade":{"xOffset":40, "yOffset": 40, "containerTopOffset":0, "containerLeftOffset": 0}
+				}
 			};	
 		
-			var sn = new StickyNotes(options);
+			$("pageWrapper").store("notesWidget", new StickyNotes(options));
 	}});
 	
 	// a clock window 

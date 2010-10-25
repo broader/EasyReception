@@ -2715,8 +2715,7 @@
       Omnigrid Update 1.2.5-&gt;1.2.6
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="help"/>
@@ -2739,8 +2738,7 @@
       &#26381;&#21153;&#22120;&#31471;&#21021;&#27425;&#21551;&#21160;&#26102;&#65292;&#27880;&#20876;&#29992;&#25143;&#34920;&#26080;&#27861;&#21152;&#36733;&#65311;
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
@@ -5088,10 +5086,10 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1270952020458" FOLDED="true" ID="ID_1804767918" MODIFIED="1285729659554" POSITION="right" TEXT="Develop">
+<node COLOR="#0033ff" CREATED="1270952020458" FOLDED="true" ID="ID_1804767918" MODIFIED="1287892552955" POSITION="right" TEXT="Develop">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1262786726152" ID="ID_476877394" MODIFIED="1285729601101" TEXT="Source">
+<node COLOR="#00b439" CREATED="1262786726152" FOLDED="true" ID="ID_476877394" MODIFIED="1287892108403" TEXT="Source">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1266917069312" FOLDED="true" ID="ID_30201427" MODIFIED="1280107855691" TEXT="Management">
@@ -5315,10 +5313,10 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1273546965657" FOLDED="true" ID="ID_1612332752" MODIFIED="1285729656860" TEXT="Evironment">
+<node COLOR="#00b439" CREATED="1273546965657" FOLDED="true" ID="ID_1612332752" MODIFIED="1287892552008" TEXT="Evironment">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1167544327073" FOLDED="true" ID="Freemind_Link_1636742661" MODIFIED="1285729612617" TEXT="vi">
+<node COLOR="#990000" CREATED="1167544327073" ID="Freemind_Link_1636742661" MODIFIED="1287892120131" TEXT="vi">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1270127748720" ID="ID_897263369" MODIFIED="1282610468604" TEXT="Config">
@@ -5331,8 +5329,8 @@
 <node COLOR="#111111" CREATED="1270112215955" ID="ID_83792320" MODIFIED="1282610474414" TEXT=".vimrc">
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1270112222311" ID="ID_1241891942" MODIFIED="1270112266823" TEXT="&#x4f4d;&#x4e8e;&quot;~/&quot;&#x76ee;&#x5f55;&#x4e0b;,&#x5982;&#x6ca1;&#x6709;&#x53ef;&#x521b;&#x5efa;"/>
-<node COLOR="#111111" CREATED="1271727175721" ID="ID_639339169" MODIFIED="1282610702627" TEXT="content">
-<node COLOR="#111111" CREATED="1282610721268" FOLDED="true" ID="ID_687109945" MODIFIED="1282610786112" TEXT="&#x6709;&#x7528;&#x914d;&#x7f6e;">
+<node COLOR="#111111" CREATED="1271727175721" FOLDED="true" ID="ID_639339169" MODIFIED="1287892547138" TEXT="content">
+<node COLOR="#111111" CREATED="1282610721268" FOLDED="true" ID="ID_687109945" MODIFIED="1287892545939" TEXT="&#x6709;&#x7528;&#x914d;&#x7f6e;">
 <node COLOR="#111111" CREATED="1282610729182" ID="ID_506156923" MODIFIED="1282610736349">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -5349,12 +5347,12 @@ au</pre>
 </html></richcontent>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1282610739358" FOLDED="true" ID="ID_1608263857" MODIFIED="1282610790636" TEXT="&#x9ad8;&#x4eae;&#x3001;&#x547d;&#x4ee4;&#x884c;&#x3001;color scheme&#x3001;&#x6298;&#x53e0;">
+<node COLOR="#111111" CREATED="1282610739358" FOLDED="true" ID="ID_1608263857" MODIFIED="1287892543516" TEXT="&#x9ad8;&#x4eae;&#x3001;&#x547d;&#x4ee4;&#x884c;&#x3001;color scheme&#x3001;&#x6298;&#x53e0;">
 <icon BUILTIN="messagebox_warning"/>
-<node COLOR="#111111" CREATED="1270112269321" ID="ID_1583719389" MODIFIED="1272532407574" TEXT="body&#xff1a;&#xa;&quot; highlight syntax open&#xa;syntax on&#xa;&#xa;&quot; open command show&#xa;set showcmd&#xa;&#xa;&quot; set color scheme&#xa;colorshceme pablo&#xa;&#xa;&quot; set fold method&#xa;set foldmethod=indent&#xa;&#xa;zo &#x9;&#x5c07;&#x6e38;&#x6a19;&#x6240;&#x5728;&#x8655;&#x7684;&#x6298;&#x758a;&#x6253;&#x958b;&#x3002;open&#x3002;&#xa;zc &#x9;&#x5c07;&#x6e38;&#x6a19;&#x6240;&#x5728;&#x8655;&#x5df2;&#x6253;&#x958b;&#x7684;&#x5167;&#x5bb9;&#x518d;&#x5ea6;&#x6298;&#x758a;&#x8d77;&#x4f86;&#x3002;close&#x3002;&#xa;zr &#x9;&#x5c07;&#x5168;&#x6587;&#x7684;&#x6240;&#x6709;&#x6298;&#x758a;&#x4f9d;&#x5c64;&#x6b21;&#x901a;&#x901a;&#x6253;&#x958b;&#x3002;reduce&#x3002;&#xa;zm &#x9;&#x5c07;&#x5168;&#x6587;&#x5df2;&#x6253;&#x958b;&#x7684;&#x6298;&#x758a;&#x4f9d;&#x5c64;&#x6b21;&#x901a;&#x901a;&#x518d;&#x6298;&#x758a;&#x8d77;&#x4f86;&#x3002;more&#x3002;&#xa;zR &#x9;&#x4f5c;&#x7528;&#x548c; zr &#x540c;&#xff0c;&#x4f46;&#x6703;&#x6253;&#x958b;&#x542b;&#x5de2;&#x72c0;&#x6298;&#x758a;&#xff08;&#x6298;&#x758a;&#x4e2d;&#x53c8;&#x9084;&#x6709;&#x6298;&#x758a;&#xff09;&#x7684;&#x6240;&#x6709;&#x6298;&#x758a;&#x3002;&#xa;zM &#x9;&#x4f5c;&#x7528;&#x548c; zm &#x540c;&#xff0c;&#x4f46;&#x5c0d;&#x65bc;&#x5de2;&#x72c0;&#x6298;&#x758a;&#x4ea6;&#x6709;&#x4f5c;&#x7528;&#x3002;&#xa;zi &#x9;&#x9019;&#x662f;&#x500b;&#x5207;&#x63db;&#xff0c;&#x662f;&#x6298;&#x758a;&#x8207;&#x4e0d;&#x6298;&#x758a;&#x6307;&#x4ee4;&#x9593;&#x7684;&#x5207;&#x63db;&#x3002;&#xa;zn &#x9;&#x6253;&#x958b;&#x5168;&#x6587;&#x7684;&#x6240;&#x6709;&#x6298;&#x758a;&#x3002;fold none&#x3002;&#xa;zN &#x9;&#x9019;&#x662f; zn &#x7684;&#x76f8;&#x5c0d;&#x6307;&#x4ee4;&#xff0c;&#x56de;&#x5fa9;&#x6240;&#x6709;&#x7684;&#x6298;&#x758a;&#x3002;&#xa;&#xa;&quot; set gui options showing scroll bar on botton&#xa;set go+=b"/>
+<node COLOR="#111111" CREATED="1270112269321" ID="ID_1583719389" MODIFIED="1287892362727" TEXT="body&#xff1a;&#xa;&quot; highlight syntax open&#xa;syntax on&#xa;&#xa;&quot; open command show&#xa;set showcmd&#xa;&#xa;&quot; set color scheme&#xa;colorshceme pablo&#xa;&#xa;&quot; set fold method&#xa;set foldmethod=indent&#xa;&#xa;zo &#x9;&#x5c07;&#x6e38;&#x6a19;&#x6240;&#x5728;&#x8655;&#x7684;&#x6298;&#x758a;&#x6253;&#x958b;&#x3002;open&#x3002;&#xa;zc &#x9;&#x5c07;&#x6e38;&#x6a19;&#x6240;&#x5728;&#x8655;&#x5df2;&#x6253;&#x958b;&#x7684;&#x5167;&#x5bb9;&#x518d;&#x5ea6;&#x6298;&#x758a;&#x8d77;&#x4f86;&#x3002;close&#x3002;&#xa;zr &#x9;&#x5c07;&#x5168;&#x6587;&#x7684;&#x6240;&#x6709;&#x6298;&#x758a;&#x4f9d;&#x5c64;&#x6b21;&#x901a;&#x901a;&#x6253;&#x958b;&#x3002;reduce&#x3002;&#xa;zm &#x9;&#x5c07;&#x5168;&#x6587;&#x5df2;&#x6253;&#x958b;&#x7684;&#x6298;&#x758a;&#x4f9d;&#x5c64;&#x6b21;&#x901a;&#x901a;&#x518d;&#x6298;&#x758a;&#x8d77;&#x4f86;&#x3002;more&#x3002;&#xa;zR &#x9;&#x4f5c;&#x7528;&#x548c; zr &#x540c;&#xff0c;&#x4f46;&#x6703;&#x6253;&#x958b;&#x542b;&#x5de2;&#x72c0;&#x6298;&#x758a;&#xff08;&#x6298;&#x758a;&#x4e2d;&#x53c8;&#x9084;&#x6709;&#x6298;&#x758a;&#xff09;&#x7684;&#x6240;&#x6709;&#x6298;&#x758a;&#x3002;&#xa;zM &#x9;&#x4f5c;&#x7528;&#x548c; zm &#x540c;&#xff0c;&#x4f46;&#x5c0d;&#x65bc;&#x5de2;&#x72c0;&#x6298;&#x758a;&#x4ea6;&#x6709;&#x4f5c;&#x7528;&#x3002;&#xa;zi &#x9;&#x9019;&#x662f;&#x500b;&#x5207;&#x63db;&#xff0c;&#x662f;&#x6298;&#x758a;&#x8207;&#x4e0d;&#x6298;&#x758a;&#x6307;&#x4ee4;&#x9593;&#x7684;&#x5207;&#x63db;&#x3002;&#xa;zn &#x9;&#x6253;&#x958b;&#x5168;&#x6587;&#x7684;&#x6240;&#x6709;&#x6298;&#x758a;&#x3002;fold none&#x3002;&#xa;zN &#x9;&#x9019;&#x662f; zn &#x7684;&#x76f8;&#x5c0d;&#x6307;&#x4ee4;&#xff0c;&#x56de;&#x5fa9;&#x6240;&#x6709;&#x7684;&#x6298;&#x758a;&#x3002;&#xa;&#xa;&quot; set gui options showing scroll bar on botton&#xa;set go+=b&#xa;&#xa;&quot; auto save editting file&#xa;au InsertLeave *.py write&#xa;au InsertLeave *.pih write&#xa;au InsertLeave *.hip write&#xa;au InsertLeave *.ks write&#xa;au InsertLeave *.html write&#xa;au InsertLeave *.js write&#xa;au InsertLeave *.css write"/>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1271727184672" ID="ID_377648957" MODIFIED="1271727194512" TEXT="&#x76f8;&#x5173;&#x6587;&#x4ef6;">
+<node COLOR="#111111" CREATED="1271727184672" FOLDED="true" ID="ID_377648957" MODIFIED="1287892548690" TEXT="&#x76f8;&#x5173;&#x6587;&#x4ef6;">
 <node COLOR="#111111" CREATED="1271727196206" ID="ID_1634326844" MODIFIED="1271727199836" TEXT="pablo.vim">
 <node COLOR="#111111" CREATED="1271727747820" ID="ID_1335422876" LINK="http://ubuntuone.com/p/kh/" MODIFIED="1271727780282" TEXT="download"/>
 </node>
@@ -5648,10 +5646,10 @@ au</pre>
 </node>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1272534182417" ID="ID_1066410301" MODIFIED="1279962615772" TEXT="Distributed Develop">
+<node COLOR="#990000" CREATED="1272534182417" FOLDED="true" ID="ID_1066410301" MODIFIED="1287892119202" TEXT="Distributed Develop">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1272534194295" FOLDED="true" ID="ID_1067207855" MODIFIED="1279963148747" TEXT="Enviroment">
+<node COLOR="#111111" CREATED="1272534194295" ID="ID_1067207855" MODIFIED="1287892111874" TEXT="Enviroment">
 <font NAME="SansSerif" SIZE="12"/>
 <icon BUILTIN="messagebox_warning"/>
 <node COLOR="#111111" CREATED="1272534212331" ID="ID_923383412" MODIFIED="1272534250773" TEXT="$Karrigell/muireception&#xa;$Karrigell/data/muireception"/>

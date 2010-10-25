@@ -11847,3 +11847,360 @@ sent 165129 bytes  received 63 bytes  110128.00 bytes/sec
 total size is 1327153  speedup is 8.03
 2010-10-24 10:22:04,213 INFO End backup loacl karrigell diretory to local git.
 2010-10-24 10:22:04,214 INFO Begin to backup local github to remote github host.
+2010-10-24 10:22:06,149 INFO Command: 
+git add .
+running result is :
+2010-10-24 10:22:21,523 INFO Command: 
+git commit -m 'Update time:2010-10-24T10:22:04.214393'
+running result is :[master 35203d0] Update time:2010-10-24T10:22:04.214393
+ 247 files changed, 4552 insertions(+), 263 deletions(-)
+ create mode 100644 develop/Karrigell/congressdemo/loginFn.ks~
+ create mode 100644 develop/Karrigell/data/muireception/cache/desktop_demo.ks
+ create mode 100644 develop/Karrigell/data/muireception/cache/js/portaLayoutInit.js.pih
+ create mode 100644 develop/Karrigell/data/muireception/cache/js/portalInit.js.pih
+ create mode 100644 develop/Karrigell/data/muireception/cache/portaLayout.ks
+ create mode 100644 develop/Karrigell/data/muireception/cache/portal.ks
+ create mode 100644 develop/Karrigell/data/muireception/cache/portal.pih
+ create mode 100644 develop/Karrigell/data/muireception/cache/portal/mocha_desktop.pih
+ create mode 100644 develop/Karrigell/data/muireception/cache/portalHeader.ks
+ create mode 100644 develop/Karrigell/data/muireception/sessions/05zH5Q35pZHxye0L
+ create mode 100644 develop/Karrigell/data/muireception/sessions/0SRhi95YCwpARuIs
+ create mode 100644 develop/Karrigell/data/muireception/sessions/1Kq59FQBwyPo9AoL
+ create mode 100644 develop/Karrigell/data/muireception/sessions/2Js2bDAVveLQVYyf
+ create mode 100644 develop/Karrigell/data/muireception/sessions/2uCi99QiwWuIBI0w
+ create mode 100644 develop/Karrigell/data/muireception/sessions/4ExgyrX0ZasvcLbg
+ create mode 100644 develop/Karrigell/data/muireception/sessions/5MjLqAt3R41cjKt3
+ create mode 100644 develop/Karrigell/data/muireception/sessions/5aMkVJjtR2NpSZCV
+ create mode 100644 develop/Karrigell/data/muireception/sessions/5p6bkL957gqDi9fu
+ create mode 100644 develop/Karrigell/data/muireception/sessions/5poro3ano2FafwU8
+ create mode 100644 develop/Karrigell/data/muireception/sessions/6YZTcWPBZ4jqY8WZ
+ create mode 100644 develop/Karrigell/data/muireception/sessions/6t4QfuPyo8N6dbty
+ create mode 100644 develop/Karrigell/data/muireception/sessions/71mXZpmXbbnGJMvR
+ create mode 100644 develop/Karrigell/data/muireception/sessions/72xQn9l4oe1uKr0k
+ create mode 100644 develop/Karrigell/data/muireception/sessions/7Cnm2a3HP6mQcUo4
+ create mode 100644 develop/Karrigell/data/muireception/sessions/7P7FvuEojl5kkZ8Q
+ create mode 100644 develop/Karrigell/data/muireception/sessions/7YxI2rxpmMD9qf6K
+ create mode 100644 develop/Karrigell/data/muireception/sessions/7ZGJiQetytVAZQhZ
+ create mode 100644 develop/Karrigell/data/muireception/sessions/7pilHz0aaiHTvRU0
+ create mode 100644 develop/Karrigell/data/muireception/sessions/8mIXhhQq2xOYokRc
+ create mode 100644 develop/Karrigell/data/muireception/sessions/8nwyerK2MBF1W2rR
+ create mode 100644 develop/Karrigell/data/muireception/sessions/9SWjbZnLb5Gl1Rjs
+ create mode 100644 develop/Karrigell/data/muireception/sessions/9tV81x6qK3vySv61
+ create mode 100644 develop/Karrigell/data/muireception/sessions/A0pqMxZ60hoXBImh
+ create mode 100644 develop/Karrigell/data/muireception/sessions/ARnAsL4t9qCqdqGJ
+ create mode 100644 develop/Karrigell/data/muireception/sessions/AgQVKFdaz4TN02Es
+ create mode 100644 develop/Karrigell/data/muireception/sessions/AqGTKwFFlQ41iCmB
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Azocd7Vo7obvRHaN
+ create mode 100644 develop/Karrigell/data/muireception/sessions/BIFWL7NyvuShXd4s
+ create mode 100644 develop/Karrigell/data/muireception/sessions/BJ1T2HMXkEmzpw8L
+ create mode 100644 develop/Karrigell/data/muireception/sessions/BL4Xx3ywme0bccmW
+ create mode 100644 develop/Karrigell/data/muireception/sessions/BZ7jTmd2suztSk4s
+ create mode 100644 develop/Karrigell/data/muireception/sessions/BndtEefCwZhUJIc5
+ create mode 100644 develop/Karrigell/data/muireception/sessions/C2mEFqVP3f6Q7ckC
+ create mode 100644 develop/Karrigell/data/muireception/sessions/C9POP9a3hG7eVvAH
+ create mode 100644 develop/Karrigell/data/muireception/sessions/CRlVk1mX6y4RTWbQ
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Cvg8YI65IafAy6hk
+ create mode 100644 develop/Karrigell/data/muireception/sessions/DGHm6REcsCVHMv7Q
+ create mode 100644 develop/Karrigell/data/muireception/sessions/DSYjyWvP9u3Znes7
+ create mode 100644 develop/Karrigell/data/muireception/sessions/DkTRVPnzPDEab793
+ create mode 100644 develop/Karrigell/data/muireception/sessions/E5eWoiLo6MTEJkpK
+ create mode 100644 develop/Karrigell/data/muireception/sessions/EYImwWL0IG66Ozzc
+ create mode 100644 develop/Karrigell/data/muireception/sessions/FOIWZPSIeuXS3hfc
+ create mode 100644 develop/Karrigell/data/muireception/sessions/FiIPA7TdKxOVh6JW
+ create mode 100644 develop/Karrigell/data/muireception/sessions/GnBTf3d73ZOLZyVV
+ create mode 100644 develop/Karrigell/data/muireception/sessions/HuhKnNGKWy1tH7pI
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Hxr14e0oeNClfYQP
+ create mode 100644 develop/Karrigell/data/muireception/sessions/IBOWfdPtwk4yjSSA
+ create mode 100644 develop/Karrigell/data/muireception/sessions/IPArXbcxomXQkhXx
+ create mode 100644 develop/Karrigell/data/muireception/sessions/IavbgLFS2pz2rTus
+ create mode 100644 develop/Karrigell/data/muireception/sessions/JC4neUeH4lsczZ8e
+ create mode 100644 develop/Karrigell/data/muireception/sessions/JXig3q6vv4Rlj6p3
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Jl1h43SRmnlgSGrH
+ create mode 100644 develop/Karrigell/data/muireception/sessions/JwcZ5s47dGMHxAxS
+ create mode 100644 develop/Karrigell/data/muireception/sessions/K28ejNWxXtMAUY5G
+ create mode 100644 develop/Karrigell/data/muireception/sessions/KCJXxb6P8YKzSqQj
+ create mode 100644 develop/Karrigell/data/muireception/sessions/KLoGh4vXcT8v6WzF
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Kn6HRv6F4R7Pjn8Z
+ create mode 100644 develop/Karrigell/data/muireception/sessions/KsfOgKy7cfKZPPhw
+ create mode 100644 develop/Karrigell/data/muireception/sessions/L0BMMV36pTQb4LUK
+ create mode 100644 develop/Karrigell/data/muireception/sessions/LSTWBw1t7vyEZU4z
+ create mode 100644 develop/Karrigell/data/muireception/sessions/LWQkd7MlVvmOG2Vx
+ create mode 100644 develop/Karrigell/data/muireception/sessions/LmxEj8Tgc5hP2tGJ
+ create mode 100644 develop/Karrigell/data/muireception/sessions/MXydaDV2ET2Y9Hit
+ create mode 100644 develop/Karrigell/data/muireception/sessions/MfVr6wxZAb04Fzab
+ create mode 100644 develop/Karrigell/data/muireception/sessions/MizvkepT4IWfBMK5
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Mjor2qpwcmmheUTH
+ create mode 100644 develop/Karrigell/data/muireception/sessions/N9FuZOL4zkUMViN1
+ create mode 100644 develop/Karrigell/data/muireception/sessions/NbMcymprFH32ROAy
+ create mode 100644 develop/Karrigell/data/muireception/sessions/NdMzLV833h3wxzpr
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Nf9tBAN3wWk5fhEG
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Nm4WMh1mqDerC93i
+ create mode 100644 develop/Karrigell/data/muireception/sessions/NxatSYywX3kYpIOF
+ create mode 100644 develop/Karrigell/data/muireception/sessions/O5bcwCFIh99piIcG
+ create mode 100644 develop/Karrigell/data/muireception/sessions/OWTRhOtA0Fl7PNza
+ create mode 100644 develop/Karrigell/data/muireception/sessions/ObpTrpIs61ebqVDe
+ create mode 100644 develop/Karrigell/data/muireception/sessions/OlsS3ZaiVeIgpnBH
+ create mode 100644 develop/Karrigell/data/muireception/sessions/OpGQFebe79wDg5Gz
+ create mode 100644 develop/Karrigell/data/muireception/sessions/OsBNQ7ExDmoc7lqk
+ create mode 100644 develop/Karrigell/data/muireception/sessions/PFDvyMhLSJ1YTQiq
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Q1MEkDP679Lrcm8I
+ create mode 100644 develop/Karrigell/data/muireception/sessions/QCWZvP0pmp3Ahbij
+ create mode 100644 develop/Karrigell/data/muireception/sessions/QaLWT9w40XC9JGnF
+ create mode 100644 develop/Karrigell/data/muireception/sessions/RETXrYuWp5JjB6Zo
+ create mode 100644 develop/Karrigell/data/muireception/sessions/RIJRSZee4SmVLyya
+ create mode 100644 develop/Karrigell/data/muireception/sessions/RmumlaKVoc5xllaT
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Rt2OKOdeSehtskEV
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Rtx8dXU0OO2LOfDO
+ create mode 100644 develop/Karrigell/data/muireception/sessions/SRyc5RCFNzaNyLHo
+ create mode 100644 develop/Karrigell/data/muireception/sessions/SjxSxUXy1HuXRYce
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Tc3aaapSMhbRSalF
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Ti3KNIXZT5OW0Xso
+ create mode 100644 develop/Karrigell/data/muireception/sessions/TiwhxRt6KZ1obxW1
+ create mode 100644 develop/Karrigell/data/muireception/sessions/UFMK4sTu2qUkhqui
+ create mode 100644 develop/Karrigell/data/muireception/sessions/UQfmFNR6z3fdH06h
+ create mode 100644 develop/Karrigell/data/muireception/sessions/UWU3wqqa5qC9dfkt
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Ubid8rrxJ7kcSiF4
+ create mode 100644 develop/Karrigell/data/muireception/sessions/V51G2DGQZI9XaLkE
+ create mode 100644 develop/Karrigell/data/muireception/sessions/VH0F1bpR2XxWz9Nq
+ create mode 100644 develop/Karrigell/data/muireception/sessions/VXHmDePGtgaJzUsR
+ create mode 100644 develop/Karrigell/data/muireception/sessions/VkwegwbFX1nM2FrU
+ create mode 100644 develop/Karrigell/data/muireception/sessions/VwhYhDG4y5JK4GCW
+ create mode 100644 develop/Karrigell/data/muireception/sessions/W4XFjXIMYQwruXpW
+ create mode 100644 develop/Karrigell/data/muireception/sessions/WNO1N7zG7FbOG1YC
+ create mode 100644 develop/Karrigell/data/muireception/sessions/WRVuMV2Mny2BIhd2
+ create mode 100644 develop/Karrigell/data/muireception/sessions/X4VTXFVk8Dcq6wmq
+ create mode 100644 develop/Karrigell/data/muireception/sessions/XNr7ZOERfuXZSClE
+ create mode 100644 develop/Karrigell/data/muireception/sessions/XijVwfIPfBy4Y0uU
+ create mode 100644 develop/Karrigell/data/muireception/sessions/XlhnFYTJ2rXKUom1
+ create mode 100644 develop/Karrigell/data/muireception/sessions/XsLKxZwahozK1h3q
+ create mode 100644 develop/Karrigell/data/muireception/sessions/XxmDQAfzDz8V5N8m
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Y9F3nYffJ27Afi2M
+ create mode 100644 develop/Karrigell/data/muireception/sessions/YGir95aZWvJhQc5M
+ create mode 100644 develop/Karrigell/data/muireception/sessions/YdICow5P1nl9Pv1s
+ create mode 100644 develop/Karrigell/data/muireception/sessions/YyLz4xJ14LS6tili
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Z5QAuTvTwwHEv7oc
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Z9slfnB91nv21cfP
+ create mode 100644 develop/Karrigell/data/muireception/sessions/ZK2qxysiSy7a1lhF
+ create mode 100644 develop/Karrigell/data/muireception/sessions/ZOUQsGKZdA3F0rE1
+ create mode 100644 develop/Karrigell/data/muireception/sessions/ZVoub9sZCXSk3Jlj
+ create mode 100644 develop/Karrigell/data/muireception/sessions/aFBtVg3zZfySGWIS
+ create mode 100644 develop/Karrigell/data/muireception/sessions/cCeNMTDysXRniibX
+ create mode 100644 develop/Karrigell/data/muireception/sessions/cDp8whKkzLMIoZCM
+ create mode 100644 develop/Karrigell/data/muireception/sessions/cJI9GLQkNJwxKDCr
+ create mode 100644 develop/Karrigell/data/muireception/sessions/cOBPJZBGcecOsq9Q
+ create mode 100644 develop/Karrigell/data/muireception/sessions/cTOUsGPs6BYC4SKd
+ create mode 100644 develop/Karrigell/data/muireception/sessions/cWh9Lej97B0wfq4V
+ create mode 100644 develop/Karrigell/data/muireception/sessions/caz2G6C1CXc3dOBG
+ create mode 100644 develop/Karrigell/data/muireception/sessions/dB83haIppU32kriM
+ create mode 100644 develop/Karrigell/data/muireception/sessions/dhT1bxmEvuQGKnDD
+ create mode 100644 develop/Karrigell/data/muireception/sessions/du0trtZ7Qe3rEtHl
+ create mode 100644 develop/Karrigell/data/muireception/sessions/eFbLW4on0VFyZRW0
+ create mode 100644 develop/Karrigell/data/muireception/sessions/eeoNwalqn7w65O2k
+ create mode 100644 develop/Karrigell/data/muireception/sessions/f2aJFfB1wSEb7TFN
+ create mode 100644 develop/Karrigell/data/muireception/sessions/fI5q34FauYSIb1PL
+ create mode 100644 develop/Karrigell/data/muireception/sessions/fJ5wz5rFsznYENe9
+ create mode 100644 develop/Karrigell/data/muireception/sessions/fg25Q3tCae7EtaSP
+ create mode 100644 develop/Karrigell/data/muireception/sessions/g78OBtM8wbpziaF5
+ create mode 100644 develop/Karrigell/data/muireception/sessions/gJB4evocrcjJM7qe
+ create mode 100644 develop/Karrigell/data/muireception/sessions/glVuzFiwN4bKicxG
+ create mode 100644 develop/Karrigell/data/muireception/sessions/gvGwatzJtvJk3ig9
+ create mode 100644 develop/Karrigell/data/muireception/sessions/gwyk1LsqzisY4fRl
+ create mode 100644 develop/Karrigell/data/muireception/sessions/h3ajkWus47jjnArn
+ create mode 100644 develop/Karrigell/data/muireception/sessions/hWalITN0VSfCdAse
+ create mode 100644 develop/Karrigell/data/muireception/sessions/hdZaH8Fiw6Cf5ASP
+ create mode 100644 develop/Karrigell/data/muireception/sessions/hn9oG9iu85hbHcRP
+ create mode 100644 develop/Karrigell/data/muireception/sessions/iH4YScNfpsmd1QZy
+ create mode 100644 develop/Karrigell/data/muireception/sessions/iYsJSn7nbeoj6y3k
+ create mode 100644 develop/Karrigell/data/muireception/sessions/jCRVTIhiOcJr6NPu
+ create mode 100644 develop/Karrigell/data/muireception/sessions/jN8u6rTuCE4b7Rol
+ create mode 100644 develop/Karrigell/data/muireception/sessions/kMixI3T5jlWIanfw
+ create mode 100644 develop/Karrigell/data/muireception/sessions/kZp16T8pWCsInYAU
+ create mode 100644 develop/Karrigell/data/muireception/sessions/koFxXu7RqMCw24Fr
+ create mode 100644 develop/Karrigell/data/muireception/sessions/kzXIrZ53nG1Jnrjr
+ create mode 100644 develop/Karrigell/data/muireception/sessions/lKnHY4Bbl9116V27
+ create mode 100644 develop/Karrigell/data/muireception/sessions/lZXTiw6AwIlcNbdJ
+ create mode 100644 develop/Karrigell/data/muireception/sessions/lyuzATLoZfbzYy7j
+ create mode 100644 develop/Karrigell/data/muireception/sessions/mAFO4QWzsrybjQGD
+ create mode 100644 develop/Karrigell/data/muireception/sessions/nEclVp7CwVBOGRep
+ create mode 100644 develop/Karrigell/data/muireception/sessions/niX6r4yyqEnexen5
+ create mode 100644 develop/Karrigell/data/muireception/sessions/nn8WcfhN8yPAo48Y
+ create mode 100644 develop/Karrigell/data/muireception/sessions/ojldcnxOCKQFMv68
+ create mode 100644 develop/Karrigell/data/muireception/sessions/pgQrHW5CBlyFr3oH
+ create mode 100644 develop/Karrigell/data/muireception/sessions/puWqRMpHWgDahhKM
+ create mode 100644 develop/Karrigell/data/muireception/sessions/qYvUAoF5RPcy9iLk
+ create mode 100644 develop/Karrigell/data/muireception/sessions/qdDKtJU0vhecdfGW
+ create mode 100644 develop/Karrigell/data/muireception/sessions/qkC4crdXexGxXSEQ
+ create mode 100644 develop/Karrigell/data/muireception/sessions/qwaK4T8wPnXvUk5o
+ create mode 100644 develop/Karrigell/data/muireception/sessions/rRMGmrJxsRoTQzxW
+ create mode 100644 develop/Karrigell/data/muireception/sessions/rTXaPtqHCZUDhTrG
+ create mode 100644 develop/Karrigell/data/muireception/sessions/reNg8JpP1qw0zgWo
+ create mode 100644 develop/Karrigell/data/muireception/sessions/rqiyjhSvSrJDmyd9
+ create mode 100644 develop/Karrigell/data/muireception/sessions/sLbkRPnkLoXhnuCx
+ create mode 100644 develop/Karrigell/data/muireception/sessions/t6kci26u3q4RjdTb
+ create mode 100644 develop/Karrigell/data/muireception/sessions/tJIWz8x54jqv7Til
+ create mode 100644 develop/Karrigell/data/muireception/sessions/tMeTrN5SAGWAdFXW
+ create mode 100644 develop/Karrigell/data/muireception/sessions/tUygMCFW0KaV5elk
+ create mode 100644 develop/Karrigell/data/muireception/sessions/tbAauKzGFtHlr60C
+ create mode 100644 develop/Karrigell/data/muireception/sessions/u4vohrUiP5m36m1P
+ create mode 100644 develop/Karrigell/data/muireception/sessions/uNS4XtMwJsbAxXDY
+ create mode 100644 develop/Karrigell/data/muireception/sessions/upjrEO4hLgCcLxIM
+ create mode 100644 develop/Karrigell/data/muireception/sessions/uxsu8jSVpRrDyW0W
+ create mode 100644 develop/Karrigell/data/muireception/sessions/vIuSgswOg4vuZbaU
+ create mode 100644 develop/Karrigell/data/muireception/sessions/vORGv7cGhyvnsUOM
+ create mode 100644 develop/Karrigell/data/muireception/sessions/vwzAwDgGIyb7LYqn
+ create mode 100644 develop/Karrigell/data/muireception/sessions/w4ekQX4KwxKv6GCe
+ create mode 100644 develop/Karrigell/data/muireception/sessions/wIbGALrQSXryEEfU
+ create mode 100644 develop/Karrigell/data/muireception/sessions/wMV0j7FH4cEEf2CD
+ create mode 100644 develop/Karrigell/data/muireception/sessions/wpc90NQOsfsKvnLx
+ create mode 100644 develop/Karrigell/data/muireception/sessions/x4UEZq4Z5NAzFCCd
+ create mode 100644 develop/Karrigell/data/muireception/sessions/x6DtzONH4c8fFMZJ
+ create mode 100644 develop/Karrigell/data/muireception/sessions/xIZkxVNKMJ4aPmfp
+ create mode 100644 develop/Karrigell/data/muireception/sessions/xX38KiUOpMywH66j
+ create mode 100644 develop/Karrigell/data/muireception/sessions/xpe8Fao8qdZ4XCwW
+ create mode 100644 develop/Karrigell/data/muireception/sessions/xyUWorNY8RMoK7Bp
+ create mode 100644 develop/Karrigell/data/muireception/sessions/y1UZZ6eI7IoiIJtx
+ create mode 100644 develop/Karrigell/data/muireception/sessions/yaWrVlK8vQJTiEBL
+ create mode 100644 develop/Karrigell/data/muireception/sessions/ydimSkXUAWv9ihpa
+ create mode 100644 develop/Karrigell/data/muireception/sessions/yzBRxETTX05XMHKd
+ create mode 100644 develop/Karrigell/data/muireception/sessions/zOlLNgiYd7wmLrEN
+ create mode 100644 develop/Karrigell/data/muireception/sessions/zQWw97ZO0NpnCdA9
+ create mode 100644 develop/Karrigell/data/muireception/sessions/zh7CWw3vCARPd7uN
+ create mode 100644 develop/Karrigell/muireception/desktop_demo.ks
+ create mode 100644 develop/Karrigell/muireception/js/portaLayoutInit.js.pih
+ create mode 100644 develop/Karrigell/muireception/js/portalInit.js.pih
+ create mode 100644 develop/Karrigell/muireception/lib/stickyNotes/stickyNotes.css
+ create mode 100755 develop/Karrigell/muireception/license.html~
+ create mode 100644 develop/Karrigell/muireception/portaLayout.ks
+ create mode 100644 develop/Karrigell/muireception/portal.ks.bak
+ create mode 100644 develop/Karrigell/muireception/portal.pih
+ create mode 100755 develop/Karrigell/muireception/portal/mocha_desktop.pih
+ create mode 100644 develop/Karrigell/muireception/portalHeader.ks
+ create mode 100644 develop/MindMap/design/Description/portal_login.odg
+2010-10-24 10:22:35,926 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   01f64a8..35203d0  master -> master
+2010-10-24 10:22:35,927 INFO End backup local github to remote github host.
+2010-10-25 17:35:11,047 INFO Delete nousing captcha images
+2010-10-25 17:35:11,085 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-10-25 17:35:11,086 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-10-25 17:35:13,562 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+data/muireception/cache/config.py
+        3759 100%    0.00kB/s    0:00:00          3759 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1026/6094)
+data/muireception/cache/pagefn.py
+       15628 100%    7.45MB/s    0:00:00         15628 100%    7.45MB/s    0:00:00 (xfer#2, to-check=1017/6094)
+data/muireception/cache/js/portaLayoutInit.js.pih
+       15740 100%    3.00MB/s    0:00:00         15740 100%    3.00MB/s    0:00:00 (xfer#3, to-check=1035/6137)
+data/muireception/sessions/
+data/muireception/sessions/0Fp9dYaU64S6ciGA
+         279 100%    0.85kB/s    0:00:00           279 100%    0.85kB/s    0:00:00 (xfer#4, to-check=2551/7836)
+data/muireception/sessions/1QtoSc6suYGkghwq
+         279 100%    0.85kB/s    0:00:00           279 100%    0.85kB/s    0:00:00 (xfer#5, to-check=2548/7836)
+data/muireception/sessions/6oFxMylBJORNFZOu
+         279 100%    0.85kB/s    0:00:00           279 100%    0.85kB/s    0:00:00 (xfer#6, to-check=2539/7836)
+data/muireception/sessions/6xTFHtJLXFnlT0fe
+         279 100%    0.85kB/s    0:00:00           279 100%    0.85kB/s    0:00:00 (xfer#7, to-check=2537/7836)
+data/muireception/sessions/8MoLZQHnrtvoqhzn
+         279 100%    0.85kB/s    0:00:00           279 100%    0.85kB/s    0:00:00 (xfer#8, to-check=2527/7836)
+data/muireception/sessions/CkUghhsQmrNCOQe7
+         279 100%    0.85kB/s    0:00:00           279 100%    0.85kB/s    0:00:00 (xfer#9, to-check=2506/7836)
+data/muireception/sessions/DmLsOElVejUg5Elg
+         279 100%    0.85kB/s    0:00:00           279 100%    0.85kB/s    0:00:00 (xfer#10, to-check=2501/7836)
+data/muireception/sessions/EX8XnJ1zeHEQLEcs
+         279 100%    0.85kB/s    0:00:00           279 100%    0.85kB/s    0:00:00 (xfer#11, to-check=2499/7836)
+data/muireception/sessions/FfpRBSjOFmUYnC8B
+         279 100%    0.85kB/s    0:00:00           279 100%    0.85kB/s    0:00:00 (xfer#12, to-check=2496/7836)
+data/muireception/sessions/H3Iz0e3QvA5C5mEx
+         279 100%    0.85kB/s    0:00:00           279 100%    0.85kB/s    0:00:00 (xfer#13, to-check=2491/7836)
+data/muireception/sessions/JPexff68ajbOi2ml
+         279 100%    0.80kB/s    0:00:00           279 100%    0.80kB/s    0:00:00 (xfer#14, to-check=2482/7836)
+data/muireception/sessions/KPrSqILlHf99I3qK
+         279 100%    0.80kB/s    0:00:00           279 100%    0.80kB/s    0:00:00 (xfer#15, to-check=2473/7836)
+data/muireception/sessions/Nfjx9gigELfLi0tW
+         279 100%    0.80kB/s    0:00:00           279 100%    0.80kB/s    0:00:00 (xfer#16, to-check=2457/7836)
+data/muireception/sessions/QyhlDXbkOGlaibVY
+         279 100%    0.80kB/s    0:00:00           279 100%    0.80kB/s    0:00:00 (xfer#17, to-check=2443/7836)
+data/muireception/sessions/TNhVuBrEFVKitUOn
+         279 100%    0.79kB/s    0:00:00           279 100%    0.79kB/s    0:00:00 (xfer#18, to-check=2433/7836)
+data/muireception/sessions/UsoXsgfxPekAxFfh
+         279 100%    0.79kB/s    0:00:00           279 100%    0.79kB/s    0:00:00 (xfer#19, to-check=2424/7836)
+data/muireception/sessions/bxyDy7FaVTld52XJ
+         279 100%    0.79kB/s    0:00:00           279 100%    0.79kB/s    0:00:00 (xfer#20, to-check=2396/7836)
+data/muireception/sessions/codTMfGuFaX3OnHQ
+         279 100%    0.79kB/s    0:00:00           279 100%    0.79kB/s    0:00:00 (xfer#21, to-check=2386/7836)
+data/muireception/sessions/dQZ7hfjrkZTRy0yU
+         279 100%    0.79kB/s    0:00:00           279 100%    0.79kB/s    0:00:00 (xfer#22, to-check=2383/7836)
+data/muireception/sessions/f9n1SeZ0zD6kdfNI
+         279 100%    0.79kB/s    0:00:00           279 100%    0.79kB/s    0:00:00 (xfer#23, to-check=2374/7836)
+data/muireception/sessions/faBRS21h1kFb1SRq
+         279 100%    0.79kB/s    0:00:00           279 100%    0.79kB/s    0:00:00 (xfer#24, to-check=2371/7836)
+data/muireception/sessions/hInRig7ZME6s7RcV
+         279 100%    0.79kB/s    0:00:00           279 100%    0.79kB/s    0:00:00 (xfer#25, to-check=2363/7836)
+data/muireception/sessions/lJ6BSamh0PKuEL4D
+         279 100%    0.79kB/s    0:00:00           279 100%    0.79kB/s    0:00:00 (xfer#26, to-check=2349/7836)
+data/muireception/sessions/n19EBGK0AlKJXLQa
+         279 100%    0.79kB/s    0:00:00           279 100%    0.79kB/s    0:00:00 (xfer#27, to-check=2344/7836)
+data/muireception/sessions/q7wvMN16qO1Jy1Qz
+         279 100%    0.79kB/s    0:00:00           279 100%    0.79kB/s    0:00:00 (xfer#28, to-check=2337/7836)
+data/muireception/sessions/qWqj5dra0H4w6yfD
+         279 100%    0.77kB/s    0:00:00           279 100%    0.77kB/s    0:00:00 (xfer#29, to-check=2335/7836)
+data/muireception/sessions/sGdAwE3Da19wSefe
+         279 100%    0.77kB/s    0:00:00           279 100%    0.77kB/s    0:00:00 (xfer#30, to-check=2326/7836)
+data/muireception/sessions/uiVqDkDaakFo5OAf
+         279 100%    0.77kB/s    0:00:00           279 100%    0.77kB/s    0:00:00 (xfer#31, to-check=2315/7836)
+data/muireception/sessions/un41XVnXYUjNlq52
+         312 100%    0.86kB/s    0:00:00           312 100%    0.86kB/s    0:00:00 (xfer#32, to-check=2314/7836)
+data/muireception/sessions/xBkJVaPlaR6ZAzCP
+         279 100%    0.77kB/s    0:00:00           279 100%    0.76kB/s    0:00:00 (xfer#33, to-check=2302/7836)
+data/muireception/sessions/xQtD2ImJyyx5BKCJ
+         279 100%    0.76kB/s    0:00:00           279 100%    0.76kB/s    0:00:00 (xfer#34, to-check=2300/7836)
+data/muireception/sessions/yP6ioCiw9OrRdyQW
+         279 100%    0.76kB/s    0:00:00           279 100%    0.76kB/s    0:00:00 (xfer#35, to-check=2295/7836)
+data/muireception/sessions/yba9JPyy2iK8vkSp
+         279 100%    0.76kB/s    0:00:00           279 100%    0.76kB/s    0:00:00 (xfer#36, to-check=2291/7836)
+data/muireception/sessions/yeEWKGqyKBEC4GBd
+         279 100%    0.71kB/s    0:00:00           279 100%    0.71kB/s    0:00:00 (xfer#37, to-check=2289/7836)
+data/muireception/sessions/zIlZkD7yWbn47ABe
+         279 100%    0.70kB/s    0:00:00           279 100%    0.70kB/s    0:00:00 (xfer#38, to-check=2287/7836)
+muireception/
+muireception/.pagefn.py.swp
+       32768 100%   81.01kB/s    0:00:00         32768 100%   81.01kB/s    0:00:00 (xfer#39, to-check=1687/7836)
+muireception/.portal.pih.swp
+       12288 100%   30.30kB/s    0:00:00         12288 100%   30.30kB/s    0:00:00 (xfer#40, to-check=1686/7836)
+muireception/config.py
+        3762 100%    9.25kB/s    0:00:00          3762 100%    9.25kB/s    0:00:00 (xfer#41, to-check=1685/7836)
+muireception/pagefn.py
+       15678 100%   38.37kB/s    0:00:00         15678 100%   38.37kB/s    0:00:00 (xfer#42, to-check=1659/7836)
+muireception/js/
+muireception/js/.portaLayoutInit.js.pih.swp
+       32768 100%   37.17kB/s    0:00:00         32768 100%   37.17kB/s    0:00:00 (xfer#43, to-check=1040/8998)
+muireception/js/.userMenus.js.swp
+       12288 100%   13.92kB/s    0:00:00         12288 100%   13.92kB/s    0:00:00 (xfer#44, to-check=1039/8998)
+muireception/js/portaLayoutInit.js.pih
+       14661 100%   16.57kB/s    0:00:00         14661 100%   16.57kB/s    0:00:00 (xfer#45, to-check=1022/8998)
+muireception/js/userMenus.js
+         723 100%    0.82kB/s    0:00:00           723 100%    0.82kB/s    0:00:00 (xfer#46, to-check=1020/8998)
+muireception/lib/stickyNotes/
+muireception/lib/stickyNotes/.stickyNotes.js.swp
+       20480 100%   20.37kB/s    0:00:00         20480 100%   20.37kB/s    0:00:00 (xfer#47, to-check=1008/9561)
+muireception/lib/stickyNotes/stickyNotes.js
+        6803 100%    6.74kB/s    0:00:00          6803 100%    6.74kB/s    0:00:00 (xfer#48, to-check=1003/9561)
+
+sent 268881 bytes  received 2188 bytes  108427.60 bytes/sec
+total size is 59260143  speedup is 218.62
+2010-10-25 17:35:13,800 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768   4%    0.00kB/s    0:00:00        681980 100%    6.59MB/s    0:00:00 (xfer#1, to-check=17/19)
+design/Description/
+
+sent 150626 bytes  received 41 bytes  301334.00 bytes/sec
+total size is 1327434  speedup is 8.81
+2010-10-25 17:35:13,800 INFO End backup loacl karrigell diretory to local git.
+2010-10-25 17:35:13,801 INFO Begin to backup local github to remote github host.

@@ -123,18 +123,18 @@ USERMENUS = \
 {
 'data': 
 	[ 
-		{ 'id':'00', 'text':_("Service"), 'function':'' },\				
-		{ 'id':'fileManagerLinkCheck', 'text':_("File List"), 'function':'popupWindow', 'parent': '00', 'popupWindowId':'fileManager'},
-		{ 'id':'hotelMapLinkCheck', 'text':_("Hotel Map"), 'function':'popupWindow', 'parent': '00', 'popupWindowId':'hotelMap', 'liCssClass':'divider' },
-		{ 'id':'01', 'text':_("Setting"), 'function':'' },\	
+		{ 'id':'serviceWindow', 'text':_("Service"), 'function':'' },\				
+		{ 'id':'fileManagerLinkCheck', 'text':_("File List"), 'function':'popupWindow', 'parent': 'serviceWindow', 'popupWindowId':'fileManager'},
+		{ 'id':'hotelMapLinkCheck', 'text':_("Hotel Map"), 'function':'popupWindow', 'parent': 'serviceWindow', 'popupWindowId':'hotelMap', 'liCssClass':'divider' },
+		{ 'id':'setting', 'text':_("Setting"), 'function':'' },\	
 		#----------------Sticky Notes Config---------------------------------------------------------------------------------------------
-		{ 'id':'stickyNotes', 'text':_("Tickets"), 'function':'', 'parent': '01', 'aCssClass':'returnFalse arrow-right' },
-		{ 'id':'gridCal', 'text':_("grid"), 'function':'setCalendarLayout', 'parent': 'stickyNotes'},
-		{ 'id':'cascadeCal', 'text':_("cascade"), 'function':'setCalendarLayout', 'parent': 'stickyNotes', 'liCssClass':'divider' },
-		{ 'id':'cycleCal', 'text':_("cycle"), 'function':'setCalendarLayout', 'parent': 'stickyNotes', 'liCssClass':'divider' },
+		{ 'id':'stickyNotes', 'text':_("Tickets"), 'function':'', 'parent': 'setting', 'aCssClass':'returnFalse arrow-right' },
+		{ 'id':'grid', 'text':_("Grid"), 'function':'setNotesLayout', 'parent': 'stickyNotes'},
+		{ 'id':'cascade', 'text':_("Cascade"), 'function':'setNotesLayout', 'parent': 'stickyNotes', 'liCssClass':'divider' },
+		{ 'id':'circle', 'text':_("Circle"), 'function':'setNotesLayout', 'parent': 'stickyNotes', 'liCssClass':'divider' },
 		#*********************************************************************************************************************************
-		{ 'id':'calendarLinkCheck', 'text':_("Calendar"), 'function':'popupWindow', 'parent': '01', 'popupWindowId':'calendar', 'aCssClass':'returnFalse' },
-		{ 'id':'02', 'text':_("Logout"), 'function':'logout'}\          
+		{ 'id':'calendarLinkCheck', 'text':_("Calendar"), 'function':'popupWindow', 'parent': 'setting', 'popupWindowId':'calendar', 'aCssClass':'returnFalse' },
+		{ 'id':'quit', 'text':_("Logout"), 'function':'logout'}\          
 	],
 'js': 'js/userMenus.js'
 }
