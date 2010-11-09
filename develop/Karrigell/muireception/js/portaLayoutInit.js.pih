@@ -65,9 +65,14 @@ function menuInit(){
 	var data = new Request.JSON({
 		async: false,
 		url: "portaLayout.ks/page_menu", 
-		onSuccess:function(json,html){	
+		//onSuccess:function(json,html){	
+		onSuccess:function(json){	
 			var assetOptions = {
-				'url':json['js'],	// load the menus' corresponding clickable functions
+				/*
+				 load corresponding clickable functions to each menu item,
+				 the js file is defined in pagefn.py file, which is different for different user role
+				*/
+				'url':json['js'],	
 				'app':'<%=loginApp %>',
 				'type':'js'
 			};
@@ -79,6 +84,15 @@ function menuInit(){
 					ul.set('load', {url:json.url, async:false});
 					ul.load();
 					$('<%=pagefn.MENUCONTAINER%>').grab(ul,'top');
+					
+					// set the selected tag for each sticky note
+					$$('.noteWidget').each(function(link){
+						var checkTagId = link.getProperty('id');
+						// '.check' css class is predefined by MochaUI
+						var checkTag = new Element('div', {'id': checkTagId+'check', 'class': 'check'});
+						if(checkTagId != 'grid') checkTag.hide();
+						link.grab(checkTag);
+					});
 
 					/*
 					  Add event to each menu item
@@ -117,6 +131,8 @@ function menuInit(){
 			am.import( assetOptions, onloadOptions );
 		}
 	}).get();
+
+	
 };
 
 
@@ -201,7 +217,8 @@ function desktopLayout(json){
 					"grid":{"columns":5, "xOffset":180, "yOffset": 100, "containerTopOffset": 10, "containerLeftOffset": 10},
 					"circle":{"centerX":270, "centerY": 210, "radius": 200},
 					"cascade":{"xOffset":40, "yOffset": 40, "containerTopOffset":0, "containerLeftOffset": 0}
-				}
+				},
+				indexLevel: 10
 			};	
 		
 			$("pageWrapper").store("notesWidget", new StickyNotes(options));
@@ -248,6 +265,11 @@ function desktopLayout(json){
 
 // the layout config handler 
 function layoutInit(userData){	
+	if(userData.portal == "<%=pagefn.PORTALTYPE[1]%>"){
+		desktopLayout();
+		return
+	};
+
 	// get panels on the left column
 	new Request.JSON({
 		url: "portaLayout.ks/page_sideBarPanels", 
@@ -259,10 +281,8 @@ function layoutInit(userData){
 					'type':'js'
 				},
 				{
-					onload: function(){
-						if(userData.portal == "<%=pagefn.PORTALTYPE[1]%>")
-							desktopLayout(json);
-						else{	gridLayout(json); }
+					onload: function(){						
+						gridLayout(json);
 					}
 				}
 			);

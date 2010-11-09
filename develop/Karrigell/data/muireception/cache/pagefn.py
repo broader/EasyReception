@@ -130,9 +130,9 @@ USERMENUS = \
 		{ 'id':'setting', 'text':_("Setting"), 'function':'' },\
 		#----------------Sticky Notes Config---------------------------------------------------------------------------------------------
 		{ 'id':'stickyNotes', 'text':_("Tickets"), 'function':'', 'parent': 'setting', 'aCssClass':'returnFalse arrow-right' },
-		{ 'id':'grid', 'text':_("Grid"), 'function':'setNotesLayout', 'parent': 'stickyNotes'},
-		{ 'id':'cascade', 'text':_("Cascade"), 'function':'setNotesLayout', 'parent': 'stickyNotes', 'liCssClass':'divider' },
-		{ 'id':'circle', 'text':_("Circle"), 'function':'setNotesLayout', 'parent': 'stickyNotes', 'liCssClass':'divider' },
+		{ 'id':'grid', 'text':_("Grid"), 'function':'setNotesLayout', 'parent': 'stickyNotes', 'aCssClass': 'noteWidget'},
+		{ 'id':'cascade', 'text':_("Cascade"), 'function':'setNotesLayout', 'parent': 'stickyNotes', 'liCssClass':'divider', 'aCssClass': 'noteWidget' },
+		{ 'id':'circle', 'text':_("Circle"), 'function':'setNotesLayout', 'parent': 'stickyNotes', 'liCssClass':'divider', 'aCssClass': 'noteWidget' },
 		#*********************************************************************************************************************************
 		{ 'id':'calendarLinkCheck', 'text':_("Calendar"), 'function':'popupWindow', 'parent': 'setting', 'popupWindowId':'calendar', 'aCssClass':'returnFalse' },
 		{ 'id':'quit', 'text':_("Logout"), 'function':'logout'}\
@@ -156,12 +156,17 @@ DESKTOP4USER = \
 		'width': 250, 'height': 150, 'x': 50, 'y': 100\
 	},\
 	{\
-		'type':'modal', 'modalOverlayClose':'false',
+		#'type':'modal', 'modalOverlayClose':'false',
+		'type':'window',
 		'id': 'hotelMap',\
 		'title':_('Hotel Map'),\
-		'loadMethod': 'xhr',\
-		'contentURL': '../accomodation/maps/index.ks',\
-		'width': 1060, 'height': 600, 'x': 10, 'y': 10\
+		#'loadMethod': 'xhr',\
+		#'contentURL': 'accomodation/maps/index.ks',\
+		#'content': '',\
+		'onContentLoaded': 'userHotelMapView',
+		'scrollbars': 'false',
+		#'width': 1060, 'height': 600
+		'width': 1200, 'height': 600
 	},\
 	{\
 		'type':'window',

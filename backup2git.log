@@ -12204,3 +12204,477 @@ sent 150626 bytes  received 41 bytes  301334.00 bytes/sec
 total size is 1327434  speedup is 8.81
 2010-10-25 17:35:13,800 INFO End backup loacl karrigell diretory to local git.
 2010-10-25 17:35:13,801 INFO Begin to backup local github to remote github host.
+2010-10-25 17:35:14,792 INFO Command: 
+git add .
+running result is :
+2010-10-25 17:35:25,702 INFO Command: 
+git commit -m 'Update time:2010-10-25T17:35:13.801354'
+running result is :[master ea1f391] Update time:2010-10-25T17:35:13.801354
+ 50 files changed, 482 insertions(+), 126 deletions(-)
+ create mode 100644 develop/Karrigell/data/muireception/sessions/0Fp9dYaU64S6ciGA
+ create mode 100644 develop/Karrigell/data/muireception/sessions/1QtoSc6suYGkghwq
+ create mode 100644 develop/Karrigell/data/muireception/sessions/6oFxMylBJORNFZOu
+ create mode 100644 develop/Karrigell/data/muireception/sessions/6xTFHtJLXFnlT0fe
+ create mode 100644 develop/Karrigell/data/muireception/sessions/8MoLZQHnrtvoqhzn
+ create mode 100644 develop/Karrigell/data/muireception/sessions/CkUghhsQmrNCOQe7
+ create mode 100644 develop/Karrigell/data/muireception/sessions/DmLsOElVejUg5Elg
+ create mode 100644 develop/Karrigell/data/muireception/sessions/EX8XnJ1zeHEQLEcs
+ create mode 100644 develop/Karrigell/data/muireception/sessions/FfpRBSjOFmUYnC8B
+ create mode 100644 develop/Karrigell/data/muireception/sessions/H3Iz0e3QvA5C5mEx
+ create mode 100644 develop/Karrigell/data/muireception/sessions/JPexff68ajbOi2ml
+ create mode 100644 develop/Karrigell/data/muireception/sessions/KPrSqILlHf99I3qK
+ create mode 100644 develop/Karrigell/data/muireception/sessions/Nfjx9gigELfLi0tW
+ create mode 100644 develop/Karrigell/data/muireception/sessions/QyhlDXbkOGlaibVY
+ create mode 100644 develop/Karrigell/data/muireception/sessions/TNhVuBrEFVKitUOn
+ create mode 100644 develop/Karrigell/data/muireception/sessions/UsoXsgfxPekAxFfh
+ create mode 100644 develop/Karrigell/data/muireception/sessions/bxyDy7FaVTld52XJ
+ create mode 100644 develop/Karrigell/data/muireception/sessions/codTMfGuFaX3OnHQ
+ create mode 100644 develop/Karrigell/data/muireception/sessions/dQZ7hfjrkZTRy0yU
+ create mode 100644 develop/Karrigell/data/muireception/sessions/f9n1SeZ0zD6kdfNI
+ create mode 100644 develop/Karrigell/data/muireception/sessions/faBRS21h1kFb1SRq
+ create mode 100644 develop/Karrigell/data/muireception/sessions/hInRig7ZME6s7RcV
+ create mode 100644 develop/Karrigell/data/muireception/sessions/lJ6BSamh0PKuEL4D
+ create mode 100644 develop/Karrigell/data/muireception/sessions/n19EBGK0AlKJXLQa
+ create mode 100644 develop/Karrigell/data/muireception/sessions/q7wvMN16qO1Jy1Qz
+ create mode 100644 develop/Karrigell/data/muireception/sessions/qWqj5dra0H4w6yfD
+ create mode 100644 develop/Karrigell/data/muireception/sessions/sGdAwE3Da19wSefe
+ create mode 100644 develop/Karrigell/data/muireception/sessions/uiVqDkDaakFo5OAf
+ create mode 100644 develop/Karrigell/data/muireception/sessions/un41XVnXYUjNlq52
+ create mode 100644 develop/Karrigell/data/muireception/sessions/xBkJVaPlaR6ZAzCP
+ create mode 100644 develop/Karrigell/data/muireception/sessions/xQtD2ImJyyx5BKCJ
+ create mode 100644 develop/Karrigell/data/muireception/sessions/yP6ioCiw9OrRdyQW
+ create mode 100644 develop/Karrigell/data/muireception/sessions/yba9JPyy2iK8vkSp
+ create mode 100644 develop/Karrigell/data/muireception/sessions/yeEWKGqyKBEC4GBd
+ create mode 100644 develop/Karrigell/data/muireception/sessions/zIlZkD7yWbn47ABe
+ rewrite develop/Karrigell/muireception/.pagefn.py.swp (61%)
+ create mode 100644 develop/Karrigell/muireception/.portal.pih.swp
+ create mode 100644 develop/Karrigell/muireception/js/.portaLayoutInit.js.pih.swp
+ create mode 100644 develop/Karrigell/muireception/js/.userMenus.js.swp
+ create mode 100644 develop/Karrigell/muireception/lib/stickyNotes/.stickyNotes.js.swp
+2010-10-25 17:35:36,232 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   35203d0..ea1f391  master -> master
+2010-10-25 17:35:36,233 INFO End backup local github to remote github host.
+2010-11-09 11:20:57,101 INFO Delete nousing captcha images
+2010-11-09 11:20:57,147 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2010-11-09 11:20:57,147 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2010-11-09 11:21:02,715 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+./
+data/muireception/cache/pagefn.py
+       15826 100%    0.00kB/s    0:00:00         15826 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1023/6100)
+data/muireception/cache/portalHeader.ks
+        2545 100%    2.43MB/s    0:00:00          2545 100%    2.43MB/s    0:00:00 (xfer#2, to-check=1019/6100)
+data/muireception/cache/accomodation/maps/
+data/muireception/cache/accomodation/maps/index.ks
+       10224 100%    4.88MB/s    0:00:00         10224 100%    4.88MB/s    0:00:00 (xfer#3, to-check=1005/6100)
+data/muireception/cache/accomodation/maps/userMapView.ks
+         717 100%  233.40kB/s    0:00:00           717 100%  233.40kB/s    0:00:00 (xfer#4, to-check=1004/6100)
+data/muireception/cache/js/portaLayoutInit.js.pih
+       16302 100%    2.59MB/s    0:00:00         16302 100%    2.59MB/s    0:00:00 (xfer#5, to-check=1006/6109)
+data/muireception/roundup/schema.py
+        9044 100%  401.46kB/s    0:00:00          9044 100%  401.46kB/s    0:00:00 (xfer#6, to-check=1005/6137)
+data/muireception/roundup/schema.py~
+        9171 100%  288.90kB/s    0:00:00          9171 100%  288.90kB/s    0:00:00 (xfer#7, to-check=1004/6137)
+data/muireception/roundup/db/
+data/muireception/roundup/db/db
+       32768   9%  914.29kB/s    0:00:00        362496 100%    5.40MB/s    0:00:00 (xfer#8, to-check=1005/6143)
+data/muireception/sessions/
+data/muireception/sessions/1SQpEiQha9nmBxK1
+         279 100%    1.43kB/s    0:00:00           279 100%    1.43kB/s    0:00:00 (xfer#9, to-check=2690/7980)
+data/muireception/sessions/1wB6VikMtbB48j7v
+         279 100%    1.29kB/s    0:00:00           279 100%    1.29kB/s    0:00:00 (xfer#10, to-check=2689/7980)
+data/muireception/sessions/2F9LNU3iOV13xFqz
+         279 100%    1.21kB/s    0:00:00           279 100%    1.21kB/s    0:00:00 (xfer#11, to-check=2688/7980)
+data/muireception/sessions/2kfIIiInQmHyxKQd
+         279 100%    1.16kB/s    0:00:00           279 100%    1.16kB/s    0:00:00 (xfer#12, to-check=2686/7980)
+data/muireception/sessions/40lUAhcMHQvX5xs4
+         279 100%    1.11kB/s    0:00:00           279 100%    1.11kB/s    0:00:00 (xfer#13, to-check=2684/7980)
+data/muireception/sessions/4T3snEG1UtNaq9qp
+         312 100%    1.20kB/s    0:00:00           312 100%    1.20kB/s    0:00:00 (xfer#14, to-check=2682/7980)
+data/muireception/sessions/4gxvJWpol0jBzCZR
+         279 100%    1.01kB/s    0:00:00           279 100%    1.01kB/s    0:00:00 (xfer#15, to-check=2681/7980)
+data/muireception/sessions/4xBoSJthPMLI3qG9
+         279 100%    0.83kB/s    0:00:00           279 100%    0.83kB/s    0:00:00 (xfer#16, to-check=2680/7980)
+data/muireception/sessions/5GoFApcrgJGZkoRJ
+         279 100%    0.82kB/s    0:00:00           279 100%    0.82kB/s    0:00:00 (xfer#17, to-check=2679/7980)
+data/muireception/sessions/5UBIEFaUKfVz1uRW
+         279 100%    0.78kB/s    0:00:00           279 100%    0.78kB/s    0:00:00 (xfer#18, to-check=2677/7980)
+data/muireception/sessions/5zQ3JhwfkZEUQzDh
+         279 100%    0.76kB/s    0:00:00           279 100%    0.76kB/s    0:00:00 (xfer#19, to-check=2673/7980)
+data/muireception/sessions/6AcIW0CKViYBEqB8
+         279 100%    0.74kB/s    0:00:00           279 100%    0.74kB/s    0:00:00 (xfer#20, to-check=2672/7980)
+data/muireception/sessions/6VNhXLmBhn9WgpH0
+         279 100%    0.71kB/s    0:00:00           279 100%    0.71kB/s    0:00:00 (xfer#21, to-check=2671/7980)
+data/muireception/sessions/6fjckdo65KB6rqAb
+         279 100%    0.69kB/s    0:00:00           279 100%    0.69kB/s    0:00:00 (xfer#22, to-check=2669/7980)
+data/muireception/sessions/7X1iF4qVtsDKzYX1
+         279 100%    0.66kB/s    0:00:00           279 100%    0.66kB/s    0:00:00 (xfer#23, to-check=2659/7980)
+data/muireception/sessions/ALwNwyTQEfgZYnol
+         279 100%    0.65kB/s    0:00:00           279 100%    0.65kB/s    0:00:00 (xfer#24, to-check=2647/7980)
+data/muireception/sessions/AMqOO7K2LdDCvykz
+         279 100%    0.65kB/s    0:00:00           279 100%    0.65kB/s    0:00:00 (xfer#25, to-check=2646/7980)
+data/muireception/sessions/BIYc6eZlZ2AQgAF0
+         279 100%    0.63kB/s    0:00:00           279 100%    0.63kB/s    0:00:00 (xfer#26, to-check=2640/7980)
+data/muireception/sessions/BVYo81hepUdI9krk
+         279 100%    0.61kB/s    0:00:00           279 100%    0.61kB/s    0:00:00 (xfer#27, to-check=2637/7980)
+data/muireception/sessions/BY30RFNYy1H4VUSW
+         279 100%    0.61kB/s    0:00:00           279 100%    0.61kB/s    0:00:00 (xfer#28, to-check=2636/7980)
+data/muireception/sessions/BykB1uJDVVg8oopt
+         312 100%    0.65kB/s    0:00:00           312 100%    0.65kB/s    0:00:00 (xfer#29, to-check=2633/7980)
+data/muireception/sessions/BzTX6PcfpUvOojDg
+         279 100%    0.57kB/s    0:00:00           279 100%    0.57kB/s    0:00:00 (xfer#30, to-check=2632/7980)
+data/muireception/sessions/C2eD5bHUI8cqmr16
+         279 100%    0.57kB/s    0:00:00           279 100%    0.57kB/s    0:00:00 (xfer#31, to-check=2631/7980)
+data/muireception/sessions/CJuG57k21RYHFQIK
+         279 100%    0.56kB/s    0:00:00           279 100%    0.56kB/s    0:00:00 (xfer#32, to-check=2628/7980)
+data/muireception/sessions/D6YEp9xcs0sWY2PQ
+         279 100%    0.56kB/s    0:00:00           279 100%    0.56kB/s    0:00:00 (xfer#33, to-check=2623/7980)
+data/muireception/sessions/DNF54eoH6sRzqaRP
+         279 100%    0.55kB/s    0:00:00           279 100%    0.55kB/s    0:00:00 (xfer#34, to-check=2621/7980)
+data/muireception/sessions/DOUVnHqMBLvEkVb8
+         279 100%    0.53kB/s    0:00:00           279 100%    0.53kB/s    0:00:00 (xfer#35, to-check=2620/7980)
+data/muireception/sessions/DSmmz58A8hdrvY21
+         279 100%    0.52kB/s    0:00:00           279 100%    0.51kB/s    0:00:00 (xfer#36, to-check=2618/7980)
+data/muireception/sessions/EJl0qTWj7ocBst2P
+         279 100%    0.51kB/s    0:00:00           279 100%    0.51kB/s    0:00:00 (xfer#37, to-check=2614/7980)
+data/muireception/sessions/EnwH8GO4kjaQ6WLZ
+         279 100%    0.51kB/s    0:00:00           279 100%    0.51kB/s    0:00:00 (xfer#38, to-check=2611/7980)
+data/muireception/sessions/FL8NrjMZCOzQ3o2j
+         279 100%    0.50kB/s    0:00:00           279 100%    0.50kB/s    0:00:00 (xfer#39, to-check=2610/7980)
+data/muireception/sessions/GAnsOyBbo5jfjWGI
+         279 100%    0.48kB/s    0:00:00           279 100%    0.48kB/s    0:00:00 (xfer#40, to-check=2606/7980)
+data/muireception/sessions/HLp3TLL7WnrBHinh
+         279 100%    0.47kB/s    0:00:00           279 100%    0.47kB/s    0:00:00 (xfer#41, to-check=2601/7980)
+data/muireception/sessions/HSPFCNEMJ5LKVJdb
+         279 100%    0.47kB/s    0:00:00           279 100%    0.47kB/s    0:00:00 (xfer#42, to-check=2600/7980)
+data/muireception/sessions/Hic59xAI8eMcIS2h
+         279 100%    0.45kB/s    0:00:00           279 100%    0.45kB/s    0:00:00 (xfer#43, to-check=2599/7980)
+data/muireception/sessions/HqlsBzgg4FFCx0dp
+         279 100%    0.44kB/s    0:00:00           279 100%    0.44kB/s    0:00:00 (xfer#44, to-check=2597/7980)
+data/muireception/sessions/Hr4RJmqfpQwiYyue
+         279 100%    0.44kB/s    0:00:00           279 100%    0.44kB/s    0:00:00 (xfer#45, to-check=2596/7980)
+data/muireception/sessions/Ir4wal6ZfgpGeubj
+         279 100%    0.44kB/s    0:00:00           279 100%    0.44kB/s    0:00:00 (xfer#46, to-check=2590/7980)
+data/muireception/sessions/JnMVsJRkGb7iwjTq
+         279 100%    0.43kB/s    0:00:00           279 100%    0.43kB/s    0:00:00 (xfer#47, to-check=2584/7980)
+data/muireception/sessions/K0p06RMLRsvniVOT
+         279 100%    0.43kB/s    0:00:00           279 100%    0.43kB/s    0:00:00 (xfer#48, to-check=2581/7980)
+data/muireception/sessions/LBdo5kohq8NcjGPb
+         279 100%    0.43kB/s    0:00:00           279 100%    0.43kB/s    0:00:00 (xfer#49, to-check=2572/7980)
+data/muireception/sessions/LNyJ7b4adtQMrfkc
+         312 100%    0.47kB/s    0:00:00           312 100%    0.47kB/s    0:00:00 (xfer#50, to-check=2571/7980)
+data/muireception/sessions/NWAQD1romo819T9R
+         279 100%    0.41kB/s    0:00:00           279 100%    0.41kB/s    0:00:00 (xfer#51, to-check=2561/7980)
+data/muireception/sessions/OJCkTd4q5lRMtP8T
+         279 100%    0.40kB/s    0:00:00           279 100%    0.40kB/s    0:00:00 (xfer#52, to-check=2552/7980)
+data/muireception/sessions/OtI4Kdxp7tayVSkT
+         279 100%    0.40kB/s    0:00:00           279 100%    0.40kB/s    0:00:00 (xfer#53, to-check=2546/7980)
+data/muireception/sessions/P1xUDgkQisD4lsMv
+         279 100%    0.40kB/s    0:00:00           279 100%    0.40kB/s    0:00:00 (xfer#54, to-check=2545/7980)
+data/muireception/sessions/QZUX6uJTFxknf9xT
+         279 100%    0.39kB/s    0:00:00           279 100%    0.39kB/s    0:00:00 (xfer#55, to-check=2541/7980)
+data/muireception/sessions/S9Tk2imnyAZDByFJ
+         279 100%    0.38kB/s    0:00:00           279 100%    0.38kB/s    0:00:00 (xfer#56, to-check=2531/7980)
+data/muireception/sessions/SBK36quuJtLueMwD
+         279 100%    0.38kB/s    0:00:00           279 100%    0.38kB/s    0:00:00 (xfer#57, to-check=2530/7980)
+data/muireception/sessions/SbNO5e0BRkCpOstm
+         279 100%    0.37kB/s    0:00:00           279 100%    0.37kB/s    0:00:00 (xfer#58, to-check=2528/7980)
+data/muireception/sessions/TPREhu6vywUfASJk
+         279 100%    0.36kB/s    0:00:00           279 100%    0.36kB/s    0:00:00 (xfer#59, to-check=2525/7980)
+data/muireception/sessions/UJ4gTYJ8HZTJaLCF
+         279 100%    0.36kB/s    0:00:00           279 100%    0.36kB/s    0:00:00 (xfer#60, to-check=2520/7980)
+data/muireception/sessions/UQyDTwgwD6j3WRoQ
+         279 100%    0.35kB/s    0:00:00           279 100%    0.35kB/s    0:00:00 (xfer#61, to-check=2518/7980)
+data/muireception/sessions/UdLn2fIGbj5UVwKB
+         279 100%    0.35kB/s    0:00:00           279 100%    0.35kB/s    0:00:00 (xfer#62, to-check=2515/7980)
+data/muireception/sessions/VEU7qIZ5ek4OrY7N
+         279 100%    0.34kB/s    0:00:00           279 100%    0.34kB/s    0:00:00 (xfer#63, to-check=2511/7980)
+data/muireception/sessions/WKabF1gRDGkJeuO8
+         279 100%    0.34kB/s    0:00:00           279 100%    0.34kB/s    0:00:00 (xfer#64, to-check=2505/7980)
+data/muireception/sessions/WZgHfxv8kEvjE515
+         279 100%    0.34kB/s    0:00:00           279 100%    0.34kB/s    0:00:00 (xfer#65, to-check=2502/7980)
+data/muireception/sessions/WpXWTE9i0yRcPsJz
+         279 100%    0.34kB/s    0:00:00           279 100%    0.34kB/s    0:00:00 (xfer#66, to-check=2501/7980)
+data/muireception/sessions/X8Bm0wXGWXYZ7FcA
+         279 100%    0.33kB/s    0:00:00           279 100%    0.33kB/s    0:00:00 (xfer#67, to-check=2499/7980)
+data/muireception/sessions/XAxAELqhvntGYqZm
+         279 100%    0.33kB/s    0:00:00           279 100%    0.33kB/s    0:00:00 (xfer#68, to-check=2498/7980)
+data/muireception/sessions/XKIwYGMt1nfwJfD7
+         279 100%    0.33kB/s    0:00:00           279 100%    0.33kB/s    0:00:00 (xfer#69, to-check=2497/7980)
+data/muireception/sessions/XficTMZJvHNvlnuF
+         279 100%    0.32kB/s    0:00:00           279 100%    0.32kB/s    0:00:00 (xfer#70, to-check=2495/7980)
+data/muireception/sessions/XwzqU14bJ0cBMyHq
+         279 100%    0.32kB/s    0:00:00           279 100%    0.32kB/s    0:00:00 (xfer#71, to-check=2491/7980)
+data/muireception/sessions/Xx9L7NlPSC4UyUZd
+         279 100%    0.32kB/s    0:00:00           279 100%    0.32kB/s    0:00:00 (xfer#72, to-check=2490/7980)
+data/muireception/sessions/YQK0w0muspMYi199
+         279 100%    0.32kB/s    0:00:00           279 100%    0.32kB/s    0:00:00 (xfer#73, to-check=2485/7980)
+data/muireception/sessions/YQbxKRJxoVZ9QHOU
+         279 100%    0.32kB/s    0:00:00           279 100%    0.32kB/s    0:00:00 (xfer#74, to-check=2484/7980)
+data/muireception/sessions/YWBYvnF6Svrm1iEc
+         279 100%    0.31kB/s    0:00:00           279 100%    0.31kB/s    0:00:00 (xfer#75, to-check=2483/7980)
+data/muireception/sessions/ZSHuasLHNuJxRIrn
+         279 100%    0.31kB/s    0:00:00           279 100%    0.31kB/s    0:00:00 (xfer#76, to-check=2475/7980)
+data/muireception/sessions/ZVV0wRNUi0M4OX9g
+         279 100%    0.31kB/s    0:00:00           279 100%    0.31kB/s    0:00:00 (xfer#77, to-check=2474/7980)
+data/muireception/sessions/Zd4BfYJ8Utgek5wq
+         279 100%    0.30kB/s    0:00:00           279 100%    0.30kB/s    0:00:00 (xfer#78, to-check=2472/7980)
+data/muireception/sessions/Zp2gw138BG2DFKCt
+         279 100%    0.30kB/s    0:00:00           279 100%    0.30kB/s    0:00:00 (xfer#79, to-check=2471/7980)
+data/muireception/sessions/b4S8TYMtNOfmCeVk
+         279 100%    0.30kB/s    0:00:00           279 100%    0.30kB/s    0:00:00 (xfer#80, to-check=2469/7980)
+data/muireception/sessions/bNbQkUT1qQ02gwYZ
+         279 100%    0.30kB/s    0:00:00           279 100%    0.30kB/s    0:00:00 (xfer#81, to-check=2467/7980)
+data/muireception/sessions/blKfnfFmDUXo2At0
+         279 100%    0.30kB/s    0:00:00           279 100%    0.30kB/s    0:00:00 (xfer#82, to-check=2466/7980)
+data/muireception/sessions/c4mMgOgkPRjJBviP
+         279 100%    0.29kB/s    0:00:00           279 100%    0.29kB/s    0:00:00 (xfer#83, to-check=2464/7980)
+data/muireception/sessions/cTskxSZTH2AEghb9
+         279 100%    0.29kB/s    0:00:00           279 100%    0.29kB/s    0:00:00 (xfer#84, to-check=2458/7980)
+data/muireception/sessions/csI9DhKRaLA9J1ZJ
+         279 100%    0.29kB/s    0:00:00           279 100%    0.29kB/s    0:00:00 (xfer#85, to-check=2452/7980)
+data/muireception/sessions/dF8VA2QuDPCbdxUP
+         279 100%    0.29kB/s    0:00:00           279 100%    0.29kB/s    0:00:00 (xfer#86, to-check=2449/7980)
+data/muireception/sessions/dj9rByNBo3KZMLFs
+         279 100%    0.29kB/s    0:00:00           279 100%    0.29kB/s    0:00:00 (xfer#87, to-check=2445/7980)
+data/muireception/sessions/dptIBlgYICRd3XEl
+         279 100%    0.29kB/s    0:00:00           279 100%    0.29kB/s    0:00:00 (xfer#88, to-check=2444/7980)
+data/muireception/sessions/e3aa6sbkUVY8UR4i
+         279 100%    0.28kB/s    0:00:00           279 100%    0.28kB/s    0:00:00 (xfer#89, to-check=2442/7980)
+data/muireception/sessions/eCxYliFkTHqS90er
+         279 100%    0.28kB/s    0:00:00           279 100%    0.28kB/s    0:00:00 (xfer#90, to-check=2441/7980)
+data/muireception/sessions/eRUZ5eULoXckMpGA
+         279 100%    0.28kB/s    0:00:00           279 100%    0.28kB/s    0:00:00 (xfer#91, to-check=2438/7980)
+data/muireception/sessions/emrK6TqUs1hSKqgG
+         279 100%    0.27kB/s    0:00:00           279 100%    0.27kB/s    0:00:01 (xfer#92, to-check=2436/7980)
+data/muireception/sessions/enyhvqBeuQsiSrBw
+         279 100%    0.27kB/s    0:00:00           279 100%    0.27kB/s    0:00:01 (xfer#93, to-check=2435/7980)
+data/muireception/sessions/f2xoRcdyIYVUJ2Wu
+         279 100%    0.27kB/s    0:00:00           279 100%    0.27kB/s    0:00:01 (xfer#94, to-check=2433/7980)
+data/muireception/sessions/fVpfkZ27sB17htBg
+         279 100%    0.27kB/s    0:00:00           279 100%    0.27kB/s    0:00:01 (xfer#95, to-check=2428/7980)
+data/muireception/sessions/fhGbFZTOG5lXJ3Zq
+         279 100%    0.27kB/s    0:00:00           279 100%    0.27kB/s    0:00:01 (xfer#96, to-check=2425/7980)
+data/muireception/sessions/gvkHXq37wcdDjdHL
+         312 100%    0.29kB/s    0:00:00           312 100%    0.29kB/s    0:00:01 (xfer#97, to-check=2420/7980)
+data/muireception/sessions/h8STMiKxOvH1dynC
+         279 100%    0.26kB/s    0:00:00           279 100%    0.26kB/s    0:00:01 (xfer#98, to-check=2417/7980)
+data/muireception/sessions/iCqWFWCQPfyjrMZl
+         279 100%    0.26kB/s    0:00:00           279 100%    0.26kB/s    0:00:01 (xfer#99, to-check=2412/7980)
+data/muireception/sessions/jMAj0EPGeDk2QHUd
+         279 100%    0.26kB/s    0:00:00           279 100%    0.26kB/s    0:00:01 (xfer#100, to-check=2406/7980)
+data/muireception/sessions/jS7hxTeZs4QOkZQh
+         279 100%    0.26kB/s    0:00:00           279 100%    0.26kB/s    0:00:01 (xfer#101, to-check=2404/7980)
+data/muireception/sessions/k2Ux4GheR0uwEWXX
+         279 100%    0.25kB/s    0:00:00           279 100%    0.25kB/s    0:00:01 (xfer#102, to-check=2403/7980)
+data/muireception/sessions/kRe5YDey2v2KgOxu
+         279 100%    0.25kB/s    0:00:00           279 100%    0.25kB/s    0:00:01 (xfer#103, to-check=2401/7980)
+data/muireception/sessions/kxzvU9qiJFrzgYOa
+         279 100%    0.25kB/s    0:00:00           279 100%    0.25kB/s    0:00:01 (xfer#104, to-check=2398/7980)
+data/muireception/sessions/lvzIZyeu6pbANqHv
+         279 100%    0.25kB/s    0:00:00           279 100%    0.25kB/s    0:00:01 (xfer#105, to-check=2393/7980)
+data/muireception/sessions/mmRfNWJZXtL624P1
+         279 100%    0.25kB/s    0:00:00           279 100%    0.25kB/s    0:00:01 (xfer#106, to-check=2390/7980)
+data/muireception/sessions/ngcmeHqL35dm6TAf
+         279 100%    0.24kB/s    0:00:00           279 100%    0.24kB/s    0:00:01 (xfer#107, to-check=2387/7980)
+data/muireception/sessions/nvZTBYZv47O6Dqzt
+         279 100%    0.24kB/s    0:00:00           279 100%    0.24kB/s    0:00:01 (xfer#108, to-check=2384/7980)
+data/muireception/sessions/o4lH2JJipG1ilbQM
+         279 100%    0.24kB/s    0:00:00           279 100%    0.24kB/s    0:00:01 (xfer#109, to-check=2383/7980)
+data/muireception/sessions/o7SAZWTpkPWkQHqh
+         279 100%    0.24kB/s    0:00:00           279 100%    0.24kB/s    0:00:01 (xfer#110, to-check=2382/7980)
+data/muireception/sessions/o9eJKNkrVKjzT2hv
+         279 100%    0.24kB/s    0:00:00           279 100%    0.24kB/s    0:00:01 (xfer#111, to-check=2381/7980)
+data/muireception/sessions/oLJ5Cuzrs81gs45a
+         279 100%    0.23kB/s    0:00:00           279 100%    0.23kB/s    0:00:01 (xfer#112, to-check=2380/7980)
+data/muireception/sessions/ooBDb6HWiEIAkmSU
+         279 100%    0.23kB/s    0:00:00           279 100%    0.23kB/s    0:00:01 (xfer#113, to-check=2378/7980)
+data/muireception/sessions/p5UrMnED13J1suOS
+         279 100%    0.23kB/s    0:00:00           279 100%    0.23kB/s    0:00:01 (xfer#114, to-check=2377/7980)
+data/muireception/sessions/pUTQysPXPNAqdl5o
+         279 100%    0.23kB/s    0:00:00           279 100%    0.23kB/s    0:00:01 (xfer#115, to-check=2376/7980)
+data/muireception/sessions/q6EcsfBsmssCMYdf
+         279 100%    0.23kB/s    0:00:00           279 100%    0.23kB/s    0:00:01 (xfer#116, to-check=2373/7980)
+data/muireception/sessions/qY6leUhRVSteQY7I
+         279 100%    0.23kB/s    0:00:00           279 100%    0.23kB/s    0:00:01 (xfer#117, to-check=2369/7980)
+data/muireception/sessions/qgpKxcsI4QnYdvW3
+         279 100%    0.22kB/s    0:00:00           279 100%    0.22kB/s    0:00:01 (xfer#118, to-check=2366/7980)
+data/muireception/sessions/rsWocOOCGEIBPOoq
+         279 100%    0.22kB/s    0:00:00           279 100%    0.22kB/s    0:00:01 (xfer#119, to-check=2359/7980)
+data/muireception/sessions/tMhz478ky4tBjw0h
+         279 100%    0.22kB/s    0:00:00           279 100%    0.22kB/s    0:00:01 (xfer#120, to-check=2352/7980)
+data/muireception/sessions/tN6smPGtZrnhP4Fs
+         279 100%    0.21kB/s    0:00:00           279 100%    0.21kB/s    0:00:01 (xfer#121, to-check=2351/7980)
+data/muireception/sessions/tla7f6FjEtNw5JAi
+         279 100%    0.21kB/s    0:00:00           279 100%    0.21kB/s    0:00:01 (xfer#122, to-check=2348/7980)
+data/muireception/sessions/u8T9UoYTBci3XSx2
+         279 100%    0.21kB/s    0:00:00           279 100%    0.21kB/s    0:00:01 (xfer#123, to-check=2345/7980)
+data/muireception/sessions/uCBTK7jcf4FoLs8E
+         279 100%    0.21kB/s    0:00:00           279 100%    0.21kB/s    0:00:01 (xfer#124, to-check=2344/7980)
+data/muireception/sessions/uLwJSaZgNSVBSgKT
+         279 100%    0.21kB/s    0:00:00           279 100%    0.21kB/s    0:00:01 (xfer#125, to-check=2343/7980)
+data/muireception/sessions/ul2NcQVlMjebCDen
+         279 100%    0.21kB/s    0:00:00           279 100%    0.21kB/s    0:00:01 (xfer#126, to-check=2340/7980)
+data/muireception/sessions/vnsjwrCNegaCC6FF
+         279 100%    0.21kB/s    0:00:00           279 100%    0.21kB/s    0:00:01 (xfer#127, to-check=2334/7980)
+data/muireception/sessions/w3Zd3lc9rPYSUHxT
+         279 100%    0.20kB/s    0:00:00           279 100%    0.20kB/s    0:00:01 (xfer#128, to-check=2332/7980)
+data/muireception/sessions/wLWEaXXVjNS8Ysxk
+         279 100%    0.20kB/s    0:00:00           279 100%    0.20kB/s    0:00:01 (xfer#129, to-check=2329/7980)
+data/muireception/sessions/wThnZcXQrTjOr1Bk
+         279 100%    0.20kB/s    0:00:00           279 100%    0.20kB/s    0:00:01 (xfer#130, to-check=2327/7980)
+data/muireception/sessions/xFEwUBYIMB0ZYMiv
+         279 100%    0.20kB/s    0:00:00           279 100%    0.20kB/s    0:00:01 (xfer#131, to-check=2322/7980)
+data/muireception/sessions/xbt9rjSS6z11XMkL
+         279 100%    0.20kB/s    0:00:00           279 100%    0.20kB/s    0:00:01 (xfer#132, to-check=2318/7980)
+data/muireception/sessions/yZK7GXqYxkX2E2I0
+         279 100%    0.20kB/s    0:00:00           279 100%    0.20kB/s    0:00:01 (xfer#133, to-check=2311/7980)
+data/muireception/sessions/zAvBRhMX1eUniNwV
+         279 100%    0.20kB/s    0:00:00           279 100%    0.20kB/s    0:00:01 (xfer#134, to-check=2305/7980)
+muireception/
+deleting muireception/.portal.pih.swp
+deleting muireception/.pagefn.py.swp
+muireception/map_drag_test.html
+        2502 100%    1.78kB/s    0:00:00          2502 100%    1.78kB/s    0:00:01 (xfer#135, to-check=1682/7980)
+muireception/map_drag_test.html~
+        2536 100%    1.79kB/s    0:00:00          2536 100%    1.79kB/s    0:00:01 (xfer#136, to-check=1681/7980)
+muireception/pagefn.py
+       15878 100%   11.12kB/s    0:00:00         15878 100%   11.11kB/s    0:00:01 (xfer#137, to-check=1676/7980)
+muireception/pagefn.py~
+       15760 100%   10.92kB/s    0:00:00         15760 100%   10.92kB/s    0:00:01 (xfer#138, to-check=1675/7980)
+muireception/portalHeader.ks
+        2536 100%    1.74kB/s    0:00:00          2536 100%    1.74kB/s    0:00:01 (xfer#139, to-check=1671/7980)
+muireception/accomodation/maps/
+deleting muireception/accomodation/maps/hotel.png
+deleting muireception/accomodation/maps/haidian_hotel_900_bak.jpg
+muireception/accomodation/maps/agency_32.gif
+        1663 100%    1.14kB/s    0:00:00          1663 100%    1.14kB/s    0:00:01 (xfer#140, to-check=1645/7980)
+muireception/accomodation/maps/agency_32_old.gif
+        1496 100%    1.02kB/s    0:00:00          1496 100%    1.02kB/s    0:00:01 (xfer#141, to-check=1643/7980)
+muireception/accomodation/maps/agency_32_oldvin.gap
+         478 100%    0.33kB/s    0:00:00           478 100%    0.33kB/s    0:00:01 (xfer#142, to-check=1641/7980)
+muireception/accomodation/maps/haidian_1024_minized.jpg
+       32768  12%   21.99kB/s    0:00:10         65536  25%   43.81kB/s    0:00:04        261290 100%  172.29kB/s    0:00:01 (xfer#143, to-check=1640/7980)
+muireception/accomodation/maps/haidian_hotel_900_minized.jpg
+       32768  14%    1.49MB/s    0:00:00        222666 100%    6.25MB/s    0:00:00 (xfer#144, to-check=1638/7980)
+muireception/accomodation/maps/image_big.jpg
+       32768  12%  914.29kB/s    0:00:00        261290 100%    4.70MB/s    0:00:00 (xfer#145, to-check=1635/7980)
+muireception/accomodation/maps/image_thumb.jpg
+        9744 100%  176.22kB/s    0:00:00          9744 100%  176.22kB/s    0:00:00 (xfer#146, to-check=1634/7980)
+muireception/accomodation/maps/index.ks
+       10187 100%  155.44kB/s    0:00:00         10187 100%  155.44kB/s    0:00:00 (xfer#147, to-check=1633/7980)
+muireception/accomodation/maps/index.ks~
+       10187 100%  127.54kB/s    0:00:00         10187 100%  127.54kB/s    0:00:00 (xfer#148, to-check=1632/7980)
+muireception/accomodation/maps/userMapView.ks
+         676 100%    8.36kB/s    0:00:00           676 100%    8.36kB/s    0:00:00 (xfer#149, to-check=1631/7980)
+muireception/accomodation/maps/map_resource/
+muireception/accomodation/maps/map_resource/beijing_map-2.JPG
+       32768  10%  307.69kB/s    0:00:00        307920 100%    2.19MB/s    0:00:00 (xfer#150, to-check=1625/7980)
+muireception/accomodation/maps/map_resource/beijing_map.JPG
+       32768   8%  197.53kB/s    0:00:01        379637 100%    1.92MB/s    0:00:00 (xfer#151, to-check=1624/7980)
+muireception/accomodation/maps/map_resource/haidian_1300.jpg
+       32768   3%  148.84kB/s    0:00:06        943013 100%    3.02MB/s    0:00:00 (xfer#152, to-check=1623/7980)
+muireception/accomodation/maps/map_resource/haidian_1300_target.png
+       32768   1%   98.77kB/s    0:00:25       2553207 100%    4.76MB/s    0:00:00 (xfer#153, to-check=1622/7980)
+muireception/accomodation/maps/map_resource/haidian_1300_target.xcf
+       32768   0%   58.72kB/s    0:01:09       4088704 100%    4.12MB/s    0:00:00 (xfer#154, to-check=1621/7980)
+muireception/accomodation/maps/map_resource/haidian_2000.jpg
+       32768   1%   33.68kB/s    0:01:04        753664  33%  735.26kB/s    0:00:01       2219117 100%    1.91MB/s    0:00:01 (xfer#155, to-check=1620/7980)
+muireception/accomodation/maps/map_resource/haidian_2000_target.jpg
+       32768   1%  290.91kB/s    0:00:09       2888850 100%    8.72MB/s    0:00:00 (xfer#156, to-check=1619/7980)
+muireception/accomodation/maps/map_resource/haidian_hotel_900_bak.jpg
+       32768   6%   93.29kB/s    0:00:05        505708 100%    1.25MB/s    0:00:00 (xfer#157, to-check=1618/7980)
+muireception/accomodation/maps/map_resource/hotel.png
+       16294 100%   40.18kB/s    0:00:00         16294 100%   40.18kB/s    0:00:00 (xfer#158, to-check=1617/7980)
+muireception/js/
+deleting muireception/js/.userMenus.js.swp
+deleting muireception/js/.portaLayoutInit.js.pih.swp
+muireception/js/portaLayoutInit.js.pih
+       15200 100%   18.93kB/s    0:00:00         15200 100%   18.93kB/s    0:00:00 (xfer#159, to-check=1007/9125)
+muireception/js/portaLayoutInit.js.pih~
+       15035 100%   17.38kB/s    0:00:00         15035 100%   17.38kB/s    0:00:00 (xfer#160, to-check=1006/9125)
+muireception/js/userMenus.js
+        2548 100%    2.94kB/s    0:00:00          2548 100%    2.94kB/s    0:00:00 (xfer#161, to-check=1004/9125)
+muireception/lib/
+muireception/lib/calendar/
+muireception/lib/calendar/calendar.css
+         766 100%    0.87kB/s    0:00:00           766 100%    0.87kB/s    0:00:00 (xfer#162, to-check=1005/9148)
+muireception/lib/calendar/calendar.css~
+         830 100%    0.92kB/s    0:00:00           830 100%    0.92kB/s    0:00:00 (xfer#163, to-check=1004/9148)
+muireception/lib/imageZoom/
+muireception/lib/imageZoom/imageZoom.css
+         985 100%    1.04kB/s    0:00:00           985 100%    1.04kB/s    0:00:00 (xfer#164, to-check=1003/9547)
+muireception/lib/imageZoom/imageZoom.js
+        6117 100%    6.43kB/s    0:00:00          6117 100%    6.43kB/s    0:00:00 (xfer#165, to-check=1002/9547)
+muireception/lib/imageZoom/index.html~
+        1635 100%    1.72kB/s    0:00:00          1635 100%    1.72kB/s    0:00:00 (xfer#166, to-check=1001/9547)
+muireception/lib/imageZoom/images/
+muireception/lib/imageZoom/images/loading.gif
+        9455 100%    9.92kB/s    0:00:00          9455 100%    9.92kB/s    0:00:00 (xfer#167, to-check=1001/9549)
+muireception/lib/mootools/
+muireception/lib/mootools/mootools-1.2.4-core.js
+       32768  31%   32.59kB/s    0:00:02        102991 100%  101.18kB/s    0:00:00 (xfer#168, to-check=1004/9681)
+muireception/lib/mootools/mootools-1.2.4-core.js~
+       32768  31%   25.06kB/s    0:00:02         65536  63%   49.81kB/s    0:00:00        103014 100%   77.86kB/s    0:00:01 (xfer#169, to-check=1003/9681)
+muireception/lib/stickyNotes/
+deleting muireception/lib/stickyNotes/.stickyNotes.js.swp
+muireception/scripts/
+muireception/test/
+muireception/test/image_zoom/
+muireception/test/image_zoom/index.html
+        1631 100%    6.13kB/s    0:00:00          1631 100%    6.13kB/s    0:00:00 (xfer#170, to-check=710/10500)
+muireception/test/image_zoom/index.html~
+        1635 100%    5.02kB/s    0:00:00          1635 100%    5.02kB/s    0:00:00 (xfer#171, to-check=709/10500)
+muireception/test/image_zoom/images/
+muireception/test/image_zoom/images/loading.gif
+        9455 100%   28.85kB/s    0:00:00          9455 100%   28.85kB/s    0:00:00 (xfer#172, to-check=704/10500)
+muireception/test/image_zoom/pictures/
+muireception/test/image_zoom/pictures/big/
+muireception/test/image_zoom/pictures/big/image_1024.jpg
+       32768   4%   97.26kB/s    0:00:07        802996 100%    2.02MB/s    0:00:00 (xfer#173, to-check=701/10500)
+muireception/test/image_zoom/pictures/big/image_1024_minize.jpg
+       32768  12%   83.99kB/s    0:00:02        261290 100%  644.36kB/s    0:00:00 (xfer#174, to-check=700/10500)
+muireception/test/image_zoom/pictures/big/image_1200.jpg
+       32768   2%   80.40kB/s    0:00:13       1109411 100%    2.24MB/s    0:00:00 (xfer#175, to-check=699/10500)
+muireception/test/image_zoom/pictures/big/image_2000.jpg
+       32768   1%   67.51kB/s    0:00:42       2888850 100%    3.94MB/s    0:00:00 (xfer#176, to-check=698/10500)
+muireception/test/image_zoom/pictures/thumb/
+muireception/test/image_zoom/pictures/thumb/image.jpg
+       32768  89%   45.65kB/s    0:00:00         36705 100%   51.06kB/s    0:00:00 (xfer#177, to-check=697/10500)
+muireception/test/image_zoom/pictures/thumb/image_100.jpg
+        9744 100%   13.56kB/s    0:00:00          9744 100%   13.56kB/s    0:00:00 (xfer#178, to-check=696/10500)
+muireception/test/image_zoom/pictures/thumb/image_108.jpg
+       11227 100%   15.60kB/s    0:00:00         11227 100%   15.60kB/s    0:00:00 (xfer#179, to-check=695/10500)
+muireception/test/image_zoom/pictures/thumb/image_150.jpg
+       21304 100%   29.55kB/s    0:00:00         21304 100%   29.55kB/s    0:00:00 (xfer#180, to-check=694/10500)
+muireception/test/image_zoom/scripts/
+muireception/test/image_zoom/scripts/ImageZoom.js
+        6117 100%    8.49kB/s    0:00:00          6117 100%    8.49kB/s    0:00:00 (xfer#181, to-check=693/10500)
+muireception/test/image_zoom/scripts/ImageZoom.js~
+        6198 100%    8.59kB/s    0:00:00          6198 100%    8.59kB/s    0:00:00 (xfer#182, to-check=692/10500)
+muireception/test/image_zoom/scripts/ImageZoom_bak.js
+        6036 100%    8.36kB/s    0:00:00          6036 100%    8.36kB/s    0:00:00 (xfer#183, to-check=691/10500)
+muireception/test/image_zoom/styles/
+muireception/test/image_zoom/styles/stylesheet.css
+         985 100%    1.36kB/s    0:00:00           985 100%    1.36kB/s    0:00:00 (xfer#184, to-check=690/10500)
+muireception/test/image_zoom/styles/stylesheet.css~
+         985 100%    1.36kB/s    0:00:00           985 100%    1.36kB/s    0:00:00 (xfer#185, to-check=689/10500)
+
+sent 19451182 bytes  received 4860 bytes  3537462.18 bytes/sec
+total size is 78661218  speedup is 4.04
+2010-11-09 11:21:02,877 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768   4%    0.00kB/s    0:00:00        698306 100%    8.35MB/s    0:00:00 (xfer#1, to-check=17/19)
+
+sent 154318 bytes  received 38 bytes  308712.00 bytes/sec
+total size is 1343760  speedup is 8.71
+2010-11-09 11:21:02,878 INFO End backup loacl karrigell diretory to local git.
+2010-11-09 11:21:02,878 INFO Begin to backup local github to remote github host.

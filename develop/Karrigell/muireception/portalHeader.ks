@@ -29,7 +29,7 @@ def index(**args):
 	"""%'/'.join(('css','yaml','patches','patch_my_layout.css'))
 	print csslice
 	
-	# mootools spinner css fiel
+	# mootools spinner css file
 	print pagefn.css('/'.join(('css', 'spinner', 'spinner.css')))
 	
 	# the css files for the theme of web user interface 

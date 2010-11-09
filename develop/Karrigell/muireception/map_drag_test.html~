@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Map Drag Test </title>
+<link rel="stylesheet" type="text/css" href="test/image_zoom/styles/stylesheet.css" />
+<script language="javascript" type="text/javascript" src="lib/mootools/mootools-1.2.4-core.js"></script>
+<script language="javascript" type="text/javascript" src="lib/mootools/mootools-1.2.4.2-more.js"></script>
+<script language="javascript" type="text/javascript" src="test/image_zoom/scripts/ImageZoom.js"></script>
+<script type="text/javascript">
+	
+	window.addEvent("load", function(){
+		var hotels = [{x:400,y:600},{x:500,y:300},{x:200,y:100}];
+		
+		function showDimention(pos){
+			$('report').empty().grab(new Element('i',{html:pos.x.toString()+','+pos.y.toString()}));
+			
+			$("zoomer_big_container").getChildren('span').each(function(item){
+				item.dispose();
+			});
+			
+			hotels.each(function(dim){
+				if(
+					dim.x >= pos.range.xrange[0] 
+					&& dim.x <= pos.range.xrange[1]
+					&& dim.y >= pos.range.yrange[0]
+					&& dim.y <= pos.range.yrange[1]
+				){	// add the hotel label
+					var iconStyle = {
+						'width': '32px', 'height':'32px', 
+						'background-image':"url('accomodation/maps/agency_32.gif')", 
+						'position':'absolute',
+						'margin-left': dim.x-pos.range.xrange[0]+'px',
+						'margin-top': dim.y-pos.range.yrange[0]+'px',
+						'z-index': 100
+					};
+					var alink = new Element('span');
+					alink.setStyles(iconStyle);
+					$("zoomer_big_container").adopt(alink);
+				};
+				
+			});
+		};
+		new ImageZoom({
+			zoomerImageContainer: 'zoomer_big_container',
+			//zoomerImage: 'zoomer_image',
+			zoomerImageUrl: 'test/image_zoom/pictures/big/image_1024_minize.jpg',
+			thumbUrl: 'test/image_zoom/pictures/thumb/image_100.jpg',		
+			thumbContainer: 'zoomer_thumb',
+			zoomSize:7, initFn: showDimention, dragFn: showDimention
+		});
+		
+		
+	});
+		
+</script>
+</head>
+
+<body>
+<div id="container">
+	<h1>酒店分布示意图测试</h1>
+	<hr>
+	
+	<!-- Image zoom start -->
+	<div id="zoomer_big_container"></div>	
+	<div id="zoomer_thumb">
+		<!--
+		<a href="test/image_zoom/pictures/big/image_1024_minize.jpg" target="_blank">
+			<img src="test/image_zoom/pictures/thumb/image_100.jpg" />
+		</a>
+		-->
+	</div>
+	<!-- Image zoom end -->
+	
+	<div id="dimention">
+		测试:<span id="report"></span>
+	</div>
+</div>
+
+</body>
+</html>

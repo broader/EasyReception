@@ -15,7 +15,8 @@ def _innerCss():
 	css = \
 	"""
 	#%s {
-		background-image: url('../../accomodation/maps/haidian_hotel_900.jpg');
+		/*background-image: url('../../accomodation/maps/haidian_hotel_900.jpg'); */
+		background-image: url('../../accomodation/maps/haidian_hotel_900_minized.jpg');
 		background-repeat: no;
 		width: 900px;
 		height: 668px;
@@ -130,9 +131,7 @@ def _js():
 							option.store('coordinate', item.coordinate);
 							return option
 						});
-
 						select.adopt(options);
-
 					}
 				});
 		var q = $H();
@@ -156,7 +155,7 @@ def _js():
 					var coordinate = option.retrieve('coordinate').split(',');
 					var iconStyle = {
 						'width': '32px', 'height':'32px',
-						'background-image':"url('../../accomodation/maps/agency_32.png')",
+						'background-image':"url('../../accomodation/maps/agency_32.gif')",
 						'position':'absolute',
 						'margin-left': coordinate[0]+'px',
 						'margin-top': coordinate[1]+'px'
@@ -170,7 +169,11 @@ def _js():
 						var q = $H();
 						q['hotel'] = hotelName;
 						var url = [hotelDetailUrl, q.toQueryString()].join('?');
-						window.open(url, "hotelInstruction","menubar=no,width=900,height=480,toolbar=no");
+						//window.open(url, "hotelInstruction","menubar=no,width=900,height=480,toolbar=no");
+						new MUI.Window({
+							id: 'htmlpage', type:'modal', content: 'Hello World', width: 700, height: 520,
+							contentURL: url
+						});
 
 					});
 
@@ -237,8 +240,6 @@ def _js():
 				window.open(url, "testWindow","menubar=no,width=430,height=360,toolbar=no");
 			}
 		});
-
-		//runShinning.periodical(1800, {el:img});
 
 	});
 
