@@ -1,6 +1,5 @@
 localhost data/www/conf.py
-muireception /home/broader/develop/R@K/CMS/Karrigell/data/muireception/conf.py
-cms /home/broader/develop/R@K/CMS/Karrigell/data/cms/conf.py
-shinepo /home/broader/develop/R@K/CMS/Karrigell/data/shinepo/conf.py
-acroes /home/broader/develop/R@K/CMS/Karrigell/data/acroes/conf.py
-congressdemo /home/broader/develop/R@K/CMS/Karrigell/data/congressdemo/conf.py
+cms data/cms/conf.py
+shinepo data/shinepo/conf.py
+acroes data/acroes/conf.py
+congressdemo data/congressdemo/conf.py

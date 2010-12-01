@@ -1,0 +1,454 @@
+/*******************************************************************************************************************************
+Author: Broader ZHONG 
+Web: http://github.com/broader/EasyReception
+Email: broader.zhong@yahoo.com.cn
+Company: 
+Licence: Creative Commons Attribution 3.0 Unported License, http://creativecommons.org/licenses/by/3.0/
+If you copy, distribute or transmit the source code please retain the above copyright notice, author name and project URL. 
+Required: Mootools 1.2 or newer 
+*******************************************************************************************************************************/
+
+var TreeTable = new Class({
+	version: '0.1',
+	
+	Implements: [Events,Options],
+				  
+	options: {
+		// table layout 
+		columnsModel: null,	
+		colsModelUrl: null,
+		treeColumn: 0,
+		cssStyle: 'treeTable',
+		dataUrl: null,
+		data: null,
+		selectedClass: 'selected',	// the css class for selected <tr> element 
+		
+		// settings for buttons in each row
+		bnTag: 'button',
+		bnFunctions: $H(), 
+		
+		// the properties need to show tree 
+		idPrefix: "",
+		//parentPrefix: "parent-",
+		//depthPrefix: "depth-",
+		depthPointer: 'expander',
+		indent: 19,
+		initialExpandedDepth: 1,
+		initialState: "collapsed",
+		expandedTag: "expanded",
+		collapsedTag: "collapsed",
+		
+		// setting for Events
+		fireRenderOver: true,
+		renderOver: null, 
+		
+	},
+	
+	initialize: function(container, options){		
+					
+		this.setOptions(options);		
+		this.container = $(container);
+		if (!this.container)
+			return;
+		
+		this.colsModel = this.options.columnsModel;
+		this.treeColumn = this.options.treeColumn;
+		this.fireRenderOver = this.options.fireRenderOver; 
+		
+		this.htmlTable=null,	this.hideColumns=[];
+		this.draw();		
+		this.loadData();
+	},
+	
+	/*
+	Draw the layout of the table, such as table headers. 
+	*/
+	draw: function(){		
+		this.htmlTable = new HtmlTable();
+		
+		// set table css style 
+		this.htmlTable.element.addClass(this.options.cssStyle);
+		
+		// set the table headers 
+		this.setHeaders();
+		
+		this.htmlTable.inject(this.container,'top');
+
+	},
+	
+	// get the index for the columns need to be hidden
+	getHideColumns: function(){
+		return this.colsModel.filter(function(column,index){
+			return column.hide == '1'
+		},this)
+		.map(function(column){
+			return this.colsModel.indexOf(column);
+		},this)
+	},
+	
+	// get the index for the column that show tree collapsed status tag 
+	setTreeColumn: function(){
+		columns = this.colsModel.filter(function(column,index){
+			return column.treeColumn == '1'
+		},this);
+		
+		if (columns.length > 0)
+			this.treeColumn = this.colsModel.indexOf(columns[0]);	// the number of tree column should be only one 
+	},
+	
+	// set the css style for the header of tree table 
+	setHeaders: function(){
+		// get capable columns model from remote url 
+		colsUrl = this.options.colsModelUrl; 
+		if(colsUrl){			
+			var request = new Request.JSON({
+				url: colsUrl,
+				async: false,
+				onSuccess: function(cols){this.colsModel = cols;}.bind(this)
+			});			
+			request.get();		
+		};
+		
+		if(!this.colsModel){	return;}
+		
+		this.hideColumns = this.getHideColumns();
+		
+		// set the value of this.treeColumn 
+		this.setTreeColumn();
+		
+		// the data object for setting table headers  
+		var data = [];
+		this.colsModel.each(function(column,index){			
+			column.label = column.label || '/';
+			var col = {'content':column['label'],'properties':{}};
+			
+			if(column.property){
+				col.properties = column.property;
+			};
+			
+			if(this.hideColumns.contains(index)){
+				col.properties['style'] = 'display:none;';
+			};
+				
+			data.push(col);
+		},this);
+		
+		this.htmlTable.setHeaders(data);
+	},
+	
+	// refresh the content in the table body
+	refreshTbody: function(){
+		// clear table body first 
+		this.htmlTable.element.getElement('tbody').empty();
+		 
+		// for the action that refresh table's body, it's no need to fire the 'rendover' Event 
+		this.fireRenderOver = false;
+		
+		this.loadData();
+	},
+	 
+	// load rows' data to table body 
+	loadData: function(){
+		rowUrl = this.options.dataUrl;
+		if(!rowUrl)
+			return;
+			
+		var request = new Request.JSON({			
+			url: rowUrl,
+			async: false,
+			//onSuccess: function(data){this.setData(data);}.bind(this) 			
+			onSuccess: function(data){
+				this.options.data= data;
+				this.setData();
+			}.bind(this)
+		});
+		request.get();
+		
+		renderEnd = this.options.renderOver;		
+		if( this.fireRenderOver && renderEnd ){
+			this.fireEvent('onRenderOver',renderEnd(this));
+			
+			// reset this.fireRenderOver to initial value 
+			this.fireRenderOver = this.options.fireRenderOver; 
+		};
+	},
+	
+	// return the object which holds the data rendered in the table body 
+	getData: function(){
+		return this.options.data;
+	},
+	
+	// render data to each row 
+	setData: function(){
+		var rows = this.options.data; 
+		if( rows.length == 0 ){	return;};
+		
+		rows.each(this.setRowData,this);							
+	},
+	
+	// generate the id for each <TR> element in the table body
+	genRowId: function(innerId){
+		return [this.options.idPrefix,innerId].join('');
+	}, 
+	
+	// get inner id from the id of tr Element
+	getInnerId: function(rowId){
+		if(this.options.idPrefix){
+			innerId = rowId.slice(this.options.idPrefix.length); 		
+		}
+		else{
+			innerId = rowId
+		};
+		
+		return innerId
+	}, 
+	 
+	// the inner function to render data to each row
+	setRowData: function(row){		
+		row = $H(row), data = row.data, depth = row.depth,  
+		rowId = this.genRowId(row.id);
+					
+		// empty column will be set to ''				
+		interval = this.colsModel.length - data.length;
+		if(interval > 0 ){				
+			for (i=0;i<interval;i++){
+				data.push('');
+			};
+		};						
+		
+		// each item in the columns of each row will be transformed to a 'span' Element 
+		data = data.map(function(item,index){	
+			// constructed the elemnt contained by td element first		
+			
+			// get current column model 
+			var colModel = this.colsModel[index]  
+			// judge whether it's a buttn type 
+			isButton = (colModel.dataType == this.options.bnTag) ; 
+			
+			// set the element to be inserted to the TD Element 
+			el = {};
+			if(colModel.properties){
+				el.properties = colModel.properties ;
+			}
+			else{
+				el.properties = {
+					align: (index==this.treeColumn || !isButton )?'left':'center'
+				};
+			};
+			
+			if ( isButton ){				
+				// For button type, insert a <IMG> Element
+				toInsert = new Element('img',{src: colModel.imgUrl});				  
+				
+				// maybe it has a callback function for click event				
+				if( this.options.bnFunctions.getKeys().contains(colModel.dataIndex)){ 
+					fn = this.options.bnFunctions[colModel.dataIndex];
+					toInsert.addEvent('click', fn.bind(this));					
+				};
+				
+				el.content = toInsert;
+			}
+			else{
+				// for none button type, insert a <SPAN> Element 
+				el.content = new Element('span',{html: item});				
+			};
+			
+			// hide td element has been set to hidden in this.colsModel 
+			if(this.hideColumns.contains(index)){				
+				el.properties.style = 'display:none;';
+			};
+			return el;
+		},this);
+		 
+		var trRow = this.htmlTable.push(data);	
+		 
+		var tr = trRow.tr;
+		
+		// stored row data to tr Element 
+		row.each(function(value,key){
+			tr.store(key,value);
+		});
+		
+		// add properties to tr element
+		tr.setProperties({'id': rowId});
+		tr.addEvent('click',this.onRowClick.bind(this));			
+		
+		
+		if(depth.toInt() >= this.options.initialExpandedDepth){
+			// add the tag for tree collapsed status 	
+			tr.addClass(this.options.collapsedTag);
+			
+			if (depth.toInt() != this.options.initialExpandedDepth){
+				tr.setProperty('style','display:none;');
+			};
+		}
+		else{
+			// add the tag for tree collapsed status 	
+			tr.addClass(this.options.expandedTag);
+		};		
+		
+		// set the td that holds collapsing status tag for tree 
+		var treeColumn = this.treeColumn;	
+			
+		if($defined(treeColumn)){							
+			// compute the left offset
+			var offset= parseInt(this.options.indent)*(parseInt(depth)-1);
+			
+			options = {'style': ['margin-left:',offset,'px',';'].join('')+'padding-right: 19px'};
+			
+			if(row.isLeaf.toInt()==0){
+				// add tree pointer  tag to this row 
+				options['class'] = this.options.depthPointer; 
+				options.events = {'click':	function(e){
+					new Event(e).stop();				
+					this.collapsedToggle(e.target.getParents('tr')[0]);
+				}.bind(this)};
+			};
+			
+			var treeTag = new Element('span',options);		 
+			
+			treeTag.inject(trRow.tds[treeColumn],'top');
+		};
+		
+	},	
+	
+	/*
+	Return the propnames for columns' headers
+	*/
+	getHeaderProps: function(){
+		return this.colsModel.map(
+			function(column){
+				return column.dataIndex; 
+			}
+		);
+	},
+	
+	/*
+	Return each data item in each column of one row
+	*/
+	getRowData: function(rowEl){		
+		return rowEl.getElements('td').map(function(td){			
+			spans = td.getElements('span').filter(function(span){
+				return !span.hasClass(this.options.depthPointer);
+			}.bind(this));
+			
+			if(spans){				
+				values = spans.map(function(i){
+					return i.get('text');
+				}).join('');
+			}
+			else{	values = ''; }
+			
+			return values;
+				
+		},this);
+	},
+	
+	/* 
+	Return a row of data with their column property name 
+	Parameters:
+		rowEl - HtmlTableRow Element 
+	*/
+	getRowDataWithProps: function(rowEl){
+		// get the names of columns' properties
+		props = this.getHeaderProps();
+		
+		// get each data item in eahc column of this row
+		values = this.getRowData(rowEl);
+		
+		return $H(values.associate(props));
+	},
+	
+	/*
+	Get the value in a column of a row which is specified by its id.
+	*/
+	getCellValueByRowId: function(rowId,prop){
+		value = '';
+		if($(rowId)){
+			// get column index
+			index = this.getHeaderProps().indexOf(prop);
+			value = $(rowId).retrieve('data')[index];			 
+		};
+		return  value		
+	},	
+	 
+	// return all the tr elements in tbody 
+	getTrs: function(){
+		return this.htmlTable.element.getElements('tr').slice(1);
+	},
+	
+	/*
+	When a row has been double clicked, toggle its status between 'selected' and 'unselected'.
+	*/
+	onRowClick: function(event){
+		// get <TR> element 
+		trs = event.target.getParents('tr');
+		tr = null;
+		if(trs.length > 0){tr=trs[0];};
+		
+		// selected status toggled 
+		this.selectedToggle(tr);
+	},
+	
+	/*
+	*/
+	selectedToggle: function(tr){
+		tr.toggleClass(this.options.selectedClass);
+	},		
+
+	/*
+	When the tree pointer in the row has been clicked, toggle its collapsed status.
+	*/
+	collapsedToggle: function(tr){				
+		// toggle the collapsed pointer tag		
+		klass = tr.getProperty('class'); 	
+		if( !klass.contains(this.options.expandedTag) && !klass.contains(this.options.collapsedTag)){
+			tr.addClass(this.options.collapsedTag);
+		}
+		else if( klass.contains(this.options.expandedTag)){ 
+			tr.removeClass(this.options.expandedTag);			
+			tr.addClass(this.options.collapsedTag);
+		}
+		else{
+			tr.removeClass(this.options.collapsedTag);			
+			tr.addClass(this.options.expandedTag);
+		};
+		
+		// tree node collapsed status toggle 
+		currentId = tr.getProperty('id');
+		tr.getAllNext('tr').each(function(row){
+			innerId = row.retrieve('parent');
+			parentId = innerId ? this.genRowId(innerId) : '';
+			
+			// the child of this node will be toggled displaying status 
+			if(parentId == currentId){	
+				this.rowCollapsedToggle(row);				
+			};
+			
+		},this);
+	 
+	},
+	
+	/*
+	*/
+	rowCollapsedToggle: function(tr){
+		// set the displaying status 
+		if (tr.getStyle('display')=='none'){
+			tr.setStyle('display','');
+		}
+		else{tr.setStyle('display','none');};
+		
+	},
+	
+	/*
+	Return all the selected rows.
+	*/
+	getSelectedRows: function(){
+		return this.getTrs().filter(function(tr){
+			return tr.hasClass(this.options.selectedClass); 
+		},this);		
+	}
+	
+});
+
+/*************************************************************/
