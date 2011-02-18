@@ -101,7 +101,7 @@ MUI.Dock = {
 			clone: false,
 			revert: false
 		});
-
+		
 		MUI.Desktop.setDesktopSize();
 		
 		if (MUI.myChain){

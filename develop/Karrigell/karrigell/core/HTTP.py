@@ -145,8 +145,11 @@ class HTTP:
         info = self.info
 
         # defaults
-	#reload(sys)	# nedd add by B.Z, 2010.05.23
-	#sys.setdefaultencoding('utf8')
+	# nedd add by B.Z, 2010.05.23
+	##########################################
+	reload(sys)	
+	sys.setdefaultencoding('utf8')
+	##########################################
 
         self.output_encoding = sys.getdefaultencoding()
         self.resp_headers = email.message_from_string("")

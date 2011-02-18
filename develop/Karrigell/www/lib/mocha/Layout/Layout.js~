@@ -78,17 +78,21 @@ MUI.Desktop = {
 		
 	},
 	menuInitialize: function(){
-		// Fix for dropdown menus in IE6
+		// Fix for dropdown menus in IE6		
 		if (Browser.Engine.trident4 && this.desktopNavBar){
 			this.desktopNavBar.getElements('li').each(function(element) {
-				element.addEvent('mouseenter', function(){
-					this.addClass('ieHover');
+				//element.removeEvents('mouseleave');
+				element.addEvent('mouseenter', function(){	
+					//new Event(e).stop();									
+					this.addClass("ieHover");					
 				});
 				element.addEvent('mouseleave', function(){
-					this.removeClass('ieHover');
+					//new Event(e).stop();
+					this.removeClass("ieHover");					
 				});
 			});
-		};
+		};	
+			
 	},
 	onBrowserResize: function(){
 		this.setDesktopSize();
@@ -895,9 +899,7 @@ MUI.Panel = new Class({
 			this.collapseToggleEl.setProperty('title','Expand Panel');
 			this.fireEvent('onCollapse');				
 		}
-		
-		// Expand Panel
-		else {
+		else {	// Expand Panel
 			this.contentEl.setStyle('position', null); // This is so IE6 and IE7 will collapse the panel all the way				
 			panel.setStyle('height', this.oldHeight);
 			this.isCollapsed = false;				

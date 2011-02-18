@@ -39,9 +39,7 @@ INITCONFIG = Import( '/'.join((RELPATH, 'config.py')), rootdir=CONFIG.root_dir)
 # ********************************************************************************************
 INLINEDITCLASS = 'editable'
 def index(**args):
-	"""
-	Show configurable properties for 'Hotel' service.
-	"""
+	""" Show configurable properties for 'Hotel' service. """
 	# title
 	txt = 'Configurable Properties'
 	block = [DIV(A(txt),style="font-weight:bold; font-size:1.2em; padding-bottom:5px;color:#096DD1;")]
@@ -91,7 +89,7 @@ def _indexJs(tableId):
 	paras = [ APP, tableId, INLINEDITCLASS, '/'.join((APPATH,'page_editProp'))]
 	paras = tuple(paras)
 	js = \
-	"""
+	'''
 	var appName='%s', container='%s', editableClass='%s', editUrl='%s';
 	
 	var selector = 'td.'+editableClass;
@@ -119,7 +117,7 @@ def _indexJs(tableId):
 	
 	function info(){ MUI.notification('Edit action failed!');};
 	
-	"""%paras
+	'''%paras
 	return js
 
 def page_setProp(**args):

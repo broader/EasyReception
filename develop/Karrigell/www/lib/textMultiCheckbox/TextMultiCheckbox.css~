@@ -8,7 +8,8 @@
 }
 .TextMultiSelect .monitor {
 	background: url("img/monitor-left.png") top left no-repeat;
-	width: 99%;
+	/*width: 99%;*/
+	width: auto;
 	line-height: 18px;
 	padding: 0 0 0 4px;
 	margin: 0;
@@ -31,14 +32,13 @@
 .TextMultiSelect .prompText { color:cadetblue; font-size:0.8em;}
 
 .TextMultiSelect ul {
-	position: absolute;
-	z-index: 1000;
-	top: 18px;
+	position: relative;
+	z-index: 10000;
+	top: 3px;
 	left: 0;
 	margin: 0;
 	padding: 0;
 	width: 99%;
-	max-height: 230px;
 	overflow: hidden;
 	list-style: none;
 	background-color: #FFF;
@@ -46,27 +46,26 @@
 	border-left: 3px solid #ccc;
 	border-right: 1px solid #000;
 	border-bottom: 1px solid #000;
-	_height: 230px; /* IE */
+	
 }
 .TextMultiSelect ul li {
 	padding: 0px 3px;
 	background: transparent url(img/checkbox.gif) no-repeat scroll left top;
 	background-color: gainsboro;
 }
+
+.TextMultiSelect ul li span{
+	margin-left: 15px;
+}
+
 .TextMultiSelect ul li.hover,
 .TextMultiSelect ul li.selected.hover {
 	background-color: #6DBAF0;
 	color: white;
 }
 .TextMultiSelect ul li.selected {
-	/*
-	background-color: #3875D7;
-	background-color: cadetBlue;
-	color: white;
-	
-	background-color: cadetBlue;
-	*/
 	padding : 0px 3px;
 	background: transparent url(img/checkbox.gif) no-repeat scroll left bottom;
 	background-color: cadetBlue;
+	color: white;
 }

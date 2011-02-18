@@ -36,7 +36,8 @@ var StickyNotes = new Class({
 	
 	initialize: function(options){	
 		this.setOptions(options);
-		this.layout = this.options.layout.default;
+		this.layout = this.options.layout["default"];
+		
 		var self = this;
 		var data = null;
 		if(self.options.notesDataUrl){
@@ -97,7 +98,7 @@ var StickyNotes = new Class({
 			self.options.indexLevel++;
 			e.target.setStyle('z-index', self.options.indexLevel);
 		});
-
+			
 		var draggableOptions = {
 			droppables: self.options.dropElements,
 			container: $(self.options.container),
@@ -125,8 +126,8 @@ var StickyNotes = new Class({
 				dr.highlight('#FB911C');
 			}
 		};
-		el.makeDraggable(draggableOptions);
 
+		el.makeDraggable(draggableOptions);
 		var rotate = new Fx.Rotate(el);
 		rotate.start(0, -0.00019);
 		
@@ -220,7 +221,7 @@ var StickyNotes = new Class({
 			var notesMorph = new Fx.Morph(el, {'duration': 400});
 			notesMorph.start({
 				'top': containerTopOffset,
-				'left': containerLeftOffset,
+				'left': containerLeftOffset
 			});
 			i++;
 		});
@@ -228,7 +229,7 @@ var StickyNotes = new Class({
 
 	// reset the layout of the sticky notes
 	resetLayout: function(layouType){
-		this.layout.default = layouType;
+		this.layout["default"] = layouType;
 		if($defined(this[layouType])) this[layouType]();
 	}
 	

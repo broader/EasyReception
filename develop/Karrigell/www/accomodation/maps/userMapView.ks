@@ -18,9 +18,7 @@ def index(**args):
 def page_initData(**args):
     res = {
 	'zoomImage':{
-	    #'zoomerImageUrl':'test/image_zoom/pictures/big/image_1024_minize.jpg', 
 	    'zoomerImageUrl':'accomodation/maps/image_big.jpg', 
-	    #'thumbUrl':'test/image_zoom/pictures/thumb/image_100.jpg'
 	    'thumbUrl':'accomodation/maps/image_thumb.jpg'
 	},
 

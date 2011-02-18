@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" [color=Red]xml:lang="en" lang="en"[/color]>
 
-<% Include("portalHeader.ks/index") %>
+<%Include("portalHeader.ks/index") %>
 
 <body>
 
@@ -64,7 +64,7 @@
 	<div id="desktopFooterWrapper">
 		<div id="desktopFooter">			
 			<span style="float:right;">
-				&copy; 2007-2010
+				&copy; 2007-2011
 				<a target="_blank" href="http://www.acroes.com" style="color:#CCF564;" >
 					<%=_("Acroes Corporation") %>	
 				</a>

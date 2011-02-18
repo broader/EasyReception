@@ -1,0 +1,115 @@
+@charset "UTF-8";
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) Uniform design of standard content elements
+ * (de) Einheitliche Standardformatierungen für die wichtigten Inhalts-Elemente
+ *
+ * @copyright       Copyright 2005-2009, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.2
+ * @revision        $Revision:392 $
+ * @lastmodified    $Date:2009-07-05 12:18:40 +0200 (So, 05. Jul 2009) $
+ * @appdef yaml
+ */
+
+@media all
+{ 
+
+ /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * Generic Content Classes
+  *
+  * (en) standard classes for positioning and highlighting
+  * (de) Standardklassen zur Positionierung und Hervorhebung
+  *
+  * @section content-generic-classes
+  */
+
+  .highlight { color:#c30; }
+  .dimmed { color:#888; }
+
+  .info { background:#f8f8f8; color:#666; padding:10px; margin-bottom:0.5em; font-size:91.7%; }
+
+  .note { background:#efe; color:#040; border:2px #484 solid; padding:10px; margin-bottom:1em; }
+  .important { background:#ffe; color:#440; border:2px #884 solid; padding:10px; margin-bottom:1em; }
+  .warning { background:#fee; color:#400; border:2px #844 solid; padding:10px; margin-bottom:1em; }
+
+ /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * Tables | Tabellen
+  *
+  * (en) Generic classes for table-width and design definition
+  * (de) Generische Klassen für die Tabellenbreite und Gestaltungsvorschriften für Tabellen
+  *
+  * @section content-tables
+  */
+  
+  
+  table { width:auto; border-collapse:collapse; margin-bottom:0.5em; border-top:2px #888 solid; border-bottom:2px #888 solid; }
+  table caption { font-variant:small-caps; }
+  table.full { width:100%; }
+  table.fixed { table-layout:fixed; }
+  
+  th,td { padding:0.5em; } 
+  th,td { padding:0.2em; }
+  thead th { color:#000; border-bottom:2px #800 solid; }
+  tbody th { background:#e0e0e0; color:#333; }
+  tbody th[scope="row"], tbody th.sub { background:#f0f0f0; }
+  tbody th { border-bottom:1px solid #fff; text-align:left; }
+  tbody td { border-bottom:1px solid #eee; }
+
+  tbody tr:hover th[scope="row"],
+  tbody tr:hover tbody th.sub { background:#f0e8e8; }
+  tbody tr:hover td { background:#fff8f8; }
+
+}
+
+@media screen, projection
+{
+  
+ /**
+  * @section subtemplates
+  * @see     http://www.yaml.de/en/documentation/practice/subtemplates.html
+  */
+  .subcolumns { width:100%; overflow:hidden; }
+
+  /* (en) alternative class for optional support of old Mozilla/Netscape browers */
+  /* (de) Alternative Klasse zur optionalen Unterstützung alter Mozilla/Netscape-Brower */
+  .subcolumns_oldgecko { width:100%; float:left; }
+
+  .c20l, .c25l, .c33l, .c40l, .c38l, .c50l, .c60l, .c62l, .c66l, .c75l, .c80l {float:left; }
+  .c20r, .c25r, .c33r, .c40r, .c38r, .c50r, .c60r, .c66r, .c62r, .c75r, .c80r {float:right; margin-left:-5px; }
+
+  .c20l, .c20r { width:20%; }
+  .c40l, .c40r { width:40%; }
+  .c60l, .c60r { width:60%; }
+  .c80l, .c80r { width:80%; }
+  .c25l, .c25r { width:25%; }
+  .c33l, .c33r { width:33.333%; }
+  .c50l, .c50r { width:50%; }
+  .c66l, .c66r { width:66.666%; }
+  .c75l, .c75r { width:75%; }
+  .c38l, .c38r { width:38.2%; }
+  .c62l, .c62r { width:61.8%; }
+
+  .subc  { padding:0 0.5em; }
+  .subcl { padding:0 1em 0 0; }
+  .subcr { padding:0 0 0 1em; }
+
+  .equalize, .equalize .subcolumns { overflow:visible; display:table; table-layout:fixed; }
+
+  .equalize > div {
+    display:table-cell;
+    float:none; 
+    margin:0; 
+    overflow:hidden;
+    vertical-align:top;
+  }
+}
+

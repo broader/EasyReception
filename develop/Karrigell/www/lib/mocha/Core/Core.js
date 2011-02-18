@@ -188,7 +188,7 @@ MUI.extend({
 		}		
 		else {
 			this.loadSelect(instance, options, args);
-		}
+		};
 	},
 	
 	loadSelect: function(instance, options, args){					
@@ -527,6 +527,7 @@ Element.implement({
 		duration = duration || 500;
 		duration = (duration/50).toInt() - 1;
 		var parent = this.getParent();
+		
 		if(parent != $(document.body) && parent.getStyle('position') == 'static'){
 			parent.setStyle('position','relative');
 		}

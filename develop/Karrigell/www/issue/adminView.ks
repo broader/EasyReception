@@ -84,9 +84,6 @@ def page_issueDetail(**args):
 	# then using this page url and remove the first '/' symbol
 	perms = _permissionCheck(**toCheck)
 
-	#pageAction = args.get('pageaction') or THIS.url.split('?')[0][1:]
-	#userRoles = getattr( so, pagefn.SOINFO['user']).get('roles').split(',')
-	#if not model.permissionCheck(USER, userRoles, pageAction) or not perms.get('pageaction'):
 	if not perms.get('pageaction'):
 		print _('You have no permission for this action!')
 		return
@@ -170,9 +167,10 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 	msgPageInfo = _("Page <span class='{pageInfoClass}' >{currentPage}</span> of {pageNumber}")
 	filterBnLabel = _('Filter')
 	paras.extend([ msgCounts, msgPageInfo, filterBnLabel, ','.join(MSGPROPS) ])
+	paras.append(_('No data load!'))
 	paras = tuple(paras)
 	js = \
-	"""
+	'''
 	var appName="%s", issueId="%s", addMsgBn="%s", 
 	    tableId="%s", 
 
@@ -188,104 +186,107 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 	    props = ["%s", "%s", "%s", "%s", "%s" ],
 
 	    listContainer="%s", msgUrl="%s", 
-	    countInfo="%s", pageInfo="%s", filterBnLabel="%s", fields="%s";
+	    countInfo="%s", pageInfo="%s", filterBnLabel="%s", fields="%s",
+	    emptyMsg="%s";
 
 	// a handy function to get value from the td component in a tr
 	function _getTdValue(table, index,tag){
-		tr = $(table).getElements('tr')[index];
-		return tr.getElements(tag)[0].get('text').trim();
+	    tr = $(table).getElements('tr')[index];
+	    return tr.getElements(tag)[0].get('text').trim();
 	};
 
 	// add edit button to the table component which holds the fields of issue
 	function editIssueProp(event){
-		new Event(event).stop();
-		bn = event.target;
-		data = bn.retrieve('formData');
+	    new Event(event).stop();
+	    bn = event.target;
+	    data = bn.retrieve('formData');
 		
-		query = $H(); 
-		query.combine({ 'issueId': issueId, 'prop':props[data.propIndex] });
-		// get old value of this property
-		query['oldValue'] = _getTdValue(tableId,data.propIndex, 'label');
-		// get the value of the preferable property
-		preferIndex = data.propIndex-1; 
-		if( preferIndex > 0 && preferIndex < 3){
-			query.combine({
-				'preferValue': _getTdValue(tableId, preferIndex, 'label'),
-				'preferProp': props[preferIndex]
-			});
-		};
-
-		var url = [editIssuePropUrl, query.toQueryString()].join('?');
-		new MUI.Modal({
-			width: 400, height: 360, y: 80, 
-			title: propTitles[data.propIndex],
-			contentURL: url,
-			modalOverlayClose: false			
+	    query = $H(); 
+	    query.combine({ 'issueId': issueId, 'prop':props[data.propIndex] });
+	    // get old value of this property
+	    query['oldValue'] = _getTdValue(tableId,data.propIndex, 'label');
+	    // get the value of the preferable property
+	    preferIndex = data.propIndex-1; 
+	    if( preferIndex > 0 && preferIndex < 3){
+		query.combine({
+		    'preferValue': _getTdValue(tableId, preferIndex, 'label'),
+		    'preferProp': props[preferIndex]
 		});
+	    };
+
+	    var url = [editIssuePropUrl, query.toQueryString()].join('?');
+	    new MUI.Modal({
+		//width: 500, height: 360,
+		width: 500, height: 400,
+		title: propTitles[data.propIndex],
+		contentURL: url,
+		modalOverlayClose: false			
+	    });
 	};
 
 	function editButton(index){
-		options = {
-			txt: editIssueBnTxt,
-			imgType: 'edit',
-			bnAttrs: {'style':'margin-right:1em;'},	
-			bnSize: 'sexysmall',
-			bnSkin: 'sexygreen'
-		};
-		button = MUI.styledButton(options);
-		button.store('formData', {'propIndex':index});
-		button.addEvent('click', editIssueProp);
-		return button
+	    options = {
+		txt: editIssueBnTxt,
+		imgType: 'edit',
+		bnAttrs: {'style':'margin-right:1em;'},	
+		bnSize: 'sexysmall',
+		bnSkin: 'sexygreen'
+	    };
+	    button = MUI.styledButton(options);
+	    button.store('formData', {'propIndex':index});
+	    button.addEvent('click', editIssueProp);
+	    return button
 	};
 
 	// permission to edit this property
 	perms = perms.split(',');
 	$(tableId).getElements('tr').each(function(tr,index){
-		$(tr).setStyle('height', '35px');
-		if(index==5 || perms[index] == '0') return;
-		td = new Element('td');
-		td.grab(editButton(index));
-		tr.grab(td);
+	    $(tr).setStyle('height', '35px');
+	    if(index==5 || perms[index] == '0') return;
+	    td = new Element('td');
+	    td.grab(editButton(index));
+	    tr.grab(td);
 	});
 	
 	var msgFields = fields.split(',');
 	function msgRender(liData){
-		var container = new Element('div', {style:'border-bottom: 1px solid grey;'});
+	    var container = new Element('div', {style:'border-bottom: 1px solid grey;'});
 		
-		data = $H(liData);
-		msgFields.each(function(field){
-			rowData = data.get(field);
-			if(field!='content'){
-				label = new Element('span', {style:'font-weight:bold;', html:rowData.label});
-				seperator = new Element('span', {html: ' : '});
-				value = new Element('span', {html: rowData.value});
-				row = new Element('div');
-				row.adopt(label, seperator, value);
-			}
-			else{
-				value = new Element('span', {html: rowData.value});
-				row = new Element('div', {'class':'note'});
-				row.adopt(value);
+	    data = $H(liData);
+	    msgFields.each(function(field){
+		rowData = data.get(field);
+		if(field!='content'){
+		    label = new Element('span', {style:'font-weight:bold;', html:rowData.label});
+		    seperator = new Element('span', {html: ' : '});
+		    value = new Element('span', {html: rowData.value});
+		    row = new Element('div');
+		    row.adopt(label, seperator, value);
+		}
+		else{
+		    value = new Element('span', {html: rowData.value});
+		    row = new Element('div', {'class':'note'});
+		    row.adopt(value);
 				
-			};
-			container.grab(row);
+		};
+		container.grab(row);
 
-		});
-		return container
+	    });
+	    return container
 	};
 
 	function messagesList(){
-		var smartList = new SmartList(listContainer, {
-			dataUrl: msgUrl, 
-			liRender: msgRender,
-			filterBnLabel: filterBnLabel,
-			pageInfoTmpls: {
-				'total': countInfo, 
-				'page': pageInfo
-			},
-			contentClass: '' 
-		}); 
-		$(listContainer).store('smartListInstance',smartList);
+	    var smartList = new SmartList(listContainer, {
+		dataUrl: msgUrl, 
+		liRender: msgRender,
+		filterBnLabel: filterBnLabel,
+		emptyPrompt: emptyMsg,
+		pageInfoTmpls: {
+		    'total': countInfo, 
+		    'page': pageInfo
+		},
+		contentClass: '' 
+	    }); 
+	    $(listContainer).store('smartListInstance',smartList);
 	};
 
 	MUI.smartList(appName, {'onload': messagesList});
@@ -293,21 +294,21 @@ def _showMessagesJs(nodeId, msgBnId, tableId, perms, msgListContainer, msgIds):
 	// callback function for add message button
 	$(addMsgBn).store('issueId', issueId);
 	$(addMsgBn).addEvent('click', function (event){
-		new Event(event).stop();
+	    new Event(event).stop();
 		
-		query = $H(); 
-		query.combine({ 'issueId': event.target.retrieve('issueId')});
+	    query = $H(); 
+	    query.combine({ 'issueId': event.target.retrieve('issueId')});
 
-		url = [addMessageUrl, query.toQueryString()].join('?');
-		new MUI.Modal({
-			width: 400, height: 250, y: 80, 
-			title: addMessageTitle,
-			contentURL: url,
-			modalOverlayClose: false			
-		});
+	    url = [addMessageUrl, query.toQueryString()].join('?');
+	    new MUI.Modal({
+		width: 450, height: 300, 
+		title: addMessageTitle,
+		contentURL: url,
+		modalOverlayClose: false			
+	    });
 	});
 
-	"""%paras
+	'''%paras
 	return js	
 
 MSGNUMBERPERPAGE = 3
@@ -397,7 +398,7 @@ def _issueListJs(container):
 	paras.append(SERIALPROP)
 	paras = tuple(paras)
 	js = \
-	"""
+	'''
 	var appName='%s', container=$('%s'), actionTag='%s',
 
 	// labels for filter buttons
@@ -406,19 +407,13 @@ def _issueListJs(container):
 	// actions and labels for actions
 	actions=['%s', '%s'], bnLabels=['%s', '%s'],
 
-	// column model for issue grid
-	colsModelUrl='%s',
-
-	// grid data source url
-	issueGriDataUrl='%s',
-
-	// edit action url
-	editUrl='%s',
-	// create action url
-	createUrl='%s', 
-	// delete action url
-	delIssueUrl="%s",
+	colsModelUrl='%s',// column model for issue grid
+	issueGriDataUrl='%s',// grid data source url
+	editUrl='%s',// issue edit form url
+	createUrl='%s', // create action url
+	delIssueUrl="%s",// delete action url
 	createTitle='%s',
+
 	// delete issues
 	propmt4selectRow="%s", prompt4delSuccess="%s", prompt4delFailed="%s", 
 	
@@ -434,20 +429,20 @@ def _issueListJs(container):
 	var filterContainer= [], filterInput= new Element('input', {style:'margin-right:0.5em'});
 	filterContainer.push(filterInput);
 	filterBnLabels.each(function(label,index){
-		var filterBn = new Element('a', {html:label, href:'javascript:;'});
-		filterBn.addEvent('click', function(event){
-			var search = '';
-			if(index == 0){
-				search = filterInput.get('value');
-			}
-			else filterInput.set('value','');
-			// refresh table grid
-			var grid = $$('.omnigrid')[0].retrieve('tableInstance');
-			grid.options.urlData = {'filter':search};
-			grid.loadData();
-		});
+	    var filterBn = new Element('a', {html:label, href:'javascript:;'});
+	    filterBn.addEvent('click', function(event){
+		var search = '';
+		if(index == 0){
+		    search = filterInput.get('value');
+		}
+		else filterInput.set('value','');
+		// refresh table grid
+		var grid = $$('.omnigrid')[0].retrieve('tableInstance');
+		grid.options.urlData = {'filter':search};
+		grid.loadData();
+	    });
 
-		filterContainer.push(filterBn);
+	    filterContainer.push(filterBn);
 	});
 	// insert a seperator symbol to the container array
 	filterContainer.splice(filterContainer.length-1, 0, new Element('span',{html:' | '}));
@@ -456,75 +451,83 @@ def _issueListJs(container):
 	Return a button container which contains three buttons - 'create','edit','delete'
 	***********************************************************************************/
 	function issueEditButtons(){
-		bnAttributes = [
-			{'type':'add','label': bnLabels[0], 'bnSize':'sexysmall', 'bnSkin': 'sexyblue', 'action':actions[0]},
-			{'type':'delete','label': bnLabels[1], 'bnSize':'sexysmall', 'bnSkin': 'sexyblue', 'action':actions[1]}
-		];	
+	    bnAttributes = [
+		{'type':'add','label': bnLabels[0], 'bnSize':'sexysmall', 'bnSkin': 'sexyblue', 'action':actions[0]},
+		{'type':'delete','label': bnLabels[1], 'bnSize':'sexysmall', 'bnSkin': 'sexyblue', 'action':actions[1]}
+	    ];	
 
-		bnContainer = new Element('span',{style: 'margin-left:10em;'});
-		bnAttributes.each(function(attrs,index){
-			options = {
-				txt: attrs['label'],
-			   	imgType: attrs['type'],
-				bnAttrs: {'style':'margin-right:1em;'},	
-				bnSize: attrs['bnSize'],
-				bnSkin: attrs['bnSkin']
-			};
-			button = MUI.styledButton(options);
-			button.store('formData', {'action':attrs['action']});
-			button.addEvent('click', issueActionAdapter);
-			bnContainer.grab(button);
-		});
-		return bnContainer		
+	    bnContainer = new Element('span',{style: 'margin-left:10em;'});
+	    bnAttributes.each(function(attrs,index){
+		options = {
+		    txt: attrs['label'],
+		    imgType: attrs['type'],
+		    bnAttrs: {'style':'margin-right:1em;'},	
+		    bnSize: attrs['bnSize'],
+		    bnSkin: attrs['bnSkin']
+		};
+		button = MUI.styledButton(options);
+		button.store('formData', {'action':attrs['action']});
+		button.addEvent('click', issueActionAdapter);
+		bnContainer.grab(button);
+	    });
+	    return bnContainer		
 	};
 	
 	function issueActionAdapter(event){
-		new Event(event).stop();
-		button = event.target;
-		data = button.retrieve('formData');
-		actionType = actions.indexOf(data.action);
-		switch (actionType){
-			case 0 :	// 'create' action
-				createIssue(issueGrid, data.action);
-				break;
-			case 1 :
-				deleteIssue(issueGrid);
-				break;
-		};
+	    new Event(event).stop();
+	    button = event.target;
+	    data = button.retrieve('formData');
+	    actionType = actions.indexOf(data.action);
+	    switch (actionType){
+		case 0 :	// 'create' action
+		    //createIssue(issueGrid, data.action);
+		    createIssue(issueGrid);
+		    break;
+		case 1 :
+		    deleteIssue(issueGrid);
+		    break;
+	    };
 	};
-	
-	function createIssue(ti, action){	
-		query = $H(); 
-		query.combine({actionTag:action});
-		new MUI.Modal({
-         		width: 450, height: 320, y: 80, title: createTitle,
-         		contentURL: createUrl,
-         		modalOverlayClose: false
-         	});
+
+	function createIssue(ti){	
+	    var query = $H({'detailInfoPanel':detailPanel}); 
+	    var url = createUrl+'?'+query.toQueryString();
+	    new MUI.Modal({
+		width: 500, height: 400, 
+		title: createTitle,
+		//contentURL: createUrl,
+		contentURL: url,
+		modalOverlayClose: false
+	    });
 	};
 
 	// delete a issue shown in the table
 	function deleteIssue(ti){
-		if( ti.selected.length == 0){
-			MUI.notification(propmt4selectRow);
-			return
-		};
+	    if( ti.selected.length == 0){
+		MUI.notification(propmt4selectRow);
+		return
+	    };
+	    
+	    // get the serials of the issues to be deleted	
+	    var serials = ti.selected.map(function(rowIndex,index){
+		return ti.getDataByRow(rowIndex)[serialProp];
+	    });
 		
-		var serials = ti.selected.map(function(rowIndex,index){
-			return ti.getDataByRow(rowIndex)[serialProp];
-		});
-		
-		var req = new Request.JSON( {
-			url: delIssueUrl,
-			onComplete: function(result){
-				var info = result.success==1 ? prompt4delSuccess.substitute({'info':result.deleted}): prompt4delFailed ;
-				MUI.crawler(info, {width:300, height: 100, closeAfter:5000});
-				ti.loadData();
-			}
-		});
-		var q = $H();
-		q[serialProp] = serials.join(',');
-		req.get(q);
+	    var req = new Request.JSON( {
+		url: delIssueUrl,
+		onComplete: function(result){
+		    var info = result.success==1 ? prompt4delSuccess.substitute({'info':result.deleted}): prompt4delFailed ;
+		    MUI.crawler(info, {width:300, height: 100, closeAfter:5000});
+		    // clear the content which is showing in the right column
+		    var panel = MUI.getPanel(detailPanel);
+		    panel.options.contentURL = editUrl;
+		    panel.newPanel();    
+		    ti.loadData();
+		}
+	    });
+	    var q = $H();
+	    q[serialProp] = serials.join(',');
+	    req.get(q);
 	};
 
 	actionArea.adopt([filterContainer, issueEditButtons()]);
@@ -535,48 +538,48 @@ def _issueListJs(container):
 	container.adopt(issueGridContainer);
 	
 	function renderIssueGrid(){	
-		var colsModel=null;
+	    var colsModel=null;
 	
-		// load column model for the grid from server side 
-		var jsonRequest = new Request.JSON({
-			async: false, url: colsModelUrl, 
-			onSuccess: function(json){
-    				colsModel = json['data'];
-    			}
-		}).get();
+	    // load column model for the grid from server side 
+	    var jsonRequest = new Request.JSON({
+		async: false, url: colsModelUrl, 
+		onSuccess: function(json){
+		    colsModel = json['data'];
+		}
+	    }).get();
 		
-		// create a 'omniGrid' instance and assign it to the global variable 'issueGrid'
-		issueGrid = new omniGrid( issueGridContainer, {
-			columnModel: colsModel,	url: issueGriDataUrl,
-			perPageOptions: [15,25,40,60],
-			perPage:15, page:1, pagination:true, serverSort:true,
-			showHeader: true, sortHeader: true, alternaterows: true,
-			resizeColumns: true, multipleSelection:true,
-			width:850, height: 400 
-		});
-		issueGrid.addEvent('click', issueGridShow);
-		// save the omniGrid instance
-		$$('.omnigrid')[0].store('tableInstance',issueGrid);
+	    // create a 'omniGrid' instance and assign it to the global variable 'issueGrid'
+	    issueGrid = new omniGrid( issueGridContainer, {
+		columnModel: colsModel,	url: issueGriDataUrl,
+		perPageOptions: [15,25,40,60],
+		perPage:15, page:1, pagination:true, serverSort:true,
+		showHeader: true, sortHeader: true, alternaterows: true,
+		resizeColumns: true, multipleSelection:true,
+		width:850, height: 400 
+	    });
+	    issueGrid.addEvent('click', issueDetail);
+	    // save the omniGrid instance
+	    $$('.omnigrid')[0].store('tableInstance',issueGrid);
 	};
 	
-	function issueGridShow(event){
-		/* Parameters
-   		evt.target:the grid object
-   		evt.indices:the multi selected rows' indexes
-   		evt.row: the index of the row in the grid
-		*/
-		var data = event.target.getDataByRow(event.row);
-		var q = $H();
-		q[serialProp] = data[serialProp];
-		var url = [ editUrl, q.toQueryString()].join('?');
-		var panel = MUI.getPanel(detailPanel);
-		panel.options.contentURL = url;
-		panel.newPanel();		
+	function issueDetail(event){
+	    /* Parameters
+	    evt.target:the grid object
+	    evt.indices:the multi selected rows' indexes
+	    evt.row: the index of the row in the grid
+	    */
+	    var data = event.target.getDataByRow(event.row);
+	    var q = $H();
+	    q[serialProp] = data[serialProp];
+	    var url = [ editUrl, q.toQueryString()].join('?');
+	    var panel = MUI.getPanel(detailPanel);
+	    panel.options.contentURL = url;
+	    panel.newPanel();		
 	};
 	
 	MUI.dataGrid(appName, {'onload':renderIssueGrid});
 
-	"""%paras
+	'''%paras
 	return js
 
 def page_colsModel(**args):

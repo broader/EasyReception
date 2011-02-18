@@ -48,38 +48,59 @@ var TextMultiCheckbox = new Class({
 	
 	/*
 	Paramerters:
-	container - the id or a element instance in document body
+	containerId - the id or a element instance in document body
 	options - initalization options
 	*/
-	initialize: function(container, options) {
+	initialize: function(containerId, options) {
 		// set options
 		this.setOptions(options);
 		
 		// set global action variables
 		this.active = false;
-
-		// add css style to this widget container
-		this.container = $(container);
-		this.container.addClass(this.options.containerClass);
 		
-		// if options.data is not null, render each elements of this widget
-		if(this.options.data){ this.render();};
+		this.monitorTextClass = [this.options.monitorClass, this.options.monitorTextClass].join('-');
 
-		// add css style to monitor 
-		this.monitor = this.container.getElement('.'+this.options.monitorClass);	
+		// if options.data is not null, render each elements of this widget
+		if(this.options.data){ 
+			this.render(containerId);
+		}
+		else{
+			// add css style to this widget container
+			this.container = $(containerId);
+			this.container.addClass(this.options.containerClass);
+
+		};
+
+		// add event handler to monitor element
+		if(!$defined(this.monitor)){
+			this.monitor = this.container.getElement('.'+this.options.monitorClass);
+		};	
 		this.monitor.addEvent('click', function(e){
 			new Event(e).stop();
 			this.menusShowToggle();
 		}.bind(this));
 		
-		this.monitorTextElement = this.monitor.getElement('.'+[this.options.monitorClass, this.options.monitorTextClass].join('-'));
-		this.prompt = new Element( this.options.promptWrapper,{'html': this.options.prompText, 'class': this.options.promptClass});
-		if(this.monitorTextElement.get('text') == '') this.monitorTextElement.grab(this.prompt);
+		if(!$defined(this.monitorTextElement)){
+			this.monitorTextElement = this.monitor.getElement('.'+this.monitorTextClass);
+		};
+		
+		// render new prompt Element
+		this.prompt = new Element(
+			this.options.promptWrapper,
+			{'html': this.options.prompText, 'class': this.options.promptClass}
+		);
 
-		this.formField = this.monitor.getElement(this.options.monitorFieldType);
+		if(this.monitorTextElement.get('text') == '') {
+			this.monitorTextElement.grab(this.prompt);};
+
+		if(!$defined(this.formField)){
+			this.formField = this.monitor.getElement(this.options.monitorFieldType);
+		};
 	
 		// add css style to menus' container
-		this.menusContainer = this.container.getElement(this.options.menusContainer);
+		if(!$defined(this.menusContainer)){
+			this.menusContainer = this.container.getElement(this.options.menusContainer);
+		};
 		this.menusContainer.setStyle('display','none');
 
 		this.initSelectMenu();
@@ -87,10 +108,35 @@ var TextMultiCheckbox = new Class({
 	},
 
 	/*
-	render this widget
+	render each element of this widget
 	*/
-	render: function(){
-		
+	render: function(containerId){
+		// widget container
+		this.container = new Element('div', {
+			'id':containerId, 
+			'class':this.options.containerClass}
+		);
+
+		// add monitor elements
+		// a wrapper for monitor Element that makes its looking nicely
+		var monitorWrapper = new Element('div', {'class':this.options.monitorClass});
+
+		this.monitor = new Element('div');
+		this.monitorTextElement = new Element('div', {'class':this.monitorTextClass});
+ 		this.formField = new Element(this.options.monitorFieldType, {'name': containerId,'type':'hidden'});
+		this.monitor.adopt([this.monitorTextElement,this.formField]);
+		monitorWrapper.adopt(this.monitor);
+
+		// add multiselect menus
+		this.menusContainer = new Element(this.options.menusContainer);
+		this.options.data.each(function(option){
+			var text = new Element('span',{html:option});
+			var li = new Element('li');
+			li.grab(text);
+			this.menusContainer.adopt(li);
+		}.bind(this));
+
+		this.container.adopt([monitorWrapper,this.menusContainer]);
 	},
 
 	/*

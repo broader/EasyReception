@@ -97,14 +97,14 @@ def _textMultiCheckbox(field,oldvalue):
 
 	# js slice
 	js = \
-	"""
+	'''
 	var containerId='%s';
 	MUI.textMultiCheckbox('',{
 		'onload': function(){
 			new TextMultiCheckbox(containerId);
 		}
 	});	
-	"""%(containerId)
+	'''%(containerId)
 	script = pagefn.script(js,link=False)
 	return Sum((container,script))	
 
@@ -122,14 +122,15 @@ def _mtMultiSelect(field, oldvalue):
 	msContainerId, url, containerStyle = [ field.pop(name) for name in ('id', 'dataUrl', 'containerStyle')]
 
 	if oldvalue:
-		url = '&'.join((url, '='.join(('oldvalue', oldvalue))))
+		import urllib
+		url = '&'.join((url, urllib.urlencode({'oldvalue': oldvalue})))
 
 	paras = [msContainerId, url, field.pop('fieldName'),field.pop('itemsPerPage')]
 	selectLabels = pagefn.JSLIB['multiSelect']['labels']
 	paras.extend([selectLabels.get(name) for name in ('prev', 'next', 'total', 'selected', 'unselected')])
 	paras = tuple(paras)	
 	js = \
-	"""
+	'''
 	var multiSelectContainer='%s', 
 	    multiSelectUrl='%s', 
 	    field='%s', 
@@ -138,15 +139,15 @@ def _mtMultiSelect(field, oldvalue):
 	    totaLabel="%s", selectedLabel="%s", unselectedLabel="%s";
 	
 	MUI.multiSelect('',{onload: function(){
-		new MTMultiWidget({
-			container: multiSelectContainer, 
-			dataUrl: multiSelectUrl, 
-			fieldName: field, items_per_page: itemsNumber,
-			prevLabel: prevLabel, nextLabel:nextLabel,
-			labels: {'total':totaLabel, 'selected':selectedLabel, 'unselected': unselectedLabel}
-		});
+	    new MTMultiWidget({
+		container: multiSelectContainer, 
+		dataUrl: multiSelectUrl, 
+		fieldName: field, items_per_page: itemsNumber,
+		prevLabel: prevLabel, nextLabel:nextLabel,
+		labels: {'total':totaLabel, 'selected':selectedLabel, 'unselected': unselectedLabel}
+	    });
 	}});
-	"""%paras
+	'''%paras
 
 	script = pagefn.script(js, link=False)
 	return Sum( [ DIV(**{'id':msContainerId, 'style': containerStyle}), script])

@@ -89,7 +89,7 @@ def _validJs4statusItemEdit(**args):
 	paras.extend(STATUSEDITJSFNS )
 	paras = tuple(paras)
 	js = \
-	"""
+	'''
 	var junaErr='%s',actionUrl='%s', categoryInput='%s', junaNameValidFn='%s';
 
         // A Request.JSON class for send validation request to server side
@@ -122,7 +122,7 @@ def _validJs4statusItemEdit(**args):
 	   return false
 	};
 
-	"""%paras
+	'''%paras
 	return js
 
 def _formEditProps4classStatus():
@@ -184,39 +184,39 @@ def _relationEditJs(**args):
  
 	paras = tuple(paras)
 	js = \
-	"""
+	'''
 	var appName='%s', formId='%s', 
-	selects={'%s':'%s', '%s':'%s'},
-	reqUrl='%s', classTag='%s', oldValueTag='%s'
-	// MTMultiSelect labels
-	prev="%s", next="%s", total="%s", selected="%s", unselected="%s";
+	    selects={'%s':'%s', '%s':'%s'},
+	    reqUrl='%s', classTag='%s', oldValueTag='%s'
+	    // MTMultiSelect labels
+	    prev="%s", next="%s", total="%s", selected="%s", unselected="%s";
 	
 	MUI.multiSelect(appName,{onload: function(){
-		$(formId).getElements('select').each(function(select){
-			mselectName = selects[select.getProperty('name')];
-			hiddenInput = $(mselectName);
+	    $(formId).getElements('select').each(function(select){
+		var mselectName = selects[select.getProperty('name')],
+		    hiddenInput = $(mselectName);
 		
-			// get widget container and set some css style
-			parent = hiddenInput.getParent('div');
-			parent.setProperty('style', 'border: 0.5px solid #DDDDDD;');
-			parent.setProperty('class', '');
-			parent.addClass('type-select');
+		// get widget container and set some css style
+		var parent = hiddenInput.getParent('div');
+		parent.setProperty('style', 'border: 0.5px solid #DDDDDD;');
+		parent.setProperty('class', '');
+		parent.addClass('type-select');
 		
-			// get old value and remove the hidden input from DOM
-			oldValue = hiddenInput.getProperty('value');
-			hiddenInput.dispose();
+		// get old value and remove the hidden input from DOM
+		var oldValue = hiddenInput.getProperty('value');
+		hiddenInput.dispose();
 		
-			mtSelectWidget = new MTMultiWidget({
-				container: parent, 
-				dataUrl: setReqUrl(reqUrl, select.getProperty('value'), oldValue), 
-				fieldName:mselectName,items_per_page: 8,
-				prevLabel: prev, nextLabel:next,
-				labels: {'total':total, 'selected':selected, 'unselected': unselected}
-			});
-
-			select.store('mtSelect', mtSelectWidget);
-			select.addEvent('change', setMultiSelect);
+		var mtSelectWidget = new MTMultiWidget({
+		    container: parent, 
+		    dataUrl: setReqUrl(reqUrl, select.getProperty('value'), oldValue), 
+		    fieldName:mselectName,items_per_page: 8,
+		    prevLabel: prev, nextLabel:next,
+		    labels: {'total':total, 'selected':selected, 'unselected': unselected}
 		});
+
+		select.store('mtSelect', mtSelectWidget);
+		select.addEvent('change', setMultiSelect);
+	    });
 	}});
 
 	
@@ -235,7 +235,7 @@ def _relationEditJs(**args):
 		mtSelect.reset( setReqUrl(reqUrl,event.target.getProperty('value'), '') );
 	};
 
-	"""%paras
+	'''%paras
 	return js
 		
 # the classes that could be edited by web page
@@ -303,29 +303,29 @@ def index(**args):
 
 def _indexJs(panelId,tabsId):
 	content = \
-	"""
+	'''
 	var panelId='%s',tabsId='%s';
 	MochaUI.initializeTabs(tabsId);
-	"""%(panelId,tabsId)	
+	'''%(panelId,tabsId)	
 	
 	js = [content,]
 	tabs = _getTabs(panelId)
 	for tab in tabs :
 		slice = \
-		"""
+		'''
 		$('%s').addEvent('click', function(e){
 			MochaUI.updateContent({
 				'element':  $(panelId),
 				'url':       '%s'
 			});
 		});
-		"""%tuple([tab.get(name) for name in ('id','url')])
+		'''%tuple([tab.get(name) for name in ('id','url')])
 		js.append(slice)
 	
 	content = \
-	"""
+	'''
 	$(tabsId).getElements('li')[0].fireEvent('click');
-	"""
+	'''
 	js.append(content)
 	js = '\n'.join(js)
 	print pagefn.script(js,link=False)
@@ -351,15 +351,19 @@ def _showClassJs(klass,panel):
 	paras.extend(['/'.join((APPATH,page)) for page in ('page_classInfo','page_classList')])
 	paras = tuple(paras)
 	js = \
-	"""
+	'''
 	var user='%s',klass='%s', containerId='%s', klassProp='%s'
 	infoUrl='%s', editUrl='%s';
 	
 	// create MUI.Columns
 	var columnIds = ['klassEditColumn','klassInfoColumn'];
+
+	// set the right column width
+	var columnSize = Math.round($(mainPanelId).getSize().x*0.3);
 	var columnAttrs = [
-		{'id':columnIds[0],'placement':'main','resizeLimit':[100,200],'width':null},
-		{'id':columnIds[1],'placement':'right','resizeLimit':[400,500],'width':500}
+		{'id':columnIds[0],'placement':'main','width':null},
+		{'id':columnIds[1],'placement':'right','width':columnSize,
+		    'resizeLimit':[columnSize-50, columnSize+300]}
 	];
 	
 	columnAttrs.each(function(attr){
@@ -393,7 +397,7 @@ def _showClassJs(klass,panel):
 	});
 	
 	
-	"""%paras 
+	'''%paras 
 	return js
 
 CLASSNAMESTYLE = "font-weight:bold; font-size:2.5em; padding-bottom:5px;color:#096DD1;"
@@ -446,7 +450,7 @@ def _classListJs(klass):
 	
 	paras = tuple(paras)
 	js = \
-	"""
+	'''
 	var klassProp='%s', klass='%s', appName='%s', container='%s',
 	    initValue4filter="%s",
 	    title='%s', titleStyle='%s',
@@ -462,11 +466,11 @@ def _classListJs(klass):
 	
 	reqData[klassProp] = klass;
 	var jsonRequest = new Request.JSON({
-		async: false,
-		url: colsModelUrl, 
-		onSuccess: function(json){
-			colsModel = json['data'];
-		}
+	    async: false,
+	    url: colsModelUrl, 
+	    onSuccess: function(json){
+		colsModel = json['data'];
+	    }
 	}).get(reqData);
    
 	// add title and a underline
@@ -500,17 +504,17 @@ def _classListJs(klass):
    	$(container).grab(div);
    
 	function renderGrid(){
-		datagrid = new omniGrid( div, {
-			columnModel: colsModel, url: dataUrl, urlData: reqData,
-			autoSectionToggle: true,
-			perPageOptions: [10,20,30],
-			perPage:10,	page:1, pagination:true, serverSort:true,
-			showHeader: true,	sortHeader: true,	alternaterows: true,
-			resizeColumns: true,	multipleSelection:true,
-			width:700, height: 320
-		});
-		// save the omniGrid instance
-		$$('.omnigrid')[0].store('tableInstance',datagrid);
+	    datagrid = new omniGrid( div, {
+		columnModel: colsModel, url: dataUrl, urlData: reqData,
+		autoSectionToggle: true,
+		perPageOptions: [10,20,30],
+		perPage:10, page:1, pagination:true, serverSort:true,
+		showHeader: true,	sortHeader: true,	alternaterows: true,
+		resizeColumns: true,	multipleSelection:true,
+		width:700, height: 300
+	    });
+	    // save the omniGrid instance
+	    $$('.omnigrid')[0].store('tableInstance',datagrid);
 	};
 	
 	MUI.dataGrid(appName, {'onload':renderGrid});
@@ -519,128 +523,129 @@ def _classListJs(klass):
 	var bnContainer = new Element('div',{style: 'text-align:left;padding-top:5px;'});
 	$(container).adopt(bnContainer);
 	var bnsAttrs = [
-		{'type':'add','label':'Add'},
-		{'type':'edit','label':'Edit'},
-		{'type':'delete','label':'Delete'}
+	    {'type':'add','label':'Add'},
+	    {'type':'edit','label':'Edit'},
+	    {'type':'delete','label':'Delete'}
 	];
 	
 	// for 'user' roundup.Class, add 'Reset Password' button
 	if (klass == 'user'){ 
-		bnsAttrs.push({'type':'edit', 'label':'Reset Password'});
+	    bnsAttrs.push({'type':'edit', 'label':'Reset Password'});
 	};
 
 	bnsAttrs.each(function(attrs,index){
-		options = {
-			txt: attrs['label'],
-		   imgType: attrs['type'],
-			bnAttrs: {'style':'margin-right:1em;'}	
-		};
-		button = MUI.styledButton(options);		
-		button.addEvent('click',actionAdapter.pass(index));
-		bnContainer.grab(button);
+	    options = {
+		txt: attrs['label'],
+	       imgType: attrs['type'],
+		bnAttrs: {'style':'margin-right:1em;'}	
+	    };
+	    button = MUI.styledButton(options);		
+	    button.addEvent('click',actionAdapter.pass(index));
+	    bnContainer.grab(button);
 	},datagrid);
 	
 	// initialize a query object
 	function _getQuery(){
-		query = {};
-        	query[klassProp]= klass;
-		return query
+	    query = {};
+	    query[klassProp]= klass;
+	    return query
 	};	
 	
 	function actionAdapter(index){
-		var trs = datagrid.selected;
-		if( index != 0 && trs.length != 1 ){	// only one row should be selected
-			MUI.alert('Please select one row!');
-			return
-		};
+	    var trs = datagrid.selected;
+	    if( index != 0 && trs.length != 1 ){	// only one row should be selected
+		MUI.alert('Please select one row!');
+		return
+	    };
 		
-		// specified width for 'relation' class edit modal
-		mwidth=500, mheight=380;
-		switch (klass){
-			case 'relation':
-				mwidth=850,mheight=550;
-				break;
-			case 'user':
-				mwidth=780,mheight=520;
-				break;
-		};
+	    // specified width for 'relation' class edit modal
+	    mwidth=500, mheight=380;
+	    switch (klass){
+		case 'relation':
+		    mwidth=850,mheight=550;
+		    break;
+		case 'user':
+		    mwidth=780,mheight=520;
+		    break;
+	    };
 
-		var modalOptions = {
-			width:mwidth, height:mheight, modalOverlayClose: false
-		};		
+	    var modalOptions = {
+		width:mwidth, height:mheight, modalOverlayClose: false
+	    };		
 		
-		switch(index){
-			case 0:	// add action
-				// the modal to edit a service item  
-				modalOptions.contentURL = [editUrl, $H(_getQuery()).toQueryString()].join('?');
-				modalOptions.title = createTitle;
-				new MUI.Modal(modalOptions);
-				break;
-			case 1:	// edit action	
-				query = $H(_getQuery());	// set the really action url
-				query.extend(datagrid.getDataByRow(trs[0]));
-				// the modal to edit a service item  
-				modalOptions.contentURL = [editUrl, query.toQueryString()].join('?');
-				modalOptions.title = ediTitle;
-				new MUI.Modal(modalOptions);
-				break;
-			case 2:	// delete action
-				prompt = 'Delete Class Item : '+datagrid.getDataByRow(datagrid.selected[0])['id'];
-				MUI.confirm( prompt, delClassItem.bind(datagrid), {});
-				break;
-			case 3:	// reset user's password action
-				prompt = 'Reset the password of "{username}" ?';
-				prompt = prompt.substitute({username:datagrid.getDataByRow(datagrid.selected[0])['username']});
-				MUI.confirm( prompt, resetUserPwd.bind(datagrid), {});
-				break;
-		};
+	    switch(index){
+		case 0:	// add action
+		    // the modal to edit a service item  
+		    modalOptions.contentURL = [editUrl, $H(_getQuery()).toQueryString()].join('?');
+		    modalOptions.title = createTitle;
+		    new MUI.Modal(modalOptions);
+		    break;
+		case 1:	// edit action	
+		    var query = $H(_getQuery());	// set the really action url
+		    query.extend(datagrid.getDataByRow(trs[0]));
+		    // the modal to edit a service item  
+		    modalOptions.contentURL = [editUrl, query.toQueryString()].join('?');
+		    modalOptions.title = ediTitle;
+		    new MUI.Modal(modalOptions);
+		    break;
+		case 2:	// delete action
+		    var prompt = 'Delete Class Item : ';
+		    prompt += datagrid.getDataByRow(datagrid.selected[0])['id'].toString();
+		    MUI.confirm( prompt, delClassItem.bind(datagrid), {});
+		    break;
+		case 3:	// reset user's password action
+		    var prompt = 'Reset the password of "{username}" ?';
+		    prompt = prompt.substitute({username:datagrid.getDataByRow(datagrid.selected[0])['username']});
+		    MUI.confirm( prompt, resetUserPwd.bind(datagrid), {});
+		    break;
+	    };
 	};
 
 	function resetUserPwd(isConfirm){
-		if(isConfirm.toInt()==1){return};
+	    if(isConfirm.toInt()==1){return};
 
-		resetRequest = new Request.JSON({async:false});
+	    resetRequest = new Request.JSON({async:false});
 
-		// set some options for Request.JSON instance
-		resetRequest.setOptions({
-			url: resetPwdUrl,
-			onSuccess: function(resJson, resText){
-				//MUI.notification(resText);
-				MUI.alert(resText);
-				this.loadData();
-			}.bind(datagrid)
-		});
+	    // set some options for Request.JSON instance
+	    resetRequest.setOptions({
+		url: resetPwdUrl,
+		onSuccess: function(resJson, resText){
+		    //MUI.notification(resText);
+		    MUI.alert(resText);
+			this.loadData();
+		    }.bind(datagrid)
+	    });
 	   
-		// get the 'id' value of the item to be deleted
-		resetQuery = {};
-		resetQuery['username'] = datagrid.getDataByRow(datagrid.selected[0])['username'];
-		resetRequest.get(resetQuery);
+	    // get the 'id' value of the item to be deleted
+	    resetQuery = {};
+	    resetQuery['username'] = datagrid.getDataByRow(datagrid.selected[0])['username'];
+	    resetRequest.get(resetQuery);
 
 	};
 
 	function delClassItem(isConfirm){
-		if(isConfirm.toInt()==1){return};
+	    if(isConfirm.toInt()==1){return};
 
-		delRequest = new Request.JSON({async:false});
+	    delRequest = new Request.JSON({async:false});
 
-		// set some options for Request.JSON instance
-		delRequest.setOptions({
-			url: delClassItemUrl,
-			onSuccess: function(resJson, resText){
-				MUI.notification(resText);
-				this.loadData();
-			}.bind(datagrid)
-		});
+	    // set some options for Request.JSON instance
+	    delRequest.setOptions({
+		url: delClassItemUrl,
+		onSuccess: function(resJson, resText){
+		    MUI.notification(resText);
+		    this.loadData();
+		}.bind(datagrid)
+	    });
 	   
-		// get the 'id' value of the item to be deleted
-		delQuery = {};
-		delQuery[klassProp] = klass;
-		delQuery['id'] = datagrid.getDataByRow(datagrid.selected[0])['id'];
-		delRequest.get(delQuery);
+	    // get the 'id' value of the item to be deleted
+	    delQuery = {};
+	    delQuery[klassProp] = klass;
+	    delQuery['id'] = datagrid.getDataByRow(datagrid.selected[0])['id'];
+	    delRequest.get(delQuery);
 
 	};
 	
-	"""%paras
+	'''%paras
 	return js
 
 def page_resetPwd(**args):
@@ -903,7 +908,7 @@ def _userPropHandler(props,action):
 	return newProps 
 
 CLASSADAPTOR = {'keyword':_keywordPropHandler, 'relation': _relationPropHandler, 'user': _userPropHandler}
-ACTIONPROP,ACTIONTYPES = 'action',('create','edit')
+ACTIONPROP,ACTIONTYPES = 'actionType',('create','edit')
 def page_classEdit(**args):
 	''' Return the class edit form . '''
 	klass = args.pop(CLASSPROP)
@@ -959,7 +964,8 @@ def page_classEdit(**args):
 		interval = int(len(props)/2)	
 		style = 'border-right:1px solid #DDDDDD;'	
 		left = DIV(Sum(formFn.yform(props[:interval])), **{'class':'c50l'})
-		right = DIV(Sum(formFn.yform(props[interval:])), **{'class':'c50r'})
+		#right = DIV(Sum(formFn.yform(props[interval:])), **{'class':'c50r'})
+		right = DIV(Sum(formFn.yform(props[interval:])), style="float:right;width:47%;")
 		divs = DIV(Sum((left, right)), **{'class':'subcolumns'})
 		form.append(divs)	
 		if klass == 'relation':
@@ -992,32 +998,32 @@ def _classEditJs(formId, bnStyle):
 	paras.extend( [ pagefn.BUTTONLABELS.get('confirmWindow').get(key) for key in ('confirm','cancel')] )
 	paras = tuple(paras)
 	js = \
-	"""
+	'''
 	var appName='%s', container='%s', bnStyle='%s',
 	confirmBnLabel='%s',cancelBnLabel='%s';
 	
 	var classItemEditFormChk;
 	// Load the form validation plugin script
 	var options = {
-		onload:function(){ 
-			classItemEditFormChk = new FormCheck( container,{
-				submitByAjax: true,
-				onAjaxSuccess: function(response){
-					if(response == 1){
-						MUI.closeModalDialog();
-						// refresh table grid
-						$$('.omnigrid')[0].retrieve('tableInstance').loadData();
-					};               
-				},            
+	    onload:function(){ 
+		classItemEditFormChk = new FormCheck( container,{
+		    submitByAjax: true,
+		    onAjaxSuccess: function(response){
+			if(response == 1){
+			    MUI.closeModalDialog();
+			    // refresh table grid
+			    $$('.omnigrid')[0].retrieve('tableInstance').loadData();
+			};               
+		    },            
 		    
-				display:{
-					errorsLocation : 1,
-					keepFocusOnError : 0, 
-					scrollToFirst : false
-				}
-			});// the end for 'classItemEditFormChk' definition
+		    display:{
+			errorsLocation : 1,
+			keepFocusOnError : 0, 
+			scrollToFirst : false
+		    }
+		});// the end for 'classItemEditFormChk' definition
 			
-		}// the end for 'onload' definition
+	    }// the end for 'onload' definition
 	};// the end for 'options' definition
  
    	MUI.formValidLib(appName,options);
@@ -1044,19 +1050,19 @@ def _classEditJs(formId, bnStyle):
 	});
 	
 	function actionAdapter(e){
-		var button = e.target;
-		var label = button.get('text');
+	    var button = e.target;
+	    var label = button.get('text');
 		
-		if(label == confirmBnLabel){
-			classItemEditFormChk.onSubmit(e);
-		}
-		else{
-			new Event(e).stop();
-			MUI.closeModalDialog();
-		}; 
+	    if(label == confirmBnLabel){
+		classItemEditFormChk.onSubmit(e);
+	    }
+	    else{
+		new Event(e).stop();
+		MUI.closeModalDialog();
+	    }; 
 	};
 	
-	"""%paras
+	'''%paras
 	return js
 	
 def page_classEditAction(**args):
@@ -1075,7 +1081,6 @@ def page_classEditAction(**args):
 		# for 'user' class we need to remove the confirm password field
 		if klass == 'user':
 			args.pop(USERCONFIRMPWD)
-			username = args.get('username')
 
 		[args.pop(key) for key in args.keys() if not args.get(key)]
 		nid = model.create_item(USER, klass, args, autoSerial=False)
@@ -1089,7 +1094,7 @@ def page_classEditAction(**args):
 			fields = [ item.get('name') for item in INICONFIG.getData('userBaseInfo') ]
 			[ info.update({ name: None }) for name in fields ]
 			# write these informations to database
-			model.edit_user_info( USER, username, 'create', info ) 
+			model.edit_user_info( USER, args.get('username') or USER, 'create', info ) 
 			
 	elif ACTIONTYPES.index(action) == 1:	# 'edit' action
 		nid = args.pop('id')

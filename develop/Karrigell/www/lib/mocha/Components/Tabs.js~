@@ -24,11 +24,10 @@ MUI.extend({
 
 	*/
 	initializeTabs: function(el){
-		alert('initializeTabs');
 		$(el).setStyle('list-style', 'none'); // This is to fix a glitch that occurs in IE8 RC1 when dynamically switching themes
 		$(el).getElements('li').each(function(listitem){
 			listitem.addEvent('click', function(e){
-				MUI.selected(this, el);
+				//MUI.selected(this, el);
 			});
 		});
 	},
@@ -49,9 +48,9 @@ Arguments:
 	*/
 	selected: function(el, parent){
 		$(parent).getChildren().each(function(listitem){
-			listitem.removeClass('selected');
+			//listitem.removeClass('selected');
 		});
-		el.addClass('selected');
+		//el.addClass('selected');
 	}
 });
 

@@ -131,9 +131,12 @@ Example:
 	(end)
 
 Example:
-	Add link events to build future windows. It is suggested you give your anchor the same ID as your window + "WindowLink" or + "WindowLinkCheck". Use the latter if it is a link in the menu toolbar.
+	Add link events to build future windows. 
+	It is suggested you give your anchor the same ID as your window + "WindowLink" or + "WindowLinkCheck". 
+	Use the latter if it is a link in the menu toolbar.
 
-	If you wish to add links in windows that open other windows remember to add events to those links when the windows are created.
+	If you wish to add links in windows that open other windows remember to add events to those links 
+	when the windows are created.
 
 	(start code)
 	// Javascript:
@@ -150,7 +153,9 @@ Example:
 
 
 	Loading Content with an XMLHttpRequest(xhr):
-		For content to load via xhr all the files must be online and in the same domain. If you need to load content from another domain or wish to have it work offline, load the content in an iframe instead of using the xhr option.
+		For content to load via xhr all the files must be online and in the same domain. 
+		If you need to load content from another domain or wish to have it work offline, 
+		load the content in an iframe instead of using the xhr option.
 	
 	Iframes:
 		If you use the iframe loadMethod your iframe will automatically be resized when the window it is in is resized. If you want this same functionality when using one of the other load options simply add class="mochaIframe" to those iframes and they will be resized for you as well.
@@ -405,7 +410,7 @@ MUI.Window = new Class({
 
 	*/
 	newWindow: function(properties){ // options is not doing anything
-
+		alert('Windows.js,L408, newWindow function');
 		// Shorten object chain
 		var instances = MUI.Windows.instances;
 		var instanceID = MUI.Windows.instances.get(this.options.id);
@@ -413,6 +418,8 @@ MUI.Window = new Class({
 	
 		// Here we check to see if there is already a class instance for this window
 		if (instanceID) var instance = instanceID;		
+		
+		alert('Windows.js,L417,newWindow function');
 
 		// Check if window already exists and is not in progress of closing
 		if ( this.windowEl && !this.isClosing ){
@@ -446,12 +453,15 @@ MUI.Window = new Class({
 			}
 			// Else focus
 			else {
+				alert('Window.js,L449, enter shake window process!');
+				
 				var coordinates = document.getCoordinates();
 				if (this.windowEl.getStyle('left').toInt() > coordinates.width || this.windowEl.getStyle('top').toInt() > coordinates.height){
 					MUI.centerWindow(this.windowEl);	
 				}
 				setTimeout(MUI.focusWindow.pass(this.windowEl, this),10);
 				if (MUI.options.standardEffects == true) {
+					alert('Window.js,L457, begin shake function!');
 					this.windowEl.shake();
 				}	
 			}
@@ -1851,7 +1861,6 @@ MUI.Window = new Class({
 	drawGauge: function(ctx, width, height, shadowBlur, shadowOffset, shadows){
 		var options = this.options;
 		var radius = (width * .5) - (shadowBlur) + 16;
-		/*
 		if (shadows != false) {	
 			for (var x = 0; x <= shadowBlur; x++){
 				MUI.circle(
@@ -1872,7 +1881,6 @@ MUI.Window = new Class({
 			options.bodyBgColor,
 			1
 		);
-		*/
 
 		// Draw gauge header
 		this.canvasHeaderEl.setStyles({

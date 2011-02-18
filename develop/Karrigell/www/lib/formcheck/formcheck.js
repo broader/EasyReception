@@ -286,6 +286,9 @@ var FormCheck = new Class({
 	initialize : function(form, options) {
 		
 		if (this.form = $(form)) {			
+			// save this instance to form element, add by B.Z on 2010.12.19
+			this.form.store('formcheck', this);
+			
 			this.form.isValid = true;
 			this.regex = ['length'];
 			this.setOptions(options);
@@ -888,7 +891,13 @@ var FormCheck = new Class({
 		Remove the error display
 	*/
 	removeError : function(obj, method) {
-		if ((this.options.display.addClassErrorToField && !this.isChildType(obj) && this.options.display.removeClassErrorOnTipClosure) || (this.options.display.addClassErrorToField && !this.isChildType(obj) && !this.options.display.removeClassErrorOnTipClosure && method != 'tip'))
+		if ((
+		    this.options.display.addClassErrorToField 
+		    && !this.isChildType(obj) 
+		    && this.options.display.removeClassErrorOnTipClosure) 
+		    || (this.options.display.addClassErrorToField && !this.isChildType(obj) 
+		    && !this.options.display.removeClassErrorOnTipClosure 
+		    && method != 'tip'))
 			obj.removeClass(this.options.fieldErrorClass);
 
 		if (!obj.element) return;
@@ -901,7 +910,14 @@ var FormCheck = new Class({
 				'duration': this.options.display.fadeDuration
 			}).start('height', 0);
 		}
-		if (!this.options.display.fadeDuration || Browser.Engine.trident && Browser.Engine.version == 5 && this.options.display.errorsLocation == 1 && obj.element) {
+		if (
+		    !this.options.display.fadeDuration 
+		    || Browser.Engine.trident 
+		    && Browser.Engine.version == 5 
+		    && this.options.display.errorsLocation == 1 
+		    && obj.element
+		) 
+		{
 			this.fxRunning = true;
 			obj.element.destroy();
 			obj.element = false;
@@ -1092,6 +1108,7 @@ var FormCheck = new Class({
 	onSubmit: function(event) {		 		    	
 		this.reinitialize();
 		this.fireEvent('onSubmit');
+		
 		//alert('onSubmit,L1093,'+this.validations.length) 	
 		this.validations.each(function(el) {			
 			var validation = this.manageError(el,'submit');	

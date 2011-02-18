@@ -76,16 +76,19 @@ var CalendarTable = new Class({
 	setCaption: function(){
 		var caption = new Element('caption');
 	
-		var prevTag = new Element('a', {'class': this.options.nextClass, html: '<<'});
+		var prevTag = new Element('a', {'class': this.options.prevClass, html: '&lt;&lt;'});
+
 		prevTag.addEvent('click', function(e){
 			date = this.currentDate.decrement('month', 1);
 			this.setDays(this.firstDate(date));			
 			this.refreshCaptionDate(date);
 		}.bind(this));
-
-		this.captionDate = new Element('span', {html: this.selectDate.format(Date.shortDate).split(' ')[0].slice(0,8)}); 
 		
-		var nexTag = new Element('a', {'class': this.options.prevClass, html: '>>'});
+		var currentDate = this.selectDate.format(Date.shortDate).split(' ')[0];
+		currentDate = MooTools.lang.getCurrentLanguage().slice(0,2)=='zh'?currentDate.slice(0,8):currentDate;
+		this.captionDate = new Element('span', {html: currentDate}); 
+		
+		var nexTag = new Element('a', {'class': this.options.nextClass, html: '&gt;&gt;'});
 		nexTag.addEvent('click', function(e){
 			date = this.currentDate.increment('month', 1);
 			this.refreshCaptionDate(date);
@@ -98,14 +101,24 @@ var CalendarTable = new Class({
 
 	// refresh the date in the caption
 	refreshCaptionDate: function(date){
-		this.captionDate.set('html', date.format(Date.shortDate).split(' ')[0].slice(0,8));
+		var currentDate = date.format(Date.shortDate).split(' ')[0];
+		currentDate = MooTools.lang.getCurrentLanguage().slice(0,2)=='zh'?currentDate.slice(0,8):currentDate;
+
+		this.captionDate.set('html', currentDate);
 	},
 	
 	/*
 	Set the date header of the calendar table.
 	*/
 	setHeader: function(){
-		this.htmlTable.setHeaders(MooTools.lang.get('Date').days);
+		if(MooTools.lang.getCurrentLanguage().slice(0,2) == 'en'){
+		    days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+		}
+		else{  
+		    days = MooTools.lang.get('Date').days;
+		};
+
+		this.htmlTable.setHeaders(days);
 	},
 
 	/*

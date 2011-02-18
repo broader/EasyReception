@@ -52,14 +52,26 @@ var ImageZoom = new Class({
 				var ratioY = this.bigImage.height/thumb_size.y;
 				/* set the size of the zoomed area on thumbnail */
 				var regionWidth = (thumb_size.x/ratioX).toInt()*this.zoomSize;
-				var regionHeight = (thumb_size.y/ratioY).toInt()*this.zoomSize;				
+				var regionHeight = (thumb_size.y/ratioY).toInt()*this.zoomSize;
+								
 				this.thumbZoomerRegion = new Element('div', {
-				    styles: {
-					'width': regionWidth,
-					'height': regionHeight,
-					'opacity': 0.7
-				    }
+				   styles: {
+						'width': regionWidth,
+						'height': regionHeight,
+						'opacity': 0.7
+				   }
 				}).inject(this.options.thumbContainer).addClass(this.options.thumbZoomerRegionCss);
+				
+				// delete 'visibility' property, which maybe result in some displaying error
+				var oldStyle = this.thumbZoomerRegion.get('style');
+				if(oldStyle.contains('VISIBILITY')){
+					// IE browser 
+					oldStyle = oldStyle.replace('VISIBILITY: visible;','');
+				}
+				else{
+					oldStyle = oldStyle.replace('visibility: visible;','');
+				};				
+				this.thumbZoomerRegion.set( 'style', oldStyle );
 				
 				/* move the zoomed image when the zoomer region is dragged on the thumbnail */
 				new Drag(this.thumbZoomerRegion, {

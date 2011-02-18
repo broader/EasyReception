@@ -25,6 +25,7 @@ var SmartList = new Class({
 		filterBoxPosition: 'top',	// the position of filter box which holds a input element and a slider for pagination
 		filterField: 'search',		// the filed name of filter value that will be send to server side 
 		filterBnLabel: 'filter',	// the label for the filter button
+		emptyPrompt: 'No page data load!',	// prompt for no data load 
 		
 		// paginator options
 		paginatorClass: 'paginator',	// the css class name for paginator container
@@ -107,7 +108,7 @@ var SmartList = new Class({
 		// clear the cotent in paginator first
 		this.paginator.empty();
 		if(!this.pageData.total){
-			this.paginator.set('text', 'No page data load!');
+			this.paginator.set('text', this.options.emptyPrompt);
 			//this.content.set('text', 'No data!');
 			return;
 		};
@@ -141,10 +142,6 @@ var SmartList = new Class({
 			}.bind(this)	
 		});
 
-	},
-	
-	setInfo: function(){
-		
 	},
 
 	onPageDrag: function(value){
@@ -181,7 +178,9 @@ var SmartList = new Class({
 		});
 		this.urlQuery['itemsPerPage'] = this.pageData['itemsPerPage'];
 		request.get(this.urlQuery);
-		if(!lisData){ return;};
+		
+		if(!lisData) return;
+		
 		this.pageData.extend(lisData);
 
 	}

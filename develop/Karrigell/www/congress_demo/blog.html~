@@ -1,0 +1,36 @@
+<div id="contents">
+	<h1>Heading One <span class="seo">Short Description</span></h1>
+
+ 	<p>This template is my first attempt at making a simple, image-less design with most of the common design elements. As you can see that web 2.0 -ish header is also done purely in CSS <span class="highlight"> without any image</span>. I have included most of the common design elements like Tables, Menu, List, Tag Cloud, Forms, Codes, image alingment etc. The alignment of image is controlled by two css classes called . leftalign and .rightalign. I have also included a CSS for Print. Enjoy!</p>
+ 	<h2> Heading 2 Code Example <span class="seo">Example of Code</span> </h2>
+ 	<code >
+ 	h2 {font-weight:normal; font-size:16px; color:#666666}
+ 	</code>
+  	<p>Cras vel odio. Vestibulum feugiat laoreet magna. Vivamus semper,  ipsum sit amet bibendum lobortis, erat leo elementum est, vel  ullamcorper tortor augue a tortor. Phasellus eget nibh at felis  condimentum elementum. Vivamus quis sem id diam facilisis hendrerit.  Phasellus placerat dapibus magna. Vivamus id nunc. Proin laoreet  dapibus nibh.</p>
+	<h3>Unordered list example</h3>
+	<ul>
+		<li>Cras vel odio. Vestibulum feugiat laoreet magna.</li>
+		<li>Vivamus semper,  ipsum sit amet bibendum lobortis, erat leo elementum est, vel  ullamcorper tortor augue a tortor.</li>
+		<li>Phasellus eget nibh at felis  condimentum elementum. Vivamus quis sem id diam facilisis hendrerit.</li>
+		<li>Phasellus placerat dapibus magna. Vivamus id nunc. Proin laoreet  dapibus nibh.</li>
+	</ul>
+
+	<h3>Ordered list example</h3>
+	<ol>
+		<li>Cras vel odio. Vestibulum feugiat laoreet magna.</li>
+		<li>Vivamus semper,  ipsum sit amet bibendum lobortis, erat leo elementum est, vel  ullamcorper tortor augue a tortor.</li>
+		<li>Phasellus eget nibh at felis  condimentum elementum. Vivamus quis sem id diam facilisis hendrerit.</li>
+		<li>Phasellus placerat dapibus magna. Vivamus id nunc. Proin laoreet  dapibus nibh.</li>
+	</ol>
+  
+	<h3>Heading 3 Blockquote Example <span class="seo">Example of Blockquote</span></h3>
+  
+ 	<blockquote>
+ 		<p> Aliquam sed leo non urna accumsan pellentesque. Mauris  placerat tortor et justo. Quisque eleifend feugiat tortor. Maecenas nec  nunc. Aenean rhoncus velit id risus. Sed sagittis aliquet orci. Donec  pharetra lacus id urna. Nullam sit amet augue tristique pede nonummy  euismod.<cite>Lorem I. Dolor Sit.</cite></p>
+  	</blockquote>
+  	<p>Aliquam odio. Nullam a velit rutrum elit auctor ultricies. Etiam  euismod turpis ut diam. Nulla ut velit mollis eros nonummy  pellentesque. Pellentesque diam. Praesent neque. Donec sed magna.  Curabitur nulla. Fusce dapibus tempus nibh. Nulla semper fermentum  magna. Nunc pulvinar suscipit nisl. Praesent euismod mi eu tellus. Nam  hendrerit viverra mi. Pellentesque habitant morbi tristique senectus et  netus et malesuada fames ac turpis egestas. Etiam ultricies semper  diam. Duis ut nulla vel libero pharetra laoreet. In hendrerit massa  fermentum pede. Pellentesque habitant morbi tristique senectus et netus  et malesuada fames ac turpis egestas. Curabitur non lorem. </p>
+ 	<p class="postinfo">Posted by yourname | Category | 101 Comments</p>
+ 	<h1>Some Gibberish <span class="seo">Some text here</span></h1>
+  	<p>Vestibulum tincidunt. Sed vitae eros in lorem posuere ultricies.  Morbi imperdiet cursus ante. Etiam augue metus, blandit id, consequat  et, blandit ac, justo. Mauris pellentesque eleifend pede. Pellentesque  habitant morbi tristique senectus et netus et malesuada fames ac turpis  egestas. Praesent ac justo ut leo convallis egestas. Donec ligula eros,  malesuada sed, adipiscing non, venenatis facilisis, ipsum. Nullam non  quam. Phasellus eget nisl. Donec odio magna, sagittis in, viverra a,  sollicitudin ut, diam. </p>
+	<div class="clear"></div>
+</div>

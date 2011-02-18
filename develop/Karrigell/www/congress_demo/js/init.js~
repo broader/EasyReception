@@ -1,0 +1,53 @@
+/*************************************************************************
+Some initialization functions.
+**************************************************************************/
+window.addEvent('domready', function(){
+	// add login functions 
+	var slideEl = $('loginPanel').getNext(),
+	    slide = new Fx.Slide(slideEl);
+
+	slide.hide();
+	$('loginPanel').store('slide', {'element': slideEl, 'instance':slide});
+
+	$('loginPanel').addEvent('click', function(e){
+		if(slideEl.getChildren().length == 1 ){
+			slideEl.empty();
+			slide.toggle();
+		}
+		else{ 
+			slideEl.set('load', {
+				async: false,
+				onComplete: function(){
+					slide.toggle();
+				}
+			});
+			slideEl.load("congress_demo/loginFn.ks/page_loginForm");
+
+		}
+
+	});
+
+	// add menu clickable function
+	var navbar =$('navigation'),
+		 homeLi = navbar.getChildren('ul')[0].getChildren('li')[0],
+		 content = $('contents');
+	
+	navbar.getChildren('ul')[0]
+	.getChildren('li').each(function(li,index){
+		li.addEvent('click',function(e){
+			new Event(e).stop();
+			var currentActiveLi = navbar.getElements('li.active')[0]; 
+			if(li == currentActiveLi) return;
+			else {
+				currentActiveLi.removeClass('active');
+			};
+			
+			li.addClass('active');				
+			content.load(li.getChildren('a')[0].get('href'));
+		});
+		//if(index==0) li.fireEvent('click');
+	});
+	
+	homeLi.addClass('active');
+	content.load(.getChildren('a')[0].get('href'));
+});

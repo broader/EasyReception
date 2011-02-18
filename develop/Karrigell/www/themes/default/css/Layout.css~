@@ -45,8 +45,9 @@ body {
 	/*
 	height: 45px;	
 	background: #718BA6 url(../images/bg-header.gif) repeat-x;
-	*/
 	height: 50px;
+	*/	
+	height: 30px;
 	background: #1B145D url(../images/bg-header.gif) repeat-x;
 }
 
@@ -92,7 +93,7 @@ body {
 #topNav {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	/*font-size: 10px;*/
-	font-size: 15px;
+	font-size: 14px;
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -167,8 +168,8 @@ body {
 
 #desktopNavbar li:hover ul ul,
 #desktopNavbar li.ieHover ul ul,
-#desktopNavbar li:hover ul ul ul,
-#desktopNavbar li.ieHover ul ul ul {
+#desktopNavbar li.ieHover ul ul ul,
+#desktopNavbar li:hover ul ul ul {
 	left: -999em;
 }
 

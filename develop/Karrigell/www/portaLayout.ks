@@ -5,7 +5,6 @@ The pages and functions for menu setup
 import sys
 
 # added module in Karrigell "/karrigell/packages" directory
-#import tools
 from tools import treeHandler
 
 from HTMLTags import *
@@ -36,8 +35,8 @@ LOGINFORM = 'loginForm'
 
 FORMFIELDS = \
 [\
-	{'name':'username','label':_('Login Name'),'class':"validate['required','~accountCheck']"},\
-	{'name':'password','label':_('Password'),'class':"validate['required','~pwdCheck']"}\
+	{'name':'username','label':_('Login Name:'),'class':"validate['required','~accountCheck']"},\
+	{'name':'password','label':_('Password:'),'class':"validate['required','~pwdCheck']"}\
 ]  
 
 DEMOSELECT = 'demoSelect'
@@ -58,7 +57,7 @@ def index(**args):
 
 def page_loginForm(**args):	 
 	# render fields
-	table = [ CAPTION(SPAN(_('User Info'), **{'style' : 'font-weight:bold;font-size: 1.5em;'})), ]
+	table = [ CAPTION(SPAN(_('User Info'), **{'style' : 'font-weight:bold;font-size: 1.2em;'})), ]
 	tbody = []		
 	# append demostartion selection
 	if VERSION.version == 'demo' :		
@@ -67,7 +66,8 @@ def page_loginForm(**args):
 	# append account inputs	
 	for field in FORMFIELDS :
 		name = field.get('name')
-		label = TD(LABEL(field.get('label'),style='width:100%;'))
+		label = TD(LABEL(field.get('label'),style='width:100%;margin-right:1px;'))
+		#label = TD(LABEL(field.get('label')))
 		attr = {'name':name}
 		attr['class'] = ' '.join((field.get('class'), 'type-text'))
 		
@@ -82,8 +82,10 @@ def page_loginForm(**args):
 	table.append(Sum(tbody))
 	table = TABLE(Sum(table))
 	# append submit buttons
-	bns =[ BUTTON( _("OK"), **{'class':'MooTrans', 'type':'submit'}),\
-			 BUTTON( _("Cancel"), **{'class':'MooTrans', 'type':'button'})]
+	bns =[\
+	    BUTTON( _("OK"), **{'class':'MooTrans', 'type':'submit'}),\
+	    BUTTON( _("Cancel"), **{'class':'MooTrans', 'type':'button'})\
+	]
 			 
 	bns = [ SPAN(bn) for bn in bns ] 
 	bns = DIV(Sum(bns),**{'id':FORMBUTTONS,'style':'position:relative;float:right;'})
@@ -118,7 +120,7 @@ def _loginFormJs():
 	
 	paras = tuple(paras)
 	script = \
-	"""
+	'''
 	var loginForm='%s', select='%s', bnsContainer='%s',	
 	    appName='%s', accountErr='%s', pwdErr='%s', 
 	    checkUrl='%s';
@@ -128,135 +130,135 @@ def _loginFormJs():
 
 	// get the global Assets manager
 	var am = MUI.assetsManager;
-    
-	// Add validation function to the form
-	// Set a global variable 'loginFormchk', 
- 	// which will be used as an instance of the validation Class-'FormCheck'.
- 	var loginFormchk;
  
+	/*
+	Add validation function to the form
+	Set a global variable 'loginFormchk', 
+ 	which will be used as an instance of the validation Class-'FormCheck'.
+	*/
+ 	var loginFormchk = null;
+	 
 	// Load the form validation plugin script
 	var options = {
-		onload:function(){  
-			
-			loginFormchk = new FormCheck( loginForm,{
-				submit: false,
+	    onload:function(){  
+
+		loginFormchk = new FormCheck( loginForm,{
+		    submit: false,
 				
-				onValidateSuccess: function(){			
-		
-					// load the script which will set the user's menus
-					MUI.login(userData);
+		    onValidateSuccess: function(){			
+			// load the script which will set the user's menus
+			MUI.login(userData);
+				    
+			// remove all the imported Assets of login module
+			am.remove(appName,'app');
    				
-					// remove all the imported Assets of login module
-					am.remove(appName,'app');
-   				
-					// everything is done, close the login dialog
-					MUI.closeModalDialog();
-					return false
-				},
+			// everything is done, close the login dialog
+			MUI.closeModalDialog();
+			return false
+		    },
 				
-				display:{
-					errorsLocation : 1,
-					keepFocusOnError : 0, 
-					scrollToFirst : false
-				}
-			});// the end for 'loginFormchk' define
-		}// the end for 'onload' define
+		    display:{
+			errorsLocation : 1,
+			keepFocusOnError : 0, 
+			scrollToFirst : false
+		    }
+		});// the end for 'loginFormchk' define
+
+	    }// the end for 'onload' define
 	};    
 	MUI.formValidLib(appName,options);
-		
-		
-	/*** Check whether the input account is existed.************************************/    
+	
+	/*
+	** Check whether the input account is existed.
+	*/    
  	// A Request.JSON class for send validation request to server side
  	var accountRequest = new Request.JSON({async:false});
  
  	var accountValidTag = false;
  	var accountCheck = function(el){ 
-		// add errror information for existed user name check		
-		el.errors.push(accountErr)
-		// set some options for Request.JSON instance
-		accountRequest.setOptions({
-			url: checkUrl,
-			onSuccess: function(res){
-				if(res.valid == 1){
-					accountValidTag=true;
-				};
-
-			}
-		});
+	    // add errror information for existed user name check		
+	    el.errors.push(accountErr)
+	    // set some options for Request.JSON instance
+	    accountRequest.setOptions({
+		url: checkUrl,
+		onSuccess: function(res){
+		    if(res.valid == 1){
+			accountValidTag=true;
+		    };
+		}
+	    });
     
-		accountRequest.get({'name':el.getProperty('value')});
-		if(accountValidTag){
-			accountValidTag=false;   // reset global variable 'accountValid' to be 'false'
-			return true
-		};
+	    accountRequest.get({'name':el.getProperty('value')});
+	    if(accountValidTag){
+		accountValidTag=false;   // reset global variable 'accountValid' to be 'false'
+		return true
+	    };
              
-		return false;
+	    return false;
  	};
- 	/***********************************************************************************/
-    
-    
- 	/*** Check whether the input password is valid************************************/    
+	 
+	/*
+	** Check whether the input password is valid
+	*/    
  	// A Request.JSON class for send validation request to server side
  	var pwdRequest = new Request.JSON({async:false});
  
  	var pwdValidTag = false;
  	function pwdCheck(el){
-		el.errors.push(pwdErr)
-		// get account input information
-		var input = $(loginForm).getElements('input')[0];
-		var actionUrl = checkUrl + '?'+[input.getProperty('name'), input.getProperty('value')].join('=');
-		// set some options for Request.JSON instance
-		pwdRequest.setOptions({
-			url: actionUrl,      	
-			onSuccess: function(res){
-				if(res.valid == 1) pwdValidTag=true, userData=res.user;
-			}
-		});
+	    el.errors.push(pwdErr)
+	    // get account input information
+	    var input = $(loginForm).getElements('input')[0];
+	    var actionUrl = checkUrl + '?'+[input.getProperty('name'), input.getProperty('value')].join('=');
+	    // set some options for Request.JSON instance
+	    pwdRequest.setOptions({
+		url: actionUrl,      	
+		onSuccess: function(res){
+		    if(res.valid == 1) pwdValidTag=true, userData=res.user;
+		}
+	    });
     
-		pwdRequest.get({'name':el.getProperty('value')});
-		if(pwdValidTag){
-			pwdValidTag=false;   // reset global variable 'pwdValidTag' to be 'false'
-			return true
-		};
+	    pwdRequest.get({'name':el.getProperty('value')});
+	    if(pwdValidTag){
+		pwdValidTag=false;   // reset global variable 'pwdValidTag' to be 'false'
+		return true
+	    };
              
-		return false;
+	    return false;
  	};
- 	/***********************************************************************************/
-   
-	
+
+	// Add functions to corresponding elements
 	window.addEvent('domready', function() {
-    	
-		// add callback function to select changing
-		$(select).addEvent('change',function(e){
-			var selected = e.target;
-			var selector = 'option[value=x]'.replace(/x/i, selected.getProperty('value'));
-			option = selected.getElement(selector);
-			new Event(e).stop();
-			var a = [ option.getProperty('value'),option.getProperty('ref')]
-			$(loginForm).getElements('input').each(function(input){
-				input.setProperty('value', a.shift());
-			});
-		});
+	    // add callback function to select changing
+	    $(select).addEvent('change',function(e){
+		    var selected = e.target;
+		    var selector = 'option[value=x]'.replace(/x/i, selected.getProperty('value'));
+		    option = selected.getElement(selector);
+		    new Event(e).stop();
+		    var a = [ option.getProperty('value'),option.getProperty('ref')]
+		    $(loginForm).getElements('input').each(function(input){
+			input.setProperty('value', a.shift());
+		    });
+	    });
 		
-		// add mouseover effect to buttons
-		new MooHover({container:bnsContainer,duration:800});
+	    // add mouseover effect to buttons
+	    new MooHover({container:bnsContainer,duration:800});
       
-		// add callback functions to submit buttons
-		var buttons = $(loginForm).getElements('button');
+	    // add callback functions to submit buttons
+	    var buttons = $(loginForm).getElements('button');
 		
-		// submit 
-		buttons[0].addEvent('click',function(e){
-			loginFormchk.onSubmit(e);			
-		});
+	    // submit 
+	    buttons[0].addEvent('click',function(e){
+		loginFormchk.onSubmit(e);			
+	    });
 		
-		// cancel 
-		buttons[1].addEvent('click',function(e){
-			new Event(e).stop();
-			MUI.closeModalDialog();
-		});
+	    // cancel 
+	    buttons[1].addEvent('click',function(e){
+		new Event(e).stop();
+		MUI.closeModalDialog();
+	    });
 		
 	});
-	"""%paras
+	'''%paras
 	return script
 
 def page_accountValid(**args):
@@ -295,7 +297,6 @@ def page_accountValid(**args):
 			so = Session()
 			setattr( so, pagefn.SOINFO['user'], data)
 			res['user'] = data
-			#pagefn.setCookie(SET_COOKIE,REQUEST_HANDLER)
 			
 	else:
 		# check whether the account is existed 
@@ -315,6 +316,19 @@ def page_accountValid(**args):
 
 	print JSON.encode(res,encoding='utf8')
 	return
+
+def page_postLoginData(**args):
+    """ 
+    When the user has been logged in, return the user's data saved in session object on server side.
+    """
+    so, res = Session(), {}
+    if hasattr(so, pagefn.SOINFO['user']):
+	res['user'] = getattr( so, pagefn.SOINFO['user'])
+	res['valid'] = 1
+    else:
+	res['valid'] = 0 
+    print JSON.encode(res,encoding='utf8')
+    return
 
 def page_welcomeInfo(**args):
 	""" 
@@ -336,8 +350,17 @@ def page_welcomeInfo(**args):
 	return
 
 def _renderMenuNode(nodes, node):
-	li = LI(**{'class':node.data.get('liCssClass') or ''})
-	aLink = A( node.data.get('text'), **{'id': node.id, 'class': node.data.get('aCssClass') or '' })
+	liClass = node.data.get('liCssClass')
+	if liClass:
+	    li = LI(**{'class':liClass })
+	else:
+	    li = LI() 
+	
+	aLink = A( 
+	    node.data.get('text'), 
+	    **{'id':'%s'%node.id, 'class':(node.data.get('aCssClass') or '')} 
+	)
+
 	li <= aLink
 	if node.children:	# has submenus
 		ul = UL() 
@@ -378,7 +401,7 @@ def page_menuList(**args):
 MENUTYPE = ('userMenu', 'adminMenu')
 MENUTYPETAG = 'menuType' 
 def page_menu(**args):
-	""" Return the menus data corresponding to user role. """
+	""" Return the menus data corresponding to user role saved in session object in web server. """
 	so = Session()
 	roles = getattr(so, pagefn.SOINFO['user']).get('roles') or ''
 		

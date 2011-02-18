@@ -7,8 +7,8 @@ var AssetsManager = new Class({
     initialize: function (){ 
     	this.imported = $H();    	
     },
-    
-     /********************************************************************
+
+    /********************************************************************
     Import a outside asset file such as css or js file.
     Do some prepare works before really importing this file, then call 
     this._importAsset to import this file.
@@ -18,30 +18,33 @@ var AssetsManager = new Class({
     			  {'app':..., 'lib':..., 'url':..., 'type':... }
     	options: the options or properties for mootoools.Assets import function
     *********************************************************************/
-    import: function(obj, options){
-    	if(!$defined(options)){ options={};}; 
-    	   	
-    	var id = options['id'];    	
-    	if(!$defined(id)){ 
-    		options['id'] = id = obj['url'];    		 
-    	};
+    //import: function(obj, options){ }
+    _import: function(obj, options){
+    	if(!$defined(options)) options={}; 
+    	
+    	var elId = options['id'];
+    	    	
+    	if(!$defined(elId)) 
+			options['id'] = elId = obj['url'];    		 
+    	
+    	if(this.imported.getKeys().contains(elId)) return;
     	
     	// store the information of this file to be imported     	
-	this.imported.set(id, $H(obj));
+		this.imported.set(elId, $H(obj));
 		
     	// import this file 
-    	this._importAsset(id, options);
+    	this._importAsset(elId, options);
     },
     
     /**********************************************************************
     Inner import function which really imports a outside asset file, the 
     file maybe a css, js or image file.    
     parameters:
-    	id: the id of this imported tag;
+    	elId: the id of this imported tag;
     	options: a json object for mootools Assets module.
     **********************************************************************/
-    _importAsset: function(id, options){
-    	var props = this.imported.get(id);    	
+    _importAsset: function(elId, options){
+    	var props = this.imported.get(elId);    	
     	// the type of this import file,it could be 'css','js' or 'image'
     	var fileType = props.get('type');    	
     	// the file name, including its path information
@@ -111,12 +114,22 @@ var AssetsManager = new Class({
  		}, this);
     },
     
-    _removeAsset: function(id){
-    	if($defined($(id))){
+    _removeAsset: function(elId){
+    	if($defined($(elId))){
     		//alert('asset to be removed,its id is'+id);
-	    	$(id).dispose();
-	    	this.imported.erase(id);
+	    	$(elId).dispose();
+	    	this.imported.erase(elId);
     	}
+    },
+    
+    // remove all the imported assets 
+    removeAll: function(){
+    	this.imported.getKeys().each(function(key){
+    		if($defined($(key))){    			    			
+	    		$(key).dispose();
+	    	};    		
+    		this.imported.erase(key);
+    	}.bind(this));
     },
     
     /***************************************************************
@@ -128,5 +141,4 @@ var AssetsManager = new Class({
     filterApp: function(name){
     	this._removeByTag('app',name, true);
     }
-    
 });

@@ -21,44 +21,44 @@ var mainPanelId = MUI.mainPanelId;
 ** The public function for side panels collapsing
 */
 function sidePanelCollapse(panelId){	
-	//alert('panel collapsed');
+    //alert('panel collapsed');
 };
 
 /*
 ** Before open a panel, do some initial works.
 */
 function initPanel(panelId){
-	// remove validation left errors
-	MUI.removeErr();
-	// other panels accordion
-	MUI.accordionPanels(panelId);
-	// clear content in main panel
-	MUI.clearMainPanel();
+    // remove validation left errors
+    MUI.removeErr();
+    // clear content in main panel
+    MUI.clearMainPanel();
+    // clear content in main panel
+    MUI.clearMainPanel();
 };
 
 /*
 **	Portal side panel expand function
 */
 function portalPanel(panelId){
-	MUI.accordionPanels(panelId);
+    MUI.accordionPanels(panelId);
 };
 
 /*
 **	"Users Management" side panel expand function
 */
 function userManagementPanel(panelId){
-	MUI.initPanel(panelId);
+    MUI.initPanel(panelId);
 	
-	var cid = 'userMangementColumn'; 
-	new MUI.Column({
-		container:mainPanelId, id: cid, placement: 'main', 
-		sortable: false, width: null, resizeLimit: [100,200] 
-	});
+    var cid = 'userMangementColumn'; 
+    new MUI.Column({
+	container:mainPanelId, id: cid, placement: 'main', 
+	sortable: false, width: null, resizeLimit: [100,200] 
+    });
 	
-	new MUI.Panel({
-		id: 'userMangementPanel', header:false, column: cid,
-		contentURL:'user/userManagement.ks/index'
-	});
+    new MUI.Panel({
+	id: 'userMangementPanel', header:false, column: cid,
+	contentURL:'user/userManagement.ks/index'
+    });
 	
 };
 
@@ -66,75 +66,80 @@ function userManagementPanel(panelId){
 **	Issues side panel expand function
 */
 function issuePanel(panelId){
-	MUI.initPanel(panelId);
+    MUI.initPanel(panelId);
+    
+    // add main column	
+    var issueMainColumn = 'issueListColumn';
+    new MUI.Column({
+	container:mainPanelId, id: issueMainColumn, placement: 'main', 
+	sortable: false
+    });
+    
+    // set the right column width
+    var columnSize = Math.round($(mainPanelId).getSize().x*0.3);
 
-	// add main column	
-	var issueMainColumn = 'issueListColumn';
-	new MUI.Column({
-		container:mainPanelId, id: issueMainColumn, placement: 'main', 
-		sortable: false, width: null, resizeLimit: [100,200] 
-	});
-
-	// add right column	
-	var issueRightColumn = 'issueDetailColumn';
-	new MUI.Column({
-		container:mainPanelId, id: issueRightColumn, placement: 'right',  
-		sortable: false, width: 500, resizeLimit: [400,500] 
-	});
+    // add right column	
+    var issueRightColumn = 'issueDetailColumn';
+    new MUI.Column({
+	container:mainPanelId, id: issueRightColumn, placement: 'right',  
+	sortable: false, 
+	width: columnSize,
+	resizeLimit: [columnSize-50, columnSize+300] 
+    });
 	
-	// the panel to show issue list on main column
-	new MUI.Panel({
-		column: issueMainColumn, 
-		id: "<%=issue.get('adminView')['mainColumn']['panelId']%>",
-		title: "<%=issue.get('adminView')['mainColumn']['panelTitle']%>",
-		contentURL: "<%=issue.get('adminView')['mainColumn']['contentUrl']%>"
-	});
+    // the panel to show issue list on main column
+    new MUI.Panel({
+	column: issueMainColumn, 
+	id: "<%=issue.get('adminView')['mainColumn']['panelId']%>",
+	title: "<%=issue.get('adminView')['mainColumn']['panelTitle']%>",
+	contentURL: "<%=issue.get('adminView')['mainColumn']['contentUrl']%>"
+    });
 		
-	// the panel to show the detail information of a issue item in right column
-	new MUI.Panel({
-		column: issueRightColumn,
-		id: "<%=issue.get('adminView')['rightColumn']['panelId']%>",
-		title: "<%=issue.get('adminView')['rightColumn']['panelTitle'] %>",
-		contentURL: "<%=issue.get('adminView')['rightColumn']['contentUrl']%>"
-	});
+    // the panel to show the detail information of a issue item in right column
+    new MUI.Panel({
+	column: issueRightColumn,
+	id: "<%=issue.get('adminView')['rightColumn']['panelId']%>",
+	title: "<%=issue.get('adminView')['rightColumn']['panelTitle'] %>",
+	contentURL: "<%=issue.get('adminView')['rightColumn']['contentUrl']%>"
+    });
 };
 
 /*
 **	News side panel expand function
 */
 function newsPanel(panelId){
-	MUI.accordionPanels(panelId);
+    MUI.accordionPanels(panelId);
 };
 
 /*
 **	Agenda side panel expand function
 */
 function agendaPanel(panelId){
-	MUI.accordionPanels(panelId);
+    MUI.accordionPanels(panelId);
 };
 
 /*
 **	"Service Management" side panel expand function
 */
 function servicePanel(panelId){
-	//initPanel(panelId);
-	MUI.initPanel(panelId);
+    //initPanel(panelId);
+    MUI.initPanel(panelId);
 	
-	var columnId = 'serviceManagementColumn'; 
-	new MUI.Column({
-		container:mainPanelId, id: columnId, placement: 'main', 
-		sortable: false, width: null, resizeLimit: [100,200] 
-	});
+    var columnId = 'serviceManagementColumn'; 
+    new MUI.Column({
+	container:mainPanelId, id: columnId, placement: 'main', 
+	sortable: false, width: null, resizeLimit: [100,200] 
+    });
 	
-	contentPanelId = 'serviceManagementPanel';
-	url = ['service/service.ks/index', ['panelid',contentPanelId].join('=')].join('?'); 
-	new MUI.Panel({
-		id: contentPanelId, column: columnId,
-		tabsURL: url,
-		require: {
-			css: [MUI.themePath() + 'css/Tabs.css']
-		}
-	});
+    contentPanelId = 'serviceManagementPanel';
+    url = ['service/service.ks/index', ['panelid',contentPanelId].join('=')].join('?'); 
+    new MUI.Panel({
+	id: contentPanelId, column: columnId,
+	tabsURL: url,
+	require: {
+	    css: [MUI.themePath() + 'css/Tabs.css']
+	}
+    });
 	
 };
 
@@ -142,23 +147,23 @@ function servicePanel(panelId){
 **	System administration panel expand function
 */
 function sysadminPanel(panelId){
-	//initPanel(panelId);
-	MUI.initPanel(panelId);
+    //initPanel(panelId);
+    MUI.initPanel(panelId);
 	
-	var columnId = 'systemAdminColumn'; 
-	new MUI.Column({
-		container:mainPanelId, id: columnId, placement: 'main', 
-		sortable: false, width: null, resizeLimit: [100,200] 
-	});
+    var columnId = 'systemAdminColumn'; 
+    new MUI.Column({
+	container:mainPanelId, id: columnId, placement: 'main', 
+	sortable: false, width: null, resizeLimit: [100,200] 
+    });
 	
-	contentPanelId = 'systemAdminPanel';
-	url = ['sysadmin/sysadmin.ks/index', ['panelid',contentPanelId].join('=')].join('?'); 
-	new MUI.Panel({
-		id: contentPanelId, column: columnId,
-		tabsURL: url,
-		require: {
-			css: [MUI.themePath() + 'css/Tabs.css']
-		}
-	});
+    contentPanelId = 'systemAdminPanel';
+    url = ['sysadmin/sysadmin.ks/index', ['panelid',contentPanelId].join('=')].join('?'); 
+    new MUI.Panel({
+	id: contentPanelId, column: columnId,
+	tabsURL: url,
+	require: {
+	    css: [MUI.themePath() + 'css/Tabs.css']
+	}
+    });
 	
 };

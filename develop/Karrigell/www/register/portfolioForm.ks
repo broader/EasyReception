@@ -38,7 +38,6 @@ FORMBNS = 'baseInfoBns'
 # The page functions begining 
 # ********************************************************************************************
 
-
 def index(**args):	
 	render = INICONFIG.getData(BASEINFOFIELDS)		
 	rember = dict([ (field.get('name'), getattr(so, field.get('name'), None))  for field in render ])
@@ -66,7 +65,7 @@ def index(**args):
 	next = 2*interval
 	center = DIV(Sum(yform(render[interval:next])), **{'class':'c33r', 'style':style})
 	right = DIV(Sum(yform(render[next:])), **{'class':'c33r', 'style':style})
-	divs = DIV(Sum((left, center, right)), **{'class':'subcolumns'})	
+	divs = DIV(Sum((left, right, center)), **{'class':'subcolumns'})	
 	
 	# add the <Legend> tag
 	legend = LEGEND(TEXT(_('Base Information')))    
@@ -107,42 +106,40 @@ def index(**args):
 	// Next step function
 	/*********************************************************************
 	Set a global variable 'formchk', 
-   which will be used as an instance of the validation Class-'FormCheck'.
-   **********************************************************************/
-   
-   var pformchk = new FormCheck( formId,{
-		submitByAjax: true,
+	which will be used as an instance of the validation Class-'FormCheck'.
+	**********************************************************************/
+       
+	var pformchk = new FormCheck( formId,{
+	    submitByAjax: true,
 		
-	   onAjaxSuccess: function(response){
-	   	if(response != 1){alert(errInfo);}
-	      else{ tabSwitch(2);;};               
-	   },            
+	    onAjaxSuccess: function(response){
+		if(response != 1){alert(errInfo);}
+		else{ tabSwitch(2);;};               
+	    },            
 	
-	   display:{
-	   	errorsLocation : 1,
-	      keepFocusOnError : 0, 
-	      scrollToFirst : false
-	   }
+	    display:{
+		errorsLocation : 1,
+		keepFocusOnError : 0, 
+		scrollToFirst : false
+	    }
 	});// the end for 'formchk' define
 	
 	
 	function next(event){		
-		pformchk.onSubmit(event);
+	    pformchk.onSubmit(event);
 	};
 		 
 	function pageInit(event){
+	    // add mouseover effect to buttons
+	    new MooHover({container:buttonsContainer,duration:800});
 		 
-      // add mouseover effect to buttons
-      new MooHover({container:buttonsContainer,duration:800});
-		 
-      // Add click callback functions for buttons
-      var bns = $(buttonsContainer).getElements('button');
-      bns[0].addEvent('click', back);
-      bns[1].addEvent('click', next);
-      
-   };
+	    // Add click callback functions for buttons
+	    var bns = $(buttonsContainer).getElements('button');
+	    bns[0].addEvent('click', back);
+	    bns[1].addEvent('click', next);
+	};
 
-   window.addEvent('domready', pageInit);
+	window.addEvent('domready', pageInit);
 	"""%tuple(paras)
 		
 	print pagefn.script(js, link=False)

@@ -142,10 +142,6 @@ var SmartList = new Class({
 		});
 
 	},
-	
-	setInfo: function(){
-		
-	},
 
 	onPageDrag: function(value){
 		this.paginator.getElement('.'+this.options.pageInfoClass).set('text', value);
@@ -168,7 +164,6 @@ var SmartList = new Class({
 	load: function(){
 		var dataUrl = this.options.dataUrl;
 		if(!dataUrl){
-			alert('Please set data url link first!');
 			return;
 		};
 		
@@ -182,7 +177,9 @@ var SmartList = new Class({
 		});
 		this.urlQuery['itemsPerPage'] = this.pageData['itemsPerPage'];
 		request.get(this.urlQuery);
-		if(!lisData){ return;};
+		
+		if(!lisData) return;
+		
 		this.pageData.extend(lisData);
 
 	}

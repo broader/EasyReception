@@ -50,6 +50,7 @@ def _getKeywords():
 
 def page_createIssueForm(**args):
 	creator = args.get('creator') or USER
+	detailPanel = args.get('detailInfoPanel') 
 
 	form = []
 
@@ -82,18 +83,18 @@ def page_createIssueForm(**args):
 	
 	print form
 	# import js slice
-	print pagefn.script(_createIssueJs(formId, creator),link=False)		
+	print pagefn.script( _createIssueJs(formId, creator, detailPanel), link=False)		
 	
 	return
 
-def _createIssueJs(formId, creator):
-	paras = [ APP, formId, 'position:absolute;margin-left:15em;']
+def _createIssueJs(formId, creator, detailPanel):
+	paras = [ APP, detailPanel, formId, 'position:absolute;margin-left:15em;']
 	paras.extend( [ pagefn.BUTTONLABELS.get('confirmWindow').get(key) for key in ('confirm','cancel')] )
 	paras = tuple(paras)
 	js = \
-	"""
-	var appName='%s', formId='%s', bnStyle='%s',
-	confirmBnLabel='%s',cancelBnLabel='%s';
+	'''
+	var appName='%s', detailPanel='%s', formId='%s', 
+	    bnStyle='%s', confirmBnLabel='%s',cancelBnLabel='%s';
 	
 	var issueCreationFormChk;
 	// Load the form validation plugin script
@@ -105,7 +106,13 @@ def _createIssueJs(formId, creator):
 			// close modal
 			MUI.closeModalDialog(); 
 
+			// when create action failed, exit quietly
 			if(response==0) return;
+
+			// clear the content which is showing in the right column
+			var panel = MUI.getPanel(detailPanel);
+			panel.options.contentURL = editUrl;
+			panel.newPanel();
 
 			// refresh table grid
 			$$('.omnigrid')[0].retrieve('tableInstance').loadData();
@@ -154,7 +161,7 @@ def _createIssueJs(formId, creator):
 			MUI.closeModalDialog();
 		}; 
 	};
-	"""%paras
+	'''%paras
 	return js
 
 def page_createIssueAction(**args):
@@ -217,9 +224,10 @@ def _getNosy(keyword):
 	# the first item need not 'OR' operator symbol
 	conditions[0].pop(-1)
 	nosy = model.get_adminlist(USER, ('username',), conditions)
+
 	if nosy:
 		nosy = [ i[0] for i in nosy ]
-	
+
 	return nosy
 
 def _getRelationValue(klass, relateclass):
@@ -242,29 +250,27 @@ ISSUEPROPS =\
 
 NOSYOLD = 'oldvalue'
 def page_getNosy4issue(**args):
-	''' Return the nosy list for each issue. '''
+	""" Return the nosy list for each issue. """
 	operator = args.get('user') or USER
 	oldValues = args.get(NOSYOLD) or []
 	if oldValues :
 		oldValues = oldValues.split(',')
 	
 	keywords = args.get('keyword') or ''
-	
 	values = _getNosy(keywords)
-	
 	values.sort()
 	values = [\
-		{\
+	    {\
 		'text':i.decode('utf8'), \
 		'selected': i in oldValues and 'true' or 'false'\
-		}\ 
-		for i in values\
+	    }\ 
+	    for i in values\
 	]
 	print JSON.encode(values, encoding='utf8')
 	return
 
 def _getIssueStatus():
-	''' Return a list containing all the values of the 'status' items whose 'category' property is 'issue'. '''
+	""" Return a list containing all the values of the 'status' items whose 'category' property is 'issue'. """
 	props = ('category','name','order')
 	status = model.filterByPropValues( USER, 'status', props, {'category':'issue'})	
 	if status:
@@ -275,7 +281,7 @@ def _getIssueStatus():
 	return status
 
 def _propFormAdapter(**args):
-	''' Construct filed's values corresponding to the property name. '''
+	""" Construct filed's values corresponding to the property name. """
 	oldValue, prop, preferProp, preferValue = \
 		[args.get(name) or '' for name in ('oldValue', 'prop', 'preferProp', 'preferValue')]
 
@@ -283,7 +289,9 @@ def _propFormAdapter(**args):
 	form = [item for item in ISSUEPROPS if item['name'] == prop ]
 	form[0]['oldvalue'] = oldValue
 	form[0]['id'] = prop
-	if prop == 'keyword':
+	if prop == 'title':
+		form[0]['style'] = 'width:430px;'
+	elif prop == 'keyword':
 		form[0]['type'] = 'check'
 		form[0]['name'] = prop
 		form[0]['options'] = [{'label':keyword, 'value':keyword} for keyword in _getKeywords()]
@@ -295,8 +303,8 @@ def _propFormAdapter(**args):
 
 		url = '/'.join((APPATH,'page_getNosy4issue'))
 		query = {preferProp: preferValue}
-		query = ['='.join((key, value)) for key,value in query.items()]
-		query = '&'.join(query)
+		import urllib
+		query = urllib.urlencode(query)
 		url = '?'.join((url, query))
 		form[0].update({'dataUrl':url,'fieldName':prop, 'itemsPerPage':5})
 		
@@ -312,7 +320,7 @@ def _propFormAdapter(**args):
 	return form
 
 def page_editIssuePropForm(**args):
-	''' print the html form for editing the value of a specified attribute of a issue item. '''
+	""" print the html form for editing the value of a specified attribute of a issue item. """
 	issueId, prop =	[args.get(name) for name in ('issueId', 'prop')]
 	
 	editor = USER
@@ -330,7 +338,8 @@ def page_editIssuePropForm(**args):
 	formId = 'editIssueProp-%s'%prop
 	form = FORM( \
 		Sum(forms),\ 
-		**{'action': '/'.join((APPATH,'page_editIssuePropAction')), 'id': formId, 'method':'post','class':'yform'}\
+		#**{'action': '/'.join((APPATH,'page_editIssuePropAction')), 'id': formId, 'method':'post','class':'yform'}\
+		**{'action': '/'.join((APPATH,'page_editIssuePropAction')), 'id': formId, 'method':'post'}\
 	)
 	
 	print form
@@ -352,7 +361,7 @@ def _editIssuePropJs(formId, issueId):
 
 	paras = tuple(paras)
 	js = \
-	"""
+	'''
 	var appName="%s", infoPanel="%s", issueId="%s", formId="%s", 
 	    bnStyle="%s", confirmBnLabel="%s",cancelBnLabel="%s",
 	    infoUrl="%s", infoTableId = "%s",
@@ -423,11 +432,11 @@ def _editIssuePropJs(formId, issueId):
 			MUI.closeModalDialog();
 		}; 
 	};
-	"""%paras
+	'''%paras
 	return js
 
 def page_editIssuePropAction(**args):
-	''' Edit the value of the property of issue and save the result to database. '''
+	""" Edit the value of the property of issue and save the result to database. """
 	editor, issueId = [args.pop(name) for name in ('editor','issueId')]
 	iprops = copy.deepcopy(args) 
 	
@@ -457,7 +466,7 @@ def page_editIssuePropAction(**args):
 	return
 
 def page_addMessageForm(**args):
-	''' Return a form to add new message to a issue item. '''
+	""" Return a form to add new message to a issue item. """
 	issueId = args.get('issueId') 
 	
 	editor = USER
@@ -494,7 +503,7 @@ def _addMessageJs(formId, issueId):
 	paras.append('/'.join(('/'.join(THIS.script_url.split('/')[:-1]), 'userView.ks', 'page_issueDetail')))
 	paras = tuple(paras)
 	js = \
-	"""
+	'''
 	var appName="%s", infoPanel="%s", issueId="%s", formId="%s", 
 	    bnStyle="%s", confirmBnLabel="%s",cancelBnLabel="%s",
 	    infoUrl="%s";	
@@ -566,11 +575,11 @@ def _addMessageJs(formId, issueId):
 			MUI.closeModalDialog();
 		}; 
 	};
-	"""%paras
+	'''%paras
 	return js
 
 def page_addMessageAction(**args):
-	''' Add a new message to the specified issue and save the result to database. '''
+	""" Add a new message to the specified issue and save the result to database. """
 	editor, issueId, message = [args.pop(name) for name in ('editor','issueId', 'messages')]
 	iprops = {}
 	mprops = {'content':message}
@@ -581,7 +590,7 @@ def page_addMessageAction(**args):
 	return
 
 def page_deleteIssueAction(**args):
-	''' Delete issues by the given 'serial' values. '''
+	""" Delete issues by the given 'serial' values. """
 	editor, serials = [ args.get(name) or '' for name in ('editor', 'serial') ]
 	editor = editor or USER
 

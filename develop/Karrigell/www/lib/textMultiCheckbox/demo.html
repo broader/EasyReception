@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Multiful selected text box</title>
+<script language="javascript" type="text/javascript" src="../mootools/mootools-1.2.4-core.js"></script>
+<script language="javascript" type="text/javascript" src="TextMultiCheckbox.js"></script>
+<link rel="stylesheet" type="text/css" href="TextMultiCheckbox.css" />
+
+<script language="javascript" type="text/javascript">
+	window.addEvent('domready', function(){
+			new TextMultiCheckbox("textMultiSelect");
+	});
+</script>
+</head>
+<body>
+<div id="container">
+
+	<h1>Multiful Selected Text Box </h1>
+	
+	<h2>Example</h2>
+		
+	<div id="textMultiSelect" style="width:200px;">	
+		<label style="font-size: 1.2em; text-align: left; width: 100%;" for="keyword">
+			关键词
+		</label>
+		<div class="TextMultiSelect" id="keyword">
+			<div class="monitor">
+				<div>
+					<div class="monitor-text">会议注册,机场接送</div>
+					<input name="keyword" value="会议注册,机场接送" type="hidden">
+				</div>
+			</div>
+			<ul style="display: none;">
+				<li><span style="padding-left: 20px;">交通</span></li>
+				<li class="selected"><span style="padding-left: 20px;">会议注册</span></li>
+				<li class="selected"><span style="padding-left: 20px;">机场接送</span></li>
+				<li><span style="padding-left: 20px;">酒店住宿</span></li>
+			</ul>
+		</div>
+	</div>
+
+		
+</div>	
+</body>
+</html>

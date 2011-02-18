@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>会展门户网站演示</title>
+<link href="congress_demo/css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/SexyButtons/sexybuttons.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="lib/mootools/mootools-1.2.4-core.js" ></script>
+<script type="text/javascript" src="lib/mootools/mootools-1.2.4.2-more.js" ></script>
+<script type="text/javascript" src="congress_demo/js/init.js"></script>
+
+</head>
+
+<body>
+	<div id="wrap">
+		<div id="header">
+			<!-- language select and login menu -->
+			<div id="langMenu" style="padding-top:15px;float:right">
+				<img src="congress_demo/images/flags/arrow_12.gif" width="12" height="17" class="arrow" alt="" >
+				<img src="congress_demo/images/flags/cn_30.gif" width="30" height="22" class="flag" alt="中文" >
+				<span class="text">中文</span>
+				<a href="index_en.html" style="text-decoration:none;">
+					<img src="congress_demo/images/flags/en_30.gif" width="30" height="22" class="flag" alt="English" style="border:1px;">
+					<span class="text">English</span>
+				</a>
+				<span class="text2"> | </span>
+				<a href="javascript:;" id="loginPanel">登录</a>
+				<div style="background-color:#212F8A;color:white;height:165px;">
+					<!--
+						The contentainer for login form.
+					-->
+				</div>
+			</div>
+
+			<h1 id="sitename">
+				<span class="big">I</span>
+				<span class="logosmall">天涯若比邻</span>
+			</h1>
+			<div id="navigation">
+				<ul >
+					<li><a href="index.html">会展介绍</a></li>
+					<li><a href="congress_demo/forms.html">主题活动</a></li>
+					<li>
+						<a href="congress_demo/blog.html">注册与住宿</a>							
+					</li>
+					<li><a href="congress_demo/forms.html">相关信息</a></li>
+					<li><a href="congress_demo/forms.html">赞助商与合作伙伴</a></li>
+					<li><a href="congress_demo/forms.html">会务组织与联系方式</a></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+		<div id="contents">
+			
+		</div>
+
+		<div id="sidebar">
+			<span class="sidebartop"></span>
+			<div class="sidebarcontent">
+				  <h2>最新消息</h2>
+				  <ul id="latestposts">
+				  <li><a href="#">注册费缴纳通知</a></li>
+				  <li><a href="#">会议演讲文稿提交事项</a></li>
+				  <li><a href="#">会议日程安排通知</a></li>
+				  <li><a href="#">会议注册系统上线通知</a></li>
+				  </ul>
+
+				  <h2><a href="http://opencongress.jalbum.net/Test-Album">会展图片</a></h2>
+				  <div id="previews">
+					    <a href="http://opencongress.jalbum.net/Test-Album">
+					    	<img src="congress_demo/images/1.jpg" alt="Image 1" />
+					    </a>
+					    <a href="http://opencongress.jalbum.net/Test-Album">
+					    	<img src="congress_demo/images/2.jpg" alt="Image 2" />
+					    </a>
+					    <a href="http://opencongress.jalbum.net/Test-Album">
+					     		<img src="congress_demo/images/3.jpg" alt="Image 3" />
+					    </a>
+					  <div class="clear2">&nbsp;</div>
+					    <a href="http://opencongress.jalbum.net/Test-Album">
+					    		<img src="congress_demo/images/2.jpg" alt="Image 2" />
+					    </a>
+					    <a href="http://opencongress.jalbum.net/Test-Album">
+					    		<img src="congress_demo/images/3.jpg" alt="Image 3" />
+					    </a>
+					    <a href="http://opencongress.jalbum.net/Test-Album">
+					    		<img src="congress_demo/images/1.jpg" alt="Image 1" />
+					    </a>
+					  <div class="clear2">&nbsp;</div>
+				  </div>
+			</div>
+			<span class="sidebarbtm"></span>
+		</div>
+
+		<div class="clear"></div>
+	</div>
+
+	<div id="footer">
+		版权所有 &copy; acroes.com | <a href="#">主办单位</a> | <a href="#">协办单位</a> | <a href="#">承办单位</a> | <a href="#">其它组织</a> 
+		<div id="templateinfo">
+			<a href="http://www.ramblingsoul.com">CSS Template</a> by Rambling Soul
+		</div>
+	</div>
+
+</body>
+</html>

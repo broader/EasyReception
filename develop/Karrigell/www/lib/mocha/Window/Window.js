@@ -131,9 +131,12 @@ Example:
 	(end)
 
 Example:
-	Add link events to build future windows. It is suggested you give your anchor the same ID as your window + "WindowLink" or + "WindowLinkCheck". Use the latter if it is a link in the menu toolbar.
+	Add link events to build future windows. 
+	It is suggested you give your anchor the same ID as your window + "WindowLink" or + "WindowLinkCheck". 
+	Use the latter if it is a link in the menu toolbar.
 
-	If you wish to add links in windows that open other windows remember to add events to those links when the windows are created.
+	If you wish to add links in windows that open other windows remember to add events to those links 
+	when the windows are created.
 
 	(start code)
 	// Javascript:
@@ -150,7 +153,9 @@ Example:
 
 
 	Loading Content with an XMLHttpRequest(xhr):
-		For content to load via xhr all the files must be online and in the same domain. If you need to load content from another domain or wish to have it work offline, load the content in an iframe instead of using the xhr option.
+		For content to load via xhr all the files must be online and in the same domain. 
+		If you need to load content from another domain or wish to have it work offline, 
+		load the content in an iframe instead of using the xhr option.
 	
 	Iframes:
 		If you use the iframe loadMethod your iframe will automatically be resized when the window it is in is resized. If you want this same functionality when using one of the other load options simply add class="mochaIframe" to those iframes and they will be resized for you as well.
@@ -405,7 +410,6 @@ MUI.Window = new Class({
 
 	*/
 	newWindow: function(properties){ // options is not doing anything
-
 		// Shorten object chain
 		var instances = MUI.Windows.instances;
 		var instanceID = MUI.Windows.instances.get(this.options.id);
@@ -446,6 +450,7 @@ MUI.Window = new Class({
 			}
 			// Else focus
 			else {
+				
 				var coordinates = document.getCoordinates();
 				if (this.windowEl.getStyle('left').toInt() > coordinates.width || this.windowEl.getStyle('top').toInt() > coordinates.height){
 					MUI.centerWindow(this.windowEl);	

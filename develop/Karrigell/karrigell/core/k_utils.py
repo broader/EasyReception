@@ -24,6 +24,7 @@ def dirlist(dir_path,url):
     import os
     import urlparse
     from urllib import pathname2url,url2pathname
+             
     if not url.endswith("/"):
         url += "/"
     names = os.listdir(dir_path)
@@ -39,7 +40,7 @@ def dirlist(dir_path,url):
     <title>Directory listing</title>
     <link rel="stylesheet" href="/karrigell.css">
     </head>"""
-    body = "<H1>Contents of %s</H1>" %url
+    body = "<H1>Contents of %s</H1>" %url    
     body += '<span class="cadre">-</span>'
     body += '<A href="../">parent directory</A>'
     for d in dirs:

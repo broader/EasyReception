@@ -47,252 +47,250 @@ CAPTCHAKEY = 'ckey'
 # ********************************************************************************************
 
 def index(**args):
-	 """Render the form for account's information."""
-	 # set cookie's path to '/', 
-	 # so every request page could access the same session object by the cookie info "sessionId"	 
-	 pagefn.setCookie(SET_COOKIE,REQUEST_HANDLER)
+    """Render the form for account's information."""
+    # set cookie's path to '/', 
+    # so every request page could access the same session object by the cookie info "sessionId"	 
+    #pagefn.setCookie(SET_COOKIE,REQUEST_HANDLER)
 	 
-	 # get fields names
-	 username, usermail, pwd = CONFIG.getData(ACCOUNTFIELDS)
+    # get fields names
+    username, usermail, pwd = CONFIG.getData(ACCOUNTFIELDS)
 	  
     # create a captcha tag 
     # 'THIS.baseurl' and 'REL()' are global variable and function in Karrigell system
     #Captcha = Import('./Captcha.py', relpath=THIS.baseurl, RELDIR=REL())        
-	 key = Captcha.getChallenge()    
-	 image = '/'.join((THIS.baseurl,Captcha.getImageFile(key)))        
-	 image = IMG(**{'src':image, 'alt' : 'captchaImage', 'class': CAPTCHACLASS})
-	 image = Sum((image, SPAN(_(' If the left image is unidentified, please click it and switch to anther image.'), style='font-size:1.1em;color:#a7a8a0;')))    
-	 cinput = INPUT(**{'id':CAPTCHAKEY, 'value':key, 'type':'hidden'})
+    key = Captcha.getChallenge()    
+    image = '/'.join((THIS.baseurl,Captcha.getImageFile(key)))        
+    image = IMG(**{'src':image, 'alt' : 'captchaImage', 'class': CAPTCHACLASS})
+    image = Sum((image, SPAN(_(' If the left image is unidentified, please click it and switch to anther image.'), style='font-size:1.1em;color:#a7a8a0;')))    
+    cinput = INPUT(**{'id':CAPTCHAKEY, 'value':key, 'type':'hidden'})
     
-	 # the form fields
-	 fields = \
-      [ \
-			{'prompt':username.get('prompt'),'name':username.get('name'),'type':'text','validate':['~accountCheck',]},
+    # the form fields
+    fields = \
+    [ \
+	{'prompt':username.get('prompt'),'name':username.get('name'),'type':'text','validate':['~accountCheck',]},
 			
-			{'prompt':usermail.get('prompt'), 'name':usermail.get('name'), 'type':'text','validate':['email',]},\
+	{'prompt':usermail.get('prompt'), 'name':usermail.get('name'), 'type':'text','validate':['email',]},\
 			
-			{'prompt':_("Confirm Email :"), 'name':'cemail', 'type':'text','validate':['email','confirm[%s]'%usermail.get('name')]},\
+	{'prompt':_("Confirm Email :"), 'name':'cemail', 'type':'text','validate':['email','confirm[%s]'%usermail.get('name')]},\
 			
-			{'prompt':pwd.get('prompt'), 'name':pwd.get('name'), 'type':'password','validate':['length[6,-1]',]},\
+	{'prompt':pwd.get('prompt'), 'name':pwd.get('name'), 'type':'password','validate':['length[6,-1]',]},\
 			
-			{'prompt':_("Confirm Password :"), 'name':'cpwd', 'type':'password','validate':['confirm[%s]'%pwd.get('name'),]},\
+	{'prompt':_("Confirm Password :"), 'name':'cpwd', 'type':'password','validate':['confirm[%s]'%pwd.get('name'),]},\
 			
-			{'prompt':_("Captcha Image :"),'name':'captcha','type':'text', 'image':image, 'key':cinput, 'validate':['~cimgCheck',]}\
-      ]
+	{'prompt':_("Captcha Image :"),'name':'captcha','type':'text', 'image':image, 'key':cinput, 'validate':['~cimgCheck',]}\
+    ]
     
     # get the old input values
-	 values = [d.get('name') for d in (username, usermail)]
-	 rember = dict([ (name, getattr(so, name, None))  for name in values ])
+    values = [d.get('name') for d in (username, usermail)]
+    rember = dict([ (name, getattr(so, name, None))  for name in values ])
 	 
     # Add other properties for each field, these properties are 'id','required','oldvalue'
-	 for field in fields :
-       # Add 'id' property for each field
-		 name = field.get('name')
-		 field.update({'id':name})
-       # Add required property to the needed fields, 
-       # here means all the fields will be added the 'required' property.
-		 field.update({'required':True})
-       # add maybe old value
-		 field.update({'oldvalue':rember.get(name)})
+    for field in fields :
+	# Add 'id' property for each field
+	name = field.get('name')
+	field.update({'id':name})
+	# Add required property to the needed fields, 
+	# here means all the fields will be added the 'required' property.
+	field.update({'required':True})
+	# add maybe old value
+	field.update({'oldvalue':rember.get(name)})
     
     # render the fields to the form
-	 form = []
+    form = []
     # get the OL content from formRender.py module    
-	 style = 'border-left:1px solid #DDDDDD;'	
-	 yform = formFn.yform
-	 left = DIV(Sum(yform(fields[:3])), **{'class':'c50l' })
-	 right = DIV(Sum(yform(fields[3:])), **{'class':'c50r', 'style':style})
-	 divs = DIV(Sum((left, right)), **{'class':'subcolumns'})
+    yform = formFn.yform
+    left = DIV(Sum(yform(fields[:3])), **{'class':'c50l' })
+    right = DIV(Sum(yform(fields[3:])), **{'style':'border-left:1px solid #DDDDDD;position:relative;float:right;width:48%;'})
+    divs = DIV(Sum((left, right)), **{'class':'subcolumns'})
             
     # add the <Legend> tag
-	 legend = LEGEND(TEXT('Account Information'))    
-	 form.append(FIELDSET(Sum((legend,divs))))
+    legend = LEGEND(TEXT('Account Information'))    
+    form.append(FIELDSET(Sum((legend,divs))))
     
     # add buttons to this form   
-	 bns =[_("Next"), _("Cancel")]    
-	 sbn = BUTTON(bns[0], **{'class':'MooTrans', 'type':'submit'})    
-	 span = DIV(Sum((sbn,)), **{ 'id':ACCOUNTFORMBNS, 'style':'position:absolute;margin-left:20em;'})    
-	 form.append(span)
+    bns =[_("Next"), _("Cancel")]    
+    sbn = BUTTON(bns[0], **{'class':'MooTrans', 'type':'submit'})    
+    span = DIV(Sum((sbn,)), **{ 'id':ACCOUNTFORMBNS, 'style':'position:absolute;margin-left:20em;'})    
+    form.append(span)
     
     # form action url
-	 action = '/'.join((APPATH, '_'.join(('page', 'valid'))))              
+    action = '/'.join((APPATH, '_'.join(('page', 'valid'))))              
               
-	 form = FORM( Sum(form), 
-                 **{
-                   'action': action, 
-                   'id': ACCOUNTFIELDS, 
-                   'method':'get',                   
-                   'class':'yform'
-                 }
-               )
-	 print DIV(form, **{'class':'subcolumns'})
+    form = FORM( Sum(form), 
+	**{
+	   'action': action, 
+	   'id': ACCOUNTFIELDS, 
+	   'method':'get',                   
+	   'class':'yform'
+       }
+    )
+    print DIV(form, **{'class':'subcolumns'})
     
     # javascript functions for this page 
-	 accountErr = _('This account has been used, please input other name.')    
-	 cpatchaErr = _('Pleas input right info on the below image. If the image is difficult to identify, click it to change another image!')
-	 paras = [ APP, accountErr, CAPTCHACLASS,CAPTCHAKEY, cpatchaErr]
-	 paras.extend([ '/'.join((APPATH, name))for name in ( 'page_captchaValid', 'page_switchImg', 'page_accountValid' )])    
-	 paras.extend([ ACCOUNTFORMBNS, ACCOUNTFIELDS ])
+    accountErr = _('This account has been used, please input other name.')    
+    cpatchaErr = _('Pleas input right info on the below image. If the image is difficult to identify, click it to change another image!')
+    paras = [ APP, accountErr, CAPTCHACLASS,CAPTCHAKEY, cpatchaErr]
+    paras.extend([ '/'.join((APPATH, name))for name in ( 'page_captchaValid', 'page_switchImg', 'page_accountValid' )])    
+    paras.extend([ ACCOUNTFORMBNS, ACCOUNTFIELDS ])
 	 
-	 js = \
+    js = \
     """
-    var appName="%s", accountErr='%s';
-    var captchaClass='%s', captchaKey='%s', captchaErr='%s';
-    var captchaValid='%s', captchaSwitch='%s';
-    var accountValid='%s';
-    var buttonsContainer='%s', formId='%s';
+	var appName="%s", accountErr='%s';
+	var captchaClass='%s', captchaKey='%s', captchaErr='%s';
+	var captchaValid='%s', captchaSwitch='%s';
+	var accountValid='%s';
+	var buttonsContainer='%s', formId='%s';
     
     
-    // get the global Assets manager
-    var am = MUI.assetsManager;
+	// get the global Assets manager
+	var am = MUI.assetsManager;
     
-    // Set a global variable 'registerFormchk', 
-    // which will be used as an instance of the validation Class-'FormCheck'.
-    var registerFormchk;
+	// Set a global variable 'registerFormchk', 
+	// which will be used as an instance of the validation Class-'FormCheck'.
+	var registerFormchk;
     
-    // Load the form validation plugin script
-    var options = {
-    	onload:function(){    		
+	// Load the form validation plugin script
+	var options = {
+	    onload:function(){    		
     		registerFormchk = new FormCheck( formId,{
-         	submitByAjax: true,
-            onAjaxSuccess: function(response){
-            	if(response != 1){alert('Account creating failed!');}
-               else{	
-               	tabSwitch(1);	// Successfully validation, start next step
-               };               
-            },            
+		    submitByAjax: true,
+		    onAjaxSuccess: function(response){
+			if(response != 1){alert('Account creating failed!');}
+			else{	
+			    tabSwitch(1);	// Successfully validation, start next step
+			};               
+		    },            
 
-            display:{
-            	errorsLocation : 1,
-               keepFocusOnError : 0, 
-               scrollToFirst : false
-            }
-			});// the end for 'registerFormchk' define
-    	}// the end for 'onload' define
-    };
+		    display:{
+		       errorsLocation : 1,
+		       keepFocusOnError : 0, 
+		       scrollToFirst : false
+		    }
+		});// the end for 'registerFormchk' define
+	    }// the end for 'onload' define
+	};
     
-    MUI.formValidLib(appName,options);
+	MUI.formValidLib(appName,options);
         
     
-    /*****************************************************************************
-    Check whether the input account has been used    
-    *****************************************************************************/    
-    // A Request.JSON class for send validation request to server side
-    var accountRequest = new Request.JSON({async:false});
+	/*****************************************************************************
+	Check whether the input account has been used    
+	*****************************************************************************/    
+	// A Request.JSON class for send validation request to server side
+	var accountRequest = new Request.JSON({async:false});
     
-    var accountValidTag = false;
-    function accountCheck(el){
-       el.errors.push(accountErr)
-       // set some options for Request.JSON instance
-       accountRequest.setOptions({
-          url: accountValid,
-          onSuccess: function(res){
-            if(res.valid == 1){accountValidTag=true};
-          }
-       });
+	var accountValidTag = false;
+	function accountCheck(el){
+	    el.errors.push(accountErr)
+	    // set some options for Request.JSON instance
+            accountRequest.setOptions({
+		url: accountValid,
+	        onSuccess: function(res){
+		    if(res.valid == 1){accountValidTag=true};
+	        }
+	    });
        
-       accountRequest.get({'name':el.getProperty('value')});
-       if(accountValidTag){
-          accountValidTag=false;   // reset global variable 'accountValidTag' to be 'false'
-          return true
-       }             
-       return false;
-    }
+	    accountRequest.get({'name':el.getProperty('value')});
+	    if(accountValidTag){
+		accountValidTag=false;   // reset global variable 'accountValidTag' to be 'false'
+		return true
+	    }             
+	    return false;
+	};
          
      
-    /********************************************************************************** 
-    Captcha image check
-    ***********************************************************************************/
-    var capthcaValidTag = false;   // a global variable to save the captcha check result
-    // a Request.JSON class for send validation request to server side    
-    var captchaRequest = new Request.JSON({async:false});
-    // the really validation function for the captcha field
-    function cimgCheck(el){
-       el.removeEvents();
-       el.errors.push(captchaErr);
+	/********************************************************************************** 
+	Captcha image check
+	***********************************************************************************/
+	var capthcaValidTag = false;   // a global variable to save the captcha check result
+	// a Request.JSON class for send validation request to server side    
+	var captchaRequest = new Request.JSON({async:false});
+	// the really validation function for the captcha field
+	function cimgCheck(el){
+	   el.removeEvents();
+	   el.errors.push(captchaErr);
        
-       /*****************************************************
-       Request captcha check from server side,
-       if it's a valid captcha,the 'cpatchaValidTag' variable
-       will be set to 'true' in the callback function of
-       'captchaRequest' which is a Request.JSON instance.
-       *****************************************************/
+	   /*****************************************************
+	   Request captcha check from server side,
+	   if it's a valid captcha,the 'cpatchaValidTag' variable
+	   will be set to 'true' in the callback function of
+	   'captchaRequest' which is a Request.JSON instance.
+	   *****************************************************/
        
-       // set some options for Request.JSON instance first
-       captchaRequest.setOptions({
-          url: captchaValid,
-          onSuccess: function(res){ 
-             if(res.valid == 1){capthcaValidTag=true}
-          }
-       });
+	   // set some options for Request.JSON instance first
+	   captchaRequest.setOptions({
+	      url: captchaValid,
+	      onSuccess: function(res){ 
+		 if(res.valid == 1){capthcaValidTag=true}
+	      }
+	   });
        
-       captchaRequest.get({ 
-          'captcha':el.getProperty('value'),
-          'ckey':$(captchaKey).getProperty('value')
-       }); 
+	   captchaRequest.get({ 
+	      'captcha':el.getProperty('value'),
+	      'ckey':$(captchaKey).getProperty('value')
+	   }); 
        
-       if(capthcaValidTag){
-          capthcaValidTag = false;   // reset global variable 'capthcaValidTag' to be 'false'
-          return true
-       }             
-       return false;
-    };
+	   if(capthcaValidTag){
+	      capthcaValidTag = false;   // reset global variable 'capthcaValidTag' to be 'false'
+	      return true
+	   }             
+	   return false;
+	};
     
-    /**************************************************************************** 
-    The function which will close the popup dialog box.
-    *****************************************************************************/
-    function closeBox(){
-       // revove the displayed invalid info
-       if($type(registerFormchk) != false){
-          registerFormchk.removeErrors();
-       };
+	/**************************************************************************** 
+	The function which will close the popup dialog box.
+	*****************************************************************************/
+	function closeBox(){
+	   // revove the displayed invalid info
+	   if($type(registerFormchk) != false){
+	      registerFormchk.removeErrors();
+	   };
        
-       // Get the popup dialog object by its name 
-       // which is defined in 'menu.ks._loginScript()'. 
-       window[digname].close();
-       delete window[digname];
-    };
+	   // Get the popup dialog object by its name 
+	   // which is defined in 'menu.ks._loginScript()'. 
+	   window[digname].close();
+	   delete window[digname];
+	};
     
-    /**************************************************************************** 
-    Initialization actions after page loaded.
-    *****************************************************************************/
-    function pageInit(event){       
-       // Add click callback function to change captcha image       
-       $$('.'+captchaClass)[0].addEvent('click', function(event){
-          new Request.HTML().get(captchaSwitch);
-       });
+	/**************************************************************************** 
+	Initialization actions after page loaded.
+	*****************************************************************************/
+	function pageInit(event){       
+	   // Add click callback function to change captcha image       
+	   $$('.'+captchaClass)[0].addEvent('click', function(event){
+	      new Request.HTML().get(captchaSwitch);
+	   });
        
-       // add mouseover effect to buttons
-       new MooHover({container:buttonsContainer,duration:800});
+	   // add mouseover effect to buttons
+	   new MooHover({container:buttonsContainer,duration:800});
 
-       // Add click callback functions for buttons
-       $(buttonsContainer)
-       .getElements('button')[0]
-       .addEvent('click',function(event){
-         registerFormchk.onSubmit(event);
-       });
+	   // Add click callback functions for buttons
+	   $(buttonsContainer)
+	   .getElements('button')[0]
+	   .addEvent('click',function(event){
+		registerFormchk.onSubmit(event);
+	   });
        
-    };
+	};
 
-    window.addEvent('domready', pageInit);
+	window.addEvent('domready', pageInit);
     """%tuple(paras)
-    
-	 print pagefn.script(js, link=False)
-	 return
+    print pagefn.script(js, link=False)
+    return
 
 def page_valid(**args):
-	 """ Valid the account informations of user. """
-	 #import sys
-	 #reload(sys)
-	 #sys.setdefaultencoding('utf8')	 
+    """ Valid the account informations of user. """
+    #import sys
+    #reload(sys)
+    #sys.setdefaultencoding('utf8')	 
 
-	 names = [item.get('name') for item in CONFIG.getData(ACCOUNTFIELDS) ]
-	 account = {}
-	 [ account.update({ name:args.get(name) or '' }) for name in names ]
-	 setattr( so, pagefn.SOINFO['user'], account )
+    names = [item.get('name') for item in CONFIG.getData(ACCOUNTFIELDS) ]
+    account = {}
+    [ account.update({ name:args.get(name) or '' }) for name in names ]
+    setattr( so, pagefn.SOINFO['user'], account )
 	 	 
-	 print '1'
-	 return
+    print '1'
+    return
     
 def page_switchImg(**args):
     """ A function to switch a captcha image and corresponding captcha key.
@@ -325,12 +323,12 @@ def page_captchaValid(**args):
     return
     
 def page_accountValid(**args):
-	 """ Check whether the input account name has been used."""
-	 username = args.get('name') or ''
-	 res = {'valid':0}
-	 userId = model.userCheck(username)
-	 if not userId :
-	 	res['valid'] = 1
+    """ Check whether the input account name has been used."""
+    username = args.get('name') or ''
+    res = {'valid':0}
+    userId = model.userCheck(username)
+    if not userId :
+	res['valid'] = 1
 		
-	 print JSON.encode(res)
-	 return
+    print JSON.encode(res)
+    return

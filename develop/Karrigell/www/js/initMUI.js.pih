@@ -1,3 +1,7 @@
+/*
+    This module just for extending some functions to Mocha's "MUI" module.
+*/
+
 /*****************************************************************************************
 <%
 # PYTHON CODE
@@ -7,323 +11,381 @@ pagefn = Import('/'.join(('', 'pagefn.py')))
 %>
 *****************************************************************************************/
 
+
 // set the MooTools.lang
 var usrLang = (navigator.language)? navigator.language: navigator.userLanguage;
 MooTools.lang.setLanguage(usrLang);
+
 
 /****************************************************************************************
 Add or extend some assistant tools to MUI
 *****************************************************************************************/
 MUI.extend({
-	// close all the opened MUI.Window instances
-	closeAllWindows: function(){
-		this.Windows.instances.each(function(instance){
-			this.closeWindow(instance.windowEl);
-		}.bind(this));
-	},
 
-	// a function to find a panel by its id
-	getPanel: function(panelId){
-		var search = MUI.Panels.instances.filter(function(panel,key){
-			if( key == panelId){return true;}
-			else{return false;}
-		});
+    // close all the opened MUI.Window instances
+    closeAllWindows: function(){
+	this.Windows.instances.each(function(instance){
+	    this.closeWindow(instance.windowEl);
+	}.bind(this));
+    },
+    
+    // a function to find a panel by its id
+    getPanel: function(panelId){
+	var search = MUI.Panels.instances.filter(function(panel,key){
+	    if( key == panelId){return true;}
+	    else{return false;}
+	});
 		
-		var keys = search.getKeys();	
-		if (keys.length == 1) return search[keys[0]];
+	var keys = search.getKeys();	
+	if (keys.length == 1) return search[keys[0]];
 
-		return null;
-	},
+	return null;
+    },
 
-	// add a inner object to MUI for managing mootools.Assets importing action 
-	assetsManager: new AssetsManager(),
+    // add a inner object to MUI for managing mootools.Assets importing action 
+    assetsManager: new AssetsManager(),
+
+    /**********************************************************************************
+    Clear cookie of this application, the cookie name is defined in 'pagefn.py' file.
+    Close old session of this application.
+    ***********************************************************************************/
+    appInit: function(){
+	/*
+	For recording the logined user, it's no need to delete cookie.
+	*/
+	// remove old cookie
+	//MUI.clearCookie();		
+    },
+    
+    /*********************************************************************************
+    Clear information saved in cookie.
+    **********************************************************************************/
+    clearCookie: function(){
+	var name = '<%=pagefn.COOKIENAME %>';		
+	if(Cookie.read(name) != null){
+		Cookie.dispose(name);
+	};
+    },
+
+    // a plugin to close single popup dialog window, such as login or register dialog 
+    closeModalDialog: function(){
+	// Remove form validation error informations that may be left.
+	MUI.removeErr();
 	
-	/**********************************************************************************
-	Clear cookie of this application, the cookie name is defined in 'pagefn.py' file.
-	Close old session of this application.
-	***********************************************************************************/
-	appInit: function(){
-		// remove old cookie		
-		var name = '<%=pagefn.COOKIENAME %>';		
-		if(Cookie.read(name) != null){
-			Cookie.dispose(name);
-		};
-	},
+	// close modal dialog		
+	MUI.Windows.instances.each(function(w){
+	    if(w.options.type=='modal') {
+		// remove error information created by 'formcheck' lib
+		MUI.removeErr(w);
+		w.close();	
+	    }
+	}); 
+	return true
+    },
 
-	// a plugin to close single popup dialog window, such as login or register dialog 
-	closeModalDialog: function(){
-		// Remove form validation error informations that may be left.
-		MUI.removeErr();
-		
-		// close modal dialog		
-		MUI.Windows.instances.each(function(w){
-   			if(w.options.type=='modal'){ w.close();	};
-   		}); 
-   		return true
-	},
+    _removeErr: function(mochaWindow){
+	// check whether there is forms in this modal
+	var forms = mochaWindow.windowEl.getElements('form');
+	if(forms.length != 0){
+	    forms.each(function(form){
+		if(formcheck = form.retrieve('formcheck'))
+		    formcheck.removeErrors();
+	    });
+	};
+    },
 	
-	// a function to remove error prompts for FormCheck lib
-	removeErr: function(){
-		// If there are left error information DIV elements created by 
-		// FormCheck object, remove them.				
-		for ( i in window){
-			if ( window[i] instanceof FormCheck ){
-				window[i].removeErrors();
-			}					
-		};		
-	},
-	
-	/*************************************************************************************************************
-	Return a styled <button> Element that provided by SexyButton plugin<http://code.google.com/p/sexybuttons/>.
-	Parameters:
-	options- a json object holds the setting options,
-				which has keys 'txt','bnAttrs','bnType','bnSize','bnSkin'.
-				'txt',the text on the button;
-				'bnAttrs', optional, the attributes of the button;
-				'imgType', the predefined type determined what image to be shown on the button, such as 'ok'
-				'bnSize', optional,it should be one of 'sexysmall','sexymedium','sexylarge'
-				'bnSkin', optionsal,the background color for the button 
-	**************************************************************************************************************/
-	styledButton: function(options){
-		var bnClass = ['sexybutton','sexysimple'];	
-		
-		// default settings	
-		$H({'bnSize':'sexymedium', 'bnSkin':'sexysimple'}).each(function(value,prop){
-			bnClass.push( options[prop]||value);
-		});
-		
-		// merge user defined attributes for button
-		var bnAttrs = {'class': bnClass.join(' ')};
-		
-		if(options.bnAttrs){			
-			$H(options.bnAttrs).each(function(value,key){				
-				bnAttrs[key] = value;
-			});			
-		};
-		
-		var button = new Element('button', bnAttrs);		
-		var span = new Element('span',{
-			html: options.txt || '',
-			'class': options.imgType
-		});		
-		button.grab(new Element('sapn').grab(span));
-		
-		return button; 
-	},
-	
-	//	Pop up a window to require user to confirm a action. 
-	confirm: function(message,closeFn, options){
-		var defaultOptions = {
-			loadMethod:'html', type: 'modal', title: '',
-			maximizable: false,
-			//minimizable: false,
-			//resizable: false,				
-			width:320, height:160, y: 120, 
-			padding:  { top: 10, right: 12, bottom: 10, left: 12 },
-			shadowBlur: 8
-		};
-		
-		$H(options).each(function(value,key){
-			detaultOptions[key] = value;
-		});
-		
-		var cmWindow = new MUI.Window(defaultOptions);
-		
-		var messageEl = new Element('div',{
-			html: message,
-			'class':'note',
-			'style':'font-weight:bold;font-size:1.5em;'
-		});
-		
-		// add buttons to content
-		var buttons = new Element('div',{style:'text-align:right;'});
-		var labels = ['<%=pagefn.BUTTONLABELS['confirmWindow']['confirm']%>', '<%=pagefn.BUTTONLABELS['confirmWindow']['cancel']%>'];
+    // a function to remove error prompts for FormCheck lib
+    removeErr: function(mochaWindow){
+	// If there are left error information DIV elements created by 
+	// FormCheck object, remove them.
 
-		['ok','cancel'].each(function(actionType,index){
-			// create buttons
-			options = {
-				txt: labels[index],
-			        imgType: actionType,
-				bnAttrs: {'style':'margin-right:1em;'}
-				//bnSkin: 'sexycadet'
-			};			
-			button = MUI.styledButton(options);
-			button.addEvent('click', function(e){		
-				new Event(e).stop();						
-				// close confirm window
-				cmWindow.close();				
-				closeFn(index);
-			});
-			buttons.grab(button);
+	if(mochaWindow) MUI._removeErr(mochaWindow);
+	else{
+	    MUI.Windows.instances.each(MUI._removeErr);
+	};	
 			
-		});		
-		
-		var container = new Element('div');
-		container.adopt(messageEl,buttons);			
-		
-		// add content to this confirm window
-		MUI.updateContent({
-			'element': cmWindow.windowEl,
-			'content': container,
-			'method': 'html',
-			//'url': options.contentURL,
-			//'data': options.data,
-			'onContentLoaded': null,
-			'require': {}			
-		});
-	},
+    },
 	
-	// Create a customed window for show alert information.
-	alert: function(message, options){
-		defaultOptions = {
-			loadMethod:'html', type: 'modal', title:'',
-			maximizable: false, minimizable: false,
-			//resizable: false,				
-			width:320, height:140, y: 120, 
-			padding:  { top: 10, right: 12, bottom: 10, left: 12 },
-			shadowBlur: 8
-		};
+    /*************************************************************************************************************
+    Return a styled <button> Element that provided by SexyButton plugin<http://code.google.com/p/sexybuttons/>.
+    Parameters:
+    options- a json object holds the setting options,
+	    which has keys 'txt','bnAttrs','bnType','bnSize','bnSkin'.
+	    'txt',the text on the button;
+	    'bnAttrs', optional, the attributes of the button;
+	    'imgType', the predefined type determined what image to be shown on the button, such as 'ok'
+	    'bnSize', optional,it should be one of 'sexysmall','sexymedium','sexylarge'
+	    'bnSkin', optionsal,the background color for the button 
+    **************************************************************************************************************/
+    styledButton: function(options){
+	var bnClass = ['sexybutton','sexysimple'];	
 		
-		$H(options).each(function(value,key){
-			detaultOptions[key] = value;
-		});
+	// default settings	
+	$H({'bnSize':'sexymedium', 'bnSkin':'sexysimple'}).each(function(value,prop){
+	    bnClass.push( options[prop]||value);
+	});
 		
-		aWindow = new MUI.Window(defaultOptions);
+	// merge user defined attributes for button
+	var bnAttrs = {'class': bnClass.join(' ')};
 		
-		messageEl = new Element('div',{
-			html:message,
-			'class':'info',
-			'style':'font-weight:bold;font-size:1.5em;'
-		});
+	if(options.bnAttrs){			
+	    $H(options.bnAttrs).each(function(value,key){				
+		bnAttrs[key] = value;
+	    });			
+	};
 		
-		hr = new Element('hr',{style:'padding:0.8px;'});
+	var button = new Element('button', bnAttrs);		
+	var span = new Element('span',{
+	    html: options.txt || '',
+	    'class': options.imgType
+	});		
+	button.grab(new Element('sapn').grab(span));
 		
-		// add buttons to content
-		buttons = new Element('div',{style:'text-align:right;'});
-		labels = ['<%=pagefn.BUTTONLABELS['alertWindow']['ok']%>', ];
-		['ok',].each(function(actionType,index){
-			// create buttons
-			options = {
-				txt: labels[index],
-			   imgType: actionType,
-				bnAttrs: {'style':'margin-right:1em;'}
-				//bnSkin: 'sexycadet'
-			};			
-			button = MUI.styledButton(options);
-			button.addEvent('click', function(e){		
-				new Event(e).stop();						
-				// close confirm window
-				aWindow.close();
-			});
-			buttons.grab(button);
+	return button; 
+    },
+	
+    //	Pop up a window to require user to confirm a action. 
+    confirm: function(message,closeFn, options){
+	var defaultOptions = {
+	    loadMethod:'html', type: 'modal', title: '',
+	    maximizable: false,
+	    width:320, height:160, y: 120, 
+	    padding:  { top: 10, right: 12, bottom: 10, left: 12 },
+	    shadowBlur: 8
+	};
+		
+	$H(options).each(function(value,key){
+	    detaultOptions[key] = value;
+	});
+		
+	var cmWindow = new MUI.Window(defaultOptions);
+		
+	var messageEl = new Element('div',{
+	    html: message,
+	    'class':'note',
+	    'style':'font-weight:bold;font-size:1.5em;'
+	});
+		
+	// add buttons to content
+	var buttons = new Element('div',{style:'text-align:right;'});
+	var labels = ['<%=pagefn.BUTTONLABELS['confirmWindow']['confirm']%>', '<%=pagefn.BUTTONLABELS['confirmWindow']['cancel']%>'];
+
+	['ok','cancel'].each(function(actionType,index){
+	    // create buttons
+	    options = {
+		txt: labels[index],
+		imgType: actionType,
+		bnAttrs: {'style':'margin-right:1em;'}
+		//bnSkin: 'sexycadet'
+	    };			
+	    button = MUI.styledButton(options);
+	    button.addEvent('click', function(e){		
+		new Event(e).stop();						
+		// close confirm window
+		cmWindow.close();				
+		closeFn(index);
+	    });
+	    buttons.grab(button);
 			
-		});		
+	});		
 		
-		container = new Element('div');
-		container.adopt(messageEl, hr, buttons);			
+	var container = new Element('div');
+	container.adopt(messageEl,buttons);			
 		
-		// add content to this window
-		MUI.updateContent({
-			'element': aWindow.windowEl,
-			'content': container,
-			'method': 'html',
-			'onContentLoaded': null,
-			'require': {}			
-		});
-	},
+	// add content to this confirm window
+	MUI.updateContent({
+	    'element': cmWindow.windowEl,
+	    'content': container,
+	    'method': 'html',
+	    //'url': options.contentURL,
+	    //'data': options.data,
+	    'onContentLoaded': null,
+	    'require': {}			
+	});
+    },
 	
-	// Return a custom defined notification crawler
-	crawler: function(message, options){
-		var defaultOptions = {
-			loadMethod: 'html',
-			closeAfter: 1500,
-			type: 'notification',
-			addClass: 'notification',
-			content: message,
-			width: 220,
-			height: 60,
-			//y: 53,
-			y: 280,
-			x: 700,
-			padding:  { top: 10, right: 12, bottom: 10, left: 12 },
-			shadowBlur: 5	
-		};
+    // Create a customed window for show alert information.
+    alert: function(message, options){
+	defaultOptions = {
+	    loadMethod:'html', type: 'modal', title:'',
+	    maximizable: false, minimizable: false,
+	    //resizable: false,				
+	    width:320, height:140, y: 120, 
+	    padding:  { top: 10, right: 12, bottom: 10, left: 12 },
+	    shadowBlur: 8
+	};
 		
-		$H(options).each(function(value,key){
-			defaultOptions[key] = value;
-		});
-		new MUI.Window(defaultOptions);		
-	},
+	$H(options).each(function(value,key){
+	    detaultOptions[key] = value;
+	});
+		
+	aWindow = new MUI.Window(defaultOptions);
+		
+	messageEl = new Element('div',{
+	    html:message,
+	    'class':'info',
+	    'style':'font-weight:bold;font-size:1.5em;'
+	});
+		
+	hr = new Element('hr',{style:'padding:0.8px;'});
+		
+	// add buttons to content
+	buttons = new Element('div',{style:'text-align:right;'});
+	labels = ['<%=pagefn.BUTTONLABELS['alertWindow']['ok']%>', ];
+	['ok',].each(function(actionType,index){
+	    // create buttons
+	    options = {
+		txt: labels[index],
+		imgType: actionType,
+		bnAttrs: {'style':'margin-right:1em;'}
+		//bnSkin: 'sexycadet'
+	    };			
+	    button = MUI.styledButton(options);
+	    button.addEvent('click', function(e){		
+		new Event(e).stop();						
+		// close confirm window
+		aWindow.close();
+	    });
+	    buttons.grab(button);
+			
+	});		
+		
+	container = new Element('div');
+	container.adopt(messageEl, hr, buttons);			
+		
+	// add content to this window
+	MUI.updateContent({
+	    'element': aWindow.windowEl,
+	    'content': container,
+	    'method': 'html',
+	    'onContentLoaded': null,
+	    'require': {}			
+	});
+    },
+	
+    // Return a custom defined notification crawler
+    crawler: function(message, options){
+	var defaultOptions = {
+	    loadMethod: 'html',
+	    closeAfter: 1500,
+	    type: 'notification',
+	    addClass: 'notification',
+	    content: message,
+	    width: 220,
+	    height: 60,
+	    //y: 53,
+	    y: 280,
+	    x: 700,
+	    padding:  { top: 10, right: 12, bottom: 10, left: 12 },
+	    shadowBlur: 5	
+	};
+		
+	$H(options).each(function(value,key){
+	    defaultOptions[key] = value;
+	});
+	new MUI.Window(defaultOptions);		
+    },
 
-	/**************************************************************************************************
-	A 'gauge' style MUI.Window
-	Removed the cycle background which will be drawn in MUI.Window.drawGauge function.
-	***************************************************************************************************/
-	GaugeWindow: new Class({
-		Implements: MUI.Window,
-		drawGauge: function(ctx, width, height, shadowBlur, shadowOffset, shadows){
-			// Draw gauge header
-			this.canvasHeaderEl.setStyles({
-				'top': shadowBlur - shadowOffset.y,
-				'left': shadowBlur - shadowOffset.x
-			});		
-			var ctx = this.canvasHeaderEl.getContext('2d');
-			ctx.clearRect(0, 0, width, 100);
-			ctx.beginPath();
-			ctx.lineWidth = 24;
-			ctx.lineCap = 'round';
-			ctx.moveTo(13, 13);
-			ctx.lineTo(width - (shadowBlur*2) - 13, 13);
-			ctx.strokeStyle = 'rgba(0, 0, 0, .65)';
-			ctx.stroke();
-		}
-	}),
-
-	/*******************************************************************************************
-	@Warning: Not used ?
-	A handy function to make a DOM Element laying center on the window or a container Element.
-	Parameters:
-		relative - the container DOM element
-	********************************************************************************************/
-	layCenter: function(container, element){
-		if($(container)){
-			container = $(container);
-		}else{
-			container = window;
-		};
-
-		var windSize = container.getSize();
-		var elSize = element.getSize();
-		var top,left,marginTop,marginLeft;
-		if(windSize.x < elSize.x){
-			left = 0;
-			marginLeft = 0;
-		}else{
-			left = '50%';
-			marginLeft = -(elSize.x/2).toInt();
-		};
-
-		if(windSize.y < elSize.y ) {
-			top = 0;
-			marginTop = 0;
-		}else{
-			top = '50%';
-			marginTop = -(elSize.y/2).toInt();
-			marginTop = -(elSize.y/2).toInt();
-		};
-
-		if(container != window && container.getStyle('position')=='static'){
-			container.setStyle('position','container');
-		};
-
-		element.setStyles({
-			position:'absolute',
-			top:top,
-			left:left,
-			marginLeft:marginLeft,
-			marginTop:marginTop
-		}).inject((container==window?$(document.body):container));
-		return element;
+    /**************************************************************************************************
+    A 'gauge' style MUI.Window
+    Removed the cycle background which will be drawn in MUI.Window.drawGauge function.
+    ***************************************************************************************************/
+    GaugeWindow: new Class({
+	Implements: MUI.Window,
+	drawGauge: function(ctx, width, height, shadowBlur, shadowOffset, shadows){
+	    // Draw gauge header
+	    this.canvasHeaderEl.setStyles({
+		'top': shadowBlur - shadowOffset.y,
+		'left': shadowBlur - shadowOffset.x
+	    });		
+	    var ctx = this.canvasHeaderEl.getContext('2d');
+	    ctx.clearRect(0, 0, width, 100);
+	    ctx.beginPath();
+	    ctx.lineWidth = 24;
+	    ctx.lineCap = 'round';
+	    ctx.moveTo(13, 13);
+	    ctx.lineTo(width - (shadowBlur*2) - 13, 13);
+	    ctx.strokeStyle = 'rgba(0, 0, 0, .65)';
+	    ctx.stroke();
 	}
+    })
+
+});
+
+/*****************************************************************************
+Implement some new properties to MUI.Panel
+******************************************************************************/
+MUI.Panel.implement({
+    // toggle the panel's expanding status, new added by B.Z 
+    toggleExpand: function(){
+	var panel = this.panelEl;
+	var panelWrapper = this.panelWrapperEl
+		
+	// Get siblings and make sure they are not all collapsed.
+	// If they are all collapsed and the current panel is collapsing
+	// Then collapse the column.
+	var instances = MUI.Panels.instances;
+	var expandedSiblings = [];
+		
+	panelWrapper.getAllPrevious('.panelWrapper').each(function(sibling){
+	    var instance = instances.get(sibling.getElement('.panel').id);
+	    if (instance.isCollapsed == false){
+		expandedSiblings.push(sibling.getElement('.panel').id);
+	    }
+	});
+		
+	panelWrapper.getAllNext('.panelWrapper').each(function(sibling){
+	    var instance = instances.get(sibling.getElement('.panel').id);
+	    if (instance.isCollapsed == false){
+		expandedSiblings.push(sibling.getElement('.panel').id);
+	    }
+	});
+
+	// Collapse Panel
+	if (this.isCollapsed == false) {
+	    //var currentColumn = MUI.Columns.instances.get($(options.column).id);
+	    var currentColumn = MUI.Columns.instances.get($(this.options.column).id);
+
+	    if (expandedSiblings.length == 0 && currentColumn.options.placement != 'main'){
+		//var currentColumn = MUI.Columns.instances.get($(options.column).id);
+		var currentColumn = MUI.Columns.instances.get($(this.options.column).id);
+		currentColumn.columnToggle();
+		return;
+	    }
+	    else if (expandedSiblings.length == 0 && currentColumn.options.placement == 'main'){
+		return;
+	    }
+	    this.oldHeight = panel.getStyle('height').toInt();
+	    if (this.oldHeight < 10) this.oldHeight = 20;
+	    this.contentEl.setStyle('position', 'absolute'); // This is so IE6 and IE7 will collapse the panel all the way		
+	    panel.setStyle('height', 0);								
+	    this.isCollapsed = true;				
+	    panelWrapper.addClass('collapsed');
+	    panelWrapper.removeClass('expanded');				
+	    //MUI.panelHeight(options.column, panel, 'collapsing');
+	    MUI.panelHeight(this.options.column, panel, 'collapsing');
+	    MUI.panelHeight(); // Run this a second time for panels within panels
+			
+	    this.collapseToggleEl.removeClass('panel-collapsed');				
+	    this.collapseToggleEl.addClass('panel-expand');
+		    
+	    this.collapseToggleEl.setProperty('title','Expand Panel');
+	    this.fireEvent('onCollapse');				
+	}
+	else {	// Expand Panel
+	    this.contentEl.setStyle('position', null); // This is so IE6 and IE7 will collapse the panel all the way				
+	    panel.setStyle('height', this.oldHeight);
+	    this.isCollapsed = false;				
+	    panelWrapper.addClass('expanded');
+	    panelWrapper.removeClass('collapsed');
+	    MUI.panelHeight(this.options.column, panel, 'expanding');
+	    MUI.panelHeight(); // Run this a second time for panels within panels
+	    this.collapseToggleEl.removeClass('panel-expand');
+	    this.collapseToggleEl.addClass('panel-collapsed');
+	    this.collapseToggleEl.setProperty('title','Collapse Panel');
+	    this.fireEvent('onExpand');
+	};
+		
+    }
 });
 

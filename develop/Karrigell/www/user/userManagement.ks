@@ -85,7 +85,7 @@ def _usersGridJs(**args):
 		
 	paras = tuple(paras)
 	js = \
-	"""	
+	'''	
 	var appName='%s', gridId='%s',
 	filterInput='%s',filterBn='%s',filterClearBn='%s',	
 	dataUrl='%s',colsModelUrl='%s', userInfoUrl='%s',
@@ -96,89 +96,99 @@ def _usersGridJs(**args):
 	
 	// load column model for the grid from server side 
 	var jsonRequest = new Request.JSON({
-		async: false, url: colsModelUrl, 
-		onSuccess: function(json){
-    			colsModel = json['data'];
-    		}
+	    async: false, url: colsModelUrl, 
+	    onSuccess: function(json){
+		colsModel = json['data'];
+	    }
 	}).get();
    
 	// search action for grid
    	$(filterBn).addEvent('click',function (e){
-   		datagrid.loadData(dataUrl, {'filter':$(filterInput).value || ''});
+	    datagrid.loadData(dataUrl, {'filter':$(filterInput).value || ''});
    	});
    
   	// refresh grid
    	$(filterClearBn).addEvent('click', function(e){
-   		$(filterInput).setProperty('value','');
-   		datagrid.loadData();
+	    $(filterInput).setProperty('value','');
+	    datagrid.loadData();
    	});   
    
    	// edit the data of selected row
    	function gridRowEdit(evt){
-   		/* Parameters
-   		evt.target:the grid object
-   		evt.indices:the multi selected rows' indexes
-   		evt.row: the index of the row in the grid
-   		*/
+	    /* Parameters
+	    evt.target:the grid object
+	    evt.indices:the multi selected rows' indexes
+	    evt.row: the index of the row in the grid
+	    */
    	
-   		// get the data of the selected row
-   		row = evt.target.getDataByRow(evt.row);
+	    // get the data of the selected row
+	    row = evt.target.getDataByRow(evt.row);
    	
-   		var urls = [];
-   		$H({'user':row['username'],'panelReload':'0'})
-   		.each(function(value,key){
-   			urls.push([key,value].join('='));
-   		});
-   		url = [editUrl,urls.join('&')].join('?');
+	    var urls = [];
+	    $H({'user':row['username'],'panelReload':'0'})
+	    .each(function(value,key){
+		urls.push([key,value].join('='));
+	    });
+	    url = [editUrl,urls.join('&')].join('?');
    	
-   		// the dialog to edit portfolio
-   		new MUI.Modal({
-      			width:600, height:380, contentURL: url,
-      			title: dialogTitle,
-      			modalOverlayClose: false,
-      			onClose: function(e){
-      				datagrid.loadData();
-      			}
-      		});
+	    // the dialog to edit portfolio
+	    new MUI.Modal({
+		width:850, height:400, contentURL: url,
+		resizable: true,
+		title: dialogTitle,
+		modalOverlayClose: false,
+		onClose: function(e){
+		    datagrid.loadData();
+		}
+	    });
    	
    	};
    
    	// accordion function which show more data for each row
    	function gridRowAccordion(obj){
-   		/* Parameters
-   		obj :
-   		{ 
-   			parent: Li element which holds the content for accordion, 
-   			row: the index for the row in the grid, 
-   			grid: table grid instance
-   		}
-   		*/
-   		row = obj.grid.getDataByRow(obj.row);
-   		name = row['username'];
-   		url = userInfoUrl+'?username='+name;
-   		obj.parent.load(url);
+	    /* Parameters
+	    obj :
+	    { 
+		parent: Li element which holds the content for accordion, 
+		row: the index for the row in the grid, 
+		grid: table grid instance
+	    }
+	    */
+	    if(obj.parent.get('html') != '')
+		return;
+	    
+	    obj.grid.container.set('spinner').spin();
+
+	    row = obj.grid.getDataByRow(obj.row);
+	    name = row['username'];
+	    url = userInfoUrl+'?username='+name;
+	    obj.parent.set('load',{
+		onComplete: function(){
+		    obj.grid.container.unspin();
+	    }});
+	    obj.parent.load(url);
    	};
    
    
 	function renderGrid(){	
 			
-		datagrid = new omniGrid( gridId, {
-			columnModel: colsModel,	url: dataUrl, accordion: true,
-			accordionRenderer: gridRowAccordion,
-			autoSectionToggle: true,
-			perPageOptions: [20,40,50,100,200],
-			perPage:10, page:1, pagination:true, serverSort:true,
-			showHeader: true, sortHeader: true, alternaterows: true,
-			resizeColumns: true, multipleSelection:true,
-			width:810, height: 380
-		});
+	    datagrid = new omniGrid( gridId, {
+		columnModel: colsModel,	url: dataUrl, accordion: true,
+		accordionRenderer: gridRowAccordion,
+		autoSectionToggle: true,
+		perPageOptions: [15,30,50,100,200],
+		perPage:10, page:1, pagination:true, serverSort:true,
+		showHeader: true, sortHeader: true, alternaterows: true,
+		resizeColumns: true, multipleSelection:true,
+		width:810, height: 350
+	    });
 		
-		datagrid.addEvent('dblclick', gridRowEdit);
+	    datagrid.addEvent('dblclick', gridRowEdit);
 	};
 	
 	MUI.dataGrid(appName, {'onload':renderGrid});
    
-	"""%paras
+	'''%paras
 	
 	return js
 

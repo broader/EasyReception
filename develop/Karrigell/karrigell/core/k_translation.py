@@ -59,7 +59,8 @@ class Translation:
             return None
         else:
             return t_dict[src][language]
-
+	 
+	 # this method is seemed not being used, comment by B.Z, 2010.12.10
     def update_translations(self,dico):
         # update translation file from a dictionary
         t_dict = self.get_translations()

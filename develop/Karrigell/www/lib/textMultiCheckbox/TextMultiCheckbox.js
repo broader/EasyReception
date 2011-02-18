@@ -222,8 +222,6 @@ var TextMultiCheckbox = new Class({
 		};
 	},
 	
-	promptElement: function(){},
-	
 	getMonitorText: function(){
 		if(this.monitorTextElement.hasChild(this.prompt)) this.prompt=this.prompt.dispose();
 		return this.monitorTextElement.get('text').trim()

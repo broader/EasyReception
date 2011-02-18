@@ -78,17 +78,21 @@ MUI.Desktop = {
 		
 	},
 	menuInitialize: function(){
-		// Fix for dropdown menus in IE6
+		// Fix for dropdown menus in IE6		
 		if (Browser.Engine.trident4 && this.desktopNavBar){
 			this.desktopNavBar.getElements('li').each(function(element) {
-				element.addEvent('mouseenter', function(){
-					this.addClass('ieHover');
+				//element.removeEvents('mouseleave');
+				element.addEvent('mouseenter', function(){	
+					//new Event(e).stop();									
+					this.addClass("ieHover");					
 				});
 				element.addEvent('mouseleave', function(){
-					this.removeClass('ieHover');
+					//new Event(e).stop();
+					this.removeClass("ieHover");					
 				});
 			});
-		};
+		};	
+			
 	},
 	onBrowserResize: function(){
 		this.setDesktopSize();
@@ -837,79 +841,7 @@ MUI.Panel = new Class({
 			new Event(event).stop();
 			this.toggleExpand();
 		}.bind(this));
-	},
-	
-	// toggle the panel's expanding status, new added by B.Z 
-	toggleExpand: function(){
-		var panel = this.panelEl;
-		var panelWrapper = this.panelWrapperEl
-		
-		// Get siblings and make sure they are not all collapsed.
-		// If they are all collapsed and the current panel is collapsing
-		// Then collapse the column.
-		var instances = MUI.Panels.instances;
-		var expandedSiblings = [];
-		
-		panelWrapper.getAllPrevious('.panelWrapper').each(function(sibling){
-			var instance = instances.get(sibling.getElement('.panel').id);
-			if (instance.isCollapsed == false){
-				expandedSiblings.push(sibling.getElement('.panel').id);
-			}
-		});
-		
-		panelWrapper.getAllNext('.panelWrapper').each(function(sibling){
-			var instance = instances.get(sibling.getElement('.panel').id);
-			if (instance.isCollapsed == false){
-				expandedSiblings.push(sibling.getElement('.panel').id);
-			}
-		});
-
-		// Collapse Panel
-		if (this.isCollapsed == false) {
-			//var currentColumn = MUI.Columns.instances.get($(options.column).id);
-			var currentColumn = MUI.Columns.instances.get($(this.options.column).id);
-
-			if (expandedSiblings.length == 0 && currentColumn.options.placement != 'main'){
-				//var currentColumn = MUI.Columns.instances.get($(options.column).id);
-				var currentColumn = MUI.Columns.instances.get($(this.options.column).id);
-				currentColumn.columnToggle();
-				return;
-			}
-			else if (expandedSiblings.length == 0 && currentColumn.options.placement == 'main'){
-				return;
-			}
-			this.oldHeight = panel.getStyle('height').toInt();
-			if (this.oldHeight < 10) this.oldHeight = 20;
-			this.contentEl.setStyle('position', 'absolute'); // This is so IE6 and IE7 will collapse the panel all the way		
-			panel.setStyle('height', 0);								
-			this.isCollapsed = true;				
-			panelWrapper.addClass('collapsed');
-			panelWrapper.removeClass('expanded');				
-			//MUI.panelHeight(options.column, panel, 'collapsing');
-			MUI.panelHeight(this.options.column, panel, 'collapsing');
-			MUI.panelHeight(); // Run this a second time for panels within panels
-			
-			this.collapseToggleEl.removeClass('panel-collapsed');				
-			this.collapseToggleEl.addClass('panel-expand');
-			
-			this.collapseToggleEl.setProperty('title','Expand Panel');
-			this.fireEvent('onCollapse');				
-		}
-		else {	// Expand Panel
-			this.contentEl.setStyle('position', null); // This is so IE6 and IE7 will collapse the panel all the way				
-			panel.setStyle('height', this.oldHeight);
-			this.isCollapsed = false;				
-			panelWrapper.addClass('expanded');
-			panelWrapper.removeClass('collapsed');
-			MUI.panelHeight(this.options.column, panel, 'expanding');
-			MUI.panelHeight(); // Run this a second time for panels within panels
-			this.collapseToggleEl.removeClass('panel-expand');
-			this.collapseToggleEl.addClass('panel-collapsed');
-			this.collapseToggleEl.setProperty('title','Collapse Panel');
-			this.fireEvent('onExpand');
-		};
-		
-	}
+	}	
 	
 });
 

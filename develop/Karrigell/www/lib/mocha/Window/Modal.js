@@ -71,7 +71,7 @@ MUI.Modal = new Class({
 				}
 			}).inject(document.body);
 		}
-
+		
 		MUI.Modal.modalOverlayOpenMorph = new Fx.Morph($('modalOverlay'), {
 			'duration': 150
 		});

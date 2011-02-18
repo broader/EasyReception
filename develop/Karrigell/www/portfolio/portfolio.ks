@@ -99,27 +99,27 @@ def _portfolioShowJs(**args):
 	paras = [PORTFOLIOEDITBN, _('Edit Portfolio'), '/'.join((APPATH,'page_editPortfolio'))]
 	paras = tuple(paras)
 	js = \
-	"""
+	'''
 	var portfolioBn='%s', portfolioDlgTitle='%s', portfolioEditUrl='%s';
 	function portfolioPageInit(){
-		// add mouseover effect to buttons
-   		new MooHover({container:portfolioBn,duration:800});
-   	
-   		// Add click callback functions for buttons
-      		$(portfolioBn)
-      		.getElements('button')[0]
-      		.addEvent('click',function(event){
-        		new MUI.Modal({
-         			width:600, height:380,
-         			contentURL: portfolioEditUrl,
-         			title: portfolioDlgTitle,
-         			modalOverlayClose: false,
-         		});
-      		});
+	    // add mouseover effect to buttons
+	    new MooHover({container:portfolioBn,duration:800});
+    
+	    // Add click callback functions for buttons
+	    $(portfolioBn)
+	    .getElements('button')[0]
+	    .addEvent('click',function(event){
+		new MUI.Modal({
+		    width:800, height:380,
+		    contentURL: portfolioEditUrl,
+		    title: portfolioDlgTitle,
+		    modalOverlayClose: false,
+		});
+	    });
 	};
 	
 	window.addEvent('domready', portfolioPageInit);
-	"""%paras
+	'''%paras
 	
 	return js
 
@@ -152,13 +152,13 @@ def page_editPortfolio(**args):
 	yform = formFn.yform
 	# calculate the fields' number showing in each column of the form	
 	interval = int(len(render)/3)	
-	style = 'border-left:1px solid #DDDDDD;'		
-	left = DIV(Sum(yform(render[:interval])), **{'class':'c33l', 'style':style})
+	left = DIV(Sum(yform(render[:interval])), **{'class':'c33l'})
 	next = 2*interval
-	center = DIV(Sum(yform(render[interval:next])), **{'class':'c33r', 'style':style})
-	right = DIV(Sum(yform(render[next:])), **{'class':'c33r', 'style':style})
+	center = DIV(Sum(yform(render[interval:next])), **{'class':'c33l', 'style':'border-left:1px solid #DDDDDD;'})
+	# for compatiable for ie browser, this div using 'style' property, not 'c33r' css class
+	right = DIV(Sum(yform(render[next:])), **{'style':'float:right;width:30%;border-left:1px solid #DDDDDD;'})
 	divs = DIV(Sum((left, center, right)), **{'class':'subcolumns'})	
-	
+
    	# add the <Legend> tag
 	legend = LEGEND(Sum([ TEXT(user), TEXT(_('- Base Information ')) ]))    
 	form.append(FIELDSET(Sum((legend,divs))))
@@ -172,7 +172,7 @@ def page_editPortfolio(**args):
 	[ BUTTON( name, **{'class':'MooTrans', 'type':'button'}) \
 	  for name in BNLABELS[1:] ]
 	
-	div = DIV(Sum(buttons), **{ 'id':PORTFOLIOACTIONBN , 'style':'position:absolute;margin-left:12em;'})    
+	div = DIV(Sum(buttons), **{ 'id':PORTFOLIOACTIONBN , 'style':'position:absolute;margin-left:20em;'})    
 	form.append(div)
 	
 	# form action url
@@ -198,10 +198,10 @@ def _editPortfolioJs(panelReload):
 	paras = [ panelReload, portfolioPanel, APP, PORTFOLIOACTIONBN, BASEINFO ]
 	paras = tuple(paras)
 	js =\
-	"""
+	'''
 	var panelReload='%s', currentPanelId='%s', 
 	appName='%s', portfolioActionBn='%s', portfolioFormId='%s';
-	
+
 	// Add validation function to the form
 	// Set a global variable 'portfolioFormchk', 
 	// which will be used as an instance of the validation Class-'FormCheck'.
@@ -209,77 +209,77 @@ def _editPortfolioJs(panelReload):
     
 	// Load the form validation plugin script
 	var options = {
-		onload:function(){    		
-			portfolioFormchk = new FormCheck( portfolioFormId,{
-				submitByAjax: true,
-				onAjaxSuccess: function(response){
-					if(response != 1){
-						MUI.notification('Account creating failed!');
-					}
-					else{	
-						MUI.notification('Edit Successfully');	// Successfully action
-						// close edit dialog
-						closeDialog();
+	    onload:function(){    		
+		portfolioFormchk = new FormCheck( portfolioFormId,{
+		    submitByAjax: true,
+		    onAjaxSuccess: function(response){
+			if(response != 1){
+			    MUI.notification('Account creating failed!');
+			}
+			else{	
+			    MUI.notification('Edit Successfully');	// Successfully action
+			    // close edit dialog
+			    closeDialog();
 						
-						// Is it need to update the content of panel?
-						if (panelReload == '1'){
-							panel = MUI.Panels.instances.get( currentPanelId );
-							props = panel.options;
+			    // Is it need to update the content of panel?
+			    if (panelReload == '1'){
+				panel = MUI.Panels.instances.get( currentPanelId );
+				props = panel.options;
 							
-							MUI.updateContent({
-								'element': panel.panelEl,
-								'content': props.content,
-								'method': props.method,
-								'data': props.data,
-								'url': props.contentURL,
-								'onContentLoaded': null
-							});
-						};
+				MUI.updateContent({
+				    'element': panel.panelEl,
+				    'content': props.content,
+				    'method': props.method,
+				    'data': props.data,
+				    'url': props.contentURL,
+				    'onContentLoaded': null
+				});
+			    };
 						
-					};               
-				},            
+			};               
+		    },            
 
-				display:{
-					errorsLocation : 1,
-					keepFocusOnError : 0, 
-					scrollToFirst : false
-				}
-			});// the end for 'formchk' define
-		}// the end for 'onload' define
+		    display:{
+			errorsLocation : 1,
+			keepFocusOnError : 0, 
+			scrollToFirst : false
+		    }
+		});// the end for 'portfolioFormchk' define
+	    }// the end for 'onload' define
 	};// the end for 'options' define
  
 	MUI.formValidLib(appName,options);
    
 	function editPortfolio(event){
-		portfolioFormchk.onSubmit(event);
+	    portfolioFormchk.onSubmit(event);
 	};
 	
 	function closeDialog(){
-		// close register dialog, this function has been defined in init.js
-		MUI.closeModalDialog();
-		// remove imported Assets
-		MUI.assetsManager.remove(appName,'app');
+	    // close register dialog, this function has been defined in init.js
+	    MUI.closeModalDialog();
+	    // remove imported Assets
+	    MUI.assetsManager.remove(appName,'app');
 	};
 	
 	function exitEditPortfolio(event){
-		new Event(event).stop();
-		closeDialog();
+	    new Event(event).stop();
+	    closeDialog();
 	};
 	
 	function editPortfolioPageInit(){
-		// add mouseover effect to buttons
-		new MooHover({container: portfolioActionBn,duration:800});
+	    // add mouseover effect to buttons
+	    new MooHover({container: portfolioActionBn,duration:800});
    	
-		var fns = [ exitEditPortfolio, editPortfolio ]
-		$( portfolioActionBn )
-			.getElements('button')
-			.each(function(button){
-				button.addEvent('click', fns.pop());
-			});
-		};
+	    var fns = [ exitEditPortfolio, editPortfolio ]
+	    $( portfolioActionBn )
+		.getElements('button')
+		.each(function(button){
+		    button.addEvent('click', fns.pop());
+	    });
+	};
 	
 	window.addEvent('domready', editPortfolioPageInit );
-	"""%paras	
+	'''%paras	
 	return js	
 
 def page_editPortfolioAction(**args):
@@ -327,14 +327,12 @@ def page_showAccount(**args):
 	fields.append({ 'name':'creation' , 'prompt':_('Created Time :'), 'type':'text'})
 	fields.append({ 'name':'activity' , 'prompt':_('Activity :'), 'type':'text'})
 	values = formFn.filterProps(fields, account)
-	"""
-	values = []	
-	for field in fields :
-		value = {}
-		[ value.update({prop:field.get(prop)}) for prop in ('prompt','type')]		
-		value['value'] = account.get(field.get('name'))
-		values.append(value)
-	"""
+	#values = []	
+	#for field in fields :
+	#	value = {}
+	#	[ value.update({prop:field.get(prop)}) for prop in ('prompt','type')]		
+	#	value['value'] = account.get(field.get('name'))
+	#	values.append(value)
 		
 	labelStyle = {'label':'font-weight:bold;font-size:1.2em;color:white;', \
 					  'td':'text-align:right;background:#9ca2cb'}
@@ -365,28 +363,29 @@ def _accountShowJs(**args):
 	paras = [ACCOUNTEDITBN, _('Edit Account'), '/'.join((APPATH,'page_editAccount'))]
 	paras = tuple(paras)
 	js = \
-	"""
+	'''
 	var accountBn='%s', accountDlgTitle='%s', accountEditUrl='%s';
 
 	function pageInit(){
-		// add mouseover effect to buttons
-		new MooHover({container: accountBn,duration:800});
+	    // add mouseover effect to buttons
+	    new MooHover({container: accountBn,duration:800});
    	
-		// Add click callback functions for buttons
-		$(accountBn)
-		.getElements('button')[0]
-		.addEvent('click',function(event){
-			new MUI.Modal({
-				width:400, height:350,
-				contentURL: accountEditUrl,
-				title: accountDlgTitle,
-				modalOverlayClose: false,
-			});
+	    // Add click callback functions for buttons
+	    $(accountBn)
+	    .getElements('button')[0]
+	    .addEvent('click',function(e){
+		new Event(e).stop();
+		new MUI.Modal({
+		    width:500, height:380, scrollbars:false,
+		    contentURL: accountEditUrl,
+		    title: accountDlgTitle,
+		    modalOverlayClose: false
 		});
+	    });
 	};
 	
 	window.addEvent('domready', pageInit);
-	"""%paras
+	'''%paras
 	
 	return js
 	
@@ -470,106 +469,105 @@ def _editAccountJs(**args):
 	paras = tuple(paras)
 	
 	js =\
-	"""
+	'''
 	var panelId='%s',appName='%s', 
 	    buttonsContainer='%s', formId='%s',
 	    // the dom id for popup window which is been showing the portfolio of this user
 	    popupWindowId="%s";	
-	
+
 	// Set a global variable 'formchk', 
 	// which will be used as an instance of the validation Class-'FormCheck'.
 	var formchk;
     
 	// Load the form validation plugin script
 	var options = {
-		onload:function(){    		
-			formchk = new FormCheck( formId,{
-				submitByAjax: true,
-				onAjaxSuccess: function(response){
-					if(response != 1){
-						MUI.notification('Account creating failed!');
-					}
-					else{	
-						// close edit dialog
-						closeDialog();
+	    onload:function(){    		
+		formchk = new FormCheck( formId,{
+		    submitByAjax: true,
+		    onAjaxSuccess: function(response){
+			if(response != 1){
+			    MUI.notification('Account creating failed!');
+			}
+			else{	
+			    // close edit dialog
+			    closeDialog();
 
-						if($(popupWindowId)){
-							/* 
-							when $(popupWindowId) is a element, 
-							that means this edit action is called by a MUI.Window( used in the navigation bar of admin user's view), 
-							it's need to refresh the content in the MUI.Window instance.						
-							*/
-							var wInstance = MUI.Windows.instances.get("adminProfileWindow");
-							var options = wInstance.options;
+			    if($(popupWindowId)){
+				/* 
+				when $(popupWindowId) is a element, 
+				that means this edit action is called by a MUI.Window( used in the navigation bar of admin user's view), 
+				it's need to refresh the content in the MUI.Window instance.						
+				*/
+				var wInstance = MUI.Windows.instances.get("adminProfileWindow");
+				var options = wInstance.options;
 							
-							MUI.updateContent({
-								'element': wInstance.windowEl,
-								'content': options.content,
-								'method': options.method,
-								'url': options.contentURL,
-								'data': options.data,
-								'onContentLoaded': null 
-							});
-							return
-						};
+				MUI.updateContent({
+				    'element': wInstance.windowEl,
+				    'content': options.content,
+				    'method': options.method,
+				    'url': options.contentURL,
+				    'data': options.data,
+				    'onContentLoaded': null 
+				});
+				return
+			    };
 	
-						MUI.notification('Edit Successfully');	// Successfully action
-						// refresh account show page
-						var panel = MUI.Panels.instances.get(panelId),
-						props = panel.options;
-						MUI.updateContent({
-							'element': panel.panelEl,
-							'content': props.content,
-							'method': props.method,
-							'data': props.data,
-							'url': props.contentURL,
-							'onContentLoaded': null
-						});
-					};               
-				},            
+			    MUI.notification('Edit Successfully');	// Successfully action
+			    // refresh account show page
+			    var panel = MUI.Panels.instances.get(panelId),
+				props = panel.options;
+			    MUI.updateContent({
+				'element': panel.panelEl,
+				'content': props.content,
+				'method': props.method,
+				'data': props.data,
+				'url': props.contentURL,
+				'onContentLoaded': null
+			    });
+			};               
+		    },            
 
-				display:{
-					errorsLocation : 1,
-					keepFocusOnError : 0, 
-					scrollToFirst : false
-				}
-			});// the end for 'formchk' define
-		}// the end for 'onload' define
+		    display:{
+			errorsLocation : 1,
+			keepFocusOnError : 0, 
+			scrollToFirst : false
+		    }
+		});// the end for 'formchk' define
+	    }// the end for 'onload' define
 	};
     
 	MUI.formValidLib(appName,options);
    
-   
 	function edit(event){
-		formchk.onSubmit(event);
+	    formchk.onSubmit(event);
 	};
 	
 	function closeDialog(){
-		// close register dialog, this function has been defined in init.js
-   	MUI.closeModalDialog();
+	    // close register dialog, this function has been defined in init.js
+	    MUI.closeModalDialog();
    	
-   	MUI.assetsManager.remove(appName,'app');
+	    MUI.assetsManager.remove(appName,'app');
 	};
 	
 	function exit(event){
-		new Event(event).stop();
-		closeDialog();
+	    new Event(event).stop();
+	    closeDialog();
 	};
 	
 	function pageInit(){
-		// add mouseover effect to buttons
-   	new MooHover({container:buttonsContainer,duration:800});
+	    // add mouseover effect to buttons
+	    new MooHover({container:buttonsContainer,duration:800});
    	
-   	var fns = [exit, edit]
-   	$(buttonsContainer)
-	   .getElements('button')
-	   .each(function(button){
+	    var fns = [exit, edit]
+	    $(buttonsContainer)
+	       .getElements('button')
+	       .each(function(button){
 		   button.addEvent('click', fns.pop());
 	   });
 	};
 	
 	window.addEvent('domready', pageInit);
-	"""%paras
+	'''%paras
 	
 	return js
 

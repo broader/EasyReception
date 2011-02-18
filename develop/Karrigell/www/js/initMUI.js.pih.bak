@@ -1,0 +1,170 @@
+confirm a action. 
+    confirm: function(message,closeFn, options){
+	var defaultOptions = {
+	    loadMethod:'html', type: 'modal', title: '',
+	    maximizable: false,
+	    //minimizable: false,
+	    //resizable: false,				
+	    width:320, height:160, y: 120, 
+	    padding:  { top: 10, right: 12, bottom: 10, left: 12 },
+	    shadowBlur: 8
+	};
+		
+	$H(options).each(function(value,key){
+	    detaultOptions[key] = value;
+	});
+		
+	var cmWindow = new MUI.Window(defaultOptions);
+		
+	var messageEl = new Element('div',{
+	    html: message,
+	    'class':'note',
+	    'style':'font-weight:bold;font-size:1.5em;'
+	});
+		
+	// add buttons to content
+	var buttons = new Element('div',{style:'text-align:right;'});
+	var labels = ['<%=pagefn.BUTTONLABELS['confirmWindow']['confirm']%>', '<%=pagefn.BUTTONLABELS['confirmWindow']['cancel']%>'];
+
+	['ok','cancel'].each(function(actionType,index){
+	    // create buttons
+	    options = {
+		txt: labels[index],
+		imgType: actionType,
+		bnAttrs: {'style':'margin-right:1em;'}
+		//bnSkin: 'sexycadet'
+	    };			
+	    button = MUI.styledButton(options);
+	    button.addEvent('click', function(e){		
+		new Event(e).stop();						
+		// close confirm window
+		cmWindow.close();				
+		closeFn(index);
+	    });
+	    buttons.grab(button);
+			
+	});		
+		
+	var container = new Element('div');
+	container.adopt(messageEl,buttons);			
+		
+	// add content to this confirm window
+	MUI.updateContent({
+	    'element': cmWindow.windowEl,
+	    'content': container,
+	    'method': 'html',
+	    //'url': options.contentURL,
+	    //'data': options.data,
+	    'onContentLoaded': null,
+	    'require': {}			
+	});
+    },
+	
+    // Create a customed window for show alert information.
+    alert: function(message, options){
+	defaultOptions = {
+	    loadMethod:'html', type: 'modal', title:'',
+	    maximizable: false, minimizable: false,
+	    //resizable: false,				
+	    width:320, height:140, y: 120, 
+	    padding:  { top: 10, right: 12, bottom: 10, left: 12 },
+	    shadowBlur: 8
+	};
+		
+	$H(options).each(function(value,key){
+	    detaultOptions[key] = value;
+	});
+		
+	aWindow = new MUI.Window(defaultOptions);
+		
+	messageEl = new Element('div',{
+	    html:message,
+	    'class':'info',
+	    'style':'font-weight:bold;font-size:1.5em;'
+	});
+		
+	hr = new Element('hr',{style:'padding:0.8px;'});
+		
+	// add buttons to content
+	buttons = new Element('div',{style:'text-align:right;'});
+	labels = ['<%=pagefn.BUTTONLABELS['alertWindow']['ok']%>', ];
+	['ok',].each(function(actionType,index){
+	    // create buttons
+	    options = {
+		txt: labels[index],
+		imgType: actionType,
+		bnAttrs: {'style':'margin-right:1em;'}
+		//bnSkin: 'sexycadet'
+	    };			
+	    button = MUI.styledButton(options);
+	    button.addEvent('click', function(e){		
+		new Event(e).stop();						
+		// close confirm window
+		aWindow.close();
+	    });
+	    buttons.grab(button);
+			
+	});		
+		
+	container = new Element('div');
+	container.adopt(messageEl, hr, buttons);			
+		
+	// add content to this window
+	MUI.updateContent({
+	    'element': aWindow.windowEl,
+	    'content': container,
+	    'method': 'html',
+	    'onContentLoaded': null,
+	    'require': {}			
+	});
+    },
+	
+    // Return a custom defined notification crawler
+    crawler: function(message, options){
+	var defaultOptions = {
+	    loadMethod: 'html',
+	    closeAfter: 1500,
+	    type: 'notification',
+	    addClass: 'notification',
+	    content: message,
+	    width: 220,
+	    height: 60,
+	    //y: 53,
+	    y: 280,
+	    x: 700,
+	    padding:  { top: 10, right: 12, bottom: 10, left: 12 },
+	    shadowBlur: 5	
+	};
+		
+	$H(options).each(function(value,key){
+	    defaultOptions[key] = value;
+	});
+	new MUI.Window(defaultOptions);		
+    },
+
+    /**************************************************************************************************
+    A 'gauge' style MUI.Window
+    Removed the cycle background which will be drawn in MUI.Window.drawGauge function.
+    ***************************************************************************************************/
+    GaugeWindow: new Class({
+	Implements: MUI.Window,
+	drawGauge: function(ctx, width, height, shadowBlur, shadowOffset, shadows){
+	    // Draw gauge header
+	    this.canvasHeaderEl.setStyles({
+		'top': shadowBlur - shadowOffset.y,
+		'left': shadowBlur - shadowOffset.x
+	    });		
+	    var ctx = this.canvasHeaderEl.getContext('2d');
+	    ctx.clearRect(0, 0, width, 100);
+	    ctx.beginPath();
+	    ctx.lineWidth = 24;
+	    ctx.lineCap = 'round';
+	    ctx.moveTo(13, 13);
+	    ctx.lineTo(width - (shadowBlur*2) - 13, 13);
+	    ctx.strokeStyle = 'rgba(0, 0, 0, .65)';
+	    ctx.stroke();
+	}
+    })
+
+});
+

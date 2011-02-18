@@ -1,5 +1,5 @@
 """
-Login & Registration functions for this web site.
+The entries of the demo web site which supplements login and registration functions .
 """
 
 from HTMLTags import *

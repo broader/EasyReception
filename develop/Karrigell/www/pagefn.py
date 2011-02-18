@@ -163,12 +163,8 @@ DESKTOP4USER = \
 		'type':'window',
 		'id': 'hotelMap',\
 		'title':_('Hotel Map'),\
-		#'loadMethod': 'xhr',\
-		#'contentURL': 'accomodation/maps/index.ks',\
-		#'content': '',\
 		'onContentLoaded': 'userHotelMapView',
 		'scrollbars': 'false',
-		#'width': 1060, 'height': 600 
 		'width': 900, 'height': 530 
 	},\
 	{\
@@ -188,7 +184,7 @@ DESKTOP4USER = \
 		'padding': { 'top': 0, 'right': 0, 'bottom': 0, 'left': 0 },\
 		'loadMethod': 'xhr',\
 		'contentURL': 'portal/desktop/calendar.ks/index',\
-		'width': 250, 'height': 300, 'x': 1125, 'y': 260\
+		'width': 240, 'height': 300 
 	},\
 	
 ],
@@ -201,7 +197,8 @@ ADMINMENUS = \
 'data':
 	[
 		{'id':'00', 'text':_("Setting"), 'function':'', 'parent': ''},
-		{'id':'0000', 'text':_("Profile"), 'function':'adminProfile', 'parent': '00', 'popupWindowId':'adminProfileWindow'},
+		{'id':'adminProfileLinkCheck', 'text':_("Profile"), 'function':'adminProfile', 'parent': '00', 'popupWindowId':'adminProfile'},
+		{'id':'translationLinkCheck', 'text':_("Translation"), 'function':'translation', 'parent': '00', 'popupWindowId':'translation'},
 		{'id':'01', 'text':_("Logout"), 'function':'logout', 'parent': ''}
 	],
 'js': 'js/adminMenus.js'
@@ -212,7 +209,6 @@ MENUCONTAINER = 'desktopNavbar'
 
 SIDEPANELPREFIX = 'sidebar'
 
-#ascii2utf8 = lambda v : v.decode('utf8').encode('utf8')
 USERSIDEBARPANELS = \
 {
 'data': 

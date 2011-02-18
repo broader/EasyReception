@@ -1,7 +1,7 @@
 """
 Pages mainly for services view and edit action.
 """
-import copy,tools
+import copy,urllib,tools
 from tools import treeHandler
 
 from HTMLTags import *
@@ -92,7 +92,9 @@ def _getTabs(panelId):
 	# constructs the tabs list
 	tabs = []
 	for category in categories:
-		query = '&'.join(['='.join((name,value)) for name,value in {CATEGORYTAG:category,'panel':panelId}.items()])
+		query = urllib.urlencode({CATEGORYTAG:category,'panel':panelId})
+		
+		#query = '&'.join(['='.join((name,value)) for name,value in {CATEGORYTAG:category,'panel':panelId}.items()])
 		d = { \
 			'text':category,\
 			'id':''.join((category,'Tab')),\
@@ -127,29 +129,31 @@ def index(**args):
 
 def _indexJs(panelId,tabsId):
 	content = \
-	"""
+	'''
 	var panelId='%s',tabsId='%s';
 	MochaUI.initializeTabs(tabsId);
-	"""%(panelId,tabsId)	
+	'''%(panelId,tabsId)	
 	
 	js = [content,]
 	tabs = _getTabs(panelId)
 	for tab in tabs :
 		slice = \
-		"""
-		$('%s').addEvent('click', function(e){
-			MochaUI.updateContent({
-				'element':  $(panelId),
-				'url':       '%s'
-			});
+		'''
+		$("%s").addEvent('click', function(e){
+		    // this function lies in Core.js of Mocha lib
+		    MochaUI.updateContent({
+			element:  $(panelId),
+			url: "%s" 
+		    });
 		});
-		"""%tuple([tab.get(name) for name in ('id','url')])
+		'''%tuple([tab.get(name) for name in ('id','url')])
 		js.append(slice)
 	
 	content = \
-	"""
+	'''
+	// expand the first tablet's content
 	$(tabsId).getElements('li')[0].fireEvent('click');
-	"""
+	'''
 	js.append(content)
 	js = '\n'.join(js)
 	print pagefn.script(js,link=False)
@@ -168,7 +172,7 @@ def page_showServiceLayout(**args):
 	category,panel = [ args.get(attr) for attr in (ctag, 'panel')]
 	
 	# temporary function to add 'category' query to url
-	urlGenerator = lambda url : '?'.join((url, '='.join((ctag,category))))
+	urlGenerator = lambda url : '?'.join((url, urllib.urlencode({ctag:category})))
 
 	# try to get the url for MUI.Panel, 
 	# which maybe supplied supplement administration functions
@@ -179,84 +183,71 @@ def page_showServiceLayout(**args):
 			break
 	
 	adminUrl = adminUrl and urlGenerator(adminUrl)
-
-	#container = '-'.join((category, SERVICEADMINSUFFIX))
-	container = panel
-
-	print DIV(**{'id':container})
+	print DIV(**{'id':panel})
 
 	# add javascript slice
 	# set service list url for MUI.Panel
-	url = '/'.join((APPATH,'page_showService'))
+	url = '/'.join((APPATH,'page_showServiceList'))
 	url =  urlGenerator(url)
 
-	paras = [container, url, adminUrl]
+	paras = [panel, url, adminUrl]
 	paras = tuple(paras)
 	js = \
-	"""
+	'''
 	var containerId='%s', listUrl='%s',adminUrl='%s';
 
 	var mainColumn = [containerId, 'column'].join('-'),
-	listPanel = [containerId, 'panel'].join('-');
+	    listPanel = [containerId, 'panel'].join('-');
+
 	if(adminUrl==''){
-		new MUI.Column({ 
-			id: mainColumn,	container:containerId, placement:'main',
-			sortable: false
-		});
+	    // just one column 
+	    new MUI.Column({ 
+		id: mainColumn,	container:containerId, placement:'main',
+		sortable: false
+	    });
 		
-		new MUI.Panel({
-			id: listPanel, header:false, column: mainColumn,
-			contentURL: listUrl
-		});
+	    new MUI.Panel({
+		id: listPanel, header:false, column: mainColumn,
+		contentURL: listUrl
+	    });
 	}
 	else{
-		// create MUI.Columns
-		var rightColumn = [containerId, 'right', 'column'].join('-');	
-		var columnIds = [mainColumn,rightColumn];
-		var columnAttrs = [
-			{'id':columnIds[0],'placement':'main','resizeLimit':[100,200],'width':null},
-			{'id':columnIds[1],'placement':'right','resizeLimit':[400,500],'width':500}
-		];
+	    // create two MUI.Columns
+	    var rightColumn = [containerId, 'right', 'column'].join('-');	
+	    var columnIds = [mainColumn,rightColumn];
+	    // set the right column width
+	    var columnSize = Math.round($(mainPanelId).getSize().x*0.2);
+
+	    var columnAttrs = [
+		{'id':columnIds[0],'placement':'main','width':null},
+		{
+		    'id':columnIds[1],'placement':'right','width':columnSize,
+		    'resizeLimit':[columnSize-50, columnSize+300]
+		}	 
+	    ];
 	
-		columnAttrs.each(function(attr){
-			new MUI.Column({
-				container: containerId, id: attr.id, placement: attr.placement, 
-				sortable: false, width: attr.width, resizeLimit: attr.resizeLimit 
-			});
+	    columnAttrs.each(function(attr){
+		new MUI.Column({
+		    container: containerId, id: attr.id, placement: attr.placement, 
+		    sortable: false, width: attr.width, resizeLimit: attr.resizeLimit 
 		});
+	    });
 
 		
-		var adminPanel = [containerId, 'admin','panel'].join('-');
-		// create MUI.Panels
-		[
-			{'column':columnIds[0],'id': listPanel,'url': listUrl},
-			{'column':columnIds[1],'id': adminPanel,'url': adminUrl}		
-		].each(function(attrs){
-			new MUI.Panel({
-				id: attrs.id,
-				column: attrs.column, 
-				header: false,
-				contentURL: attrs.url,
-				//onExpand: MUI.accordionPanels.pass(attrs.id)
-			});
-		
+	    var adminPanel = [containerId, 'admin','panel'].join('-');
+	    // create each MUI.Panel in the different MUI.Columns
+	    [
+		{'column':columnIds[0],'id': listPanel,'url': listUrl},
+		{'column':columnIds[1],'id': adminPanel,'url': adminUrl}		
+	    ].each(
+		function(attrs){
+		    new MUI.Panel({
+			id: attrs.id, column: attrs.column, header: false, contentURL: attrs.url
 		});
-
-		/*
-		new MUI.Panel({
-			id: listPanel, header:false, column: mainColumn,
-			contentURL: listUrl
-		});
-		
-		var adminPanel = [containerId, 'admin','panel'].join('-');
-		new MUI.Panel({
-			id: adminPanel, header:false, column: rightColumn,
-			contentURL: adminUrl
-		});
-		*/
+	    });
 
 	};
-	"""%paras
+	'''%paras
 	print pagefn.script(js, link=False)
 	return
 
@@ -267,16 +258,14 @@ CONTAINERID = lambda category : '-'.join((category,TABLECONTAINER))
 ADDSERVICEBUTTON = 'addService'
 ADDSERVICEBUTTONID = lambda category : '-'.join((category,ADDSERVICEBUTTON))
 
-def page_showService(**args):
-	"""
-	Render the services' list.
-	"""
+def page_showServiceList(**args):
+	""" Render the services' list. """
 	category = args.get('category')
 	
 	print DIV(**{'id':CONTAINERID(category)})
 	
 	# javascript slice to load data to table
-	print pagefn.script( _showServiceJs(category),link=False)	
+	print pagefn.script( _showServiceListJs(category),link=False)	
  	
 	return 
 
@@ -289,17 +278,20 @@ ACTIONS = [
 
 ACTIONTYPES = [item.get('type') for item in ACTIONS]
 ACTIONLABELS = [item.get('label') for item in ACTIONS]
-ACTIONPROP,PARENTNAMEPROP = ('action','parentName')
-def _showServiceJs(category):
+ACTIONPROP,PARENTNAMEPROP = ('actionType','parentName')
+def _showServiceListJs(category):
 	paras = [APP, CATEGORYTAG, category, CONTAINERID(category)]
-	paras.extend(\
-		['/'.join((APPATH,name)) for name in \
-		('page_colsModel','page_serviceItems', 'page_editService', 'page_serviceEditAction')\
-		]\
-	)
+	paras.extend([
+	    '/'.join((APPATH,name)) for name in 
+	    ('page_colsModel','page_serviceItems', 'page_editService', 'page_serviceEditAction')
+	])
 	
-	paras.append(_('Create New Subategory'))
-	paras.extend([_('Create a new subcategory for service'), _('Edit Service Information')])	
+	paras.extend([
+	    _('Create New Subategory'), 
+	    _('Create a new subcategory for service'), 
+	    _('Edit Service Information'),
+	    _('Delete Service Item {itemId} ?')
+	])	
 	
 	[ paras.extend(l) for l in (ACTIONTYPES,ACTIONLABELS)]
 	paras.extend([ACTIONPROP, PARENTNAMEPROP])
@@ -309,133 +301,260 @@ def _showServiceJs(category):
 	
 	# could not select more than one row
 	paras.append(_('Please select no more than one row !'))
+
+	# button's information for hotel map editing
+	paras.extend([_('Map Edit'), 'edit'])
 	
 	paras = tuple(paras)
 	js = \
-	"""
+	'''
 	var appName='%s', categoryInfo=['%s','%s'],
 	container='%s', colsModel='%s',
 	rowsUrl='%s', actionUrl='%s', deleteUrl='%s',
 	addCategoryBnLabel='%s',
 	modalTitles = {'category':'%s', 'service':'%s'},
+	deletePrompt = "%s",
 	actionTypes = ['%s', '%s', '%s'],
 	actionLabels = ['%s', '%s', '%s'],
 	actionProp = '%s', parentName='%s',
-	noneRowErr = '%s', moreRowErr='%s';
+	noneRowErr = '%s', moreRowErr='%s',
+	hotelMapEditBnLabel="%s", hotelMapEditBnType="%s";
+
+	if(categoryInfo[1] == 'Hotel') {
+	    actionLabels.push(hotelMapEditBnLabel);
+	    actionTypes.push(hotelMapEditBnType);
+	};
 	
 	var treeTable;
 	
 	// The function to add action buttons to each row in the table.
 	function addButton(ti){		
-		// Parameter 'ti'- the TreeTable instance
-		bnContainer = new Element('div',{style: 'text-align:left;'});
-		ti.container.grab(bnContainer);
+	    // Parameter 'ti'- the TreeTable instance
+	    bnContainer = new Element('div',{style: 'text-align:left;'});
+	    ti.container.grab(bnContainer);
 		
-		// add 'add','edit','delete' buttons
-		actionTypes.each(function(actionType,index){
-			options = {
-				txt: actionLabels[index],
-			   imgType: actionType,
-				bnAttrs: {'style':'margin-right:1em;'}	
-			};
+	    // add 'add','edit','delete' buttons
+	    actionTypes.each(function(actionType,index){
+		options = {
+		    txt: actionLabels[index],
+		    imgType: actionType,
+		    bnAttrs: {'style':'margin-right:1em;'}	
+		};
 			
-			button = MUI.styledButton(options);
-			button.addEvent('click',action2service.pass(index,this));
+		button = MUI.styledButton(options);
+		// here 'this' is the treetable instance
+		button.addEvent('click',action2service.pass(index,this));
 			
-			bnContainer.grab(button);
+		bnContainer.grab(button);
 			
-		},ti);
+	    },ti);
 	};
 	
 	/*
 	The action to service item.
 	*/
 	function action2service(index){
-		trs = this.getSelectedRows();
-		if(trs.length == 0 && [1,2].contains(index)){	// it's need to select one row
-			MUI.alert(noneRowErr);
-			return
-		}
-		else if(trs.length > 1 && [0,1,2].contains(index)){	// select more than one row
-			MUI.alert(moreRowErr);
-			return
+	    var trs = this.getSelectedRows();
+	    if(trs.length == 0 && [1,2].contains(index)){	// it's need to select one row
+		MUI.alert(noneRowErr);
+		return
+	    }
+	    else if(trs.length > 1 && [0,1,2].contains(index)){	// select more than one row
+		MUI.alert(moreRowErr);
+		return
+	    };
+		
+	    var query = '';
+		
+	    if(trs.length == 0){	// create a new subcategory
+		query = categoryInfo.join('='); 
+	    }
+	    else if(trs.length > 0 ){
+		tr = trs[0];
+		// get data of this row
+		query = this.getRowDataWithProps(tr);
+		    
+		// if node has parent, add its parent name to query object
+		parentId = null, parentInnerId = tr.retrieve('parent');
+		if (parentInnerId){
+		    parentId = this.genRowId(parentInnerId);
 		};
-		
-		query = '';
-		
-		if(trs.length == 0){	// create a new subcategory
-			query = categoryInfo.join('='); 
-		}
-		else if(trs.length > 0 ){
-			tr = trs[0];
-			// get data of this row
-			query = this.getRowDataWithProps(tr);
 			
-			// if node has parent, add its parent name to query object
-			parentId = null, parentInnerId = tr.retrieve('parent');
-			if (parentInnerId){
-				parentId = this.genRowId(parentInnerId);
-			};
-			
-			parentNameValue = '';
-			if(parentId){
-				parentNameValue = this.getCellValueByRowId(parentId,'name');
-			};
+		parentNameValue = '';
+		if(parentId){
+		    parentNameValue = this.getCellValueByRowId(parentId,'name');
+		};
 				
-			query[parentName] = parentNameValue;
-			query[actionProp] = actionTypes[index];
+		query[parentName] = parentNameValue;
+		query[actionProp] = actionTypes[index];
 			
-			// transform the query json object to a url query string
-			query = query.toQueryString();
-		}
+		// transform the query json object to a url query string
+		query = query.toQueryString();
+	    };
 		
-		if([0,1].contains(index)){
-			var modalOptions = {
-				width:600, height:480, modalOverlayClose: false,
-				onClose: function(e){
-					// refresh table's body
-					treeTable.refreshTbody();
-				}
-			};
-
-			// set the really action url
-			url = [actionUrl, query].join('?');
-			
-			// the modal to edit a service item  
-			modalOptions.contentURL = url;
-			
-			modalOptions.title = (trs.length!=0)? modalTitles.service : modalTitles.category ;
-
-			new MUI.Modal(modalOptions);
-		}
-		else {	// 'delete' action
-			MUI.confirm('Delete service items:', delServiceItems.bind(this), {});
+	    if([0,1].contains(index)){	// 'create' or 'edit' actions
+		var modalOptions = {
+		    width:600, height:480, modalOverlayClose: false,
+		    onClose: function(e){
+			// refresh table's body
+			treeTable.refreshTbody();
+		    }
 		};
 
+		// set the really action url
+		url = [actionUrl, query].join('?');
+		
+		// the modal to edit a service item  
+		modalOptions.contentURL = url;
+			
+		modalOptions.title = (trs.length!=0)? modalTitles.service : modalTitles.category ;
+
+		new MUI.Modal(modalOptions);
+	    }
+	    else if(index==2){	// 'delete' action
+		MUI.confirm(deletePrompt.substitute({itemId:this.getInnerId(tr.id)}), delServiceItems.bind(this), {});
+	    }
+	    else if(categoryInfo[1] == 'Hotel' && index==3) {	// 'MapEdit' action
+		editHotelMap()
+	    };
+
+	};
+
+	/******************************************************************
+	Popup window for editing hotel maps
+	******************************************************************/
+	function editHotelMap(){
+	    var windowId = 'editHotelMap';
+	    new MUI.Window({
+		'type': 'window', 'id':windowId ,
+		'title': hotelMapEditBnLabel,
+		'onContentLoaded': showEditHotelMap.pass(windowId),
+		'scrollbars': 'false',
+		'width': 900, 'height': 530 
+	    });
+	};
+
+	// the function for load content to hotel map editing window
+	function showEditHotelMap(wid){
+	    wid = [wid, 'contentWrapper'].join('_');
+
+	    // load initial data for render map widget	
+	    new Request.JSON({
+		url: 'accomodation/maps/userMapView.ks/page_initData',
+		async: false, 
+		onSuccess: function(json){ 
+		    var titles = json.panelTitles,
+		    mapData = json; 
+	    
+		    // left column
+		    new MUI.Column({
+			container: wid,
+			id: 'hotelMap_leftColumn',
+			placement: 'left',
+			width: 620,
+			resizeLimit: [550, 620]
+		    });
+	
+		    // right column	
+		    new MUI.Column({
+			container: wid,
+			id: 'hotelMap_mainColumn',
+			placement: 'main'
+		    });
+	
+		    var mapDiv = "hotelBigMap";		
+		    new MUI.Panel({
+			header: false,
+			id: 'hotelMap_panel2',
+			content: new Element('div', {id: mapDiv}),				
+			column: 'hotelMap_leftColumn'					
+		    });
+
+		    new MUI.Panel({
+			id: 'hotelMap_hoteList',					
+			title: titles.hoteList,
+			contentURL: 'service/userHotelsView.ks/page_hotelNameList',
+			column: 'hotelMap_mainColumn',
+			height: 220
+		    });
+
+		    var thumbDiv = "hotelThumbMap";
+		    new MUI.Panel({
+			id: 'hotelMap_thumbnail',					
+			title: titles.thumbNail,
+			content: new Element('div', {id:thumbDiv}),
+			column: 'hotelMap_mainColumn'
+		    });
+		    
+		    var hotelData = $H(mapData.hotelData).getValues().map(function(item){ return item.dimention; });
+		    var iconStyle = mapData.hotelIconCss;
+
+		    // set the callback function for dragging big hotel map
+		    var showDimention = function(pos){
+			$(mapDiv).getChildren('span').each(function(item){
+			    item.dispose();
+			});
+	
+			hotelData.each(function(dim){
+			    if(
+				dim.x >= pos.xrange[0] 
+				&& dim.x <= pos.xrange[1]
+				&& dim.y >= pos.yrange[0]
+				&& dim.y <= pos.yrange[1]
+			    ){	// add the hotel label
+				iconStyle['margin-left'] = dim.x-pos.xrange[0]+'px';
+				iconStyle['margin-top'] = dim.y-pos.yrange[0]+'px';
+				var alink = new Element('span');
+				alink.setStyles(iconStyle);
+				$(mapDiv).adopt(alink);
+			    };
+				
+			});
+
+		    };
+		    
+		    MUI.imageZoom('', {onload: function(){
+			new ImageZoom({
+			    zoomerImageContainer: mapDiv,
+			    zoomerImageUrl: mapData.zoomImage.zoomerImageUrl,
+			    thumbUrl: mapData.zoomImage.thumbUrl,		
+			    thumbContainer: thumbDiv,
+			    zoomSize:6, initFn: showDimention, dragFn: showDimention
+			});
+		
+			[mapDiv, thumbDiv].each(function(el){
+			    $(el).getParent().getParent().setStyle('background-color','#000');
+			});
+
+		    }});
+
+		}// onSuccess options definiation end
+
+	    }).get();
 	};
 	
 	/******************************************************************
 	Service item delelting action
 	******************************************************************/
 	function delServiceItems(isConfirm){
-		if(isConfirm.toInt()==1){return};
+	    if(isConfirm.toInt()==1){return};
 		
-		jsonRequest = new Request.JSON({async:false});    
-	        
-  		// set some options for Request.JSON instance
-                jsonRequest.setOptions({
-        	url: deleteUrl,
-  	        onSuccess: function(res){
-         		MUI.notification(res);
-         		this.refreshTbody();
-         		}.bind(this)
-      		});
+	    jsonRequest = new Request.JSON({async:false});    
+	    
+	    // set some options for Request.JSON instance
+	    jsonRequest.setOptions({
+		url: deleteUrl,
+		onSuccess: function(res){
+		    MUI.notification(res);
+		    this.refreshTbody();
+		    }.bind(this)
+	    });
 	   
-		tr = this.getSelectedRows()[0];
-	   
-	   	data = {'id':this.getInnerId(tr.id),'category':this.getCellValueByRowId(tr.id,'category')};
-	   	data[actionProp] = actionTypes[2];
-	   	jsonRequest.get(data);
+	    tr = this.getSelectedRows()[0];
+       
+	    data = {'id':this.getInnerId(tr.id),'category':this.getCellValueByRowId(tr.id,'category')};
+	    data[actionProp] = actionTypes[2];
+	    jsonRequest.get(data);
 		
 	};
 	
@@ -445,26 +564,26 @@ def _showServiceJs(category):
 	******************************************************************/
 	// options for TreeTable class initialization
 	var options = {
-		onload:function(){
-			treeTable = new TreeTable( 
-				container,				
-				{
-					colsModelUrl:colsModel,
-					treeColumn: 0,					
-					dataUrl: [rowsUrl, categoryInfo.join('=')].join('?'),
-					idPrefix: 'service-',
-					initialExpandedDepth: 2,
-					renderOver: addButton
-				}
-			);// the end for 'treeTable' definition
+	    onload:function(){
+		treeTable = new TreeTable( 
+		    container,				
+		    {
+			colsModelUrl:colsModel,
+			treeColumn: 0,					
+			dataUrl: [rowsUrl, categoryInfo.join('=')].join('?'),
+			idPrefix: 'service-',
+			initialExpandedDepth: 2,
+			renderOver: addButton
+		    }
+		);// the end for 'treeTable' definition
 			
-		}// the end for 'onload' definition
+	    }// the end for 'onload' definition
 	};// the end for 'options' definition
 	
 	// initialize TreeTable class
 	MUI.treeTable(appName,options);
 
-	"""%paras
+	'''%paras
 	return js
 
 def _decodeDict2Utf8(d):
@@ -530,8 +649,7 @@ def _treeFlattenData(category,props, idFn, pidFn):
 	return sorted[1:]
 
 def page_serviceItems(**args):
-	"""
-	"""
+	""" Return a json object which holds the data of service items. """
 	category = args.get(CATEGORYTAG)
 	
 	# filter the last three column that are  action clolumns 
@@ -566,7 +684,7 @@ def page_createCategoryInfo(**args):
 	paras = [info, containerId,_('Create A New Category For Service')]
 	paras.extend([_('Create a new category for service'),'/'.join((APPATH,'page_editService'))])	
 	script = \
-	"""
+	'''
 	var info="%s", containerId='%s', bnLabel='%s', 
 	modalInfo={'title':'%s', 'url':'%s'};
 	
@@ -580,7 +698,7 @@ def page_createCategoryInfo(**args):
 	$(containerId).grab(new Element(
 	    'button',
 	    {
-	        'html': bnLabel,
+		'html': bnLabel,
 		'events':{
 		    'click': function(e){
 			new Event(e).stop();
@@ -599,7 +717,7 @@ def page_createCategoryInfo(**args):
 	    }
 	));
 	
-	"""%tuple(paras)
+	'''%tuple(paras)
 	print pagefn.script(script,link=False)	
 	return
 
@@ -706,7 +824,8 @@ def page_editService(**args):
 		interval = int(len(props)/2)+1	
 		style = 'border-right:1px solid #DDDDDD;'	
 		left = DIV(Sum(formFn.yform(props[:interval])), **{'class':'c50l'})
-		right = DIV(Sum(formFn.yform(props[interval:])), **{'class':'c50r'})
+		#right = DIV(Sum(formFn.yform(props[interval:])), **{'class':'c50r'})
+		right = DIV(Sum(formFn.yform(props[interval:])), **{'style':'float:right;width:45%;position:relative;'})
 		divs = DIV(Sum((left, right)), **{'class':'subcolumns'})
 		form.append(divs)	
 		bnStyle = 'position:absolute;margin-left:12em;'
@@ -717,17 +836,20 @@ def page_editService(**args):
 	
 	# add buttons to this form	
 	buttons = [ \
-		BUTTON( _('Confirm'), **{'class':pagefn.BUTTONSTYLE, 'type':'button'}),\
+		BUTTON( _('Confirm'), **{'class':pagefn.BUTTONSTYLE, 'type':'submit'}),\
 		BUTTON( _('Cancel'), **{'class':pagefn.BUTTONSTYLE, 'type':'button'})\
 	]
 	
 	div = DIV(Sum(buttons), **{'style':bnStyle})    
 	form.append(div)
 	
-	form = \
-	FORM( 
+	form = FORM( 
 		Sum(form), 
-		**{'action': '/'.join((APPATH,'page_serviceEditAction')), 'id': SERVICEEDITFORM, 'method':'post','class':'yform'}
+		**{
+		    'action': urllib.quote('/'.join((APPATH,'page_serviceEditAction'))), 
+		    'id': SERVICEEDITFORM, 
+		    'method':'post',
+		    'class':'yform'}
 	)
 				
 	print DIV(form,style='')
@@ -742,12 +864,12 @@ def _editServiceJs():
 	paras.extend([_('The input name for category has been used already!'),_('The input service name has been used already!')])
 	paras = tuple(paras)
 	js = \
-	"""
+	'''
 	var formId='%s',
 	categroyValidFn='%s', serviceNameValidFn='%s',
 	categoryValidAction='%s', serviceNameValidAction='%s',
 	categoryErr='%s', serviceNameErr='%s';
-	
+
 	// add mouseover effect to buttons
 	new MooHover({container: formId,duration:800});
 	
@@ -850,7 +972,7 @@ def _editServiceJs():
 		MUI.closeModalDialog();
 	});
 	
-	"""%paras
+	'''%paras
 	
 	return js
 
@@ -869,30 +991,31 @@ def _deletable(nodeId,category):
 	# get all the ids of nodes in this branch
 	nodes = treeHandler.rootNode.get_node_by_id(nodeId).flatten()
 	nodeIds = [n.id for n in nodes]
+
 	res['toDelete'] = nodeIds
 	
 	# get all the related services' ids that has been reserved
 	reservedIds = model.get_items( USER, 'reserve', props=('target',), link2key=False,ids=None)
+	# merge the returned ids
+	reservedIds = [i[0] for i in reservedIds]
 	
-	#if type(reservedIds) == type('') :
-	#	reservedIds = [str(i) for i in range(10)]
-		#res['reserved'] = reservedIds
-	
+	# check whether this service item has been reserved.
 	reservations = list(set(nodeIds).intersection(set(reservedIds))) 
+
 	if reservations:
+		# this service item has been reserved, so it's not capable to be deleted
 		res['permission'] = False
-		
-		res['info'] = ' '.join(
-			[	_('There is reservations related with this service item, so it could not be deleted!'),
-				_('The ids of related reservations are '),
-				','.join(reservations)\
-			]
-		)
+		res['info'] = _(
+		'''
+		There is reservations related with this service item, so it could not be deleted!\n
+		The ids of related reservations are %s.
+		''')%','.join(reservations)
 	
 	return res
 	
 def page_serviceEditAction(**args):
-	action = args.pop('action')
+	#action = args.pop('action')
+	action = args.pop(ACTIONPROP)
 	successTag = 0
 	actions = ACTIONTYPES
 	if not action:
@@ -901,6 +1024,8 @@ def page_serviceEditAction(**args):
 		actionType = actions.index(action)
 		 
 	if actionType == 0:	# 'add' action
+		# remove properties that has not value
+		[args.pop(key) for key,value in args.items() if not value]
 		sid = model.create_item(USER, 'service', args)
 		if sid:
 			successTag = 1

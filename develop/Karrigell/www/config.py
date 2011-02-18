@@ -1,5 +1,4 @@
-import os
-import yaml
+import os, yaml
 
 CONFIGFILE = os.sep.join((rootdir, 'config.yaml'))
 
@@ -7,46 +6,46 @@ CONFIGFILE = os.sep.join((rootdir, 'config.yaml'))
 INIDATA = {}
 INIDATA['userAccountInfo'] = \
 [
-	{ 'name':'username', 'prompt':_('Login Name').decode('utf8'), 'type':'text'},\
-	{ 'name':'email', 'prompt':_('Email address').decode('utf8'), 'type':'text'},\
-	{ 'name':'password' , 'prompt':_('Password').decode('utf8'), 'type':'password'},\
+	{ 'name':'username', 'prompt':'Login Name', 'type':'text'},\
+	{ 'name':'email', 'prompt':'Email address', 'type':'text'},\
+	{ 'name':'password' , 'prompt':'Password', 'type':'password'},\
 ]
 
 
 INIDATA['userBaseInfo'] = \
 [ 
-	{ 'name':'prefix', 'prompt':_("Prefix").decode('utf8'), 'type':'radio',\
+	{ 'name':'prefix', 'prompt':"Prefix", 'type':'radio',\
 	  'class':'', 'required':False,'validate':[],\
 	  'options':[\
-		{'value': '0', 'label':_("Mr").decode('utf8')},\
-		{'value': '1', 'label':_("Mrs").decode('utf8')},\
-		{'value': '2', 'label': _("Ms").decode('utf8')}\
+		{'value': '0', 'label':"Mr"},\
+		{'value': '1', 'label':"Mrs"},\
+		{'value': '2', 'label': "Ms"}\
 		]\  
 	},\
 	
-	{ 'name':'firstname', 'prompt':_("First Name").decode('utf8'), 'type':'text',\
+	{ 'name':'firstname', 'prompt':"First Name", 'type':'text',\
 	  'class':'', 'required':False, 'validate':[] },\
 	  
-	{ 'name':'lastname',	'prompt':_("Last Name").decode('utf8'), 'type':'text', 'validate':[] },\
+	{ 'name':'lastname','prompt':"Last Name", 'type':'text', 'validate':[] },\
 	
-	{ 'name':'gender', 'prompt':_("Gender").decode('utf8'), 'type':'radio',\
+	{ 'name':'gender', 'prompt':"Gender", 'type':'radio',\
 	  'class':'', 'required':False,'validate':[],\
 	  'options':[\
-		{'value': '0','label':_('Male').decode('utf8')},\
-	  	{'value': '1','label':_('Female').decode('utf8')}\
+		{'value': '0','label':'Male'},\
+	  	{'value': '1','label':'Female'}\
 		]\	
 	},\
 	
-	{ 'name':'organization', 'prompt': _("Organization").decode('utf8'), 'type':'textarea',\
+	{ 'name':'organization', 'prompt': "Organization", 'type':'textarea',\
 	  'class':'', 'required':False, 'validate':[] },\
 	  
-	{ 'name':'phone', 'prompt':_("Phone").decode('utf8'), 'type':'text',\
+	{ 'name':'phone', 'prompt':"Phone", 'type':'text',\
 	  'class':'', 'required':False,'validate':[] },\
 	  
-	{ 'name':'fax', 'prompt':_("Fax").decode('utf8'), 'type':'text',\
+	{ 'name':'fax', 'prompt':"Fax", 'type':'text',\
 	  'class':'', 'required':False, 'validate':[] },\
 	
-	{ 'name':'aperson', 'prompt':_("Accompany Person").decode('utf8'), 'type':'select',\
+	{ 'name':'aperson', 'prompt':"Accompany Person", 'type':'select',\
 	  'class':'', 'required':False, 'validate':[],\
 	  'options':[\
 		{'value':'0', 'label':'0'},\
@@ -55,16 +54,16 @@ INIDATA['userBaseInfo'] = \
 		]\
 	},\
 	
-	{ 'name':'address', 'prompt':_("Address").decode('utf8'), 'type':'textarea',\
+	{ 'name':'address', 'prompt':"Address", 'type':'textarea',\
 	  'class':'', 'required':False, 'validate':[] },\
 	  
-	{ 'name':'city', 'prompt':_("City").decode('utf8'), 'type':'text',\
+	{ 'name':'city', 'prompt':"City", 'type':'text',\
 	  'class':'', 'required':False, 'validate':[] },\
 	  
-	{ 'name':'country', 'prompt':_("Country").decode('utf8'), 'type':'text',\
+	{ 'name':'country', 'prompt':"Country", 'type':'text',\
 	  'class':'', 'required':False, 'validate':[] },\
-	  
-	{ 'name':'postcode', 'prompt': _("Postal Code").decode('utf8'), 'type':'text',\
+	
+	{ 'name':'postcode', 'prompt': "Postal Code", 'type':'text',\
 	  'class':'', 'required':False,'validate':[] }\
 ]
 
@@ -142,3 +141,22 @@ def editData(field, value):
 		_init(configObject)
 		 
 	return
+
+def i18nStrings():
+    """ Return the strings which is need to be translated in this page."""
+    strings = []
+    for name in ('userAccountInfo', 'userBaseInfo'):
+	fields = INIDATA.get(name)
+	for field in fields:
+	    if field.get('prompt'):
+		strings.append(field.get('prompt'))
+
+	    if field.get('options'):
+		for s in field.get('options'):
+		    toSave = s.get('label')
+		    try:
+			int(toSave)
+		    except:
+			strings.append(s.get('label'))
+    return strings 
+

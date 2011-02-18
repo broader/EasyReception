@@ -169,10 +169,10 @@ class Target:
         for alias in handler.config.alias:
             mo = re.match('^/(%s)' %alias,path)
             if mo:
-                self.name = handler.config.alias[alias]
-                for i in range(len(mo.groups()[0].split('/'))):
-                    used_path_elts.append(path_elts.pop(0))
-                break
+            	self.name = handler.config.alias[alias]
+            	for i in range(len(mo.groups()[0].split('/'))):
+            		used_path_elts.append(path_elts.pop(0))            		
+            		break
                 
         while True:
             if not path_elts:
@@ -191,8 +191,7 @@ class Target:
                     elif not path.endswith('/'):
                         new_elts = scheme,netloc,path+'/',params,query,fragment
                         raise Redir,urlparse.urlunparse(new_elts)
-                
-		self.ext = os.path.splitext(self.name)[1]
+                self.ext = os.path.splitext(self.name)[1]
                 self.baseurl = "/".join(used_path_elts[:-1])
                 self.script_url = "/".join(used_path_elts)
                 self.basename = os.path.basename(self.name)

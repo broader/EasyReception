@@ -45,7 +45,7 @@ body {
 	/*
 	height: 45px;	
 	background: #718BA6 url(../images/bg-header.gif) repeat-x;
-	*/
+	*/	
 	height: 50px;
 	background: #1B145D url(../images/bg-header.gif) repeat-x;
 }
@@ -167,8 +167,8 @@ body {
 
 #desktopNavbar li:hover ul ul,
 #desktopNavbar li.ieHover ul ul,
-#desktopNavbar li:hover ul ul ul,
-#desktopNavbar li.ieHover ul ul ul {
+#desktopNavbar li.ieHover ul ul ul,
+#desktopNavbar li:hover ul ul ul {
 	left: -999em;
 }
 

@@ -158,7 +158,6 @@ class Target:
         self.name = handler.config.root_dir
         
         path_elts = path.split('/')
-	print 'k_target.py,Target.__init__, L161, name is %s, path is %s, path_elts is %s'%(self.name, path, path_elts)
 
         if not path_elts or not path_elts[0]=='':
             raise NotFound,'Bad path %s' %path
@@ -170,11 +169,12 @@ class Target:
         for alias in handler.config.alias:
             mo = re.match('^/(%s)' %alias,path)
             if mo:
-                self.name = handler.config.alias[alias]
-                for i in range(len(mo.groups()[0].split('/'))):
-                    used_path_elts.append(path_elts.pop(0))
-                break
-                        
+            	self.name = handler.config.alias[alias]
+            	for i in range(len(mo.groups()[0].split('/'))):
+            		used_path_elts.append(path_elts.pop(0))
+            		#self.url = '/' + self.name.split(os.path.sep)[-1]
+            		break
+                
         while True:
             if not path_elts:
                 # all path elements consumed and name exists
@@ -486,7 +486,6 @@ class Target:
             raise ImportError,msg
         module.parent = self
 	
-	print 'Taget._import, L489, module url is ', module.url
         if module.ext.lower() == ".py":
             module.parse_script()
             # imported modules must be able to print, so we have to run

@@ -12,6 +12,11 @@ Login(role=["admin"],valid_in="/")
 rel_folder = QUERY.get('dir','')
 if rel_folder:
     rel_folder = urllib.unquote(rel_folder[:-1])
+    '''
+    print H2(rel_folder)
+    if CONFIG.alias and rel_folder in CONFIG.alias:
+    	rel_folder = CONFIG.alias[alias]
+    '''
 
 folder = os.path.join(CONFIG.root_dir,rel_folder)
 

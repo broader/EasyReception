@@ -14,8 +14,8 @@ def _innerCss():
 	css = \
 	"""
 	#%s {
-		/*background-image: url('../../accomodation/maps/haidian_hotel_900.jpg'); */
-		background-image: url('../../accomodation/maps/haidian_hotel_900_minized.jpg');
+		/*background-image: url('../../../accomodation/maps/haidian_hotel_900.jpg'); */
+		background-image: url('../../../accomodation/maps/haidian_hotel_900_minized.jpg');
 		background-repeat: no;
 		width: 900px; 
 		height: 668px;
@@ -26,7 +26,7 @@ def _innerCss():
 	#%s {
 		width: 32px;
 		height: 32px;
-		background-image: url('../../accomodation/maps/agency_32.png');
+		background-image: url('../../../accomodation/maps/agency_32.png');
 		margin-left: 0px;
 		margin-top: 0px;
 		position: absolute;
@@ -119,126 +119,126 @@ def _js():
 
 
 	function selectRefresh(select){
-		var req = new Request.JSON( {
-					url: hoteListUrl,
-					onComplete: function(arr){
-						select.empty();
-						var el = new Element('option', {html: "全部酒店", value:0});
-						el.inject( select, 'top');
-						var options = arr.map(function(item,index){
-							var option = new Element('option', {html:item.label, value:item.value});
-							option.store('coordinate', item.coordinate);
-							return option
-						});							
-						select.adopt(options);						
-					}
-				});
-		var q = $H();
-		req.get(q);
+	    var req = new Request.JSON( {
+		url: hoteListUrl,
+		onComplete: function(arr){
+		    select.empty();
+		    var el = new Element('option', {html: "全部酒店", value:0});
+		    el.inject( select, 'top');
+		    var options = arr.map(function(item,index){
+			var option = new Element('option', {html:item.label, value:item.value});
+			option.store('coordinate', item.coordinate);
+			return option
+		    });							
+		    select.adopt(options);						
+		}
+	    });
+	    var q = $H();
+	    req.get(q);
 	};
 	
 	function bnAdapter(){
-		var selects = $(actionContainer).getElements('select');
+	    var selects = $(actionContainer).getElements('select');
 
-		$(actionContainer).getElements('input')[0]
-		.addEvent('click', function(e){
-			new Event(e).stop();
+	    $(actionContainer).getElements('input')[0]
+	    .addEvent('click', function(e){
+		new Event(e).stop();
 
-			var action = selects[1].get('value'),
-			    hotelName = selects[0].get('value');
+		var action = selects[1].get('value'),
+		    hotelName = selects[0].get('value');
 
-			var actionIndex = actions.indexOf(action);
-			switch(actionIndex){
-				case 0 :	// display action
-					var option = selects[0].getFirst('[value={value}]'.substitute({'value':hotelName}));
-					var coordinate = option.retrieve('coordinate').split(',');
-					var iconStyle = {
-						'width': '32px', 'height':'32px', 
-						'background-image':"url('../../accomodation/maps/agency_32.gif')", 
-						'position':'absolute',
-						'margin-left': coordinate[0]+'px',
-						'margin-top': coordinate[1]+'px'
-					};
-					var alink = new Element('span');
-					alink.setStyles(iconStyle);
-					
-					// add popup window to show the detail information of this hotel
-					alink.addEvent('click', function(e){
-						//alert(pos.x+','+pos.y);
-						var q = $H();
-						q['hotel'] = hotelName;
-						var url = [hotelDetailUrl, q.toQueryString()].join('?');
-						//window.open(url, "hotelInstruction","menubar=no,width=900,height=480,toolbar=no");
-						new MUI.Window({
-							id: 'htmlpage', type:'modal', content: 'Hello World', width: 700, height: 520,
-							contentURL: url
-						});
-	
-					});
-
-					$(mapContainer).adopt(alink);
-					runShinning.periodical(1800, {el:alink});
-					break;
-
-				case 1 :	// position action
-					break;	
-				case 2 :	// delete action
-					if (hotelName == '0') return;
-
-					var req = new Request.JSON( {
-						url: actionUrl,
-						async: false,
-						onComplete: function(json){
-							alert(json.info);						
-						}
-					});
-					var q = $H();
-					q['action'] = action, q['hotel'] = hotelName;
-					req.get(q);
-				
-					selectRefresh(selects[0])
-					break;	
-				default: alert('china');
+		var actionIndex = actions.indexOf(action);
+		switch(actionIndex){
+		    case 0 :	// display action
+			var option = selects[0].getFirst('[value={value}]'.substitute({'value':hotelName}));
+			var coordinate = option.retrieve('coordinate').split(',');
+			var iconStyle = {
+			    'width': '32px', 'height':'32px', 
+			    'background-image':"url('../../../accomodation/maps/agency_32.gif')", 
+			    'position':'absolute',
+			    'margin-left': coordinate[0]+'px',
+			    'margin-top': coordinate[1]+'px'
 			};
+			var alink = new Element('span');
+			alink.setStyles(iconStyle);
+					
+			// add popup window to show the detail information of this hotel
+			alink.addEvent('click', function(e){
+			    //alert(pos.x+','+pos.y);
+			    var q = $H();
+			    q['hotel'] = hotelName;
+			    var url = [hotelDetailUrl, q.toQueryString()].join('?');
+			    //window.open(url, "hotelInstruction","menubar=no,width=900,height=480,toolbar=no");
+			    new MUI.Window({
+				id: 'htmlpage', type:'modal', content: 'Hello World', width: 700, height: 520,
+				contentURL: url
+			    });
+	
+			});
+
+			$(mapContainer).adopt(alink);
+			runShinning.periodical(1800, {el:alink});
+			break;
+
+		    case 1 :	// position action
+			break;	
+		    case 2 :	// delete action
+			if (hotelName == '0') return;
+
+			var req = new Request.JSON( {
+			    url: actionUrl,
+			    async: false,
+			    onComplete: function(json){
+				alert(json.info);						
+			    }
+			});
+			var q = $H();
+			q['action'] = action, q['hotel'] = hotelName;
+			req.get(q);
 				
-		});
+			selectRefresh(selects[0])
+			break;	
+		    default: alert('china');
+		};
+				
+	    });
 	};
 
 	function runShinning(){	
-		var el = this.el;
-		new Fx.Morph(el, {
-			duration:500, 
-			onComplete:function(morph){
-				var fadeOut = new Fx.Morph(el, {duration:500}).start({
-					opacity:0,
-				});
-			}
-		}).start({'opacity':1});
+	    var el = this.el;
+	    new Fx.Morph(el, {
+		duration:500, 
+		onComplete:function(morph){
+		    var fadeOut = new Fx.Morph(el, {duration:500}).start({
+			opacity:0,
+		    });
+		}
+	    }).start({'opacity':1});
 	};
 
 	window.addEvent('domready', function(){
-		// initialize hotel list
-		selectRefresh($(actionContainer).getElements('select')[0]);	
+	    // initialize hotel list
+	    selectRefresh($(actionContainer).getElements('select')[0]);	
 
-		// initialize buttons
-		bnAdapter();
+	    // initialize buttons
+	    bnAdapter();
 			
-		var img = $(cursor).setStyles({
-			display:'block',
-			//opacity: 0 
-			opacity: 1 
-		});
+	    var img = $(cursor).setStyles({
+		display:'block',
+		//opacity: 0 
+		opacity: 1 
+	    });
 			
-		img.makeDraggable({
-			container: mapContainer,
-			onDrop: function(element, droppable, event){
-				var pos = {"x": element.getStyle('left').toInt()+1, "y": element.getStyle("top").toInt()};
-				//alert(pos.x+','+pos.y);
-				var q = $H(pos);
-				url = [positionUrl, q.toQueryString()].join('?');
-				window.open(url, "testWindow","menubar=no,width=430,height=360,toolbar=no");
-			}
-		});
+	    img.makeDraggable({
+		container: mapContainer,
+		onDrop: function(element, droppable, event){
+		    var pos = {"x": element.getStyle('left').toInt()+1, "y": element.getStyle("top").toInt()};
+		    //alert(pos.x+','+pos.y);
+		    var q = $H(pos);
+		    url = [positionUrl, q.toQueryString()].join('?');
+		    window.open(url, "testWindow","menubar=no,width=430,height=360,toolbar=no");
+		}
+	    });
 
 	});
 
@@ -256,9 +256,9 @@ def _headTempl():
 
 	misc = [TITLE("A demostration for map functions !"), _css()]
 
-	names = ('mootools-1.2.2-core.js', 'mootools-1.2.2.2-more.js')
+	names = ('mootools-1.2.4-core.yuc.js', 'mootools-1.2.4.2-more.yuc.js')
 	prefix = '/'.join(4*['..'])
-	scripts = [SCRIPT(**{'type':'text/javascript', 'src':'/'.join((prefix, 'scripts',name))}) for name in names ]
+	scripts = [SCRIPT(**{'type':'text/javascript', 'src':'/'.join((prefix, 'lib','mootools',name))}) for name in names ]
 
 	for group in [metaTags, misc, scripts]	:
 		for tag in group:
@@ -335,11 +335,11 @@ def _infoFormJs():
 	var formId="%s";
 	
 	window.addEvent('domready', function(){
-		var inputEls = $(formId).getElements('input');
-		inputEls[inputEls.length-1].addEvent('click', function(e){
-			new Event(e).stop();
-			window.close();
-		});
+	    var inputEls = $(formId).getElements('input');
+	    inputEls[inputEls.length-1].addEvent('click', function(e){
+		new Event(e).stop();
+		window.close();
+	    });
 
 	});
 		

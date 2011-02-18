@@ -25,113 +25,114 @@ Initialize the top navigation info on the top right of the screen,
 then switch the menu according user's login status.
 */
 function topNavSwitch(login){
-	var topNav = $('<%=pagefn.LOGINPANEL %>')
-	var children = topNav.getChildren();
-	var url = 'portaLayout.ks/page_welcomeInfo';
-	
-	switch(login){
-		case true:			
-			if(children.length < 2){
-				// append welcom information to top navigation bar
-				var span = new Element('span');
-				span.load(url);			
-				topNav.grab(span);
-				topNav.getElements('ul')[0].setProperty('style','display:none;');
-			}
-			else{
-				// just insert content to the welcome information container and 
-				// envisible the container element
-				children[0].setProperty('style','display:none;');
-				children[1].load(url).setProperty('style','display:block;');
-			}
-			break
-		case false:
-			// delete the content in the welcome information container and 
-			// make it invisible
-			children[0].setProperty('style','display:block;');
-			children[1].setProperties({
-				'html': '',
-				'style': 'display:none;'
-			});
-			break
+    var topNav = $('<%=pagefn.LOGINPANEL %>')
+
+    var children = topNav.getChildren();
+    var url = 'portaLayout.ks/page_welcomeInfo';
+    
+    switch(login){
+	case true:			
+	    if(children.length < 2){			
+		// append welcom information to top navigation bar
+		var spanEl = new Element('span');
+		topNav.adopt(spanEl);
+		spanEl.load(url);			
+		topNav.getElements('ul')[0].setStyle('display','none');
+	    }
+	    else{
+		// just insert content to the welcome information container and 
+		// envisible the container element
+		children[0].setStyle('display','none');
+		children[1].load(url).setStyle('display','block');
+	    }
+	    break
+	case false:
+	    // delete the content in the welcome information container and 
+	    // make it invisible
+	    children[0].setStyle('display','block');
+	    children[1].empty().setStyle('display', 'none');
+	    break
 	}
 	
 };
 
 /*
+** Some default layout styles 
+*/
+var defaultConfig = {'stickyNotes':'cascade'};
+
+/*
 Initialize menu by json data from server side
 */
 function menuInit(){
-	var data = new Request.JSON({
-		async: false,
-		url: "portaLayout.ks/page_menu", 
-		//onSuccess:function(json,html){	
-		onSuccess:function(json){	
-			var assetOptions = {
-				/*
-				 load corresponding clickable functions to each menu item,
-				 the js file is defined in pagefn.py file, which is different for different user role
-				*/
-				'url':json['js'],	
-				'app':'<%=loginApp %>',
-				'type':'js'
-			};
-		
-			var onloadOptions = {
-				onload: function(){
-					// load html slice to the navigation bar		
-					var ul = new Element('ul');
-					ul.set('load', {url:json.url, async:false});
-					ul.load();
-					$('<%=pagefn.MENUCONTAINER%>').grab(ul,'top');
-					
-					// set the selected tag for each sticky note
-					$$('.noteWidget').each(function(link){
-						var checkTagId = link.getProperty('id');
-						// '.check' css class is predefined by MochaUI
-						var checkTag = new Element('div', {'id': checkTagId+'check', 'class': 'check'});
-						if(checkTagId != 'grid') checkTag.hide();
-						link.grab(checkTag);
-					});
-
-					/*
-					  Add event to each menu item
-					  'json.functions' is a dictionary object, 
-					  its key is the 'id' of the <a> tag,
-					  its value is a dictionary object whose format is {'funcname':..., 'popupWindowId':... }
-					*/
-					$H(json.functions).each(function(func, nid){
-
-						$(nid).setProperties({
-							'style':'text-decoration:none;',
-							'href': 'javascript:;'
-						});
-						$(nid).store('popupWindowId',func.popupWindowId);
-
-						if($type(window[func.funcname])) {
-							/*
-							 For pop up window, it's need to pass window's id to 
-							 popupWindow function in "js/userMenus.js" file.
-							*/
-							if(func.funcname == 'popupWindow'){
-								$(nid).addEvent(
-									'click', 
-									window[func.funcname].pass(func.popupWindowId)
-								);
-							}
-							else{
-								$(nid).addEvent('click', window[func.funcname]);
-							};
-						}
-					});
-				}
-			};
+    var data = new Request.JSON({
+	async: false,
+	url: "portaLayout.ks/page_menu", 
+	//onSuccess:function(json,html){	
+	onSuccess:function(json){	
+	    var assetOptions = {
+		/*
+		 load corresponding clickable functions to each menu item,
+		 the js file is defined in pagefn.py file, which is different for different user role
+		*/
+		'url':json['js'],   // userMenus.js or adminMenus.js	
+		'app':'<%=loginApp %>',
+		'type':'js'
+	    };
 			
-			// load js slice
-			am.import( assetOptions, onloadOptions );
-		}
-	}).get();
+		    	
+	    var onloadOptions = {
+		onload: function(){
+		    // load html slice to the navigation bar		
+		    var ul = new Element('ul');
+		    ul.set('load', {url:json.url, async:false});
+		    ul.load();
 
+		    $('<%=pagefn.MENUCONTAINER%>').grab(ul,'top');
+		    /*
+		      Add event to each menu item
+		      'json.functions' is a dictionary object, 
+		      its key is the 'id' of the <a> tag,
+		      its value is a dictionary object whose format is {'funcname':..., 'popupWindowId':... }
+		    */
+		    $H(json.functions).each(function(func, nid){
+			
+			$(nid).setProperty('href','javascript:;').setStyle('text-decoration','none');
+			$(nid).store('popupWindowId',func.popupWindowId);
+			
+			if($type(window[func.funcname])=="function") {
+
+			    // For pop up window, it's need to pass window's id to popupWindow function in "js/userMenus.js" file.
+			    if(func.funcname == 'popupWindow'){
+				$(nid).addEvent(
+				    'click', 
+				    window[func.funcname].pass(func.popupWindowId)
+				);
+			    }
+			    else{
+				$(nid).addEvent('click', window[func.funcname]);
+			    };
+			};
+		    });
+		    
+
+		    // set the selected tag for each sticky note
+		    $$('.noteWidget').each(function(noteLink){
+			var checkTagId = noteLink.getProperty('id');
+			// '.check' css class is predefined by MochaUI
+			var checkTag = new Element('div', {'id': checkTagId+'check', 'class': 'check'});
+			if(checkTagId != defaultConfig.stickyNotes) checkTag.hide();
+			    noteLink.grab(checkTag);
+		    });
+
+		    MUI.Desktop.menuInitialize();
+		}
+	    };
+			
+	    // load js slice
+	    am._import( assetOptions, onloadOptions );
+	}
+    }).get();
 	
 };
 
@@ -142,31 +143,45 @@ Initialize layout in main window
 
 // Add two columns, one is sidebar and the other is the main column.
 function addColumns(){
-	/*
-	All these two MUI.Column instance are to be added to MUI.Desktop.pageWrapper, 
-	so it's no need to set 'container' option when initializing these two
-	MUI.Column instances.
-	*/
-
-	// first, add columns to main window of the desktop	
-	new MUI.Column({
-		id:'<%=sideBar %>', placement:'left', width:200, 
-		resizeLimit:[100, 300], sortable: true
-	});
-
-	new MUI.Column({ 
-		id:'<%=mainColumn %>', placement:'main',
-		resizeLimit:[100, 500], sortable: false
-	});
+    /*
+    All these two MUI.Column instance are to be added to MUI.Desktop.pageWrapper, 
+    so it's no need to set 'container' option when initializing these two
+    MUI.Column instances.
+    */
 	
-	// add the main MUI.Panel to the main MUI.Column
-	new MUI.Panel({
-		id: mainPanelId, header:false, column: '<%=mainColumn %>'
-	});
+    // get the desktop element's size
+    var desktopSize = $(MUI.Desktop.options.pageWrapper).getSize();
+
+    // first, add columns to main window of the desktop	
+    new MUI.Column({
+	id:'<%=sideBar %>', placement:'left', 
+	//width:200, 
+	width: Math.round(desktopSize.x*0.18),
+	resizeLimit:[100, 300], sortable: true
+    });
+
+    new MUI.Column({ 
+	id:'<%=mainColumn %>', placement:'main',
+	resizeLimit:[100, 500], sortable: false
+    });
+	
+    // add the main MUI.Panel to the main MUI.Column
+    new MUI.Panel({
+	id: mainPanelId, header:false, column: '<%=mainColumn %>'
+    });
 };
+
 
 // Traditional layout by columns and panels
 function gridLayout(json){
+	
+	// Deactivate menu header links
+	$$('a.returnFalse').each(function(el){
+		el.addEvent('click', function(e){
+			new Event(e).stop();
+		});
+	});
+
 	addColumns();						
 	
 	json['data'].each(function(item,index){														
@@ -186,95 +201,125 @@ function gridLayout(json){
 		// collapse others panels, only left the first panel expanded
 		if(index != 0){panel.toggleExpand();};
 	});
+
 };
 
 // Desktop style layout
 function desktopLayout(json){
-	MUI.Desktop.initialize();
-	MUI.Dock.initialize();
-
-	// set the background of the desktop
-	$("pageWrapper").store('background', $("pageWrapper").getStyle('background'));
-	$("pageWrapper").setStyle('background', '#777');
-
-	// Deactivate menu header links
-	$$('a.returnFalse').each(function(el){
-		el.addEvent('click', function(e){
-			new Event(e).stop();
-		});
-	});
-
-	// the sticky notes widget on desktop
-	new Asset.css('lib/stickyNotes/stickyNotes.css');
-	new Asset.javascript('lib/stickyNotes/stickyNotes.js', {
-		onload: function(){
-			var options = {
-				dropElements: [$('pageWrapper'),],
-				container: $('pageWrapper'),
-				notesDataUrl: 'lib/stickyNotes/test.ks/page_data',
-				layout: {
-					"default":"grid", 
-					"grid":{"columns":5, "xOffset":180, "yOffset": 100, "containerTopOffset": 10, "containerLeftOffset": 10},
-					"circle":{"centerX":270, "centerY": 210, "radius": 200},
-					"cascade":{"xOffset":40, "yOffset": 40, "containerTopOffset":0, "containerLeftOffset": 0}
-				},
-				indexLevel: 10
-			};	
-		
-			$("pageWrapper").store("notesWidget", new StickyNotes(options));
-	}});
+    $("pageWrapper").setStyle('background', '#777');
 	
-	// a clock window 
-	new MUI.Window({
-		id: 'clock',
-		title: 'Canvas Clock',
-		addClass: 'transparent',
-		loadMethod: 'xhr',
-		contentURL: 'plugins/coolclock/index.html',
-		shape: 'gauge',
-		headerHeight: 30,
-		width: 160, height: 160,
-		x: 1170, y: 82,
-		padding: { top: 0, right: 0, bottom: 0, left: 0 },
-		require: {			
-			js: ['plugins/' + 'coolclock/scripts/coolclock.js'],
-			onload: function(){
-				if (CoolClock) new CoolClock();
-			}	
-		}			
+    // Deactivate menu header links
+    $$('a.returnFalse').each(function(el){
+	el.addEvent('click', function(e){
+	    new Event(e).stop();
 	});
+    });
 
-	// application windows on desktop
-	var res = new Request.JSON();
-	// set some options for Request.JSON instance
-	res.setOptions({
-		url: 'portaLayout.ks/page_windowsConfig',
-		onSuccess: function(json){
-			if(json.length == 0 ) return;
-			json.each(function(option,index){
-				if( option.shape == 'gauge'){
-					new MUI.GaugeWindow(option);	
-				}
-				else new MUI.Window(option);
-			});
-		}
-	});
+    // the sticky notes widget on desktop
+    // css file
+    MUI.assetsManager._import({
+	'url': 'lib/stickyNotes/stickyNotes.css',
+	'app':'', 'type':'css'
+    });
     
-	res.get();
+    // js file 
+    var assetOptions = {
+	'url': "lib/stickyNotes/stickyNotes.js",
+	'app':'', 'type':'js'
+    };
+		
+    var onloadOptions = {
+	onload: function(){
+	    var options = {
+		dropElements: [$('pageWrapper'),],
+		container: $('pageWrapper'),
+		notesDataUrl: 'lib/stickyNotes/test.ks/page_data',
+
+		layout: {
+		    "default": defaultConfig.stickyNotes, 
+		    "grid":{"columns":5, "xOffset":180, "yOffset": 100, "containerTopOffset": 10, "containerLeftOffset": 10},
+		    "circle":{"centerX":270, "centerY": 210, "radius": 200},
+		    "cascade":{"xOffset":40, "yOffset": 40, "containerTopOffset":0, "containerLeftOffset": 0}
+		},
+			
+		indexLevel: 10
+	    };
+	    $("pageWrapper").store("notesWidget",new StickyNotes(options));
+	
+	}
+    };
+
+    MUI.assetsManager._import( assetOptions, onloadOptions );
+
+    // a clock window 
+    // get the relative size set for this window
+    var desktopSize = $(MUI.Desktop.options.pageWrapper).getSize();
+    new MUI.Window({
+	id: 'clock',
+	title: 'Canvas Clock',
+	addClass: 'transparent',
+	loadMethod: 'xhr',
+	contentURL: 'plugins/coolclock/index.html',
+	shape: 'gauge',
+	headerHeight: 30,
+	width: 160, height: 160,
+	x: Math.round(desktopSize.x*0.8), y: Math.round(desktopSize.y*0.20),
+	padding: { top: 0, right: 0, bottom: 0, left: 0 },
+	require: {			
+	    js: ['plugins/' + 'coolclock/scripts/coolclock.js'],
+	    onload: function(){
+		if (CoolClock) new CoolClock();
+	    }	
+	}			
+    });
+
+    // application windows on desktop
+    var res = new Request.JSON();
+    // set some options for Request.JSON instance
+    res.setOptions({
+	url: 'portaLayout.ks/page_windowsConfig',
+	onSuccess: function(json){
+	    if(json.length == 0 ) return;
+	    json.each(function(option,index){
+		if( option['shape'] == 'gauge'){
+		    if(option['id'] == 'calendar'){
+			option['x'] = Math.round(desktopSize.x*0.75) , 
+			option['y'] = Math.round(desktopSize.y*0.6);
+		    };
+		    new MUI.GaugeWindow(option);	
+		}
+		else new MUI.Window(option);
+	    });
+	}
+    });
+    res.get();
 };
 
 // the layout config handler 
-function layoutInit(userData){	
+function layoutInit(userData){
+    // set the background of the desktop
+    var iniBackground = $H({
+	'background-image':'',
+	'background-color':'', 
+	'background-repeat':'',
+	'background-attachment':'',
+	'background-position':''
+    });
+    iniBackground.getKeys().each(function(key){
+	iniBackground[key] = $('pageWrapper').getStyle(key);
+    });
+    $("pageWrapper").store('background', iniBackground);
+
     if(userData.portal == "<%=pagefn.PORTALTYPE[1]%>"){
-	desktopLayout();
-	return
+        desktopLayout();
+        return
     };
 
     // get panels on the left column
     new Request.JSON({
-	url: "portaLayout.ks/page_sideBarPanels", 
+        url: "portaLayout.ks/page_sideBarPanels", 
 	    onSuccess:function(json,html){					
-		am.import(
+		am._import(
 		    {
 			'url':json['js'],	// load the functions for the events of sidePanels
 			'app':'<%=loginApp %>',
@@ -287,7 +332,7 @@ function layoutInit(userData){
 		    }
 		);
 	    }
-	}).get();	
+    }).get();
 };
 
 
@@ -295,50 +340,53 @@ function layoutInit(userData){
 MUI.extend({
 	// login function 
 	login: function(userData){
-		var menuChain = new Chain();
-		menuChain.chain(
-			topNavSwitch(true),
-			menuInit(),
-			layoutInit(userData)			
-		).callChain();
+	    var menuChain = new Chain();
+	    menuChain.chain(
+		topNavSwitch(true),
+		menuInit(),
+		layoutInit(userData)			
+	    ).callChain();
 	},
 	
 	// logout function
 	logout: function(event){
-		new Event(event).stop();
+	    new Event(event).stop();
 		
-		// close all opened MUI.Window
-		MUI.closeAllWindows();		
+	    // close all opened MUI.Window
+	    MUI.closeAllWindows();		
 
-		// remove menus in menu bar
-		$('<%=pagefn.MENUCONTAINER%>').getElement('ul').dispose();
+	    // remove menus in menu bar
+	    $('<%=pagefn.MENUCONTAINER%>').getElement('ul').dispose();
+	    
+	    // reset the top navigation info
+	    topNavSwitch(false);
 		
-		// reset the top navigation info
-		topNavSwitch(false);
+	    // remove the columns in main window
+	    MUI.Columns.instances.getKeys().each(function(key,index){
+	    // Only the first two key ( the ids of side column and main column )
+	    // are the reall existed MUI.Column instance,
+	    // others should be no existed.
+	    var columns = ['<%=sideBar %>','<%=mainColumn%>'];
+		if(columns.contains(key)){ MUI.closeColumn($(key));};
+	    });
 		
-		// remove the columns in main window
-		MUI.Columns.instances.getKeys().each(function(key,index){
-			// Only the first two key ( the ids of side column and main column )
-			// are the reall existed MUI.Column instance,
-			// others should be no existed.
-			var columns = ['<%=sideBar %>','<%=mainColumn%>'];
-			if(columns.contains(key)){ MUI.closeColumn($(key));};
-		});
+	    // clear the hash objects that save MUI.Column  instances and MUI.Panel instances
+	    MUI.Columns.instances.empty();
+	    MUI.Panels.instances.empty();
 		
-		// clear the hash objects that save MUI.Column  instances and MUI.Panel instances
-		MUI.Columns.instances.empty();
-		MUI.Panels.instances.empty();
-		
-		// clear body in the page and set the background of the desktop
-		$("pageWrapper").empty().setStyle('background', $("pageWrapper").retrieve('background'));
-		
-		// remove all the imported mootools.Assets
-		MUI.assetsManager.remove('<%=loginApp %>', 'app');
-		
-		// close session object on server side
-		
-		// application initialization, including closing old session and removing old cookie
-		MUI.appInit();
+	    // clear body in the page and set the background of the desktop
+	    $("pageWrapper").empty();
+	    $("pageWrapper").retrieve('background').each(function(value, key){
+		$("pageWrapper").setStyle(key,value);		
+	    });
+	    
+	    // remove all the imported mootools.Assets
+	    //MUI.assetsManager.remove('<%=loginApp %>', 'app');
+	    MUI.assetsManager.removeAll();
+	    
+	    // application initialization, including closing old session and removing old cookie
+	    MUI.appInit();
+	    MUI.clearCookie();
 	},
 	
 	// set the id for the main MUI.Panel
@@ -400,9 +448,10 @@ MUI.extend({
 	
 	/***************************************************************
 	A common function to handle import aciton for Mootools.Assets.
-	Here we assume that there is only one 'js' file.
+	Here we assume that there is only one 'js' file that needs to 
+	be imported.
 	****************************************************************/
-	import: function(appName,urls,options){
+	_import: function(appName,urls,options){
 		// get the global Assets manager
 	   	var am = MUI.assetsManager;		
 		urls.each(function(src){
@@ -410,12 +459,12 @@ MUI.extend({
 
 			if(fileType == 'css'){
 				if(!$defined(am.imported[src])){
-	    				am.import({'url':src,'app':appName,'type':'css'});	
+	    				am._import({'url':src,'app':appName,'type':'css'});	
 				};
 			}
 			else if(fileType == 'js'){
 				if(!$defined(am.imported[src])){
-					am.import({'url':src,'app':appName,'type':'js'},options);
+					am._import({'url':src,'app':appName,'type':'js'},options);
 				}
 				else{
 					// this plugin files have been imported,
@@ -444,18 +493,18 @@ MUI.extend({
 		// import css file for validation
 		urls.slice(0,2).each(function(src){
 			if(!$defined(am.imported[src])){
-				am.import({'url':src,'app':appName,'type':'css'});
+				am._import({'url':src,'app':appName,'type':'css'});
 			}	
 		});
 		
 		// i18n file of this lib
 		url = urls[2];
 		if(!$defined(am.imported[url])){
-			am.import({'url':url,'app':appName,'type':'js'});
+			am._import({'url':url,'app':appName,'type':'js'});
 		};
 	   
 		// the really validation functions
-		am.import({'url':urls[3],'app':appName,'type':'js'},options);
+		am._import({'url':urls[3],'app':appName,'type':'js'},options);
 	},
 	
 	/*********************************************************************
@@ -468,7 +517,7 @@ MUI.extend({
 			urls.push('<%=url%>');
 		<% end %>
 		
-		MUI.import(appName,urls, options);
+		MUI._import(appName,urls, options);
 	},
 	
 	/***********************************************************************
@@ -481,7 +530,7 @@ MUI.extend({
 			urls.push('<%=url%>');
 		<% end %>
 		
-		MUI.import(appName,urls,options);
+		MUI._import(appName,urls,options);
 		
 	},
 
@@ -495,7 +544,7 @@ MUI.extend({
 			urls.push('<%=url%>');
 		<% end %>
 		
-		MUI.import(appName,urls,options);
+		MUI._import(appName,urls,options);
 	},
 	
 	/**********************************************************************
@@ -516,7 +565,7 @@ MUI.extend({
 			urls.push('<%=url%>');
 		<% end %>
 		
-		MUI.import(appName,urls,options);
+		MUI._import(appName,urls,options);
 
 	},
 	
@@ -530,7 +579,7 @@ MUI.extend({
 			urls.push('<%=url%>');
 		<% end %>
 		
-		MUI.import(appName,urls,options);
+		MUI._import(appName,urls,options);
 
 	},
 
@@ -544,7 +593,7 @@ MUI.extend({
 			urls.push('<%=url%>');
 		<% end %>
 		
-		MUI.import(appName,urls,options);
+		MUI._import(appName,urls,options);
 	},
 
 	/**********************************************************************
@@ -556,7 +605,35 @@ MUI.extend({
 		<% for url in pagefn.JSLIB['imageZoom']['files'] : %>
 			urls.push('<%=url%>');
 		<% end %>
-		MUI.import(appName,urls,options);
+		MUI._import(appName,urls,options);
 	}
 	
+});
+
+// check whether user has logined
+function postLogin(){
+    var dataRequest = new Request.JSON({async:false});
+    dataRequest.setOptions({
+	url: 'portaLayout.ks/page_postLoginData',      	
+	onSuccess: function(res){
+	    if(res.valid != 1) return;
+	    MUI.login(res.user);	    
+	}
+    });
+    dataRequest.get();
+};
+
+// Initialize MochaUI when the DOM is ready
+window.addEvent('load', function(){ //using load instead of domready for IE8
+    MUI.myChain = new Chain();
+    MUI.myChain.chain(
+	function(){MUI.Desktop.initialize();},
+
+	function(){MUI.Dock.initialize();},
+
+	function(){ MUI.preLoginInit();}
+
+    ).callChain();	
+
+    postLogin();
 });

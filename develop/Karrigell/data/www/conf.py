@@ -7,8 +7,8 @@ import os
 root_dir = os.path.join(server_dir,"www")
 data_dir = os.path.join(server_dir,"data","www")
 cgi_dir = os.path.join(root_dir,"cgi-bin")
-#cache_dir = os.path.join(data_dir, "cache")
-cache_dir = None
+cache_dir = os.path.join(data_dir, "cache")
+#cache_dir = None
 
 # list of user roles allowed to see directory listings
 # if url matches a directory ?
@@ -39,11 +39,12 @@ debug = True
 # dictionary of aliases
 # if alias["foo"] = "/usr/some_folder" then url /foo/bar.py will
 # be resolved to file /usr/some_folder/bar.py
-alias = {"admin":os.path.join(server_dir,"common","admin"),
-            "doc":os.path.join(server_dir,"common","doc"),
-            "demo":os.path.join(server_dir,"common","demo"),
-            "editarea":os.path.join(server_dir,"common","editarea")
-            }
+alias = {
+	"admin":os.path.join(server_dir,"common","admin"),
+   "doc":os.path.join(server_dir,"common","doc"),
+   "demo":os.path.join(server_dir,"common","demo"),
+   "editarea":os.path.join(server_dir,"common","editarea")
+}
 
 # use gzip to compress text files ?
 gzip = True

@@ -1,7 +1,7 @@
 """
 Pages mainly for administration.
 """
-import copy,tools
+import copy,tools, urllib
 from tools import treeHandler
 
 from HTMLTags import *
@@ -39,20 +39,6 @@ RESERVESHOWPANEL = pagefn.HOTEL.get('rightColumn')['panelId']
 # valid functions for form fields
 CHKFNS = ('serviceCategoryChk','serviceNameChk')
 
-"""
-# the properties to be edit in form
-PROPS =\ 
-[
-	{'name':'category','prompt':_('Category'),'validate':[''.join(('~',CHKFNS[0])),],'required':True},
-	{'name':'subcategory','prompt':_('Subcategory'),'validate':[],'required':True},
-	{'name':'serial','prompt':_('Service Serial'),'validate':[]},
-	{'name':'name','prompt':_('Hotel/Room Type'),'validate':[''.join(('~',CHKFNS[1])),],'required':True},
-	{'name':'description','prompt':_('Description'),'validate':[],'type':'textarea'},
-	{'name':'price','prompt':_('Unit Price'),'validate':[]},
-	{'name':'amount','prompt':_('Amount'),'validate':[]},
-	{'name':'detail','prompt':_('Supplement'),'validate':[],'type':'textarea'},
-]
-"""
 
 # the properties info that will be shown in columns's title in the tree table to show services' list
 COLUMNMODEL = [
@@ -106,7 +92,7 @@ def _hotelsListJs():
 	paras.append(_('Reservation Edit'))
 	paras = tuple(paras)
 	js = \
-	"""
+	'''
 	var appName='%s', container='%s', 
 	validProps = ['%s', '%s'],
 	colsModelUrl='%s', rowDataUrl='%s',
@@ -122,83 +108,83 @@ def _hotelsListJs():
 	Add buttons on the bottom of the hotel list table
 	************************************************************************/
 	function addButton(ti){
-		// Parameter 'ti'- the TreeTable instance
-		bnContainer = new Element('div',{style: 'text-align:left;'});
-		ti.container.grab(bnContainer);
+	    // Parameter 'ti'- the TreeTable instance
+	    bnContainer = new Element('div',{style: 'text-align:left;'});
+	    ti.container.grab(bnContainer);
 		
-		createReserveBnAttributes.each(function(attrs,index){
+	    createReserveBnAttributes.each(function(attrs,index){
 			
-			options = {
-				txt: attrs['label'],
-			   imgType: attrs['type'],
-				bnAttrs: {'style':'margin-right:1em;'}	
-			};
+		options = {
+		    txt: attrs['label'],
+		    imgType: attrs['type'],
+		    bnAttrs: {'style':'margin-right:1em;'}	
+		};
 			
-			button = MUI.styledButton(options);
-			button.addEvent('click',actionAdapter.pass(index,this));
+		button = MUI.styledButton(options);
+		button.addEvent('click',actionAdapter.pass(index,this));
 			
-			bnContainer.grab(button);
+		bnContainer.grab(button);
 			
-		},ti);
+	    },ti);
 		
 	};
 	
 	function actionAdapter(index){
-		trs = this.getSelectedRows();
-		if(trs.length != 1){	// only one row should be selected
-			MUI.alert(rowSelectErr);
-			return
-		};
+	    trs = this.getSelectedRows();
+	    if(trs.length != 1){	// only one row should be selected
+		MUI.alert(rowSelectErr);
+		return
+	    };
 		
-		if(index==0){
-			hotelDetail(this);
-		}
-		else{
-			reservation(this);
-		};
+	    if(index==0){
+		hotelDetail(this);
+	    }
+	    else{
+		reservation(this);
+	    };
 	};
 	
 	// set a global Request.JSON instance for send validation url for check the capability of selected row
 	var couldReserve = null;
 	var validRowRequest = new Request.JSON({
-		url: reserveValidUrl,
-		async:false, 
-		onComplete:function(json){
-			if(json.ok == '1'){couldReserve=true;}
-			else{ unReserveErr = json.info ;};
-		}
+	    url: reserveValidUrl,
+	    async:false, 
+	    onComplete:function(json){
+		if(json.ok == '1'){couldReserve=true;}
+		else{ unReserveErr = json.info ;};
+	    }
 	});
 
 	function reservation(ti){
-		tr = ti.getSelectedRows()[0];
+	    tr = ti.getSelectedRows()[0];
 		
-		// judge whether selected row is a room and has not been reserved by operator
-		couldReserve = false, options = {};
-		validProps.each(function(prop){
-			options[prop] = ti.getCellValueByRowId(tr.get('id'), prop);
-		});
-		validRowRequest.get(options);
+	    // judge whether selected row is a room and has not been reserved by operator
+	    couldReserve = false, options = {};
+	    validProps.each(function(prop){
+		options[prop] = ti.getCellValueByRowId(tr.get('id'), prop);
+	    });
+	    validRowRequest.get(options);
 
-		// popup modal dialog to reserve this type of room
-		if(!couldReserve) {
-			MUI.notification(unReserveErr);
-			return;
-		};
+	    // popup modal dialog to reserve this type of room
+	    if(!couldReserve) {
+		MUI.notification(unReserveErr);
+		return;
+	    };
 		
-		// get service id
-		query = ti.getRowDataWithProps(tr);
-		query.combine(action);
-		url = [reserveEditUrl, query.toQueryString()].join('?');	
-		new MUI.Modal({
-         		width: 450, height: 400, y: 80, title: editModalTitle,
-         		contentURL: url,
-         		modalOverlayClose: false,
-         	});
+	    // get service id
+	    query = ti.getRowDataWithProps(tr);
+	    query.combine(action);
+	    url = [reserveEditUrl, query.toQueryString()].join('?');	
+	    new MUI.Modal({
+		width: 450, height: 400, y: 80, title: editModalTitle,
+		contentURL: url,
+		modalOverlayClose: false,
+	    });
 
 	};
 	
 	function hotelDetail(ti){
-		alert('show hotel detail information action');
+	    alert('show hotel detail information action');
 	};
 	
 	/****************************************************************** 
@@ -206,25 +192,25 @@ def _hotelsListJs():
 	******************************************************************/
 	// options for TreeTable class initialization
 	var options = {
-		onload:function(){
-			treeTable = new TreeTable( 
-				container,				
-				{
-					colsModelUrl:colsModelUrl,
-					treeColumn: 0,					
-					dataUrl: rowDataUrl,
-					idPrefix: 'hotel-',
-					initialExpandedDepth: 1,
-					renderOver: addButton
-				}
-			);// the end for 'treeTable' definition
+	    onload:function(){
+		treeTable = new TreeTable( 
+		    container,				
+		    {
+			colsModelUrl:colsModelUrl,
+			treeColumn: 0,					
+			dataUrl: rowDataUrl,
+			idPrefix: 'hotel-',
+			initialExpandedDepth: 1,
+			renderOver: addButton
+		    }
+		);// the end for 'treeTable' definition
 			
-		}// the end for 'onload' definition
+	    }// the end for 'onload' definition
 	};// the end for 'options' definition
 	
 	// initialize TreeTable class
 	MUI.treeTable(appName,options);	
-	"""%paras
+	'''%paras
 	return js
 
 def page_colsModel(**args):
@@ -278,13 +264,11 @@ def _treeFlattenData(category,props, idFn, pidFn):
 	nodes = treeHandler.flatten()
 	
 	# handle each row of data, transform them to client's required format
-	# sorted[1:] - pop out the first root node which has no data
 	sorted = [ _node2json(node) for node in nodes]
+	# sorted[1:] - pop out the first root node which has no data
 	return sorted[1:]
 
 def page_hotelItems(**args):
-	"""
-	"""
 	category = SERVICECATEGORY
 	
 	# filter the last three column that are  action clolumns 
@@ -314,30 +298,34 @@ def page_hotelInfo(**args):
 	return
 
 def page_roomReservation(**args):
-	reserve = '-'.join((USER, 'hotelReservation'))
-	print DIV(**{'id': reserve})
-	print pagefn.script(_roomReservationJs(reserve),link=False)
+	containerId = '-'.join((USER, 'hotelReservation'))
+	print DIV(**{'id': containerId})
+	print pagefn.script(_roomReservationJs(containerId, args.get('panelId')),link=False)
 
 	return
 
-def _roomReservationJs(container):
-	paras = [container, RESERVESHOWPANEL]
+def _roomReservationJs(container, panelId):
+	if not panelId:
+	    panelId = RESERVESHOWPANEL
+	paras = [container, panelId]
 	paras.extend([ '/'.join((APPATH, name)) for name in ('page_reservationData','page_reserveForm','page_reserveEditAction')])
-	paras.extend([ _('Subtotal'), ACTIONPROP])
+	paras.extend([_('Total reservations'), _('Total Cost'), _('Subtotal'), ACTIONPROP])
 	paras.extend(ACTIONTYPES[1:])
 	# add buttons' labels
 	paras.extend((_('Edit'), _('Delete')))
 	
 	paras = tuple(paras)
 	js = \
-	"""
+	'''
 	var container=$('%s'), panelId='%s', 
 	dataUrl='%s', editUrl='%s', deleteUrl='%s',
-	subLabel='%s',
+	totalNumber='%s', totalCost='%s', subLabel='%s',
 	actionTag='%s', actions=['%s','%s'],
 	bnLabels=['%s', '%s'];
 
+	// the 'colon' symbol
 	var colon = new Element('span',{html:'&nbsp;:&nbsp;'});
+
 	// common seperator element
 	var sep = new Element('span',{html:'&nbsp;,&nbsp;'});
 	
@@ -345,14 +333,15 @@ def _roomReservationJs(container):
 	var subCostInfo = new Element('div');
 	subCostInfo.inject(container, 'bottom');
 	container.grab( new Element('hr', {style:'padding:0.1em;'}));
+	
 	// append labels for subtotal information
 	// total reservations amount
-	var totalReserves = new Element('span',{html:'Total reservations'});
+	var totalReserves = new Element('span',{html:totalNumber});
 	var totalReservesValue = new Element('span', {style:'color:red;font-weight:bold;font-size:1.2em;'});
 	subCostInfo.adopt(totalReserves,colon.clone(),totalReservesValue, sep.clone());
 
 	// total cost
-	var subCostInfoLabel = new Element('span',{html:'Total Cost'});
+	var subCostInfoLabel = new Element('span',{html:totalCost});
 	var subCostValue = new Element('span', {style:'color:red;font-weight:bold;font-size:1.2em;'});
 	subCostInfo.adopt(subCostInfoLabel,colon.clone(),subCostValue);
 	
@@ -363,79 +352,82 @@ def _roomReservationJs(container):
 	var request4roomReserve = new Request.JSON({url:dataUrl, onComplete: renderUl}).get();
 	
 	function renderUl(data){
-		data.each(renderLi);
-		subCostValue.set('text',subCostValue.retrieve('value'));
-		totalReservesValue.set('text', ul.getElements('li').length);
+	    data.each(renderLi);
+	    subCostValue.set('text', '￥'+subCostValue.retrieve('value').toString());
+	    totalReservesValue.set('text', ul.getElements('li').length);
 	};
 	
 	function rendeRow4Li(elements){
-		div = new Element('div');
-		elements.each(function(el){div.adopt(el);});
-		return div 
+	    div = new Element('div');
+	    elements.each(function(el){div.adopt(el);});
+	    return div 
 	};
 	
 	var cssTempl = $H({'price':'uprice','amount':'amount'});
 	function _renderField(data, name){
-		label = new Element('span',{html:data.prompt});
-		if(cssTempl.has(name)){
-			label.addClass(cssTempl[name]);
-		};
+	    label = new Element('span',{html:data.prompt});
+	    if(cssTempl.has(name)){
+		label.addClass(cssTempl[name]);
+	    };
 		
-		if(name == 'amount'){
-			value = new Element('span',{html:data.value.toInt()});
-		}
-		else{
-			value = new Element('span',{html:data.value});
-		};
-		return [label, colon.clone(), value]
+	    if(name == 'amount'){
+		value = new Element('span',{html:data.value.toInt()});
+	    }
+	    else if(name == 'price'){
+		value = new Element('span',{html: '￥'+data.value.toInt().toString()});
+	    }
+	    else{
+		value = new Element('span',{html:data.value});
+	    };
+	    return [label, colon.clone(), value]
 	};
 	
 	
 	function renderFields(fields, data){
-		var elements = [];
-		fields.each(function(name){
-			elements.push(_renderField(data[name],name));
-			elements.push(sep.clone());			
-		});
-		elements.pop();
-		return elements
+	    var elements = [];
+	    fields.each(function(name){
+		elements.push(_renderField(data[name],name));
+		elements.push(sep.clone());			
+	    });
+	    elements.pop();
+	    return elements
 	};
 
-	var liTemplate = new Element('li');
+	var liTemplate = new Element('li',{style:'border-bottom:gainsboro 2px solid;padding: 3px 0;'});
 	function renderLi(data){
-		li = liTemplate.clone();	
-		li.addClass('hotel');
-		ul.adopt(li);
+	    li = liTemplate.clone();	
+	    li.addClass('hotel');
+	    ul.adopt(li);
 		
-		// reservation serial and creation time
-		li.adopt(rendeRow4Li(renderFields(['serial','creation'],data)));
+	    // reservation serial and creation time
+	    li.adopt(rendeRow4Li(renderFields(['serial','creation'],data)));
 
-		// hotel and room information
-		hotel = new Element('span',{html:data.hotel.value, 'class':'hotelname'});
-		room = new Element('span',{html:data.name.value});
-		li.adopt(rendeRow4Li([hotel, sep.clone(), room]));
+	    // hotel and room information
+	    hotel = new Element('span',{html:data.hotel.value, 'class':'hotelname'});
+	    room = new Element('span',{html:data.name.value});
+	    li.adopt(rendeRow4Li([hotel, sep.clone(), room]));
 
-		// room description
-		desPrompt = new Element('span',{html:data.description.prompt});
-		des = new Element('span',{html:data.description.value});
-		li.adopt(rendeRow4Li(renderFields(['description'],data)));
+	    // room description
+	    desPrompt = new Element('span',{html:data.description.prompt});
+	    des = new Element('span',{html:data.description.value});
+	    li.adopt(rendeRow4Li(renderFields(['description'],data)));
 		
-		// cost information
-		fields = renderFields(['price','amount'],data);
+	    // cost information
+	    fields = renderFields(['price','amount'],data);
 
-		label = new Element('span',{html: subLabel, 'class':'sub'});
-		value = data.price.value.toFloat()*data.amount.value.toInt();
-		sub = new Element('span',{html: value});
-		subCostValue.store('value', (subCostValue.retrieve('value') || 0).toFloat() + value);
-		fields.extend([sep.clone(),label, colon.clone(),sub]);
-		li.adopt(rendeRow4Li(fields));
+	    label = new Element('span',{html: subLabel, 'class':'sub'});
+	    value = data.price.value.toFloat()*data.amount.value.toInt();
+	    sub = new Element('span',{html: '￥'+value.toInt().toString() });
+	    subCostValue.store('value', (subCostValue.retrieve('value') || 0).toFloat() + value);
+	    fields.extend([sep.clone(),label, colon.clone(),sub]);
+	    li.adopt(rendeRow4Li(fields));
 
-		// user's addenum requestion
-		fields = renderFields(['memo'],data);
-		li.adopt(rendeRow4Li(fields));
+	    // user's addenum requestion
+	    fields = renderFields(['memo'],data);
+	    li.adopt(rendeRow4Li(fields));
 		
-		// add action buttons
-		li.adopt(reserveEditButtons(data.serial.value));
+	    // add action buttons
+	    li.adopt(reserveEditButtons(data.serial.value));
 
 	};
 
@@ -443,74 +435,70 @@ def _roomReservationJs(container):
 	Return a button container which contains two buttons
 	************************************************************************/
 	function reserveEditButtons(serial){
-		bnAttributes = [
-			{'type':'edit','label': bnLabels[0], 'bnSize':'sexysmall', 'bnSkin': 'sexyblue', 'action':actions[0]},
-			{'type':'delete','label': bnLabels[1], 'bnSize':'sexysmall', 'bnSkin': 'sexyred', 'action':actions[1]}
-		];	
+	    var bnAttributes = [
+		{'type':'edit','label': bnLabels[0], 'bnSize':'sexysmall', 'bnSkin': 'sexyblue', 'action':actions[0]},
+		{'type':'delete','label': bnLabels[1], 'bnSize':'sexysmall', 'bnSkin': 'sexyred', 'action':actions[1]}
+	    ];	
 
-		bnContainer = new Element('div',{style: 'text-align:right;'});
+	    bnContainer = new Element('div',{style: 'text-align:right;'});
 		
-		bnAttributes.each(function(attrs,index){
+	    bnAttributes.each(function(attrs,index){
+		var options = {
+		    txt: attrs['label'],
+		    imgType: attrs['type'],
+		    bnAttrs: {'style':'margin-right:1em;'},	
+		    bnSize: attrs['bnSize'],
+		    bnSkin: attrs['bnSkin']
+		};
 			
-			options = {
-				txt: attrs['label'],
-			   	imgType: attrs['type'],
-				bnAttrs: {'style':'margin-right:1em;'},	
-				bnSize: attrs['bnSize'],
-				bnSkin: attrs['bnSkin']
-			};
-			
-			button = MUI.styledButton(options);
-			// save the serial and action value to button
-			button.store('formData', {'serial':serial, 'action':attrs['action']});
-
-			button.addEvent('click',reserveActionAdapter);
-			
-			bnContainer.grab(button);
-			
-		});
+		button = MUI.styledButton(options);
+		// save the serial and action value to button
+		button.store('formData', {'serial':serial, 'action':attrs['action']});
+		button.addEvent('click',reserveActionAdapter);
+		bnContainer.grab(button);
+	    });
 		
-		return bnContainer		
+	    return bnContainer		
 	};
 
 	function reserveActionAdapter(event){
-		new Event(event).stop();
-		button = event.target;
-		data = button.retrieve('formData');
-		query = $H();
-		query[actionTag] = data.action;
-		query['serial'] = data.serial;
-		if(actions.indexOf(data.action)==0){	// 'edit' action
-			url = [editUrl, query.toQueryString()].join('?');	
-			new MUI.Modal({
-         			width: 450, height: 400, y: 80, title: '',
-         			contentURL: url,
-         			modalOverlayClose: false
-         		});
-		}
-		else{	// 'delete' action
-			info = 'Delete Rservation:<br>' + query.serial;
-			MUI.confirm(info, delReservation.pass(query), {});
-		};
+	    new Event(event).stop();
+	    button = event.target;
+	    data = button.retrieve('formData');
+	    query = $H({'panelId':panelId});
+	    query[actionTag] = data.action;
+	    query['serial'] = data.serial;
+	    if(actions.indexOf(data.action)==0){	// 'edit' action
+		url = [editUrl, query.toQueryString()].join('?');	
+		new MUI.Modal({
+		    width: 450, height: 400, y: 80, title: '',
+		    contentURL: url,
+		    modalOverlayClose: false
+		});
+	    }
+	    else{	// 'delete' action
+		info = 'Delete Rservation:<br>' + query.serial;
+		MUI.confirm(info, delReservation.pass(query), {});
+	    };
 		
 	};
 
 	function delReservation(querystr){
-		url = [deleteUrl, querystr.toQueryString()].join('?');	
-	   	// set some options for Request.HTML instance
-		deletRequest = new Request({async:false});
-	   	deletRequest.setOptions({
-	      		url: url,
-	      		onSuccess: function(text, xml){
-		 		MUI.notification(text);
-				MUI.refreshPanel(panelId);
-	      		}
-	   	});
+	    url = [deleteUrl, querystr.toQueryString()].join('?');	
+	    // set some options for Request.HTML instance
+	    deletRequest = new Request({async:false});
+	    deletRequest.setOptions({
+		url: url,
+		onSuccess: function(text, xml){
+		    MUI.notification(text);
+		    MUI.refreshPanel(panelId);
+		}
+	    });
 	   
-	   	deletRequest.get();
+	    deletRequest.get();
 	};
 	
-	"""%paras
+	'''%paras
 	return js
 
 RESERVESHOWPROPS = ('target', 'amount', 'memo','creation', 'serial')
@@ -589,9 +577,9 @@ def page_capableReserve(**args):
 	print JSON.encode({'ok': validStatus and hasReserved, 'info': ' '.join(info)})
 	return
 
-ACTIONPROP,ACTIONTYPES = 'action',['create','edit', 'delete']
+ACTIONPROP,ACTIONTYPES = 'actionType',['create','edit', 'delete']
 def page_reserveForm(**args):
-	action = args.get(ACTIONPROP)	
+	action, panelId = args.get(ACTIONPROP), args.get('panelId')
 	table = []
 	# room fields
 	fields, fieldsProp = [], ['name', 'description', 'price']
@@ -640,7 +628,7 @@ def page_reserveForm(**args):
 		[roomInfo.update({name: value.get('value')}) for name,value in roomInfo.items()]
 		#print roomInfo
 		fields = _getFields(fieldsProp, roomInfo)
-		formargs = [action, reserveId, oldvalues]
+		formargs = [action, reserveId, oldvalues, panelId]
 	
 	attrs = {'style' : 'text-align: center; font-size: 1.6em;font-weight:bold;'}
 	table.append( CAPTION(hotel, **attrs))
@@ -660,7 +648,7 @@ RESERVEFORMPROP =\
 	{'name': 'amount','prompt': _('Amount'),'validate': ['number'],'required': True},
 	{'name': 'memo','prompt': _('Addendum'), 'type': 'textarea', 'validate': [],'required': False},
 ]
-def _reserveForm(action, target, oldvalues={}):
+def _reserveForm(action, target, oldvalues={}, panelId=None):
 	form = []
 
 	# hide fileds to submit
@@ -695,15 +683,15 @@ def _reserveForm(action, target, oldvalues={}):
 	print DIV(form,style='')
 	
 	# import js slice
-	print pagefn.script(_reserveFormJs(formId, bnStyle), link=False)
+	print pagefn.script(_reserveFormJs(formId, bnStyle, panelId), link=False)
 	return
 
-def _reserveFormJs(formId, bnStyle):
-	paras = [ APP, RESERVESHOWPANEL, formId, bnStyle]
+def _reserveFormJs(formId, bnStyle, panelId):
+	paras = [ APP, panelId or RESERVESHOWPANEL, formId, bnStyle]
 	paras.extend( [ pagefn.BUTTONLABELS.get('confirmWindow').get(key) for key in ('confirm','cancel')] )
 	paras = tuple(paras)
 	js = \
-	"""
+	'''
 	var appName='%s', panelId='%s',
 	formId='%s', bnStyle='%s',
 	confirmBnLabel='%s',cancelBnLabel='%s';
@@ -716,9 +704,9 @@ def _reserveFormJs(formId, bnStyle):
 		    submitByAjax: true,
 		    onAjaxSuccess: function(response){
 			if(response == 1){ 
-				MUI.closeModalDialog(); 
-				// rfresh the corresponding MUI.Panel
-				MUI.refreshPanel(panelId);	
+			    MUI.closeModalDialog(); 
+			    // rfresh the corresponding MUI.Panel
+			    MUI.refreshPanel(panelId);	
 			}
 			else{ MUI.notification('Action Failed');};               
 		    },            
@@ -754,18 +742,18 @@ def _reserveFormJs(formId, bnStyle):
 	});
 	
 	function actionAdapter(e){
-		var button = e.target;
-		var label = button.get('text');
+	    var button = e.target;
+	    var label = button.get('text');
 		
-		if(label == confirmBnLabel){
-			reserveEditFormChk.onSubmit(e);
-		}
-		else{
-			new Event(e).stop();
-			MUI.closeModalDialog();
-		}; 
+	    if(label == confirmBnLabel){
+		reserveEditFormChk.onSubmit(e);
+	    }
+	    else{
+		new Event(e).stop();
+		MUI.closeModalDialog();
+	    }; 
 	};
-	"""%paras
+	'''%paras
 	return js
 
 def page_reserveEditAction(**args):
@@ -793,5 +781,69 @@ def page_reserveEditAction(**args):
 	print ok
 	return
 
+def page_hotelNames(**args):
+    """ Return a json object which holds the information of each hotel."""
+    props = ['name','description','detail', 'serial', 'subcategory']
+    items = _getServiceItems(SERVICECATEGORY,props)
+    # fileter the room items
+    items = filter(lambda item: item[0] and not item[4], items)
+    #items = filter(lambda item: not item[3], items)
+    for index,row in enumerate(items):
+	items[index] = [(i or '').decode('utf8') for i in row[:4] ]
 
+    print JSON.encode(items,encoding='utf8')	
+    return
+
+def page_hotelNameList(**args):
+    """ The page just show a table which holds the name list for the hotel."""
+    TableId = 'hotelNameList'
+    print TABLE(**{'id':TableId})
+    
+    paras = [TableId,]
+    headers = [_('Name'), _('Description'), _('Memo'), _('Serial')]
+    paras.extend(headers)
+    paras.append('/'.join((APPATH, 'page_hotelNames')))
+    paras = tuple(paras)
+    js = \
+    '''
+    var table="%s", headers=["%s","%s","%s","%s"],
+	hotelInfoUrl="%s";
+
+    var hotelTable = new HtmlTable($(table));
+
+    function setVisibility(row){
+	[0,1,2,3].each(function(index){
+	    var toSet = {content:row[index] || "/"};
+	    if([0,1,2].contains(index)){
+		// just align the content to the left margin
+		toSet.properties = {style:'text-align:left;'};
+	    }
+	    else{
+		// 'serial' property need's not shown
+		toSet.properties = {style:'display:none;'};
+	    };
+	    row[index] = toSet;
+	});
+	
+	return row
+    };
+
+    // set headers
+    hotelTable.set('headers', setVisibility(headers));
+
+    // get hotels' information
+    var request = new Request.JSON({
+	url: hotelInfoUrl,
+	async:false, 
+	onComplete:function(json){
+	    json.each(function(row){
+		hotelTable.push(setVisibility(row));
+	    }); 
+	}
+    });
+    request.get();
+
+    '''%paras
+    print pagefn.script(js, link=False)
+    return
 
