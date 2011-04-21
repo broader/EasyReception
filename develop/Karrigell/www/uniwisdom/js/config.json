@@ -1,0 +1,7 @@
+[
+    {"label":"IOT in China", "submenu":"iotInChina.html"},
+    {"label": "Observation", "submenu": "#"},
+    {"label":"Collaboration", "submenu": "#"},
+    {"label":"About", "submenu": "#"},
+    {"label":"Contact", "submenu": "#"}
+]

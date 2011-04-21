@@ -3583,7 +3583,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1190364615306" FOLDED="true" ID="Freemind_Link_701613096" MODIFIED="1294141853700" POSITION="left" TEXT="&#x56fe;&#x6807;&#x5e93;&#xff08;icon&#xff09;">
+<node COLOR="#0033ff" CREATED="1190364615306" FOLDED="true" ID="Freemind_Link_701613096" MODIFIED="1301454564256" POSITION="left" TEXT="&#x56fe;&#x6807;&#x5e93;&#xff08;icon&#xff09;">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1184293139392" FOLDED="true" ID="Freemind_Link_411057413" MODIFIED="1285297978733" TEXT="Loader&#x7b49;&#x5f85;&#x72b6;&#x56fe;&#x6807;">
@@ -3596,12 +3596,17 @@
 <node COLOR="#00b439" CREATED="1273025887450" ID="ID_476413118" MODIFIED="1294141836263" TEXT="Tools">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1282527685086" ID="ID_867219876" LINK="http://www.iconfinder.com" MODIFIED="1298258457981" TEXT="http://www.iconfinder.com/search">
+<font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="messagebox_warning"/>
+</node>
 <node COLOR="#990000" CREATED="1273025890744" ID="ID_784095928" LINK="http://findicons.com/" MODIFIED="1273025901049" TEXT="http://findicons.com/">
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="yes"/>
 </node>
-<node COLOR="#990000" CREATED="1282527685086" ID="ID_867219876" LINK="http://www.iconfinder.com" MODIFIED="1282527747913" TEXT="http://www.iconfinder.com/search">
+<node COLOR="#990000" CREATED="1299544219946" ID="ID_1655068201" LINK="http://openclipart.org/" MODIFIED="1299544228913" TEXT="http://openclipart.org/">
 <font NAME="SansSerif" SIZE="14"/>
+<icon BUILTIN="full-2"/>
 </node>
 <node COLOR="#990000" CREATED="1278731782381" ID="ID_1286657821" LINK="http://tango.freedesktop.org/Tango_Desktop_Project" MODIFIED="1278731793828" TEXT="http://tango.freedesktop.org/Tango_Desktop_Project">
 <font NAME="SansSerif" SIZE="14"/>
@@ -3645,11 +3650,11 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1297847947539" POSITION="right" TEXT="Debug and Knowledge">
+<node COLOR="#0033ff" CREATED="1250824583992" FOLDED="true" ID="Freemind_Link_986904229" MODIFIED="1300881537880" POSITION="right" TEXT="Debug and Knowledge">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
-<node COLOR="#00b439" CREATED="1252499786714" FOLDED="true" ID="Freemind_Link_774228154" MODIFIED="1294622875129" TEXT="URL  &#x7f16;&#x7801;">
+<node COLOR="#00b439" CREATED="1252499786714" ID="Freemind_Link_774228154" MODIFIED="1300416655901" TEXT="URL  &#x7f16;&#x7801;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -4379,7 +4384,7 @@
 <node COLOR="#111111" CREATED="1270272374006" ID="ID_1440362744" MODIFIED="1270272624879" TEXT="Create Action&#xa;---&gt;&#x68c0;&#x67e5;&#x662f;&#x5426;&#x4e0e; existed key values &#x503c;&#x91cd;&#x590d;&#x5373;&#x53ef;&#xa;&#xa;Edit Action&#xa;---&gt;1, &#x901a;&#x8fc7; node id &#x83b7;&#x5f97; old key value;&#xa;---&gt;2, &#x5982;&#x679c; &#xa;------&gt;input value == old key value---&gt; valid input&#xa;------&gt;&#x6216;&#x8005; input value &#x6ca1;&#x6709;&#x4e0e; existed key values &#x91cd;&#x590d; ---&gt; valid input"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1292461088431" TEXT="Karrigell">
+<node COLOR="#00b439" CREATED="1174877401376" FOLDED="true" ID="Freemind_Link_503549801" MODIFIED="1300881536592" TEXT="Karrigell">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1250824602428" FOLDED="true" ID="Freemind_Link_1774893402" MODIFIED="1291966536803" TEXT="_()---i18n">
@@ -4892,6 +4897,407 @@
 </node>
 </node>
 </node>
+<node COLOR="#990000" CREATED="1300848716308" ID="ID_171953090" MODIFIED="1300848722702" TEXT="HTTPS">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1300848724064" FOLDED="true" ID="ID_1013159759" MODIFIED="1300880631790" TEXT="introduction">
+<node COLOR="#111111" CREATED="1300848740713" ID="ID_857509298" MODIFIED="1300848746926">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Hello,
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;I got a article about how to support HTTPS server with the
+    </p>
+    <p>
+      Karrigell 2.4 version. I want to support HTTPS server on Karrigell
+    </p>
+    <p>
+      3.1.1
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;I did something like the article:
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;1. Install TLS Lite, M2Crypto, OpenSSL
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;2. copy Async_core.py to Async_core_https.py
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;3. copy serverX509Cert.pem and serverX509Key.pem to karrigell root
+    </p>
+    <p>
+      directory
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;3. vim Async_core_https.py
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;add:
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;from tlslite.api import *
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;s = open(&quot;./serverX509Cert.pem&quot;).read()
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;x509 = X509()
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;x509.parse(s)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;certChain = X509CertChain([x509])
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;s = open(&quot;./serverX509Key.pem&quot;).read()
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;privateKey = parsePEMKey(s, private=True)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;sessionCache = SessionCache()
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;4. vim Async_core_https.py
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;change def accept_new_client(self):
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;def accept_new_client(self):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;try:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;sock, client_address = self.sock.accept()
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;connection = TLSConnection(sock)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      connection.handshakeServer(certChain=certChain,privateKey=privateKey,sessionCache=sessionCache)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;connection.settimeout(0)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;except TLSError:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;sockets[sock] = self.request_handler(self, connection,
+    </p>
+    <p>
+      client_address)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;5. vim Karrigell_async.py
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;change &quot;from Async_core import *&quot; to &quot;from Async_core_https
+    </p>
+    <p>
+      import *&quot;
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Then start Karrigell_async.py
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;When I visit https://myip:8088, I got these exception.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      HTTP 3.1.1 asynchronous server running on port 8088 (ipv4)
+    </p>
+    <p>
+      Traceback (most recent call last):
+    </p>
+    <p>
+      &#160;&#160;File &quot;Karrigell_async.py&quot;, line 31, in &lt;module&gt;
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;server.run()
+    </p>
+    <p>
+      &#160;&#160;File &quot;/home/bobby/Karrigell-3.1.1/Async_core_https.py&quot;, line 173, in
+    </p>
+    <p>
+      run
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;sockets[sock].handle_read()
+    </p>
+    <p>
+      &#160;&#160;File &quot;/home/bobby/Karrigell-3.1.1/Async_core_https.py&quot;, line 59, in
+    </p>
+    <p>
+      handle_read
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;self.read_request()
+    </p>
+    <p>
+      &#160;&#160;File &quot;/home/bobby/Karrigell-3.1.1/Async_core_https.py&quot;, line 73, in
+    </p>
+    <p>
+      read_request
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;r,w,e = select.select([self.sock],[],[],2)
+    </p>
+    <p>
+      TypeError: argument must be an int, or have a fileno() method.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;I don know why. Can anyone help me? Thanks.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      HTTPS server with the new Karrigell 2.4 version.
+    </p>
+    <p>
+      It's really simple. You have to install (at least) TLSlite. (M2Crypto
+    </p>
+    <p>
+      and OpenSSL are also recommended)
+    </p>
+    <p>
+      Create a copy of SimpleAsyncHTTPServer.py as
+    </p>
+    <p>
+      SimpleAsyncHTTPSServer.py. Then apply the following additions or
+    </p>
+    <p>
+      changes:
+    </p>
+    <p>
+      in the Import section add:
+    </p>
+    <p>
+      from tlslite.api import *
+    </p>
+    <p>
+      s = open(&quot;./serverX509Cert.pem&quot;).read()
+    </p>
+    <p>
+      x509 = X509()
+    </p>
+    <p>
+      x509.parse(s)
+    </p>
+    <p>
+      certChain = X509CertChain([x509])
+    </p>
+    <p>
+      s = open(&quot;./serverX509Key.pem&quot;).read()
+    </p>
+    <p>
+      privateKey = parsePEMKey(s, private=True)
+    </p>
+    <p>
+      sessionCache = SessionCache()
+    </p>
+    <p>
+      (the files serverX509Cert.pem and serverX509Key.pem are taken from
+    </p>
+    <p>
+      the
+    </p>
+    <p>
+      test folder of TSLlite; they are not valid any more but still work
+    </p>
+    <p>
+      for
+    </p>
+    <p>
+      testing. I did not manage to create may own pem files yet. Place them
+    </p>
+    <p>
+      in the main Karrigell folder.)
+    </p>
+    <p>
+      in class server, the function accept_new_client hast to be replaced
+    </p>
+    <p>
+      with the following:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;def accept_new_client(self):
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;try:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;request, client_address = self.socket.accept()
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;connection = TLSConnection(request)
+    </p>
+    <p>
+      connection.handshakeServer(certChain=certChain,privateKey=privateKey,sessio
+    </p>
+    <p>
+      nCache=sessionCache)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;connection.settimeout(0)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;except TLSError:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;self.client_handlers[request] =
+    </p>
+    <p>
+      self.RequestHandlerClass(self,
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;connection, client_address)
+    </p>
+    <p>
+      Now modify the Karrigell.py script (or a copy named &quot;Karrigell
+    </p>
+    <p>
+      SSL.py&quot;) to import from SimpleAsyncHTTPSServer.py instead of
+    </p>
+    <p>
+      SimpleAsyncHTTPServer.py.
+    </p>
+    <p>
+      That's all. If you do not use port 443, you have to set the port in
+    </p>
+    <p>
+      your browser, like &quot;https://localhost:8080&quot;.
+    </p>
+    <p>
+      All the demos etc. seem to work fine. I have not adapted my own
+    </p>
+    <p>
+      applications to Karrigell 2.4 yet.
+    </p>
+    <p>
+      Guenter
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node COLOR="#111111" CREATED="1300880620933" ID="ID_1723230675" MODIFIED="1300880625155">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Hi!
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      I was the one who created the HTTPS-Server for Karrigell 2.x and I
+    </p>
+    <p>
+      used it in a few projects.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      I also tried to do the same with Karrigell 3.x but it did not work.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Using TLSlite is not a good solution any more, because it has not been
+    </p>
+    <p>
+      updated for years and is not completely compatible any more with
+    </p>
+    <p>
+      recent Python versions (2.5, 2.6, 2.7).
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      My own solution now is to run Karrigell behind Lighttpd in Proxy mode
+    </p>
+    <p>
+      and this works fine with https also.
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1300880856299" ID="ID_694790736" MODIFIED="1300880863330" TEXT="web server">
+<node COLOR="#111111" CREATED="1300880865852" ID="ID_1225711242" LINK="http://www.lighttpd.net/" MODIFIED="1300880875522" TEXT="lighttpd"/>
+</node>
+</node>
 </node>
 <node COLOR="#00b439" CREATED="1272437278661" FOLDED="true" ID="ID_84948246" MODIFIED="1292461110040" TEXT="Html">
 <edge STYLE="bezier" WIDTH="thin"/>
@@ -5039,7 +5445,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1257233375982" FOLDED="true" ID="ID_821506493" MODIFIED="1270631276499" POSITION="right" TEXT="Client/Corporators">
+<node COLOR="#0033ff" CREATED="1257233375982" FOLDED="true" ID="ID_821506493" MODIFIED="1301363571351" POSITION="right" TEXT="Client/Corporators">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="idea"/>
@@ -5407,12 +5813,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1270004864375" ID="ID_1985278336" MODIFIED="1270004897167" POSITION="left" TEXT="Client Assist Cycle">
-<edge STYLE="sharp_bezier" WIDTH="8"/>
-<font NAME="SansSerif" SIZE="18"/>
-<icon BUILTIN="messagebox_warning"/>
-</node>
-<node COLOR="#0033ff" CREATED="1272782333228" FOLDED="true" ID="ID_85859047" MODIFIED="1281146490897" POSITION="left" TEXT="CopyRight">
+<node COLOR="#0033ff" CREATED="1272782333228" FOLDED="true" ID="ID_85859047" MODIFIED="1301363587325" POSITION="left" TEXT="CopyRight">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1272782347679" FOLDED="true" ID="ID_1430598290" MODIFIED="1281146490026" TEXT="Used Third Party Modules">
@@ -5462,7 +5863,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1176943652798" FOLDED="true" ID="Freemind_Link_710017885" MODIFIED="1297910517101" POSITION="right" TEXT="Design">
+<node COLOR="#0033ff" CREATED="1176943652798" ID="Freemind_Link_710017885" MODIFIED="1303264515043" POSITION="right" TEXT="Design">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1273030192723" FOLDED="true" ID="ID_344232506" MODIFIED="1292200752396" TEXT="Idea">
@@ -5491,10 +5892,10 @@
 <node COLOR="#111111" CREATED="1287712567336" ID="ID_1812900421" LINK="http://www.cubicweb.org/card/demo" MODIFIED="1287712569734" TEXT="http://www.cubicweb.org/card/demo"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1265252373668" FOLDED="true" ID="ID_1883535158" MODIFIED="1295664448317" TEXT="Layout">
+<node COLOR="#00b439" CREATED="1265252373668" ID="ID_1883535158" MODIFIED="1300928182078" TEXT="Layout">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1269055913285" ID="ID_718060145" MODIFIED="1288572405070" TEXT="Examples">
+<node COLOR="#990000" CREATED="1269055913285" FOLDED="true" ID="ID_718060145" MODIFIED="1300928185692" TEXT="Examples">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1269055921201" ID="ID_250633558" LINK="http://www.phprojekt.com/demo/" MODIFIED="1271382002720" TEXT="http://www.phprojekt.com/demo/">
 <icon BUILTIN="messagebox_warning"/>
@@ -5514,7 +5915,7 @@
 <node COLOR="#111111" CREATED="1281666061032" ID="ID_1026782662" LINK="http://www.gethifi.com/" MODIFIED="1281666064350" TEXT="http://www.gethifi.com/"/>
 <node COLOR="#111111" CREATED="1291968879111" ID="ID_1583823584" LINK="http://www.foxmemo.com/foxmemo/" MODIFIED="1291968882508" TEXT="http://www.foxmemo.com/foxmemo/"/>
 </node>
-<node COLOR="#990000" CREATED="1278550886121" FOLDED="true" ID="ID_226094619" MODIFIED="1295664448311" TEXT="OpenDesign">
+<node COLOR="#990000" CREATED="1278550886121" ID="ID_226094619" MODIFIED="1300928186581" TEXT="OpenDesign">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1278550891299" ID="ID_937701492" LINK="http://www.spyka.net/home" MODIFIED="1292200696547" TEXT="http://www.spyka.net/home">
@@ -5555,6 +5956,9 @@
 <node COLOR="#111111" CREATED="1283754893599" ID="ID_27058503" LINK="http://www.csstemplatesfree.org/" MODIFIED="1292200696549" TEXT="http://www.csstemplatesfree.org/">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
+<node COLOR="#111111" CREATED="1300929959787" ID="ID_1475958857" LINK="http://css-tricks.com/downloads/" MODIFIED="1300929981945" TEXT="http://css-tricks.com/downloads/">
+<icon BUILTIN="full-4"/>
+</node>
 <node COLOR="#111111" CREATED="1283755004631" ID="ID_1897173414" LINK="http://www.justfreetemplates.com/" MODIFIED="1292200696549" TEXT="http://www.justfreetemplates.com/">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
@@ -5573,7 +5977,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1173066298350" ID="Freemind_Link_1468412211" MODIFIED="1297905254873" TEXT="UI">
+<node COLOR="#00b439" CREATED="1173066298350" FOLDED="true" ID="Freemind_Link_1468412211" MODIFIED="1300928180939" TEXT="UI">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1261723589326" FOLDED="true" ID="ID_80373969" MODIFIED="1297904379318" TEXT="Preference">
@@ -6267,7 +6671,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1297905087262" ID="ID_1338882123" MODIFIED="1297905091726" POSITION="right" TEXT="Javascript">
+<node COLOR="#0033ff" CREATED="1297905087262" FOLDED="true" ID="ID_1338882123" MODIFIED="1300928174548" POSITION="right" TEXT="Javascript">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1297905092569" ID="ID_70661105" LINK="http://miniajax.com/" MODIFIED="1297905095524" TEXT="http://miniajax.com/">
@@ -6275,16 +6679,16 @@
 <font NAME="SansSerif" SIZE="16"/>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1270952020458" FOLDED="true" ID="ID_1804767918" MODIFIED="1297905075484" POSITION="right" TEXT="Develop">
+<node COLOR="#0033ff" CREATED="1270952020458" FOLDED="true" ID="ID_1804767918" MODIFIED="1302766728953" POSITION="right" TEXT="Develop">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1273546965657" FOLDED="true" ID="ID_1612332752" MODIFIED="1296788967707" TEXT="Evironment">
+<node COLOR="#00b439" CREATED="1273546965657" ID="ID_1612332752" MODIFIED="1302226349951" TEXT="Evironment">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1167544327073" FOLDED="true" ID="Freemind_Link_1636742661" MODIFIED="1296377218003" TEXT="vi">
+<node COLOR="#990000" CREATED="1167544327073" ID="Freemind_Link_1636742661" MODIFIED="1302226353439" TEXT="vi">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1270127748720" FOLDED="true" ID="ID_897263369" MODIFIED="1294209443796" TEXT="Config">
+<node COLOR="#111111" CREATED="1270127748720" FOLDED="true" ID="ID_897263369" MODIFIED="1302268356324" TEXT="Config">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1270111441428" ID="ID_186379411" MODIFIED="1271727030059" TEXT="File Path">
@@ -6392,7 +6796,7 @@ au</pre>
 </node>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1270127783740" ID="ID_841434920" MODIFIED="1294209444564" TEXT="Command">
+<node COLOR="#111111" CREATED="1270127783740" FOLDED="true" ID="ID_841434920" MODIFIED="1302268465435" TEXT="Command">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="12"/>
 <node COLOR="#111111" CREATED="1270127788709" FOLDED="true" ID="ID_1880310783" MODIFIED="1294751173054" TEXT="Search &amp; Replace">
@@ -6470,7 +6874,7 @@ au</pre>
 </html></richcontent>
 </node>
 </node>
-<node COLOR="#111111" CREATED="1294751254624" ID="ID_86823126" MODIFIED="1294751262389" TEXT="&#x6298;&#x53e0;">
+<node COLOR="#111111" CREATED="1294751254624" FOLDED="true" ID="ID_86823126" MODIFIED="1302268358321" TEXT="&#x6298;&#x53e0;">
 <node COLOR="#111111" CREATED="1294751263888" ID="ID_1934246624" MODIFIED="1294751297672">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -6508,6 +6912,41 @@ au</pre>
 </html></richcontent>
 </node>
 <node COLOR="#111111" CREATED="1294751308617" ID="ID_1486042094" LINK="http://edt1023.sayya.org/vim/node12.html" MODIFIED="1294751311204" TEXT="http://edt1023.sayya.org/vim/node12.html"/>
+</node>
+<node COLOR="#111111" CREATED="1302268365855" FOLDED="true" ID="ID_1586494786" MODIFIED="1302268463969" TEXT="&#x5220;&#x9664; ^M">
+<node COLOR="#111111" CREATED="1302268380130" ID="ID_63391190" MODIFIED="1302268462143">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      :%s/^V^M//g
+    </p>
+    <p>
+      -----------------------------------------------------------------
+    </p>
+    <p>
+      ^V---&gt;CONTROL-V
+    </p>
+    <p>
+      ^M---&gt;CONTROL-M
+    </p>
+    <p>
+      -----------------------------------------------------------------
+    </p>
+    <p>
+      When you type this, it will look like this:
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      :%s/^M//g
+    </p>
+  </body>
+</html></richcontent>
+</node>
 </node>
 </node>
 <node COLOR="#111111" CREATED="1270173492128" ID="ID_517377770" MODIFIED="1279507788837" TEXT="Tutorial">
@@ -6800,7 +7239,7 @@ au</pre>
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1272776984902" FOLDED="true" ID="ID_59646309" MODIFIED="1293438095006" POSITION="right" TEXT="Compatiable Test">
+<node COLOR="#0033ff" CREATED="1272776984902" FOLDED="true" ID="ID_59646309" MODIFIED="1299676410426" POSITION="right" TEXT="Compatiable Test">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
@@ -6814,6 +7253,9 @@ au</pre>
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 <node COLOR="#990000" CREATED="1282696022808" ID="ID_950935501" LINK="http://cssrainbow.cn/tutorials/xhtml-css/1360.html" MODIFIED="1282696052573" TEXT="IE Css Bug Table">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1299629167045" ID="ID_409458101" LINK="http://css3pie.com/" MODIFIED="1299629177457" TEXT="css3pie">
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
@@ -6835,11 +7277,11 @@ au</pre>
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1276659071183" FOLDED="true" ID="ID_961184065" MODIFIED="1292834643372" POSITION="right" TEXT="Optimize">
+<node COLOR="#0033ff" CREATED="1276659071183" FOLDED="true" ID="ID_961184065" MODIFIED="1299540753991" POSITION="right" TEXT="Optimize">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="messagebox_warning"/>
-<node COLOR="#00b439" CREATED="1276659076768" ID="ID_883728496" MODIFIED="1276659078591" TEXT="Css">
+<node COLOR="#00b439" CREATED="1276659076768" FOLDED="true" ID="ID_883728496" MODIFIED="1298345717827" TEXT="Css">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1276659079393" ID="ID_880907264" LINK="http://www.csscompressor.com/" MODIFIED="1276659081954" TEXT="http://www.csscompressor.com/">
@@ -6849,7 +7291,15 @@ au</pre>
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1276659098328" ID="ID_1617910351" MODIFIED="1276659099923" TEXT="Image">
+<node COLOR="#00b439" CREATED="1298345720379" ID="ID_1753785990" MODIFIED="1298345722860" TEXT="Js">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1298345724046" ID="ID_1977448550" MODIFIED="1298345729968" TEXT="import">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1298345730849" ID="ID_1078450751" LINK="http://requirejs.org/" MODIFIED="1298345736159" TEXT="http://requirejs.org/"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1276659098328" FOLDED="true" ID="ID_1617910351" MODIFIED="1298345716620" TEXT="Image">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1281923445836" ID="ID_1882058385" MODIFIED="1281923447346" TEXT="Size">
@@ -6891,28 +7341,28 @@ au</pre>
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1296347397395" POSITION="right" TEXT="Company Web Site">
+<node COLOR="#0033ff" CREATED="1261017385572" FOLDED="true" ID="ID_1594767766" MODIFIED="1301363560492" POSITION="right" TEXT="Company Web Site">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <icon BUILTIN="full-1"/>
-<node COLOR="#00b439" CREATED="1272874065001" FOLDED="true" ID="ID_1315424594" MODIFIED="1296346898602" TEXT="Layout">
+<node COLOR="#00b439" CREATED="1272874065001" FOLDED="true" ID="ID_1315424594" MODIFIED="1301363535296" TEXT="Layout">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1261559251111" FOLDED="true" ID="ID_648549467" MODIFIED="1296346897129" TEXT="nav bar">
+<node COLOR="#990000" CREATED="1261559251111" FOLDED="true" ID="ID_648549467" MODIFIED="1300881603446" TEXT="nav bar">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1261559256260" ID="ID_574316454" LINK="http://www.opendesigns.org/preview/?template=2684" MODIFIED="1272874075020" TEXT="http://www.opendesigns.org/preview/?template=2684">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1267587744551" FOLDED="true" ID="ID_311976917" MODIFIED="1296346894713" TEXT="Alien">
+<node COLOR="#990000" CREATED="1267587744551" FOLDED="true" ID="ID_311976917" MODIFIED="1300881602622" TEXT="Alien">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1267587798642" ID="ID_725736465" LINK="http://www.opendesigns.org/preview/?design=1799" MODIFIED="1272874075027" TEXT="http://www.opendesigns.org/preview/?design=1799">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1267587805845" FOLDED="true" ID="ID_1629473716" MODIFIED="1296346893969" TEXT="Color">
+<node COLOR="#990000" CREATED="1267587805845" FOLDED="true" ID="ID_1629473716" MODIFIED="1300881602087" TEXT="Color">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1267587715265" ID="ID_604601325" LINK="http://www.opendesigns.org/preview/?design=1801" MODIFIED="1273378042284" TEXT="http://www.opendesigns.org/preview/?design=1801">
@@ -6924,11 +7374,11 @@ au</pre>
 <node COLOR="#111111" CREATED="1267587848480" ID="ID_652333271" LINK="http://www.opendesigns.org/preview/?design=1797" MODIFIED="1271246682959" TEXT="http://www.opendesigns.org/preview/?design=1797"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1273541799017" FOLDED="true" ID="ID_1258507687" MODIFIED="1283430247039" TEXT="Font">
+<node COLOR="#990000" CREATED="1273541799017" FOLDED="true" ID="ID_1258507687" MODIFIED="1300881601182" TEXT="Font">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1273541802308" ID="ID_1464815612" LINK="http://www.opendesigns.org/preview/?design=1953" MODIFIED="1273541805825" TEXT="http://www.opendesigns.org/preview/?design=1953"/>
 </node>
-<node COLOR="#990000" CREATED="1269337498944" FOLDED="true" ID="ID_973660080" MODIFIED="1296346890817" TEXT="Simple">
+<node COLOR="#990000" CREATED="1269337498944" FOLDED="true" ID="ID_973660080" MODIFIED="1300881600607" TEXT="Simple">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1269337506893" ID="ID_1203002521" LINK="http://www.opendesigns.org/preview/?design=1817" MODIFIED="1272874075049" TEXT="http://www.opendesigns.org/preview/?design=1817">
@@ -6942,14 +7392,14 @@ au</pre>
 <icon BUILTIN="full-1"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1272029741120" FOLDED="true" ID="ID_789259548" MODIFIED="1296346890121" TEXT="Artist">
+<node COLOR="#990000" CREATED="1272029741120" FOLDED="true" ID="ID_789259548" MODIFIED="1300881599798" TEXT="Artist">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1272029745340" ID="ID_1374844496" LINK="http://www.loewydesign.com/" MODIFIED="1272874075068" TEXT="http://www.loewydesign.com/">
 <font NAME="SansSerif" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1271131016988" FOLDED="true" ID="ID_545156553" MODIFIED="1295664388540" TEXT="Technology">
+<node COLOR="#990000" CREATED="1271131016988" FOLDED="true" ID="ID_545156553" MODIFIED="1300881605078" TEXT="Technology">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="idea"/>
@@ -6967,11 +7417,12 @@ au</pre>
 </node>
 <node COLOR="#111111" CREATED="1283731277653" ID="ID_1837803779" LINK="http://www.opendesigns.org/design/small-business/" MODIFIED="1283731282765" TEXT="http://www.opendesigns.org/design/small-business/"/>
 </node>
-<node COLOR="#990000" CREATED="1271134396534" FOLDED="true" ID="ID_217134314" MODIFIED="1296346888602" TEXT="Miscellaneous">
+<node COLOR="#990000" CREATED="1271134396534" FOLDED="true" ID="ID_217134314" MODIFIED="1300881652959" TEXT="Miscellaneous">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
-<node COLOR="#111111" CREATED="1261017390365" ID="ID_4950788" LINK="http://ramblingsoul.com/preview/rs14/index.html" MODIFIED="1272874075098" TEXT="http://ramblingsoul.com/preview/rs14/index.html">
+<node COLOR="#111111" CREATED="1261017390365" ID="ID_4950788" LINK="http://ramblingsoul.com/preview/rs14/index.html" MODIFIED="1300881651577" TEXT="http://ramblingsoul.com/preview/rs14/index.html">
 <font NAME="SansSerif" SIZE="12"/>
+<icon BUILTIN="full-3"/>
 </node>
 <node COLOR="#111111" CREATED="1261559272861" ID="ID_1171566340" LINK="http://www.opendesigns.org/preview/?template=2682" MODIFIED="1272874075100" TEXT="http://www.opendesigns.org/preview/?template=2682">
 <font NAME="SansSerif" SIZE="12"/>
@@ -7000,7 +7451,7 @@ au</pre>
 <icon BUILTIN="full-1"/>
 </node>
 </node>
-<node COLOR="#990000" CREATED="1271247508897" FOLDED="true" ID="ID_1313825833" MODIFIED="1296346892402" TEXT="Selected">
+<node COLOR="#990000" CREATED="1271247508897" FOLDED="true" ID="ID_1313825833" MODIFIED="1300928161829" TEXT="Selected">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1271131615566" ID="ID_708134019" LINK="http://demo.tutorialzine.com/2010/02/html5-css3-website-template/template.html" MODIFIED="1273378894039" TEXT="http://demo.tutorialzine.com/2010/02/html5-css3-website-template/template.html">
@@ -7042,7 +7493,7 @@ au</pre>
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1272874077641" FOLDED="true" ID="ID_181569051" MODIFIED="1291972712924" TEXT="Virtual Web Server">
+<node COLOR="#00b439" CREATED="1272874077641" FOLDED="true" ID="ID_181569051" MODIFIED="1301363557508" TEXT="Virtual Web Server">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1272874094829" ID="ID_1247499914" LINK="http://www.net.cn/static/hosting/" MODIFIED="1272874098141" TEXT="http://www.net.cn/static/hosting/">
@@ -7056,7 +7507,7 @@ au</pre>
 <icon BUILTIN="full-1"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1273025792594" FOLDED="true" ID="ID_284843413" MODIFIED="1296346881617" TEXT="SEO">
+<node COLOR="#00b439" CREATED="1273025792594" ID="ID_284843413" MODIFIED="1301363531357" TEXT="SEO">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1273025804725" ID="ID_134428541" MODIFIED="1273025807666" TEXT="tools">
@@ -7086,7 +7537,7 @@ au</pre>
 </node>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1275214302951" FOLDED="true" ID="ID_1090736761" MODIFIED="1283430383466" TEXT="formal Design">
+<node COLOR="#00b439" CREATED="1275214302951" FOLDED="true" ID="ID_1090736761" MODIFIED="1301363549355" TEXT="formal Design">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1275214310664" ID="ID_43047817" MODIFIED="1283430302672" TEXT="layout">
@@ -7268,10 +7719,10 @@ au</pre>
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1291859306428" FOLDED="true" ID="ID_1245390345" MODIFIED="1296346858929" TEXT="&#x4e3b;&#x673a;&#x6258;&#x7ba1;">
+<node COLOR="#00b439" CREATED="1291859306428" FOLDED="true" ID="ID_1245390345" MODIFIED="1301363528051" TEXT="&#x4e3b;&#x673a;&#x6258;&#x7ba1;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1291859425300" FOLDED="true" ID="ID_500049562" MODIFIED="1291973110531" TEXT="ssh/rsync">
+<node COLOR="#990000" CREATED="1291859425300" ID="ID_500049562" MODIFIED="1301363524987" TEXT="ssh/rsync">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1291859437227" ID="ID_1337942123" MODIFIED="1291859894366">
 <richcontent TYPE="NODE"><html>
@@ -7351,7 +7802,7 @@ au</pre>
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1280286221408" FOLDED="true" ID="ID_767321368" MODIFIED="1296377196508" POSITION="right" TEXT="Expand Direction">
+<node COLOR="#0033ff" CREATED="1280286221408" FOLDED="true" ID="ID_767321368" MODIFIED="1299575882726" POSITION="right" TEXT="Expand Direction">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1280286228167" FOLDED="true" ID="ID_1157419451" MODIFIED="1282379580912" TEXT="Intelligence Search">
@@ -7362,7 +7813,7 @@ au</pre>
 <node COLOR="#111111" CREATED="1280286262662" ID="ID_1672911610" LINK="http://flamenco.berkeley.edu/index.html" MODIFIED="1280286266021" TEXT="http://flamenco.berkeley.edu/index.html"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1280286426024" FOLDED="true" ID="ID_1355169867" MODIFIED="1288520989873" TEXT="View for Discussion">
+<node COLOR="#00b439" CREATED="1280286426024" ID="ID_1355169867" MODIFIED="1299544808063" TEXT="View for Discussion">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1280286440471" ID="ID_1384253965" MODIFIED="1280286446390" TEXT="Prefered Projects">
@@ -7408,16 +7859,54 @@ au</pre>
 <node COLOR="#111111" CREATED="1293586328632" ID="ID_1621232452" LINK="http://www.simile-widgets.org/" MODIFIED="1293586332806" TEXT="http://www.simile-widgets.org/"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1281855718646" FOLDED="true" ID="ID_1263150647" MODIFIED="1296345468107" TEXT="Conent Manage">
+<node COLOR="#00b439" CREATED="1281855718646" FOLDED="true" ID="ID_1263150647" MODIFIED="1299573887597" TEXT="Conent Manage">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1281855728295" ID="ID_404201649" MODIFIED="1281855733798" TEXT="Prefered Projects">
+<node COLOR="#990000" CREATED="1281855728295" FOLDED="true" ID="ID_404201649" MODIFIED="1299573886167" TEXT="Prefered Projects">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1281855734914" ID="ID_83425186" LINK="http://www.webappers.com/2010/01/22/the-best-open-source-cms-mainly-used-for-blogging/" MODIFIED="1281855737150" TEXT="http://www.webappers.com/2010/01/22/the-best-open-source-cms-mainly-used-for-blogging/"/>
 <node COLOR="#111111" CREATED="1282197823219" ID="ID_289692815" LINK="http://www.nuggetz.co.uk/" MODIFIED="1282197827822" TEXT="http://www.nuggetz.co.uk/"/>
 <node COLOR="#111111" CREATED="1282199346683" ID="ID_53741489" LINK="http://demo.apostrophenow.com/" MODIFIED="1282199351263" TEXT="http://demo.apostrophenow.com/"/>
-<node COLOR="#111111" CREATED="1284445956581" ID="ID_1437404098" MODIFIED="1284445958289" TEXT="http://www.trymodx.com/">
+<node COLOR="#111111" CREATED="1284445956581" ID="ID_1437404098" LINK="http://www.trymodx.com/" MODIFIED="1299463384746" TEXT="http://www.trymodx.com/">
 <node COLOR="#111111" CREATED="1284445959316" ID="ID_1818975524" MODIFIED="1284445969812" TEXT="demo_user/demo_user"/>
+</node>
+<node COLOR="#111111" CREATED="1298446234769" ID="ID_50511396" LINK="http://www.hforge.org/" MODIFIED="1299546318447" TEXT="ikkaro">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1298448831696" ID="ID_123618749" LINK="http://www.hforge.org/itws" MODIFIED="1299030229157" TEXT="itws">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1298968153509" ID="ID_514470580" LINK="http://demo.itws.itaapy.com/" MODIFIED="1298968188083">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      demo
+    </p>
+    <p>
+      user:admin,pwd:admin
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1298968992375" ID="ID_429671422" LINK="http://www.itaapy.com/" MODIFIED="1299030230905">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      itaapy
+    </p>
+  </body>
+</html></richcontent>
+<font NAME="SansSerif" SIZE="12"/>
+</node>
+</node>
+<node COLOR="#111111" CREATED="1299030232415" ID="ID_1356849482" MODIFIED="1299546318456" TEXT="django">
+<font NAME="SansSerif" SIZE="12"/>
+<node COLOR="#111111" CREATED="1299030236659" ID="ID_1813131455" LINK="http://pinaxproject.com/" MODIFIED="1299030249204" TEXT="pinax"/>
 </node>
 </node>
 <node COLOR="#990000" CREATED="1281923855096" ID="ID_1023868872" MODIFIED="1281923863882" TEXT="Tabbed Content">
@@ -7451,7 +7940,7 @@ au</pre>
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1282191256420" FOLDED="true" ID="ID_1360500294" MODIFIED="1288247315245" TEXT="Advertise">
+<node COLOR="#00b439" CREATED="1282191256420" ID="ID_1360500294" MODIFIED="1299544801463" TEXT="Advertise">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1282191271205" ID="ID_140235791" MODIFIED="1282191273258" TEXT="tools">
@@ -7530,7 +8019,7 @@ au</pre>
 <node COLOR="#111111" CREATED="1285729272934" ID="ID_255257930" LINK="http://www.liquidplanner.com/" MODIFIED="1285729275860" TEXT="http://www.liquidplanner.com/"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1271035965662" FOLDED="true" ID="ID_1623049594" MODIFIED="1293886706037" TEXT="Knowledge Management">
+<node COLOR="#00b439" CREATED="1271035965662" FOLDED="true" ID="ID_1623049594" MODIFIED="1299544797574" TEXT="Knowledge Management">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <icon BUILTIN="yes"/>
@@ -7587,7 +8076,7 @@ au</pre>
 <node COLOR="#111111" CREATED="1289374416758" ID="ID_1116295626" LINK="http://www.freeswitch.org/" MODIFIED="1289374419267" TEXT="http://www.freeswitch.org/"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1293588046970" FOLDED="true" ID="ID_451761308" MODIFIED="1296347408473" TEXT="&#x7ecf;&#x8425;&#x6a21;&#x5f0f;">
+<node COLOR="#00b439" CREATED="1293588046970" FOLDED="true" ID="ID_451761308" MODIFIED="1299544787637" TEXT="&#x7ecf;&#x8425;&#x6a21;&#x5f0f;">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1293588053328" ID="ID_996088543" MODIFIED="1293588066249" TEXT="&#x5728;&#x7ebf;&#x5185;&#x5bb9;&#xff0f;&#x670d;&#x52a1;">
@@ -7595,8 +8084,20 @@ au</pre>
 <node COLOR="#111111" CREATED="1293588067359" ID="ID_1113832356" LINK="http://www.mindmeister.com/home/welcome" MODIFIED="1293588069621" TEXT="http://www.mindmeister.com/home/welcome"/>
 </node>
 </node>
+<node COLOR="#00b439" CREATED="1299315669630" ID="ID_1235644909" MODIFIED="1299315674997" TEXT="&#x6587;&#x672c;&#x6316;&#x6398;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1299315676011" ID="ID_1160704769" MODIFIED="1299315680783" TEXT="&#x5de5;&#x5177;&#x5305;">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1299315681662" ID="ID_706351328" LINK="http://www.clips.ua.ac.be/pages/pattern" MODIFIED="1299315692833" TEXT="pattern"/>
+<node COLOR="#111111" CREATED="1299573898212" ID="ID_640884163" MODIFIED="1299573904799" TEXT="DOM Inspector">
+<node COLOR="#111111" CREATED="1299573923119" ID="ID_1189773171" LINK="http://slayeroffice.com/tools/modi/v2.0/modi_help.html" MODIFIED="1299573937053" TEXT="modi"/>
+<node COLOR="#111111" CREATED="1299574375701" ID="ID_1977769451" LINK="http://www.softwareishard.com/blog/firebug-tutorial/extending-firebug-inspector-part-x/#more-78" MODIFIED="1299574391096" TEXT="extending-firebug-inspector"/>
 </node>
-<node COLOR="#0033ff" CREATED="1262786726152" FOLDED="true" ID="ID_476877394" MODIFIED="1297847952343" POSITION="right" TEXT="Source">
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1262786726152" FOLDED="true" ID="ID_476877394" MODIFIED="1300928173259" POSITION="right" TEXT="Source">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1266917069312" FOLDED="true" ID="ID_30201427" MODIFIED="1293438229867" TEXT="Management">

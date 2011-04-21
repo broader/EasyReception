@@ -18,7 +18,7 @@ function renderMenu(menus){
 			alink.setProperty('ref', navMenu.submenu);
 			alink.addEvent('click', loadPage);
 		}
-		else{
+		else{	// add submenu
 			alink.store('subMenu', navMenu.submenu);
 			alink.addClass('hasMenu');
 			alink.addEvent('click', addSubMenu);
@@ -32,7 +32,7 @@ function renderMenu(menus){
 		};
 
 		li.grab(alink);
-			return li
+		return li;
 	});
 
 	var ul = new Element('ul');

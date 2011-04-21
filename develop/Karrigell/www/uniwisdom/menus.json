@@ -1,0 +1,20 @@
+[
+{"label":"首页", "submenu":"home.html"},
+{
+	"label": "产品", 
+	"submenu": [
+		{"label": "会议组织与管理系统（EasyReception）", "ref": "easyReception.html"},
+		{"label": "客户服务支持系统（eTracker）", "ref": "eTracker.html"}]
+},
+{
+	"label":"服务",
+	"submenu": [
+		{"label": "设备租赁", "ref": "rentService.html"},
+		{"label": "互联网办公环境构建", "ref": "officeNet.html"},
+		{"label": "知识管理", "ref": "elearning.html"}]
+},
+{"label":"联盟合作","submenu":"alliance.html"},
+{"label":"公司介绍","submenu":"about.html"},
+{"label":"诚聘英才","submenu":"recruitment.html"},
+{"label":"联系我们", "submenu":"contact.html"}
+]

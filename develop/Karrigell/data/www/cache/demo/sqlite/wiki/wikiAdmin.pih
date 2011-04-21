@@ -1,0 +1,16 @@
+[]
+# -*- coding: utf_8 -*-
+Login(role=["admin"],valid_in="/")
+STDOUT("<h2>Administration</h2>\n")
+db = Import("wikiBase.py").db
+records = [ (r['__id__'],r['name']) for r in db ]
+if not records:
+    PRINT( "No page to remove")
+    PRINT( '<p><a href="index.pih">Back</a>')
+    raise SCRIPT_END
+STDOUT("<form action=\"wikiRemove.py\">\n<table border=\"1\">\n<tr><th>&nbsp;</th><th>Page</th></tr>\n")
+for (_id,name) in records:
+    PRINT( '<tr><td><input type="checkbox" name="remove[]" value="%s"">' %_id)
+    PRINT( '&nbsp;</td><td>%s</td></tr>' %name)
+STDOUT("</table>\n<input name=\"subm\" type=\"submit\" value=\"Remove selected pages\">\n<input name=\"subm\" type=\"submit\" value=\"Cancel\">\n</form>\n")
+

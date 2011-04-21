@@ -1,0 +1,4 @@
+[]
+# -*- coding: utf_8 -*-
+STDOUT("<frameset cols=\"45%,*\">\n<frame src=\"menu.pih\">\n<frame src=\"empty.htm\" name=\"dehou\">\n</frameset>\n")
+

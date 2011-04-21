@@ -1,0 +1,27 @@
+[]
+# -*- coding: utf_8 -*-
+STDOUT("<head>\n<title>CD Cover</title>\n<style type=\"text/css\">\ntd.side {writing-mode:tb-rl; border-style:none;}\ntd.front {border-style:none;}\nh2 {font-family: verdana; font-size:30px}\n</style>\n</head>\n<body>\n<H2>CD Cover creation</h2>\n<form action=\"cd_cover.pih\" method=\"post\" target=\"dehou\">\n<table>\n<tr>\n<td>Font family</td>\n<td>\n<select name=\"font\">\n")
+for family in ["serif", "sans-serif", "cursive", "fantasy", "monospace",
+ "Times", "TimesNR", "New Century Schoolbook","Helvetica", "Arial", "Verdana",
+ "Courier","Mistral", "Author" ]:
+ STDOUT("	<option value=\"")
+ STDOUT(str(family))
+ STDOUT("\">")
+ STDOUT(str(family))
+STDOUT("</td>\n</tr>\n")
+for line in range(1,7):
+ STDOUT("	<tr>\n	<td>Line ")
+ STDOUT(str(line))
+ STDOUT("</td>\n	<td><input name=\"line")
+ STDOUT(str(line))
+ STDOUT("\">\n	&nbsp;\n	<select name=\"header")
+ STDOUT(str(line))
+ STDOUT("\">\n")
+ for i in range(1,7):
+  STDOUT("		<option value=\"")
+  STDOUT(str(i))
+  STDOUT("\">H")
+  STDOUT(str(i))
+ STDOUT("	</td>\n	</tr>\n")
+STDOUT("<tr>\n<td>Side text</td>\n<td><input name=\"side\" size=\"40\"></td>\n</tr>\n</table>\n<br>Song list\n<br>\n<textarea rows=\"12\" cols=\"40\" name=\"song_list\">\n</textarea>\n<br><input type=\"submit\" value=\"Ok\">\n</form>\n</body>\n")
+

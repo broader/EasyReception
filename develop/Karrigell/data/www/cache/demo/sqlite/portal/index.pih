@@ -1,0 +1,16 @@
+[]
+# -*- coding: utf_8 -*-
+STDOUT("<!-- A portal demo -->\n")
+# initiates the session, opens database
+so=Session()
+if not hasattr(so,"user"):
+    so.user=None
+STDOUT("<!-- Includes components -->\n")
+Include ("header.hip")
+STDOUT("<table width=\"100%\">\n<tr>\n<td valign=\"top\">\n")
+Include ("poems.py")
+STDOUT("</td>\n<td valign=\"top\" width=\"20%\">")
+Include("showNews.hip")
+STDOUT("</td>\n</tr>\n</table>\n")
+Include("footer.pih")
+

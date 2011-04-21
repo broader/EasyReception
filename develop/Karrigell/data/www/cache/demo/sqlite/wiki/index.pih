@@ -1,0 +1,40 @@
+[]
+# -*- coding: utf_8 -*-
+SET_UNICODE_OUT("utf-8")
+STDOUT("<html>\n<head>\n<title>")
+STDOUT(_("Welcome to BuanBuan"))
+STDOUT("</title>\n<link rel=\"stylesheet\" href=\"wiki.css\">\n</head>\n<body>\n<table width=\"80%\">\n<tr>\n<td>\n<a href=\"/\">")
+STDOUT(_("Home"))
+STDOUT("</a>\n</td>\n<td>\n<h2>")
+STDOUT(_("Welcome to BuanBuan"))
+STDOUT("</h2>\n</td>\n</tr>\n</table>\n")
+STDOUT(_("BuanBuan is a simple Wiki server"))
+STDOUT("<p>")
+STDOUT(_("Browse the existing pages"))
+STDOUT(" :\n")
+db = Import("wikiBase").db
+names=[ r['name'] for r in db ]
+names.sort()
+for name in names:
+    PRINT( '<br><a href="BuanShow.pih?pageName=%s">%s</a>' %(name,name))
+STDOUT("<p><h3>")
+STDOUT(_("Add new page"))
+STDOUT("</h3>\n<form action=\"BuanEdit.pih\">\n<input type=\"hidden\" name=\"action\" value=\"add\">\n")
+STDOUT(_("Page name"))
+STDOUT("&nbsp;<input size=\"20\" name=\"pageName\">\n&nbsp;<small>Admin</small>\n<input type=\"checkbox\" name=\"admin\">&nbsp;\n<input type=\"submit\" value=\"Add\">\n</form>\n<p><h3>")
+STDOUT(_("Search"))
+STDOUT("</h3>\n<form action=\"search.py\">\n<input size=\"20\" name=\"words\">\n")
+STDOUT(_("Case sensitive"))
+STDOUT(" <input type=\"checkbox\" name=\"caseSensitive\">\n")
+STDOUT(_("Full word"))
+STDOUT(" <input type=\"checkbox\" name=\"fullWord\">\n<br><input type=\"submit\" value=")
+STDOUT(_("Search"))
+STDOUT(">\n</form>\n<p>\n<font size=\"-1\">\n<a href=\"wikiAdmin.pih\">")
+STDOUT(_("Administrator"))
+STDOUT("</a>\n")
+if Role()=="admin":
+ STDOUT("    <br><a href=\"logout.py\">")
+ STDOUT(_("Log out"))
+ STDOUT("</a>\n")
+STDOUT("</font>\n</body>\n</html>\n")
+

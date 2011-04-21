@@ -1,7 +1,8 @@
 import os
 
 # server port
-port = 8080
+#port = 8080
+port = 9090
 
 # directory with the core and package folders
 karrigell_dir = os.path.join(server_dir,"karrigell")

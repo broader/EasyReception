@@ -46405,3 +46405,1557 @@ sent 163849 bytes  received 38 bytes  327774.00 bytes/sec
 total size is 1386795  speedup is 8.46
 2011-02-18 09:45:11,790 INFO End backup loacl karrigell diretory to local git.
 2011-02-18 09:45:11,790 INFO Begin to backup local github to remote github host.
+2011-02-18 09:45:15,437 INFO Command: 
+git add .
+running result is :
+2011-02-18 09:45:27,476 INFO Command: 
+git commit -m 'Update time:2011-02-18T09:45:11.790870'
+running result is :[master 805fb7a] Update time:2011-02-18T09:45:11.790870
+ 879 files changed, 61051 insertions(+), 4400 deletions(-)
+ create mode 100644 develop/Karrigell/common/admin/translation/jQueryFileTree.py~
+ create mode 100644 develop/Karrigell/common/demo/quizz/data/quizz.pdl
+ create mode 100644 develop/Karrigell/data/www/cache/accomodation/maps/hotelConfig.py
+ create mode 100644 develop/Karrigell/data/www/cache/accomodation/maps/index.ks
+ create mode 100644 develop/Karrigell/data/www/cache/accomodation/maps/userMapView.ks
+ create mode 100644 develop/Karrigell/data/www/cache/config.py
+ create mode 100644 develop/Karrigell/data/www/cache/congress_demo/loginFn.ks
+ create mode 100644 develop/Karrigell/data/www/cache/demjson.py
+ create mode 100644 develop/Karrigell/data/www/cache/form.py
+ create mode 100644 develop/Karrigell/data/www/cache/issue/adminView.ks
+ create mode 100644 develop/Karrigell/data/www/cache/js/adminSidePanels.js.pih
+ create mode 100644 develop/Karrigell/data/www/cache/js/initMUI.js.pih
+ create mode 100644 develop/Karrigell/data/www/cache/js/portaLayoutInit.js.pih
+ create mode 100644 develop/Karrigell/data/www/cache/js/portaLogin.js.pih
+ create mode 100644 develop/Karrigell/data/www/cache/lib/formcheck/lang.js.pih
+ create mode 100644 develop/Karrigell/data/www/cache/lib/stickyNotes/test.ks
+ create mode 100644 develop/Karrigell/data/www/cache/model.py
+ create mode 100644 develop/Karrigell/data/www/cache/pagefn.py
+ create mode 100644 develop/Karrigell/data/www/cache/portaLayout.ks
+ create mode 100644 develop/Karrigell/data/www/cache/portal.pih
+ create mode 100644 develop/Karrigell/data/www/cache/portal/desktop/calendar.ks
+ create mode 100644 develop/Karrigell/data/www/cache/portal/portal4admin.ks
+ create mode 100644 develop/Karrigell/data/www/cache/portalHeader.ks
+ create mode 100644 develop/Karrigell/data/www/cache/register/Captcha.py
+ create mode 100644 develop/Karrigell/data/www/cache/register/accountForm.ks
+ create mode 100644 develop/Karrigell/data/www/cache/register/register.ks
+ create mode 100644 develop/Karrigell/data/www/cache/service/adminHotels.ks
+ create mode 100644 develop/Karrigell/data/www/cache/service/service.ks
+ create mode 100644 develop/Karrigell/data/www/cache/service/userHotelsView.ks
+ create mode 100644 develop/Karrigell/data/www/cache/sysadmin/sysadmin.ks
+ create mode 100644 develop/Karrigell/data/www/cache/user/userManagement.ks
+ create mode 100644 develop/Karrigell/data/www/cache/version.py
+ create mode 100644 develop/Karrigell/data/www/conf.py~
+ create mode 100644 develop/Karrigell/data/www/roundup/db/files/dossier/0/dossier52
+ create mode 100644 develop/Karrigell/data/www/roundup/db/files/dossier/0/dossier53
+ create mode 100644 develop/Karrigell/data/www/roundup/db/files/dossier/0/dossier54
+ create mode 100644 develop/Karrigell/data/www/roundup/db/files/dossier/0/dossier55
+ create mode 100644 develop/Karrigell/data/www/roundup/db/files/msg/0/msg66
+ create mode 100644 develop/Karrigell/data/www/roundup/db/files/msg/0/msg67
+ create mode 100644 develop/Karrigell/data/www/roundup/db/files/msg/0/msg68
+ create mode 100644 develop/Karrigell/data/www/roundup/db/files/msg/0/msg69
+ create mode 100644 develop/Karrigell/data/www/sessions/07uCHPsZCREM8vgA
+ create mode 100644 develop/Karrigell/data/www/sessions/0ADETOgi46pfMMZr
+ create mode 100644 develop/Karrigell/data/www/sessions/0FM1AehGYJXy1307
+ create mode 100644 develop/Karrigell/data/www/sessions/0XXAKcKOFPZIhmjT
+ create mode 100644 develop/Karrigell/data/www/sessions/0aKnr9HJs5bKrGoV
+ create mode 100644 develop/Karrigell/data/www/sessions/0bxfHKeDeThyzEU2
+ create mode 100644 develop/Karrigell/data/www/sessions/0cjE68wbeQOIn5Ox
+ create mode 100644 develop/Karrigell/data/www/sessions/0nqPVkKw19WTwYkK
+ create mode 100644 develop/Karrigell/data/www/sessions/0shhJoD666sIDNWY
+ create mode 100644 develop/Karrigell/data/www/sessions/11DSMGRqYxf6byGr
+ create mode 100644 develop/Karrigell/data/www/sessions/14N4gMnKoDyBpbkR
+ create mode 100644 develop/Karrigell/data/www/sessions/14Vx3zB5y6LYNfCp
+ create mode 100644 develop/Karrigell/data/www/sessions/16nfUNHarkQ21VpE
+ create mode 100644 develop/Karrigell/data/www/sessions/17UTnrXQwkbE3REt
+ create mode 100644 develop/Karrigell/data/www/sessions/18pL57uH0CsGYVm4
+ create mode 100644 develop/Karrigell/data/www/sessions/18sB0qxPaPbUiP6t
+ create mode 100644 develop/Karrigell/data/www/sessions/1D3ZOCvf2BGnkIV9
+ create mode 100644 develop/Karrigell/data/www/sessions/1Fpj445wRbEoimmS
+ create mode 100644 develop/Karrigell/data/www/sessions/1FstsZqguPPA8rjB
+ create mode 100644 develop/Karrigell/data/www/sessions/1TwVAHvmcM1y1wOJ
+ create mode 100644 develop/Karrigell/data/www/sessions/1YYV6rc05EQ2s0qm
+ create mode 100644 develop/Karrigell/data/www/sessions/1ZdUhIjtg89b465i
+ create mode 100644 develop/Karrigell/data/www/sessions/1d3TLn5CwBSdF7J5
+ create mode 100644 develop/Karrigell/data/www/sessions/1jHXp8v4635qkumu
+ create mode 100644 develop/Karrigell/data/www/sessions/1pO24WTfLij1IqGo
+ create mode 100644 develop/Karrigell/data/www/sessions/257aZwoeQsbI2udg
+ create mode 100644 develop/Karrigell/data/www/sessions/2DMkvP5wmPsuGLJk
+ create mode 100644 develop/Karrigell/data/www/sessions/2NECzTOJ4wng9jQU
+ create mode 100644 develop/Karrigell/data/www/sessions/2PqbmIh9gwIYK6RK
+ create mode 100644 develop/Karrigell/data/www/sessions/2eQPprdM4LvcBa0s
+ create mode 100644 develop/Karrigell/data/www/sessions/2goU75LSnnPl9dWx
+ create mode 100644 develop/Karrigell/data/www/sessions/2snUTR0J9O0xFygH
+ create mode 100644 develop/Karrigell/data/www/sessions/2uUvwqFJbMA34xsK
+ create mode 100644 develop/Karrigell/data/www/sessions/36GENEsVQaRd7VEJ
+ create mode 100644 develop/Karrigell/data/www/sessions/3FgXZLyhHDcdkQUs
+ create mode 100644 develop/Karrigell/data/www/sessions/3PQx5WrOZu3PQnRb
+ create mode 100644 develop/Karrigell/data/www/sessions/3XCFmZXfmZXiOJoY
+ create mode 100644 develop/Karrigell/data/www/sessions/3dt9SuRhSWnrIbAS
+ create mode 100644 develop/Karrigell/data/www/sessions/3vfA5Z0bqCHnzCeG
+ create mode 100644 develop/Karrigell/data/www/sessions/3ynFXoY8LcWjTdcu
+ create mode 100644 develop/Karrigell/data/www/sessions/4GStbxfaXn0rd8bm
+ create mode 100644 develop/Karrigell/data/www/sessions/4OXKoQeAe8dSQi8t
+ create mode 100644 develop/Karrigell/data/www/sessions/4Q0vWVdHeOi1shUY
+ create mode 100644 develop/Karrigell/data/www/sessions/4VX6oa2wzbH7AEn9
+ create mode 100644 develop/Karrigell/data/www/sessions/4Z2VV0Fd2907Bx4H
+ create mode 100644 develop/Karrigell/data/www/sessions/4fT1WPTbIc7073wv
+ create mode 100644 develop/Karrigell/data/www/sessions/4g40fGuGU03ukVir
+ create mode 100644 develop/Karrigell/data/www/sessions/4j4v0oN4zqm8W0PU
+ create mode 100644 develop/Karrigell/data/www/sessions/4jgCBWj9ZGGj94yX
+ create mode 100644 develop/Karrigell/data/www/sessions/4mJulaC3Co4LFbYn
+ create mode 100644 develop/Karrigell/data/www/sessions/5IzR73mUEpJAF4Dr
+ create mode 100644 develop/Karrigell/data/www/sessions/5VKxvYH4JsY9C2Wz
+ create mode 100644 develop/Karrigell/data/www/sessions/5julNgoU7vCZDePE
+ create mode 100644 develop/Karrigell/data/www/sessions/5lTUZT4wyNYo0jUQ
+ create mode 100644 develop/Karrigell/data/www/sessions/5v4JOX3yMX6JzC2c
+ create mode 100644 develop/Karrigell/data/www/sessions/65T8DrrRbiCSTIu8
+ create mode 100644 develop/Karrigell/data/www/sessions/6GT5GM1hUNRehBeD
+ create mode 100644 develop/Karrigell/data/www/sessions/6MJluyWHaZbhvI7g
+ create mode 100644 develop/Karrigell/data/www/sessions/6Mywqhb5SHgABdCL
+ create mode 100644 develop/Karrigell/data/www/sessions/6YFXjCadiaDsLy73
+ create mode 100644 develop/Karrigell/data/www/sessions/6vQXTUiZrvBq8o9O
+ create mode 100644 develop/Karrigell/data/www/sessions/6xLWnUpfHSU9Ev4p
+ create mode 100644 develop/Karrigell/data/www/sessions/6yitD3U8PXENkLLu
+ create mode 100644 develop/Karrigell/data/www/sessions/7364hNEMwFEwBhpL
+ create mode 100644 develop/Karrigell/data/www/sessions/7C3cSW7wpBup0fFD
+ create mode 100644 develop/Karrigell/data/www/sessions/7IhwgEQGlTOk4uCA
+ create mode 100644 develop/Karrigell/data/www/sessions/7KAB9EP6ttHqydpw
+ create mode 100644 develop/Karrigell/data/www/sessions/7V5s8r6LF95wkWNd
+ create mode 100644 develop/Karrigell/data/www/sessions/7ngIh7xGwvipYPAn
+ create mode 100644 develop/Karrigell/data/www/sessions/7sycX2ItSr70VFEq
+ create mode 100644 develop/Karrigell/data/www/sessions/81dJ4ges2l66myvK
+ create mode 100644 develop/Karrigell/data/www/sessions/83J1hoqrTtcnlPxO
+ create mode 100644 develop/Karrigell/data/www/sessions/86gtpyzgj4Tg7Cgp
+ create mode 100644 develop/Karrigell/data/www/sessions/8MFvd0WsIePEkPK6
+ create mode 100644 develop/Karrigell/data/www/sessions/8PTPKts3BHn8Vn4q
+ create mode 100644 develop/Karrigell/data/www/sessions/8h2seYD3DeMSeV3b
+ create mode 100644 develop/Karrigell/data/www/sessions/8rO0v2SUteyVdqt7
+ create mode 100644 develop/Karrigell/data/www/sessions/8xtEFG2U82pw15Zz
+ create mode 100644 develop/Karrigell/data/www/sessions/8y7a36KwdrIv6rtB
+ create mode 100644 develop/Karrigell/data/www/sessions/91Ydbz0xiWCAPV0s
+ create mode 100644 develop/Karrigell/data/www/sessions/9AZUNx0MpRcl79qH
+ create mode 100644 develop/Karrigell/data/www/sessions/9IVLEEp71s7dc191
+ create mode 100644 develop/Karrigell/data/www/sessions/9XHV1FD97MF9vlpE
+ create mode 100644 develop/Karrigell/data/www/sessions/9tjH5veA1megFkd2
+ create mode 100644 develop/Karrigell/data/www/sessions/A1MFVU2iZXZ70ubr
+ create mode 100644 develop/Karrigell/data/www/sessions/APtAIUdIA7PUzwpu
+ create mode 100644 develop/Karrigell/data/www/sessions/AS0TuJkrX31ux8Mc
+ create mode 100644 develop/Karrigell/data/www/sessions/ATAkRLUdhlw6uprs
+ create mode 100644 develop/Karrigell/data/www/sessions/AmLRg4kGKGRmZCvq
+ create mode 100644 develop/Karrigell/data/www/sessions/Ami8k2MOqO55ek9v
+ create mode 100644 develop/Karrigell/data/www/sessions/AmncUR0w8lLWX5D7
+ create mode 100644 develop/Karrigell/data/www/sessions/B0wt8JUHP4xJ4q6B
+ create mode 100644 develop/Karrigell/data/www/sessions/B7QXvZJk39tK6xDV
+ create mode 100644 develop/Karrigell/data/www/sessions/BE82mZeiXIgKC9Tb
+ create mode 100644 develop/Karrigell/data/www/sessions/BM4BTjzZgh8W6ejT
+ create mode 100644 develop/Karrigell/data/www/sessions/BP7cCu0OoCw9ua1S
+ create mode 100644 develop/Karrigell/data/www/sessions/BS2nhaL9o501eL7k
+ create mode 100644 develop/Karrigell/data/www/sessions/BV9EvXNuoNOpkyLV
+ create mode 100644 develop/Karrigell/data/www/sessions/BkaefXM7STD1QHq6
+ create mode 100644 develop/Karrigell/data/www/sessions/BkjdmnYKKY17wZUw
+ create mode 100644 develop/Karrigell/data/www/sessions/BssxAvjUwiwky0jX
+ create mode 100644 develop/Karrigell/data/www/sessions/C8g05aHyLAdHffnz
+ create mode 100644 develop/Karrigell/data/www/sessions/CKsKvnonVzLD5P76
+ create mode 100644 develop/Karrigell/data/www/sessions/CdEPex8n6SmqukjS
+ create mode 100644 develop/Karrigell/data/www/sessions/Cm4er34USmfGo5N1
+ create mode 100644 develop/Karrigell/data/www/sessions/Ctkp8LztURa5uVrO
+ create mode 100644 develop/Karrigell/data/www/sessions/D34wnE7fOTxhkV7s
+ create mode 100644 develop/Karrigell/data/www/sessions/DUHBwpnx5vaKvsJF
+ create mode 100644 develop/Karrigell/data/www/sessions/DZMdYPyXHABL1GxP
+ create mode 100644 develop/Karrigell/data/www/sessions/DceEszl8feczXZw1
+ create mode 100644 develop/Karrigell/data/www/sessions/DfrSBwDEuAsyfGG9
+ create mode 100644 develop/Karrigell/data/www/sessions/E6rNpj75a24wXo8h
+ create mode 100644 develop/Karrigell/data/www/sessions/EKIC6VtYvgxkCYiw
+ create mode 100644 develop/Karrigell/data/www/sessions/EQtdQw0zjwKI2ITX
+ create mode 100644 develop/Karrigell/data/www/sessions/EVUAw4IKHsCwoCxB
+ create mode 100644 develop/Karrigell/data/www/sessions/EkAlS5yS2ZFJCgYF
+ create mode 100644 develop/Karrigell/data/www/sessions/F1q02e3xbhNyxUxS
+ create mode 100644 develop/Karrigell/data/www/sessions/F5jCThfyY6IhdKYP
+ create mode 100644 develop/Karrigell/data/www/sessions/FDrKeDdDXU1B4fsT
+ create mode 100644 develop/Karrigell/data/www/sessions/FFFKWibfcyM65FUQ
+ create mode 100644 develop/Karrigell/data/www/sessions/FGi3ofvwev61f3PK
+ create mode 100644 develop/Karrigell/data/www/sessions/FIUMTEd6QuW6ySD3
+ create mode 100644 develop/Karrigell/data/www/sessions/FId63vWAWsRiQktn
+ create mode 100644 develop/Karrigell/data/www/sessions/FL7cnLmRfk6VhZeX
+ create mode 100644 develop/Karrigell/data/www/sessions/FP6GyKYjCEjiG7Jn
+ create mode 100644 develop/Karrigell/data/www/sessions/FQE20eIXpDojjqC3
+ create mode 100644 develop/Karrigell/data/www/sessions/FRLbyfbPd4zjPW8c
+ create mode 100644 develop/Karrigell/data/www/sessions/FSNwgHyXzHw5cN6Y
+ create mode 100644 develop/Karrigell/data/www/sessions/FTtt75yJQXvyc50U
+ create mode 100644 develop/Karrigell/data/www/sessions/FmKWfwS2sbEaUFXg
+ create mode 100644 develop/Karrigell/data/www/sessions/FrRmCQ9xfrg7CTWW
+ create mode 100644 develop/Karrigell/data/www/sessions/FuHFKrTl3PVXUNHe
+ create mode 100644 develop/Karrigell/data/www/sessions/GMzFkt2rmzmChWXf
+ create mode 100644 develop/Karrigell/data/www/sessions/GQAkjmsR6yIacp0p
+ create mode 100644 develop/Karrigell/data/www/sessions/GTpZ8QPg7hqcxU30
+ create mode 100644 develop/Karrigell/data/www/sessions/GXUk7iAwMc9RlIfB
+ create mode 100644 develop/Karrigell/data/www/sessions/Gfpw8eZS2e9bto6p
+ create mode 100644 develop/Karrigell/data/www/sessions/GkGhXiOlHWLw9k6g
+ create mode 100644 develop/Karrigell/data/www/sessions/GlLon19g7Dgmyp37
+ create mode 100644 develop/Karrigell/data/www/sessions/GmN8r2EB0RyB7OTo
+ create mode 100644 develop/Karrigell/data/www/sessions/GpKi4M4VtZSBfEfw
+ create mode 100644 develop/Karrigell/data/www/sessions/GsTcdURsgz1ZKtsE
+ create mode 100644 develop/Karrigell/data/www/sessions/GtJZNZgY5BvUKNAh
+ create mode 100644 develop/Karrigell/data/www/sessions/HDTsZsnIxui96kD3
+ create mode 100644 develop/Karrigell/data/www/sessions/Hby3S4W4pXjertr9
+ create mode 100644 develop/Karrigell/data/www/sessions/HftsT6Ag1qa56Dp6
+ create mode 100644 develop/Karrigell/data/www/sessions/HsipqeEWFa1lgnEw
+ create mode 100644 develop/Karrigell/data/www/sessions/Hwl9pA1SO4AVHcgg
+ create mode 100644 develop/Karrigell/data/www/sessions/I02j7XRtkIuPdk09
+ create mode 100644 develop/Karrigell/data/www/sessions/I2v8oY1AVhyYMD9z
+ create mode 100644 develop/Karrigell/data/www/sessions/I32GzVqRzGoeVuzK
+ create mode 100644 develop/Karrigell/data/www/sessions/I3l9DhXTI12RCg0U
+ create mode 100644 develop/Karrigell/data/www/sessions/I3v5Ir8hmes28fhT
+ create mode 100644 develop/Karrigell/data/www/sessions/IOr6qmGVux32nm0f
+ create mode 100644 develop/Karrigell/data/www/sessions/IRWzjxTmeuPmLKPr
+ create mode 100644 develop/Karrigell/data/www/sessions/IWOIeXj9uH5Do2lt
+ create mode 100644 develop/Karrigell/data/www/sessions/IjOG42TqEGU49JOW
+ create mode 100644 develop/Karrigell/data/www/sessions/IybE36v1Y8vTIl3U
+ create mode 100644 develop/Karrigell/data/www/sessions/JCJKRPuYqAWEXwbv
+ create mode 100644 develop/Karrigell/data/www/sessions/JHXrtbnxRuRAexYt
+ create mode 100644 develop/Karrigell/data/www/sessions/JODbiI9HODsrNYAn
+ create mode 100644 develop/Karrigell/data/www/sessions/JPrnYCLKGjHFTsCi
+ create mode 100644 develop/Karrigell/data/www/sessions/JR3imNBmY4MJjnuJ
+ create mode 100644 develop/Karrigell/data/www/sessions/JWif4foIOjLWgzdA
+ create mode 100644 develop/Karrigell/data/www/sessions/JkrwX9A08xFR7IIK
+ create mode 100644 develop/Karrigell/data/www/sessions/JlfGC2woEKTq5dpH
+ create mode 100644 develop/Karrigell/data/www/sessions/JuNlwPIaP8MkCprY
+ create mode 100644 develop/Karrigell/data/www/sessions/Jw4k6S2q6zIBr8u2
+ create mode 100644 develop/Karrigell/data/www/sessions/K0ceEp6nzAQ4jI5b
+ create mode 100644 develop/Karrigell/data/www/sessions/K5C2shQNNXzyapCz
+ create mode 100644 develop/Karrigell/data/www/sessions/Ka6vsKz4vI3nq0ca
+ create mode 100644 develop/Karrigell/data/www/sessions/KdWmmw2C6QIacAyL
+ create mode 100644 develop/Karrigell/data/www/sessions/KfvvptEBbvnVNvEt
+ create mode 100644 develop/Karrigell/data/www/sessions/KgxgOSvxmpLLigUO
+ create mode 100644 develop/Karrigell/data/www/sessions/KhWBliJG9Qgz1wl0
+ create mode 100644 develop/Karrigell/data/www/sessions/KvDeekq5pPdapcQt
+ create mode 100644 develop/Karrigell/data/www/sessions/L7kEz7jcrdyhkVOO
+ create mode 100644 develop/Karrigell/data/www/sessions/L9fY2TtSNRhx8jeN
+ create mode 100644 develop/Karrigell/data/www/sessions/LEVCUf8aJIpCXpp2
+ create mode 100644 develop/Karrigell/data/www/sessions/LR0kYOdu7j3T0zvU
+ create mode 100644 develop/Karrigell/data/www/sessions/LUYBXEO5ElMqnDUw
+ create mode 100644 develop/Karrigell/data/www/sessions/Lfrd4nf1lt1tAz3A
+ create mode 100644 develop/Karrigell/data/www/sessions/LofGq2mVuaGVqGlM
+ create mode 100644 develop/Karrigell/data/www/sessions/Lq332gA7Ynvy9XkR
+ create mode 100644 develop/Karrigell/data/www/sessions/LwyWEbq6k63qZkfp
+ create mode 100644 develop/Karrigell/data/www/sessions/LyVaGeM4cLWYvmkj
+ create mode 100644 develop/Karrigell/data/www/sessions/M202XGAB1rcicvW6
+ create mode 100644 develop/Karrigell/data/www/sessions/MN5KJrsBqVUVBCec
+ create mode 100644 develop/Karrigell/data/www/sessions/MUErsvIN87FR9sGg
+ create mode 100644 develop/Karrigell/data/www/sessions/MVIqdCSu37pOFnTI
+ create mode 100644 develop/Karrigell/data/www/sessions/MVywv1SMfFnOZNtq
+ create mode 100644 develop/Karrigell/data/www/sessions/MY0mp0CzTBjvWb1b
+ create mode 100644 develop/Karrigell/data/www/sessions/MiMWifHf5UjBwmWf
+ create mode 100644 develop/Karrigell/data/www/sessions/MjhGTplmv1xsnoAR
+ create mode 100644 develop/Karrigell/data/www/sessions/MmO5V4tl2BEiKKvU
+ create mode 100644 develop/Karrigell/data/www/sessions/MrBbrJatcGZCvtCa
+ create mode 100644 develop/Karrigell/data/www/sessions/MwPkoqhu2xF3ci9S
+ create mode 100644 develop/Karrigell/data/www/sessions/MwWmZQNqKm1k8FGh
+ create mode 100644 develop/Karrigell/data/www/sessions/N8TAgnH7Hr1kmWeC
+ create mode 100644 develop/Karrigell/data/www/sessions/N9vJzwT6aSeYSouS
+ create mode 100644 develop/Karrigell/data/www/sessions/NHQMXuxOQK1V8e2z
+ create mode 100644 develop/Karrigell/data/www/sessions/NKX6wp4MGVKg96eB
+ create mode 100644 develop/Karrigell/data/www/sessions/NMskY2iRJjmxXPtE
+ create mode 100644 develop/Karrigell/data/www/sessions/NU6wuWBV82hc162y
+ create mode 100644 develop/Karrigell/data/www/sessions/NiZDpxTHQAch7EjF
+ create mode 100644 develop/Karrigell/data/www/sessions/Nv3kSZVBeNr6SHNZ
+ create mode 100644 develop/Karrigell/data/www/sessions/OCFWyx567tnkDhkj
+ create mode 100644 develop/Karrigell/data/www/sessions/OFia9HtL1x0j7lut
+ create mode 100644 develop/Karrigell/data/www/sessions/OGFcjXz49tX4HRWg
+ create mode 100644 develop/Karrigell/data/www/sessions/OL6vvHzvsYfoFyw7
+ create mode 100644 develop/Karrigell/data/www/sessions/OOKjuq0Uuu6kdNYL
+ create mode 100644 develop/Karrigell/data/www/sessions/ORc8kMC8d6bb4fYk
+ create mode 100644 develop/Karrigell/data/www/sessions/OUXiPTM2cBEseSmW
+ create mode 100644 develop/Karrigell/data/www/sessions/OX0oftcEgxkT1PqL
+ create mode 100644 develop/Karrigell/data/www/sessions/OZLz7lzeNPKEHaSh
+ create mode 100644 develop/Karrigell/data/www/sessions/OniGhe06Bgc0SB5g
+ create mode 100644 develop/Karrigell/data/www/sessions/OqbSxrSFmXgRBj6R
+ create mode 100644 develop/Karrigell/data/www/sessions/OslTedzQg8sSEW9F
+ create mode 100644 develop/Karrigell/data/www/sessions/P1kKeVL1kyZS2D48
+ create mode 100644 develop/Karrigell/data/www/sessions/P7iEOwBx5O3Dok3O
+ create mode 100644 develop/Karrigell/data/www/sessions/PKtgimHBQJV1ewU0
+ create mode 100644 develop/Karrigell/data/www/sessions/PW1bA6O9OI0yKTsC
+ create mode 100644 develop/Karrigell/data/www/sessions/PZpl4GxFypyolbwS
+ create mode 100644 develop/Karrigell/data/www/sessions/PgGTpWNRHeRXXuzr
+ create mode 100644 develop/Karrigell/data/www/sessions/Q4HPiJGeBXJhiEtG
+ create mode 100644 develop/Karrigell/data/www/sessions/Q74lwX8Sy1B907Dl
+ create mode 100644 develop/Karrigell/data/www/sessions/QD7v6n8QD3jRgxgd
+ create mode 100644 develop/Karrigell/data/www/sessions/QENE1NoElLlOpCrF
+ create mode 100644 develop/Karrigell/data/www/sessions/QOZxYzZIZToNV91G
+ create mode 100644 develop/Karrigell/data/www/sessions/QXIj0BsKRIBe2GQF
+ create mode 100644 develop/Karrigell/data/www/sessions/QfosvGftUSSPQ5GO
+ create mode 100644 develop/Karrigell/data/www/sessions/QlFk4m8DxZjz0N8t
+ create mode 100644 develop/Karrigell/data/www/sessions/QyAEqdXnk267jKAK
+ create mode 100644 develop/Karrigell/data/www/sessions/R0LXUoXCneMZuiKj
+ create mode 100644 develop/Karrigell/data/www/sessions/R4usu8rgpzCLfPHJ
+ create mode 100644 develop/Karrigell/data/www/sessions/RCszsO3S8A3l2ptY
+ create mode 100644 develop/Karrigell/data/www/sessions/RH1uIAwRZwnMfzvm
+ create mode 100644 develop/Karrigell/data/www/sessions/RUoKUbtVNoUCECuA
+ create mode 100644 develop/Karrigell/data/www/sessions/Rdgkr8xwCBZ25Sok
+ create mode 100644 develop/Karrigell/data/www/sessions/Rho4gM9nKr0TuJj7
+ create mode 100644 develop/Karrigell/data/www/sessions/Rqsmg5P3OOHRNkLl
+ create mode 100644 develop/Karrigell/data/www/sessions/S3CWgLrMZMDdsCeo
+ create mode 100644 develop/Karrigell/data/www/sessions/SDfCfs60mwLjnZsY
+ create mode 100644 develop/Karrigell/data/www/sessions/SWciBIK3uV8IcFAd
+ create mode 100644 develop/Karrigell/data/www/sessions/SrSDy3V9ex2iwuJQ
+ create mode 100644 develop/Karrigell/data/www/sessions/TAgrpxAnIRKDm9hb
+ create mode 100644 develop/Karrigell/data/www/sessions/TCa2eu9h97MjldR2
+ create mode 100644 develop/Karrigell/data/www/sessions/TI6yZFC3pSRiVKrs
+ create mode 100644 develop/Karrigell/data/www/sessions/TTWOxqr6eaxmuTzc
+ create mode 100644 develop/Karrigell/data/www/sessions/TUppq5a5PtwL4k5Y
+ create mode 100644 develop/Karrigell/data/www/sessions/TWPwy8AQuIKrZKPd
+ create mode 100644 develop/Karrigell/data/www/sessions/TZZQYXeySagIi5JI
+ create mode 100644 develop/Karrigell/data/www/sessions/TZu3cbxSuX77E7hL
+ create mode 100644 develop/Karrigell/data/www/sessions/TfdNWB5BHh07wO5H
+ create mode 100644 develop/Karrigell/data/www/sessions/TnrPC2ObKcWQ4Bdy
+ create mode 100644 develop/Karrigell/data/www/sessions/TulPIJF7XD3iBcVr
+ create mode 100644 develop/Karrigell/data/www/sessions/TxjQCjJuf51cMRuG
+ create mode 100644 develop/Karrigell/data/www/sessions/Ty2yGOaHdyhYDAck
+ create mode 100644 develop/Karrigell/data/www/sessions/UA4dZrh0qbKvV2lo
+ create mode 100644 develop/Karrigell/data/www/sessions/UClLDyeuOTiYjgyC
+ create mode 100644 develop/Karrigell/data/www/sessions/Ukt9UVxnanJZIueL
+ create mode 100644 develop/Karrigell/data/www/sessions/V4eAaaH7lQIZoXdu
+ create mode 100644 develop/Karrigell/data/www/sessions/VG9RYox3p0e7LZ32
+ create mode 100644 develop/Karrigell/data/www/sessions/VN1bG9YjcAOnbdr1
+ create mode 100644 develop/Karrigell/data/www/sessions/VseEv9dxaC2Uogx4
+ create mode 100644 develop/Karrigell/data/www/sessions/WAwUq7jRn1JE8dSD
+ create mode 100644 develop/Karrigell/data/www/sessions/WI61tg614SIqdHUc
+ create mode 100644 develop/Karrigell/data/www/sessions/WLT6bFjidQ81HrxI
+ create mode 100644 develop/Karrigell/data/www/sessions/WXn0U1jBMbHfixAK
+ create mode 100644 develop/Karrigell/data/www/sessions/WsPsNBkbEZjCwsns
+ create mode 100644 develop/Karrigell/data/www/sessions/X0sUZo00V3Z2dGIy
+ create mode 100644 develop/Karrigell/data/www/sessions/X4ERcEUHHWgCVhUx
+ create mode 100644 develop/Karrigell/data/www/sessions/X8QWv2DUFrdcdJCu
+ create mode 100644 develop/Karrigell/data/www/sessions/XFmt3JY93YkQJmaH
+ create mode 100644 develop/Karrigell/data/www/sessions/XMZFVosChhHdj4rP
+ create mode 100644 develop/Karrigell/data/www/sessions/XS1WUkw4QwrTJr2w
+ create mode 100644 develop/Karrigell/data/www/sessions/XVCVwwo6kaBO5XiQ
+ create mode 100644 develop/Karrigell/data/www/sessions/XaPYjm0tQsjdvF6w
+ create mode 100644 develop/Karrigell/data/www/sessions/XbY4Mpw2xj2z8bbb
+ create mode 100644 develop/Karrigell/data/www/sessions/XbpJ1IO268Ck49SK
+ create mode 100644 develop/Karrigell/data/www/sessions/XdEmIFDfzBKmMfks
+ create mode 100644 develop/Karrigell/data/www/sessions/XjUhAg78Jv8tiHZp
+ create mode 100644 develop/Karrigell/data/www/sessions/XtLT0MTI9RxTC7fd
+ create mode 100644 develop/Karrigell/data/www/sessions/Y4QlzMiJrk338SD7
+ create mode 100644 develop/Karrigell/data/www/sessions/YCgSngV7n1p3bY5N
+ create mode 100644 develop/Karrigell/data/www/sessions/YFq9DbKaDUoXxie5
+ create mode 100644 develop/Karrigell/data/www/sessions/YLT8znELnaY1fm0i
+ create mode 100644 develop/Karrigell/data/www/sessions/YkVnu7OJBK02dUc0
+ create mode 100644 develop/Karrigell/data/www/sessions/Ys0Ik7MHGuLEsX3b
+ create mode 100644 develop/Karrigell/data/www/sessions/Yt0wHG18hRCYtlI6
+ create mode 100644 develop/Karrigell/data/www/sessions/Z5oIEcWIjYro4Iqq
+ create mode 100644 develop/Karrigell/data/www/sessions/Z7OfiTdFsx5BvpyQ
+ create mode 100644 develop/Karrigell/data/www/sessions/Z9IJa8UESAGIWrgV
+ create mode 100644 develop/Karrigell/data/www/sessions/ZKngE4JsAdJHIabw
+ create mode 100644 develop/Karrigell/data/www/sessions/ZWUO0jwRWe78bKCP
+ create mode 100644 develop/Karrigell/data/www/sessions/ZXMTYRHuudB0F7gK
+ create mode 100644 develop/Karrigell/data/www/sessions/ZaFXIss1NlPPZTVi
+ create mode 100644 develop/Karrigell/data/www/sessions/ZbHQntk6FSv1gJXq
+ create mode 100644 develop/Karrigell/data/www/sessions/Zdq4QDhA7sZsmx0W
+ create mode 100644 develop/Karrigell/data/www/sessions/ZfXLSjsXSPPseUSi
+ create mode 100644 develop/Karrigell/data/www/sessions/ZhL20CB1KdFtWClx
+ create mode 100644 develop/Karrigell/data/www/sessions/Zki1dlle2Nnkkv5n
+ create mode 100644 develop/Karrigell/data/www/sessions/ZuY8fjR17byrH5jQ
+ create mode 100644 develop/Karrigell/data/www/sessions/a9CoeDTfmgq02bnD
+ create mode 100644 develop/Karrigell/data/www/sessions/aMwoehlr7NHtwHds
+ create mode 100644 develop/Karrigell/data/www/sessions/ajSoCxYz9MgxWYWJ
+ create mode 100644 develop/Karrigell/data/www/sessions/amBMdv0KxIytk5iD
+ create mode 100644 develop/Karrigell/data/www/sessions/aoHXqcBvxGCVLXlr
+ create mode 100644 develop/Karrigell/data/www/sessions/apKdRnn07RgGNott
+ create mode 100644 develop/Karrigell/data/www/sessions/avkFS9kSltt1hJUQ
+ create mode 100644 develop/Karrigell/data/www/sessions/b1jpGjAS6JrgLQOL
+ create mode 100644 develop/Karrigell/data/www/sessions/bEsxpud30yhvCkQb
+ create mode 100644 develop/Karrigell/data/www/sessions/bdajTx5WTXISHE6X
+ create mode 100644 develop/Karrigell/data/www/sessions/c4JcVGd9nMZtPOmA
+ create mode 100644 develop/Karrigell/data/www/sessions/c7N57Ts72vx9MuXm
+ create mode 100644 develop/Karrigell/data/www/sessions/cApTa12CsPznUb12
+ create mode 100644 develop/Karrigell/data/www/sessions/cbOABfqj8EnBL5Qx
+ create mode 100644 develop/Karrigell/data/www/sessions/coyv4cd5EbfacaLL
+ create mode 100644 develop/Karrigell/data/www/sessions/cyUTpzwQVq4txX1l
+ create mode 100644 develop/Karrigell/data/www/sessions/d88upxTA1fy1Qzqy
+ create mode 100644 develop/Karrigell/data/www/sessions/dB6c65WHQ9bw4Ti6
+ create mode 100644 develop/Karrigell/data/www/sessions/dFidCyDsHtzCMKi9
+ create mode 100644 develop/Karrigell/data/www/sessions/dOI6qKx9sDPzvJUC
+ create mode 100644 develop/Karrigell/data/www/sessions/dQjRiEg6coYaR2UD
+ create mode 100644 develop/Karrigell/data/www/sessions/dRQpROwk9PiOMxyk
+ create mode 100644 develop/Karrigell/data/www/sessions/dT7GXaxHAVFJSOvS
+ create mode 100644 develop/Karrigell/data/www/sessions/dTo2dv0uLLDfyGqi
+ create mode 100644 develop/Karrigell/data/www/sessions/dYkijEk1z0ZZ94k4
+ create mode 100644 develop/Karrigell/data/www/sessions/dbGQUGP2KXkOAfok
+ create mode 100644 develop/Karrigell/data/www/sessions/dkl7CrTGHmPInANX
+ create mode 100644 develop/Karrigell/data/www/sessions/e9G9H20P7EOQk8vp
+ create mode 100644 develop/Karrigell/data/www/sessions/eB6pxklFz0IKbN8R
+ create mode 100644 develop/Karrigell/data/www/sessions/eIH0cAz6CGfkXwV9
+ create mode 100644 develop/Karrigell/data/www/sessions/eL5xF7NNivRbK0aF
+ create mode 100644 develop/Karrigell/data/www/sessions/eVwXix2LqBDWGW1J
+ create mode 100644 develop/Karrigell/data/www/sessions/edOW4xv9GK8WRmXS
+ create mode 100644 develop/Karrigell/data/www/sessions/emp0OC90L30a1L3g
+ create mode 100644 develop/Karrigell/data/www/sessions/enYdSZJEbmqO3dtn
+ create mode 100644 develop/Karrigell/data/www/sessions/f1ZQsZnnsrRPxCNK
+ create mode 100644 develop/Karrigell/data/www/sessions/f7KihK3mjqDy0v3L
+ create mode 100644 develop/Karrigell/data/www/sessions/fLdJfq8WT8czv9xa
+ create mode 100644 develop/Karrigell/data/www/sessions/fWszpIX7g0IL88ld
+ create mode 100644 develop/Karrigell/data/www/sessions/fhjUOrkHimGZQF32
+ create mode 100644 develop/Karrigell/data/www/sessions/g2GxZ7oQhNemVA46
+ create mode 100644 develop/Karrigell/data/www/sessions/g4qoWx38fGvayLVK
+ create mode 100644 develop/Karrigell/data/www/sessions/g5qv1hhHKTjiqGSd
+ create mode 100644 develop/Karrigell/data/www/sessions/gJRBuComdIhSkYCg
+ create mode 100644 develop/Karrigell/data/www/sessions/ga1eJxrO0UNitNWv
+ create mode 100644 develop/Karrigell/data/www/sessions/ghPLKYcsAdmnxykC
+ create mode 100644 develop/Karrigell/data/www/sessions/gvKpk6W8vuoI6Ag3
+ create mode 100644 develop/Karrigell/data/www/sessions/h87G4bA2IbSlU3K5
+ create mode 100644 develop/Karrigell/data/www/sessions/hCLWcQNTYX5ktit6
+ create mode 100644 develop/Karrigell/data/www/sessions/hHX1CsoOSCIZVdYw
+ create mode 100644 develop/Karrigell/data/www/sessions/hL6zaVi21uFmDXeI
+ create mode 100644 develop/Karrigell/data/www/sessions/hRhYRljEONtw1j7R
+ create mode 100644 develop/Karrigell/data/www/sessions/hRkzVm0nzCHtWrc2
+ create mode 100644 develop/Karrigell/data/www/sessions/hYEcexXITHIjjFEo
+ create mode 100644 develop/Karrigell/data/www/sessions/hjJHUN8HebXsu6YW
+ create mode 100644 develop/Karrigell/data/www/sessions/hnlVqCwDBl0MiVWD
+ create mode 100644 develop/Karrigell/data/www/sessions/i2ewyywgborzuhmX
+ create mode 100644 develop/Karrigell/data/www/sessions/i6IRddb4KGVGpgBk
+ create mode 100644 develop/Karrigell/data/www/sessions/i7b1ng4QwyAoasxr
+ create mode 100644 develop/Karrigell/data/www/sessions/iAG5TfcoY1efTEq8
+ create mode 100644 develop/Karrigell/data/www/sessions/iNYJDCjZtCIekEA8
+ create mode 100644 develop/Karrigell/data/www/sessions/iRkPb5cdWoDeKAjF
+ create mode 100644 develop/Karrigell/data/www/sessions/iTPiYPCoAka5mjDM
+ create mode 100644 develop/Karrigell/data/www/sessions/iVsC0hbBz1qcVoQ9
+ create mode 100644 develop/Karrigell/data/www/sessions/iWjMsTRRIGUr3kjd
+ create mode 100644 develop/Karrigell/data/www/sessions/iXMz3I9koImzXLRk
+ create mode 100644 develop/Karrigell/data/www/sessions/icHNmChFsmcTDFmt
+ create mode 100644 develop/Karrigell/data/www/sessions/ifQZcuChPUJiOf5Q
+ create mode 100644 develop/Karrigell/data/www/sessions/isa9fcTCB8V0o4MN
+ create mode 100644 develop/Karrigell/data/www/sessions/isnnQPegF3nfAjZG
+ create mode 100644 develop/Karrigell/data/www/sessions/iwYXrmyOhu923Xjp
+ create mode 100644 develop/Karrigell/data/www/sessions/j3No655SE25pYC1k
+ create mode 100644 develop/Karrigell/data/www/sessions/j54ATbhC01ADm5Vp
+ create mode 100644 develop/Karrigell/data/www/sessions/j5BGnl3CJDGGTX2i
+ create mode 100644 develop/Karrigell/data/www/sessions/j65gmd7Dtd4Q3CkS
+ create mode 100644 develop/Karrigell/data/www/sessions/j9OyYAc3roQtyjAj
+ create mode 100644 develop/Karrigell/data/www/sessions/jBeUtWANIL2uFVxB
+ create mode 100644 develop/Karrigell/data/www/sessions/jDfUzKAwvfIHYA5h
+ create mode 100644 develop/Karrigell/data/www/sessions/jLttM60AQrMm2Ebu
+ create mode 100644 develop/Karrigell/data/www/sessions/jQj7NBOruacfZDpf
+ create mode 100644 develop/Karrigell/data/www/sessions/jWCmV3WTla8ptLwP
+ create mode 100644 develop/Karrigell/data/www/sessions/jdmYmKhHHe57sNVc
+ create mode 100644 develop/Karrigell/data/www/sessions/jeilWr9D6AyYuaTr
+ create mode 100644 develop/Karrigell/data/www/sessions/jogAsesfj3kLLktX
+ create mode 100644 develop/Karrigell/data/www/sessions/jrssQBQmKVdXuOPE
+ create mode 100644 develop/Karrigell/data/www/sessions/kLwxmyssjYC7Jd4i
+ create mode 100644 develop/Karrigell/data/www/sessions/kSmYvmg3cnarP3eY
+ create mode 100644 develop/Karrigell/data/www/sessions/kTPA9EIn5pTR70W9
+ create mode 100644 develop/Karrigell/data/www/sessions/keAOtVX8EHWDkwdf
+ create mode 100644 develop/Karrigell/data/www/sessions/kep3ysAqn6HXU8g8
+ create mode 100644 develop/Karrigell/data/www/sessions/kgsvE12CZkqrWtN5
+ create mode 100644 develop/Karrigell/data/www/sessions/kk8AUrEEX0ay5dDd
+ create mode 100644 develop/Karrigell/data/www/sessions/ksrZiBsuQxUH5aHa
+ create mode 100644 develop/Karrigell/data/www/sessions/kstOuLtOb61FyQh4
+ create mode 100644 develop/Karrigell/data/www/sessions/ktqRG2ILGENkmmRB
+ create mode 100644 develop/Karrigell/data/www/sessions/l9RwhGpE8BciMLcI
+ create mode 100644 develop/Karrigell/data/www/sessions/lFn5gfabglJ5aMuH
+ create mode 100644 develop/Karrigell/data/www/sessions/lSkQshgMtn92GQ3E
+ create mode 100644 develop/Karrigell/data/www/sessions/lXQHl6sGbqRYr4Qb
+ create mode 100644 develop/Karrigell/data/www/sessions/lbIbe8LGLiT9Q2Q1
+ create mode 100644 develop/Karrigell/data/www/sessions/lfoqV585e6yDc2Sn
+ create mode 100644 develop/Karrigell/data/www/sessions/loZEylqntR6xVrJi
+ create mode 100644 develop/Karrigell/data/www/sessions/lxtGfQcucD0CM5KJ
+ create mode 100644 develop/Karrigell/data/www/sessions/lzsLWKccF9lLkfvS
+ create mode 100644 develop/Karrigell/data/www/sessions/m10zGgLCpKTEcMCT
+ create mode 100644 develop/Karrigell/data/www/sessions/m5fOuhzt2QZEjq8q
+ create mode 100644 develop/Karrigell/data/www/sessions/m8GTX1tOTMiUpTWY
+ create mode 100644 develop/Karrigell/data/www/sessions/m8iEsJZ8aVUMydix
+ create mode 100644 develop/Karrigell/data/www/sessions/mAFShiR5m9bUP0B8
+ create mode 100644 develop/Karrigell/data/www/sessions/mDncGErvjSVmAufV
+ create mode 100644 develop/Karrigell/data/www/sessions/mHANZNpq84fRKzxo
+ create mode 100644 develop/Karrigell/data/www/sessions/mTJF52hsxOS5EfMv
+ create mode 100644 develop/Karrigell/data/www/sessions/mmCxgcit4zoBArYi
+ create mode 100644 develop/Karrigell/data/www/sessions/mp4lesRa9SI2hLpd
+ create mode 100644 develop/Karrigell/data/www/sessions/n5vL6qWNUEZqxECv
+ create mode 100644 develop/Karrigell/data/www/sessions/n77FwEnmXMpUKL0h
+ create mode 100644 develop/Karrigell/data/www/sessions/nBu35bjasfZp7BSs
+ create mode 100644 develop/Karrigell/data/www/sessions/nHu1bBdOYmz6BQI5
+ create mode 100644 develop/Karrigell/data/www/sessions/nKiKz2r49u1wVAYf
+ create mode 100644 develop/Karrigell/data/www/sessions/nMf3G8YqgpoEnBCb
+ create mode 100644 develop/Karrigell/data/www/sessions/nO9T8gtngkBYBGj2
+ create mode 100644 develop/Karrigell/data/www/sessions/nS1a1db0akRBspOl
+ create mode 100644 develop/Karrigell/data/www/sessions/nTc3BP8NQgkZXFtO
+ create mode 100644 develop/Karrigell/data/www/sessions/nXiHEG9CrTc8yRTT
+ create mode 100644 develop/Karrigell/data/www/sessions/nsVJBVv8GLtqkfQ5
+ create mode 100644 develop/Karrigell/data/www/sessions/nv0bagyLewcOgotE
+ create mode 100644 develop/Karrigell/data/www/sessions/nwbQtmUbKdSDF0BE
+ create mode 100644 develop/Karrigell/data/www/sessions/oFjW3B4j5diinFYn
+ create mode 100644 develop/Karrigell/data/www/sessions/oOiIIXfFAVWBAPXW
+ create mode 100644 develop/Karrigell/data/www/sessions/oUecho1UJvGedDoT
+ create mode 100644 develop/Karrigell/data/www/sessions/oVuI6roUKlvbA1i6
+ create mode 100644 develop/Karrigell/data/www/sessions/oYNarOpJBNRE7jhK
+ create mode 100644 develop/Karrigell/data/www/sessions/ojA4QR3dIKr81Kep
+ create mode 100644 develop/Karrigell/data/www/sessions/omWFHrlTScZtmu5X
+ create mode 100644 develop/Karrigell/data/www/sessions/orwVLnPioOJaKIcp
+ create mode 100644 develop/Karrigell/data/www/sessions/ot3Fw8eVvm0pedjM
+ create mode 100644 develop/Karrigell/data/www/sessions/ovIjB5hxI6gqxq9y
+ create mode 100644 develop/Karrigell/data/www/sessions/p5HKycHfaBLX6A6d
+ create mode 100644 develop/Karrigell/data/www/sessions/pGwQoqoAHiorZkyg
+ create mode 100644 develop/Karrigell/data/www/sessions/pbXlSsX6aUkBS6fn
+ create mode 100644 develop/Karrigell/data/www/sessions/psNCsUGz5GUOetpW
+ create mode 100644 develop/Karrigell/data/www/sessions/ptuFlti3kHXnZGO0
+ create mode 100644 develop/Karrigell/data/www/sessions/q6u6NgA00WpCfzLo
+ create mode 100644 develop/Karrigell/data/www/sessions/qUlLyp9TsB0IepWg
+ create mode 100644 develop/Karrigell/data/www/sessions/qUrYPPRtMwaErogA
+ create mode 100644 develop/Karrigell/data/www/sessions/qZI2a0uVnfWnmNog
+ create mode 100644 develop/Karrigell/data/www/sessions/qlgncmDWeL4NvFmg
+ create mode 100644 develop/Karrigell/data/www/sessions/qwT8N49MrEHGfjWh
+ create mode 100644 develop/Karrigell/data/www/sessions/qwpiqlxEv86OfHL6
+ create mode 100644 develop/Karrigell/data/www/sessions/r3WjOAVDuRapnO9U
+ create mode 100644 develop/Karrigell/data/www/sessions/rDHJ50qIcASq69wr
+ create mode 100644 develop/Karrigell/data/www/sessions/rGhj3tf8cAEYeDgB
+ create mode 100644 develop/Karrigell/data/www/sessions/rKhe6nEgRMY0B6Iw
+ create mode 100644 develop/Karrigell/data/www/sessions/rMKBuvNOI3RBd6wn
+ create mode 100644 develop/Karrigell/data/www/sessions/rY1eeyEbHjen8lFV
+ create mode 100644 develop/Karrigell/data/www/sessions/rYaKSWAsxrmdhu3I
+ create mode 100644 develop/Karrigell/data/www/sessions/rZGHiVC1zBpQuUFH
+ create mode 100644 develop/Karrigell/data/www/sessions/rfpnMYls67ETEJQa
+ create mode 100644 develop/Karrigell/data/www/sessions/rl17D6QffMuOHw83
+ create mode 100644 develop/Karrigell/data/www/sessions/ryOl2jNjDogTvpH5
+ create mode 100644 develop/Karrigell/data/www/sessions/s1nnpMFu1NqXMjSt
+ create mode 100644 develop/Karrigell/data/www/sessions/s6TtpkxZuM3qI0RK
+ create mode 100644 develop/Karrigell/data/www/sessions/sHwfgFCds8CoOrgf
+ create mode 100644 develop/Karrigell/data/www/sessions/sIbr1nyEltJViBCC
+ create mode 100644 develop/Karrigell/data/www/sessions/ssGwZLXwi5T3GkHl
+ create mode 100644 develop/Karrigell/data/www/sessions/stcU0D3hezpoyplT
+ create mode 100644 develop/Karrigell/data/www/sessions/t2BJPCurAXBnlJFk
+ create mode 100644 develop/Karrigell/data/www/sessions/tD4CeA2xCYrw6zBh
+ create mode 100644 develop/Karrigell/data/www/sessions/tHsscFZRXbdsMbKD
+ create mode 100644 develop/Karrigell/data/www/sessions/tQTznOcgDSANTp7G
+ create mode 100644 develop/Karrigell/data/www/sessions/tZeT0z5pR3hjBovB
+ create mode 100644 develop/Karrigell/data/www/sessions/tgi9Ts1ivfPGKPcq
+ create mode 100644 develop/Karrigell/data/www/sessions/tsdNUM2zOwFSV8yc
+ create mode 100644 develop/Karrigell/data/www/sessions/tuLovvQZyN1L5U9U
+ create mode 100644 develop/Karrigell/data/www/sessions/u3gySP5aFN73X3zd
+ create mode 100644 develop/Karrigell/data/www/sessions/u56Tlwyf98ZokdvT
+ create mode 100644 develop/Karrigell/data/www/sessions/u617Tc8pIRJ2sP1V
+ create mode 100644 develop/Karrigell/data/www/sessions/uXV5uM5qNWLIqA0y
+ create mode 100644 develop/Karrigell/data/www/sessions/uYgdYIxyOBIQxR8d
+ create mode 100644 develop/Karrigell/data/www/sessions/uhQ3wtRkfRW0Pd4g
+ create mode 100644 develop/Karrigell/data/www/sessions/ujLrRTKd1iozP0L4
+ create mode 100644 develop/Karrigell/data/www/sessions/unhndmSsrkh609Iw
+ create mode 100644 develop/Karrigell/data/www/sessions/v31sJ9Y3dQCH4CYB
+ create mode 100644 develop/Karrigell/data/www/sessions/v9hGchTfPLYr5KZx
+ create mode 100644 develop/Karrigell/data/www/sessions/vBEoLujWKsYR66V4
+ create mode 100644 develop/Karrigell/data/www/sessions/vNSXpqGGnZ6GjCWE
+ create mode 100644 develop/Karrigell/data/www/sessions/vftDSyApA45IpoJP
+ create mode 100644 develop/Karrigell/data/www/sessions/vlM27CPU7hjunIg4
+ create mode 100644 develop/Karrigell/data/www/sessions/vqoBeLFkpPfwafjd
+ create mode 100644 develop/Karrigell/data/www/sessions/vucWHaXzUIZFmu23
+ create mode 100644 develop/Karrigell/data/www/sessions/wOgZa58vRSwD0AK8
+ create mode 100644 develop/Karrigell/data/www/sessions/wTpSBw3deMfyymHX
+ create mode 100644 develop/Karrigell/data/www/sessions/we0e14LJKPkDPs7R
+ create mode 100644 develop/Karrigell/data/www/sessions/wnOh61gq31CJL5Xv
+ create mode 100644 develop/Karrigell/data/www/sessions/woMpM1dOU8ThAFeJ
+ create mode 100644 develop/Karrigell/data/www/sessions/wrDazleoLqfXkZpX
+ create mode 100644 develop/Karrigell/data/www/sessions/ws9Ywx3Iv5Cyc0by
+ create mode 100644 develop/Karrigell/data/www/sessions/x3Eh0rLgzqg8hrq1
+ create mode 100644 develop/Karrigell/data/www/sessions/x6UoSuQ6MGHQ58QV
+ create mode 100644 develop/Karrigell/data/www/sessions/x8ppK1hAoJEIQOSI
+ create mode 100644 develop/Karrigell/data/www/sessions/xIZN5YB6iX39LZHa
+ create mode 100644 develop/Karrigell/data/www/sessions/xKNGc2E9zNf8RLDy
+ create mode 100644 develop/Karrigell/data/www/sessions/xZVWaAVRZ3L5ofzU
+ create mode 100644 develop/Karrigell/data/www/sessions/xdoxPbT2kzMeoCYQ
+ create mode 100644 develop/Karrigell/data/www/sessions/xtLN1PlghTIbhJgq
+ create mode 100644 develop/Karrigell/data/www/sessions/xuexYqOh845xbp6N
+ create mode 100644 develop/Karrigell/data/www/sessions/xyfgc1n0S9CMBtke
+ create mode 100644 develop/Karrigell/data/www/sessions/xzi6neQUEG3TUcil
+ create mode 100644 develop/Karrigell/data/www/sessions/y0n3iEj6lzbPNMBg
+ create mode 100644 develop/Karrigell/data/www/sessions/y87EGJpz33vizNPW
+ create mode 100644 develop/Karrigell/data/www/sessions/yDTf4QkO1vNQIIuy
+ create mode 100644 develop/Karrigell/data/www/sessions/yEBk4U1SvzO1t2vX
+ create mode 100644 develop/Karrigell/data/www/sessions/yI8doFxtRe3WG5PO
+ create mode 100644 develop/Karrigell/data/www/sessions/yIIyeWLlhsaOcxoM
+ create mode 100644 develop/Karrigell/data/www/sessions/yQxhzEa7LPf4MSzT
+ create mode 100644 develop/Karrigell/data/www/sessions/yd1qVnpvBUGxaLNH
+ create mode 100644 develop/Karrigell/data/www/sessions/ymLwUkA3dJG0u17P
+ create mode 100644 develop/Karrigell/data/www/sessions/yp3iRdmjHQY4kM5B
+ create mode 100644 develop/Karrigell/data/www/sessions/z5vrEYGT9OG5lnOh
+ create mode 100644 develop/Karrigell/data/www/sessions/z9FpHwbyAFtUlqJX
+ create mode 100644 develop/Karrigell/data/www/sessions/zCF2WD4oXFdvs32l
+ create mode 100644 develop/Karrigell/data/www/sessions/zF9vUhjOtzfwSXjN
+ create mode 100644 develop/Karrigell/data/www/sessions/zFI8DqYRAovfAgt4
+ create mode 100644 develop/Karrigell/data/www/sessions/zL0TIqkzkO4P0vbC
+ create mode 100644 develop/Karrigell/data/www/sessions/zOQNFRsHAzstwgBb
+ create mode 100644 develop/Karrigell/data/www/sessions/zRwRZNtRzrbm4j4C
+ create mode 100644 develop/Karrigell/data/www/sessions/zaLRS2uv1g4n5zWN
+ create mode 100644 develop/Karrigell/data/www/sessions/zhnlsFZSCpEXLwF3
+ create mode 100644 develop/Karrigell/data/www/sessions/znRcv07f4XXDDf5Y
+ create mode 100644 develop/Karrigell/data/www/sessions/zp6oTYpJpHQHm2mR
+ create mode 100644 develop/Karrigell/data/www/sessions/zsRmeOQ1y3MZCOZO
+ create mode 100644 develop/Karrigell/data/www/sessions/zvMA7IQ915j6gDF7
+ create mode 100644 develop/Karrigell/data/www/sessions/zwuCGSOdUKhNQYeW
+ rewrite develop/Karrigell/data/www/translations.dat (99%)
+ rewrite develop/Karrigell/karrigell/core/k_encodings/iso8859_1_ncc.pyc (78%)
+ rewrite develop/Karrigell/karrigell/core/k_exceptions.pyc (84%)
+ create mode 100644 develop/Karrigell/karrigell/core/k_rss.pyc
+ rewrite develop/Karrigell/karrigell/core/k_translation.pyc (73%)
+ create mode 100644 develop/Karrigell/karrigell/core/k_translation.py~
+ create mode 100644 develop/Karrigell/karrigell/core/k_utils.py~
+ rewrite develop/Karrigell/karrigell/package/extensions/Cheetah.pyc (70%)
+ rewrite develop/Karrigell/karrigell/package/extensions/PythonStringSubst.pyc (69%)
+ rewrite develop/Karrigell/karrigell/package/extensions/Test.pyc (87%)
+ rewrite develop/Karrigell/karrigell/package/roundup/actions.pyc (68%)
+ rewrite develop/Karrigell/karrigell/package/roundup/ajax/ajaxExceptions.pyc (73%)
+ rewrite develop/Karrigell/karrigell/package/roundup/backends/sessions_rdbms.pyc (62%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/PageTemplates/GlobalTranslationService.pyc (70%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/PageTemplates/MultiMapping.pyc (75%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/PageTemplates/PageTemplate.pyc (60%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/PageTemplates/PythonExpr.pyc (65%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/PageTemplates/TALES.pyc (70%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/TAL/HTMLTALParser.pyc (61%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/TAL/TALDefs.pyc (61%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/TranslationService.pyc (70%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/ZTUtils/Iterator.pyc (72%)
+ rewrite develop/Karrigell/karrigell/package/roundup/cgi/exceptions.pyc (66%)
+ rewrite develop/Karrigell/karrigell/package/roundup/exceptions.pyc (62%)
+ rewrite develop/Karrigell/karrigell/package/tools/tree.pyc (63%)
+ rewrite develop/Karrigell/karrigell/package/yaml/error.pyc (60%)
+ rewrite develop/Karrigell/karrigell/package/yaml/events.pyc (89%)
+ rewrite develop/Karrigell/karrigell/package/yaml/loader.pyc (74%)
+ rewrite develop/Karrigell/karrigell/package/yaml/nodes.pyc (75%)
+ rewrite develop/Karrigell/karrigell/package/yaml/tokens.pyc (89%)
+ create mode 100755 develop/Karrigell/www/config.yaml~
+ create mode 100644 develop/Karrigell/www/congress_demo/blog.html
+ create mode 100644 develop/Karrigell/www/congress_demo/blog.html~
+ create mode 100644 develop/Karrigell/www/congress_demo/css/style.css
+ create mode 100644 develop/Karrigell/www/congress_demo/forms.html
+ create mode 100644 develop/Karrigell/www/congress_demo/forms.html~
+ create mode 100644 develop/Karrigell/www/congress_demo/home.html
+ create mode 100644 develop/Karrigell/www/congress_demo/images/1.jpg
+ create mode 100644 develop/Karrigell/www/congress_demo/images/2.jpg
+ create mode 100644 develop/Karrigell/www/congress_demo/images/3.jpg
+ create mode 100644 develop/Karrigell/www/congress_demo/images/4.jpg
+ create mode 100644 develop/Karrigell/www/congress_demo/images/bg.gif
+ create mode 100644 develop/Karrigell/www/congress_demo/images/bg.png
+ create mode 100644 develop/Karrigell/www/congress_demo/images/bullet.gif
+ create mode 100644 develop/Karrigell/www/congress_demo/images/flags/arrow.gif
+ create mode 100644 develop/Karrigell/www/congress_demo/images/flags/arrow_12.gif
+ create mode 100644 develop/Karrigell/www/congress_demo/images/flags/arrow_15.gif
+ create mode 100644 develop/Karrigell/www/congress_demo/images/flags/arrow_20.gif
+ create mode 100644 develop/Karrigell/www/congress_demo/images/flags/cn.gif
+ create mode 100644 develop/Karrigell/www/congress_demo/images/flags/cn_30.gif
+ create mode 100644 develop/Karrigell/www/congress_demo/images/flags/en.gif
+ create mode 100644 develop/Karrigell/www/congress_demo/images/flags/en_30.gif
+ create mode 100644 develop/Karrigell/www/congress_demo/images/flags/en_40.gif
+ create mode 100644 develop/Karrigell/www/congress_demo/images/logo.png
+ create mode 100644 develop/Karrigell/www/congress_demo/images/menu1.png
+ create mode 100644 develop/Karrigell/www/congress_demo/images/menu2.png
+ create mode 100644 develop/Karrigell/www/congress_demo/images/menubg.png
+ create mode 100644 develop/Karrigell/www/congress_demo/images/quote.png
+ create mode 100644 develop/Karrigell/www/congress_demo/images/sidebarbottom.png
+ create mode 100644 develop/Karrigell/www/congress_demo/images/sidebartop.png
+ create mode 100644 develop/Karrigell/www/congress_demo/images/spacer.gif
+ create mode 100644 develop/Karrigell/www/congress_demo/index_en.html
+ create mode 100644 develop/Karrigell/www/congress_demo/js/init.js
+ create mode 100644 develop/Karrigell/www/congress_demo/js/init.js~
+ create mode 100644 develop/Karrigell/www/congress_demo/loginFn.ks
+ create mode 100644 develop/Karrigell/www/congress_demo/tables.html
+ create mode 100644 develop/Karrigell/www/congress_demo/tables.html~
+ create mode 100644 develop/Karrigell/www/css/yaml/content.css
+ create mode 100644 develop/Karrigell/www/css/yaml/content.css~
+ create mode 100644 develop/Karrigell/www/css/yaml/iehacks.css
+ rewrite develop/Karrigell/www/index.html (96%)
+ mode change 100755 => 100644
+ create mode 100644 develop/Karrigell/www/index.html~
+ rewrite develop/Karrigell/www/js/adminMenus.js (80%)
+ rewrite develop/Karrigell/www/js/adminSidePanels.js.pih (69%)
+ rewrite develop/Karrigell/www/js/initMUI.js.pih (91%)
+ create mode 100644 develop/Karrigell/www/js/initMUI.js.pih.bak
+ create mode 100644 develop/Karrigell/www/js/initMUI.js.pih~
+ create mode 100644 develop/Karrigell/www/js/portaLogin.js.pih
+ rewrite develop/Karrigell/www/js/userMenus.js (90%)
+ create mode 100755 develop/Karrigell/www/karrigell_www_index.html
+ mode change 100644 => 100755 develop/Karrigell/www/lib/formcheck/formcheck.js~
+ create mode 100644 develop/Karrigell/www/lib/imageZoom/imageZoom.css~
+ create mode 100644 develop/Karrigell/www/lib/imageZoom/imageZoom.js~
+ create mode 100755 develop/Karrigell/www/lib/mocha/Layout/Dock.js~
+ create mode 100755 develop/Karrigell/www/lib/mocha/Window/Modal.js~
+ create mode 100644 develop/Karrigell/www/lib/mocha/mocha.js
+ create mode 100644 develop/Karrigell/www/lib/mootools/Date.Chinese.CN.js~
+ create mode 100755 develop/Karrigell/www/lib/mootools/mootools-1.2.4-core.js~
+ create mode 100755 develop/Karrigell/www/lib/mootools/mootools-1.2.4-core.nocompressed.js
+ create mode 100644 develop/Karrigell/www/lib/mootools/mootools-1.2.4-core.yuc.js
+ create mode 100755 develop/Karrigell/www/lib/mootools/mootools-1.2.4.2-more.nocompressed.js
+ create mode 100644 develop/Karrigell/www/lib/mootools/mootools-1.2.4.2-more.yuc.js
+ mode change 100644 => 100755 develop/Karrigell/www/lib/textMultiCheckbox/TextMultiCheckbox.css~
+ mode change 100644 => 100755 develop/Karrigell/www/lib/textMultiCheckbox/TextMultiCheckbox.js~
+ create mode 100755 develop/Karrigell/www/lib/textMultiCheckbox/demo.html
+ create mode 100755 develop/Karrigell/www/lib/textMultiCheckbox/demo.html~
+ rename develop/Karrigell/www/{index.html => mocha_index.html} (100%)
+ rewrite develop/Karrigell/www/portal/desktop/calendar.ks (83%)
+ rewrite develop/Karrigell/www/portalHeader.ks (89%)
+ rewrite develop/Karrigell/www/register/accountForm.ks (71%)
+ create mode 100644 develop/Karrigell/www/register/tmp/1239ba6786.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/1e622aa6a4.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/2363d2f077.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/3434216d28.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/3913e6dda1.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/46a3188dd4.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/4f3247a76a.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/564dcec40c.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/56bf62d68a.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/5913bb9e1d.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/599da50d6b.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/5f273fbac5.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/761db3801b.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/7edd05e0bf.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/87946ac256.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/a1514bb56b.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/aa674b8ea5.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/aabfe85cd7.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/b5f5900af4.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/d454a9d770.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/d7fa6d50e1.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/da1707bdd8.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/dd270b8db6.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/e5a86a50e3.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/e92ee5a6ac.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/ea50ee36b8.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/eea467aac6.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/f265148a9a.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/f8394b1cef.jpeg
+ create mode 100644 develop/Karrigell/www/register/tmp/f9a939bb3b.jpeg
+ create mode 100755 develop/Karrigell/www/scripts/source/Core/Core.js~
+ create mode 100644 develop/Karrigell/www/sysadmin/translation.ks
+2011-02-18 09:45:49,471 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   cb6f4d5..805fb7a  master -> master
+2011-02-18 09:45:49,472 INFO End backup local github to remote github host.
+2011-04-21 08:52:34,012 INFO Delete nousing captcha images
+2011-04-21 08:52:34,068 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2011-04-21 08:52:34,068 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2011-04-21 08:52:35,759 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+./
+server_config.py
+        1104 100%    0.00kB/s    0:00:00          1104 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1018/1033)
+acroes/
+acroes/about.html
+        1089 100%    1.04MB/s    0:00:00          1089 100%    1.04MB/s    0:00:00 (xfer#2, to-check=1033/1058)
+acroes/index.html
+        3642 100%    3.47MB/s    0:00:00          3642 100%    3.47MB/s    0:00:00 (xfer#3, to-check=1025/1058)
+acroes/images/elearning/src/
+acroes/images/officeNet/src/
+acroes/images/rent/
+acroes/images/rent/src/
+acroes/js/
+acroes/js/init.js
+        2762 100%   62.73kB/s    0:00:00          2762 100%   62.73kB/s    0:00:00 (xfer#4, to-check=1011/1170)
+acroes/js/BarackSlideshow/
+acroes/js/modal/
+acroes/js/mootools/
+cms/
+cms/agenda/
+cms/broadcast/
+cms/issue/
+cms/js/
+cms/lib/multiselect/
+cms/lib/smartlists/
+cms/lib/validate/
+cms/plugins/treeTable/
+cms/plugins/treeTable/doc/
+cms/plugins/treeTable/doc/javascripts/
+cms/plugins/ui/development-bundle/demos/tabs/ajax/
+common/admin/translation/
+common/editarea/edit_area/images/
+common/editarea/edit_area/plugins/charmap/images/
+congressdemo/
+congressdemo/css/SexyButtons/
+congressdemo/js/formcheck/
+congressdemo/js/formcheck/css/
+congressdemo/js/formcheck/demo/examples/
+congressdemo/js/formcheck/demo/examples/Mootools Form Validation Example_form_registration_files/
+congressdemo/js/formcheck/demo/theme/white/
+congressdemo/js/formcheck/theme/white/
+data/congressdemo/
+data/www/
+data/www/agenda.sqlite
+        2048 100%    3.92kB/s    0:00:00          2048 100%    3.92kB/s    0:00:00 (xfer#5, to-check=1037/5987)
+data/www/business.sqlite
+       32768  49%   62.02kB/s    0:00:00         66560 100%  112.07kB/s    0:00:00 (xfer#6, to-check=1036/5987)
+data/www/portal.sqlite
+        3072 100%    5.16kB/s    0:00:00          3072 100%    5.16kB/s    0:00:00 (xfer#7, to-check=1034/5987)
+data/www/users.sqlite
+        2048 100%    3.44kB/s    0:00:00          2048 100%    3.44kB/s    0:00:00 (xfer#8, to-check=1032/5987)
+data/www/wiki.sqlite
+        2048 100%    3.44kB/s    0:00:00          2048 100%    3.44kB/s    0:00:00 (xfer#9, to-check=1030/5987)
+data/www/blogs/
+data/www/blogs/blog/
+data/www/blogs/blog/blog_settings.py
+         208 100%    0.34kB/s    0:00:00           208 100%    0.34kB/s    0:00:00 (xfer#10, to-check=1023/5987)
+data/www/cache/
+data/www/cache/admin/
+data/www/cache/admin/login.ks
+       10025 100%   16.45kB/s    0:00:00         10025 100%   16.45kB/s    0:00:00 (xfer#11, to-check=1007/5999)
+data/www/cache/demo/
+data/www/cache/demo/cd-cover/
+data/www/cache/demo/cd-cover/index.pih
+         147 100%    0.24kB/s    0:00:00           147 100%    0.24kB/s    0:00:00 (xfer#12, to-check=1006/6005)
+data/www/cache/demo/cd-cover/menu.pih
+        1303 100%    2.14kB/s    0:00:00          1303 100%    2.14kB/s    0:00:00 (xfer#13, to-check=1005/6005)
+data/www/cache/demo/mailing_list/
+data/www/cache/demo/mailing_list/index.py
+         821 100%    1.35kB/s    0:00:00           821 100%    1.35kB/s    0:00:00 (xfer#14, to-check=1004/6005)
+data/www/cache/demo/quizz/
+data/www/cache/demo/quizz/index.ks
+        1072 100%    1.76kB/s    0:00:00          1072 100%    1.76kB/s    0:00:00 (xfer#15, to-check=1003/6005)
+data/www/cache/demo/rss/
+data/www/cache/demo/rss/rss.py
+         935 100%    1.53kB/s    0:00:00           935 100%    1.53kB/s    0:00:00 (xfer#16, to-check=1002/6005)
+data/www/cache/demo/sqlite/
+data/www/cache/demo/sqlite/blog/
+data/www/cache/demo/sqlite/blog/index.ks
+       14532 100%   23.65kB/s    0:00:00         14532 100%   23.65kB/s    0:00:00 (xfer#17, to-check=1028/6039)
+data/www/cache/demo/sqlite/business/
+data/www/cache/demo/sqlite/business/createSongBase.py
+        3278 100%    5.32kB/s    0:00:00          3278 100%    5.32kB/s    0:00:00 (xfer#18, to-check=1027/6039)
+data/www/cache/demo/sqlite/business/index.ks
+        6243 100%   10.11kB/s    0:00:00          6243 100%   10.11kB/s    0:00:00 (xfer#19, to-check=1026/6039)
+data/www/cache/demo/sqlite/calendar/
+data/www/cache/demo/sqlite/calendar/agendaDb.py
+         320 100%    0.52kB/s    0:00:00           320 100%    0.52kB/s    0:00:00 (xfer#20, to-check=1025/6039)
+data/www/cache/demo/sqlite/calendar/dayFrame.pih
+        2314 100%    3.74kB/s    0:00:00          2314 100%    3.74kB/s    0:00:00 (xfer#21, to-check=1024/6039)
+data/www/cache/demo/sqlite/calendar/index.pih
+        2796 100%    4.52kB/s    0:00:00          2796 100%    4.52kB/s    0:00:00 (xfer#22, to-check=1023/6039)
+data/www/cache/demo/sqlite/calendar/showMonth.pih
+        2563 100%    4.14kB/s    0:00:00          2563 100%    4.14kB/s    0:00:00 (xfer#23, to-check=1022/6039)
+data/www/cache/demo/sqlite/forum/
+data/www/cache/demo/sqlite/forum/index.ks
+       13625 100%   21.99kB/s    0:00:00         13625 100%   21.96kB/s    0:00:00 (xfer#24, to-check=1021/6039)
+data/www/cache/demo/sqlite/forum/utils.py
+         540 100%    0.87kB/s    0:00:00           540 100%    0.87kB/s    0:00:00 (xfer#25, to-check=1020/6039)
+data/www/cache/demo/sqlite/kswiki/
+data/www/cache/demo/sqlite/kswiki/wiki.ks
+       12177 100%   19.59kB/s    0:00:00         12177 100%   19.59kB/s    0:00:00 (xfer#26, to-check=1019/6039)
+data/www/cache/demo/sqlite/kswiki/wiki/
+data/www/cache/demo/sqlite/kswiki/wiki/BuanBuan.py
+        7526 100%   12.11kB/s    0:00:00          7526 100%   12.11kB/s    0:00:00 (xfer#27, to-check=1017/6039)
+data/www/cache/demo/sqlite/kswiki/wiki/wikiBase.py
+         511 100%    0.82kB/s    0:00:00           511 100%    0.82kB/s    0:00:00 (xfer#28, to-check=1016/6039)
+data/www/cache/demo/sqlite/portal/
+data/www/cache/demo/sqlite/portal/header.hip
+        1405 100%    2.26kB/s    0:00:00          1405 100%    2.26kB/s    0:00:00 (xfer#29, to-check=1015/6039)
+data/www/cache/demo/sqlite/portal/index.pih
+         439 100%    0.71kB/s    0:00:00           439 100%    0.71kB/s    0:00:00 (xfer#30, to-check=1014/6039)
+data/www/cache/demo/sqlite/portal/portalDb.py
+         507 100%    0.81kB/s    0:00:00           507 100%    0.81kB/s    0:00:00 (xfer#31, to-check=1013/6039)
+data/www/cache/demo/sqlite/wiki/
+data/www/cache/demo/sqlite/wiki/index.pih
+        1600 100%    2.57kB/s    0:00:00          1600 100%    2.57kB/s    0:00:00 (xfer#32, to-check=1012/6039)
+data/www/cache/demo/sqlite/wiki/wikiAdmin.pih
+         710 100%    1.14kB/s    0:00:00           710 100%    1.14kB/s    0:00:00 (xfer#33, to-check=1011/6039)
+data/www/cache/demo/sqlite/wiki/wikiBase.py
+         454 100%    0.73kB/s    0:00:00           454 100%    0.73kB/s    0:00:00 (xfer#34, to-check=1010/6039)
+data/www/cache/docs/
+data/www/cache/docs/en/
+data/www/cache/docs/en/index.py
+          61 100%    0.10kB/s    0:00:00            61 100%    0.10kB/s    0:00:00 (xfer#35, to-check=1008/6039)
+data/www/cache/portal/desktop/
+data/www/cache/portal/desktop/fileManager.ks
+          81 100%    0.13kB/s    0:00:00            81 100%    0.13kB/s    0:00:00 (xfer#36, to-check=1024/6068)
+data/www/cache/test/
+data/www/cache/test/sketch/
+data/www/cache/test/sketch/index.ks
+          50 100%    0.08kB/s    0:00:00            50 100%    0.08kB/s    0:00:00 (xfer#37, to-check=1015/6068)
+data/www/forum/
+data/www/forum/forums.sqlite
+        2048 100%    3.28kB/s    0:00:00          2048 100%    3.28kB/s    0:00:00 (xfer#38, to-check=1013/6068)
+data/www/roundup/
+data/www/roundup/db/
+data/www/roundup/db/db
+       32768   9%   52.37kB/s    0:00:06        362496 100%  557.48kB/s    0:00:00 (xfer#39, to-check=1005/6068)
+data/www/sessions/
+data/www/sessions/KeRC6w54GY40Cwho
+         279 100%    0.43kB/s    0:00:00           279 100%    0.43kB/s    0:00:00 (xfer#40, to-check=1372/6763)
+data/www/sessions/bzXx2xnMrSnl7Wi4
+         312 100%    0.48kB/s    0:00:00           312 100%    0.48kB/s    0:00:00 (xfer#41, to-check=1229/6763)
+data/www/sessions/sVsJMgy8NywKopiG
+         319 100%    0.49kB/s    0:00:00           319 100%    0.49kB/s    0:00:00 (xfer#42, to-check=1073/6763)
+karrigell/core/
+karrigell/core/HIP.pyc
+        2729 100%    3.80kB/s    0:00:00          2729 100%    3.80kB/s    0:00:00 (xfer#43, to-check=2427/8248)
+karrigell/core/k_rss.pyc
+        7799 100%   10.86kB/s    0:00:00          7799 100%   10.86kB/s    0:00:00 (xfer#44, to-check=2396/8248)
+karrigell/package/roundup/
+karrigell/package/roundup/scripts/demo/
+karrigell/package/tools/
+shinepo/
+www/
+www/accomodation/maps/
+www/congress_demo/
+www/congress_demo/js/
+www/css/spinner/
+www/css/yaml/
+www/images/SexyButtons/
+www/js/
+www/lib/calendar/
+www/lib/formcheck/
+www/lib/formcheck/css/
+www/lib/formcheck/demo/examples/
+www/lib/formcheck/demo/examples/Mootools Form Validation Example_form_registration_files/
+www/lib/formcheck/demo/theme/white/
+www/lib/formcheck/theme/white/
+www/lib/grid/
+www/lib/imageZoom/
+www/lib/mocha/Components/
+www/lib/mocha/Core/
+www/lib/mocha/Layout/
+www/lib/mocha/Window/
+www/lib/moohover/css/
+www/lib/moohover/js/
+www/lib/mootools/
+www/lib/multiSelect/
+www/lib/rotate/
+www/lib/smartList/
+www/lib/textMultiCheckbox/
+www/lib/tools/
+www/lib/tree/
+www/lib/treeTable/
+www/plugins/formcheck/
+www/plugins/formcheck/css/
+www/plugins/formcheck/demo/examples/
+www/plugins/formcheck/demo/examples/Mootools Form Validation Example_form_registration_files/
+www/plugins/formcheck/demo/theme/white/
+www/plugins/formcheck/theme/white/
+www/plugins/moohover/css/
+www/plugins/moohover/js/
+www/scripts/source/Core/
+www/scripts/source/Layout/
+www/test/
+www/test/image_zoom/
+www/test/image_zoom/scripts/
+www/test/image_zoom/styles/
+www/test/sketch/
+www/test/sketch/bpnn.odt
+       22909 100%   19.75kB/s    0:00:00         22909 100%   19.75kB/s    0:00:01 (xfer#45, to-check=627/10494)
+www/test/sketch/bpnn.py
+        5244 100%    3.76kB/s    0:00:00          5244 100%    3.76kB/s    0:00:01 (xfer#46, to-check=626/10494)
+www/test/sketch/examples.html
+         142 100%    0.10kB/s    0:00:00           142 100%    0.10kB/s    0:00:01 (xfer#47, to-check=625/10494)
+www/test/sketch/formatterTest.py
+        1450 100%    1.04kB/s    0:00:00          1450 100%    1.04kB/s    0:00:01 (xfer#48, to-check=624/10494)
+www/test/sketch/index.html
+        1078 100%    0.77kB/s    0:00:00          1078 100%    0.77kB/s    0:00:01 (xfer#49, to-check=623/10494)
+www/test/sketch/index.ks
+          35 100%    0.03kB/s    0:00:00            35 100%    0.03kB/s    0:00:01 (xfer#50, to-check=622/10494)
+www/test/sketch/paper_extractTextFromHtml.odt
+       32768  55%   23.37kB/s    0:00:01         58926 100%   41.85kB/s    0:00:00         58926 100%   41.85kB/s    0:00:01 (xfer#51, to-check=621/10494)
+www/test/sketch/style.css
+        5210 100%    4.97MB/s    0:00:00          5210 100%    4.97MB/s    0:00:00 (xfer#52, to-check=620/10494)
+www/test/sketch/txtMining.py
+        4232 100%    2.02MB/s    0:00:00          4232 100%    2.02MB/s    0:00:00 (xfer#53, to-check=619/10494)
+www/test/smartList/
+www/themes/charcoal/css/
+www/themes/default/css/
+www/themes/grey/css/
+www/uniwisdom/
+www/uniwisdom/config.json
+         292 100%  142.58kB/s    0:00:00           292 100%  142.58kB/s    0:00:00 (xfer#54, to-check=307/10494)
+www/uniwisdom/index.html
+        3950 100%    1.26MB/s    0:00:00          3950 100%    1.26MB/s    0:00:00 (xfer#55, to-check=306/10494)
+www/uniwisdom/iotInChina.html
+        2222 100%  542.48kB/s    0:00:00          2222 100%  542.48kB/s    0:00:00 (xfer#56, to-check=305/10494)
+www/uniwisdom/menus.json
+         682 100%  133.20kB/s    0:00:00           682 100%  133.20kB/s    0:00:00 (xfer#57, to-check=304/10494)
+www/uniwisdom/observation.html
+        2230 100%  435.55kB/s    0:00:00          2230 100%  435.55kB/s    0:00:00 (xfer#58, to-check=303/10494)
+www/uniwisdom/css/
+www/uniwisdom/css/spinner.css
+         386 100%   75.39kB/s    0:00:00           386 100%   75.39kB/s    0:00:00 (xfer#59, to-check=299/10494)
+www/uniwisdom/css/style.css
+        6317 100%    1.00MB/s    0:00:00          6317 100%    1.00MB/s    0:00:00 (xfer#60, to-check=298/10494)
+www/uniwisdom/images/
+www/uniwisdom/images/bg.jpg
+       21124 100%    1.83MB/s    0:00:00         21124 100%    1.83MB/s    0:00:00 (xfer#61, to-check=297/10494)
+www/uniwisdom/images/feed_24.png
+        1356 100%  120.38kB/s    0:00:00          1356 100%  120.38kB/s    0:00:00 (xfer#62, to-check=296/10494)
+www/uniwisdom/images/feed_36.png
+        2236 100%  181.97kB/s    0:00:00          2236 100%  181.97kB/s    0:00:00 (xfer#63, to-check=295/10494)
+www/uniwisdom/images/feed_48.png
+        3021 100%  245.85kB/s    0:00:00          3021 100%  245.85kB/s    0:00:00 (xfer#64, to-check=294/10494)
+www/uniwisdom/images/google_24.png
+        1292 100%  105.14kB/s    0:00:00          1292 100%  105.14kB/s    0:00:00 (xfer#65, to-check=293/10494)
+www/uniwisdom/images/google_36.png
+        2202 100%  165.41kB/s    0:00:00          2202 100%  165.41kB/s    0:00:00 (xfer#66, to-check=292/10494)
+www/uniwisdom/images/google_48.png
+        3075 100%  230.99kB/s    0:00:00          3075 100%  230.99kB/s    0:00:00 (xfer#67, to-check=291/10494)
+www/uniwisdom/images/mail-forward.svg
+       32768  88%    2.23MB/s    0:00:00         37049 100%    2.36MB/s    0:00:00 (xfer#68, to-check=290/10494)
+www/uniwisdom/images/mail-forward_24.png
+        1201 100%   78.19kB/s    0:00:00          1201 100%   78.19kB/s    0:00:00 (xfer#69, to-check=289/10494)
+www/uniwisdom/images/mail-forward_36.png
+        2010 100%  130.86kB/s    0:00:00          2010 100%  130.86kB/s    0:00:00 (xfer#70, to-check=288/10494)
+www/uniwisdom/images/mail-forward_48.png
+        3225 100%  196.84kB/s    0:00:00          3225 100%  196.84kB/s    0:00:00 (xfer#71, to-check=287/10494)
+www/uniwisdom/images/menu_item_bg.gif
+         103 100%    6.29kB/s    0:00:00           103 100%    6.29kB/s    0:00:00 (xfer#72, to-check=286/10494)
+www/uniwisdom/images/search_action.png
+       32768  83%    1.84MB/s    0:00:00         39425 100%    2.09MB/s    0:00:00 (xfer#73, to-check=285/10494)
+www/uniwisdom/images/search_field.jpg
+         315 100%   17.09kB/s    0:00:00           315 100%   17.09kB/s    0:00:00 (xfer#74, to-check=284/10494)
+www/uniwisdom/images/spinner.gif
+        2545 100%  130.81kB/s    0:00:00          2545 100%  130.81kB/s    0:00:00 (xfer#75, to-check=283/10494)
+www/uniwisdom/images/Aquaticus.Social/
+www/uniwisdom/images/Aquaticus.Social/Quake 9 Design.webloc
+           0 100%    0.00kB/s    0:00:00 (xfer#76, to-check=279/10494)
+www/uniwisdom/images/Aquaticus.Social/ReadMe.rtf
+        1966 100%  101.05kB/s    0:00:00          1966 100%  101.05kB/s    0:00:00 (xfer#77, to-check=278/10494)
+www/uniwisdom/images/Aquaticus.Social/aquaticus.social.png
+       32768  30%    1.49MB/s    0:00:00        108197 100%    3.82MB/s    0:00:00 (xfer#78, to-check=277/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/
+www/uniwisdom/images/Aquaticus.Social/16 X 16/blogger.png
+         727 100%   26.29kB/s    0:00:00           727 100%   26.29kB/s    0:00:00 (xfer#79, to-check=272/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/delicious.png
+         519 100%   18.77kB/s    0:00:00           519 100%   18.77kB/s    0:00:00 (xfer#80, to-check=271/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/digg.png
+         780 100%   28.21kB/s    0:00:00           780 100%   28.21kB/s    0:00:00 (xfer#81, to-check=270/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/facebook.png
+         727 100%   26.29kB/s    0:00:00           727 100%   26.29kB/s    0:00:00 (xfer#82, to-check=269/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/feed.png
+         805 100%   29.12kB/s    0:00:00           805 100%   29.12kB/s    0:00:00 (xfer#83, to-check=268/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/flickr.png
+         649 100%   22.64kB/s    0:00:00           649 100%   22.64kB/s    0:00:00 (xfer#84, to-check=267/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/friendfeed.png
+         794 100%   27.69kB/s    0:00:00           794 100%   27.69kB/s    0:00:00 (xfer#85, to-check=266/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/friendster.png
+         765 100%   26.68kB/s    0:00:00           765 100%   26.68kB/s    0:00:00 (xfer#86, to-check=265/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/furl.png
+         715 100%   24.94kB/s    0:00:00           715 100%   24.94kB/s    0:00:00 (xfer#87, to-check=264/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/google.png
+         764 100%   26.65kB/s    0:00:00           764 100%   26.65kB/s    0:00:00 (xfer#88, to-check=263/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/lastfm.png
+         777 100%   27.10kB/s    0:00:00           777 100%   27.10kB/s    0:00:00 (xfer#89, to-check=262/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/linkedin.png
+         751 100%   26.19kB/s    0:00:00           751 100%   26.19kB/s    0:00:00 (xfer#90, to-check=261/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/livejournal.png
+         833 100%   28.05kB/s    0:00:00           833 100%   28.05kB/s    0:00:00 (xfer#91, to-check=260/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/magnolia.png
+         831 100%   27.98kB/s    0:00:00           831 100%   27.98kB/s    0:00:00 (xfer#92, to-check=259/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/mixx.png
+         764 100%   25.73kB/s    0:00:00           764 100%   25.73kB/s    0:00:00 (xfer#93, to-check=258/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/myspace.png
+         745 100%   25.09kB/s    0:00:00           745 100%   25.09kB/s    0:00:00 (xfer#94, to-check=257/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/netvibes.png
+         696 100%   23.44kB/s    0:00:00           696 100%   23.44kB/s    0:00:00 (xfer#95, to-check=256/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/newsvine.png
+         838 100%   28.22kB/s    0:00:00           838 100%   28.22kB/s    0:00:00 (xfer#96, to-check=255/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/picasa.png
+         782 100%   26.33kB/s    0:00:00           782 100%   26.33kB/s    0:00:00 (xfer#97, to-check=254/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/pownce.png
+         739 100%   24.06kB/s    0:00:00           739 100%   24.06kB/s    0:00:00 (xfer#98, to-check=253/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/reddit.png
+         817 100%   26.60kB/s    0:00:00           817 100%   26.60kB/s    0:00:00 (xfer#99, to-check=252/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/stumbleupon.png
+         898 100%   29.23kB/s    0:00:00           898 100%   29.23kB/s    0:00:00 (xfer#100, to-check=251/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/technorati.png
+         746 100%   24.28kB/s    0:00:00           746 100%   24.28kB/s    0:00:00 (xfer#101, to-check=250/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/twitter.png
+         780 100%   25.39kB/s    0:00:00           780 100%   25.39kB/s    0:00:00 (xfer#102, to-check=249/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/vimeo.png
+         755 100%   24.58kB/s    0:00:00           755 100%   24.58kB/s    0:00:00 (xfer#103, to-check=248/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/webshots.png
+         780 100%   25.39kB/s    0:00:00           780 100%   25.39kB/s    0:00:00 (xfer#104, to-check=247/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/wordpress.png
+         821 100%   25.86kB/s    0:00:00           821 100%   25.86kB/s    0:00:00 (xfer#105, to-check=246/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/yahoo.png
+         765 100%   24.10kB/s    0:00:00           765 100%   24.10kB/s    0:00:00 (xfer#106, to-check=245/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/yelp.png
+         784 100%   24.70kB/s    0:00:00           784 100%   24.70kB/s    0:00:00 (xfer#107, to-check=244/10494)
+www/uniwisdom/images/Aquaticus.Social/16 X 16/youtube.png
+         749 100%   23.60kB/s    0:00:00           749 100%   23.60kB/s    0:00:00 (xfer#108, to-check=243/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/
+www/uniwisdom/images/Aquaticus.Social/24 X 24/blogger.png
+        1088 100%   34.27kB/s    0:00:00          1088 100%   34.27kB/s    0:00:00 (xfer#109, to-check=242/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/delicious.png
+         655 100%   20.63kB/s    0:00:00           655 100%   20.63kB/s    0:00:00 (xfer#110, to-check=241/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/digg.png
+        1250 100%   38.15kB/s    0:00:00          1250 100%   38.15kB/s    0:00:00 (xfer#111, to-check=240/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/facebook.png
+        1074 100%   32.78kB/s    0:00:00          1074 100%   32.78kB/s    0:00:00 (xfer#112, to-check=239/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/feed.png
+        1328 100%   40.53kB/s    0:00:00          1328 100%   40.53kB/s    0:00:00 (xfer#113, to-check=238/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/flickr.png
+         978 100%   29.85kB/s    0:00:00           978 100%   29.85kB/s    0:00:00 (xfer#114, to-check=237/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/friendfeed.png
+        1268 100%   38.70kB/s    0:00:00          1268 100%   38.70kB/s    0:00:00 (xfer#115, to-check=236/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/friendster.png
+        1233 100%   37.63kB/s    0:00:00          1233 100%   37.63kB/s    0:00:00 (xfer#116, to-check=235/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/furl.png
+        1073 100%   31.75kB/s    0:00:00          1073 100%   31.75kB/s    0:00:00 (xfer#117, to-check=234/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/google.png
+        1199 100%   35.48kB/s    0:00:00          1199 100%   35.48kB/s    0:00:00 (xfer#118, to-check=233/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/lastfm.png
+        1230 100%   36.40kB/s    0:00:00          1230 100%   36.40kB/s    0:00:00 (xfer#119, to-check=232/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/linkedin.png
+        1133 100%   33.53kB/s    0:00:00          1133 100%   33.53kB/s    0:00:00 (xfer#120, to-check=231/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/livejournal.png
+        1466 100%   43.38kB/s    0:00:00          1466 100%   43.38kB/s    0:00:00 (xfer#121, to-check=230/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/magnolia.png
+        1436 100%   42.50kB/s    0:00:00          1436 100%   42.50kB/s    0:00:00 (xfer#122, to-check=229/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/mixx.png
+        1262 100%   37.35kB/s    0:00:00          1262 100%   37.35kB/s    0:00:00 (xfer#123, to-check=228/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/myspace.png
+        1170 100%   33.61kB/s    0:00:00          1170 100%   33.61kB/s    0:00:00 (xfer#124, to-check=227/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/netvibes.png
+         980 100%   28.15kB/s    0:00:00           980 100%   28.15kB/s    0:00:00 (xfer#125, to-check=226/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/newsvine.png
+        1366 100%   39.23kB/s    0:00:00          1366 100%   39.23kB/s    0:00:00 (xfer#126, to-check=225/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/picasa.png
+        1196 100%   34.35kB/s    0:00:00          1196 100%   34.35kB/s    0:00:00 (xfer#127, to-check=224/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/pownce.png
+        1081 100%   31.05kB/s    0:00:00          1081 100%   31.05kB/s    0:00:00 (xfer#128, to-check=223/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/reddit.png
+        1383 100%   39.72kB/s    0:00:00          1383 100%   39.72kB/s    0:00:00 (xfer#129, to-check=222/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/stumbleupon.png
+        1539 100%   42.94kB/s    0:00:00          1539 100%   42.94kB/s    0:00:00 (xfer#130, to-check=221/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/technorati.png
+        1162 100%   32.42kB/s    0:00:00          1162 100%   32.42kB/s    0:00:00 (xfer#131, to-check=220/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/twitter.png
+        1196 100%   33.37kB/s    0:00:00          1196 100%   33.37kB/s    0:00:00 (xfer#132, to-check=219/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/vimeo.png
+        1140 100%   31.81kB/s    0:00:00          1140 100%   31.81kB/s    0:00:00 (xfer#133, to-check=218/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/webshots.png
+        1339 100%   37.36kB/s    0:00:00          1339 100%   37.36kB/s    0:00:00 (xfer#134, to-check=217/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/wordpress.png
+        1373 100%   38.31kB/s    0:00:00          1373 100%   38.31kB/s    0:00:00 (xfer#135, to-check=216/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/yahoo.png
+        1257 100%   34.10kB/s    0:00:00          1257 100%   34.10kB/s    0:00:00 (xfer#136, to-check=215/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/yelp.png
+        1194 100%   32.39kB/s    0:00:00          1194 100%   32.39kB/s    0:00:00 (xfer#137, to-check=214/10494)
+www/uniwisdom/images/Aquaticus.Social/24 X 24/youtube.png
+        1238 100%   33.58kB/s    0:00:00          1238 100%   33.58kB/s    0:00:00 (xfer#138, to-check=213/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/
+www/uniwisdom/images/Aquaticus.Social/48 X 48/blogger.png
+        2277 100%   61.77kB/s    0:00:00          2277 100%   61.77kB/s    0:00:00 (xfer#139, to-check=212/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/delicious.png
+        1297 100%   35.18kB/s    0:00:00          1297 100%   35.18kB/s    0:00:00 (xfer#140, to-check=211/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/digg.png
+        2924 100%   79.32kB/s    0:00:00          2924 100%   79.32kB/s    0:00:00 (xfer#141, to-check=210/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/facebook.png
+        2214 100%   58.44kB/s    0:00:00          2214 100%   58.44kB/s    0:00:00 (xfer#142, to-check=209/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/feed.png
+        3021 100%   79.74kB/s    0:00:00          3021 100%   79.74kB/s    0:00:00 (xfer#143, to-check=208/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/flickr.png
+        2112 100%   55.74kB/s    0:00:00          2112 100%   55.74kB/s    0:00:00 (xfer#144, to-check=207/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/friendfeed.png
+        2993 100%   79.00kB/s    0:00:00          2993 100%   79.00kB/s    0:00:00 (xfer#145, to-check=206/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/friendster.png
+        3073 100%   78.97kB/s    0:00:00          3073 100%   78.97kB/s    0:00:00 (xfer#146, to-check=205/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/furl.png
+        2368 100%   60.86kB/s    0:00:00          2368 100%   60.86kB/s    0:00:00 (xfer#147, to-check=204/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/google.png
+        3075 100%   79.02kB/s    0:00:00          3075 100%   79.02kB/s    0:00:00 (xfer#148, to-check=203/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/lastfm.png
+        3025 100%   77.74kB/s    0:00:00          3025 100%   77.74kB/s    0:00:00 (xfer#149, to-check=202/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/linkedin.png
+        2581 100%   66.33kB/s    0:00:00          2581 100%   64.63kB/s    0:00:00 (xfer#150, to-check=201/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/livejournal.png
+        3985 100%   99.78kB/s    0:00:00          3985 100%   99.78kB/s    0:00:00 (xfer#151, to-check=200/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/magnolia.png
+        3865 100%   96.78kB/s    0:00:00          3865 100%   96.78kB/s    0:00:00 (xfer#152, to-check=199/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/mixx.png
+        3168 100%   79.33kB/s    0:00:00          3168 100%   79.33kB/s    0:00:00 (xfer#153, to-check=198/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/myspace.png
+        2593 100%   64.93kB/s    0:00:00          2593 100%   64.93kB/s    0:00:00 (xfer#154, to-check=197/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/netvibes.png
+        1938 100%   47.31kB/s    0:00:00          1938 100%   47.31kB/s    0:00:00 (xfer#155, to-check=196/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/newsvine.png
+        3296 100%   80.47kB/s    0:00:00          3296 100%   80.47kB/s    0:00:00 (xfer#156, to-check=195/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/picasa.png
+        2911 100%   71.07kB/s    0:00:00          2911 100%   71.07kB/s    0:00:00 (xfer#157, to-check=194/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/pownce.png
+        2260 100%   55.18kB/s    0:00:00          2260 100%   55.18kB/s    0:00:00 (xfer#158, to-check=193/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/reddit.png
+        3479 100%   82.86kB/s    0:00:00          3479 100%   82.86kB/s    0:00:00 (xfer#159, to-check=192/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/stumbleupon.png
+        4251 100%  101.25kB/s    0:00:00          4251 100%  101.25kB/s    0:00:00 (xfer#160, to-check=191/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/technorati.png
+        2579 100%   61.43kB/s    0:00:00          2579 100%   61.43kB/s    0:00:00 (xfer#161, to-check=190/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/twitter.png
+        2759 100%   65.72kB/s    0:00:00          2759 100%   65.72kB/s    0:00:00 (xfer#162, to-check=189/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/vimeo.png
+        2555 100%   60.86kB/s    0:00:00          2555 100%   60.86kB/s    0:00:00 (xfer#163, to-check=188/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/webshots.png
+        3548 100%   82.50kB/s    0:00:00          3548 100%   82.50kB/s    0:00:00 (xfer#164, to-check=187/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/wordpress.png
+        3555 100%   82.66kB/s    0:00:00          3555 100%   82.66kB/s    0:00:00 (xfer#165, to-check=186/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/yahoo.png
+        2905 100%   67.55kB/s    0:00:00          2905 100%   67.55kB/s    0:00:00 (xfer#166, to-check=185/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/yelp.png
+        2820 100%   65.57kB/s    0:00:00          2820 100%   65.57kB/s    0:00:00 (xfer#167, to-check=184/10494)
+www/uniwisdom/images/Aquaticus.Social/48 X 48/youtube.png
+        3214 100%   74.73kB/s    0:00:00          3214 100%   74.73kB/s    0:00:00 (xfer#168, to-check=183/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/
+www/uniwisdom/images/Aquaticus.Social/60 X 60/blogger.png
+        3270 100%   74.26kB/s    0:00:00          3270 100%   74.26kB/s    0:00:00 (xfer#169, to-check=182/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/delicious.png
+        2195 100%   49.85kB/s    0:00:00          2195 100%   49.85kB/s    0:00:00 (xfer#170, to-check=181/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/digg.png
+        4352 100%   98.84kB/s    0:00:00          4352 100%   98.84kB/s    0:00:00 (xfer#171, to-check=180/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/facebook.png
+        3143 100%   69.76kB/s    0:00:00          3143 100%   69.76kB/s    0:00:00 (xfer#172, to-check=179/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/feed.png
+        4178 100%   92.73kB/s    0:00:00          4178 100%   92.73kB/s    0:00:00 (xfer#173, to-check=178/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/flickr.png
+        3047 100%   67.63kB/s    0:00:00          3047 100%   67.63kB/s    0:00:00 (xfer#174, to-check=177/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/friendfeed.png
+        4333 100%   96.17kB/s    0:00:00          4333 100%   96.17kB/s    0:00:00 (xfer#175, to-check=176/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/friendster.png
+        4254 100%   92.32kB/s    0:00:00          4254 100%   92.32kB/s    0:00:00 (xfer#176, to-check=175/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/furl.png
+        3406 100%   73.91kB/s    0:00:00          3406 100%   73.91kB/s    0:00:00 (xfer#177, to-check=174/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/google.png
+        4721 100%  102.45kB/s    0:00:00          4721 100%  102.45kB/s    0:00:00 (xfer#178, to-check=173/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/lastfm.png
+        4186 100%   90.84kB/s    0:00:00          4186 100%   90.84kB/s    0:00:00 (xfer#179, to-check=172/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/linkedin.png
+        3502 100%   74.35kB/s    0:00:00          3502 100%   74.35kB/s    0:00:00 (xfer#180, to-check=171/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/livejournal.png
+        5673 100%  120.44kB/s    0:00:00          5673 100%  120.44kB/s    0:00:00 (xfer#181, to-check=170/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/magnolia.png
+        5859 100%  124.38kB/s    0:00:00          5859 100%  124.38kB/s    0:00:00 (xfer#182, to-check=169/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/mixx.png
+        4772 100%   99.15kB/s    0:00:00          4772 100%   99.15kB/s    0:00:00 (xfer#183, to-check=168/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/myspace.png
+        3697 100%   76.82kB/s    0:00:00          3697 100%   76.82kB/s    0:00:00 (xfer#184, to-check=167/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/netvibes.png
+        2784 100%   57.85kB/s    0:00:00          2784 100%   57.85kB/s    0:00:00 (xfer#185, to-check=166/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/newsvine.png
+        4472 100%   92.92kB/s    0:00:00          4472 100%   92.92kB/s    0:00:00 (xfer#186, to-check=165/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/picasa.png
+        4368 100%   88.87kB/s    0:00:00          4368 100%   88.87kB/s    0:00:00 (xfer#187, to-check=164/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/pownce.png
+        3316 100%   66.09kB/s    0:00:00          3316 100%   66.09kB/s    0:00:00 (xfer#188, to-check=163/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/reddit.png
+        4847 100%   94.67kB/s    0:00:00          4847 100%   94.67kB/s    0:00:00 (xfer#189, to-check=162/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/stumbleupon.png
+        6629 100%  129.47kB/s    0:00:00          6629 100%  129.47kB/s    0:00:00 (xfer#190, to-check=161/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/technorati.png
+        3557 100%   69.47kB/s    0:00:00          3557 100%   69.47kB/s    0:00:00 (xfer#191, to-check=160/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/twitter.png
+        3890 100%   75.98kB/s    0:00:00          3890 100%   75.98kB/s    0:00:00 (xfer#192, to-check=159/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/vimeo.png
+        3587 100%   68.68kB/s    0:00:00          3587 100%   68.68kB/s    0:00:00 (xfer#193, to-check=158/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/webshots.png
+        5337 100%  100.23kB/s    0:00:00          5337 100%  100.23kB/s    0:00:00 (xfer#194, to-check=157/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/wordpress.png
+        5014 100%   92.39kB/s    0:00:00          5014 100%   92.39kB/s    0:00:00 (xfer#195, to-check=156/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/yahoo.png
+        3989 100%   72.14kB/s    0:00:00          3989 100%   72.14kB/s    0:00:00 (xfer#196, to-check=155/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/yelp.png
+        3876 100%   70.10kB/s    0:00:00          3876 100%   70.10kB/s    0:00:00 (xfer#197, to-check=154/10494)
+www/uniwisdom/images/Aquaticus.Social/60 X 60/youtube.png
+        4777 100%   86.39kB/s    0:00:00          4777 100%   86.39kB/s    0:00:00 (xfer#198, to-check=153/10494)
+www/uniwisdom/images/Social.me/
+www/uniwisdom/images/Social.me/ReadMe.rtf
+        1608 100%   28.55kB/s    0:00:00          1608 100%   28.55kB/s    0:00:00 (xfer#199, to-check=152/10494)
+www/uniwisdom/images/Social.me/socialme_banner.png
+       32768  25%  571.43kB/s    0:00:00        127840 100%    1.94MB/s    0:00:00 (xfer#200, to-check=151/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/
+www/uniwisdom/images/Social.me/16 by 16 pixels/Google.png
+         758 100%   11.75kB/s    0:00:00           758 100%   11.75kB/s    0:00:00 (xfer#201, to-check=146/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/blogger.png
+         748 100%   11.59kB/s    0:00:00           748 100%   11.59kB/s    0:00:00 (xfer#202, to-check=145/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/delicious.png
+         611 100%    9.47kB/s    0:00:00           611 100%    9.32kB/s    0:00:00 (xfer#203, to-check=144/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/digg.png
+         805 100%   12.28kB/s    0:00:00           805 100%   12.28kB/s    0:00:00 (xfer#204, to-check=143/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/ebay.png
+         718 100%   10.96kB/s    0:00:00           718 100%   10.96kB/s    0:00:00 (xfer#205, to-check=142/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/facebook.png
+         690 100%   10.53kB/s    0:00:00           690 100%   10.53kB/s    0:00:00 (xfer#206, to-check=141/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/feed.png
+         890 100%   13.58kB/s    0:00:00           890 100%   13.58kB/s    0:00:00 (xfer#207, to-check=140/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/flickr.png
+         651 100%    9.93kB/s    0:00:00           651 100%    9.93kB/s    0:00:00 (xfer#208, to-check=139/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/friendfeed.png
+         769 100%   11.73kB/s    0:00:00           769 100%   11.73kB/s    0:00:00 (xfer#209, to-check=138/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/friendster.png
+         758 100%   11.39kB/s    0:00:00           758 100%   11.39kB/s    0:00:00 (xfer#210, to-check=137/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/furl.png
+         762 100%   11.45kB/s    0:00:00           762 100%   11.45kB/s    0:00:00 (xfer#211, to-check=136/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/lastfm.png
+         833 100%   12.52kB/s    0:00:00           833 100%   12.52kB/s    0:00:00 (xfer#212, to-check=135/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/linkedin.png
+         765 100%   11.49kB/s    0:00:00           765 100%   11.49kB/s    0:00:00 (xfer#213, to-check=134/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/livejournal.png
+         836 100%   12.56kB/s    0:00:00           836 100%   12.56kB/s    0:00:00 (xfer#214, to-check=133/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/magnolia.png
+         850 100%   12.77kB/s    0:00:00           850 100%   12.77kB/s    0:00:00 (xfer#215, to-check=132/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/mixx.png
+         771 100%   11.58kB/s    0:00:00           771 100%   11.58kB/s    0:00:00 (xfer#216, to-check=131/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/myspace.png
+         756 100%   11.19kB/s    0:00:00           756 100%   11.19kB/s    0:00:00 (xfer#217, to-check=130/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/netvibes.png
+         754 100%   11.16kB/s    0:00:00           754 100%   11.16kB/s    0:00:00 (xfer#218, to-check=129/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/newsvine.png
+         896 100%   13.26kB/s    0:00:00           896 100%   13.26kB/s    0:00:00 (xfer#219, to-check=128/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/picasa.png
+         816 100%   12.07kB/s    0:00:00           816 100%   12.07kB/s    0:00:00 (xfer#220, to-check=127/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/pownce.png
+         750 100%   11.10kB/s    0:00:00           750 100%   11.10kB/s    0:00:00 (xfer#221, to-check=126/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/reddit.png
+         873 100%   12.92kB/s    0:00:00           873 100%   12.92kB/s    0:00:00 (xfer#222, to-check=125/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/stumbleupon.png
+         881 100%   12.84kB/s    0:00:00           881 100%   12.84kB/s    0:00:00 (xfer#223, to-check=124/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/technorati.png
+         817 100%   11.91kB/s    0:00:00           817 100%   11.91kB/s    0:00:00 (xfer#224, to-check=123/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/twitter.png
+         783 100%   11.41kB/s    0:00:00           783 100%   11.41kB/s    0:00:00 (xfer#225, to-check=122/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/vimeo.png
+         795 100%   11.59kB/s    0:00:00           795 100%   11.59kB/s    0:00:00 (xfer#226, to-check=121/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/webshots.png
+         811 100%   11.82kB/s    0:00:00           811 100%   11.82kB/s    0:00:00 (xfer#227, to-check=120/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/wordpress.png
+         839 100%   12.23kB/s    0:00:00           839 100%   12.23kB/s    0:00:00 (xfer#228, to-check=119/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/yelp.png
+         807 100%   11.76kB/s    0:00:00           807 100%   11.76kB/s    0:00:00 (xfer#229, to-check=118/10494)
+www/uniwisdom/images/Social.me/16 by 16 pixels/youtube.png
+         780 100%   11.20kB/s    0:00:00           780 100%   11.20kB/s    0:00:00 (xfer#230, to-check=117/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/
+www/uniwisdom/images/Social.me/24 by 24 pixels/Google.png
+        1237 100%   17.76kB/s    0:00:00          1237 100%   17.76kB/s    0:00:00 (xfer#231, to-check=116/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/blogger.png
+        1179 100%   16.93kB/s    0:00:00          1179 100%   16.93kB/s    0:00:00 (xfer#232, to-check=115/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/delicious.png
+         851 100%   12.22kB/s    0:00:00           851 100%   12.22kB/s    0:00:00 (xfer#233, to-check=114/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/digg.png
+        1338 100%   18.94kB/s    0:00:00          1338 100%   18.94kB/s    0:00:00 (xfer#234, to-check=113/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/ebay.png
+        1165 100%   16.49kB/s    0:00:00          1165 100%   16.49kB/s    0:00:00 (xfer#235, to-check=112/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/facebook.png
+        1050 100%   14.86kB/s    0:00:00          1050 100%   14.86kB/s    0:00:00 (xfer#236, to-check=111/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/feed.png
+        1482 100%   20.97kB/s    0:00:00          1482 100%   20.97kB/s    0:00:00 (xfer#237, to-check=110/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/flickr.png
+         977 100%   13.83kB/s    0:00:00           977 100%   13.83kB/s    0:00:00 (xfer#238, to-check=109/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/friendfeed.png
+        1244 100%   17.61kB/s    0:00:00          1244 100%   17.61kB/s    0:00:00 (xfer#239, to-check=108/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/friendster.png
+        1249 100%   17.42kB/s    0:00:00          1249 100%   17.42kB/s    0:00:00 (xfer#240, to-check=107/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/furl.png
+        1194 100%   16.66kB/s    0:00:00          1194 100%   16.66kB/s    0:00:00 (xfer#241, to-check=106/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/lastfm.png
+        1377 100%   19.21kB/s    0:00:00          1377 100%   19.21kB/s    0:00:00 (xfer#242, to-check=105/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/linkedin.png
+        1221 100%   17.03kB/s    0:00:00          1221 100%   17.03kB/s    0:00:00 (xfer#243, to-check=104/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/livejournal.png
+        1462 100%   20.40kB/s    0:00:00          1462 100%   20.40kB/s    0:00:00 (xfer#244, to-check=103/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/magnolia.png
+        1473 100%   20.55kB/s    0:00:00          1473 100%   20.55kB/s    0:00:00 (xfer#245, to-check=102/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/mixx.png
+        1258 100%   17.55kB/s    0:00:00          1258 100%   17.55kB/s    0:00:00 (xfer#246, to-check=101/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/myspace.png
+        1175 100%   16.16kB/s    0:00:00          1175 100%   16.16kB/s    0:00:00 (xfer#247, to-check=100/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/netvibes.png
+        1168 100%   16.07kB/s    0:00:00          1168 100%   16.07kB/s    0:00:00 (xfer#248, to-check=99/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/newsvine.png
+        1519 100%   20.89kB/s    0:00:00          1519 100%   20.89kB/s    0:00:00 (xfer#249, to-check=98/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/picasa.png
+        1281 100%   17.62kB/s    0:00:00          1281 100%   17.62kB/s    0:00:00 (xfer#250, to-check=97/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/pownce.png
+        1151 100%   15.83kB/s    0:00:00          1151 100%   15.83kB/s    0:00:00 (xfer#251, to-check=96/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/reddit.png
+        1436 100%   19.75kB/s    0:00:00          1436 100%   19.75kB/s    0:00:00 (xfer#252, to-check=95/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/stumbleupon.png
+        1537 100%   20.85kB/s    0:00:00          1537 100%   20.85kB/s    0:00:00 (xfer#253, to-check=94/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/technorati.png
+        1290 100%   17.50kB/s    0:00:00          1290 100%   17.50kB/s    0:00:00 (xfer#254, to-check=93/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/twitter.png
+        1233 100%   16.72kB/s    0:00:00          1233 100%   16.72kB/s    0:00:00 (xfer#255, to-check=92/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/vimeo.png
+        1262 100%   16.65kB/s    0:00:00          1262 100%   16.65kB/s    0:00:00 (xfer#256, to-check=91/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/webshots.png
+        1456 100%   19.21kB/s    0:00:00          1456 100%   19.21kB/s    0:00:00 (xfer#257, to-check=90/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/wordpress.png
+        1448 100%   18.85kB/s    0:00:00          1448 100%   18.85kB/s    0:00:00 (xfer#258, to-check=89/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/yelp.png
+        1294 100%   16.85kB/s    0:00:00          1294 100%   16.85kB/s    0:00:00 (xfer#259, to-check=88/10494)
+www/uniwisdom/images/Social.me/24 by 24 pixels/youtube.png
+        1336 100%   17.40kB/s    0:00:00          1336 100%   17.40kB/s    0:00:00 (xfer#260, to-check=87/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/
+www/uniwisdom/images/Social.me/48 by 48 pixels/Google.png
+        3185 100%   41.47kB/s    0:00:00          3185 100%   41.47kB/s    0:00:00 (xfer#261, to-check=86/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/blogger.png
+        2408 100%   30.94kB/s    0:00:00          2408 100%   30.94kB/s    0:00:00 (xfer#262, to-check=85/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/delicious.png
+        1592 100%   20.46kB/s    0:00:00          1592 100%   20.46kB/s    0:00:00 (xfer#263, to-check=84/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/digg.png
+        3172 100%   40.76kB/s    0:00:00          3172 100%   40.76kB/s    0:00:00 (xfer#264, to-check=83/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/ebay.png
+        2794 100%   35.44kB/s    0:00:00          2794 100%   35.44kB/s    0:00:00 (xfer#265, to-check=82/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/facebook.png
+        2220 100%   28.16kB/s    0:00:00          2220 100%   28.16kB/s    0:00:00 (xfer#266, to-check=81/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/feed.png
+        3498 100%   44.36kB/s    0:00:00          3498 100%   44.36kB/s    0:00:00 (xfer#267, to-check=80/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/flickr.png
+        2064 100%   26.18kB/s    0:00:00          2064 100%   26.18kB/s    0:00:00 (xfer#268, to-check=79/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/friendfeed.png
+        2994 100%   37.48kB/s    0:00:00          2994 100%   37.48kB/s    0:00:00 (xfer#269, to-check=78/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/friendster.png
+        2976 100%   37.26kB/s    0:00:00          2976 100%   37.26kB/s    0:00:00 (xfer#270, to-check=77/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/furl.png
+        2581 100%   31.91kB/s    0:00:00          2581 100%   31.91kB/s    0:00:00 (xfer#271, to-check=76/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/lastfm.png
+        3570 100%   44.13kB/s    0:00:00          3570 100%   44.13kB/s    0:00:00 (xfer#272, to-check=75/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/linkedin.png
+        2641 100%   32.65kB/s    0:00:00          2641 100%   32.65kB/s    0:00:00 (xfer#273, to-check=74/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/livejournal.png
+        3900 100%   47.61kB/s    0:00:00          3900 100%   47.61kB/s    0:00:00 (xfer#274, to-check=73/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/magnolia.png
+        3908 100%   47.71kB/s    0:00:00          3908 100%   47.71kB/s    0:00:00 (xfer#275, to-check=72/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/mixx.png
+        3200 100%   39.06kB/s    0:00:00          3200 100%   39.06kB/s    0:00:00 (xfer#276, to-check=71/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/myspace.png
+        2799 100%   33.75kB/s    0:00:00          2799 100%   33.75kB/s    0:00:00 (xfer#277, to-check=70/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/netvibes.png
+        2674 100%   32.24kB/s    0:00:00          2674 100%   32.24kB/s    0:00:00 (xfer#278, to-check=69/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/newsvine.png
+        3583 100%   43.20kB/s    0:00:00          3583 100%   43.20kB/s    0:00:00 (xfer#279, to-check=68/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/picasa.png
+        2917 100%   34.74kB/s    0:00:00          2917 100%   34.74kB/s    0:00:00 (xfer#280, to-check=67/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/pownce.png
+        2367 100%   28.19kB/s    0:00:00          2367 100%   28.19kB/s    0:00:00 (xfer#281, to-check=66/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/reddit.png
+        3700 100%   44.06kB/s    0:00:00          3700 100%   44.06kB/s    0:00:00 (xfer#282, to-check=65/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/stumbleupon.png
+        4204 100%   50.07kB/s    0:00:00          4204 100%   50.07kB/s    0:00:00 (xfer#283, to-check=64/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/technorati.png
+        2773 100%   32.63kB/s    0:00:00          2773 100%   32.63kB/s    0:00:00 (xfer#284, to-check=63/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/twitter.png
+        2787 100%   32.79kB/s    0:00:00          2787 100%   32.79kB/s    0:00:00 (xfer#285, to-check=62/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/vimeo.png
+        2772 100%   32.61kB/s    0:00:00          2772 100%   32.61kB/s    0:00:00 (xfer#286, to-check=61/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/webshots.png
+        3969 100%   46.70kB/s    0:00:00          3969 100%   46.70kB/s    0:00:00 (xfer#287, to-check=60/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/wordpress.png
+        3826 100%   45.02kB/s    0:00:00          3826 100%   45.02kB/s    0:00:00 (xfer#288, to-check=59/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/yelp.png
+        2946 100%   34.25kB/s    0:00:00          2946 100%   34.25kB/s    0:00:00 (xfer#289, to-check=58/10494)
+www/uniwisdom/images/Social.me/48 by 48 pixels/youtube.png
+        3404 100%   39.57kB/s    0:00:00          3404 100%   39.57kB/s    0:00:00 (xfer#290, to-check=57/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/
+www/uniwisdom/images/Social.me/60 by 60 pixels/Google.psd
+       32768  12%  376.47kB/s    0:00:00        259738 100%    2.55MB/s    0:00:00 (xfer#291, to-check=56/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/blogger.png
+        5210 100%   51.92kB/s    0:00:00          5210 100%   51.92kB/s    0:00:00 (xfer#292, to-check=55/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/delicious.png
+        4259 100%   42.44kB/s    0:00:00          4259 100%   42.44kB/s    0:00:00 (xfer#293, to-check=54/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/digg.png
+        6286 100%   62.64kB/s    0:00:00          6286 100%   62.64kB/s    0:00:00 (xfer#294, to-check=53/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/ebay.png
+        5858 100%   57.78kB/s    0:00:00          5858 100%   57.78kB/s    0:00:00 (xfer#295, to-check=52/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/facebook.png
+        4983 100%   49.15kB/s    0:00:00          4983 100%   49.15kB/s    0:00:00 (xfer#296, to-check=51/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/feed.png
+        6145 100%   60.62kB/s    0:00:00          6145 100%   60.62kB/s    0:00:00 (xfer#297, to-check=50/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/flickr.png
+        4658 100%   45.95kB/s    0:00:00          4658 100%   45.49kB/s    0:00:00 (xfer#298, to-check=49/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/friendfeed.png
+        6110 100%   59.67kB/s    0:00:00          6110 100%   59.67kB/s    0:00:00 (xfer#299, to-check=48/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/friendster.png
+        5970 100%   58.30kB/s    0:00:00          5970 100%   58.30kB/s    0:00:00 (xfer#300, to-check=47/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/furl.png
+        5487 100%   53.58kB/s    0:00:00          5487 100%   53.58kB/s    0:00:00 (xfer#301, to-check=46/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/lastfm.png
+        6258 100%   60.51kB/s    0:00:00          6258 100%   60.51kB/s    0:00:00 (xfer#302, to-check=45/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/linkedin.png
+        5380 100%   52.02kB/s    0:00:00          5380 100%   52.02kB/s    0:00:00 (xfer#303, to-check=44/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/livejournal.png
+        7179 100%   69.41kB/s    0:00:00          7179 100%   69.41kB/s    0:00:00 (xfer#304, to-check=43/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/magnolia.png
+        7421 100%   71.05kB/s    0:00:00          7421 100%   71.05kB/s    0:00:00 (xfer#305, to-check=42/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/mixx.png
+        6609 100%   63.28kB/s    0:00:00          6609 100%   63.28kB/s    0:00:00 (xfer#306, to-check=41/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/myspace.png
+        6035 100%   57.78kB/s    0:00:00          6035 100%   57.78kB/s    0:00:00 (xfer#307, to-check=40/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/netvibes.png
+        5954 100%   56.45kB/s    0:00:00          5954 100%   56.45kB/s    0:00:00 (xfer#308, to-check=39/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/newsvine.png
+        6329 100%   60.01kB/s    0:00:00          6329 100%   60.01kB/s    0:00:00 (xfer#309, to-check=38/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/picasa.png
+        5806 100%   55.05kB/s    0:00:00          5806 100%   55.05kB/s    0:00:00 (xfer#310, to-check=37/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/pownce.png
+        5163 100%   48.48kB/s    0:00:00          5163 100%   48.48kB/s    0:00:00 (xfer#311, to-check=36/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/reddit.png
+        7074 100%   66.43kB/s    0:00:00          7074 100%   66.43kB/s    0:00:00 (xfer#312, to-check=35/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/stumbleupon.png
+        7804 100%   73.28kB/s    0:00:00          7804 100%   73.28kB/s    0:00:00 (xfer#313, to-check=34/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/technorati.png
+        5497 100%   51.13kB/s    0:00:00          5497 100%   51.13kB/s    0:00:00 (xfer#314, to-check=33/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/twitter.png
+        5592 100%   52.01kB/s    0:00:00          5592 100%   52.01kB/s    0:00:00 (xfer#315, to-check=32/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/vimeo.png
+        5703 100%   53.04kB/s    0:00:00          5703 100%   53.04kB/s    0:00:00 (xfer#316, to-check=31/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/webshots.png
+        7489 100%   69.00kB/s    0:00:00          7489 100%   69.00kB/s    0:00:00 (xfer#317, to-check=30/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/wordpress.png
+        7025 100%   64.72kB/s    0:00:00          7025 100%   64.72kB/s    0:00:00 (xfer#318, to-check=29/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/yelp.png
+        5636 100%   51.92kB/s    0:00:00          5636 100%   51.92kB/s    0:00:00 (xfer#319, to-check=28/10494)
+www/uniwisdom/images/Social.me/60 by 60 pixels/youtube.png
+        6777 100%   61.85kB/s    0:00:00          6777 100%   61.85kB/s    0:00:00 (xfer#320, to-check=27/10494)
+www/uniwisdom/images/adLogo/
+www/uniwisdom/images/adLogo/ex1-128.png
+       18173 100%  165.86kB/s    0:00:00         18173 100%  164.32kB/s    0:00:00 (xfer#321, to-check=26/10494)
+www/uniwisdom/images/adLogo/ex1-64.png
+        7134 100%   64.51kB/s    0:00:00          7134 100%   64.51kB/s    0:00:00 (xfer#322, to-check=25/10494)
+www/uniwisdom/images/adLogo/ex1-96.png
+       12803 100%  115.77kB/s    0:00:00         12803 100%  115.77kB/s    0:00:00 (xfer#323, to-check=24/10494)
+www/uniwisdom/images/adLogo/mochaUI-128.png
+        3982 100%   35.68kB/s    0:00:00          3982 100%   35.68kB/s    0:00:00 (xfer#324, to-check=23/10494)
+www/uniwisdom/images/adLogo/mochaUI-276.png
+       12481 100%  111.82kB/s    0:00:00         12481 100%  111.82kB/s    0:00:00 (xfer#325, to-check=22/10494)
+www/uniwisdom/images/adLogo/mochaUI.png
+        6681 100%   59.31kB/s    0:00:00          6681 100%   59.31kB/s    0:00:00 (xfer#326, to-check=21/10494)
+www/uniwisdom/images/adLogo/mochaUI.xcf
+       13171 100%  115.88kB/s    0:00:00         13171 100%  115.88kB/s    0:00:00 (xfer#327, to-check=20/10494)
+www/uniwisdom/images/adLogo/mootools-128.png
+        2261 100%   19.89kB/s    0:00:00          2261 100%   19.89kB/s    0:00:00 (xfer#328, to-check=19/10494)
+www/uniwisdom/images/adLogo/mootools-276.gif
+        5110 100%   44.96kB/s    0:00:00          5110 100%   44.96kB/s    0:00:00 (xfer#329, to-check=18/10494)
+www/uniwisdom/images/adLogo/python-128.png
+        3581 100%   31.51kB/s    0:00:00          3581 100%   31.51kB/s    0:00:00 (xfer#330, to-check=17/10494)
+www/uniwisdom/images/adLogo/python-276.png
+       11473 100%  100.04kB/s    0:00:00         11473 100%  100.04kB/s    0:00:00 (xfer#331, to-check=16/10494)
+www/uniwisdom/images/adLogo/python-logo-master-v3-TM-flattened.png
+       11155 100%   96.40kB/s    0:00:00         11155 100%   96.40kB/s    0:00:00 (xfer#332, to-check=15/10494)
+www/uniwisdom/images/adLogo/python-logo-master-v3-TM.png
+       32768  39%  280.70kB/s    0:00:00         83564 100%  691.57kB/s    0:00:00 (xfer#333, to-check=14/10494)
+www/uniwisdom/images/adLogo/python-logo-master-v3-TM.psd
+       32768  11%  268.91kB/s    0:00:00        276842 100%    2.08MB/s    0:00:00 (xfer#334, to-check=13/10494)
+www/uniwisdom/images/adLogo/wc06_logo_green.png
+       32768  36%  248.06kB/s    0:00:00         89064 100%  630.26kB/s    0:00:00 (xfer#335, to-check=12/10494)
+www/uniwisdom/js/
+www/uniwisdom/js/config.json
+         235 100%    1.65kB/s    0:00:00           235 100%    1.65kB/s    0:00:00 (xfer#336, to-check=11/10494)
+www/uniwisdom/js/init.js
+        2024 100%   14.22kB/s    0:00:00          2024 100%   14.22kB/s    0:00:00 (xfer#337, to-check=10/10494)
+www/uniwisdom/js/mootools-1.2.5-core.js
+       32768  48%  226.95kB/s    0:00:00         67154 100%  452.28kB/s    0:00:00 (xfer#338, to-check=9/10494)
+www/uniwisdom/js/mootools-1.2.5.1-more.js
+       32768  85%  217.69kB/s    0:00:00         38223 100%  253.93kB/s    0:00:00 (xfer#339, to-check=8/10494)
+
+sent 1832798 bytes  received 8019 bytes  1227211.33 bytes/sec
+total size is 77493347  speedup is 42.10
+2011-04-21 08:52:35,879 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768   4%    0.00kB/s    0:00:00        754912 100%   11.11MB/s    0:00:00 (xfer#1, to-check=17/19)
+
+sent 166768 bytes  received 38 bytes  333612.00 bytes/sec
+total size is 1400366  speedup is 8.40
+2011-04-21 08:52:35,879 INFO End backup loacl karrigell diretory to local git.
+2011-04-21 08:52:35,879 INFO Begin to backup local github to remote github host.
