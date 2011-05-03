@@ -1,9 +1,34 @@
 {
-    "menus":[
-	{"label":"IOT in China", "submenu":"iotInChina.html"},
-	{"label": "Observation", "submenu": "observation.html"},
-	{"label":"Collaboration", "submenu": "collaboration.html"},
-	{"label":"About", "submenu": "about.html"},
-	{"label":"Contact", "submenu": "contact.html"}
-    ]
+    "title": {
+	"en": "A Cyber Media For Internet Of Things",
+	"cn": "物联资讯"
+    },
+
+    "header": {
+	"en": "finding the wisdom in the internet of things...",
+	"cn": "发现物联网中的智慧"
+    },
+
+    "menus":{
+	"en": [
+	    {"label":"IOT in China", "submenu":"iotInChina.html"},
+	    {"label": "Observation", "submenu": "observation.html"},
+	    {"label":"Collaboration", "submenu": "collaboration.html"},
+	    {"label":"About", "submenu": "about.html"},
+	    {"label":"Contact", "submenu": "contact.html"}
+	],
+
+	"cn": [
+	    {"label":"物联网资讯", "submenu":"iotInChina_cn.html"},
+	    {"label": "行业应用", "submenu": "observation_cn.html"},
+	    {"label":"联盟合作", "submenu": "collaboration_cn.html"},
+	    {"label":"关于我们", "submenu": "about_cn.html"},
+	    {"label":"联系我们", "submenu": "contact_cn.html"}
+	]
+    },
+
+    "sidebar":{
+	"en": "sidebar_en.html",
+	"cn": "sidebar_cn.html"
+    }
 }

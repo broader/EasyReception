@@ -47959,3 +47959,523 @@ sent 166768 bytes  received 38 bytes  333612.00 bytes/sec
 total size is 1400366  speedup is 8.40
 2011-04-21 08:52:35,879 INFO End backup loacl karrigell diretory to local git.
 2011-04-21 08:52:35,879 INFO Begin to backup local github to remote github host.
+2011-04-21 08:52:37,929 INFO Command: 
+git add .
+running result is :
+2011-04-21 08:52:47,720 INFO Command: 
+git commit -m 'Update time:2011-04-21T08:52:35.879692'
+running result is :[master 2affb41] Update time:2011-04-21T08:52:35.879692
+ 338 files changed, 7542 insertions(+), 60 deletions(-)
+ create mode 100644 develop/Karrigell/data/www/agenda.sqlite
+ create mode 100644 develop/Karrigell/data/www/business.sqlite
+ create mode 100644 develop/Karrigell/data/www/cache/demo/cd-cover/index.pih
+ create mode 100644 develop/Karrigell/data/www/cache/demo/cd-cover/menu.pih
+ create mode 100644 develop/Karrigell/data/www/cache/demo/mailing_list/index.py
+ create mode 100644 develop/Karrigell/data/www/cache/demo/quizz/index.ks
+ create mode 100644 develop/Karrigell/data/www/cache/demo/rss/rss.py
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/blog/index.ks
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/business/createSongBase.py
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/business/index.ks
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/calendar/agendaDb.py
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/calendar/dayFrame.pih
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/calendar/index.pih
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/calendar/showMonth.pih
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/forum/index.ks
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/forum/utils.py
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/kswiki/wiki.ks
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/kswiki/wiki/BuanBuan.py
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/kswiki/wiki/wikiBase.py
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/portal/header.hip
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/portal/index.pih
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/portal/portalDb.py
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/wiki/index.pih
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/wiki/wikiAdmin.pih
+ create mode 100644 develop/Karrigell/data/www/cache/demo/sqlite/wiki/wikiBase.py
+ create mode 100644 develop/Karrigell/data/www/cache/docs/en/index.py
+ create mode 100644 develop/Karrigell/data/www/cache/portal/desktop/fileManager.ks
+ create mode 100644 develop/Karrigell/data/www/cache/test/sketch/index.ks
+ create mode 100644 develop/Karrigell/data/www/forum/forums.sqlite
+ create mode 100644 develop/Karrigell/data/www/portal.sqlite
+ create mode 100644 develop/Karrigell/data/www/sessions/KeRC6w54GY40Cwho
+ create mode 100644 develop/Karrigell/data/www/sessions/bzXx2xnMrSnl7Wi4
+ create mode 100644 develop/Karrigell/data/www/sessions/sVsJMgy8NywKopiG
+ create mode 100644 develop/Karrigell/data/www/wiki.sqlite
+ create mode 100644 develop/Karrigell/www/test/sketch/bpnn.odt
+ create mode 100644 develop/Karrigell/www/test/sketch/bpnn.py
+ create mode 100644 develop/Karrigell/www/test/sketch/examples.html
+ create mode 100644 develop/Karrigell/www/test/sketch/formatterTest.py
+ create mode 100644 develop/Karrigell/www/test/sketch/index.html
+ create mode 100644 develop/Karrigell/www/test/sketch/index.ks
+ create mode 100644 develop/Karrigell/www/test/sketch/paper_extractTextFromHtml.odt
+ create mode 100644 develop/Karrigell/www/test/sketch/style.css
+ create mode 100644 develop/Karrigell/www/test/sketch/txtMining.py
+ create mode 100644 develop/Karrigell/www/uniwisdom/config.json
+ create mode 100644 develop/Karrigell/www/uniwisdom/css/spinner.css
+ create mode 100644 develop/Karrigell/www/uniwisdom/css/style.css
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/blogger.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/delicious.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/digg.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/facebook.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/feed.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/flickr.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/friendfeed.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/friendster.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/furl.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/google.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/lastfm.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/linkedin.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/livejournal.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/magnolia.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/mixx.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/myspace.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/netvibes.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/newsvine.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/picasa.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/pownce.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/reddit.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/stumbleupon.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/technorati.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/twitter.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/vimeo.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/webshots.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/wordpress.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/yahoo.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/yelp.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/16 X 16/youtube.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/blogger.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/delicious.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/digg.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/facebook.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/feed.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/flickr.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/friendfeed.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/friendster.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/furl.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/google.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/lastfm.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/linkedin.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/livejournal.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/magnolia.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/mixx.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/myspace.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/netvibes.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/newsvine.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/picasa.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/pownce.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/reddit.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/stumbleupon.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/technorati.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/twitter.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/vimeo.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/webshots.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/wordpress.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/yahoo.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/yelp.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/24 X 24/youtube.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/blogger.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/delicious.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/digg.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/facebook.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/feed.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/flickr.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/friendfeed.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/friendster.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/furl.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/google.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/lastfm.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/linkedin.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/livejournal.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/magnolia.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/mixx.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/myspace.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/netvibes.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/newsvine.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/picasa.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/pownce.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/reddit.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/stumbleupon.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/technorati.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/twitter.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/vimeo.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/webshots.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/wordpress.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/yahoo.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/yelp.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/48 X 48/youtube.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/blogger.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/delicious.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/digg.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/facebook.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/feed.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/flickr.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/friendfeed.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/friendster.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/furl.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/google.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/lastfm.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/linkedin.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/livejournal.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/magnolia.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/mixx.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/myspace.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/netvibes.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/newsvine.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/picasa.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/pownce.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/reddit.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/stumbleupon.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/technorati.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/twitter.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/vimeo.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/webshots.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/wordpress.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/yahoo.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/yelp.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/60 X 60/youtube.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/Quake 9 Design.webloc
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/ReadMe.rtf
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Aquaticus.Social/aquaticus.social.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/Google.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/blogger.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/delicious.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/digg.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/ebay.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/facebook.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/feed.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/flickr.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/friendfeed.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/friendster.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/furl.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/lastfm.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/linkedin.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/livejournal.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/magnolia.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/mixx.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/myspace.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/netvibes.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/newsvine.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/picasa.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/pownce.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/reddit.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/stumbleupon.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/technorati.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/twitter.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/vimeo.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/webshots.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/wordpress.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/yelp.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/16 by 16 pixels/youtube.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/Google.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/blogger.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/delicious.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/digg.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/ebay.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/facebook.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/feed.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/flickr.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/friendfeed.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/friendster.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/furl.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/lastfm.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/linkedin.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/livejournal.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/magnolia.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/mixx.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/myspace.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/netvibes.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/newsvine.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/picasa.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/pownce.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/reddit.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/stumbleupon.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/technorati.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/twitter.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/vimeo.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/webshots.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/wordpress.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/yelp.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/24 by 24 pixels/youtube.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/Google.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/blogger.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/delicious.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/digg.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/ebay.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/facebook.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/feed.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/flickr.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/friendfeed.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/friendster.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/furl.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/lastfm.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/linkedin.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/livejournal.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/magnolia.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/mixx.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/myspace.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/netvibes.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/newsvine.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/picasa.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/pownce.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/reddit.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/stumbleupon.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/technorati.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/twitter.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/vimeo.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/webshots.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/wordpress.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/yelp.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/48 by 48 pixels/youtube.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/Google.psd
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/blogger.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/delicious.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/digg.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/ebay.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/facebook.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/feed.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/flickr.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/friendfeed.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/friendster.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/furl.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/lastfm.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/linkedin.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/livejournal.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/magnolia.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/mixx.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/myspace.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/netvibes.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/newsvine.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/picasa.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/pownce.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/reddit.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/stumbleupon.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/technorati.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/twitter.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/vimeo.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/webshots.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/wordpress.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/yelp.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/60 by 60 pixels/youtube.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/ReadMe.rtf
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/Social.me/socialme_banner.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/adLogo/ex1-128.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/adLogo/ex1-64.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/adLogo/ex1-96.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/adLogo/mochaUI-128.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/adLogo/mochaUI-276.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/adLogo/mochaUI.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/adLogo/mochaUI.xcf
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/adLogo/mootools-128.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/adLogo/mootools-276.gif
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/adLogo/python-128.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/adLogo/python-276.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/adLogo/python-logo-master-v3-TM-flattened.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/adLogo/python-logo-master-v3-TM.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/adLogo/python-logo-master-v3-TM.psd
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/adLogo/wc06_logo_green.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/bg.jpg
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/feed_24.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/feed_36.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/feed_48.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/google_24.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/google_36.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/google_48.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/mail-forward.svg
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/mail-forward_24.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/mail-forward_36.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/mail-forward_48.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/menu_item_bg.gif
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/search_action.png
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/search_field.jpg
+ create mode 100644 develop/Karrigell/www/uniwisdom/images/spinner.gif
+ create mode 100644 develop/Karrigell/www/uniwisdom/index.html
+ create mode 100644 develop/Karrigell/www/uniwisdom/iotInChina.html
+ create mode 100644 develop/Karrigell/www/uniwisdom/js/config.json
+ create mode 100644 develop/Karrigell/www/uniwisdom/js/init.js
+ create mode 100644 develop/Karrigell/www/uniwisdom/js/mootools-1.2.5-core.js
+ create mode 100644 develop/Karrigell/www/uniwisdom/js/mootools-1.2.5.1-more.js
+ create mode 100644 develop/Karrigell/www/uniwisdom/menus.json
+ create mode 100644 develop/Karrigell/www/uniwisdom/observation.html
+2011-04-21 08:53:39,828 INFO Command: 
+git push origin master
+running result is :To git@github.com:broader/EasyReception.git
+   805fb7a..2affb41  master -> master
+2011-04-21 08:53:39,829 INFO End backup local github to remote github host.
+2011-05-03 21:15:34,838 INFO Delete nousing captcha images
+2011-05-03 21:15:34,861 INFO Command: 
+rm -f /home/broader/develop/R@K/CMS/Karrigell/muireception/register/tmp/*.jpeg
+running result is :
+2011-05-03 21:15:34,862 INFO Begin to backup loacl karrigell diretory and mindmap files to local git.
+
+2011-05-03 21:15:36,945 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Karrigell/ /home/broader/develop/EasyReception/develop/Karrigell
+running result is :sending incremental file list
+congressdemo/
+www/uniwisdom/
+www/uniwisdom/about.html
+         283 100%    0.00kB/s    0:00:00           283 100%    0.00kB/s    0:00:00 (xfer#1, to-check=377/10564)
+www/uniwisdom/collaboration.html
+        1591 100%   25.90kB/s    0:00:00          1591 100%   25.90kB/s    0:00:00 (xfer#2, to-check=376/10564)
+www/uniwisdom/collaboration.html~
+        3603 100%   57.68kB/s    0:00:00          3603 100%   57.68kB/s    0:00:00 (xfer#3, to-check=375/10564)
+www/uniwisdom/config.json
+         942 100%   15.08kB/s    0:00:00           942 100%   15.08kB/s    0:00:00 (xfer#4, to-check=374/10564)
+www/uniwisdom/contact.html
+         272 100%    4.28kB/s    0:00:00           272 100%    4.28kB/s    0:00:00 (xfer#5, to-check=373/10564)
+www/uniwisdom/index.html
+        2065 100%   32.53kB/s    0:00:00          2065 100%   32.53kB/s    0:00:00 (xfer#6, to-check=372/10564)
+www/uniwisdom/index_cn.html
+        4619 100%   70.48kB/s    0:00:00          4619 100%   70.48kB/s    0:00:00 (xfer#7, to-check=371/10564)
+www/uniwisdom/iotInChina.html
+        1999 100%   30.03kB/s    0:00:00          1999 100%   30.03kB/s    0:00:00 (xfer#8, to-check=370/10564)
+www/uniwisdom/observation.html
+        1387 100%   20.84kB/s    0:00:00          1387 100%   20.84kB/s    0:00:00 (xfer#9, to-check=368/10564)
+www/uniwisdom/sidebar_en.html
+        2232 100%   33.03kB/s    0:00:00          2232 100%   33.03kB/s    0:00:00 (xfer#10, to-check=367/10564)
+www/uniwisdom/css/
+www/uniwisdom/css/.style.css.swp
+       20480 100%  294.12kB/s    0:00:00         20480 100%  294.12kB/s    0:00:00 (xfer#11, to-check=363/10564)
+www/uniwisdom/css/helpers.css
+        2406 100%   34.55kB/s    0:00:00          2406 100%   34.55kB/s    0:00:00 (xfer#12, to-check=362/10564)
+www/uniwisdom/css/style.css
+        6892 100%   94.80kB/s    0:00:00          6892 100%   94.80kB/s    0:00:00 (xfer#13, to-check=360/10564)
+www/uniwisdom/css/tables.css
+        3663 100%   49.68kB/s    0:00:00          3663 100%   49.68kB/s    0:00:00 (xfer#14, to-check=359/10564)
+www/uniwisdom/css/type.css
+        2525 100%   34.25kB/s    0:00:00          2525 100%   34.25kB/s    0:00:00 (xfer#15, to-check=358/10564)
+www/uniwisdom/images/
+www/uniwisdom/images/observation_content.jpg
+       32768   5%  410.26kB/s    0:00:01        573463 100%    3.67MB/s    0:00:00 (xfer#16, to-check=345/10564)
+www/uniwisdom/images/flags/
+www/uniwisdom/images/flags/arrow_12.gif
+          96 100%    0.63kB/s    0:00:00            96 100%    0.63kB/s    0:00:00 (xfer#17, to-check=68/10564)
+www/uniwisdom/images/flags/cn_30.gif
+        2525 100%   16.55kB/s    0:00:00          2525 100%   16.55kB/s    0:00:00 (xfer#18, to-check=67/10564)
+www/uniwisdom/images/flags/en_30.gif
+        2817 100%   18.46kB/s    0:00:00          2817 100%   18.46kB/s    0:00:00 (xfer#19, to-check=66/10564)
+www/uniwisdom/images/notjustagrid/
+www/uniwisdom/images/notjustagrid/icons/
+www/uniwisdom/images/notjustagrid/icons/icon-cancel.png
+        3389 100%   22.21kB/s    0:00:00          3389 100%   22.21kB/s    0:00:00 (xfer#20, to-check=63/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-delete.png
+         715 100%    4.65kB/s    0:00:00           715 100%    4.65kB/s    0:00:00 (xfer#21, to-check=62/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-document-mini.png
+        3072 100%   20.00kB/s    0:00:00          3072 100%   20.00kB/s    0:00:00 (xfer#22, to-check=61/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-document-tiny.png
+        2976 100%   19.38kB/s    0:00:00          2976 100%   19.38kB/s    0:00:00 (xfer#23, to-check=60/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-document.png
+        3238 100%   21.08kB/s    0:00:00          3238 100%   21.08kB/s    0:00:00 (xfer#24, to-check=59/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-edit.png
+        3175 100%   20.53kB/s    0:00:00          3175 100%   20.53kB/s    0:00:00 (xfer#25, to-check=58/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-email-mini.png
+        3012 100%   19.48kB/s    0:00:00          3012 100%   19.48kB/s    0:00:00 (xfer#26, to-check=57/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-email-tiny.png
+        2945 100%   19.05kB/s    0:00:00          2945 100%   19.05kB/s    0:00:00 (xfer#27, to-check=56/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-email.png
+        3117 100%   20.16kB/s    0:00:00          3117 100%   20.16kB/s    0:00:00 (xfer#28, to-check=55/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-error-large.png
+        5384 100%   34.82kB/s    0:00:00          5384 100%   34.59kB/s    0:00:00 (xfer#29, to-check=54/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-error.png
+         701 100%    4.50kB/s    0:00:00           701 100%    4.50kB/s    0:00:00 (xfer#30, to-check=53/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-excel-mini.png
+        3722 100%   23.91kB/s    0:00:00          3722 100%   23.91kB/s    0:00:00 (xfer#31, to-check=52/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-excel-tiny.png
+        3756 100%   24.13kB/s    0:00:00          3756 100%   24.13kB/s    0:00:00 (xfer#32, to-check=51/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-excel.png
+        3772 100%   24.23kB/s    0:00:00          3772 100%   24.23kB/s    0:00:00 (xfer#33, to-check=50/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-pdf-mini.png
+        3104 100%   19.81kB/s    0:00:00          3104 100%   19.81kB/s    0:00:00 (xfer#34, to-check=49/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-pdf-tiny.png
+        3044 100%   19.43kB/s    0:00:00          3044 100%   19.43kB/s    0:00:00 (xfer#35, to-check=48/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-pdf.png
+        3394 100%   21.66kB/s    0:00:00          3394 100%   21.66kB/s    0:00:00 (xfer#36, to-check=47/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-powerpoint-mini.png
+        3722 100%   23.76kB/s    0:00:00          3722 100%   23.76kB/s    0:00:00 (xfer#37, to-check=46/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-powerpoint-tiny.png
+        3761 100%   23.85kB/s    0:00:00          3761 100%   23.85kB/s    0:00:00 (xfer#38, to-check=45/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-powerpoint.png
+        3770 100%   23.91kB/s    0:00:00          3770 100%   23.91kB/s    0:00:00 (xfer#39, to-check=44/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-question-large.png
+        5547 100%   35.18kB/s    0:00:00          5547 100%   34.95kB/s    0:00:00 (xfer#40, to-check=43/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-question.png
+        3415 100%   21.52kB/s    0:00:00          3415 100%   21.52kB/s    0:00:00 (xfer#41, to-check=42/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-rss-mini.png
+        3244 100%   20.44kB/s    0:00:00          3244 100%   20.44kB/s    0:00:00 (xfer#42, to-check=41/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-rss-tiny.png
+        3073 100%   19.36kB/s    0:00:00          3073 100%   19.36kB/s    0:00:00 (xfer#43, to-check=40/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-rss.png
+        3390 100%   21.22kB/s    0:00:00          3390 100%   21.22kB/s    0:00:00 (xfer#44, to-check=39/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-share-mini.png
+        3241 100%   20.29kB/s    0:00:00          3241 100%   20.29kB/s    0:00:00 (xfer#45, to-check=38/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-share-tiny.png
+        3095 100%   19.37kB/s    0:00:00          3095 100%   19.37kB/s    0:00:00 (xfer#46, to-check=37/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-share.png
+        3411 100%   21.35kB/s    0:00:00          3411 100%   21.35kB/s    0:00:00 (xfer#47, to-check=36/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-success-large.png
+        5523 100%   34.35kB/s    0:00:00          5523 100%   34.35kB/s    0:00:00 (xfer#48, to-check=35/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-success.png
+         781 100%    4.86kB/s    0:00:00           781 100%    4.86kB/s    0:00:00 (xfer#49, to-check=34/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-video-mini.png
+        3369 100%   20.96kB/s    0:00:00          3369 100%   20.96kB/s    0:00:00 (xfer#50, to-check=33/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-video-tiny.png
+        3082 100%   19.05kB/s    0:00:00          3082 100%   19.05kB/s    0:00:00 (xfer#51, to-check=32/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-video.png
+        3299 100%   20.39kB/s    0:00:00          3299 100%   20.39kB/s    0:00:00 (xfer#52, to-check=31/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-view.png
+        3393 100%   20.97kB/s    0:00:00          3393 100%   20.97kB/s    0:00:00 (xfer#53, to-check=30/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-warning-large.png
+        5831 100%   36.04kB/s    0:00:00          5831 100%   36.04kB/s    0:00:00 (xfer#54, to-check=29/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-warning.png
+         666 100%    4.12kB/s    0:00:00           666 100%    4.12kB/s    0:00:00 (xfer#55, to-check=28/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-word-mini.png
+        3722 100%   22.86kB/s    0:00:00          3722 100%   22.86kB/s    0:00:00 (xfer#56, to-check=27/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-word-tiny.png
+        3760 100%   23.09kB/s    0:00:00          3760 100%   23.09kB/s    0:00:00 (xfer#57, to-check=26/10564)
+www/uniwisdom/images/notjustagrid/icons/icon-word.png
+        3765 100%   23.12kB/s    0:00:00          3765 100%   23.12kB/s    0:00:00 (xfer#58, to-check=25/10564)
+www/uniwisdom/images/notjustagrid/misc/
+www/uniwisdom/images/notjustagrid/misc/colourcorner-even.gif
+          86 100%    0.53kB/s    0:00:00            86 100%    0.53kB/s    0:00:00 (xfer#59, to-check=24/10564)
+www/uniwisdom/images/notjustagrid/misc/colourcorner-odd.gif
+          86 100%    0.53kB/s    0:00:00            86 100%    0.53kB/s    0:00:00 (xfer#60, to-check=23/10564)
+www/uniwisdom/images/notjustagrid/misc/formgreenback.gif
+        7947 100%   48.50kB/s    0:00:00          7947 100%   48.50kB/s    0:00:00 (xfer#61, to-check=22/10564)
+www/uniwisdom/images/notjustagrid/misc/formgreyback.gif
+        7947 100%   48.50kB/s    0:00:00          7947 100%   48.20kB/s    0:00:00 (xfer#62, to-check=21/10564)
+www/uniwisdom/images/notjustagrid/misc/formredback.gif
+        8524 100%   51.70kB/s    0:00:00          8524 100%   51.70kB/s    0:00:00 (xfer#63, to-check=20/10564)
+www/uniwisdom/images/notjustagrid/misc/formyellowback.gif
+        8520 100%   51.36kB/s    0:00:00          8520 100%   51.36kB/s    0:00:00 (xfer#64, to-check=19/10564)
+www/uniwisdom/images/notjustagrid/misc/greycorner-even.gif
+          85 100%    0.51kB/s    0:00:00            85 100%    0.51kB/s    0:00:00 (xfer#65, to-check=18/10564)
+www/uniwisdom/images/notjustagrid/misc/greycorner-odd.gif
+          85 100%    0.51kB/s    0:00:00            85 100%    0.51kB/s    0:00:00 (xfer#66, to-check=17/10564)
+www/uniwisdom/images/notjustagrid/misc/transoverlay-glossy.png
+        3011 100%   18.15kB/s    0:00:00          3011 100%   18.15kB/s    0:00:00 (xfer#67, to-check=16/10564)
+www/uniwisdom/images/notjustagrid/misc/transoverlay-matte.png
+        2892 100%   17.43kB/s    0:00:00          2892 100%   17.43kB/s    0:00:00 (xfer#68, to-check=15/10564)
+www/uniwisdom/images/notjustagrid/misc/transoverlay-mattesoft.png
+        2825 100%   17.03kB/s    0:00:00          2825 100%   17.03kB/s    0:00:00 (xfer#69, to-check=14/10564)
+www/uniwisdom/images/notjustagrid/misc/typegrid.gif
+          90 100%    0.54kB/s    0:00:00            90 100%    0.54kB/s    0:00:00 (xfer#70, to-check=13/10564)
+www/uniwisdom/js/
+www/uniwisdom/js/init.js
+        3622 100%   21.70kB/s    0:00:00          3622 100%   21.70kB/s    0:00:00 (xfer#71, to-check=11/10564)
+www/uniwisdom/js/mootools-1.2.5-core.js
+       32768  48%  193.94kB/s    0:00:00         67154 100%  390.36kB/s    0:00:00 (xfer#72, to-check=10/10564)
+www/uniwisdom/js/mootools-1.2.5.1-more.js
+       32768  85%  188.24kB/s    0:00:00         38223 100%  217.02kB/s    0:00:00 (xfer#73, to-check=9/10564)
+www/uniwisdom/js/mootools-1.2.5.1-more.js~
+       32768  85%  183.91kB/s    0:00:00         38246 100%  214.65kB/s    0:00:00 (xfer#74, to-check=8/10564)
+
+sent 1053929 bytes  received 2607 bytes  422614.40 bytes/sec
+total size is 78323514  speedup is 74.13
+2011-05-03 21:15:37,115 INFO Command: 
+rsync -avzur --delete --progress /home/broader/develop/R@K/CMS/Docs/develop/ /home/broader/develop/EasyReception/develop/MindMap
+running result is :sending incremental file list
+CMP.mm
+       32768   4%    0.00kB/s    0:00:00        754898 100%   12.30MB/s    0:00:00 (xfer#1, to-check=17/19)
+
+sent 166781 bytes  received 38 bytes  111212.67 bytes/sec
+total size is 1400352  speedup is 8.39
+2011-05-03 21:15:37,116 INFO End backup loacl karrigell diretory to local git.
+2011-05-03 21:15:37,116 INFO Begin to backup local github to remote github host.

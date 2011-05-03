@@ -1,0 +1,85 @@
+<div style="margin-left:40px;margin-right:40px;">		
+    <h2 class="title">Collaboration</h2>
+		    
+    <div class="">
+	<p>
+	    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nec facilisis elit. 
+	    Ut imperdiet, mi sed laoreet tincidunt, eros diam vulputate sem, vitae volutpat orci nunc nec odio. 
+	    Suspendisse potenti. Vivamus lobortis erat ut nunc scelerisque viverra. 
+	    Sed nibh dui, posuere vel posuere vel, hendrerit eget metus. Ut rutrum dui in lectus suscipit egestas. 
+	    Quisque tincidunt lobortis ligula interdum ullamcorper. Nam bibendum tristique vulputate. 
+	    In ligula tellus, ultricies quis consequat ultrices, aliquam vel lorem. 
+	    Nunc dapibus ultricies tortor id gravida. Sed cursus mi in dolor tempor venenatis. 
+	    Duis imperdiet porttitor<span id="more-2"></span> lectus quis congue. 
+	</p>
+	<p>Phasellus suscipit enim eget metus lobortis vitae egestas purus tempus.</p>
+	<table class="datalist">
+			<caption>
+				Project Updates
+			</caption>
+				<thead>
+					<tr>
+						<th scope="col" class="text_right">Client</th>
+						<th scope="col">Date</th>
+						<th scope="col">Project</th>
+						<th scope="col" class="text_right">Hours</th>
+						<th scope="col" class="text_right">Total</th>
+						<th scope="col">Completed By</th>
+						<th scope="col" class="text_right">Action</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>&nbsp;</th>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+						<td class="text_right">21.2</td>
+						<td class="text_right">$1169.00</td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<th scope="row">Just Things</th>
+						<td>12/12/2010</td>
+						<td>Updates</td>
+						<td class="text_right">4.5</td>
+						<td class="text_right">$247.50</td>
+						<td>Bob</td>
+						<td class="text_right"><img src="images/notjustagrid/icons/icon-edit.png" alt="Edit This Item"><img src="images/notjustagrid/icons/icon-delete.png" alt="Delete This Item"><img src="images/notjustagrid/icons/icon-view.png" alt="View This Item"></td>
+					</tr>	
+					<tr>
+						<th scope="row">Bits n Bobs  </th>
+						<td>20/12/2010</td>
+						<td>Minor Changes</td>
+						<td class="text_right">2.2</td>
+						<td class="text_right">$121.00</td>
+						<td>John</td>
+						<td class="text_right"><img src="images/notjustagrid/icons/icon-edit.png" alt="Edit This Item"><img src="images/notjustagrid/icons/icon-delete.png" alt="Delete This Item"><img src="images/notjustagrid/icons/icon-view.png" alt="View This Item"></td>
+					</tr>																			
+					<tr>
+						<th scope="row">Tableware  </th>
+						<td>03/01/2011</td>
+						<td>Layout Change</td>
+						<td class="text_right">6.0</td>
+						<td class="text_right">$333.00</td>
+						<td>Jane</td>
+						<td class="text_right"><img src="images/notjustagrid/icons/icon-edit.png" alt="Edit This Item"><img src="images/notjustagrid/icons/icon-delete.png" alt="Delete This Item"><img src="images/notjustagrid/icons/icon-view.png" alt="View This Item"></td>
+					</tr>
+					<tr>
+						<th scope="row">Stuff &amp; Nonsense </th>
+						<td>04/01/2011</td>
+						<td>New Design</td>
+						<td class="text_right">8.5</td>
+						<td class="text_right">$467.50</td>
+						<td>Fred</td>
+						<td class="text_right"><img src="images/notjustagrid/icons/icon-edit.png" alt="Edit This Item"><img src="images/notjustagrid/icons/icon-delete.png" alt="Delete This Item"><img src="images/notjustagrid/icons/icon-view.png" alt="View This Item"></td>
+					</tr>																				
+				</tbody>
+			
+	</table>
+    </div>
+</div> <!-- post -->
+		
+			

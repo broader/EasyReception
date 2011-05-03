@@ -188,8 +188,6 @@ a:hover {
 
 #menu {
 	float: right;
-	/*width: 450px;
-	width: 540px;*/
 	width: 600px;
 	height: 100px;
 	margin: 0 auto;
@@ -198,7 +196,6 @@ a:hover {
 
 #menu ul {
 	margin: 0;
-	/*padding: 60px 0px 0px 0px;*/
 	padding: 70px 0 0;
 	list-style: none;
 	line-height: normal;
@@ -235,6 +232,14 @@ a:hover {
 #menu ul li .active a {
 }
 
+#languageOption {
+    position:relative; 
+    float:right;
+}
+
+#languageOption .activeLanguage {
+    border-bottom: 1px solid wheat;
+}
 /* Page */
 
 #page {
@@ -260,6 +265,17 @@ a:hover {
 	-moz-border-radius: 6px 6px 6px 6px;
 	-moz-box-shadow: 0 0 4px #202020;
 	line-height: 18px;
+}
+
+.article .title {
+	height: 41px;
+	padding: 7px 0px 0px 30px;
+	letter-spacing: -.5px;
+}
+
+.article .title a {
+	color: #363531;
+	border: none;
 }
 
 .post {
@@ -389,10 +405,26 @@ a:hover {
 	color: #FF3000;
 }
 
-
-#sidebar img {
-    border: none;
+img {
+    border: 0 none;
+    font-family: inherit;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    outline: 0 none;
+    padding: 0;
 }
+
+.post-image {
+    -moz-border-radius: 4px 4px 4px 4px;
+    -moz-box-shadow: 0 0 4px #A4A4A4 inset;
+    opacity: 0.8;
+    background: none repeat scroll 0 0 #EFEFEF;
+    /*float: left;*/
+    margin: 1px 25px 20px 0;
+    padding: 8px;
+}
+
 
 /* Calendar */
 
